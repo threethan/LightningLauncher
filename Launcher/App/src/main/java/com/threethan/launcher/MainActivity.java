@@ -75,8 +75,6 @@ class DeferredTask extends AsyncTask {
         blurView0.setClipToOutline(true);
         blurView1.setOutlineProvider(ViewOutlineProvider.BACKGROUND);
         blurView1.setClipToOutline(true);
-        UpdateDetector updateDetector = new UpdateDetector(owner.getApplicationContext());
-        updateDetector.checkForUpdate();
 
         return null;
     }
