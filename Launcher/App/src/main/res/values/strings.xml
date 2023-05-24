@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">Lightning Launcher</string>
     <string name="default_apps_group">Apps</string>
+    <string name="android_apps_group">Tools</string>
     <string name="add_group">Add Group</string>
     <string name="delete_group">Delete Group</string>
     <string name="edit_group">Edit Group</string>

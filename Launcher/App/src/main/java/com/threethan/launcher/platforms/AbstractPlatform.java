@@ -63,11 +63,7 @@ public abstract class AbstractPlatform {
     }
 
     public static AbstractPlatform getPlatform(ApplicationInfo applicationInfo) {
-        if (isVirtualRealityApp(applicationInfo)) {
-            return new VRPlatform();
-        } else {
-            return new AndroidPlatform();
-        }
+        return new AppPlatform();
     }
 
     public static File packageToPath(Context context, String packageName) {
@@ -151,30 +147,12 @@ public abstract class AbstractPlatform {
         return manufacturer.startsWith("PICO") || manufacturer.startsWith("PİCO"); // PİCO on turkish systems
     }
 
-    protected static boolean isVirtualRealityApp(ApplicationInfo applicationInfo) {
+    public static boolean isVirtualRealityApp(ApplicationInfo applicationInfo) {
         if (applicationInfo.metaData != null) {
-            for (String key : applicationInfo.metaData.keySet()) {
-                if (key.startsWith("notch.config")) {
-                    return true;
-                }
-                if (key.startsWith("com.oculus")) {
-                    return true;
-                }
-                if (key.startsWith("pvr.")) {
-                    return true;
-                }
-                if (key.contains("vr.application.mode")) {
-                    return true;
-                }
-                if (key.contains("com.htc.vr")) {
-                    return true;
-                }
-            }
+            return applicationInfo.metaData.keySet().contains("com.oculus.supportedDevices");
         }
         return false;
     }
-
-    public abstract ArrayList<ApplicationInfo> getInstalledApps(Context context);
 
     public abstract boolean isSupported(Context context);
 
@@ -242,7 +220,7 @@ public abstract class AbstractPlatform {
                         activity.runOnUiThread(callback);
                         return;
                     }
-                    Log.i("downloadIcon", "Missing icon: " +iconFile.getName());
+//                    Log.i("downloadIcon", "Missing icon: " +iconFile.getName());
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {

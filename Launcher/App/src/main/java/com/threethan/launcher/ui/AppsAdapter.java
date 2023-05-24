@@ -10,11 +10,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.util.Log;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -49,12 +47,12 @@ class IconTask extends AsyncTask {
         try {
             appIcon = appPlatform.loadIcon(mainActivityContext, currentApp);
         } catch (Resources.NotFoundException | PackageManager.NameNotFoundException e) {
-            Log.e("DreamGrid", "Error loading icon for app: " + currentApp.packageName, e);
+//            Log.e("DreamGrid", "Error loading icon for app: " + currentApp.packageName, e);
         }
         return null;
     }
     @Override
-    protected void onPostExecute(Object _o) {
+    protected void onPostExecute(Object _n) {
         imageView.get().setImageDrawable(appIcon);
     }
 }
@@ -71,7 +69,7 @@ public class AppsAdapter extends BaseAdapter{
     private final int itemScale;
     private final SettingsProvider settingsProvider;
 
-    public AppsAdapter(MainActivity context, boolean editMode, int scale, boolean names) {
+    public AppsAdapter(MainActivity context, boolean editMode, int scale, boolean names, List<ApplicationInfo> allApps) {
         mainActivityContext = context;
         isEditMode = editMode;
         showTextLabels = names;
@@ -81,7 +79,7 @@ public class AppsAdapter extends BaseAdapter{
         ArrayList<String> sortedGroups = settingsProvider.getAppGroupsSorted(false);
         ArrayList<String> sortedSelectedGroups = settingsProvider.getAppGroupsSorted(true);
         boolean isFirstGroupSelected = !sortedSelectedGroups.isEmpty() && !sortedGroups.isEmpty() && sortedSelectedGroups.get(0).compareTo(sortedGroups.get(0)) == 0;
-        appList = settingsProvider.getInstalledApps(context, sortedSelectedGroups, isFirstGroupSelected);
+        appList = settingsProvider.getInstalledApps(context, sortedSelectedGroups, isFirstGroupSelected, allApps);
     }
 
     private static class ViewHolder {
@@ -140,23 +138,19 @@ public class AppsAdapter extends BaseAdapter{
         if (isEditMode) {
             // short click for app details, long click to activate drag and drop
             holder.layout.setOnTouchListener((view, motionEvent) -> {
-                if ((motionEvent.getAction() == MotionEvent.ACTION_DOWN) ||
-                        (motionEvent.getAction() == MotionEvent.ACTION_POINTER_DOWN)) {
-                    packageName = currentApp.packageName;
-                    lastClickTime = System.currentTimeMillis();
-                    ClipData dragData = ClipData.newPlainText(name, name);
-                    View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                        view.startDragAndDrop(dragData, shadowBuilder, view, 0);
-                    } else {
-                        view.startDrag(dragData, shadowBuilder, view, 0);
-                    }
+                {
+                    boolean selected = mainActivityContext.selectApp(currentApp.packageName);
+                    view.setAlpha(selected? 0.5F : 1.0F);
                 }
                 return false;
             });
 
+
             // drag and drop
-            holder.layout.setOnDragListener((view, event) -> {
+            holder.imageView.setOnDragListener((view, event) -> {
+                Log.i("Edit", "dragged");
+
+
                 if (currentApp.packageName.compareTo(packageName) == 0) {
                     if (event.getAction() == DragEvent.ACTION_DRAG_STARTED) {
                         view.setVisibility(View.INVISIBLE);
@@ -193,7 +187,7 @@ public class AppsAdapter extends BaseAdapter{
         }
 
         // set application icon
-        Log.i("DreamGrid", "loading icon for app: " + currentApp.packageName);
+//        Log.i("DreamGrid", "loading icon for app: " + currentApp.packageName);
 
         new IconTask().execute(this, currentApp, mainActivityContext, holder.imageView);
 

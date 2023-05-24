@@ -43,28 +43,6 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/settings_platforms"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/bkg_button">
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:padding="12dp"
-                android:src="@drawable/ic_platforms" />
-
-            <TextView
-                style="@style/SettingSubtitle"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginRight="10dp"
-                android:gravity="left|center_vertical"
-                android:text="Show/Hide Types" />
-        </LinearLayout>
-
-        <LinearLayout
             android:id="@+id/settings_look"
             android:layout_width="300dp"
             android:layout_height="50dp"

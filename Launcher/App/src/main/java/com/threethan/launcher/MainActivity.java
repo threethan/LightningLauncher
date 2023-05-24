@@ -9,17 +9,17 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.util.TypedValue;
@@ -28,13 +28,13 @@ import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.Switch;
+import android.widget.TextView;
 
 import com.threethan.launcher.platforms.AbstractPlatform;
-import com.threethan.launcher.platforms.AndroidPlatform;
-import com.threethan.launcher.platforms.VRPlatform;
 import com.threethan.launcher.ui.AppsAdapter;
 import com.threethan.launcher.ui.GroupsAdapter;
 import com.esafirm.imagepicker.features.ImagePicker;
@@ -48,37 +48,7 @@ import java.util.Set;
 
 import eightbitlab.com.blurview.BlurView;
 import eightbitlab.com.blurview.RenderScriptBlur;
-class DeferredTask extends AsyncTask {
-    private Activity owner;
-    @Override
-    protected Object doInBackground(Object[] objects) {
-        owner = (Activity) objects[0];
 
-        BlurView blurView0 = owner.findViewById(R.id.blurView0);
-        BlurView blurView1 = owner.findViewById(R.id.blurView1);
-
-        float blurRadiusDp = 20f;
-
-        View windowDecorView = owner.getWindow().getDecorView();
-        ViewGroup rootViewGroup = windowDecorView.findViewById(android.R.id.content);
-
-        Drawable windowBackground = windowDecorView.getBackground();
-
-        blurView0.setupWith(rootViewGroup, new RenderScriptBlur(owner.getApplicationContext())) // or RenderEffectBlur
-                .setFrameClearDrawable(windowBackground) // Optional
-                .setBlurRadius(blurRadiusDp);
-        blurView1.setupWith(rootViewGroup, new RenderScriptBlur(owner.getApplicationContext())) // or RenderEffectBlur
-                .setFrameClearDrawable(windowBackground) // Optional
-                .setBlurRadius(blurRadiusDp);
-
-        blurView0.setOutlineProvider(ViewOutlineProvider.BACKGROUND);
-        blurView0.setClipToOutline(true);
-        blurView1.setOutlineProvider(ViewOutlineProvider.BACKGROUND);
-        blurView1.setClipToOutline(true);
-
-        return null;
-    }
-}
 
 class BackgroundTask extends AsyncTask {
 
@@ -89,6 +59,8 @@ class BackgroundTask extends AsyncTask {
     boolean names;
     @Override
     protected Object doInBackground(Object[] objects) {
+        Log.i("LauncherStartup", "BackgroundFetch");
+
         owner = (MainActivity) objects[0];
         int backgroundThemeIndex = owner.sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_THEME, owner.DEFAULT_THEME);
         if (backgroundThemeIndex < owner.THEME_DRAWABLES.length) {
@@ -98,46 +70,45 @@ class BackgroundTask extends AsyncTask {
             Bitmap themeBitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
             backgroundThemeDrawable = new BitmapDrawable(owner.getResources(), themeBitmap);
         }
+        Log.i("LauncherStartup", "BackgroundReady");
         return null;
     }
 
     @Override
     protected void onPostExecute(Object _n) {
         owner.backgroundImageView.setImageDrawable(backgroundThemeDrawable);
+        Log.i("LauncherStartup", "BackgroundApplied");
+        owner.initBlur();
     }
 }
 
-class ReloadTask extends AsyncTask {
+class RecheckPackagesTask extends AsyncTask {
 
-    Drawable backgroundThemeDrawable;
+    List<ApplicationInfo> foundApps;
     MainActivity owner;
-    int newScaleValueIndex;
-    boolean editMode;
-    boolean names;
+    boolean changeFound;
     @Override
     protected Object doInBackground(Object[] objects) {
+        Log.i("PackageCheck", "Checking for package changes");
+
         owner = (MainActivity) objects[0];
 
-        names = owner.sharedPreferences.getBoolean(SettingsProvider.KEY_CUSTOM_NAMES, owner.DEFAULT_NAMES);
-        newScaleValueIndex = owner.getPixelFromDip(owner.sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_SCALE, owner.DEFAULT_SCALE));
-        owner.appGridView.setColumnWidth(newScaleValueIndex);
+        PackageManager packageManager = owner.getPackageManager();
+        foundApps = packageManager.getInstalledApplications(PackageManager.GET_META_DATA);
 
-        newScaleValueIndex += owner.getPixelFromDip(8);
-        editMode = owner.sharedPreferences.getBoolean(SettingsProvider.KEY_EDITMODE, false);
-
+        changeFound = owner.allApps.size() != foundApps.size();
         return null;
     }
-
     @Override
     protected void onPostExecute(Object _n) {
-        owner.appGridView.setAdapter(new AppsAdapter(owner, editMode, newScaleValueIndex, names));
-        owner.groupPanelGridView.setAdapter(new GroupsAdapter(owner, editMode));
+        if (changeFound) {
+            Log.i("PackageCheck", "Package change detected!");
 
-        owner.groupPanelGridView.setNumColumns(Math.min(owner.groupPanelGridView.getAdapter().getCount(), GroupsAdapter.MAX_GROUPS - 1));
-
+            owner.allApps = foundApps;
+            owner.reloadUI();
+        }
     }
 }
-
 public class MainActivity extends Activity {
     public static final int PICK_ICON_CODE = 450;
     public static final int PICK_THEME_CODE = 95;
@@ -153,6 +124,13 @@ public class MainActivity extends Activity {
             R.drawable.bg_px_orange,
             R.drawable.bg_px_white,
     };
+    static final int[] THEME_COLORS = {
+            Color.parseColor("#74575c"),
+            Color.parseColor("#d26f5d"),
+            Color.parseColor("#e4eac8"),
+            Color.parseColor("#f9ce9b"),
+            Color.parseColor("#d9d4da"),
+    };
     private ImageView[] selectedThemeImageViews;
     GridView appGridView;
     ImageView backgroundImageView;
@@ -165,6 +143,7 @@ public class MainActivity extends Activity {
     private boolean settingsPageOpen = false;
     private boolean lookPageOpen = false;
     private boolean platformsPageOpen = false;
+    private boolean loaded = false;
 
     public static void run(Context context) {
         try {
@@ -182,18 +161,18 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Log.w("LauncherStartup", "SetView");
+        Log.i("LauncherStartup", "0. Set View");
 
 
         setContentView(R.layout.activity_main);
 
 
-        Log.w("LauncherStartup", "SetViewDone");
+        Log.i("LauncherStartup", "1. Get Setting Provider");
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         settingsProvider = SettingsProvider.getInstance(this);
 
-        Log.w("LauncherStartup", "ProvidersDone");
+        Log.i("LauncherStartup", "3. Get UI Instances");
 
         // Get UI instances
         RelativeLayout mainView = findViewById(R.id.linearLayoutMain);
@@ -201,18 +180,25 @@ public class MainActivity extends Activity {
         backgroundImageView = findViewById(R.id.background);
         groupPanelGridView = findViewById(R.id.groupsView);
 
-        Log.w("LauncherStartup", "FindViewsDone");
         // Handle group click listener
         groupPanelGridView.setOnItemClickListener((parent, view, position, id) -> {
             List<String> groups = settingsProvider.getAppGroupsSorted(false);
-            if (position == groups.size()) {
-                settingsProvider.selectGroup(GroupsAdapter.HIDDEN_GROUP);
-            } else if (position == groups.size() + 1) {
-                settingsProvider.selectGroup(settingsProvider.addGroup());
+            if (hasSelection) {
+                GroupsAdapter groupsAdapter = (GroupsAdapter) groupPanelGridView.getAdapter();
+                for (String app : currentSelectedApps) groupsAdapter.setGroup(app, groups.get(position));
+                hasSelection = false;
+                updateSelectionHint();
+                reloadUI();
             } else {
-                settingsProvider.selectGroup(groups.get(position));
+                if (position == groups.size()) {
+                    settingsProvider.selectGroup(GroupsAdapter.HIDDEN_GROUP);
+                } else if (position == groups.size() + 1) {
+                    settingsProvider.selectGroup(settingsProvider.addGroup());
+                } else {
+                    settingsProvider.selectGroup(groups.get(position));
+                }
+                reloadUI();
             }
-            reloadUI();
         });
 
         // Multiple group selection
@@ -245,7 +231,7 @@ public class MainActivity extends Activity {
             }
         });
 
-        new DeferredTask().execute(this);
+        Log.i("LauncherStartup", "4. Done");
 
     }
 
@@ -271,7 +257,6 @@ public class MainActivity extends Activity {
     protected void onResume() {
         super.onResume();
 
-        Log.w("LauncherResume", "start");
         activityHasFocus = true;
 
         String[] requiredPermissions = {
@@ -281,11 +266,19 @@ public class MainActivity extends Activity {
         boolean hasReadPermission = checkSelfPermission(requiredPermissions[0]) == PackageManager.PERMISSION_GRANTED;
         boolean hasWritePermission = checkSelfPermission(requiredPermissions[1]) == PackageManager.PERMISSION_GRANTED;
         if (hasReadPermission && hasWritePermission) {
-            reloadUI();
+            if (!loaded) {
+                // Load Packages
+                PackageManager packageManager = getPackageManager();
+                allApps = packageManager.getInstalledApplications(PackageManager.GET_META_DATA);
+                // Reload UI
+                reloadUI();
+                loaded = true;
+            } else {
+                new RecheckPackagesTask().execute(this);
+            }
         } else {
             requestPermissions(requiredPermissions, 0);
         }
-        Log.w("LauncherResume", "end");
 
     }
 
@@ -323,27 +316,69 @@ public class MainActivity extends Activity {
         return ((AppsAdapter) appGridView.getAdapter()).getSelectedPackage();
     }
 
+    void initBlur() {
+        BlurView blurView0 = findViewById(R.id.blurView0);
+        BlurView blurView1 = findViewById(R.id.blurView1);
+
+        float blurRadiusDp = 15f;
+
+        View windowDecorView = getWindow().getDecorView();
+        ViewGroup rootViewGroup = windowDecorView.findViewById(android.R.id.content);
+
+        Drawable windowBackground = windowDecorView.getBackground();
+
+        blurView0.setupWith(rootViewGroup, new RenderScriptBlur(getApplicationContext())) // or RenderEffectBlur
+                .setFrameClearDrawable(windowBackground) // Optional
+                .setBlurRadius(blurRadiusDp);
+        blurView1.setupWith(rootViewGroup, new RenderScriptBlur(getApplicationContext())) // or RenderEffectBlur
+                .setFrameClearDrawable(windowBackground) // Optional
+                .setBlurRadius(blurRadiusDp);
+
+        blurView0.setOutlineProvider(ViewOutlineProvider.BACKGROUND);
+        blurView0.setClipToOutline(true);
+        blurView1.setOutlineProvider(ViewOutlineProvider.BACKGROUND);
+        blurView1.setClipToOutline(true);
+    }
+
+    List<ApplicationInfo> allApps;
     public void reloadUI() {
+        Log.i("LauncherStartup", "R0. Execute Background Task");
 
-        // set customization
-
-
+        int backgroundThemeIndex = sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_THEME, DEFAULT_THEME);
+        if (backgroundThemeIndex < THEME_DRAWABLES.length) {
+            backgroundImageView.setBackgroundColor(THEME_COLORS[backgroundThemeIndex]);
+        }
         new BackgroundTask().execute(this);
-        new ReloadTask().execute(this);
+
+        Log.i("LauncherStartup", "R1. Get Preferences");
+
+        boolean names = sharedPreferences.getBoolean(SettingsProvider.KEY_CUSTOM_NAMES, DEFAULT_NAMES);
+        int newScaleValueIndex = getPixelFromDip(sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_SCALE, DEFAULT_SCALE));
+        appGridView.setColumnWidth(newScaleValueIndex);
+
+        newScaleValueIndex += getPixelFromDip(8);
+        editMode = sharedPreferences.getBoolean(SettingsProvider.KEY_EDITMODE, false);
+
+        Log.i("LauncherStartup", "R2. Set Apps Adapter");
+
+        appGridView.setAdapter(new AppsAdapter(this, editMode, newScaleValueIndex, names, allApps));
+
+        Log.i("LauncherStartup", "R3. Set Groups Adapter");
+
+        groupPanelGridView.setAdapter(new GroupsAdapter(this, editMode));
+
+        Log.i("LauncherStartup", "R4. Set Columns");
+
+        groupPanelGridView.setNumColumns(Math.min(groupPanelGridView.getAdapter().getCount(), GroupsAdapter.MAX_GROUPS - 1));
+
+        Log.i("LauncherStartup", "R5. Done");
     }
 
     public void setTheme(ImageView[] views, int index) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(SettingsProvider.KEY_CUSTOM_THEME, index);
         editor.apply();
-        reloadUI();
-
-        for (ImageView image : views) {
-            image.setBackground(getDrawable(R.drawable.bkg_button));
-            image.setImageAlpha(255);
-        }
-        views[index].setBackground(getDrawable(R.drawable.bkg_button_sel));
-        views[index].setImageAlpha(192);
+        restartActivity();
     }
 
     private boolean editMode = false;
@@ -377,12 +412,12 @@ public class MainActivity extends Activity {
                 lookPageOpen = true;
             }
         });
-        dialog.findViewById(R.id.settings_platforms).setOnClickListener(view -> {
-            if (!platformsPageOpen) {
-                showSettingsPlatforms();
-                platformsPageOpen = true;
-            }
-        });
+    }
+
+    public void restartActivity() {
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
     }
 
     private void showSettingsLook() {
@@ -399,30 +434,6 @@ public class MainActivity extends Activity {
             reloadUI();
         });
 
-        SeekBar opacity = dialog.findViewById(R.id.bar_opacity);
-        opacity.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int value, boolean b) {
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putInt(SettingsProvider.KEY_CUSTOM_OPACITY, value);
-                editor.apply();
-                reloadUI();
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-            }
-        });
-        opacity.setProgress(sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_OPACITY, DEFAULT_OPACITY));
-        opacity.setMax(255);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            opacity.setMin(0);
-        }
-
         SeekBar scale = dialog.findViewById(R.id.bar_scale);
         scale.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -430,7 +441,6 @@ public class MainActivity extends Activity {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putInt(SettingsProvider.KEY_CUSTOM_SCALE, value + 55);
                 editor.apply();
-                reloadUI();
             }
 
             @Override
@@ -439,6 +449,7 @@ public class MainActivity extends Activity {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
+                restartActivity();
             }
         });
         scale.setProgress(sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_SCALE, DEFAULT_SCALE) -55);
@@ -473,54 +484,22 @@ public class MainActivity extends Activity {
         }
     }
 
-    private void showSettingsPlatforms() {
-        Dialog dialog = PopupUtils.showPopup(this, R.layout.dialog_platforms);
-
-        dialog.setOnDismissListener(dialogInterface -> platformsPageOpen = false);
-
-        View androidPlatformButton = dialog.findViewById(R.id.settings_android);
-        final boolean[] isAndroidPlatformEnabled = {sharedPreferences.getBoolean(SettingsProvider.KEY_PLATFORM_ANDROID, true)};
-        androidPlatformButton.setAlpha(isAndroidPlatformEnabled[0] ? 1.0F : 0.5F );
-        androidPlatformButton.setOnClickListener(view -> {
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            isAndroidPlatformEnabled[0] = !isAndroidPlatformEnabled[0];
-            androidPlatformButton.setAlpha(isAndroidPlatformEnabled[0] ? 1.0F : 0.5F );
-            editor.putBoolean(SettingsProvider.KEY_PLATFORM_ANDROID, isAndroidPlatformEnabled[0]);
-            editor.apply();
-            reloadUI();
-        });
-        androidPlatformButton.setVisibility(new AndroidPlatform().isSupported(this) ? View.VISIBLE : View.GONE);
-
-        View vrPlatformButton = dialog.findViewById(R.id.settings_vr);
-        final boolean[] isVrPlatformEnabled = {sharedPreferences.getBoolean(SettingsProvider.KEY_PLATFORM_VR, true)};
-        vrPlatformButton.setAlpha(isVrPlatformEnabled[0] ? 1.0F : 0.5F );
-        vrPlatformButton.setOnClickListener(view -> {
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            isVrPlatformEnabled[0] = !isVrPlatformEnabled[0];
-            vrPlatformButton.setAlpha(isVrPlatformEnabled[0] ? 1.0F : 0.5F );
-            editor.putBoolean(SettingsProvider.KEY_PLATFORM_VR, isVrPlatformEnabled[0]);
-            editor.apply();
-            reloadUI();
-        });
-        vrPlatformButton.setVisibility(new VRPlatform().isSupported(this) ? View.VISIBLE : View.GONE);
-    }
-
     int getPixelFromDip(int dip) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dip, getResources().getDisplayMetrics());
     }
 
     public void openApp(ApplicationInfo app) {
-        //fallback action
-        new Thread(() -> {
-            try {
-                sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            if (activityHasFocus && !AbstractPlatform.isHTCHeadset()) {
-                openAppDetails(app.packageName);
-            }
-        }).start();
+//        //fallback action
+//        new Thread(() -> {
+//            try {
+//                sleep(100);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//            if (activityHasFocus && !AbstractPlatform.isHTCHeadset()) {
+//                openAppDetails(app.packageName);
+//            }
+//        }).start();
 
         //open the app
         AbstractPlatform platform = AbstractPlatform.getPlatform(app);
@@ -531,5 +510,33 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
         intent.setData(Uri.parse("package:" + pkg));
         startActivity(intent);
+    }
+
+    // Edit Mode
+    Set<String> currentSelectedApps = new HashSet<>();
+    boolean hasSelection = false;
+    public boolean selectApp(String app) {
+
+        if (currentSelectedApps.contains(app)) {
+            currentSelectedApps.remove(app);
+            if (currentSelectedApps.isEmpty()) hasSelection = false;
+            updateSelectionHint();
+            return false;
+        } else {
+            currentSelectedApps.add(app);
+            hasSelection = true;
+            updateSelectionHint();
+
+            return true;
+        }
+    }
+
+    void updateSelectionHint() {
+        TextView selectionHint = findViewById(R.id.SelectionHint);
+
+        final int size = currentSelectedApps.size();
+        if (size == 1) selectionHint.setText("Click a group to move the selected app.");
+        else selectionHint.setText(String.valueOf(size) +" apps selected. Click a group to move them.");
+        selectionHint.setVisibility(hasSelection ? View.VISIBLE : View.INVISIBLE);
     }
 }

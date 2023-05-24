@@ -4,13 +4,15 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
-import com.threethan.launcher.platforms.AndroidPlatform;
-import com.threethan.launcher.platforms.VRPlatform;
+import com.threethan.launcher.platforms.AbstractPlatform;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -20,19 +22,15 @@ import java.util.Set;
 
 public class SettingsProvider {
     public static final String KEY_CUSTOM_NAMES = "KEY_CUSTOM_NAMES";
-    public static final String KEY_CUSTOM_OPACITY = "KEY_CUSTOM_OPACITY";
     public static final String KEY_CUSTOM_SCALE = "KEY_CUSTOM_SCALE";
     public static final String KEY_CUSTOM_THEME = "KEY_CUSTOM_THEME";
     public static final String KEY_EDITMODE = "KEY_EDITMODE";
-    public static final String KEY_PLATFORM_ANDROID = "KEY_PLATFORM_ANDROID";
-    public static final String KEY_PLATFORM_PSP = "KEY_PLATFORM_PSP";
-    public static final String KEY_PLATFORM_VR = "KEY_PLATFORM_VR";
     private static SettingsProvider instance;
     private static Context context;
     private final String KEY_APP_GROUPS = "prefAppGroups";
     private final String KEY_APP_LIST = "prefAppList";
     private final String KEY_SELECTED_GROUPS = "prefSelectedGroups";
-    private final String SEPARATOR = "#@%";
+    private final String SEPARATOR = "\r";
     //storage
     private final SharedPreferences sharedPreferences;
     private Map<String, String> appListMap = new HashMap<>();
@@ -74,32 +72,34 @@ public class SettingsProvider {
         storeValues();
     }
 
-    public ArrayList<ApplicationInfo> getInstalledApps(Context context, List<String> selected, boolean first) {
+    public ArrayList<ApplicationInfo> getInstalledApps(Context context, List<String> selected, boolean first, List<ApplicationInfo> allApps) {
 
         // Get list of installed apps
         Map<String, String> apps = getAppList();
+
         ArrayList<ApplicationInfo> installedApplications = new ArrayList<>();
-        if (isPlatformEnabled(KEY_PLATFORM_ANDROID)) {
-            List<ApplicationInfo> androidApps = new AndroidPlatform().getInstalledApps(context);
-            for (ApplicationInfo app : androidApps) {
-                if (!appListMap.containsKey(app.packageName) && appGroupsSet.contains("Tools")) {
-                    appListMap.put(app.packageName, "Tools");
+
+        Log.i("LauncherStartup", "A0. Start Auto Sort");
+
+        //Sort
+        if (appGroupsSet.contains(context.getString(R.string.default_apps_group)) && appGroupsSet.contains(context.getString(R.string.android_apps_group))) {
+            // Sort if groups are present
+            for (ApplicationInfo app : allApps) {
+                if (!appListMap.containsKey(app.packageName)) {
+                    appListMap.put(app.packageName, AbstractPlatform.isVirtualRealityApp(app) ? context.getString(R.string.default_apps_group) : context.getString(R.string.android_apps_group));
                 }
             }
-            installedApplications.addAll(androidApps);
         }
-        if (isPlatformEnabled(KEY_PLATFORM_VR)) {
-            List<ApplicationInfo> vrApps = new VRPlatform().getInstalledApps(context);
-            for (ApplicationInfo app : vrApps) {
-                if (!appListMap.containsKey(app.packageName) && appGroupsSet.contains(context.getString(R.string.default_apps_group))) {
-                    appListMap.put(app.packageName, context.getString(R.string.default_apps_group));
-                }
-            }
-            installedApplications.addAll(vrApps);
-        }
+
+        Log.i("LauncherStartup", "A1. Save Auto Sort");
+
+
+        installedApplications.addAll(allApps);
 
         // Save changes to app list
         setAppList(appListMap);
+
+        Log.i("LauncherStartup", "A2. Map Packages");
 
         // Put them into a map with package name as keyword for faster handling
         String packageName = context.getApplicationContext().getPackageName();
@@ -134,14 +134,22 @@ public class SettingsProvider {
             }
         }
 
+        Log.i("LauncherStartup", "A2. Sort by Package Name");
+
         // Create new list of apps
-        PackageManager packageManager = context.getPackageManager();
         ArrayList<ApplicationInfo> sortedApps = new ArrayList<>(appMap.values());
-        Collections.sort(sortedApps, (a, b) -> {
-            String displayNameA = getAppDisplayName(context, a.packageName, a.loadLabel(packageManager)).toUpperCase();
-            String displayNameB = getAppDisplayName(context, b.packageName, b.loadLabel(packageManager)).toUpperCase();
-            return displayNameA.compareTo(displayNameB);
-        });
+        PackageManager packageManager = context.getPackageManager();
+        // Compare on app name (fast)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            Collections.sort(sortedApps, Comparator.comparing(a -> ((String) a.loadLabel(packageManager))));
+        } else {
+            Log.e("LauncherStartup", "ANDROID VERSION TOO OLD TO SORT APPS!");
+        }
+        // Compare on display name (slow)
+        // Collections.sort(sortedApps, Comparator.comparing(a -> ((String) getAppDisplayName(context, a.packageName, a.loadLabel(packageManager)).toUpperCase();)));
+
+        Log.i("LauncherStartup", "A3. Sort Done!");
+
         return sortedApps;
     }
 
@@ -200,16 +208,19 @@ public class SettingsProvider {
         try {
             Set<String> defaultGroupsSet = new HashSet<>();
             defaultGroupsSet.add(context.getString(R.string.default_apps_group));
-            defaultGroupsSet.add("Tools");
+            defaultGroupsSet.add(context.getString(R.string.android_apps_group));
             appGroupsSet = sharedPreferences.getStringSet(KEY_APP_GROUPS, defaultGroupsSet);
             selectedGroupsSet = sharedPreferences.getStringSet(KEY_SELECTED_GROUPS, defaultGroupsSet);
 
             appListMap.clear();
-            Set<String> appListSet = new HashSet<>();
-            appListSet = sharedPreferences.getStringSet(KEY_APP_LIST, appListSet);
-            for (String s : appListSet) {
-                String[] data = s.split(SEPARATOR);
-                appListMap.put(data[0], data[1]);
+
+            for (String group : appGroupsSet) {
+                Set<String> appListSet = new HashSet<>();
+                appListSet = sharedPreferences.getStringSet(KEY_APP_LIST+group, appListSet);
+
+                for (String app : appListSet) {
+                    appListMap.put(app, group);
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -222,12 +233,19 @@ public class SettingsProvider {
             editor.putStringSet(KEY_APP_GROUPS, appGroupsSet);
             editor.putStringSet(KEY_SELECTED_GROUPS, selectedGroupsSet);
 
-            Set<String> appListSet = new HashSet<>();
-            for (String pkg : appListMap.keySet()) {
-                appListSet.add(pkg + SEPARATOR + appListMap.get(pkg));
+            Map<String, Set<String>> appListSetMap = new HashMap<>();
+            for (String group : appGroupsSet) {
+                appListSetMap.put(group, new HashSet<>());
             }
-            editor.putStringSet(KEY_APP_LIST, appListSet);
+            for (String pkg : appListMap.keySet()) {
+                Set<String> group = appListSetMap.get(appListMap.get(pkg));
+                if (group == null) group = appListSetMap.get(context.getString(R.string.android_apps_group));
 
+                group.add(pkg);
+            }
+            for (String group : appGroupsSet) {
+                editor.putStringSet(KEY_APP_LIST + group, appListSetMap.get(group));
+            }
             editor.apply();
         } catch (Exception e) {
             e.printStackTrace();

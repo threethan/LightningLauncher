@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
+import android.util.Log;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -205,6 +206,13 @@ public class GroupsAdapter extends BaseAdapter {
         setTextViewValue(textView, appGroups.get(position));
 
         return convertView;
+    }
+
+    public void setGroup(String packageName, String groupName) {
+        Map<String, String> apps = settingsProvider.getAppList();
+        apps.remove(packageName);
+        apps.put(packageName, groupName);
+        settingsProvider.setAppList(apps);
     }
 
     private void setLook(int position, View itemView, View menu) {
