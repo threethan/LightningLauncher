@@ -149,7 +149,17 @@ public abstract class AbstractPlatform {
 
     public static boolean isVirtualRealityApp(ApplicationInfo applicationInfo) {
         if (applicationInfo.metaData != null) {
-            return applicationInfo.metaData.keySet().contains("com.oculus.supportedDevices");
+            for (String key : applicationInfo.metaData.keySet()) {
+                if (key.contains("com.oculus.supportedDevices")) {
+                    return true;
+                }
+                if (key.contains("vr.application.mode")) {
+                    return true;
+                }
+                if (key.startsWith("notch.config")) {
+                    return true;
+                }
+            }
         }
         return false;
     }
