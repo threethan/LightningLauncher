@@ -1,4 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="default_apps_group">Игры</string>
+    <string name="android_apps_group">Инструменты</string>
+    <string name="add_group">Добавить группу</string>
+    <string name="delete_group">Удалить группу</string>
+    <string name="edit_group">Изменить группу</string>
+    <string name="app_details">О приложении</string>
+
+    <string name="background_opacity">Прозрачность фона</string>
+    <string name="icons_size">Размер иконок</string>
+    <string name="show_app_names">Показывать имена приложений</string>
+
+    <string name="wide_vr">Использовать баннеры для VR приложений</string>
+    <string name="wide_2d">Использовать баннеры для 2D приложений</string>
+
     <string name="accessibility_event_name">[Библиотека приложений]</string>
+
+    <string name="launch_in">Запускать: в этом окне</string>
+    <string name="launch_out">Запускать: в собственном окне</string>
+
+    <string name="launch_title">Внимание!</string>
+
+    <string name="service_title">Инстукция</string>
+
+    <string name="cancel">Отмена</string>
+    <string name="understood">Понятно</string>
+    <string name="next">Продолжить</string>
+
+    <string name="edit_off">Включить режим редактирования</string>
+    <string name="edit_on">Выключить режим редактирования</string>
+
+    <string name="selection_hint">Нажмите на группу, чтобы переместить выбранное приложение.</string>
+    <string name="selection_hint_multiple">Приложений выделено: %d. Нажмите на группу, чтобы переместить.</string>
+
 </resources>
