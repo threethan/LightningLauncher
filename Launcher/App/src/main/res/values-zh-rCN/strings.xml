@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="add_group">添加分组</string>
+    <string name="delete_group">删除分组</string>
+    <string name="edit_group">编辑分组</string>
+    <string name="app_details">应用详情</string>
+    <string name="apps_hidden">- 隐藏</string>
+
+    <string name="edit_mode">编辑模式</string>
+    <string name="edit_mode_disabled">只有主窗口可以编辑</string>
+    <string name="edit_mode_stop">停止编辑</string>
+
+    <string name="icons_size">图标大小</string>
+    <string name="icons_margin">图标距离</string>
+
+    <string name="apps_vr">VR 应用</string>
+    <string name="apps_phone">一般应用</string>
+    <string name="apps_tv">TV 应用</string>
+    <string name="apps_panel">Panel 应用</string>
+    <string name="apps_web">网站</string>
+    <string name="default_group">作为默认分组</string>
+    <string name="app_name_icon">图标下方</string>
+    <string name="app_name_wide">横幅下方</string>
+
+    <string name="settings_main">设置</string>
+    <string name="settings_appearance">自定义外观</string>
+    <string name="settings_addons_attract">设置快捷方式</string>
+    <string name="settings_addons">快捷方式设置</string>
+    <string name="settings_update">下载并安装最新更新</string>
+
+    <string name="behavior_header">行为</string>
+    <string name="background_header">壁纸样式</string>
+    <string name="icon_header">图标布局</string>
+    <string name="wide_header">显示为横幅</string>
+    <string name="name_header">显示名称</string>
+    <string name="advanced_header">高级设置</string>
+    <string name="advanced_button">打开高级设置获取更多选项</string>
+    <string name="advanced_interface">界面选项</string>
+    <string name="advanced_features">附加特性</string>
+    <string name="advanced_backup">备份恢复</string>
+    <string name="advanced_alpha">背景透明度</string>
+
+    <string name="dark_mode">黑暗模式下显示明亮文字</string>
+    <string name="background_overlay">动画渐变壁纸</string>
+    <string name="group_mode">启用分组</string>
+    <string name="clear_cache">重置所有图标</string>
+    <string name="clear_labels">重置所有标签</string>
+    <string name="group_defaults_button">默认分组</string>
+    <string name="icons_settings_button">重置/更新图标</string>
+
+    <string name="long_press">长按编辑</string>
+    <string name="hide_empty">隐藏空分组</string>
+    <string name="default_launch_out">默认在应用自身窗口启动</string>
+    <string name="settings_save">导出配置</string>
+    <string name="settings_load">导入配置</string>
+    <string name="settings_default_launcher">设置默认主页以启用第三方快捷方式</string>
+    <string name="tip_settings_default_launcher">设置 LightningLauncher，让其他应用程序添加快捷方式</string>
+
+    <string name="advanced_sizing">允许手机应用使用自身的窗口大小</string>
+    <string name="tip_advanced_sizing">允许在不同大小的窗口中打开应用，可能会导致问题</string>
+    <string name="toast_advanced_sizing">新尺寸选项可在每个应用程序设置中复用</string>
+
+    <string name="service_desc">启用此服务后，当悬停在 dock 右侧的应用程序库图标上约半秒时，Lightning Launcher 将自动打开。\n(这可能会给访问默认启动器带来困难）\n\n        \n确保启用 \"使用 Lightning Launcher \"开关-\"Lightning Launcher 快捷方式 \"开关不会对 Quest 起任何作用！\n</string>
+
+    <string name="launch_switch">在应用自身窗口打开</string>
+    <string name="reload_icon">刷新图标/横幅</string>
+
+    <string name="launch_out_message">在应用自身的窗口中启动 2D 应用程序或网站可让 Quest 设备上的多任务处理变得更轻松，但会导致某些应用程序无法启动。\n\n如果有任何问题，请禁用此选项！</string>
+    <string name="launch_size_message">在应用自身的窗口中启动 2D 应用程序或网站可让 Quest 设备上的多任务处理变得更轻松、但会导致某些应用程序无法启动。\n\n        \n设置自定义窗口大小可以解决应用程序无法启动的问题，使某些应用程序显示得更清晰，并允许在平面视图中使用不同的窗口大小。\n        \n不过，偶尔也会导致窗口卡住或 LightningLauncher 崩溃。\n\n        \n所有这些选项都只能按应用程序设置。\n\n        \n如果遇到问题，请关闭该选项，并确保任何应用程序都未设置为在自己的窗口中启动。重启以修复卡死的窗口。</string>
+    <string name="hidden_groups_message_tv">"关闭该选项将在不进入编辑模式时隐藏顶栏。\n\n        \n不在编辑模式下时，设置按钮也将隐藏。\n\n        \n取而代之的是，按遥控器上的返回按钮打开设置。\n\n        \n您仍然可以通过导航到顶行，然后按向上键进行搜索。\n    "</string>
+    <string name="hidden_groups_message_vr">"关闭该选项将在不进入编辑模式时隐藏顶栏。\n\n        \n不在编辑模式下时，设置按钮也将隐藏。\n\n        \n相反，按下窗口顶部的返回按钮或控制器上的 B 键即可打开设置。\n    "</string>
+    <string name="set_default_launcher_message">"将 LightningLauncher 设置为默认的安卓主应用程序，其他应用程序就可以在主屏幕上添加快捷图标。\n        \n只需执行一次。\n\n        \n它不会取代VR设备上的实际默认启动器，也不会改变LightningLauncher本身的操作。\n\n\n        如果你想这样做，请查看设置快捷方式/快捷方式设置以获取LightningLauncher的快捷方式。\n    "</string>
+
+    <string name="website_title">显示标题</string>
+    <string name="website_subtitle1">快速访问网站和Web应用</string>
+    <string name="website_info1">"\n        网站将以应用程序的形式出现在主屏幕上。它们将在 LightningLauncher 的内置浏览器中打开。\n\n        \n你还可以使用搜索栏搜索 Google、YouTube 或 ApkPure。\n    "</string>
+    <string name="website_subtitle2">背景音乐</string>
+    <string name="website_info2">"\n        关闭后，网站将继续运行，并可在后台播放和录制音频，即使在游戏中也会生效！(通话时可能会出现延迟或卡顿现象）\n\n        \n任何正在运行的网站图标上都会显示一个指示器；按下指示器即可完全停止该网站。\n\n        \n通过搜索打开的网站不会在后台运行，除非使用添加页面到启动器 (+) 按钮进行添加。\n    "</string>
+    <string name="website_subtitle3">浏览器选择</string>
+    <string name="website_info3">"\n        在 VR 设备上，您可以选择在本窗口或其自身窗口中启动内部 LL 浏览器。\n        \n\n您也可以选择 Meta Quest 浏览器，它支持 VR 网页内容，但不支持背景音频。\n    "</string>
+
+    <string name="add_website">添加网站</string>
+    <string name="add_website_tip">添加网站到启动器</string>
+    <string name="add_website_url_label">输入网站 URL</string>
+    <string name="add_website_bad_url">输入有效的 URL 并重试</string>
+    <string name="add_website_used_url">该网站已存在与 %1$s</string>
+    <string name="add_website_audio_info">添加可播放背景音频的网站</string>
+    <string name="add_website_group">添加到 %s</string>
+
+    <string name="service_title">快捷方式服务</string>
+    <string name="service_subtitle">快速访问 Lightning Launcher</string>
+    <string name="service_info">启用快捷方式服务后，当你悬停在 dock 上指定的图标上时，Lighting Launcher 会自动打开</string>
+    <string name="service_instructions">启用快捷服务</string>
+    <string name="service_message">1. 使用该按钮打开 Android 的辅助功能设置\n2. 选择要启用的服务\n3. 在页面顶部打开服务\n4. 在提示中点击 \"允许\"\n5. 关闭窗口即刻生效</string>
+    <string name="service_next">继续进入辅助功能设置</string>
+
+    <string name="warning">重要信息</string>
+    <string name="cancel">关闭</string>
+    <string name="understood">了解!</string>
+    <string name="confirm">确认</string>
+    <string name="next">继续</string>
+
+    <string name="size_none">打开默认窗口</string>
+    <string name="size_own">在自身窗口打开</string>
+    <string name="size_phone">在手机窗口中打开</string>
+    <string name="size_small">在 4:3 小窗口中打开</string>
+    <string name="size_large">在 16:9 大窗口中打开</string>
+    <string name="size_huge">在 16:9 超大窗口中打开</string>
+
+    <string name="browser_default_in" >在浏览器当前窗口中打开</string>
+    <string name="browser_default_out">在浏览器自身窗口中打开</string>
+    <string name="browser_quest">在 Quest 浏览器中打开</string>
+
+
+    <string name="edit_off">开启编辑模式</string>
+    <string name="edit_on">关闭编辑模式</string>
+
+    <string name="selection_hint_none">单击选择应用程序或点击此处全部</string>
+    <string name="selection_hint_single">已选择 1 个应用，单击分组移动</string>
+    <string name="selection_hint_multiple">已选择 %d 个应用，单击分组移动</string>
+    <string name="selection_moved_single">移动应用到 %s</string>
+    <string name="selection_moved_multiple">移动 %d 个应用到 %s</string>
+    <string name="selection_hint_cleared">清除选择</string>
+    <string name="selection_hint_all">选择所有可见的应用</string>
+
+    <!--  Updater  -->
+    <string name="update_title">有更新可用!</string>
+    <string name="update_content">您可以在此应用程序中将 %1$s 版本升级到 %2$s。</string>
+    <string name="update_button">继续</string>
+    <string name="update_skip_button">跳过本次更新</string>
+    <string name="update_skip_toast">跳过版本</string>
+
+    <string name="update_downloading_title">下载最新版本......</string>
+    <string name="update_downloading_content">很快就会出现安装提示\n\n    \n如果你不小心将其删除、未授予权限或出现错误、\n    你可以从设置中再试一次。</string>
+    <string name="update_hide_button">隐藏</string>
+
+    <string name="update_failed_title">下载安装包失败</string>
+    <string name="update_failed_content">请确保网络连接良好，稍后再试</string>
+
+    <string name="update_skip_title">跳过更新到 %1$s 版本？</string>
+    <string name="update_skip_content">您将不会再收到有关此更新的通知。\n\n        \n请记住，我们强烈建议进行更新，更新可能包括重要的修复。\n\n        \n如果你因该更新导致的问题而回避该更新，请在 github.com/threethan/LightningLauncher 上报告你的问题。\n\n        \n你可以稍后从设置中更新！</string>
+    <string name="update_skip_confirm_button">我已了解，跳过</string>
+    <string name="update_skip_cancel_button">忽略</string>
+
+    <string name="saved_settings">保存配置到</string>
+    <string name="loaded_settings1">导入配置</string>
+    <string name="loaded_settings2">现在必须关闭启动器！</string>
+
+    <string name="default_groups_title">默认分组设置</string>
+    <string name="default_groups_info">当前默认组：\n\n\n        \n%1$s\n\n        \n您可以在编辑模式下通过编辑组来更改他们。\n        \n您现在想做什么？</string>
+
+    <string name="default_groups_reset_groups">重置所有分组并按默认排序</string>
+    <string name="default_groups_resort_only">全部移动到默认分组</string>
+    <string name="default_groups_cancel">返回</string>
+    <string name="default_groups_reset_groups_toast_main">重置分组</string>
+    <string name="default_groups_reset_groups_toast_bold">全部!</string>
+    <string name="default_groups_resort_only_toast_main">应用已经移动到</string>
+    <string name="default_groups_resort_only_toast_bold">您选择的默认分组</string>
+
+    <string name="toast_cant_unset_group">将另一组设置为默认分组以取消此组的默认设置</string>
+
+    <string name="clear_icons_title">图标更新/清理设置</string>
+    <string name="clear_icons_info">LightningLauncher会缓存应用程序的图标和横幅，以加快加载速度。\n\n        \n你可以清除缓存来刷新任何可能已更改的图标。</string>
+    <string name="clear_icons_info_quest">LightningLauncher 会从互联网上下载官方 Quest Games 和应用程序的图标。\n\n        \n通过清除图标缓存，你还可以重新下载所有这些图标。如果图标疑似丢失了，这将非常有用！</string>
+    <string name="clear_icons_info_custom">你还可以为应用程序设置自定义图标，方法是将它们放在此设备的中，然后在弹出的应用程序信息中点击图标。      如果你愿意，还可以清除所有这些图标。这样做还会清除缓存。</string>
+
+    <string name="clear_icons_clear_cache">清除图标缓存</string>
+    <string name="clear_icons_clear_all">清理自定义图标</string>
+    <string name="clear_icons_cancel">返回</string>
+
+    <string name="toast_cleared_icon_cache">图标缓存已被清空</string>
+    <string name="toast_cleared_icon_all">所有图标已经重置为默认</string>
+
+    <!--  Tooltips  -->
+    <string name="tip_kill_process">停止后台运行</string>
+    <string name="tip_launch_out">在应用自身窗口启动一次</string>
+
+    <string name="tip_info_website">关于添加网站</string>git
+
+    <string name="tip_stop_editing">关闭编辑模式</string>
+    <string name="tip_select_all">选择/反选所有可见的应用</string>
+
+    <string name="tip_uninstall">卸载 / 删除</string>
+    <string name="tip_uninstall_bulk">卸载 / 删除所有选中内容</string>
+    <string name="tip_info">安卓应用信息</string>
+    <string name="tip_change_icon">更换图标</string>
+
+    <string name="tip_save_settings">备份全部设置和分组</string>
+    <string name="tip_load_settings">恢复所有设置和分组</string>
+
+    <string name="tip_hide">隐藏该应用</string>
+    <string name="tip_show">取消隐藏</string>
+
+    <!--  Toasts  -->
+    <string name="moved_hidden">移动到</string>
+    <string name="moved_hidden_bold">隐藏分组</string>
+    <string name="moved_shown">移动到</string>
+    <string name="refreshed_icon">刷新图标.....</string>
+
+    <string name="notification_title_n">LightningLauncher: 没有网站在运行</string>
+    <string name="notification_title_s">LightningLauncher: 一个网站正在运行</string>
+    <string name="notification_title_p">LightningLauncher: %1$d 个网站正在运行</string>
+    <string name="notification_content">这条通知可以确保网站背景音频顺利运行</string>
+
+    <!-- Addons -->
+    <string name="addons_main_vr">安装快捷方式</string>
+    <string name="addons_main_tv">快捷方式选项</string>
+    <string name="addons_info">快捷方式能让你更轻松地打开启动器。\n        \\n强烈建议你至少设置使用一个。</string>
+    <string name="addons_tv_info">遗憾的是，Android TV 限制了辅助服务和第三方启动器的功能</string>
+    <string name="addons_exit">回到设置</string>
+
+    <string name="addons_androidtv">Android TV 启动管理器</string>
+    <string name="addons_androidtv_desc">安装一个第三方应用程序，它可以让你更改 Android TV 上的默认主页。\n    \n这需要启用 ADB 调试，而且可能无法在每台设备上运行。\n    \n\n    \n如果无法通过此处安装，请查找 &quot;Android TV Launcher Manager XDA&quot;，然后手动下载并安装。</string>
+
+    <string name="addons_androidtv_alt">或直接使用返回按钮</string>
+    <string name="addons_androidtv_alt_desc">如果你只使用遥控器上的返回键，而不是主页键，你将始终回到 LightningLauncher。\n    \n\n    \n进入启动器后再按返回键，只会切换编辑模式，避免意外返回默认启动器。</string>
+
+    <string name="addons_facebook">Facebook 应用快捷方式</string>
+    <string name="addons_facebook_desc">添加一个图标，你可以把它固定在 dock 上，它看起来像 Facebook 但实际上会打开启动器。\n\n(如果已安装真正的 Messenger 应用程序，则不会安装该图标）</string>
+
+    <string name="addons_monday">Monday 快捷方式服务</string>
+    <string name="addons_monday_desc">添加一个图标，你可以把它固定在 dock 上，它看起来像应用 \"Monday.com\"，但实际上会打开启动器。</string>
+
+    <string name="addons_explore">Horizon Feed 快捷方式服务</string>
+    <string name="addons_explore_desc">安装后，只要悬停在基座上的 &quot;Horizon Feed&quot;/&quot;Oculus Explore&quot; 按钮上，就会激活打开 Lightning Launcher。</string>
+
+    <string name="addons_explore_disable_why">你可以禁用 Explore 应用，重新启动以移除 Feed 图标，而不是使用此快捷方式。</string>
+    <string name="addons_explore_enable_why">要恢复图标并修复此快捷方式，请重新启用 Explore 应用，然后重启头显。</string>
+
+    <string name="addons_explore_disable">(可选）禁用 \"Explore \"应用程序</string>
+    <string name="addons_explore_enable">重新启用 Explore 应用</string>
+
+    <string name="addons_library">App Library 快捷方式服务</string>
+    <string name="addons_library_desc">安装后，只要悬停在 dock 上的 &quot;App Library&quot; 按钮上，就会激活打开 Lightning Launcher。\n        \n(这将导致很难打开 &quot;App Library&quot; ）</string>
+    <string name="addons_people">People 快捷方式服务</string>
+    <string name="addons_people_desc">安装后，只要悬停在 dock 上的 &quot;People&quot; 按钮上，就会激活打开 Lightning Launcher。\n        \n(这将导致很难打开 &quot;People&quot;）</string>
+
+    <string name="addons_install">安装</string>
+    <string name="addons_update">更新</string>
+    <string name="addons_activate">激活</string>
+    <string name="addons_uninstall">移除</string>
+
+    <!--  Browser Tooltips  -->
+    <string name="web_back">后退</string>
+    <string name="web_forward">前进</string>
+    <string name="web_reload">刷新页面</string>
+    <string name="web_exit">回到启动器</string>
+    <string name="web_add_home">添加页面到启动器</string>
+    <string name="web_cancel">关闭</string>
+    <string name="web_confirm">确认并启动</string>
+
+    <!-- Browser -->
+    <string name="web_download_started">下载中</string>
+    <string name="web_download_finished">下载完成</string>
+
+    <string name="web_apk_prompt_title">安装包已下载</string>
+    <string name="web_apk_prompt_message_pre">已下载 %1$s</string>
+    <string name="web_apk_prompt_message">您想安装它还是将它保存到您的下载文件夹？\n\n    \n注意，该文件来自互联网上，可能存在风险！</string>
+    <string name="web_apk_prompt_install">安装</string>
+    <string name="web_apk_prompt_move">保存</string>
+    <string name="web_apk_prompt_delete">删除</string>
+    <string name="extension_prompt_title">管理 Web 拓展程序</string>
+    <string name="extension_prompt_hint">从 Firefox Addons 获取扩展</string>
+
+    <!-- Gecko -->
+    <string name="before_unload_message">本页面要求您确认是否要离开 - 您输入的数据可能不会被保存</string>
+    <string name="before_unload_title">确认?</string>
+    <string name="before_unload_leave_page">离开页面</string>
+    <string name="before_unload_stay">留在页面</string>
+
+    <string name="repost_confirm_message">要显示该页面，GeckoViewExample 必须发送信息，重复之前执行的任何操作（如搜索或订单确认）。</string>
+    <string name="repost_confirm_title">确认?</string>
+    <string name="repost_confirm_resend">重新发送</string>
+    <string name="repost_confirm_cancel">关闭</string>
+
+    <string name="username">用户名</string>
+    <string name="password">密码</string>
+    <string name="clear_field">清空</string>
+
+    <string name="wait">等待</string>
+    <string name="stop">停止</string>
+</resources>

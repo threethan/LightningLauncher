@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Lightning Launcher</string>
+    <string name="app_name" translatable="false">Lightning Launcher</string>
     <string name="add_group">Add Group</string>
     <string name="delete_group">Delete Group</string>
     <string name="edit_group">Edit Group</string>
@@ -244,13 +244,13 @@
     <string name="refreshed_icon">Refreshing icon…</string>
 
     <!--  Web Presets  -->
-    <string name="preset_google">google.com</string>
-    <string name="preset_youtube">youtube.com</string>
-    <string name="preset_discord">discord.com/app</string>
-    <string name="preset_spotify">open.spotify.com</string>
-    <string name="preset_tidal">listen.tidal.com</string>
-    <string name="preset_apkmirror">apkmirror.com</string>
-    <string name="preset_apkpure">apkpure.com</string>
+    <string name="preset_google" translatable="false">google.com</string>
+    <string name="preset_youtube" translatable="false">youtube.com</string>
+    <string name="preset_discord" translatable="false">discord.com/app</string>
+    <string name="preset_spotify" translatable="false">open.spotify.com</string>
+    <string name="preset_tidal" translatable="false">listen.tidal.com</string>
+    <string name="preset_apkmirror" translatable="false">apkmirror.com</string>
+    <string name="preset_apkpure" translatable="false">apkpure.com</string>
 
     <string name="notification_title_n">LightningLauncher: No Websites Running</string>
     <string name="notification_title_s">LightningLauncher: Running a Website</string>
