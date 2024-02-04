@@ -52,7 +52,7 @@ public class Updater {
     public static final String ADDON_RELEASE_TAG = "addons7.0.0";
     public static final String EXCLUDE_VERSION = "6.3.0"; // Ignored by the updater
     public static final String BROWSER_VERSION = "1.0.0";
-    private static final String UPDATE_NAME = "Lightning Launcher";
+    private static final String UPDATE_NAME = "LightningLauncher";
     public static final String TAG_FACEBOOK_SHORTCUT = "TAG_FACEBOOK_SHORTCUT";
     public static final String TAG_MONDAY_SHORTCUT = "TAG_MONDAY_SHORTCUT";
     public static final String TAG_APP_LIBRARY_SHORTCUT = "TAG_APP_LIBRARY_SHORTCUT";

@@ -97,14 +97,16 @@ public abstract class App {
 
     private static boolean checkPanelApp
             (ApplicationInfo applicationInfo, LauncherActivity launcherActivity) {
-        //noinspection SuspiciousMethodCalls
-        if (AppData.getFullPanelAppList().contains(applicationInfo)) return true;
+        if (applicationInfo instanceof PanelApp &&
+                AppData.getFullPanelAppList().contains((PanelApp) applicationInfo)) return true;
 
         if (AppData.AUTO_DETECT_PANEL_APPS) {
             PackageManager pm = launcherActivity.getPackageManager();
             Intent panelIntent = new Intent("com.oculus.vrshell.SHELL_MAIN");
             panelIntent.setPackage(applicationInfo.packageName);
-            return (pm.resolveService(panelIntent, 0) != null);
+            if (pm.resolveService(panelIntent, 0) != null) return true; // Detect panel apps
+            return applicationInfo.metaData != null &&
+                    applicationInfo.metaData.containsKey("com.oculus.pwa.START_URL"); // Detect Oculus PWAs
         } else return false;
     }
 

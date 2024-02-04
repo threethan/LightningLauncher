@@ -11,8 +11,8 @@
         <item>com.oculus.os.chargecontrol</item>
         <item>com.oculus.os.clearactivity</item>
         <item>com.oculus.integrity</item>
+        <item>com.meta.AccountsCenter.pwa</item>
         <!-- Shortcuts -->
-        <item>com.facebook.orca</item>
         <item>com.facebook.facebookvr</item>
         <item>oculuspwa.auth.monday.com</item>
         <item>com.threethan.launcher.service.explore</item>

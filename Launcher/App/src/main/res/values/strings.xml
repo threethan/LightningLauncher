@@ -54,8 +54,10 @@
     <string name="long_press">Long Press to Edit</string>
     <string name="hide_empty">Hide Empty Groups</string>
     <string name="default_launch_out">Launch Apps in Own Window by Default</string>
-    <string name="settings_save">Export Configuration</string>
-    <string name="settings_load">Import Configuration</string>
+    <string name="settings_save">Export Settings</string>
+    <string name="settings_load">Import Settings</string>
+    <string name="groupings_save">Export Groupings</string>
+    <string name="groupings_load">Import Groupings</string>
     <string name="settings_default_launcher">Set Default Home to Enable 3rd-party Shortcuts</string>
     <string name="tip_settings_default_launcher">Setup Lightning Launcher to let other apps add shortcuts</string>
 
@@ -190,6 +192,7 @@
     <string name="update_skip_cancel_button">Just Dismiss</string>
 
     <string name="saved_settings">Saved configuration to</string>
+    <string name="saved_settings_loading">Importing, please wait…</string>
     <string name="saved_settings_error">Error while copying file!</string>
     <string name="loaded_settings1">Imported configuration,</string>
     <string name="loaded_settings2">the launcher must now close!</string>

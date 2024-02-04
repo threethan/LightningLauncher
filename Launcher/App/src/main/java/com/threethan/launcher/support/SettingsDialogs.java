@@ -468,6 +468,24 @@ public abstract class SettingsDialogs {
             SettingsSaver.save(a);
             loadSettings.setAlpha(1F);
         });
+
+        // Save/load settings
+        View loadGroupings = dialog.findViewById(R.id.loadGroupingsButton);
+        loadGroupings.setAlpha(SettingsSaver.canLoadSort(a) ? 1F : 0.5F);
+        loadGroupings.setOnClickListener((view) -> {
+            if (SettingsSaver.canLoadSort(a)) {
+                dialog.dismiss();
+                SettingsSaver.loadSort(a);
+            } else {
+                Dialog.toast("Failed to find file!");
+            }
+        });
+
+        View saveGroupings = dialog.findViewById(R.id.saveGroupingsButton);
+        saveGroupings.setOnClickListener((view) -> {
+            SettingsSaver.saveSort(a);
+            loadGroupings.setAlpha(1F);
+        });
     }
     public static void showGroupSettings(LauncherActivity a) {
         clearedSort = false;
@@ -561,5 +579,4 @@ public abstract class SettingsDialogs {
 
         dialog.findViewById(R.id.cancel).setOnClickListener(v -> dialog.dismiss());
     }
-
 }

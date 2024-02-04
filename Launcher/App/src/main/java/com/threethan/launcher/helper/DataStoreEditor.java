@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,6 +17,7 @@ import androidx.datastore.preferences.core.PreferencesKeys;
 import androidx.datastore.preferences.rxjava3.RxPreferenceDataStoreBuilder;
 import androidx.datastore.rxjava3.RxDataStore;
 
+import java.io.File;
 import java.security.InvalidParameterException;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -47,7 +49,7 @@ import io.reactivex.rxjava3.functions.Consumer;
  * @see android.content.SharedPreferences.Editor
  * @see androidx.datastore.core.DataStore
  * @noinspection unused, UnusedReturnValue
- * */
+ * , rawtypes */
 public class DataStoreEditor implements SharedPreferences, SharedPreferences.Editor {
     private static final String TAG = "DataStoreEditor";
     private static final Map<String, RxDataStore<Preferences>> dataStoreByName = new HashMap<>();
@@ -77,9 +79,24 @@ public class DataStoreEditor implements SharedPreferences, SharedPreferences.Edi
     public DataStoreEditor(Context context) {
         dataStoreRX = getDataStore(context, "default");
     }
+
+    /**
+     * Creates a new instance to operate on a file
+     * @param file The data store file to operate on (must already exist)
+     */
+    public DataStoreEditor(File file) {
+        dataStoreRX = getDataStore(file);
+    }
     synchronized private RxDataStore<Preferences> getDataStore(Context context, String name) {
         if (dataStoreByName.containsKey(name)) return dataStoreByName.get(name);
         RxDataStore<Preferences> ds = new RxPreferenceDataStoreBuilder(context, name).build();
+        dataStoreByName.put(name, ds);
+        return ds;
+    }
+    synchronized private RxDataStore<Preferences> getDataStore(File file) {
+        final String name = file.getAbsolutePath();
+        if (dataStoreByName.containsKey(name)) return dataStoreByName.get(name);
+        RxDataStore<Preferences> ds = new RxPreferenceDataStoreBuilder(() -> file).build();
         dataStoreByName.put(name, ds);
         return ds;
     }
@@ -114,6 +131,17 @@ public class DataStoreEditor implements SharedPreferences, SharedPreferences.Edi
         migrateFrom(PreferenceManager.getDefaultSharedPreferences(context));
     }
 
+    /**
+     * Copies all preferences from another data store file
+     * @param dataStoreFile The other file to copy from, must be valid .preferences_pb
+     */
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public void copyFrom(File dataStoreFile) {
+        DataStoreEditor other = new DataStoreEditor(dataStoreFile);
+        getAll().forEach((key, o) -> removeValue(key, o.getClass(), true));
+        other.getAll().forEach((key, o) -> putValue(key, o, true));
+    }
+
     // Utility Functions
     /** @noinspection unchecked
      * Gets the key which matches the given type
@@ -130,6 +158,8 @@ public class DataStoreEditor implements SharedPreferences, SharedPreferences.Edi
         if (tClass == Double.class ) return (Preferences.Key<T>) PreferencesKeys.doubleKey   (key);
         if (tClass == Boolean.class) return (Preferences.Key<T>) PreferencesKeys.booleanKey  (key);
         if (tClass == Set.class    ) return (Preferences.Key<T>) PreferencesKeys.stringSetKey(key);
+        if (tClass.toString().contains("Set"))
+            return (Preferences.Key<T>) PreferencesKeys.stringSetKey(key);
         throw new InvalidParameterException("Invalid preference class: "+tClass+
                 ", must be one of "+ Arrays.toString(classes));
     }
@@ -151,6 +181,23 @@ public class DataStoreEditor implements SharedPreferences, SharedPreferences.Edi
         throw new InvalidParameterException("Invalid preference class, must be one of "
                 + Arrays.toString(classes));
     }
+    static Map<Class, Object> nullFallbacks = new HashMap<>();
+    static {
+        nullFallbacks.put(String.class, "<!NULL>");
+        nullFallbacks.put(Integer.class, Integer.MIN_VALUE+1);
+        nullFallbacks.put(Long.class, Long.MIN_VALUE+1);
+        nullFallbacks.put(Float.class, Float.NaN);
+        nullFallbacks.put(Double.class, Double.NaN);
+        nullFallbacks.put(Boolean.class, Boolean.FALSE);
+        nullFallbacks.put(Set.class, new NullStringSet());
+    }
+    private static class NullStringSet extends HashSet<String> {
+        public NullStringSet() {}
+        @Override
+        public boolean equals(@Nullable Object o) {
+            return o instanceof NullStringSet;
+        }
+    }
 
     /**
      * Synchronously gets the value of the given key
@@ -162,11 +209,19 @@ public class DataStoreEditor implements SharedPreferences, SharedPreferences.Edi
      */
     public <T> T getValue(String key, @Nullable T def, Class<T> tClass) {
         Preferences.Key<T> prefKey = getKey(key, tClass);
-        T nullFallback = null;
+        //noinspection DataFlowIssue,unchecked
+        @NonNull T nnDef = def==null ? (T) nullFallbacks.get(tClass) : def;
+        if (def==null && tClass != Set.class) Log.w("DataStoreEditor",
+                "null was passed as default value on a data store read, " +
+                "this may not work as expected!\n A saved value of '" + nnDef +
+                "' will be considered as equivalent to a nonexistent value for this operation.");
         @SuppressLint("UnsafeOptInUsageWarning")
         Single<T> value = dataStoreRX.data().firstOrError()
-                .map(prefs -> prefs.get(prefKey)).onErrorReturn(throwable -> def);
-        return value.blockingGet();
+                .map(prefs -> prefs.get(prefKey)).onErrorReturn(throwable -> nnDef);
+        if (def == null) {
+            @NonNull T r = value.blockingGet();
+            return (r == nullFallbacks.get(tClass) ? null : r);
+        } else return value.blockingGet();
     }
     /**
      * Synchronously gets the value of the given key
@@ -210,7 +265,6 @@ public class DataStoreEditor implements SharedPreferences, SharedPreferences.Edi
                 .map(prefs -> prefs.get(prefKey)).onErrorReturn(throwable -> def);
         value.blockingSubscribe(consumer);
     }
-
     /**
      * Asynchronously writes a value which matches the given class
      * @param key Name of key to write to
@@ -445,7 +499,8 @@ public class DataStoreEditor implements SharedPreferences, SharedPreferences.Edi
      * The set returned is unmodifiable!
      */
     public void getStringSet(String key, @NonNull Set<String> def, Consumer<Set<String>> consumer) {
-        getValue(key, def, consumer::accept, Set.class);
+        //noinspection unchecked,rawtypes
+        getValue(key, def, (Consumer) consumer, Set.class);
     }
     /** Asynchronously writes a value */
     public DataStoreEditor putStringSet(String key, Set<String> value) {
@@ -536,10 +591,15 @@ public class DataStoreEditor implements SharedPreferences, SharedPreferences.Edi
     /**
      * Not implemented, will throw an error!
      */
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
-    @Deprecated
     public Map<String, ?> getAll() {
-        throw new RuntimeException("This function cannot be called on DataStoreEditor!");
+        HashMap<String, Object> ret = new HashMap<>();
+        getAllKeyVal().forEach((key, o) -> ret.put(key.toString(), o));
+        return ret;
+    }
+    private Map<Preferences.Key<?>, ?> getAllKeyVal() {
+        return dataStoreRX.data().blockingFirst().asMap();
     }
 }
 

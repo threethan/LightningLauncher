@@ -15,12 +15,13 @@ public class FileLib {
     public static void delete(String path) {
         delete(new File(path));
     }
-    public static void delete(File fileOrDirectory) {
+    /** @noinspection UnusedReturnValue*/
+    public static boolean delete(File fileOrDirectory) {
         if (fileOrDirectory.isDirectory())
             for (File child : Objects.requireNonNull(fileOrDirectory.listFiles()))
                 delete(child);
 
-        final boolean ignored = fileOrDirectory.delete();
+        return fileOrDirectory.delete();
     }
 
     /** @noinspection IOStreamConstructor*/ // Fix requires higher API

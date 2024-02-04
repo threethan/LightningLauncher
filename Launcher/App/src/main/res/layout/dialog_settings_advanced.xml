@@ -370,5 +370,76 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:baselineAligned="false"
+            android:gravity="clip_vertical|center_vertical"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/saveGroupingsButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/bkg_button"
+                android:tooltipText="@string/tip_save_settings"
+                tools:ignore="UnusedAttribute">
+
+                <TextView
+                    style="@style/SettingButtonLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:singleLine="true"
+                    android:text="@string/groupings_save"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="27dp"
+                    android:src="@drawable/ic_upload"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/loadGroupingsButton"
+                android:layout_width="0dp"
+                android:layout_height="39dp"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/bkg_button"
+                android:tooltipText="@string/tip_load_settings"
+                tools:ignore="UnusedAttribute">
+
+                <TextView
+                    style="@style/SettingButtonLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:singleLine="true"
+                    android:text="@string/groupings_load"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="27dp"
+                    android:src="@drawable/ic_download"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
     </LinearLayout>
 </ScrollView>

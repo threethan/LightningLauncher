@@ -55,6 +55,8 @@
     <string name="default_launch_out">默认在应用自身窗口启动</string>
     <string name="settings_save">导出配置</string>
     <string name="settings_load">导入配置</string>
+    <string name="groupings_save">导出分组</string>
+    <string name="groupings_load">导入分组</string>
     <string name="settings_default_launcher">设置默认主页以启用第三方快捷方式</string>
     <string name="tip_settings_default_launcher">设置 Lightning Launcher，让其他应用程序添加快捷方式</string>
 
@@ -148,6 +150,7 @@
     <string name="update_skip_cancel_button">忽略</string>
 
     <string name="saved_settings">保存配置到</string>
+    <string name="saved_settings_loading">正在导入，请稍候…</string>
     <string name="saved_settings_error">复制文件时出错！</string>
     <string name="loaded_settings1">导入配置</string>
     <string name="loaded_settings2">现在必须关闭启动器！</string>

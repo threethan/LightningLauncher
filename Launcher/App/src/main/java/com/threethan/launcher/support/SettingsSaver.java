@@ -1,10 +1,12 @@
 package com.threethan.launcher.support;
 
 import android.app.Activity;
+import android.os.Build;
 
 import androidx.datastore.DataStoreFile;
 
 import com.threethan.launcher.R;
+import com.threethan.launcher.helper.DataStoreEditor;
 import com.threethan.launcher.helper.Dialog;
 import com.threethan.launcher.launcher.LauncherActivity;
 import com.threethan.launcher.lib.FileLib;
@@ -20,7 +22,9 @@ import java.util.TimerTask;
  */
 public abstract class SettingsSaver {
     private static final String DATA_STORE_NAME = "default";
-    public static final String EXPORT_FILE_NAME = "ExportedConfiguration.xml";
+    private static final String DATA_STORE_NAME_SORT = "sort";
+    public static final String EXPORT_FILE_NAME = "ExportedConfiguration.preferences_pb";
+    public static final String EXPORT_FILE_NAME_SORT = "ExportedSort.preferences_pb";
 
     /**
      * Saves the contents of the DataStore to a file
@@ -36,10 +40,26 @@ public abstract class SettingsSaver {
         boolean ignored1 = Objects.requireNonNull(export.getParentFile()).mkdirs();
         FileLib.delete(export);
 
-        if (FileLib.copy(prefs, export))
+        if (FileLib.copy(prefs, export) && FileLib.copy(prefs, export))
             Dialog.toast(activity.getString(R.string.saved_settings),
-                "Android/Data/"+activity.getPackageName()+"/"+SettingsSaver.EXPORT_FILE_NAME,
+                "Android/Data/"+activity.getPackageName()+"/"+EXPORT_FILE_NAME,
                 false);
+        else Dialog.toast(activity.getString(R.string.saved_settings_error));
+    }
+    public static void saveSort(Activity activity) {
+
+        File prefs = DataStoreFile.dataStoreFile(activity, DATA_STORE_NAME_SORT+".preferences_pb");
+        File exportPath = activity.getExternalFilesDir("");
+        File export = new File(exportPath, EXPORT_FILE_NAME_SORT);
+        assert exportPath != null;
+
+        boolean ignored1 = Objects.requireNonNull(export.getParentFile()).mkdirs();
+        FileLib.delete(export);
+
+        if (FileLib.copy(prefs, export) && FileLib.copy(prefs, export))
+            Dialog.toast(activity.getString(R.string.saved_settings),
+                    "Android/Data/"+activity.getPackageName()+"/"+EXPORT_FILE_NAME_SORT,
+                    false);
         else Dialog.toast(activity.getString(R.string.saved_settings_error));
     }
     /**
@@ -49,25 +69,45 @@ public abstract class SettingsSaver {
      * @param activity used for getting package name and data store paths
      */
     public synchronized static void load(Activity activity) {
-        File prefs = DataStoreFile.dataStoreFile(activity, DATA_STORE_NAME);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+            Dialog.toast("Android API too old!");
+            return;
+        }
         File exportPath = activity.getExternalFilesDir("");
         File export = new File(exportPath, EXPORT_FILE_NAME);
-        assert exportPath != null;
-        final boolean ignored = Objects.requireNonNull(exportPath.getParentFile()).mkdirs();
 
-        FileLib.delete(prefs);
-        if (FileLib.copy(export, prefs)) {
-            Dialog.toast(activity.getString(R.string.loaded_settings1),
-                    activity.getString(R.string.loaded_settings2),
-                    false);
-            new Timer().schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    int pid = android.os.Process.myPid();
-                    android.os.Process.killProcess(pid);
-                }
-            }, 1500);
-        } else Dialog.toast(activity.getString(R.string.saved_settings_error));
+        Dialog.toast(activity.getString(R.string.settings_load));
+
+        new DataStoreEditor(activity, DATA_STORE_NAME).copyFrom(export);
+
+        Dialog.toast(activity.getString(R.string.saved_settings_loading));
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                int pid = android.os.Process.myPid();
+                android.os.Process.killProcess(pid);
+            }
+        }, 1500);    }
+    public synchronized static void loadSort(Activity activity) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+            Dialog.toast("Android API too old!");
+            return;
+        }
+        File exportPath = activity.getExternalFilesDir("");
+        File export = new File(exportPath, EXPORT_FILE_NAME_SORT);
+
+        Dialog.toast(activity.getString(R.string.settings_load));
+
+        new DataStoreEditor(activity, DATA_STORE_NAME_SORT).copyFrom(export);
+
+        Dialog.toast(activity.getString(R.string.saved_settings_loading));
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                int pid = android.os.Process.myPid();
+                android.os.Process.killProcess(pid);
+            }
+        }, 1500);
     }
 
     /**
@@ -78,6 +118,11 @@ public abstract class SettingsSaver {
     public static boolean canLoad(LauncherActivity activity) {
         File exportPath = activity.getExternalFilesDir("");
         File export = new File(exportPath, EXPORT_FILE_NAME);
+        return export.exists();
+    }
+    public static boolean canLoadSort(LauncherActivity activity) {
+        File exportPath = activity.getExternalFilesDir("");
+        File export = new File(exportPath, EXPORT_FILE_NAME_SORT);
         return export.exists();
     }
 }
