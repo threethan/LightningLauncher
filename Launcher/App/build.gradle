@@ -4,8 +4,8 @@ android {
     defaultConfig {
         compileSdk 34
         minSdkVersion 23
-        versionCode 710
-        versionName "7.1.0"
+        versionCode 711
+        versionName "7.1.1"
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
