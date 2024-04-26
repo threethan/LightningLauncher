@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:height="100.0dip" android:width="179.0dip" android:viewportWidth="179.0" android:viewportHeight="100.0"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+    <path android:fillColor="@drawable/$vector_camera_gradient__0" android:pathData="M0,0h179v100h-179z" />
+</vector>

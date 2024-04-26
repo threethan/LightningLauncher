@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="wifitrackerlib_wifi_status">
+        <item></item>
+        <item>Etsitään…</item>
+        <item>Yhdistetään…</item>
+        <item>Todennetaan…</item>
+        <item>Haetaan IP-osoitetta…</item>
+        <item>Yhdistetty</item>
+        <item>Jäädytetty</item>
+        <item>Katkaistaan yhteyttä…</item>
+        <item>Yhteys katkaistu</item>
+        <item>Epäonnistui</item>
+        <item>Estetty</item>
+        <item>Vältetään huonoa yhteyttä tilapäisesti</item>
+    </string-array>
+</resources>

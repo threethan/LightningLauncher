@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" android:height="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" android:width="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins">
+        <bitmap android:src="@drawable/oc_icon_party_add_filled_24_ffffff" android:alpha="@color/alpha_80" />
+    </item>
+    <item android:height="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" android:width="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" android:drawable="@drawable/oc_icon_party_add_filled_24_f0f0f0" android:state_hovered="true" />
+    <item android:height="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" android:width="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins">
+        <bitmap android:src="@drawable/oc_icon_party_add_filled_24_ffffff" android:alpha="@color/alpha_60" />
+    </item>
+</selector>

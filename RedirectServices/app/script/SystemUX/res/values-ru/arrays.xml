@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="wifitrackerlib_wifi_status">
+        <item></item>
+        <item>Поиск…</item>
+        <item>Подключение…</item>
+        <item>Аутентификация…</item>
+        <item>Получение IP-адреса…</item>
+        <item>Подключено</item>
+        <item>Приостановлено</item>
+        <item>Отключение…</item>
+        <item>Не подключено</item>
+        <item>Сбой</item>
+        <item>Заблокировано</item>
+        <item>Временно отключено из-за плохого соединения</item>
+    </string-array>
+</resources>

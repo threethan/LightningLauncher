@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:tag="layout/settings_privacy_activity_status_preview_app_tile_0" android:layout_width="@dimen/anytime_bar_library_tile_layout_width" android:layout_height="@dimen/anytime_bar_library_tile_layout_width"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/appImage" android:layout_width="@dimen/settings_privacy_app_size" android:layout_height="@dimen/settings_privacy_app_size" android:src="@drawable/anytime_bar_icon_explore" />
+    <ImageView android:layout_gravity="bottom|center|right" android:id="@id/profileBadge" android:layout_width="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" android:layout_height="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" />
+</FrameLayout>

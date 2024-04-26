@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_up_description">Liigu üles</string>
+    <string name="abc_menu_alt_shortcut_label">Alt +</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl +</string>
+    <string name="abc_menu_delete_shortcut_label">kustuta</string>
+    <string name="abc_menu_enter_shortcut_label">sisestusklahv</string>
+    <string name="abc_menu_function_shortcut_label">Funktsiooniklahv +</string>
+    <string name="abc_menu_meta_shortcut_label">Meta +</string>
+    <string name="abc_menu_shift_shortcut_label">Tõstuklahv +</string>
+    <string name="abc_menu_space_shortcut_label">tühik</string>
+    <string name="abc_menu_sym_shortcut_label">Sym +</string>
+    <string name="abc_prepend_shortcut_label">Menüü +</string>
+    <string name="abc_searchview_description_clear">Päringu tühistamine</string>
+    <string name="abc_searchview_description_search">Otsing</string>
+    <string name="abc_searchview_description_submit">Päringu esitamine</string>
+    <string name="abc_searchview_description_voice">Häälotsing</string>
+    <string name="default_popup_window_title">Hüpikaken</string>
+    <string name="in_progress">Pooleli</string>
+    <string name="indeterminate">Osaliselt märgitud</string>
+    <string name="not_selected">Pole valitud</string>
+    <string name="off">Väljas</string>
+    <string name="on">Sees</string>
+    <string name="selected">Valitud</string>
+    <string name="switch_role">Lüliti</string>
+    <string name="tab">Vaheleht</string>
+    <string name="template_percent">%1$d protsenti.</string>
+</resources>

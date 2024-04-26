@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.ocui.OCButton android:id="@id/button" android:tag="layout/settings_complex_button_action_view_0" android:layout_width="wrap_content" android:layout_height="@dimen/anytime_tablet_common_rectangular_button_height"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

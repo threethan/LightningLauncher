@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="anytime_bar_active_call_bar_messenger_mic_switcher_use_call_audio_tooltip_subtitle">
+        <item quantity="other">%1$d personen</item>
+        <item quantity="one">%1$d persoon</item>
+    </plurals>
+    <plurals name="anytime_bar_active_call_bar_party_button_tooltip_subtitle">
+        <item quantity="other">%1$d personen</item>
+        <item quantity="one">%1$d persoon</item>
+    </plurals>
+    <plurals name="anytime_library_app_multiple_locked_toast_description">
+        <item quantity="other">%1$d apps zijn vergrendeld</item>
+        <item quantity="one">%1$d app is vergrendeld</item>
+    </plurals>
+    <plurals name="anytime_library_app_multiple_unlocked_toast_description">
+        <item quantity="other">%1$d apps zijn ontgrendeld</item>
+        <item quantity="one">%1$d app is ontgrendeld</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_install_warning_tooltip">
+        <item quantity="other">Het kan %1$d minuten of langer duren voordat de installatie van deze app is voltooid.</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_lock_bulk_action_description">
+        <item quantity="other">%1$d apps vergrendelen</item>
+        <item quantity="one">%1$d app vergrendelen</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_lock_bulk_action_title">
+        <item quantity="other">%1$dapps vergrendelen?</item>
+        <item quantity="one">%1$d app vergrendelen?</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_tile_subtitle_supports_players">
+        <item quantity="other">1-%1$d personen</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_unlock_bulk_action_description">
+        <item quantity="other">%1$d apps ontgrendelen</item>
+        <item quantity="one">%1$d app ontgrendelen</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_unlock_bulk_action_title">
+        <item quantity="other">%1$d apps ontgrendelen?</item>
+        <item quantity="one">%1$d app ontgrendelen?</item>
+    </plurals>
+    <plurals name="anytime_tablet_profile_pending_follow_request_confirm_title">
+        <item quantity="other">%1$d openstaande volgverzoeken</item>
+        <item quantity="one">%1$d openstaand volgverzoek</item>
+    </plurals>
+    <plurals name="cloud_backups_num_attempts_remaining_text">
+        <item quantity="other">Nog %1$d pogingen</item>
+        <item quantity="one">Nog %1$d poging</item>
+    </plurals>
+    <plurals name="follower_view_pill_title">
+        <item quantity="other">%1$d volgers</item>
+        <item quantity="one">%1$d volger</item>
+    </plurals>
+    <plurals name="last_played_with_time_days">
+        <item quantity="other">%1$d dagen geleden</item>
+        <item quantity="one">%1$d dag geleden</item>
+    </plurals>
+    <plurals name="last_played_with_time_hours">
+        <item quantity="other">%1$d uur geleden</item>
+    </plurals>
+    <plurals name="last_played_with_time_minutes">
+        <item quantity="other">%1$d minuten geleden</item>
+        <item quantity="one">%1$d minuut geleden</item>
+    </plurals>
+    <plurals name="last_played_with_time_weeks">
+        <item quantity="other">%1$d weken geleden</item>
+        <item quantity="one">%1$d week geleden</item>
+    </plurals>
+    <plurals name="lockpassword_pin_too_long">
+        <item quantity="other">Moet minder dan %1$d cijfers zijn</item>
+        <item quantity="one">Moet minder dan %1$d cijfer zijn</item>
+    </plurals>
+    <plurals name="lockpassword_pin_too_short">
+        <item quantity="other">Pincode moet minimaal %1$d cijfers bevatten</item>
+        <item quantity="one">Pincode moet minimaal %1$d cijfer bevatten</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_hours">
+        <item quantity="other">Probeer het over %1$d uur opnieuw</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_min">
+        <item quantity="other">Probeer het over %1$d minuten opnieuw</item>
+        <item quantity="one">Probeer het over %1$d minuut opnieuw</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_sec">
+        <item quantity="other">Probeer het over %1$d seconden opnieuw</item>
+        <item quantity="one">Probeer het over %1$d seconde opnieuw</item>
+    </plurals>
+    <plurals name="request_view_pill_title">
+        <item quantity="other">%1$d verzoeken</item>
+        <item quantity="one">%1$d verzoek</item>
+    </plurals>
+    <plurals name="safety_center_violation_list_enforcement_social_suspension">
+        <item quantity="other">Je kunt %1$d dagen geen chats, groepen of Horizon Worlds gebruiken</item>
+        <item quantity="one">Je kunt %1$d dag geen chats, groepen of Horizon Worlds gebruiken</item>
+    </plurals>
+    <plurals name="settings_apps_lock_selected_items_text">
+        <item quantity="other">%1$d geselecteerd</item>
+    </plurals>
+    <plurals name="settings_permissions_apps_granted_subtitle">
+        <item quantity="other">%1$d van %2$d apps toegestaan</item>
+        <item quantity="one">%1$d van %2$d app toegestaan</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_days_ago">
+        <item quantity="other">%1$d dagen geleden bekeken</item>
+        <item quantity="one">%1$d dag geleden bekeken</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_days_ago_short">
+        <item quantity="other">%1$d dagen geleden</item>
+        <item quantity="one">%1$d dag geleden</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_hours_ago">
+        <item quantity="other">%1$d uur geleden bekeken</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_hours_ago_short">
+        <item quantity="other">%1$d uur geleden</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_minutes_ago">
+        <item quantity="other">%1$d minuten geleden bekeken</item>
+        <item quantity="one">1 minuut geleden bekeken</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_minutes_ago_short">
+        <item quantity="other">%1$d minuten geleden</item>
+        <item quantity="one">1 minuut geleden</item>
+    </plurals>
+    <plurals name="settings_privacy_unblock_users_subtitle">
+        <item quantity="other">%1$d profielen geblokkeerd</item>
+        <item quantity="one">%1$d profiel geblokkeerd</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_new_violation">
+        <item quantity="other">%1$d recente schendingen</item>
+        <item quantity="one">%1$d recente schending</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle">
+        <item quantity="other">Je kunt %1$d dagen niet gebruikmaken van chats, groepen of Horizon Worlds.</item>
+        <item quantity="one">Je kunt %1$d dag geen gebruikmaken van chats, groepen of Horizon Worlds.</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle_hours">
+        <item quantity="other">Eindigt over %1$d uur.</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle_minutes">
+        <item quantity="other">Eindigt over %1$d minuten.</item>
+        <item quantity="one">Eindigt over %1$d minuut.</item>
+    </plurals>
+    <plurals name="settings_storage_selected_items_text">
+        <item quantity="other">%1$d geselecteerd</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_apps_title">
+        <item quantity="other">%1$d apps verwijderen</item>
+        <item quantity="one">%1$d app verwijderen</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_environments_title">
+        <item quantity="other">%1$d omgevingen verwijderen</item>
+        <item quantity="one">%1$d omgeving verwijderen</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_files_title">
+        <item quantity="other">%1$d bestanden verwijderen</item>
+        <item quantity="one">%1$d bestand verwijderen</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_images_title">
+        <item quantity="other">%1$d afbeeldingen verwijderen</item>
+        <item quantity="one">%1$d afbeelding verwijderen</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_unknown_sources_title">
+        <item quantity="other">%1$d onbekende bronnen verwijderen</item>
+        <item quantity="one">%1$d onbekende bron verwijderen</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_videos_title">
+        <item quantity="other">"%1$d video's verwijderen"</item>
+        <item quantity="one">%1$d video verwijderen</item>
+    </plurals>
+    <plurals name="social_suspension_description_days">
+        <item quantity="other">&lt;p style=\"text-align: center;\">Je profiel is beperkt omdat je je niet aan onze &lt;a href=\"%1$s\">gedragscode&lt;/a> hebt gehouden. Je kunt chats, groepen, gesprekken en Horizon Worlds %2$s dagen niet gebruiken. Eindigt op %3$s.&lt;/p></item>
+        <item quantity="one">&lt;p style=\"text-align: center;\">Je profiel is beperkt omdat je je niet aan onze &lt;a href=\"%1$s\">gedragscode&lt;/a> hebt gehouden. Je kunt chats, groepen, gesprekken en Horizon Worlds %2$s dag niet gebruiken. Eindigt op %3$s.&lt;/p></item>
+    </plurals>
+    <plurals name="social_suspension_description_hours">
+        <item quantity="other">&lt;p style=\"text-align: center;\">Je profiel is beperkt omdat je je niet aan onze &lt;a href=\"%1$s\">gedragscode&lt;/a> hebt gehouden. Je kunt chats, groepen, gesprekken en Horizon Worlds %2$s uur niet gebruiken. Eindigt op %3$s.&lt;/p></item>
+    </plurals>
+    <plurals name="subdestination_max_users">
+        <item quantity="other">Maximaal %1$d spelers</item>
+        <item quantity="one">Maximaal %1$d speler</item>
+    </plurals>
+</resources>

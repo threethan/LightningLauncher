@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:orientation="horizontal" android:tag="layout/profile_follow_labels_view_0" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.oculus.ocui.OCButton android:textSize="14.0sp" android:textColor="?ocPrimaryText" android:id="@id/following_button" android:tag="binding_1" android:background="@drawable/follow_tab_background" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingHorizontal="16.0dip" android:paddingVertical="8.0dip" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <com.oculus.ocui.OCButton android:textSize="14.0sp" android:textColor="?ocPrimaryText" android:id="@id/follower_button" android:tag="binding_2" android:background="@drawable/follow_tab_background" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/abc_button_padding_horizontal_material" android:paddingHorizontal="16.0dip" android:paddingVertical="8.0dip" app:layout_constraintStart_toEndOf="@id/following_button" app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.panelapp.bugreporter.PTMediaSelectView android:tag="layout/playtesting_feedback_media_select_view_0" android:background="@drawable/ocpanel_background" android:paddingBottom="24.0dip" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginStart="20.0dip" android:layout_marginEnd="20.0dip">
+        <com.oculus.ocui.OCTextView android:textSize="@dimen/octypography_body1_line_height" android:textStyle="bold" android:textColor="?ocPrimaryText" android:layout_gravity="center|top" android:id="@id/title" android:paddingTop="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bug_report_media_camera_roll_label" android:includeFontPadding="false" />
+        <com.oculus.ocui.OCRecyclerView android:scrollbarStyle="outsideOverlay" android:id="@id/camera_roll" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="250.0dip" android:layout_marginTop="14.0dip" />
+        <com.oculus.ocui.OCButton android:id="@id/continue_button" android:tag="binding_1" android:layout_width="fill_parent" android:layout_height="@dimen/anytime_tablet_common_rectangular_button_height" android:layout_marginTop="20.0dip" />
+    </LinearLayout>
+</com.oculus.panelapp.bugreporter.PTMediaSelectView>

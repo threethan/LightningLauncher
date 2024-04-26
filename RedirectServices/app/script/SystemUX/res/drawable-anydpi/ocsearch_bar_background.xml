@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <size android:height="@dimen/anytime_tablet_common_rectangular_button_height" />
+            <corners android:radius="@dimen/anytime_tablet_library_footer_body_height" />
+            <solid android:color="?ocTextInputBackground" />
+        </shape>
+    </item>
+    <item>
+        <drawable class="com.oculus.ocui.drawable.OCInteractionOverlayDrawable">
+            <selector>
+                <item android:state_focused="true">
+                    <shape android:shape="rectangle">
+                        <size android:height="@dimen/anytime_tablet_common_rectangular_button_height" />
+                        <corners android:radius="@dimen/anytime_tablet_library_footer_body_height" />
+                        <stroke android:width="@dimen/abc_control_corner_material" android:color="?ocTextInputSelectedOutline" />
+                        <solid android:color="@android:color/transparent" />
+                    </shape>
+                </item>
+                <item>
+                    <shape android:shape="rectangle">
+                        <corners android:radius="@dimen/anytime_tablet_library_footer_body_height" />
+                        <solid android:color="@android:color/transparent" />
+                    </shape>
+                </item>
+            </selector>
+        </drawable>
+    </item>
+</layer-list>

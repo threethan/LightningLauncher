@@ -1,0 +1,12 @@
+{
+  "content": [
+    {
+      "key": "first_time_nux_complete",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "crossUser",
+      "isOwner": false
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_up_description">Fara upp</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+</string>
+    <string name="abc_menu_delete_shortcut_label">eyða</string>
+    <string name="abc_menu_enter_shortcut_label">enter</string>
+    <string name="abc_menu_function_shortcut_label">Aðgerðarlykill+</string>
+    <string name="abc_menu_meta_shortcut_label">Meta+</string>
+    <string name="abc_menu_shift_shortcut_label">Shift+</string>
+    <string name="abc_menu_space_shortcut_label">bilslá</string>
+    <string name="abc_menu_sym_shortcut_label">Sym+</string>
+    <string name="abc_prepend_shortcut_label">Valmynd+</string>
+    <string name="abc_searchview_description_clear">Hreinsa fyrirspurn</string>
+    <string name="abc_searchview_description_search">Leit</string>
+    <string name="abc_searchview_description_submit">Senda fyrirspurn</string>
+    <string name="abc_searchview_description_voice">Raddleit</string>
+    <string name="default_popup_window_title">Sprettigluggi</string>
+    <string name="in_progress">Í vinnslu</string>
+    <string name="indeterminate">Hakað við að hluta til</string>
+    <string name="not_selected">Ekki valið</string>
+    <string name="off">Slökkt</string>
+    <string name="on">Kveikt</string>
+    <string name="selected">Valið</string>
+    <string name="switch_role">Skipta</string>
+    <string name="tab">Flipi</string>
+    <string name="template_percent">%1$d prósent.</string>
+</resources>

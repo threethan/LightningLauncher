@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/privacyFOAProfileEntryItem" android:tag="layout/settings_privacy_foa_profile_entry_item_0" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dip" android:layout_marginStart="24.0dip" android:layout_marginEnd="24.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.oculus.ocui.OCProfilePhoto android:id="@id/privacyFOAProfilePhoto" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="16.0dip">
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.oculus.ocui.OCTextView android:textSize="@dimen/anytime_tablet_profile_text_size_medium" android:id="@id/privacyFOAProfileName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lineHeight="@dimen/octypography_body1_line_height" style="@style/Base" />
+        </LinearLayout>
+        <com.oculus.ocui.OCTextView android:textSize="@dimen/anytime_tablet_profile_text_size_small" android:id="@id/privacyFOAProfileEntryStatus" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lineHeight="@dimen/keypad_text_size" style="@style/Base" />
+    </LinearLayout>
+</LinearLayout>

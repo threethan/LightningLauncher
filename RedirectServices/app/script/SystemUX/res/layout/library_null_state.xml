@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.ocui.OCTextView android:textSize="@dimen/anytime_tablet_profile_text_size_small" android:textColor="?ocSecondaryText" android:gravity="center" android:id="@id/null_state_description" android:tag="layout/library_null_state_0" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="186.0dip" android:layout_marginHorizontal="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

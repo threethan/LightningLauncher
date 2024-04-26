@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:height="54.0dip" android:width="54.0dip" android:viewportWidth="75.0" android:viewportHeight="75.0"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+    <path android:fillColor="@drawable/$vector_ic_bubble__0" android:pathData="M37.4854,0.1083C16.6422,0.1083 0.4854,15.376 0.4854,35.9983C0.4854,46.7851 4.9062,56.1062 12.1054,62.5443C12.7098,63.0849 13.0747,63.8432 13.0994,64.6537L13.3009,71.236C13.3653,73.3348 15.5339,74.7012 17.4549,73.8532L24.7988,70.6115C25.4214,70.3365 26.119,70.2853 26.775,70.4659C30.1498,71.3938 33.7416,71.8883 37.4854,71.8883C58.3286,71.8883 74.4854,56.6206 74.4854,35.9983C74.4854,15.376 58.3286,0.1083 37.4854,0.1083Z" android:fillType="evenOdd" />
+</vector>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item app:button_state_in_progress="true">
+        <layer-list>
+            <item>
+                <shape android:shape="oval">
+                    <stroke android:width="@dimen/lock_pattern_dot_line_width" android:color="@color/oc_black_a15" />
+                </shape>
+            </item>
+            <item>
+                <com.oculus.ocui.drawable.OCCircleClipDrawable>
+                    <shape android:shape="oval">
+                        <stroke android:width="@dimen/lock_pattern_dot_line_width" android:color="?ocControlIcon" />
+                    </shape>
+                </com.oculus.ocui.drawable.OCCircleClipDrawable>
+            </item>
+        </layer-list>
+    </item>
+</selector>

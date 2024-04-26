@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="anytime_bar_active_call_bar_messenger_mic_switcher_use_call_audio_tooltip_subtitle">
+        <item quantity="other">%1$d kişi</item>
+    </plurals>
+    <plurals name="anytime_bar_active_call_bar_party_button_tooltip_subtitle">
+        <item quantity="other">%1$d kişi</item>
+    </plurals>
+    <plurals name="anytime_library_app_multiple_locked_toast_description">
+        <item quantity="other">%1$d uygulama kilitlendi</item>
+    </plurals>
+    <plurals name="anytime_library_app_multiple_unlocked_toast_description">
+        <item quantity="other">%1$d uygulamanın kilidi açıldı</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_install_warning_tooltip">
+        <item quantity="other">Bu uygulamanın tamamen yüklenmesi %1$d dakika veya daha uzun sürebilir.</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_lock_bulk_action_description">
+        <item quantity="other">%1$d uygulamayı kilitle</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_lock_bulk_action_title">
+        <item quantity="other">%1$d Uygulama Kilitlensin mi?</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_tile_subtitle_supports_players">
+        <item quantity="other">1-%1$d kişi</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_unlock_bulk_action_description">
+        <item quantity="other">%1$d uygulamanın kilidini aç</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_unlock_bulk_action_title">
+        <item quantity="other">%1$d Uygulamanın Kilidi Açılsın mı?</item>
+        <item quantity="one">%1$d uygulamanın kilidi açılsın mı?</item>
+    </plurals>
+    <plurals name="anytime_tablet_profile_pending_follow_request_confirm_title">
+        <item quantity="other">%1$d bekleyen takip isteği</item>
+    </plurals>
+    <plurals name="cloud_backups_num_attempts_remaining_text">
+        <item quantity="other">%1$d deneme kaldı</item>
+    </plurals>
+    <plurals name="follower_view_pill_title">
+        <item quantity="other">%1$d takipçi</item>
+    </plurals>
+    <plurals name="last_played_with_time_days">
+        <item quantity="other">%1$d gün önce</item>
+    </plurals>
+    <plurals name="last_played_with_time_hours">
+        <item quantity="other">%1$d saat önce</item>
+    </plurals>
+    <plurals name="last_played_with_time_minutes">
+        <item quantity="other">%1$d dakika önce</item>
+    </plurals>
+    <plurals name="last_played_with_time_weeks">
+        <item quantity="other">%1$d hafta önce</item>
+    </plurals>
+    <plurals name="lockpassword_pin_too_long">
+        <item quantity="other">%1$d haneden kısa olmalıdır</item>
+    </plurals>
+    <plurals name="lockpassword_pin_too_short">
+        <item quantity="other">PIN en az %1$d haneli olmalıdır</item>
+        <item quantity="one">PIN en az %1$d rakam içermelidir</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_hours">
+        <item quantity="other">%1$d saat sonra tekrar dene</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_min">
+        <item quantity="other">%1$d dakika sonra tekrar dene</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_sec">
+        <item quantity="other">%1$d saniye sonra tekrar dene</item>
+    </plurals>
+    <plurals name="request_view_pill_title">
+        <item quantity="other">%1$d istek</item>
+    </plurals>
+    <plurals name="safety_center_violation_list_enforcement_social_suspension">
+        <item quantity="other">"%1$d gün boyunca sohbeti, grupları veya Horizon Dünyaları'nı kullanamazsın"</item>
+    </plurals>
+    <plurals name="settings_apps_lock_selected_items_text">
+        <item quantity="other">%1$d Seçildi</item>
+    </plurals>
+    <plurals name="settings_permissions_apps_granted_subtitle">
+        <item quantity="other">%1$d / %2$d uygulamaya izin veriliyor</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_days_ago">
+        <item quantity="other">%1$d gün önce erişildi</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_days_ago_short">
+        <item quantity="other">%1$d gün önce</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_hours_ago">
+        <item quantity="other">%1$d saat önce erişildi</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_hours_ago_short">
+        <item quantity="other">%1$d saat önce</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_minutes_ago">
+        <item quantity="other">%1$d dakika önce erişildi</item>
+        <item quantity="one">1 dakika önce erişildi</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_minutes_ago_short">
+        <item quantity="other">%1$d dakika önce</item>
+        <item quantity="one">1 dakika önce</item>
+    </plurals>
+    <plurals name="settings_privacy_unblock_users_subtitle">
+        <item quantity="other">%1$d profil engellendi</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_new_violation">
+        <item quantity="other">Yakınlarda %1$d ihlal</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle">
+        <item quantity="other">"%1$d gün boyunca sohbetleri, grupları veya Horizon Dünyaları'nı kullanamazsın."</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle_hours">
+        <item quantity="other">%1$d saat sonra sona erecek.</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle_minutes">
+        <item quantity="other">%1$d dakika sonra sona erecek.</item>
+    </plurals>
+    <plurals name="settings_storage_selected_items_text">
+        <item quantity="other">%1$d Seçildi</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_apps_title">
+        <item quantity="other">%1$d Uygulamanın Yüklemesini Kaldır</item>
+        <item quantity="one">%1$d Uygulamasının Yüklemesini Kaldır</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_environments_title">
+        <item quantity="other">%1$d Ortamın Yüklemesini Kaldır</item>
+        <item quantity="one">%1$d Ortamının Yüklemesini Kaldır</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_files_title">
+        <item quantity="other">%1$d Dosyayı Sil</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_images_title">
+        <item quantity="other">%1$d Görseli Sil</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_unknown_sources_title">
+        <item quantity="other">%1$d Bilinmeyen Kaynağı Sil</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_videos_title">
+        <item quantity="other">%1$d Videoyu Sil</item>
+    </plurals>
+    <plurals name="social_suspension_description_days">
+        <item quantity="other">"&lt;p style=\"text-align: center;\"> &lt;a href=\"%1$s\">Davranış kurallarımıza&lt;/a> uymadığın için profilin kısıtlandı. %2$s gün boyunca sohbetleri, grupları, aramaları veya Horizon Dünyaları'nı kullanamazsın. Bitiş: %3$s.&lt;/p>"</item>
+    </plurals>
+    <plurals name="social_suspension_description_hours">
+        <item quantity="other">"&lt;p style=\"text-align: center;\"> &lt;a href=\"%1$s\">Davranış kurallarımıza&lt;/a> uymadığın için profilin kısıtlandı. %2$s saat boyunca sohbetleri, grupları, aramaları veya Horizon Dünyaları'nı kullanamazsın. Bitiş: %3$s.&lt;/p>"</item>
+    </plurals>
+    <plurals name="subdestination_max_users">
+        <item quantity="other">En fazla %1$d oyuncu</item>
+    </plurals>
+</resources>

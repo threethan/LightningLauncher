@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.panelapp.sharing.SharingView android:id="@id/sharing_view" android:tag="layout/sharing_view_0" android:background="@drawable/ocpanel_background_disable_rounding" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/view_container" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</com.oculus.panelapp.sharing.SharingView>

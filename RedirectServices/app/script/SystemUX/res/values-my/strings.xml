@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_up_description">အပေါ်သို့ ရွှေ့ရန်</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+</string>
+    <string name="abc_menu_delete_shortcut_label">delete</string>
+    <string name="abc_menu_enter_shortcut_label">enter</string>
+    <string name="abc_menu_function_shortcut_label">Function+</string>
+    <string name="abc_menu_meta_shortcut_label">Meta+</string>
+    <string name="abc_menu_shift_shortcut_label">Shift+</string>
+    <string name="abc_menu_space_shortcut_label">space</string>
+    <string name="abc_menu_sym_shortcut_label">Sym+</string>
+    <string name="abc_prepend_shortcut_label">Menu+</string>
+    <string name="abc_searchview_description_clear">ရှာဖွေမှုကို ဖယ်ရှားရန်</string>
+    <string name="abc_searchview_description_search">ရှာရန်</string>
+    <string name="abc_searchview_description_submit">ရှာဖွေစရာ အချက်အလက်ကို ပေးပို့ရန်</string>
+    <string name="abc_searchview_description_voice">အသံဖြင့် ရှာရန်</string>
+    <string name="default_popup_window_title">ပေါ့ပ်အပ် ဝင်းဒိုး</string>
+    <string name="in_progress">ဆောင်ရွက်နေဆဲ</string>
+    <string name="indeterminate">တစ်ဝက်တစ်ပျက် စစ်ဆေးထားသည်</string>
+    <string name="not_selected">ရွေးမထားပါ</string>
+    <string name="off">ပိတ်</string>
+    <string name="on">ဖွင့်</string>
+    <string name="selected">ရွေးထားသည်</string>
+    <string name="switch_role">ပြောင်းရန်</string>
+    <string name="tab">တဘ်</string>
+    <string name="template_percent">%1$d ရာခိုင်နှုန်း။</string>
+</resources>

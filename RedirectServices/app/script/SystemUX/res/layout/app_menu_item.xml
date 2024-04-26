@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:id="@id/parent_layout" android:tag="layout/app_menu_item_0" android:layout_width="fill_parent" android:layout_height="@dimen/abc_star_medium" android:layout_marginTop="4.0dip" android:layout_marginBottom="4.0dip" android:paddingStart="8.0dip" android:paddingEnd="8.0dip" fresco:cardCornerRadius="?ocAppTileBorderRadius" fresco:cardElevation="0.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:fresco="http://schemas.android.com/apk/res-auto">
+    <com.oculus.ocui.OCButton android:textColor="?ocPrimaryText" android:layout_gravity="center_vertical" android:id="@id/outer_button" android:background="@drawable/ocbutton_app_menu" android:paddingLeft="32.0dip" android:paddingRight="8.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:textAlignment="textStart" />
+    <ImageView android:layout_gravity="center_vertical" android:id="@id/appIcon" android:layout_width="16.0dip" android:layout_height="16.0dip" android:layout_weight="0.0" android:layout_marginStart="8.0dip" android:layout_marginEnd="8.0dip" fresco:actualImageScaleType="centerCrop" />
+</androidx.cardview.widget.CardView>

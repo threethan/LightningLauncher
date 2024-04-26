@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <rotate android:drawable="@drawable/ic_arrow_back_24dp" android:fromDegrees="0.0" android:toDegrees="180.0" android:pivotX="50.0%" android:pivotY="50.0%" />
+    </item>
+</layer-list>

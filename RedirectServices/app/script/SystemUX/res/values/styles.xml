@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Base" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">?ocPrimaryText</item>
+    </style>
+    <style name="Base.CardView" parent="@android:style/Widget">
+        <item name="cardCornerRadius">@dimen/abc_control_corner_material</item>
+        <item name="cardElevation">@dimen/abc_control_corner_material</item>
+        <item name="cardMaxElevation">@dimen/abc_control_corner_material</item>
+        <item name="cardPreventCornerOverlap">true</item>
+        <item name="cardUseCompatPadding">false</item>
+    </style>
+    <style name="Body1" parent="@style/Base">
+        <item name="android:textSize">@dimen/anytime_tablet_profile_text_size_medium</item>
+        <item name="lineHeight">@dimen/octypography_body1_line_height</item>
+    </style>
+    <style name="Body2" parent="@style/Base">
+        <item name="android:textSize">@dimen/anytime_tablet_profile_text_size_small</item>
+        <item name="lineHeight">@dimen/keypad_text_size</item>
+    </style>
+    <style name="ButtonPrimary" parent="@android:style/Widget.Button">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">@color/oc_text</item>
+        <item name="android:background">@drawable/ocbutton_primary</item>
+        <item name="android:paddingLeft">20.0dip</item>
+        <item name="android:paddingRight">20.0dip</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minWidth">30.0dip</item>
+        <item name="android:minHeight">0.0dip</item>
+        <item name="android:fontFamily">sans-serif-regular</item>
+    </style>
+    <style name="CardView" parent="@style/Base.CardView">
+        <item name="cardBackgroundColor">?android:colorBackgroundFloating</item>
+    </style>
+    <style name="DialogWindowTheme">
+        <item name="android:windowClipToOutline">false</item>
+    </style>
+    <style name="ExpandedStateTitle" parent="@style/H3">
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="FbProgressHorizontal" parent="@android:style/Widget.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/fb_progress_horizontal</item>
+    </style>
+    <style name="H1" parent="@style/Base">
+        <item name="android:textSize">@dimen/octypography_h1_font_size</item>
+        <item name="lineHeight">@dimen/octypography_h1_line_height</item>
+    </style>
+    <style name="H2" parent="@style/Base">
+        <item name="android:textSize">@dimen/anytime_tablet_profile_text_size_large</item>
+        <item name="lineHeight">@dimen/octypography_h2_line_height</item>
+    </style>
+    <style name="H3" parent="@style/Base">
+        <item name="android:textSize">@dimen/octypography_body1_line_height</item>
+        <item name="lineHeight">@dimen/anytime_tablet_profile_text_size_large</item>
+    </style>
+    <style name="HorizontalDivider">
+        <item name="android:background">?ocDivider</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">1.0dip</item>
+    </style>
+    <style name="LockPatternView">
+        <item name="errorColor">?ocNegative</item>
+        <item name="pathColor">?ocAccent</item>
+        <item name="regularColor">?ocPrimaryIcon</item>
+        <item name="successColor">?ocPrimaryIcon</item>
+    </style>
+    <style name="NoAnimAndTitleBar" parent="@android:style/Theme.Material.NoActionBar.Fullscreen">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:textColor">@color/oc_text</item>
+        <item name="android:textColorHint">?ocPlaceholderText</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:background">@null</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:editTextColor">@color/oc_text</item>
+        <item name="android:navigationBarColor">@android:color/black</item>
+        <item name="ocButtonShelfStyle">@style/OCButtonShelfStyle</item>
+        <item name="ocHighlightStyle">@style/OCHighlight</item>
+        <item name="ocPeopleCardInfoStyle">@style/OCPeopleCardInfoStyle</item>
+        <item name="ocProgressButtonPrimaryStyle">@style/OCProgressButtonPrimaryStyle</item>
+        <item name="ocRoundedBadgeStyle">@style/OCRoundedBadgeStyle</item>
+        <item name="ocSelectStyle">@style/OCSelectStyle</item>
+        <item name="ocTabLayoutStyle">@style/OCTabLayout</item>
+        <item name="ocTooltipButtonStyle">@style/ButtonPrimary</item>
+    </style>
+    <style name="NoAnimAndTitleBar.Qds" parent="@style/NoAnimAndTitleBar">
+        <item name="android:radioButtonStyle">@style/QDSRadioButtonStyle</item>
+        <item name="android:fontFamily">@string/octypography_font_family_qds</item>
+        <item name="android:ambientShadowAlpha">1.0</item>
+        <item name="android:spotShadowAlpha">0.0</item>
+        <item name="ocAppTileBorderRadius">@dimen/active_call_bar_active_call_button_padding</item>
+        <item name="ocButtonBorderRadius">@dimen/anytime_tablet_library_footer_body_height</item>
+        <item name="ocCardBorderRadius">@dimen/abc_star_small</item>
+        <item name="ocCardStyle">@style/OCCard</item>
+        <item name="ocChipStyle">@style/OCChip</item>
+        <item name="ocContextMenuBorderRadius">@dimen/anytime_tablet_library_footer_body_height</item>
+        <item name="ocContextMenuStyle">@style/OCContextMenu</item>
+        <item name="ocDialogBorderRadius">@dimen/anytime_tablet_library_footer_body_height</item>
+        <item name="ocInfoStyle">@style/OCInfo</item>
+        <item name="ocListItemStyle">@style/OCListItem</item>
+        <item name="ocListItemTitleGoneMarginStart">@dimen/abc_star_small</item>
+        <item name="ocMoreButtonIcon">@drawable/oc_icon_more_horizontal_filled_24</item>
+        <item name="ocNotificationBgCornerRadius">@dimen/abc_star_small</item>
+        <item name="ocPanelBorderRadius">@dimen/anytime_tablet_library_footer_body_height</item>
+        <item name="ocPeoplePeopleListMarginEnd">@dimen/anytime_tablet_library_app_tile_margin_horizontal</item>
+        <item name="ocPeoplePeopleListMarginTop">@dimen/active_call_bar_active_call_button_padding</item>
+        <item name="ocPeopleSearchPeopleListMarginTop">@dimen/active_call_bar_active_call_button_padding</item>
+        <item name="ocPeopleSearchResultHeaderMarginBottom">@dimen/abc_star_small</item>
+        <item name="ocPeopleSearchResultHeaderMarginTop">@dimen/anytime_tablet_library_app_tile_margin_horizontal</item>
+        <item name="ocPeopleSearchTopBarBackButtonMarginStart">@dimen/abc_star_small</item>
+        <item name="ocPeopleSearchTopBarBackButtonMarginTop">@dimen/anytime_tablet_library_app_tile_margin_horizontal</item>
+        <item name="ocPeopleSearchTopBarBackButtonSize">@dimen/anytime_tablet_library_app_tile_cta_text_bottom_margin</item>
+        <item name="ocPeopleSearchTopBarHeight">@dimen/anytime_tablet_library_app_grid_margin_top_side_nav_enabled</item>
+        <item name="ocPeopleSearchTopBarMarginStart">@dimen/anytime_tablet_library_app_tile_margin_horizontal</item>
+        <item name="ocPeopleSearchTopBarMarginTop">@dimen/anytime_tablet_library_app_tile_margin_horizontal</item>
+        <item name="ocPeopleSearchTopBarPaddingVertical">@dimen/active_call_bar_button_margin_horizontal</item>
+        <item name="ocPeopleUserCardMarginVertical">@dimen/abc_star_small</item>
+        <item name="ocProfilePhotoStyle">@style/QDSProfilePhotoStyle</item>
+        <item name="ocProgressBarStyle">@style/QDSProgressBar</item>
+        <item name="ocQdsVersion">two</item>
+        <item name="ocSearchBarStyle">@style/OCSearchBar</item>
+        <item name="ocSideNavItemMinHeight">@dimen/anytime_tablet_common_rectangular_button_height</item>
+        <item name="ocSideNavItemRadius">@dimen/active_call_bar_active_call_button_padding</item>
+        <item name="ocSideNavItemTitlePaddingStart">@dimen/abc_button_padding_horizontal_material</item>
+        <item name="ocSideNavTitlePaddingVertical">26.0dip</item>
+        <item name="ocSliderStyle">@style/OCSlider</item>
+        <item name="ocTextInputStyle">@style/OCTextInput</item>
+        <item name="ocThreadBubblePaddingHorizontal">@dimen/abc_star_small</item>
+        <item name="ocThreadBubblePaddingVertical">@dimen/abc_button_inset_vertical_material</item>
+        <item name="ocThreadBubbleRadius">@dimen/abc_star_small</item>
+        <item name="ocThreadBubbleSmallRadius">@dimen/abc_control_inset_material</item>
+        <item name="ocThreadItemMarginBottom">@dimen/abc_button_padding_horizontal_material</item>
+        <item name="ocThreadItemRadius">@dimen/active_call_bar_active_call_button_padding</item>
+        <item name="ocToggleKnobMargin">@dimen/abc_control_corner_material</item>
+        <item name="ocToggleKnobSize">@dimen/anytime_tablet_library_footer_body_height</item>
+        <item name="ocToggleStyle">@style/OCToggle</item>
+        <item name="ocToggleWidth">@dimen/anytime_tablet_common_rectangular_button_height</item>
+        <item name="ocTooltipCtaButtonSize">@dimen/abc_dropdownitem_icon_width</item>
+        <item name="ocTooltipIconButtonBackground">@drawable/ocbutton_secondary_circle</item>
+    </style>
+    <style name="OCButton">
+        <item name="android:textSize">@dimen/anytime_tablet_profile_text_size_medium</item>
+        <item name="android:textColor">@null</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingLeft">@dimen/abc_star_small</item>
+        <item name="android:paddingRight">@dimen/abc_star_small</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+        <item name="mode">secondary</item>
+    </style>
+    <style name="OCButton.BackButton" parent="@style/OCButton">
+        <item name="android:background">@drawable/ocbutton_borderless_circle</item>
+        <item name="android:minWidth">36.0dip</item>
+        <item name="android:minHeight">36.0dip</item>
+        <item name="drawableCenter">@drawable/oc_icon_arrow_left_filled_24</item>
+        <item name="drawableCenterPadding">6.0dip</item>
+        <item name="mode">borderless</item>
+    </style>
+    <style name="OCButtonShelfStyle">
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/ocbuttonshelf_primary_background</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:drawablePadding">@dimen/abc_control_inset_material</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+        <item name="shelfIconTint">@color/octilebutton_icon</item>
+        <item name="shelfLabelColor">@color/octilebutton_icon</item>
+    </style>
+    <style name="OCCard">
+        <item name="ocCardFooterBackground">@null</item>
+        <item name="ocCardFooterMargin">@dimen/anytime_tablet_library_app_tile_margin_horizontal</item>
+        <item name="ocCardFooterTopMargin">@dimen/abc_star_small</item>
+        <item name="ocCardHoverBackground">?ocOverlayOnMedia</item>
+        <item name="ocCardHoverFooterMargin">@dimen/abc_star_small</item>
+    </style>
+    <style name="OCCheckbox">
+        <item name="android:textSize">@dimen/anytime_tablet_profile_text_size_medium</item>
+        <item name="android:textColor">@color/oc_text</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:gravity">start|center</item>
+        <item name="android:background">@null</item>
+        <item name="android:button">@drawable/occheckbox</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+    </style>
+    <style name="OCChip">
+        <item name="android:textSize">@dimen/anytime_tablet_profile_text_size_medium</item>
+        <item name="android:textColor">@color/occhip_text</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/ocbutton_chip</item>
+        <item name="android:paddingLeft">@dimen/abc_star_small</item>
+        <item name="android:paddingTop">@dimen/abc_button_inset_vertical_material</item>
+        <item name="android:paddingRight">@dimen/abc_star_small</item>
+        <item name="android:paddingBottom">@dimen/abc_button_inset_vertical_material</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:drawablePadding">@dimen/abc_button_padding_horizontal_material</item>
+        <item name="android:drawableTint">@color/occhip_icon</item>
+    </style>
+    <style name="OCContextMenu">
+        <item name="iconSpacingHorizontal">@dimen/abc_edit_text_inset_top_material</item>
+        <item name="itemDrawable">@drawable/occontext_menu_item_qds</item>
+        <item name="textSpacingHorizontal">@dimen/active_call_bar_active_call_button_padding</item>
+    </style>
+    <style name="OCHighlight">
+        <item name="ocHighlightBorderRadius">12.0dip</item>
+    </style>
+    <style name="OCInfo" parent="@style/Body2">
+        <item name="android:textColor">?ocSecondaryText</item>
+        <item name="android:background">@drawable/ocinfo_background</item>
+        <item name="android:drawablePadding">@dimen/active_call_bar_active_call_button_padding</item>
+        <item name="android:drawableTint">?ocSecondaryIcon</item>
+        <item name="spinnerSize">@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins</item>
+    </style>
+    <style name="OCInteractionOverlayDrawableStyle">
+        <item name="ocInteractionOverlayHover">?ocHoverOverlay</item>
+        <item name="ocInteractionOverlayPress">?ocPressedOverlay</item>
+        <item name="ocInteractionUseBitmapMask">false</item>
+    </style>
+    <style name="OCListItem">
+        <item name="android:background">@drawable/oc_list_item_background_qds</item>
+        <item name="android:paddingTop">@dimen/abc_button_padding_horizontal_material</item>
+        <item name="android:paddingBottom">@dimen/abc_button_padding_horizontal_material</item>
+        <item name="android:minHeight">@dimen/active_call_bar_height</item>
+        <item name="android:paddingEnd">@dimen/active_call_bar_active_call_button_padding</item>
+        <item name="listItemShowMoreButton">true</item>
+    </style>
+    <style name="OCPeopleCardInfoStyle">
+        <item name="android:background">@drawable/ocpeople_card_info_background</item>
+        <item name="android:padding">@dimen/active_call_bar_active_call_button_padding</item>
+    </style>
+    <style name="OCProfilePhotoDialog">
+        <item name="android:paddingRight">0.0dip</item>
+        <item name="android:paddingBottom">0.0dip</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="appBadgeSize">24.0dip</item>
+        <item name="availabilityBadgeSize">0.0dip</item>
+        <item name="badgeOutlineWidth">0.0dip</item>
+        <item name="photoSize">72.0dip</item>
+    </style>
+    <style name="OCProgressButtonPrimaryStyle" parent="@style/OCButton">
+        <item name="android:background">@drawable/oc_progress_button_primary_bar</item>
+        <item name="android:minHeight">@dimen/anytime_tablet_common_rectangular_button_height</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:drawablePadding">@dimen/abc_button_padding_horizontal_material</item>
+        <item name="mode">primary</item>
+    </style>
+    <style name="OCRecyclerView">
+        <item name="android:scrollbarSize">12.0dip</item>
+        <item name="android:scrollbarThumbVertical">@drawable/ocrecyclerview_thumb_vertical</item>
+        <item name="android:scrollbarStyle">insideInset</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:fadeScrollbars">false</item>
+    </style>
+    <style name="OCRoundedBadgeStyle" parent="@style/Body2">
+        <item name="android:textColor">?ocPrimaryButtonText</item>
+        <item name="android:ellipsize">none</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/ocbadge_rounded</item>
+        <item name="android:paddingLeft">5.0dip</item>
+        <item name="android:paddingRight">5.0dip</item>
+        <item name="android:minWidth">24.0dip</item>
+        <item name="android:minHeight">24.0dip</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+    <style name="OCSearchBar" parent="@android:style/Widget.EditText">
+        <item name="android:textAppearance">@style/Body1</item>
+        <item name="android:textColorHint">?ocPlaceholderText</item>
+        <item name="android:background">@drawable/ocsearch_bar_background</item>
+        <item name="android:paddingLeft">@dimen/active_call_bar_button_margin_horizontal</item>
+        <item name="android:paddingRight">@dimen/abc_control_inset_material</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:height">@dimen/anytime_tablet_common_rectangular_button_height</item>
+        <item name="android:drawableLeft">@drawable/oc_icon_search_filled_24</item>
+        <item name="android:drawablePadding">@dimen/abc_button_padding_horizontal_material</item>
+        <item name="android:inputType">text</item>
+        <item name="android:textCursorDrawable">@drawable/octext_input_cursor</item>
+        <item name="android:paddingVertical">@dimen/abc_control_inset_material</item>
+        <item name="buttonColor">@color/ocsearch_bar_button</item>
+        <item name="iconColor">?ocSecondaryIcon</item>
+    </style>
+    <style name="OCSelectStyle">
+        <item name="chevronDrawable">@drawable/oc_icon_chevron_down_filled_24</item>
+        <item name="mode">secondary</item>
+    </style>
+    <style name="OCSlider" parent="@android:style/Widget.SeekBar">
+        <item name="android:background">@null</item>
+        <item name="android:progressDrawable">@drawable/ocslider_progress</item>
+        <item name="android:thumb">@drawable/ocslider_thumb</item>
+        <item name="android:splitTrack">false</item>
+        <item name="largeProgressDrawable">@drawable/ocslider_progress_large_qds</item>
+        <item name="largeThumbDrawable">@drawable/ocslider_thumb_large_qds</item>
+        <item name="levelIconStartPadding">0.0dip</item>
+        <item name="levelIconTint">@color/oc_gray_100</item>
+        <item name="showLargeThumb">true</item>
+        <item name="sliderSize">small</item>
+    </style>
+    <style name="OCTabLayout">
+        <item name="android:background">@drawable/octablayout_background</item>
+        <item name="android:padding">@dimen/abc_control_corner_material</item>
+        <item name="ocTabBackground">@drawable/octablayout_tab_background</item>
+        <item name="ocTabIndicator">@drawable/octablayout_tab_indicator</item>
+        <item name="ocTabPaddingBottom">@dimen/abc_button_inset_vertical_material</item>
+        <item name="ocTabPaddingEnd">@dimen/abc_star_small</item>
+        <item name="ocTabPaddingStart">@dimen/abc_star_small</item>
+        <item name="ocTabPaddingTop">@dimen/abc_button_inset_vertical_material</item>
+        <item name="ocTabSpace">@dimen/abc_control_corner_material</item>
+    </style>
+    <style name="OCTextInput" parent="@android:style/Widget.EditText">
+        <item name="android:textAppearance">@style/Body1</item>
+        <item name="android:textColorHint">?ocPlaceholderText</item>
+        <item name="android:background">@drawable/octext_input_background</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:height">44.0dip</item>
+        <item name="android:inputType">text</item>
+        <item name="android:textCursorDrawable">@drawable/octext_input_cursor</item>
+        <item name="android:paddingHorizontal">@dimen/active_call_bar_active_call_button_padding</item>
+        <item name="android:paddingVertical">@dimen/abc_edit_text_inset_top_material</item>
+    </style>
+    <style name="OCToggle">
+        <item name="android:switchMinWidth">?ocToggleWidth</item>
+        <item name="ocToggleKnobMargin">@dimen/abc_control_corner_material</item>
+        <item name="ocToggleKnobSize">@dimen/anytime_tablet_library_footer_body_height</item>
+        <item name="ocToggleThumb">@drawable/octoggle_thumb_qds</item>
+        <item name="ocToggleWidth">@dimen/anytime_tablet_common_rectangular_button_height</item>
+    </style>
+    <style name="PrimaryButton" parent="@style/ButtonPrimary">
+        <item name="android:textColor">?ocPrimaryButtonText</item>
+        <item name="android:height">40.0dip</item>
+    </style>
+    <style name="QDSProfilePhotoStyle">
+        <item name="android:scaleType">centerCrop</item>
+        <item name="appBadgeSize">@dimen/anytime_bar_battery_icon_width</item>
+        <item name="availabilityBadgeSize">@dimen/abc_star_small</item>
+        <item name="badgeOutlineWidth">@dimen/abc_control_corner_material</item>
+        <item name="borderColor">?ocDivider</item>
+        <item name="borderWidth">@dimen/follow_user_list_item_glyph_margin</item>
+        <item name="partyBackgroundColor">?ocPositiveBackground</item>
+        <item name="partyBadgeSize">@dimen/abc_star_small</item>
+        <item name="photoSize">@dimen/dui_invite_notif_height</item>
+    </style>
+    <style name="QDSProgressBar">
+        <item name="fillType">gradient</item>
+        <item name="solidFillForegroundColor">?ocProgressIndicatorForeground</item>
+        <item name="steppedTrackHeight">@dimen/abc_control_inset_material</item>
+        <item name="trackHeight">@dimen/abc_button_padding_horizontal_material</item>
+    </style>
+    <style name="QDSRadioButtonStyle" parent="@android:style/Widget.CompoundButton.RadioButton">
+        <item name="android:textAppearance">@style/Body1</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:gravity">start|center</item>
+        <item name="android:padding">@dimen/abc_edit_text_inset_top_material</item>
+        <item name="android:button">@drawable/ocradiobutton</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+    </style>
+    <style name="QdsInteractionsPanelAppTheme" parent="@style/QdsPanelAppTheme">
+        <item name="ocQdsVersion">twoInteractions</item>
+    </style>
+    <style name="QdsInteractionsPanelAppTheme.Light" parent="@style/QdsPanelAppTheme.Light">
+        <item name="ocQdsVersion">twoInteractions</item>
+    </style>
+    <style name="QdsPanelAppTheme" parent="@style/Theme.Qds.Dark">
+        <item name="android:buttonStyle">@style/ButtonPrimary</item>
+        <item name="android:soundEffectsEnabled">false</item>
+        <item name="attn_system_sub_title_text_color">@color/assistant_notification_text_sublabel</item>
+        <item name="expanded_state_header_bg_color">?ocPanelBackground</item>
+        <item name="list_item_tint_color">@color/oc_white</item>
+        <item name="ocButtonStyle">@style/OCButton</item>
+        <item name="ocCheckboxStyle">@style/OCCheckbox</item>
+        <item name="ocRecyclerViewStyle">@style/OCRecyclerView</item>
+        <item name="scrollview_text_scroll_thumb_color">@color/oc_gray_80</item>
+    </style>
+    <style name="QdsPanelAppTheme.Light" parent="@style/Theme.Qds.Light">
+        <item name="android:buttonStyle">@style/ButtonPrimary</item>
+        <item name="android:soundEffectsEnabled">false</item>
+        <item name="attn_system_sub_title_text_color">@color/anytime_tablet_library_app_tile_blocking_overlay_a60</item>
+        <item name="expanded_state_header_bg_color">?ocPanelBackground</item>
+        <item name="list_item_tint_color">@color/anytime_tablet_library_app_tile_blocking_overlay_a60</item>
+        <item name="ocButtonStyle">@style/OCButton</item>
+        <item name="ocCheckboxStyle">@style/OCCheckbox</item>
+        <item name="ocRecyclerViewStyle">@style/OCRecyclerView</item>
+        <item name="scrollview_text_scroll_thumb_color">@color/oc_gray_20</item>
+    </style>
+    <style name="RtlOverlay.Widget.AppCompat.ActionBar.TitleItem" parent="@android:style/Widget">
+        <item name="android:layout_gravity">start|center</item>
+        <item name="android:paddingEnd">8.0dip</item>
+    </style>
+    <style name="RtlOverlay.Widget.AppCompat.PopupMenuItem" parent="@android:style/Widget">
+        <item name="android:paddingEnd">16.0dip</item>
+    </style>
+    <style name="RtlOverlay.Widget.AppCompat.PopupMenuItem.InternalGroup" parent="@android:style/Widget">
+        <item name="android:layout_marginStart">16.0dip</item>
+    </style>
+    <style name="RtlOverlay.Widget.AppCompat.PopupMenuItem.Shortcut" parent="@android:style/Widget">
+        <item name="android:textAlignment">viewEnd</item>
+        <item name="android:layout_marginStart">16.0dip</item>
+    </style>
+    <style name="RtlOverlay.Widget.AppCompat.PopupMenuItem.SubmenuArrow" parent="@android:style/Widget">
+        <item name="android:layout_marginStart">8.0dip</item>
+    </style>
+    <style name="RtlOverlay.Widget.AppCompat.PopupMenuItem.Text" parent="@android:style/Widget">
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:layout_alignParentStart">true</item>
+    </style>
+    <style name="RtlOverlay.Widget.AppCompat.PopupMenuItem.Title" parent="@android:style/Widget">
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:layout_marginStart">16.0dip</item>
+    </style>
+    <style name="RtlOverlay.Widget.AppCompat.Search.DropDown" parent="@android:style/Widget">
+        <item name="android:paddingStart">@dimen/abc_button_padding_horizontal_material</item>
+        <item name="android:paddingEnd">4.0dip</item>
+    </style>
+    <style name="RtlOverlay.Widget.AppCompat.Search.DropDown.Icon1" parent="@android:style/Widget">
+        <item name="android:layout_alignParentStart">true</item>
+    </style>
+    <style name="RtlOverlay.Widget.AppCompat.Search.DropDown.Icon2" parent="@android:style/Widget">
+        <item name="android:layout_toStartOf">@id/edit_query</item>
+    </style>
+    <style name="RtlOverlay.Widget.AppCompat.Search.DropDown.Query" parent="@android:style/Widget">
+        <item name="android:layout_alignParentEnd">true</item>
+    </style>
+    <style name="RtlOverlay.Widget.AppCompat.SearchView.MagIcon" parent="@android:style/Widget">
+        <item name="android:layout_marginStart">@dimen/abc_button_padding_horizontal_material</item>
+    </style>
+    <style name="SecondaryButton" parent="@style/ButtonPrimary">
+        <item name="android:textColor">?ocSecondaryButtonText</item>
+        <item name="android:background">@drawable/ocbutton_secondary</item>
+    </style>
+    <style name="TertiaryButton">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">?ocSecondaryText</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:height">40.0dip</item>
+    </style>
+    <style name="Theme.Qds.Dark" parent="@style/NoAnimAndTitleBar.Qds">
+        <item name="ocAccent">#ff47a5fa</item>
+        <item name="ocBadge">#ff0064e0</item>
+        <item name="ocBottomNavBackground">#19000000</item>
+        <item name="ocBrowserNavBackground">#19ffffff</item>
+        <item name="ocCardBackground">#19ffffff</item>
+        <item name="ocCardBackgroundOnMedia">#ff344854</item>
+        <item name="ocCardHoverOutline">#ff47a5fa</item>
+        <item name="ocCardHoverOverlay">#99000000</item>
+        <item name="ocContextMenuBackground">#ff0e161b</item>
+        <item name="ocControlBackgroundActive">#ff0064e0</item>
+        <item name="ocControlBackgroundInactive">#19ffffff</item>
+        <item name="ocControlBackgroundSegmented">#4c000000</item>
+        <item name="ocControlIcon">#fff1f4f7</item>
+        <item name="ocDialogBackground">#ff283943</item>
+        <item name="ocDisabledIcon">#4cffffff</item>
+        <item name="ocDisabledText">#4cffffff</item>
+        <item name="ocDivider">#26ffffff</item>
+        <item name="ocHoverOverlay">#19ffffff</item>
+        <item name="ocHoverOverlayOnMedia">#19ffffff</item>
+        <item name="ocIconButton">#99ffffff</item>
+        <item name="ocIconButtonBackground">#19ffffff</item>
+        <item name="ocIconButtonBackgroundOnMedia">#19ffffff</item>
+        <item name="ocIconOnMedia">#fff1f4f7</item>
+        <item name="ocKeyboardHoverOverlay">#0cffffff</item>
+        <item name="ocKeyboardPressedOverlay">#4cffffff</item>
+        <item name="ocLinkText">#ff73befa</item>
+        <item name="ocLinkTextOnHover">#ffafd7ff</item>
+        <item name="ocLinkTextOnPress">#ffcce6ff</item>
+        <item name="ocMessageBubbleGray">#ff0e161b</item>
+        <item name="ocMessageBubblePrimary">#ff0064e0</item>
+        <item name="ocMessageBubbleText">#fff1f4f7</item>
+        <item name="ocMessageReceivedBubbleBackground">#ff344854</item>
+        <item name="ocMessageRepliedBackground">#ff0e161b</item>
+        <item name="ocNegative">#fff05f69</item>
+        <item name="ocNegativeBackground">#ffaa0a1e</item>
+        <item name="ocNotificationBackground">#ff1c2b33</item>
+        <item name="ocOverlayOnMedia">#99000000</item>
+        <item name="ocPanelBackground">#ff1c2b33</item>
+        <item name="ocPanelControlBarBackground">#ff1c2b33</item>
+        <item name="ocPanelSideNavBackground">#26000000</item>
+        <item name="ocPlaceholderIcon">#4cffffff</item>
+        <item name="ocPlaceholderText">#4cffffff</item>
+        <item name="ocPositive">#ff6ee146</item>
+        <item name="ocPositiveBackground">#ff007d1e</item>
+        <item name="ocPressedOverlay">#33ffffff</item>
+        <item name="ocPressedOverlayOnMedia">#33ffffff</item>
+        <item name="ocPrimaryButtonBackground">#ff0064e0</item>
+        <item name="ocPrimaryButtonText">#fff1f4f7</item>
+        <item name="ocPrimaryIcon">#fff1f4f7</item>
+        <item name="ocPrimarySlider">#ff0064e0</item>
+        <item name="ocPrimaryText">#fff1f4f7</item>
+        <item name="ocPrimaryTextOnMedia">#fff1f4f7</item>
+        <item name="ocProgressBarBackground">#19ffffff</item>
+        <item name="ocProgressIndicatorBackground">#19ffffff</item>
+        <item name="ocProgressIndicatorForeground">#ff47a5fa</item>
+        <item name="ocRunningAppIndicator">#4cffffff</item>
+        <item name="ocScrollbar">#99ffffff</item>
+        <item name="ocSecondaryButtonBackground">#19ffffff</item>
+        <item name="ocSecondaryButtonBackgroundOnMedia">#19ffffff</item>
+        <item name="ocSecondaryButtonText">#fff1f4f7</item>
+        <item name="ocSecondaryIcon">#99ffffff</item>
+        <item name="ocSecondarySlider">#19ffffff</item>
+        <item name="ocSecondaryText">#99ffffff</item>
+        <item name="ocSecondaryTextOnMedia">#99ffffff</item>
+        <item name="ocSliderBackground">#19ffffff</item>
+        <item name="ocSteppedProgressBarBackground">#19ffffff</item>
+        <item name="ocSteppedProgressBarBackgroundOnMedia">#4cffffff</item>
+        <item name="ocSteppedProgressBarIndicator">#fff1f4f7</item>
+        <item name="ocSteppedProgressBarIndicatorOnMedia">#fff1f4f7</item>
+        <item name="ocTabActiveBackground">#19ffffff</item>
+        <item name="ocTabSecondarySelector">#19ffffff</item>
+        <item name="ocTextInputBackground">#19ffffff</item>
+        <item name="ocTextInputNegativeOutline">#fff05f69</item>
+        <item name="ocTextInputPositiveOutline">#ff6ee146</item>
+        <item name="ocTextInputSelectedOutline">#ff47a5fa</item>
+        <item name="ocTextSelectionBackground">#4c47a5fa</item>
+        <item name="ocToastBackground">#ff1c2b33</item>
+        <item name="ocTooltipBackground">#ff0e161b</item>
+        <item name="ocWarning">#fffaa550</item>
+        <item name="ocWarningBackground">#ffa0460a</item>
+    </style>
+    <style name="Theme.Qds.Light" parent="@style/NoAnimAndTitleBar.Qds">
+        <item name="ocAccent">#ff0064e0</item>
+        <item name="ocBadge">#ff0064e0</item>
+        <item name="ocBottomNavBackground">#4cffffff</item>
+        <item name="ocBrowserNavBackground">#99ffffff</item>
+        <item name="ocCardBackground">#0c000000</item>
+        <item name="ocCardBackgroundOnMedia">#ffdee3e9</item>
+        <item name="ocCardHoverOutline">#ff0064e0</item>
+        <item name="ocCardHoverOverlay">#99000000</item>
+        <item name="ocContextMenuBackground">#fff1f4f7</item>
+        <item name="ocControlBackgroundActive">#ff0064e0</item>
+        <item name="ocControlBackgroundInactive">#19000000</item>
+        <item name="ocControlBackgroundSegmented">#99ffffff</item>
+        <item name="ocControlIcon">#fff1f4f7</item>
+        <item name="ocDialogBackground">#ffdee3e9</item>
+        <item name="ocDisabledIcon">#4c000000</item>
+        <item name="ocDisabledText">#4c000000</item>
+        <item name="ocDivider">#26000000</item>
+        <item name="ocHoverOverlay">#19000000</item>
+        <item name="ocHoverOverlayOnMedia">#19ffffff</item>
+        <item name="ocIconButton">#99000000</item>
+        <item name="ocIconButtonBackground">#0c000000</item>
+        <item name="ocIconButtonBackgroundOnMedia">#19ffffff</item>
+        <item name="ocIconOnMedia">#fff1f4f7</item>
+        <item name="ocKeyboardHoverOverlay">#0c000000</item>
+        <item name="ocKeyboardPressedOverlay">#33000000</item>
+        <item name="ocLinkText">#ff0064e0</item>
+        <item name="ocLinkTextOnHover">#ff004bb9</item>
+        <item name="ocLinkTextOnPress">#ff001e6e</item>
+        <item name="ocMessageBubbleGray">#ff0e161b</item>
+        <item name="ocMessageBubblePrimary">#ff0064e0</item>
+        <item name="ocMessageBubbleText">#fff1f4f7</item>
+        <item name="ocMessageReceivedBubbleBackground">#ffa7b3bf</item>
+        <item name="ocMessageRepliedBackground">#ffdee3e9</item>
+        <item name="ocNegative">#ffaa0a1e</item>
+        <item name="ocNegativeBackground">#ffaa0a1e</item>
+        <item name="ocNotificationBackground">#ffcbd2d9</item>
+        <item name="ocOverlayOnMedia">#99000000</item>
+        <item name="ocPanelBackground">#ffcbd2d9</item>
+        <item name="ocPanelControlBarBackground">#ffcbd2d9</item>
+        <item name="ocPanelSideNavBackground">#0c000000</item>
+        <item name="ocPlaceholderIcon">#4c000000</item>
+        <item name="ocPlaceholderText">#4c000000</item>
+        <item name="ocPositive">#ff007d1e</item>
+        <item name="ocPositiveBackground">#ff007d1e</item>
+        <item name="ocPressedOverlay">#33000000</item>
+        <item name="ocPressedOverlayOnMedia">#33ffffff</item>
+        <item name="ocPrimaryButtonBackground">#ff0064e0</item>
+        <item name="ocPrimaryButtonText">#fff1f4f7</item>
+        <item name="ocPrimaryIcon">#ff1c2b33</item>
+        <item name="ocPrimarySlider">#ff0064e0</item>
+        <item name="ocPrimaryText">#ff1c2b33</item>
+        <item name="ocPrimaryTextOnMedia">#fff1f4f7</item>
+        <item name="ocProgressBarBackground">#0c000000</item>
+        <item name="ocProgressIndicatorBackground">#0c000000</item>
+        <item name="ocProgressIndicatorForeground">#ff0064e0</item>
+        <item name="ocRunningAppIndicator">#4c000000</item>
+        <item name="ocScrollbar">#99000000</item>
+        <item name="ocSecondaryButtonBackground">#0c000000</item>
+        <item name="ocSecondaryButtonBackgroundOnMedia">#19ffffff</item>
+        <item name="ocSecondaryButtonText">#ff1c2b33</item>
+        <item name="ocSecondaryIcon">#99000000</item>
+        <item name="ocSecondarySlider">#19000000</item>
+        <item name="ocSecondaryText">#99000000</item>
+        <item name="ocSecondaryTextOnMedia">#99ffffff</item>
+        <item name="ocSliderBackground">#0c000000</item>
+        <item name="ocSteppedProgressBarBackground">#0cffffff</item>
+        <item name="ocSteppedProgressBarBackgroundOnMedia">#4cffffff</item>
+        <item name="ocSteppedProgressBarIndicator">#ff1c2b33</item>
+        <item name="ocSteppedProgressBarIndicatorOnMedia">#fff1f4f7</item>
+        <item name="ocTabActiveBackground">#19000000</item>
+        <item name="ocTabSecondarySelector">#0c000000</item>
+        <item name="ocTextInputBackground">#0c000000</item>
+        <item name="ocTextInputNegativeOutline">#ffaa0a1e</item>
+        <item name="ocTextInputPositiveOutline">#ff007d1e</item>
+        <item name="ocTextInputSelectedOutline">#ff0064e0</item>
+        <item name="ocTextSelectionBackground">#4c0064e0</item>
+        <item name="ocToastBackground">#ffcbd2d9</item>
+        <item name="ocTooltipBackground">#fff1f4f7</item>
+        <item name="ocWarning">#ffa0460a</item>
+        <item name="ocWarningBackground">#ffa0460a</item>
+    </style>
+    <style name="Title" parent="@style/H2">
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="TooltipBody">
+        <item name="android:background">@drawable/tooltip_body</item>
+        <item name="android:paddingLeft">12.0dip</item>
+        <item name="android:paddingTop">6.0dip</item>
+        <item name="android:paddingRight">12.0dip</item>
+        <item name="android:paddingBottom">6.0dip</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="TooltipCaret">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+    <style name="TooltipCaretDown" parent="@style/TooltipCaretUpDown">
+        <item name="android:layout_marginBottom">@dimen/abc_edit_text_inset_top_material</item>
+    </style>
+    <style name="TooltipCaretLeft" parent="@style/TooltipCaretLeftRight">
+        <item name="android:layout_marginLeft">@dimen/abc_edit_text_inset_top_material</item>
+    </style>
+    <style name="TooltipCaretLeftRight" parent="@style/TooltipCaret">
+        <item name="android:layout_width">@dimen/tooltip_caret_height</item>
+        <item name="android:layout_height">@dimen/anytime_tablet_profile_popup_list_item_x_offset</item>
+    </style>
+    <style name="TooltipCaretRight" parent="@style/TooltipCaretLeftRight">
+        <item name="android:layout_marginRight">@dimen/abc_edit_text_inset_top_material</item>
+    </style>
+    <style name="TooltipCaretUp" parent="@style/TooltipCaretUpDown">
+        <item name="android:layout_marginTop">@dimen/abc_edit_text_inset_top_material</item>
+    </style>
+    <style name="TooltipCaretUpDown" parent="@style/TooltipCaret">
+        <item name="android:layout_width">@dimen/anytime_tablet_profile_popup_list_item_x_offset</item>
+        <item name="android:layout_height">@dimen/tooltip_caret_height</item>
+    </style>
+    <style name="TooltipContainer">
+        <item name="android:visibility">gone</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="TooltipText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:lineSpacingExtra">2.0sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:breakStrategy">balanced</item>
+    </style>
+    <style name="anytime_callbar_mic_switcher_text_style">
+        <item name="android:textSize">@dimen/active_call_bar_mic_switcher_text_size</item>
+        <item name="allowFontScaling">false</item>
+    </style>
+    <style name="attention_system_label">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">?ocPrimaryText</item>
+    </style>
+    <style name="attention_system_sub_label">
+        <item name="android:textSize">11.0sp</item>
+        <item name="android:textColor">?attn_system_sub_title_text_color</item>
+    </style>
+    <style name="image_button">
+        <item name="android:background">@drawable/ocbutton_borderless_circle</item>
+        <item name="android:padding">4.0dip</item>
+        <item name="android:height">32.0dip</item>
+        <item name="android:width">32.0dip</item>
+    </style>
+    <style name="list_item_component">
+        <item name="android:background">@drawable/ocbutton_borderless</item>
+    </style>
+    <style name="list_item_component_primary_label" parent="@style/Body1">
+        <item name="android:textSize">@dimen/anytime_tablet_profile_text_size_medium</item>
+        <item name="android:textColor">@color/oc_gray_10</item>
+    </style>
+    <style name="list_item_component_secondary_label" parent="@style/Body2">
+        <item name="android:textColor">@color/oc_white_a60</item>
+    </style>
+    <style name="text_component_body1_secondary" parent="@style/Body1">
+        <item name="android:textColor">?ocSecondaryText</item>
+    </style>
+    <style name="text_component_body2_secondary" parent="@style/Body2">
+        <item name="android:textColor">?ocSecondaryText</item>
+    </style>
+</resources>

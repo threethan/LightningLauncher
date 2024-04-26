@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.panelapp.assistant.attentionui.AssistantEduToastView android:id="@id/assistant_attention_view_root" android:background="@android:color/transparent" android:layout_width="@dimen/toast_width" android:layout_height="@dimen/ocsidenav_min_collapsed_width"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@android:color/transparent" android:layout_width="@dimen/toast_width" android:layout_height="@dimen/ocsidenav_min_collapsed_width" />
+</com.oculus.panelapp.assistant.attentionui.AssistantEduToastView>

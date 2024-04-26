@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_up_description">Pomik navzgor</string>
+    <string name="abc_menu_alt_shortcut_label">Alt +</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl +</string>
+    <string name="abc_menu_delete_shortcut_label">delete</string>
+    <string name="abc_menu_enter_shortcut_label">enter</string>
+    <string name="abc_menu_function_shortcut_label">Fn +</string>
+    <string name="abc_menu_meta_shortcut_label">Meta +</string>
+    <string name="abc_menu_shift_shortcut_label">Shift +</string>
+    <string name="abc_menu_space_shortcut_label">preslednica</string>
+    <string name="abc_menu_sym_shortcut_label">Sym +</string>
+    <string name="abc_prepend_shortcut_label">Meni +</string>
+    <string name="abc_searchview_description_clear">Izbris poizvedbe</string>
+    <string name="abc_searchview_description_search">Iskanje</string>
+    <string name="abc_searchview_description_submit">Pošiljanje poizvedbe</string>
+    <string name="abc_searchview_description_voice">Glasovno iskanje</string>
+    <string name="default_popup_window_title">Pojavno okno</string>
+    <string name="in_progress">Poteka</string>
+    <string name="indeterminate">Delno potrjeno</string>
+    <string name="not_selected">Ni izbrano</string>
+    <string name="off">Izklopljeno</string>
+    <string name="on">Vklopljeno</string>
+    <string name="selected">Izbrano</string>
+    <string name="switch_role">Stikalo</string>
+    <string name="tab">Zavihek</string>
+    <string name="template_percent">%1$d odstotkov</string>
+</resources>

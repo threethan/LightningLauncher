@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="wifitrackerlib_wifi_status">
+        <item></item>
+        <item>Σάρωση…</item>
+        <item>Σύνδεση…</item>
+        <item>Έλεγχος ταυτότητας…</item>
+        <item>Λήψη διεύθυνσης IP…</item>
+        <item>Συνδέθηκε</item>
+        <item>Σε αναστολή</item>
+        <item>Αποσύνδεση…</item>
+        <item>Αποσυνδέθηκε</item>
+        <item>Ανεπιτυχής</item>
+        <item>Αποκλείστηκε</item>
+        <item>Προσωρινή αποφυγή αδύναμης σύνδεσης</item>
+    </string-array>
+</resources>

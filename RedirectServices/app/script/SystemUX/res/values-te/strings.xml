@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_up_description">పైకి నావిగేట్ చేస్తుంది</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+</string>
+    <string name="abc_menu_delete_shortcut_label">delete</string>
+    <string name="abc_menu_enter_shortcut_label">enter</string>
+    <string name="abc_menu_function_shortcut_label">Function+</string>
+    <string name="abc_menu_meta_shortcut_label">Meta+</string>
+    <string name="abc_menu_shift_shortcut_label">Shift+</string>
+    <string name="abc_menu_space_shortcut_label">స్పేస్</string>
+    <string name="abc_menu_sym_shortcut_label">Sym+</string>
+    <string name="abc_prepend_shortcut_label">Menu+</string>
+    <string name="abc_searchview_description_clear">ప్రశ్నను తీసివేస్తుంది</string>
+    <string name="abc_searchview_description_search">సెర్చ్</string>
+    <string name="abc_searchview_description_submit">ప్రశ్నని సమర్పిస్తుంది</string>
+    <string name="abc_searchview_description_voice">వాయిస్ సెర్చ్</string>
+    <string name="default_popup_window_title">పాప్-అప్ విండో</string>
+    <string name="in_progress">ప్రోగ్రెస్‌లో ఉంది</string>
+    <string name="indeterminate">పాక్షికంగా ఎంచుకోబడింది</string>
+    <string name="not_selected">ఎంచుకోబడలేదు</string>
+    <string name="off">ఆఫ్‌లో ఉంది</string>
+    <string name="on">ఆన్‌లో ఉంది</string>
+    <string name="selected">ఎంచుకోబడింది</string>
+    <string name="switch_role">Switch</string>
+    <string name="tab">ట్యాబ్</string>
+    <string name="template_percent">%1$d శాతం.</string>
+</resources>

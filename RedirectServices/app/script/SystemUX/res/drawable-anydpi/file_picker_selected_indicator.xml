@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <selector>
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="?ocOverlayOnMedia" />
+                </shape>
+            </item>
+        </selector>
+    </item>
+    <item>
+        <selector>
+            <item android:state_selected="true" android:height="24.0dip" android:width="24.0dip">
+                <bitmap android:gravity="center" android:src="@drawable/oc_icon_check_circle_filled_24_d2d2d2" android:tint="?ocIconOnMedia" />
+            </item>
+            <item android:state_selected="false" android:height="24.0dip" android:width="24.0dip">
+                <bitmap android:gravity="center" android:src="@drawable/oc_icon_check_box_circle_filled_24_d2d2d2" android:tint="?ocIconOnMedia" />
+            </item>
+        </selector>
+    </item>
+</layer-list>

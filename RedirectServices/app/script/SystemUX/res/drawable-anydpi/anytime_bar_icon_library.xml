@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:gravity="center" android:height="30.0dip" android:width="30.0dip" android:drawable="@drawable/oc_icon_apps_filled_24" />
+    <item android:height="60.0dip" android:width="60.0dip">
+        <shape>
+            <solid android:color="?ocSecondaryButtonBackground" />
+            <corners android:radius="?ocAppTileBorderRadius" />
+        </shape>
+    </item>
+</layer-list>

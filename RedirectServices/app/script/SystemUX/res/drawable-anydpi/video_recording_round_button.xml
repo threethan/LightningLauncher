@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <selector>
+            <item android:state_activated="true">
+                <shape android:shape="oval">
+                    <solid android:color="?ocNegativeBackground" />
+                </shape>
+            </item>
+            <item>
+                <shape android:shape="oval">
+                    <solid android:color="?ocCardBackgroundOnMedia" />
+                </shape>
+            </item>
+        </selector>
+    </item>
+    <item android:drawable="@drawable/ocbutton_borderless_circle" />
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#0fff6c5c" />
+        </shape>
+    </item>
+</layer-list>

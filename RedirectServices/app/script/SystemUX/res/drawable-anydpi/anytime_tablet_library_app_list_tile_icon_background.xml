@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <size android:height="@dimen/abc_search_view_preferred_height" android:width="@dimen/abc_search_view_preferred_height" />
+            <solid android:color="?ocCardBackground" />
+            <corners android:radius="?ocAppTileBorderRadius" />
+        </shape>
+    </item>
+</layer-list>

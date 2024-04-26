@@ -1,0 +1,76 @@
+{
+  "contents": [
+    {
+      "key": "airlink_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "hand_tracking_opt_in",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": false,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "hand_tracking_opt_in_salsa_parent_value",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": false,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "hand_tracking_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": false,
+      "scope": "system",
+      "isOwner": false
+    },
+    {
+      "key": "vrshell_simple_quick_action_gestures_mode",
+      "type": "integer",
+      "default": "-1",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "autotransition_hands_controllers",
+      "type": "boolean",
+      "default": "true",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "should_show_qam_nux",
+      "type": "boolean",
+      "default": "true",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "first_time_nux_complete",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": false,
+      "scope": "crossUser",
+      "isOwner": false
+    },
+    {
+      "key": "allow_security_dialog_capture",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "system",
+      "isOwner": false
+    }
+ ]
+}

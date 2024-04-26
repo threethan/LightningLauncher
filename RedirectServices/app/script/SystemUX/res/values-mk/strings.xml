@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_up_description">Движи се нагоре</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+</string>
+    <string name="abc_menu_delete_shortcut_label">избриши</string>
+    <string name="abc_menu_enter_shortcut_label">Enter</string>
+    <string name="abc_menu_function_shortcut_label">Function+</string>
+    <string name="abc_menu_meta_shortcut_label">Meta+</string>
+    <string name="abc_menu_shift_shortcut_label">Shift+</string>
+    <string name="abc_menu_space_shortcut_label">вселена</string>
+    <string name="abc_menu_sym_shortcut_label">Sym+</string>
+    <string name="abc_prepend_shortcut_label">Menu+</string>
+    <string name="abc_searchview_description_clear">Исчисти барање</string>
+    <string name="abc_searchview_description_search">Пребарај</string>
+    <string name="abc_searchview_description_submit">Испрати барање</string>
+    <string name="abc_searchview_description_voice">Гласовно пребарување</string>
+    <string name="default_popup_window_title">Скокачки прозорец</string>
+    <string name="in_progress">Во тек</string>
+    <string name="indeterminate">Делумно проверено</string>
+    <string name="not_selected">Не е избрано</string>
+    <string name="off">Исклучено</string>
+    <string name="on">Вклучено</string>
+    <string name="selected">Избрано</string>
+    <string name="switch_role">Прекинувач</string>
+    <string name="tab">Картичка</string>
+    <string name="template_percent">%1$d проценти.</string>
+</resources>

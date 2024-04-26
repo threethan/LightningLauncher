@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.panelapp.settings.sections.integrity.SafetyCenterBlockView android:id="@id/safety_center_report_view" android:tag="layout/safety_center_block_view_0" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:id="@id/container" android:layout_width="320.0dip" android:layout_height="wrap_content">
+        <ImageView android:layout_gravity="center" android:id="@id/image" android:background="@drawable/dialog_circular_image_background" android:visibility="gone" android:layout_width="40.0dip" android:layout_height="40.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+        <com.oculus.ocui.OCTextView android:textSize="@dimen/octypography_body1_line_height" android:textStyle="bold" android:gravity="center" android:id="@id/title" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="12.0dip" android:layout_marginBottom="12.0dip" android:text="@string/safety_center_block_title" android:layout_marginHorizontal="12.0dip" android:lineHeight="@dimen/anytime_tablet_profile_text_size_large" />
+        <com.oculus.ocui.OCLink android:textSize="@dimen/anytime_tablet_profile_text_size_small" android:gravity="start" android:id="@id/body" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="12.0dip" android:layout_marginBottom="12.0dip" android:text="@string/safety_center_block_body" android:layout_marginHorizontal="12.0dip" android:lineHeight="@dimen/keypad_text_size" />
+    </LinearLayout>
+</com.oculus.panelapp.settings.sections.integrity.SafetyCenterBlockView>

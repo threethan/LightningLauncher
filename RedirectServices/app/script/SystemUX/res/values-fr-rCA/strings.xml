@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_up_description">Revenir en arrière</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+</string>
+    <string name="abc_menu_delete_shortcut_label">supprimer</string>
+    <string name="abc_menu_enter_shortcut_label">entrée</string>
+    <string name="abc_menu_function_shortcut_label">Fonction+</string>
+    <string name="abc_menu_meta_shortcut_label">Méta+</string>
+    <string name="abc_menu_shift_shortcut_label">Maj+</string>
+    <string name="abc_menu_space_shortcut_label">espace</string>
+    <string name="abc_menu_sym_shortcut_label">Sym+</string>
+    <string name="abc_prepend_shortcut_label">Menu+</string>
+    <string name="abc_searchview_description_clear">Effacer la requête</string>
+    <string name="abc_searchview_description_search">Rechercher</string>
+    <string name="abc_searchview_description_submit">Envoyer la requête</string>
+    <string name="abc_searchview_description_voice">Recherche vocale</string>
+    <string name="default_popup_window_title">Fenêtre contextuelle</string>
+    <string name="in_progress">En cours…</string>
+    <string name="indeterminate">Partiellement vérifié</string>
+    <string name="not_selected">Non sélectionné</string>
+    <string name="off">Désactivé</string>
+    <string name="on">Activé</string>
+    <string name="selected">Sélectionné</string>
+    <string name="switch_role">Basculer</string>
+    <string name="tab">Onglet</string>
+    <string name="template_percent">%1$d pour cent.</string>
+</resources>

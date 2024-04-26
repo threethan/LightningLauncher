@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" android:layout_centerVertical="true">
+        <ImageView android:id="@id/splash_image" android:layout_width="200.0dip" android:layout_height="120.0dip" app:layout_constraintBottom_toTopOf="@id/header_text" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent" />
+        <com.oculus.ocui.OCTextView android:gravity="center_horizontal" android:id="@id/header_text" android:layout_width="200.0dip" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toBottomOf="@id/splash_image" style="@style/H3" />
+        <com.oculus.ocui.OCButton android:gravity="center" android:id="@id/ocempty_cta" android:paddingLeft="12.0dip" android:paddingTop="10.0dip" android:paddingRight="12.0dip" android:paddingBottom="10.0dip" android:layout_width="0.0dip" android:layout_height="40.0dip" android:layout_marginTop="16.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/header_text" style="@style/Body1" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

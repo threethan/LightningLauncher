@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="anytime_bar_active_call_bar_messenger_mic_switcher_use_call_audio_tooltip_subtitle">
+        <item quantity="other">%1$d henkilöä</item>
+        <item quantity="one">%1$d ihminen</item>
+    </plurals>
+    <plurals name="anytime_bar_active_call_bar_party_button_tooltip_subtitle">
+        <item quantity="other">%1$d henkilöä</item>
+        <item quantity="one">%1$d ihminen</item>
+    </plurals>
+    <plurals name="anytime_library_app_multiple_locked_toast_description">
+        <item quantity="other">%1$d sovellusta on lukittu</item>
+        <item quantity="one">%1$d sovellus on lukittu</item>
+    </plurals>
+    <plurals name="anytime_library_app_multiple_unlocked_toast_description">
+        <item quantity="other">%1$d sovelluksen lukitus on avattu</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_install_warning_tooltip">
+        <item quantity="other">Tämän sovelluksen asennuksen viimeistelemiseen voi mennä %1$d minuuttia tai enemmän.</item>
+        <item quantity="one">Tämän sovelluksen asennuksen viimeistelemiseen voi mennä %1$d minuutti tai enemmän.</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_lock_bulk_action_description">
+        <item quantity="other">Lukitse %1$d sovellusta</item>
+        <item quantity="one">Lukitse %1$d sovellus</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_lock_bulk_action_title">
+        <item quantity="other">Lukitaanko %1$d sovellusta?</item>
+        <item quantity="one">Lukitaanko %1$d sovellus?</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_tile_subtitle_supports_players">
+        <item quantity="other">1-%1$d ihmistä</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_unlock_bulk_action_description">
+        <item quantity="other">Avaa %1$d sovelluksen lukitus</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_unlock_bulk_action_title">
+        <item quantity="other">Avataanko %1$d sovelluksen lukitus?</item>
+    </plurals>
+    <plurals name="anytime_tablet_profile_pending_follow_request_confirm_title">
+        <item quantity="other">%1$d odottavaa seuraamispyyntöä</item>
+        <item quantity="one">%1$d odottava seuraamispyyntö</item>
+    </plurals>
+    <plurals name="cloud_backups_num_attempts_remaining_text">
+        <item quantity="other">%1$d yritystä jäljellä</item>
+        <item quantity="one">%1$d yritys jäljellä</item>
+    </plurals>
+    <plurals name="follower_view_pill_title">
+        <item quantity="other">%1$d seuraajaa</item>
+        <item quantity="one">%1$d seuraaja</item>
+    </plurals>
+    <plurals name="last_played_with_time_days">
+        <item quantity="other">%1$d päivää sitten</item>
+        <item quantity="one">%1$d päivä sitten</item>
+    </plurals>
+    <plurals name="last_played_with_time_hours">
+        <item quantity="other">%1$d tuntia sitten</item>
+        <item quantity="one">%1$d tunti sitten</item>
+    </plurals>
+    <plurals name="last_played_with_time_minutes">
+        <item quantity="other">%1$d minuuttia sitten</item>
+        <item quantity="one">%1$d minuutti sitten</item>
+    </plurals>
+    <plurals name="last_played_with_time_weeks">
+        <item quantity="other">%1$d viikkoa sitten</item>
+        <item quantity="one">%1$d viikko sitten</item>
+    </plurals>
+    <plurals name="lockpassword_pin_too_long">
+        <item quantity="other">On oltava alle %1$d numeroa</item>
+        <item quantity="one">On oltava alle %1$d numero</item>
+    </plurals>
+    <plurals name="lockpassword_pin_too_short">
+        <item quantity="other">PIN-koodissa on oltava ainakin %1$d numeroa</item>
+        <item quantity="one">PIN-koodissa on oltava ainakin %1$d numero</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_hours">
+        <item quantity="other">Yritä uudelleen %1$d tunnin kuluttua</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_min">
+        <item quantity="other">Yritä uudelleen %1$d minuutin kuluttua</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_sec">
+        <item quantity="other">Yritä uudelleen %1$d sekunnin kuluttua</item>
+    </plurals>
+    <plurals name="request_view_pill_title">
+        <item quantity="other">%1$d pyyntöä</item>
+        <item quantity="one">%1$d pyyntö</item>
+    </plurals>
+    <plurals name="safety_center_violation_list_enforcement_social_suspension">
+        <item quantity="other">Et voi käyttää chatiä, ryhmiä tai Horizon-maailmoja %1$d päivään</item>
+    </plurals>
+    <plurals name="settings_apps_lock_selected_items_text">
+        <item quantity="other">%1$d valittu</item>
+    </plurals>
+    <plurals name="settings_permissions_apps_granted_subtitle">
+        <item quantity="other">%1$d / %2$d sallittua sovellusta</item>
+        <item quantity="one">%1$d / %2$d sallittu sovellus</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_days_ago">
+        <item quantity="other">Käytetty %1$d päivää sitten</item>
+        <item quantity="one">Käytetty %1$d päivä sitten</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_days_ago_short">
+        <item quantity="other">%1$d päivää sitten</item>
+        <item quantity="one">%1$d päivä sitten</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_hours_ago">
+        <item quantity="other">Käytetty %1$d tuntia sitten</item>
+        <item quantity="one">Käytetty %1$d tunti sitten</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_hours_ago_short">
+        <item quantity="other">%1$d tuntia sitten</item>
+        <item quantity="one">%1$d tunti sitten</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_minutes_ago">
+        <item quantity="other">Käytetty %1$d minuuttia sitten</item>
+        <item quantity="one">Käytetty minuutti sitten</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_minutes_ago_short">
+        <item quantity="other">%1$d minuuttia sitten</item>
+        <item quantity="one">1 minuutti sitten</item>
+    </plurals>
+    <plurals name="settings_privacy_unblock_users_subtitle">
+        <item quantity="other">%1$d profiilia estettiin</item>
+        <item quantity="one">%1$d profiili estettiin</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_new_violation">
+        <item quantity="other">%1$d äskettäistä rikkomusta</item>
+        <item quantity="one">%1$d äskettäinen rikkomus</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle">
+        <item quantity="other">Et voi käyttää chatejä, ryhmiä tai Horizon-maailmoja %1$d päivään.</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle_hours">
+        <item quantity="other">Päättyy %1$d tunnin kuluttua.</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle_minutes">
+        <item quantity="other">Päättyy %1$d minuutin kuluttua.</item>
+    </plurals>
+    <plurals name="settings_storage_selected_items_text">
+        <item quantity="other">%1$d valittu</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_apps_title">
+        <item quantity="other">Poista %1$d sovellusta</item>
+        <item quantity="one">Poista %1$d sovellus</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_environments_title">
+        <item quantity="other">Poista %1$d ympäristöä</item>
+        <item quantity="one">Poista %1$d ympäristö</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_files_title">
+        <item quantity="other">Poista %1$d tiedostoa</item>
+        <item quantity="one">Poista %1$d tiedosto</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_images_title">
+        <item quantity="other">Poista %1$d kuvaa</item>
+        <item quantity="one">Poista %1$d kuva</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_unknown_sources_title">
+        <item quantity="other">Poista %1$d tuntematonta lähdettä</item>
+        <item quantity="one">Poista %1$d tuntematon lähde</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_videos_title">
+        <item quantity="other">Poista %1$d videota</item>
+        <item quantity="one">Poista %1$d video</item>
+    </plurals>
+    <plurals name="social_suspension_description_days">
+        <item quantity="other">&lt;p style=\"text-align: center;\">Profiilisi on rajoitettu, koska et noudattanut &lt;a href=\"%1$s\">sääntöjämme.&lt;/a> Et voi käyttää chatiä, ryhmiä, puhelua tai Horizon-maailmoja %2$s päivään. Päättyy %3$s.&lt;/p></item>
+    </plurals>
+    <plurals name="social_suspension_description_hours">
+        <item quantity="other">&lt;p style=\"text-align: center;\">Profiilisi on rajoitettu, koska et noudattanut &lt;a href=\"%1$s\">sääntöjämme.&lt;/a> Et voi käyttää chatiä, ryhmiä, puhelua tai Horizon-maailmoja %2$s tuntiin. Päättyy %3$s.&lt;/p></item>
+    </plurals>
+    <plurals name="subdestination_max_users">
+        <item quantity="other">Enintään %1$d pelaajaa</item>
+        <item quantity="one">Enintään %1$d pelaaja</item>
+    </plurals>
+</resources>

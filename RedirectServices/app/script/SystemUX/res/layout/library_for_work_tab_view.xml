@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.panelapp.library.tabinfra.views.tabs.forwork.LibraryForWorkTabView android:tag="layout/library_for_work_tab_view_0" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/base_tab_view" android:layout_width="fill_parent" android:layout_height="0.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintTop_toTopOf="parent" layout="@layout/library_base_tab_view" />
+</com.oculus.panelapp.library.tabinfra.views.tabs.forwork.LibraryForWorkTabView>

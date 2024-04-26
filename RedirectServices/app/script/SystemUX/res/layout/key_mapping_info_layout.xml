@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/info_container" android:tag="layout/key_mapping_info_layout_0" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:bind="http://schemas.android.com/apk/res-auto" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.oculus.ocui.OCTextView android:textColor="?ocPrimaryText" android:id="@id/info_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/controller_mapping_info_title" style="@style/Body1" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/info_content" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/active_call_bar_active_call_button_padding">
+        <ImageView android:id="@id/controller_info_img" android:layout_width="416.0dip" android:layout_height="286.0dip" android:layout_marginRight="@dimen/active_call_bar_active_call_button_padding" android:scaleType="fitCenter" />
+        <LinearLayout android:gravity="start" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/active_call_bar_active_call_button_padding">
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <com.oculus.ocui.OCTextView android:textColor="?ocPrimaryText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1" style="@style/Body1" />
+                <ImageView android:layout_width="16.0dip" android:layout_height="16.0dip" android:layout_marginLeft="@dimen/active_call_bar_active_call_button_padding" android:src="@drawable/oc_icon_bt_thumbstick_filled_24" android:scaleType="fitCenter" android:tint="?ocPrimaryIcon" android:tintMode="src_in" />
+                <com.oculus.ocui.OCTextView android:textColor="?ocPrimaryText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/active_call_bar_active_call_button_padding" android:text="L/R" style="@style/Body1" />
+                <com.oculus.ocui.OCTextView android:textColor="?ocPrimaryText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/controller_mapping_info_thumbstick_help" style="@style/Body1" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/active_call_bar_active_call_button_padding">
+                <com.oculus.ocui.OCTextView android:textColor="?ocPrimaryText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2" style="@style/Body1" />
+                <ImageView android:layout_width="16.0dip" android:layout_height="16.0dip" android:layout_marginLeft="@dimen/active_call_bar_active_call_button_padding" android:src="@drawable/oc_icon_bt_y_filled_24" android:scaleType="fitCenter" android:tint="?ocPrimaryIcon" android:tintMode="src_in" />
+                <com.oculus.ocui.OCTextView android:textColor="?ocPrimaryText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="/" style="@style/Body1" />
+                <ImageView android:layout_width="16.0dip" android:layout_height="16.0dip" android:layout_marginRight="@dimen/active_call_bar_active_call_button_padding" android:src="@drawable/oc_icon_bt_b_filled_24" android:scaleType="fitCenter" android:tint="?ocPrimaryIcon" android:tintMode="src_in" />
+                <com.oculus.ocui.OCTextView android:textColor="?ocPrimaryText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/controller_mapping_info_y_b_help" style="@style/Body1" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/active_call_bar_active_call_button_padding">
+                <com.oculus.ocui.OCTextView android:textColor="?ocPrimaryText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3" style="@style/Body1" />
+                <ImageView android:layout_width="16.0dip" android:layout_height="16.0dip" android:layout_marginLeft="@dimen/active_call_bar_active_call_button_padding" android:src="@drawable/oc_icon_bt_x_filled_24" android:scaleType="fitCenter" android:tint="?ocPrimaryIcon" android:tintMode="src_in" />
+                <com.oculus.ocui.OCTextView android:textColor="?ocPrimaryText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="/" style="@style/Body1" />
+                <ImageView android:layout_width="16.0dip" android:layout_height="16.0dip" android:layout_marginRight="@dimen/active_call_bar_active_call_button_padding" android:src="@drawable/oc_icon_bt_a_filled_24" android:scaleType="fitCenter" android:tint="?ocPrimaryIcon" android:tintMode="src_in" />
+                <com.oculus.ocui.OCTextView android:textColor="?ocPrimaryText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/controller_mapping_info_x_a_help" style="@style/Body1" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/active_call_bar_active_call_button_padding">
+                <com.oculus.ocui.OCTextView android:textColor="?ocPrimaryText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="4" style="@style/Body1" />
+                <ImageView android:layout_width="16.0dip" android:layout_height="16.0dip" android:layout_marginLeft="@dimen/active_call_bar_active_call_button_padding" android:layout_marginRight="@dimen/active_call_bar_active_call_button_padding" android:src="@drawable/oc_icon_bt_menu_filled_24" android:scaleType="fitCenter" android:tint="?ocPrimaryIcon" android:tintMode="src_in" />
+                <com.oculus.ocui.OCTextView android:textColor="?ocPrimaryText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/controller_mapping_info_menu_help" style="@style/Body1" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/active_call_bar_active_call_button_padding">
+                <com.oculus.ocui.OCTextView android:textColor="?ocPrimaryText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="5" style="@style/Body1" />
+                <ImageView android:id="@id/controller_mapping_info_quest_universal_icon" android:layout_width="16.0dip" android:layout_height="16.0dip" android:layout_marginLeft="@dimen/active_call_bar_active_call_button_padding" android:layout_marginRight="@dimen/active_call_bar_active_call_button_padding" android:scaleType="fitCenter" android:tint="?ocPrimaryIcon" android:tintMode="src_in" />
+                <com.oculus.ocui.OCTextView android:textColor="?ocPrimaryText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/controller_mapping_info_quest_universal_help" style="@style/Body1" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/active_call_bar_active_call_button_padding">
+                <com.oculus.ocui.OCTextView android:textColor="?ocPrimaryText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="6" style="@style/Body1" />
+                <ImageView android:layout_width="16.0dip" android:layout_height="16.0dip" android:layout_marginLeft="@dimen/active_call_bar_active_call_button_padding" android:src="@drawable/oc_icon_bt_left_grip_filled_24" android:scaleType="fitCenter" android:tint="?ocPrimaryIcon" android:tintMode="src_in" />
+                <com.oculus.ocui.OCTextView android:textColor="?ocPrimaryText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="/" style="@style/Body1" />
+                <ImageView android:layout_width="16.0dip" android:layout_height="16.0dip" android:layout_marginRight="@dimen/active_call_bar_active_call_button_padding" android:src="@drawable/oc_icon_bt_right_grip_filled_24" android:scaleType="fitCenter" android:tint="?ocPrimaryIcon" android:tintMode="src_in" />
+                <com.oculus.ocui.OCTextView android:textColor="?ocPrimaryText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/controller_mapping_info_grip_trigger_help" style="@style/Body1" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/active_call_bar_active_call_button_padding">
+                <com.oculus.ocui.OCTextView android:textColor="?ocPrimaryText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="7" style="@style/Body1" />
+                <ImageView android:layout_width="16.0dip" android:layout_height="16.0dip" android:layout_marginLeft="@dimen/active_call_bar_active_call_button_padding" android:src="@drawable/oc_icon_bt_left_trigger_filled_24" android:scaleType="fitCenter" android:tint="?ocPrimaryIcon" android:tintMode="src_in" />
+                <com.oculus.ocui.OCTextView android:textColor="?ocPrimaryText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="/" style="@style/Body1" />
+                <ImageView android:layout_width="16.0dip" android:layout_height="16.0dip" android:layout_marginRight="@dimen/active_call_bar_active_call_button_padding" android:src="@drawable/oc_icon_bt_right_trigger_filled_24" android:scaleType="fitCenter" android:tint="?ocPrimaryIcon" android:tintMode="src_in" />
+                <com.oculus.ocui.OCTextView android:textColor="?ocPrimaryText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/controller_mapping_info_trigger_help" style="@style/Body1" />
+            </LinearLayout>
+            <com.oculus.ocui.OCTextView android:textColor="?ocSecondaryText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/active_call_bar_active_call_button_padding" android:text="@string/controller_mapping_info_footnote" style="@style/Body2" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

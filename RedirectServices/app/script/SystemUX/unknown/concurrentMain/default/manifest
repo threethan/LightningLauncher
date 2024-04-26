@@ -1,0 +1,5 @@
+abi_version=1.8.0
+compiler_version=1.9.21
+ir_signature_versions=1,2
+metadata_version=1.4.1
+unique_name=kotlinx-coroutines-core_concurrentMain

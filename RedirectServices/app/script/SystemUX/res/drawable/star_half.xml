@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:height="40.0dip" android:width="40.0dip">
+        <shape android:shape="rectangle">
+            <solid android:color="?ocIconButtonBackground" />
+        </shape>
+    </item>
+    <item android:gravity="center" android:height="24.0dip" android:width="24.0dip" android:drawable="@drawable/oc_icon_star_half_filled_24" />
+</layer-list>

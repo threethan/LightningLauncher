@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates overridePins="true" src="user" />
+        </trust-anchors>
+    </base-config>
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">facebook.com</domain>
+        <domain includeSubdomains="true">fbcdn.net</domain>
+        <domain includeSubdomains="true">fbsbx.com</domain>
+        <domain includeSubdomains="true">facebookcorewwwi.onion</domain>
+        <domain includeSubdomains="true">fbcdn23dssr3jqnq.onion</domain>
+        <domain includeSubdomains="true">fbsbx2q4mvcl63pw.onion</domain>
+        <domain includeSubdomains="true">instagram.com</domain>
+        <domain includeSubdomains="true">cdninstagram.com</domain>
+        <domain includeSubdomains="true">workplace.com</domain>
+        <domain includeSubdomains="true">oculus.com</domain>
+        <domain includeSubdomains="true">facebookvirtualassistant.com</domain>
+        <domain includeSubdomains="true">discoverapp.com</domain>
+        <domain includeSubdomains="true">freebasics.com</domain>
+        <domain includeSubdomains="true">internet.org</domain>
+        <domain includeSubdomains="true">viewpointsfromfacebook.com</domain>
+        <domain includeSubdomains="true">meta.com</domain>
+        <pin-set expiration="2025-04-13">
+            <pin digest="SHA-256">x4QzPSC810K5/cMjb05Qm4k3Bw5zBn4lTdO/nEW/Td4=</pin>
+            <pin digest="SHA-256">ICGRfpgmOUXIWcQ/HXPLQTkFPEFPoDyjvH7ohhQpjzs=</pin>
+            <pin digest="SHA-256">grX4Ta9HpZx6tSHkmCrvpApTQGo67CYDnvprLg5yRME=</pin>
+            <pin digest="SHA-256">58qRu/uxh4gFezqAcERupSkRYBlBAvfcw7mEjGPLnNU=</pin>
+            <pin digest="SHA-256">r/mIkG3eEpVdm+u/ko/cwxzOMo1bk4TyHIlByibiA5E=</pin>
+            <pin digest="SHA-256">i7WTqTvh0OioIruIfFR4kMPnBqrS2rdiVPl/s2uC/CY=</pin>
+            <pin digest="SHA-256">uUwZgwDOxcBXrQcntwu+kYFpkiVkOaezL0WYEZ3anJc=</pin>
+            <pin digest="SHA-256">WoiWRyIOVNa9ihaBciRSC7XHjliYS9VwUGOIud4PB18=</pin>
+            <pin digest="SHA-256">Wd8xe/qfTwq3ylFNd3IpaqLHZbh2ZNCLluVzmeNkcpw=</pin>
+            <pin digest="SHA-256">ape1HIIZ6T5d7GS61YBs3rD4NVvkfnVwELcCRW4Bqv0=</pin>
+            <pin digest="SHA-256">oC+voZLIy4HLE0FVT5wFtxzKKokLDRKY1oNkfJYe+98=</pin>
+            <pin digest="SHA-256">K87oWBWM9UZfyddvDfoxL+8lpNyoUB2ptGtn0fv6G2Q=</pin>
+            <pin digest="SHA-256">cGuxAXyFXFkWm61cF4HPWX8S0srS9j0aSqN0k4AP+4A=</pin>
+            <pin digest="SHA-256">aCdH+LpiG4fN07wpXtXKvOciocDANj0daLOJKNJ4fx4=</pin>
+            <pin digest="SHA-256">rn+WLLnmp9v3uDP7GPqbcaiRdd+UnCMrap73yz3yu/w=</pin>
+            <pin digest="SHA-256">C5+lpZ7tcVwmwQIMcRtPbsQtWLABXhQzejna0wHFr8M=</pin>
+            <pin digest="SHA-256">diGVwiVYbubAI3RW4hB9xU8e/CH2GnkuvVFZE8zmgzI=</pin>
+            <pin digest="SHA-256">q4PO2G2cbkZhZ82+JgmRUyGMoAeozA+BSXVXQWB8XWQ=</pin>
+        </pin-set>
+        <domain-config cleartextTrafficPermitted="true">
+            <domain>h.facebook.com</domain>
+            <domain>l.facebook.com</domain>
+            <domain>l.alpha.facebook.com</domain>
+            <domain>lm.facebook.com</domain>
+            <domain>l.instagram.com</domain>
+            <pin-set />
+        </domain-config>
+    </domain-config>
+</network-security-config>

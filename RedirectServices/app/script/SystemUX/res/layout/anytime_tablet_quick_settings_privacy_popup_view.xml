@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.panelapp.quicksettings.QuickSettingsPrivacyPopupView android:orientation="vertical" android:id="@id/popup_background" android:tag="layout/anytime_tablet_quick_settings_privacy_popup_view_0" android:background="#ffff00ff" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.oculus.ocui.OCPanel android:layout_width="200.0dip" android:layout_height="200.0dip">
+        <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <androidx.appcompat.widget.LinearLayoutCompat android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <com.oculus.ocui.OCTextView android:textSize="20.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="hello world" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </ScrollView>
+    </com.oculus.ocui.OCPanel>
+</com.oculus.panelapp.quicksettings.QuickSettingsPrivacyPopupView>

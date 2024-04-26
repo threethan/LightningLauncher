@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/group_header" android:tag="layout/library_group_header_0" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.oculus.ocui.OCTextView android:textSize="@dimen/anytime_tablet_profile_text_size_medium" android:textColor="?ocPrimaryText" android:id="@id/header_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="1" />
+</LinearLayout>

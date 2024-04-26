@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.ocui.OCInfo android:gravity="center_vertical" android:id="@id/info" android:tag="layout/settings_info_box_0" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dip" android:layout_marginBottom="12.0dip" android:layout_marginStart="24.0dip" android:layout_marginEnd="24.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

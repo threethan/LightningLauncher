@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:height="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" android:width="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" android:drawable="@drawable/oc_icon_file_filled_24_d2d2d2" />
+</layer-list>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/oc_icon_reality_tuner_one_filled_24" android:maxLevel="0" />
+    <item android:drawable="@drawable/oc_icon_reality_tuner_two_filled_24" android:maxLevel="3300" />
+    <item android:drawable="@drawable/oc_icon_reality_tuner_three_filled_24" android:maxLevel="6600" />
+    <item android:drawable="@drawable/oc_icon_reality_tuner_four_filled_24" android:maxLevel="10000" />
+</level-list>

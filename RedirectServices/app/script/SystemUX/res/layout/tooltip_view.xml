@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.panelapp.anytimeui.tooltip.TooltipView style="@style/TooltipContainer"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/tooltip_caret_left" android:src="@drawable/tooltip_caret_left" style="@style/TooltipCaretLeft" />
+    <ImageView android:id="@id/tooltip_caret_up" android:src="@drawable/tooltip_caret_up" style="@style/TooltipCaretUp" />
+    <LinearLayout android:orientation="vertical" android:id="@id/tooltip_body" style="@style/TooltipBody">
+        <com.oculus.ocui.OCTextView android:textSize="@dimen/anytime_tablet_profile_text_size_medium" android:textColor="?ocPrimaryText" android:id="@id/tooltip_text" style="@style/TooltipText" />
+        <com.oculus.ocui.OCTextView android:textSize="@dimen/anytime_tablet_profile_text_size_small" android:textColor="?ocSecondaryText" android:id="@id/tooltip_subtext" style="@style/TooltipText" />
+    </LinearLayout>
+    <ImageView android:id="@id/tooltip_caret_right" android:src="@drawable/tooltip_caret_right" style="@style/TooltipCaretRight" />
+    <ImageView android:id="@id/tooltip_caret_down" android:src="@drawable/tooltip_caret_down" style="@style/TooltipCaretDown" />
+</com.oculus.panelapp.anytimeui.tooltip.TooltipView>

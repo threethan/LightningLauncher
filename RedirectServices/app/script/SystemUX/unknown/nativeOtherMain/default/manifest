@@ -1,0 +1,8 @@
+abi_version=1.8.0
+builtins_platform=NATIVE
+compiler_version=1.9.21
+ir_signature_versions=1,2
+metadata_version=1.4.1
+native_targets=
+short_name=kotlinx-coroutines-core_nativeOtherMain
+unique_name=org.jetbrains.kotlinx\:kotlinx-coroutines-core_nativeOtherMain

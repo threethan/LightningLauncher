@@ -1,0 +1,36 @@
+{
+  "contents": [
+    {
+      "key": "salsa_account",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "salsa_status",
+      "type": "integer",
+      "default": "0",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "salsa_fetched",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "salsa_logging",
+      "type": "boolean",
+      "default": "true",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    }
+  ]
+}

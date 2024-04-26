@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="wifitrackerlib_wifi_status">
+        <item></item>
+        <item>Se scanează…</item>
+        <item>Se conectează…</item>
+        <item>Se autentifică…</item>
+        <item>Se obține adresa IP…</item>
+        <item>Conectată</item>
+        <item>Suspendată</item>
+        <item>Se deconectează…</item>
+        <item>Deconectată</item>
+        <item>Nereușită</item>
+        <item>Blocată</item>
+        <item>Se evită temporar conexiunea slabă</item>
+    </string-array>
+</resources>

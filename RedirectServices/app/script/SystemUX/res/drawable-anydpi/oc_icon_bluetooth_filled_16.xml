@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:height="16.0dip" android:width="16.0dip" android:viewportWidth="16.0" android:viewportHeight="16.0"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="#ffff8989" android:pathData="M0 0h1v16H0z" android:fillAlpha="0.08" />
+    <path android:fillColor="#ffff8989" android:pathData="M2 0h1v16H2z" android:fillAlpha="0.08" />
+    <path android:fillColor="#ffff8989" android:pathData="M4 0h1v16H4z" android:fillAlpha="0.08" />
+    <path android:fillColor="#ffff8989" android:pathData="M6 0h1v16H6z" android:fillAlpha="0.08" />
+    <path android:fillColor="#ffff8989" android:pathData="M8 0h1v16H8z" android:fillAlpha="0.08" />
+    <path android:fillColor="#ffff8989" android:pathData="M10 0h1v16h-1z" android:fillAlpha="0.08" />
+    <path android:fillColor="#ffff8989" android:pathData="M12 0h1v16h-1z" android:fillAlpha="0.08" />
+    <path android:fillColor="#ffff8989" android:pathData="M14 0h1v16h-1z" android:fillAlpha="0.08" />
+    <path android:fillColor="#ffff8989" android:pathData="M16 1v1H0V1z" android:fillAlpha="0.08" />
+    <path android:fillColor="#ffff8989" android:pathData="M16 3v1H0V3z" android:fillAlpha="0.08" />
+    <path android:fillColor="#ffff8989" android:pathData="M16 5v1H0V5z" android:fillAlpha="0.08" />
+    <path android:fillColor="#ffff8989" android:pathData="M16 7v1H0V7z" android:fillAlpha="0.08" />
+    <path android:fillColor="#ffff8989" android:pathData="M16 9v1H0V9z" android:fillAlpha="0.08" />
+    <path android:fillColor="#ffff8989" android:pathData="M16 11v1H0v-1z" android:fillAlpha="0.08" />
+    <path android:fillColor="#ffff8989" android:pathData="M16 13v1H0v-1z" android:fillAlpha="0.08" />
+    <path android:fillColor="#ffff8989" android:pathData="M16 15v1H0v-1z" android:fillAlpha="0.08" />
+    <path android:fillColor="#ff000000" android:pathData="M8.4 12.55v-2.8l1.39 1.4l-1.4 1.4zm0-9.1l1.39 1.4l-1.4 1.4v-2.8zM8.73 8l3.13-3.15L8.2 1.21C7.99 1 7.69 0.94 7.43 1.05C7.17 1.16 7 1.42 7 1.7v4.55L4.04 3.27L3 4.32L6.65 8L3 11.68l1.04 1.04L7 9.75v4.55c0 0.28 0.17 0.54 0.43 0.65C7.52 14.98 7.61 15 7.7 15c0.18 0 0.36-0.07 0.49-0.2l3.69-3.65L8.73 8z" android:fillType="evenOdd" />
+</vector>

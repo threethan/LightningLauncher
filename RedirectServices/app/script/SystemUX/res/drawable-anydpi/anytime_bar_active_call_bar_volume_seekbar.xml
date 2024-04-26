@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/background">
+        <shape>
+            <size android:height="32.0dip" android:width="0.0dip" />
+            <solid android:color="?ocSliderBackground" />
+            <corners android:radius="8.0dip" />
+        </shape>
+    </item>
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape android:shape="rectangle">
+                <size android:height="32.0dip" android:width="0.0dip" />
+                <solid android:color="?ocPrimarySlider" />
+                <corners android:radius="8.0dip" />
+            </shape>
+        </clip>
+    </item>
+    <item>
+        <drawable class="com.oculus.ocui.drawable.OCInteractionOverlayDrawable">
+            <shape android:shape="rectangle">
+                <corners android:radius="8.0dip" />
+                <solid android:color="@android:color/transparent" />
+            </shape>
+        </drawable>
+    </item>
+</layer-list>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_up_description">ເລື່ອນຂຶ້ນເທິງ</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+</string>
+    <string name="abc_menu_delete_shortcut_label">ລຶບ</string>
+    <string name="abc_menu_enter_shortcut_label">enter</string>
+    <string name="abc_menu_function_shortcut_label">Function+</string>
+    <string name="abc_menu_meta_shortcut_label">Meta+</string>
+    <string name="abc_menu_shift_shortcut_label">Shift+</string>
+    <string name="abc_menu_space_shortcut_label">ຍະຫວ່າງ</string>
+    <string name="abc_menu_sym_shortcut_label">Sym+</string>
+    <string name="abc_prepend_shortcut_label">Menu+</string>
+    <string name="abc_searchview_description_clear">ລຶບຂໍ້ຄວາມຊອກຫາ</string>
+    <string name="abc_searchview_description_search">ຊອກຫາ</string>
+    <string name="abc_searchview_description_submit">ສົ່ງຂໍ້ມູນ</string>
+    <string name="abc_searchview_description_voice">ຊອກຫາດ້ວຍສຽງ</string>
+    <string name="default_popup_window_title">ໜ້າຈໍປັອບອັບ</string>
+    <string name="in_progress">ກຳ​ລັງ​ດຳ​ເນີນ​ການ</string>
+    <string name="indeterminate">ກວດສອບບາງສ່ວນແລ້ວ</string>
+    <string name="not_selected">ບໍ່ໄດ້ເລືອກ</string>
+    <string name="off">ປິດ</string>
+    <string name="on">ເປີດ</string>
+    <string name="selected">ເລືອກແລ້ວ</string>
+    <string name="switch_role">ປຸ່ມກົດ</string>
+    <string name="tab">ແຖບ</string>
+    <string name="template_percent">%1$d ເປີ​ເຊັນ.</string>
+</resources>

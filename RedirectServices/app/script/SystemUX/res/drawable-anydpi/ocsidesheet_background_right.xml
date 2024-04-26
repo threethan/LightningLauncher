@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape class="com.oculus.ocui.OCPanelBackgroundDrawable"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:topLeftRadius="?ocPanelBorderRadius" android:bottomLeftRadius="?ocPanelBorderRadius" />
+    <solid android:color="?ocContextMenuBackground" />
+</shape>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item>
+        <drawable class="com.oculus.common.settings.permissions.PrivacyIndicatorDrawable" />
+    </item>
+</selector>

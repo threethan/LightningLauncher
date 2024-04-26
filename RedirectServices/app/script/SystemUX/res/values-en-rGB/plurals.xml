@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="anytime_library_app_multiple_locked_toast_description">
+        <item quantity="other">%1$d apps have been locked</item>
+        <item quantity="one">%1$d app has been locked</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_lock_bulk_action_title">
+        <item quantity="other">Lock %1$d apps?</item>
+        <item quantity="one">Lock %1$d app?</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_unlock_bulk_action_title">
+        <item quantity="other">Unlock %1$d apps?</item>
+        <item quantity="one">Unlock %1$d app?</item>
+    </plurals>
+    <plurals name="safety_center_violation_list_enforcement_social_suspension">
+        <item quantity="other">"You can't use chat, groups or Horizon Worlds for %1$d days"</item>
+        <item quantity="one">"You can't use chat, groups or Horizon Worlds for %1$d day"</item>
+    </plurals>
+    <plurals name="settings_apps_lock_selected_items_text">
+        <item quantity="other">%1$d selected</item>
+    </plurals>
+    <plurals name="settings_storage_selected_items_text">
+        <item quantity="other">%1$d selected</item>
+    </plurals>
+    <plurals name="social_suspension_description_days">
+        <item quantity="other">"&lt;p style=\"text-align: center;\">Your profile is restricted because you didn't follow our &lt;a href=\"%1$s\"> code of conduct.&lt;/a> You can't use chat, groups, call or Horizon Worlds for %2$s days. Ends on %3$s.&lt;/p>"</item>
+        <item quantity="one">"&lt;p style=\"text-align: center;\">Your profile is restricted because you didn't follow our &lt;a href=\"%1$s\"> code of conduct.&lt;/a> You can't use chat, groups, call or Horizon Worlds for %2$s day. Ends on %3$s.&lt;/p>"</item>
+    </plurals>
+    <plurals name="social_suspension_description_hours">
+        <item quantity="other">"&lt;p style=\"text-align: center;\">Your profile is restricted because you didn't follow our &lt;a href=\"%1$s\"> code of conduct.&lt;/a> You can't use chat, groups, call or Horizon Worlds for %2$s hours. Ends on %3$s.&lt;/p>"</item>
+        <item quantity="one">"&lt;p style=\"text-align: center;\">Your profile is restricted because you didn't follow our &lt;a href=\"%1$s\"> code of conduct.&lt;/a> You can't use chat, groups, call or Horizon Worlds for %2$s hour. Ends on %3$s.&lt;/p>"</item>
+    </plurals>
+</resources>

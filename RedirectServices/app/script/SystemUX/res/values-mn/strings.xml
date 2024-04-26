@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_up_description">Дээш шилжих</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+</string>
+    <string name="abc_menu_delete_shortcut_label">устгах</string>
+    <string name="abc_menu_enter_shortcut_label">оруулах</string>
+    <string name="abc_menu_function_shortcut_label">Функц+</string>
+    <string name="abc_menu_meta_shortcut_label">Мета+</string>
+    <string name="abc_menu_shift_shortcut_label">Шифт+</string>
+    <string name="abc_menu_space_shortcut_label">зай</string>
+    <string name="abc_menu_sym_shortcut_label">Sym+</string>
+    <string name="abc_prepend_shortcut_label">Цэс+</string>
+    <string name="abc_searchview_description_clear">Асуулга арилгах</string>
+    <string name="abc_searchview_description_search">Хайх</string>
+    <string name="abc_searchview_description_submit">Асуулга илгээх</string>
+    <string name="abc_searchview_description_voice">Дуут хайлт</string>
+    <string name="default_popup_window_title">Попап цонх</string>
+    <string name="in_progress">Үргэлжилж байна</string>
+    <string name="indeterminate">Хэсэгчлэн тэмдэглэсэн</string>
+    <string name="not_selected">Сонгоогүй</string>
+    <string name="off">Унтраалттай</string>
+    <string name="on">Асаалттай</string>
+    <string name="selected">Сонгосон</string>
+    <string name="switch_role">Сэлгэх</string>
+    <string name="tab">Таб</string>
+    <string name="template_percent">%1$d хувь.</string>
+</resources>

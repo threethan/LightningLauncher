@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_up_description">ওপৰলৈ যাওক</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+</string>
+    <string name="abc_menu_delete_shortcut_label">delete</string>
+    <string name="abc_menu_enter_shortcut_label">enter</string>
+    <string name="abc_menu_function_shortcut_label">Function+</string>
+    <string name="abc_menu_meta_shortcut_label">Meta+</string>
+    <string name="abc_menu_shift_shortcut_label">Shift+</string>
+    <string name="abc_menu_space_shortcut_label">space</string>
+    <string name="abc_menu_sym_shortcut_label">Sym+</string>
+    <string name="abc_prepend_shortcut_label">Menu+</string>
+    <string name="abc_searchview_description_clear">সন্ধান কৰা প্ৰশ্ন মচক</string>
+    <string name="abc_searchview_description_search">সন্ধান কৰক</string>
+    <string name="abc_searchview_description_submit">প্ৰশ্ন দাখিল কৰক</string>
+    <string name="abc_searchview_description_voice">কণ্ঠধ্বনিৰ দ্বাৰা সন্ধান</string>
+    <string name="default_popup_window_title">পপ-আপ ৱিণ্ড’</string>
+    <string name="in_progress">প্ৰক্ৰিয়াকৰণ কৰি থকা হৈছে</string>
+    <string name="indeterminate">আংশিকভাৱে পৰীক্ষা কৰা হৈছে</string>
+    <string name="not_selected">বাছনি কৰা হোৱা নাই</string>
+    <string name="off">অফ আছে</string>
+    <string name="on">অন কৰা আছে</string>
+    <string name="selected">বাছনি কৰা হৈছে</string>
+    <string name="switch_role">ছুইচ</string>
+    <string name="tab">টেব</string>
+    <string name="template_percent">%1$d শতাংশ।</string>
+</resources>

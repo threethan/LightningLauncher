@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/wrapper" android:tag="layout/osig_seekbar_0" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <SeekBar android:id="@id/seekbar" android:tag="binding_1" android:background="@null" android:layout_width="fill_parent" android:layout_height="fill_parent" android:thumb="@android:color/transparent" android:paddingStart="0.0dip" android:paddingEnd="0.0dip" android:splitTrack="false" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <ImageView android:id="@id/icon_image" android:tag="binding_2" android:layout_width="24.0dip" android:layout_height="24.0dip" android:tint="?ocControlIcon" android:layout_marginStart="12.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="@id/seekbar" app:layout_constraintTop_toTopOf="@id/seekbar" />
+</androidx.constraintlayout.widget.ConstraintLayout>

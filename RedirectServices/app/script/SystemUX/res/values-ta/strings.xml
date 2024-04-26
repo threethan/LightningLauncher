@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_up_description">மேலே செல்லும்</string>
+    <string name="abc_menu_alt_shortcut_label">Alt மற்றும்</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl மற்றும்</string>
+    <string name="abc_menu_delete_shortcut_label">delete</string>
+    <string name="abc_menu_enter_shortcut_label">enter</string>
+    <string name="abc_menu_function_shortcut_label">Function மற்றும்</string>
+    <string name="abc_menu_meta_shortcut_label">Meta மற்றும்</string>
+    <string name="abc_menu_shift_shortcut_label">Shift மற்றும்</string>
+    <string name="abc_menu_space_shortcut_label">space</string>
+    <string name="abc_menu_sym_shortcut_label">Sym மற்றும்</string>
+    <string name="abc_prepend_shortcut_label">Menu மற்றும்</string>
+    <string name="abc_searchview_description_clear">வினவலை அழிக்கும்</string>
+    <string name="abc_searchview_description_search">தேடும்</string>
+    <string name="abc_searchview_description_submit">வினவலைச் சமர்ப்பிக்கும்</string>
+    <string name="abc_searchview_description_voice">குரல் தேடல்</string>
+    <string name="default_popup_window_title">பாப்-அப் சாளரம்</string>
+    <string name="in_progress">செயலிலுள்ளது</string>
+    <string name="indeterminate">சில மட்டுமே தேர்ந்தெடுக்கப்பட்டுள்ளன</string>
+    <string name="not_selected">தேர்ந்தெடுக்கப்படவில்லை</string>
+    <string name="off">முடக்கப்பட்டுள்ளது</string>
+    <string name="on">இயக்கப்பட்டுள்ளது</string>
+    <string name="selected">தேர்ந்தெடுக்கப்பட்டுள்ளது</string>
+    <string name="switch_role">மாற்றுதல்</string>
+    <string name="tab">பிரிவு</string>
+    <string name="template_percent">%1$d சதவீதம்.</string>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.panelapp.settings.ui.SettingsImageCaptionView android:tag="layout/settings_image_caption_view_0" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/image" android:tag="binding_1" android:layout_width="300.0dip" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:adjustViewBounds="true" app:layout_constraintBottom_toTopOf="@id/title" app:layout_constraintDimensionRatio="H,1:1" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+        <com.oculus.ocui.OCTextView android:gravity="center" android:id="@id/title" android:tag="binding_2" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/image" app:layout_constraintVertical_bias="0.5" style="@style/Body1" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.oculus.panelapp.settings.ui.SettingsImageCaptionView>

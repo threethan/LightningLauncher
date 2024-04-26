@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item>
+        <drawable app:cornerRadius="?ocPanelBorderRadius" app:solidBgColor="?ocPanelBackground" class="com.oculus.ocui.OCPanelBackgroundDrawable" />
+    </item>
+</selector>

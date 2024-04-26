@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/dropdown_layout" android:background="@drawable/occontext_menu" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.oculus.ocui.OCTextView android:textStyle="bold" android:ellipsize="end" android:id="@id/context_menu_title" android:paddingTop="12.0dip" android:paddingBottom="@dimen/abc_button_padding_horizontal_material" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scrollHorizontally="true" android:paddingStart="12.0dip" android:paddingEnd="8.0dip" style="@style/Body1" />
+    <com.oculus.ocui.OCRecyclerView android:scrollbarStyle="insideOverlay" android:id="@id/context_menu_list" android:paddingTop="@dimen/abc_button_padding_horizontal_material" android:paddingBottom="@dimen/abc_button_padding_horizontal_material" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" app:scrollBarAlwaysVisible="true" />
+</LinearLayout>

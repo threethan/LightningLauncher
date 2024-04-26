@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.ocui.OCTextView android:textColor="?ocPrimaryButtonText" android:gravity="center" android:id="@id/overflow_circle" android:background="@drawable/ocbutton_secondary_circle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLength="2" android:textAlignment="center"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

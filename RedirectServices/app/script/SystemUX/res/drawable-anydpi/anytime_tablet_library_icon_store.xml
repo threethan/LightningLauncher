@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:height="100.0dip" android:width="180.0dip" android:drawable="@drawable/vector_store_gradient" />
+    <item android:gravity="center_horizontal" android:height="@dimen/abc_search_view_preferred_height" android:width="@dimen/anytime_tablet_library_app_tile_icon_width" android:drawable="@drawable/vector_store_filled_48" android:top="@dimen/anytime_tablet_library_app_tile_icon_margin_top" />
+    <item android:gravity="center_horizontal" android:height="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" android:width="43.0dip" android:drawable="@drawable/vector_store_text" android:top="@dimen/anytime_tablet_library_app_tile_text_margin_top" />
+</layer-list>

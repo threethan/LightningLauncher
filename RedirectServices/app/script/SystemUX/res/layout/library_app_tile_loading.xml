@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:id="@id/card_view" android:tag="layout/library_app_tile_loading_0" android:layout_width="@dimen/anytime_tablet_library_app_tile_image_width" android:layout_height="@dimen/anytime_tablet_library_app_tile_image_height" android:layout_marginTop="8.0dip" android:layout_marginBottom="28.0dip" android:layout_marginHorizontal="8.0dip" app:cardCornerRadius="?ocCardBorderRadius" app:cardElevation="0.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" />

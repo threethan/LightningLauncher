@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="wifitrackerlib_wifi_status">
+        <item></item>
+        <item>검색 중…</item>
+        <item>연결 중…</item>
+        <item>인증 중…</item>
+        <item>IP 주소를 가져오는 중…</item>
+        <item>연결됨</item>
+        <item>정지됨</item>
+        <item>연결 해제 중…</item>
+        <item>연결 해제됨</item>
+        <item>실패</item>
+        <item>차단됨</item>
+        <item>신호가 약한 네트워크에 일시적으로 연결하지 않음</item>
+    </string-array>
+</resources>

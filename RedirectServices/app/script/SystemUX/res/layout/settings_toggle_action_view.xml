@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/toggle_container" android:tag="layout/settings_toggle_action_view_0" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.oculus.ocui.OCToggle android:id="@id/toggle" android:tag="binding_1" android:layout_width="@dimen/abc_search_view_preferred_height" android:layout_height="@dimen/abc_star_medium" />
+    <View android:id="@id/toggle_tooltip" android:visibility="gone" android:layout_width="@dimen/abc_search_view_preferred_height" android:layout_height="@dimen/abc_star_medium" app:layout_constraintBottom_toBottomOf="@id/toggle" app:layout_constraintEnd_toEndOf="@id/toggle" app:layout_constraintStart_toStartOf="@id/toggle" app:layout_constraintTop_toTopOf="@id/toggle" />
+</RelativeLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/accounts_user_card" android:tag="layout/settings_accounts_section_user_card_0" android:layout_width="@dimen/invite_button_width" android:layout_height="@dimen/progress_bar_horizontal_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.oculus.ocui.OCPeopleCardInfoLayout android:id="@id/card_info_layout" android:layout_width="@dimen/invite_button_width" android:layout_height="@dimen/progress_bar_horizontal_padding" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <com.oculus.ocui.OCButton android:id="@id/context_menu_button" android:tag="binding_1" android:background="@drawable/settings_accounts_section_user_card_context_menu_button_background" android:layout_width="@dimen/abc_star_medium" android:layout_height="@dimen/abc_star_medium" android:layout_marginTop="5.0dip" android:scaleType="center" android:layout_marginEnd="5.0dip" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

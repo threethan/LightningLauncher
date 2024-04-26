@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.ocui.OCToggle android:layout_width="@dimen/abc_search_view_preferred_height" android:layout_height="@dimen/abc_star_medium"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

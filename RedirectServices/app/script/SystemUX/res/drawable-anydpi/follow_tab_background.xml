@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<drawable class="com.oculus.ocui.drawable.OCInteractionOverlayDrawable"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <layer-list>
+        <item>
+            <shape android:shape="rectangle">
+                <corners android:radius="@dimen/abc_star_small" />
+                <solid android:color="?ocSecondaryButtonBackground" />
+            </shape>
+        </item>
+        <item>
+            <selector>
+                <item android:state_activated="true">
+                    <shape android:shape="rectangle">
+                        <corners android:radius="@dimen/abc_star_small" />
+                        <solid android:color="?ocTabActiveBackground" />
+                    </shape>
+                </item>
+            </selector>
+        </item>
+    </layer-list>
+</drawable>

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.panelapp.library.tabinfra.views.tabs.apps.LibraryRecyclerView android:id="@id/content" android:tag="layout/library_app_page_0" android:paddingLeft="@dimen/abc_dropdownitem_icon_width" android:scrollbars="none" android:clipToPadding="false" android:layout_width="@dimen/anytime_tablet_library_view_width" android:layout_height="@dimen/anytime_tablet_profile_avatar_card_height_d90"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" />

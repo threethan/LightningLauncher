@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.panelapp.settings.ui.SettingsEnvironmentBackgroundTile android:tag="layout/settings_environment_background_tile_0" android:layout_width="fill_parent" android:layout_height="@dimen/settings_environment_background_image_height"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView android:layout_gravity="center" android:id="@id/card_view" android:layout_width="fill_parent" android:layout_height="@dimen/settings_environment_background_image_height" android:elevation="0.0dip" app:layout_constraintTop_toTopOf="parent">
+        <ImageView android:id="@id/image_view" android:layout_width="fill_parent" android:layout_height="fill_parent" app:actualImageScaleType="centerCrop" app:failureImage="@drawable/anytime_tablet_library_app_tile_fallback" app:placeholderImage="@drawable/anytime_tablet_library_app_tile_fallback" />
+        <View android:id="@id/hover_overlay_background" android:tag="binding_1" android:background="@color/badge_outline" android:layout_width="fill_parent" android:layout_height="@dimen/settings_environment_background_image_height" />
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/overlayed_items" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <ImageView android:id="@id/cta_icon" android:tag="binding_2" android:layout_width="20.0dip" android:layout_height="20.0dip" android:tint="?ocIconOnMedia" android:layout_marginEnd="4.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_chainStyle="packed" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent" />
+            <com.oculus.ocui.OCTextView android:textSize="@dimen/anytime_tablet_profile_text_size_small" android:textColor="?ocPrimaryTextOnMedia" android:gravity="center_vertical" android:id="@id/cta_text" android:tag="binding_3" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+    <com.oculus.ocui.OCButton android:id="@id/button" android:background="@android:color/transparent" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</com.oculus.panelapp.settings.ui.SettingsEnvironmentBackgroundTile>

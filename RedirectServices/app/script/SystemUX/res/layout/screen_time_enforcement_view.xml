@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.panelapp.screentimeenforcement.ScreenTimeEnforcementView android:gravity="center" android:orientation="vertical" android:id="@id/screentime_enforcement_view" android:tag="layout/screen_time_enforcement_view_0" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:id="@id/container" android:background="@drawable/control_bar_overflow_menu_background" android:paddingBottom="20.0dip" android:layout_width="384.0dip" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/clock_container" android:paddingTop="20.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <ImageView android:id="@id/clock_image" android:layout_width="48.0dip" android:layout_height="48.0dip" android:src="@drawable/oc_icon_time_filled_24" android:tint="#ffffffff" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:id="@id/title_container" android:background="@drawable/control_bar_overflow_menu_background" android:paddingLeft="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" android:paddingTop="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" android:paddingRight="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/active_call_bar_active_call_button_padding">
+            <com.oculus.ocui.OCTextView android:textSize="@dimen/octypography_body1_line_height" android:textStyle="bold" android:gravity="center" android:id="@id/title" android:tag="binding_1" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" android:lineHeight="@dimen/anytime_tablet_profile_text_size_large" />
+        </LinearLayout>
+        <com.oculus.ocui.OCTextView android:textColorHighlight="#00ffffff" android:id="@id/body" android:tag="binding_2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" android:paddingEnd="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" android:lineHeight="@dimen/keypad_text_size" style="@style/Body2" />
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/button_container" android:paddingTop="20.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.oculus.ocui.OCButton android:id="@id/button_switch_account" android:tag="binding_3" android:layout_width="wrap_content" android:layout_height="@dimen/anytime_tablet_common_rectangular_button_height" android:maxWidth="@dimen/anytime_tablet_profile_popup_list_height" android:drawablePadding="4.0dip" android:drawableStart="@drawable/oc_icon_profile_circle_filled_24" android:drawableTint="?ocPrimaryIcon" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+    </LinearLayout>
+</com.oculus.panelapp.screentimeenforcement.ScreenTimeEnforcementView>

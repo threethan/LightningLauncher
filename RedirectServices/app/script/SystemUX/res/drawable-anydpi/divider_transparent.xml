@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <size android:height="0.0dip" android:width="@dimen/active_call_bar_active_call_button_padding" />
+</shape>

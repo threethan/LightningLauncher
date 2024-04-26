@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="anytime_bar_active_call_bar_messenger_mic_switcher_use_call_audio_tooltip_subtitle">
+        <item quantity="other">%1$d人</item>
+    </plurals>
+    <plurals name="anytime_bar_active_call_bar_party_button_tooltip_subtitle">
+        <item quantity="other">%1$d人</item>
+    </plurals>
+    <plurals name="anytime_library_app_multiple_locked_toast_description">
+        <item quantity="other">%1$d個應用程式已上鎖</item>
+    </plurals>
+    <plurals name="anytime_library_app_multiple_unlocked_toast_description">
+        <item quantity="other">%1$d個應用程式已解鎖</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_install_warning_tooltip">
+        <item quantity="other">此應用程式可能需要至少%1$d分鐘來完成安裝。</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_lock_bulk_action_description">
+        <item quantity="other">鎖住%1$d個應用程式</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_lock_bulk_action_title">
+        <item quantity="other">鎖住%1$d個應用程式？</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_tile_subtitle_supports_players">
+        <item quantity="other">1-%1$d人</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_unlock_bulk_action_description">
+        <item quantity="other">解鎖%1$d個應用程式</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_unlock_bulk_action_title">
+        <item quantity="other">解鎖%1$d個應用程式？</item>
+    </plurals>
+    <plurals name="anytime_tablet_profile_pending_follow_request_confirm_title">
+        <item quantity="other">%1$d則待回覆的追蹤要求</item>
+    </plurals>
+    <plurals name="cloud_backups_num_attempts_remaining_text">
+        <item quantity="other">還剩%1$d次嘗試機會</item>
+    </plurals>
+    <plurals name="follower_view_pill_title">
+        <item quantity="other">%1$d位追蹤者</item>
+    </plurals>
+    <plurals name="last_played_with_time_days">
+        <item quantity="other">%1$d天前</item>
+    </plurals>
+    <plurals name="last_played_with_time_hours">
+        <item quantity="other">%1$d小時前</item>
+    </plurals>
+    <plurals name="last_played_with_time_minutes">
+        <item quantity="other">%1$d分鐘前</item>
+    </plurals>
+    <plurals name="last_played_with_time_weeks">
+        <item quantity="other">%1$d週前</item>
+    </plurals>
+    <plurals name="lockpassword_pin_too_long">
+        <item quantity="other">必須少於%1$d位數</item>
+    </plurals>
+    <plurals name="lockpassword_pin_too_short">
+        <item quantity="other">PIN 碼必須至少為%1$d位數</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_hours">
+        <item quantity="other">請於%1$d小時後再試一次</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_min">
+        <item quantity="other">請於%1$d分鐘後再試一次</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_sec">
+        <item quantity="other">請於%1$d秒後再試一次</item>
+    </plurals>
+    <plurals name="request_view_pill_title">
+        <item quantity="other">%1$d則要求</item>
+    </plurals>
+    <plurals name="safety_center_violation_list_enforcement_social_suspension">
+        <item quantity="other">你將有%1$d天無法使用聊天室、群組或 Horizon Worlds</item>
+    </plurals>
+    <plurals name="settings_apps_lock_selected_items_text">
+        <item quantity="other">已選擇%1$d項</item>
+    </plurals>
+    <plurals name="settings_permissions_apps_granted_subtitle">
+        <item quantity="other">已允許%1$d／%2$d個應用程式</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_days_ago">
+        <item quantity="other">%1$d天前取得</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_days_ago_short">
+        <item quantity="other">%1$d天前</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_hours_ago">
+        <item quantity="other">%1$d小時前取得</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_hours_ago_short">
+        <item quantity="other">%1$d小時前</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_minutes_ago">
+        <item quantity="other">%1$d分鐘前取得</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_minutes_ago_short">
+        <item quantity="other">%1$d分鐘前</item>
+    </plurals>
+    <plurals name="settings_privacy_unblock_users_subtitle">
+        <item quantity="other">已封鎖%1$d個個人檔案</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_new_violation">
+        <item quantity="other">最近有%1$d個違規事項</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle">
+        <item quantity="other">你將有%1$d天無法使用聊天室、群組或 Horizon Worlds。</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle_hours">
+        <item quantity="other">%1$d小時後結束。</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle_minutes">
+        <item quantity="other">%1$d分鐘後結束。</item>
+    </plurals>
+    <plurals name="settings_storage_selected_items_text">
+        <item quantity="other">已選擇%1$d項</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_apps_title">
+        <item quantity="other">解除安裝%1$d款應用程式</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_environments_title">
+        <item quantity="other">解除安裝%1$d種佈景主題</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_files_title">
+        <item quantity="other">刪除%1$d個檔案</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_images_title">
+        <item quantity="other">刪除%1$d張圖像</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_unknown_sources_title">
+        <item quantity="other">刪除%1$d個不明來源</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_videos_title">
+        <item quantity="other">刪除%1$d段影片</item>
+    </plurals>
+    <plurals name="social_suspension_description_days">
+        <item quantity="other">&lt;p style=\"text-align: center;\">你違反我們的&lt;a href=\"%1$s\">行為規範&lt;/a>，因此個人檔案受到限制。你有%2$s 天的時間無法使用聊天室、群組、通話或 Horizon Worlds。將於 %3$s.結束&lt;/p></item>
+    </plurals>
+    <plurals name="social_suspension_description_hours">
+        <item quantity="other">&lt;p style=\"text-align: center;\">你違反我們的&lt;a href=\"%1$s\">行為規範&lt;/a>，因此個人檔案受到限制。你有%2$s 小時的時間無法使用聊天室、群組、通話或 Horizon Worlds。將於 %3$s.結束&lt;/p></item>
+    </plurals>
+    <plurals name="subdestination_max_users">
+        <item quantity="other">最多%1$d位玩家</item>
+    </plurals>
+</resources>

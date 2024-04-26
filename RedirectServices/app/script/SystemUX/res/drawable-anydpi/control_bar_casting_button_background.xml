@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="@dimen/anytime_tablet_library_footer_body_height" />
+            <solid android:color="?ocPrimaryButtonBackground" />
+        </shape>
+    </item>
+</selector>

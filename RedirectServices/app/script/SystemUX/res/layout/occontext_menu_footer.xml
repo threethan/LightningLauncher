@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.ocui.OCTextView android:textColor="?ocSecondaryText" android:id="@id/footer_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginHorizontal="@dimen/abc_button_padding_horizontal_material" android:paddingHorizontal="@dimen/active_call_bar_active_call_button_padding" style="@style/Body2"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

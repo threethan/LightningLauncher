@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:height="48.0dip" android:width="48.0dip" android:viewportWidth="48.0" android:viewportHeight="48.0"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+    <group android:translateX="24.0" android:translateY="24.0">
+        <path android:fillColor="#00000000" android:pathData="M0,0 m 0,-18 a 18,18 0 1 1 0,36 a 18,18 0 1 1 0,-36" android:strokeColor="?ocSliderBackground" android:strokeWidth="4.0" />
+    </group>
+    <group android:name="root" android:translateX="24.0" android:translateY="24.0">
+        <path android:name="progressBar" android:fillColor="#00000000" android:pathData="M0,0 m 0,-18 a 18,18 0 1 1 0,36 a 18,18 0 1 1 0,-36" android:strokeColor="?ocAccent" android:strokeWidth="4.0" android:trimPathStart="0.0" android:trimPathEnd="0.0" android:trimPathOffset="0.0" android:strokeLineCap="square" android:strokeLineJoin="miter" />
+    </group>
+</vector>

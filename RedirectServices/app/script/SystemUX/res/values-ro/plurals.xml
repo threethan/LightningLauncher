@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="anytime_bar_active_call_bar_messenger_mic_switcher_use_call_audio_tooltip_subtitle">
+        <item quantity="other">%1$d persoane</item>
+        <item quantity="one">%1$d persoană</item>
+    </plurals>
+    <plurals name="anytime_bar_active_call_bar_party_button_tooltip_subtitle">
+        <item quantity="other">%1$d persoane</item>
+        <item quantity="one">%1$d persoană</item>
+    </plurals>
+    <plurals name="anytime_library_app_multiple_locked_toast_description">
+        <item quantity="other">%1$d aplicaţii au fost blocate</item>
+        <item quantity="one">%1$d aplicaţie a fost blocată</item>
+    </plurals>
+    <plurals name="anytime_library_app_multiple_unlocked_toast_description">
+        <item quantity="other">%1$d aplicaţii au fost deblocate</item>
+        <item quantity="one">%1$d aplicaţie a fost deblocată</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_install_warning_tooltip">
+        <item quantity="other">Instalarea acestei aplicaţii poate dura %1$d minute sau mai mult.</item>
+        <item quantity="one">Instalarea acestei aplicaţii poate dura %1$d minut sau mai mult.</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_lock_bulk_action_description">
+        <item quantity="other">a bloca %1$d aplicaţii</item>
+        <item quantity="one">a bloca %1$d aplicaţie</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_lock_bulk_action_title">
+        <item quantity="other">Blochezi %1$d aplicaţii?</item>
+        <item quantity="one">Blochezi %1$d aplicaţie?</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_tile_subtitle_supports_players">
+        <item quantity="other">1-%1$d persoane</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_unlock_bulk_action_description">
+        <item quantity="other">a debloca %1$d aplicaţii</item>
+        <item quantity="one">a debloca %1$d aplicaţie</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_unlock_bulk_action_title">
+        <item quantity="other">Deblochezi %1$d aplicaţii?</item>
+        <item quantity="one">Deblochezi %1$d aplicaţie?</item>
+    </plurals>
+    <plurals name="anytime_tablet_profile_pending_follow_request_confirm_title">
+        <item quantity="other">%1$d cereri de urmărire în aşteptare</item>
+        <item quantity="one">%1$d cerere de urmărire în aşteptare</item>
+    </plurals>
+    <plurals name="cloud_backups_num_attempts_remaining_text">
+        <item quantity="other">Încă %1$d încercări</item>
+        <item quantity="one">Încă %1$d încercare</item>
+    </plurals>
+    <plurals name="follower_view_pill_title">
+        <item quantity="other">%1$d urmăritori</item>
+        <item quantity="one">%1$d urmăritor</item>
+    </plurals>
+    <plurals name="last_played_with_time_days">
+        <item quantity="other">Acum %1$d zile</item>
+        <item quantity="one">Acum %1$d zi</item>
+    </plurals>
+    <plurals name="last_played_with_time_hours">
+        <item quantity="other">Acum %1$d ore</item>
+        <item quantity="one">Acum %1$d oră</item>
+    </plurals>
+    <plurals name="last_played_with_time_minutes">
+        <item quantity="other">Acum %1$d minute</item>
+        <item quantity="one">Acum %1$d minut</item>
+    </plurals>
+    <plurals name="last_played_with_time_weeks">
+        <item quantity="other">Acum %1$d săptămâni</item>
+        <item quantity="one">Acum %1$d săptămână</item>
+    </plurals>
+    <plurals name="lockpassword_pin_too_long">
+        <item quantity="other">Trebuie să cuprindă mai puţin de %1$d cifre</item>
+        <item quantity="one">Trebuie să cuprindă mai puţin de %1$d cifră</item>
+    </plurals>
+    <plurals name="lockpassword_pin_too_short">
+        <item quantity="other">Codul PIN trebuie să cuprindă cel puţin %1$d cifre</item>
+        <item quantity="one">Codul PIN trebuie să cuprindă cel puţin %1$d cifră</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_hours">
+        <item quantity="other">Încearcă din nou peste %1$d ore</item>
+        <item quantity="one">Încearcă din nou peste %1$d oră</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_min">
+        <item quantity="other">Încearcă din nou peste %1$d minute</item>
+        <item quantity="one">Încearcă din nou peste %1$d minut</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_sec">
+        <item quantity="other">Încearcă din nou peste %1$d secunde</item>
+        <item quantity="one">Încearcă din nou peste %1$d secundă</item>
+    </plurals>
+    <plurals name="request_view_pill_title">
+        <item quantity="other">%1$d cereri</item>
+        <item quantity="one">%1$d cerere</item>
+    </plurals>
+    <plurals name="safety_center_violation_list_enforcement_social_suspension">
+        <item quantity="other">Nu poţi folosi funcţia de chat, grupurile şi nici Horizon Worlds timp de %1$d zile</item>
+        <item quantity="one">Nu poţi folosi funcţia de chat, grupurile şi nici Horizon Worlds timp de %1$d zi</item>
+    </plurals>
+    <plurals name="settings_apps_lock_selected_items_text">
+        <item quantity="other">Ai selectat %1$d</item>
+    </plurals>
+    <plurals name="settings_permissions_apps_granted_subtitle">
+        <item quantity="other">Aplicaţii permise: %1$d din %2$d</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_days_ago">
+        <item quantity="other">Accesată acum %1$d zile</item>
+        <item quantity="one">Accesată acum %1$d zi</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_days_ago_short">
+        <item quantity="other">Acum %1$d zile</item>
+        <item quantity="one">Acum %1$d zi</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_hours_ago">
+        <item quantity="other">Accesată acum %1$d ore</item>
+        <item quantity="one">Accesată acum %1$d oră</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_hours_ago_short">
+        <item quantity="other">Acum %1$d ore</item>
+        <item quantity="one">Acum %1$d oră</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_minutes_ago">
+        <item quantity="other">Accesată acum %1$d minute</item>
+        <item quantity="one">Accesată acum 1 minut</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_minutes_ago_short">
+        <item quantity="other">Acum %1$d minute</item>
+        <item quantity="one">Acum 1 minut</item>
+    </plurals>
+    <plurals name="settings_privacy_unblock_users_subtitle">
+        <item quantity="other">%1$d profiluri blocate</item>
+        <item quantity="one">%1$d profil blocat</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_new_violation">
+        <item quantity="other">%1$d încălcări recente</item>
+        <item quantity="one">%1$d încălcare recentă</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle">
+        <item quantity="other">Nu poţi folosi conversaţiile, grupurile şi nici Horizon Worlds timp de %1$d zile.</item>
+        <item quantity="one">Nu poţi folosi conversaţiile, grupurile şi nici Horizon Worlds timp de %1$d zi.</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle_hours">
+        <item quantity="other">Se încheie peste %1$d ore.</item>
+        <item quantity="one">Se încheie peste %1$d oră.</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle_minutes">
+        <item quantity="other">Se încheie peste %1$d minute.</item>
+        <item quantity="one">Se încheie peste %1$d minut.</item>
+    </plurals>
+    <plurals name="settings_storage_selected_items_text">
+        <item quantity="other">Ai selectat %1$d</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_apps_title">
+        <item quantity="other">Dezinstalează %1$d aplicaţii</item>
+        <item quantity="one">Dezinstalează %1$d aplicaţie</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_environments_title">
+        <item quantity="other">Dezinstalează %1$d medii</item>
+        <item quantity="one">Dezinstalează %1$d mediu</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_files_title">
+        <item quantity="other">Şterge %1$d fişiere</item>
+        <item quantity="one">Şterge %1$d fişier</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_images_title">
+        <item quantity="other">Şterge %1$d imagini</item>
+        <item quantity="one">Şterge %1$d imagine</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_unknown_sources_title">
+        <item quantity="other">Şterge %1$d surse necunoscute</item>
+        <item quantity="one">Şterge %1$d sursă necunoscută</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_videos_title">
+        <item quantity="other">Şterge %1$d clipuri video</item>
+        <item quantity="one">Şterge %1$d clip video</item>
+    </plurals>
+    <plurals name="social_suspension_description_days">
+        <item quantity="other">&lt;p style=\"text-align: center;\">Profilul tău este restricţionat deoarece nu ai respectat&lt;a href=\"%1$s\"> codul nostru de conduită.&lt;/a> Nu poţi folosi chatul, grupurile, apelurile şi nici Horizon Worlds timp de %2$s zile. Se încheie pe %3$s.&lt;/p></item>
+        <item quantity="one">&lt;p style=\"text-align: center;\">Profilul tău este restricţionat deoarece nu ai respectat&lt;a href=\"%1$s\"> codul nostru de conduită.&lt;/a> Nu poţi folosi chatul, grupurile, apelurile şi nici Horizon Worlds timp de %2$s zi. Se încheie pe %3$s.&lt;/p></item>
+    </plurals>
+    <plurals name="social_suspension_description_hours">
+        <item quantity="other">&lt;p style=\"text-align: center;\">Profilul tău este restricţionat deoarece nu ai respectat&lt;a href=\"%1$s\"> codul nostru de conduită.&lt;/a> Nu poţi folosi chatul, grupurile, apelurile şi nici Horizon Worlds timp de %2$s ore. Se încheie pe %3$s.&lt;/p></item>
+        <item quantity="one">&lt;p style=\"text-align: center;\">Profilul tău este restricţionat deoarece nu ai respectat&lt;a href=\"%1$s\"> codul nostru de conduită.&lt;/a> Nu poţi folosi chatul, grupurile, apelurile şi nici Horizon Worlds timp de %2$s oră. Se încheie pe %3$s.&lt;/p></item>
+    </plurals>
+    <plurals name="subdestination_max_users">
+        <item quantity="other">Până la %1$d jucători</item>
+        <item quantity="one">Până la %1$d jucător</item>
+    </plurals>
+</resources>

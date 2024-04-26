@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="wifitrackerlib_wifi_status">
+        <item></item>
+        <item>Recherche…</item>
+        <item>Connexion…</item>
+        <item>Authentification…</item>
+        <item>"Récupération de l'adresse IP…"</item>
+        <item>Connecté</item>
+        <item>Suspendu</item>
+        <item>Déconnexion…</item>
+        <item>Déconnecté</item>
+        <item>Échec</item>
+        <item>Bloqué</item>
+        <item>Mauvaise connexion évitée momentanément</item>
+    </string-array>
+</resources>

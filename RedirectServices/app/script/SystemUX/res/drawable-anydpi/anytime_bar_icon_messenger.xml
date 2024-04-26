@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:height="48.0dip" android:width="48.0dip">
+        <color android:color="@color/oc_black" />
+    </item>
+    <item android:gravity="center" android:height="27.0dip" android:width="27.0dip" android:drawable="@drawable/vector_ic_bubble" />
+    <item android:gravity="center" android:height="9.0dip" android:width="16.5dip" android:drawable="@drawable/vector_ic_bolt" />
+</layer-list>

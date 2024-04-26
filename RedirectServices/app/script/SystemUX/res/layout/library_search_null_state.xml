@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/library_search_null_state" android:tag="layout/library_search_null_state_0" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/icon" android:layout_width="48.0dip" android:layout_height="48.0dip" android:src="@drawable/oc_icon_search_filled_24" android:tint="?ocDisabledIcon" android:tintMode="src_in" android:layout_marginVertical="8.0dip" />
+    <com.oculus.ocui.OCTextView android:textSize="@dimen/anytime_tablet_profile_text_size_small" android:textColor="?ocSecondaryText" android:gravity="center" android:id="@id/description" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/anytime_tablet_library_search_null_state" android:layout_marginHorizontal="@dimen/abc_button_inset_vertical_material" android:layout_marginVertical="8.0dip" />
+</LinearLayout>

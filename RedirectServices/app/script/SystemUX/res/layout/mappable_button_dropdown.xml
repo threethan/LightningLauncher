@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/mappable_button_dropdown_container" android:background="@drawable/ocbutton_secondary" android:padding="8.0dip" android:layout_width="wrap_content" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/original_key_icon" android:layout_width="24.0dip" android:layout_height="24.0dip" android:scaleType="centerCrop" android:tint="?ocPrimaryIcon" android:tintMode="src_in" />
+    <com.oculus.ocui.OCTextView android:textColor="?ocPrimaryText" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/original_key_text" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/Body1" />
+    <ImageView android:layout_gravity="center_vertical" android:id="@id/validation_error_indicator" android:visibility="gone" android:layout_width="@dimen/abc_star_small" android:layout_height="@dimen/abc_star_small" android:src="@drawable/oc_icon_warning_filled_24" android:scaleType="centerCrop" android:tint="?ocWarning" android:tintMode="src_in" />
+    <ImageView android:id="@id/mapping_arrow" android:layout_width="24.0dip" android:layout_height="24.0dip" android:scaleType="centerCrop" android:tint="?ocPrimaryIcon" android:layout_marginStart="@dimen/abc_button_padding_horizontal_material" android:layout_marginEnd="@dimen/abc_button_padding_horizontal_material" android:tintMode="src_in" />
+    <ImageView android:id="@id/selected_key_icon" android:layout_width="24.0dip" android:layout_height="24.0dip" android:scaleType="centerCrop" android:tint="?ocPrimaryIcon" android:tintMode="src_in" />
+    <com.oculus.ocui.OCTextView android:textColor="?ocPrimaryText" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/selected_key_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="@dimen/abc_button_padding_horizontal_material" style="@style/Body1" />
+</LinearLayout>

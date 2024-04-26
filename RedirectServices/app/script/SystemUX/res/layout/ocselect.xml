@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.ocui.OCButton android:id="@id/dropdown_button" android:layout_width="fill_parent" android:layout_height="fill_parent" android:drawablePadding="12.0dip" android:drawableEnd="@drawable/oc_icon_chevron_down_filled_24" android:textAlignment="viewStart"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

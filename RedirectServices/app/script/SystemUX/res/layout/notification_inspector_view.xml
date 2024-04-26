@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.panelapp.notificationinspector.NotificationInspectorView android:id="@id/notification_inspector_view" android:tag="layout/notification_inspector_view_0" android:background="@drawable/ocpanel_background_disable_rounding" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingHorizontal="32.0dip" android:paddingVertical="28.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.oculus.ocui.OCBackButton android:id="@id/back_button" android:layout_width="36.0dip" android:layout_height="36.0dip" />
+    <com.oculus.ocui.OCTextView android:textStyle="bold" android:id="@id/title" android:paddingLeft="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/notifications_inspect" app:layout_constraintLeft_toRightOf="@id/back_button" style="@style/H3" />
+    <ImageView android:id="@id/loading_error_image" android:tag="binding_1" android:layout_width="184.0dip" android:layout_height="104.0dip" android:src="@drawable/error_empty_state" app:layout_constraintBottom_toTopOf="@id/loading_error_title" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_chainStyle="packed" />
+    <com.oculus.ocui.OCTextView android:textSize="@dimen/anytime_tablet_profile_text_size_medium" android:textStyle="bold" android:textColor="?ocPrimaryText" android:id="@id/loading_error_title" android:tag="binding_2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/profile_error_title" app:layout_constraintBottom_toTopOf="@id/loading_error_subtitle" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/loading_error_image" />
+    <com.oculus.ocui.OCTextView android:textSize="@dimen/anytime_tablet_profile_text_size_medium" android:textColor="?ocPrimaryText" android:id="@id/loading_error_subtitle" android:tag="binding_3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/profile_error_subtitle" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/loading_error_title" />
+    <com.oculus.ocui.OCSpinner android:id="@id/loading_spinner" android:tag="binding_4" android:layout_width="28.0dip" android:layout_height="28.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <com.oculus.ocui.OCScrollView android:scrollbarStyle="insideOverlay" android:id="@id/viewScroll" android:tag="binding_5" android:paddingTop="20.0dip" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="0.0dip" android:paddingHorizontal="15.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toBottomOf="@id/back_button">
+        <LinearLayout android:orientation="vertical" android:id="@id/infoLayout" android:tag="binding_6" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <com.oculus.ocui.OCTextView android:textStyle="bold" android:paddingBottom="@dimen/abc_star_small" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/notification_inspector_oncall" style="@style/H3" />
+            <include layout="@layout/notification_inspector_item" />
+            <View android:layout_marginBottom="@dimen/control_bar_display_name_padding" style="@style/HorizontalDivider" />
+            <com.oculus.ocui.OCTextView android:textStyle="bold" android:paddingBottom="@dimen/abc_star_small" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/notification_inspector_metadata" style="@style/H3" />
+            <include layout="@layout/notification_inspector_item" />
+            <include layout="@layout/notification_inspector_item" />
+            <include layout="@layout/notification_inspector_item" />
+            <include layout="@layout/notification_inspector_item" />
+            <include layout="@layout/notification_inspector_item" />
+            <include layout="@layout/notification_inspector_item" />
+            <include layout="@layout/notification_inspector_item" />
+            <include layout="@layout/notification_inspector_item" />
+            <include layout="@layout/notification_inspector_item" />
+            <include layout="@layout/notification_inspector_item" />
+            <include layout="@layout/notification_inspector_item" />
+            <include layout="@layout/notification_inspector_item" />
+            <include layout="@layout/notification_inspector_item" />
+            <include layout="@layout/notification_inspector_item" />
+            <include layout="@layout/notification_inspector_item" />
+            <include layout="@layout/notification_inspector_item" />
+            <include layout="@layout/notification_inspector_item" />
+            <include layout="@layout/notification_inspector_item" />
+            <include layout="@layout/notification_inspector_item" />
+            <include layout="@layout/notification_inspector_item" />
+            <View android:layout_marginBottom="@dimen/control_bar_display_name_padding" style="@style/HorizontalDivider" />
+            <com.oculus.ocui.OCTextView android:textStyle="bold" android:paddingBottom="@dimen/abc_star_small" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/notification_inspector_contents" style="@style/H3" />
+            <include layout="@layout/notification_inspector_item" />
+            <include layout="@layout/notification_inspector_item" />
+            <include layout="@layout/notification_inspector_item" />
+            <include layout="@layout/notification_inspector_item" />
+            <include layout="@layout/notification_inspector_item" />
+        </LinearLayout>
+    </com.oculus.ocui.OCScrollView>
+    <com.oculus.ocui.OCScrollView android:scrollbarStyle="insideOverlay" android:id="@id/clientNotifViewScroll" android:tag="binding_7" android:paddingTop="20.0dip" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="0.0dip" android:paddingHorizontal="15.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toBottomOf="@id/back_button">
+        <LinearLayout android:orientation="vertical" android:id="@id/clientNotifInfoLayout" android:tag="binding_8" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <include layout="@layout/notification_inspector_item" />
+            <include layout="@layout/notification_inspector_item" />
+        </LinearLayout>
+    </com.oculus.ocui.OCScrollView>
+</com.oculus.panelapp.notificationinspector.NotificationInspectorView>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.panelapp.profile.ProfileTabletMainView android:id="@id/profile_main_view" android:tag="layout/profile_tablet_main_view_0" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.oculus.panelapp.profile.ProfileView android:id="@id/profile_view" android:tag="binding_1" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <com.oculus.common.follow.views.FollowMainView android:id="@id/follow_view" android:tag="binding_2" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</com.oculus.panelapp.profile.ProfileTabletMainView>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item app:button_state_in_progress="true">
+        <layer-list>
+            <item>
+                <shape android:shape="rectangle">
+                    <corners android:radius="?ocButtonBorderRadius" />
+                    <solid android:color="@color/oc_black_a15" />
+                </shape>
+            </item>
+            <item>
+                <clip>
+                    <shape android:shape="rectangle">
+                        <corners android:radius="?ocButtonBorderRadius" />
+                        <solid android:color="?ocPrimaryButtonBackground" />
+                    </shape>
+                </clip>
+            </item>
+        </layer-list>
+    </item>
+</selector>

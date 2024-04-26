@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="@dimen/abc_edit_text_inset_top_material" />
+    <gradient android:startColor="#ff4673c9" android:endColor="#ffaf95d7" android:angle="180.0" android:type="linear" />
+</shape>

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<View android:id="@id/ocsidenav_divider" android:background="?ocDivider" android:layout_width="fill_parent" android:layout_height="2.0dip" android:layout_marginTop="@dimen/abc_button_padding_horizontal_material" android:layout_marginStart="@dimen/abc_star_small" android:layout_marginEnd="@dimen/abc_star_small"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" />

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_up_description">ਉੱਪਰ ਜਾਓ</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+</string>
+    <string name="abc_menu_delete_shortcut_label">ਮਿਟਾਓ</string>
+    <string name="abc_menu_enter_shortcut_label">enter</string>
+    <string name="abc_menu_function_shortcut_label">Function+</string>
+    <string name="abc_menu_meta_shortcut_label">Meta+</string>
+    <string name="abc_menu_shift_shortcut_label">Shift+</string>
+    <string name="abc_menu_space_shortcut_label">space</string>
+    <string name="abc_menu_sym_shortcut_label">Sym+</string>
+    <string name="abc_prepend_shortcut_label">Menu+</string>
+    <string name="abc_searchview_description_clear">ਪੁੱਛਗਿੱਛ ਕਲੀਅਰ ਕਰੋ</string>
+    <string name="abc_searchview_description_search">ਖੋਜ</string>
+    <string name="abc_searchview_description_submit">ਪੁੱਛਗਿੱਛ ਸਪੁਰਦ ਕਰੋ</string>
+    <string name="abc_searchview_description_voice">ਅਵਾਜ਼ੀ ਖੋਜ</string>
+    <string name="default_popup_window_title">ਪੌਪ-ਅੱਪ ਵਿੰਡੋ</string>
+    <string name="in_progress">ਜਾਰੀ ਹੈ</string>
+    <string name="indeterminate">ਅੰਸ਼ਕ ਤੌਰ ਤੇ ਜਾਂਚ ਕੀਤੀ ਗਈ</string>
+    <string name="not_selected">ਚੁਣੀ ਨਹੀਂ ਗਈ</string>
+    <string name="off">ਬੰਦ ਹੈ</string>
+    <string name="on">ਚਾਲੂ ਹੈ</string>
+    <string name="selected">ਚੁਣੀ ਗਈ</string>
+    <string name="switch_role">ਸਵਿੱਚ ਕਰੋ</string>
+    <string name="tab">ਟੈਬ</string>
+    <string name="template_percent">%1$d ਫ਼ੀਸਦ।</string>
+</resources>
