@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">Lightning Launcher (Alternate)</string>
-    <string name="service_name" translatable="false">Dummy Lightning Launcher Service</string>
-    <string name="service_desc">This service may do nothing</string>
-    <string name="target_name">N/A</string>
-</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">Lightning Launcher (Store)</string>
+    <string name="service_name" translatable="false">Redirect Store to Lightning Launcher</string>
+    <string name="service_desc" translatable="false">Enable this service using the switch up top to open Lightning Launcher when you hover over the &quot;Store&quot; button on the dock</string>
+</resources>

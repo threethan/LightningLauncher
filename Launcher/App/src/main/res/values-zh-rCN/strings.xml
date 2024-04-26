@@ -237,15 +237,17 @@
     <string name="addons_explore_disable">(可选）禁用 \"Explore \"应用程序</string>
     <string name="addons_explore_enable">重新启用 Explore 应用</string>
 
-    <string name="addons_library">App Library 快捷方式服务</string>
+    <string name="addons_library">Library 快捷方式服务</string>
     <string name="addons_library_desc">安装后，只要悬停在 dock 上的 &quot;App Library&quot; 按钮上，就会激活打开 Lightning Launcher。\n        \n(这将导致很难打开 &quot;App Library&quot; ）</string>
     <string name="addons_people">People 快捷方式服务</string>
     <string name="addons_people_desc">安装后，只要悬停在 dock 上的 &quot;People&quot; 按钮上，就会激活打开 Lightning Launcher。\n        \n(这将导致很难打开 &quot;People&quot;）</string>
+    <string name="addons_store">Store 快捷方式服务</string>
+    <string name="addons_store_desc">安装后，只要悬停在 dock 上的 &quot;Store&quot; 按钮上，就会激活打开 Lightning Launcher。\n        \n(这将导致很难打开 &quot;Store&quot;）</string>
 
     <string name="addons_install">安装</string>
     <string name="addons_update">更新</string>
     <string name="addons_activate">激活</string>
+    <string name="addons_open">打开</string>
     <string name="addons_deactivate">失活</string>
-
     <string name="addons_uninstall">移除</string>
 </resources>

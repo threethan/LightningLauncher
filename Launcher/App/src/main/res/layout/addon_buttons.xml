@@ -43,6 +43,41 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/addonDeactivate"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:layout_marginEnd="10dp"
+        android:layout_weight="1"
+        android:background="@drawable/bkg_button_default"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        tools:ignore="DuplicateIds"
+        tools:visibility="visible">
+
+        <TextView
+            style="@style/SettingButtonLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="30dp"
+            android:singleLine="true"
+            android:text="@string/addons_deactivate"
+            android:textColor="#FFFFFF"
+            tools:ignore="NestedWeights,RtlSymmetry" />
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="-35dp"
+            android:layout_marginEnd="-8dp"
+            android:src="@drawable/ic_activate"
+            android:tint="#FFFFFF"
+            tools:ignore="UseAppTint" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/addonInstall"
         android:layout_width="0dp"
         android:layout_height="35dp"
@@ -87,8 +122,7 @@
         android:background="@drawable/bkg_button_highlight"
         android:orientation="horizontal"
         android:visibility="gone"
-        tools:ignore="DuplicateIds"
-        tools:visibility="visible">
+        tools:ignore="DuplicateIds">
 
         <TextView
             style="@style/SettingButtonLabel"
@@ -113,6 +147,40 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/addonOpen"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:layout_marginEnd="10dp"
+        android:layout_weight="1"
+        android:background="@drawable/bkg_button_highlight"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        tools:ignore="DuplicateIds">
+
+        <TextView
+            style="@style/SettingButtonLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="30dp"
+            android:singleLine="true"
+            android:text="@string/addons_open"
+            android:textColor="#000000"
+            tools:ignore="NestedWeights,RtlSymmetry" />
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="-35dp"
+            android:layout_marginEnd="-8dp"
+            android:src="@drawable/ic_launch_out"
+            android:tint="#000000"
+            tools:ignore="UseAppTint" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/addonActivate"
         android:layout_width="0dp"
         android:layout_height="35dp"
@@ -122,8 +190,7 @@
         android:background="@drawable/bkg_button_highlight"
         android:orientation="horizontal"
         android:visibility="gone"
-        tools:ignore="DuplicateIds"
-        tools:visibility="visible">
+        tools:ignore="DuplicateIds">
 
         <TextView
             style="@style/SettingButtonLabel"
@@ -147,38 +214,4 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/addonDeactivate"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="bottom"
-        android:layout_marginEnd="10dp"
-        android:layout_weight="1"
-        android:background="@drawable/bkg_button_default"
-        android:orientation="horizontal"
-        android:visibility="gone"
-        tools:ignore="DuplicateIds"
-        tools:visibility="visible">
-
-        <TextView
-            style="@style/SettingButtonLabel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginEnd="30dp"
-            android:singleLine="true"
-            android:text="@string/addons_activate"
-            android:textColor="#FFFFFF"
-            tools:ignore="NestedWeights,RtlSymmetry" />
-
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="-35dp"
-            android:layout_marginEnd="-8dp"
-            android:src="@drawable/ic_activate"
-            android:tint="#FFFFFF"
-            tools:ignore="UseAppTint" />
-
-    </LinearLayout>
 </LinearLayout>

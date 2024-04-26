@@ -3,6 +3,7 @@ package com.threethan.launcher.support;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.view.View;
 import android.widget.TextView;
 
@@ -51,6 +52,10 @@ public abstract class AddonDialog {
         View addonPeople = dialog.findViewById(R.id.addonPeople);
         if (addonLibrary!=null) updateAddonButton(a, addonPeople, AddonUpdater.TAG_PEOPLE);
 
+        View addonStore = dialog.findViewById(R.id.addonStore);
+        if (addonLibrary!=null) updateAddonButton(a, addonStore, AddonUpdater.TAG_STORE);
+
+
         View addonAndroidTv = dialog.findViewById(R.id.addonAndroidTv);
         if (addonAndroidTv!=null) updateAddonButton(a, addonAndroidTv, AddonUpdater.TAG_ATV_LM);
 
@@ -61,26 +66,29 @@ public abstract class AddonDialog {
         final View uninstallButton = layout.findViewById(R.id.addonUninstall);
         final View installButton = layout.findViewById(R.id.addonInstall);
         final View updateButton = layout.findViewById(R.id.addonUpdate);
+        final View openButton = layout.findViewById(R.id.addonOpen);
         final View activateButton = layout.findViewById(R.id.addonActivate);
         final View deactivateButton = layout.findViewById(R.id.addonDeactivate);
 
         View icon = layout.findViewById(R.id.icon);
         if (icon != null) icon.setClipToOutline(true);
+
+        AddonUpdater updater = getUpdater();
+        if (updater == null) return;
+        AddonUpdater.Addon addon = updater.getAddon(tag);
         Runnable updateButtonRunnable = new Runnable() {
             @Override
             public void run() {
                 uninstallButton.setVisibility(View.GONE);
                 installButton.setVisibility(View.GONE);
                 updateButton.setVisibility(View.GONE);
+                openButton.setVisibility(View.GONE);
                 activateButton.setVisibility(View.GONE);
                 deactivateButton.setVisibility(View.GONE);
 
-                AddonUpdater updater = getUpdater();
-                if (updater == null) return;
-
                 View[] visibleButtons;
-                switch (updater.getAddonState(updater.getAddon(tag))) {
-                    case INSTALLED_APP              -> visibleButtons = new View[]{uninstallButton};
+                switch (updater.getAddonState(addon)) {
+                    case INSTALLED_APP              -> visibleButtons = new View[]{uninstallButton, openButton};
                     case INSTALLED_SERVICE_ACTIVE   -> visibleButtons = new View[]{deactivateButton, uninstallButton};
                     case INSTALLED_SERVICE_INACTIVE -> visibleButtons = new View[]{activateButton, uninstallButton};
                     case INSTALLED_HAS_UPDATE       -> visibleButtons = new View[]{updateButton, uninstallButton};
@@ -93,11 +101,15 @@ public abstract class AddonDialog {
         };
         layout.post(updateButtonRunnable);
 
-        uninstallButton.setOnClickListener((v -> Objects.requireNonNull(getUpdater()).uninstallAddon(a, tag)));
-        installButton.setOnClickListener((v -> Objects.requireNonNull(getUpdater()).installAddon(tag)));
-        updateButton.setOnClickListener((v -> Objects.requireNonNull(getUpdater()).installAddon(tag)));
-        activateButton  .setOnClickListener((v -> showAccessibilityDialog()));
-        deactivateButton.setOnClickListener((v -> showAccessibilityDialog()));
+        uninstallButton.setOnClickListener(v -> Objects.requireNonNull(getUpdater()).uninstallAddon(a, tag));
+        installButton.setOnClickListener(v -> Objects.requireNonNull(getUpdater()).installAddon(tag));
+        updateButton.setOnClickListener(v -> Objects.requireNonNull(getUpdater()).installAddon(tag));
+        activateButton  .setOnClickListener(v -> showAccessibilityDialog());
+        deactivateButton.setOnClickListener(v -> showAccessibilityDialog());
+        openButton.setOnClickListener(v -> {
+            PackageManager pm = a.getPackageManager();
+            if (addon != null) a.startActivity(pm.getLaunchIntentForPackage(addon.packageName));
+        });
     }
     @Nullable
     protected static AddonUpdater getUpdater() {
