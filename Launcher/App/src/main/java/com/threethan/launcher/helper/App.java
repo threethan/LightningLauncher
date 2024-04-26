@@ -134,8 +134,7 @@ public abstract class App {
         return Launch.checkLaunchable(launcherActivity, app);
     }
     public static boolean isBanner(ApplicationInfo applicationInfo) {
-        LauncherActivity launcherActivity = LauncherActivity.getAnyInstance();
-        return typeIsBanner(getType(launcherActivity, applicationInfo));
+        return typeIsBanner(getType(applicationInfo));
     }
     /** @noinspection SuspiciousMethodCalls*/
     public static boolean isWebsite(ApplicationInfo applicationInfo) {
@@ -165,7 +164,8 @@ public abstract class App {
         context.startActivity(intent);
     }
     // Requests to uninstall the app
-    public static void uninstall(LauncherActivity launcher, String packageName) {
+    public static void uninstall(String packageName) {
+        LauncherActivity launcher = LauncherActivity.getAnyInstance();
         if (App.isWebsite(packageName)) {
             Set<String> webApps = launcher.dataStoreEditor.getStringSet(Settings.KEY_WEBSITE_LIST, Collections.emptySet());
             webApps = new HashSet<>(webApps); // Copy since we're not supposed to modify directly
@@ -181,8 +181,8 @@ public abstract class App {
         }
     }
 
-    public static App.Type getType(LauncherActivity launcherActivity, ApplicationInfo app) {
-        for (Type type : Platform.getSupportedAppTypes(launcherActivity)) {
+    public static App.Type getType(ApplicationInfo app) {
+        for (Type type : Platform.getSupportedAppTypes(LauncherActivity.getAnyInstance())) {
             if (isAppOfType(app, type)) return type;
         }
         return Type.TYPE_UNSUPPORTED;

@@ -50,7 +50,10 @@ public abstract class Launch {
                     +app.packageName);
             launcherActivity.refreshPackages();
             return false;
-        } else if (Objects.equals(intent.getPackage(), Platform.BROWSER_PACKAGE)) {
+        }
+
+        // Browser Check
+        if (Objects.equals(intent.getPackage(), Platform.BROWSER_PACKAGE)) {
             if (Platform.hasBrowser(launcherActivity)) {
                 // Check for browser update. User probably won't see the prompt until closing, though.
                 new BrowserUpdater(launcherActivity).checkAppUpdateAndInstall();
@@ -65,11 +68,11 @@ public abstract class Launch {
                     Dialog.toast(launcherActivity.getString(R.string.download_browser_toast_main),
                             launcherActivity.getString(R.string.download_browser_toast_bold), true);
                 });
+                return false;
             }
-            return false;
         }
 
-        final App.Type appType = App.getType(launcherActivity, app);
+        final App.Type appType = App.getType(app);
         if (SettingsManager.
                 getAppLaunchOut(app.packageName) ||
                 appType == App.Type.TYPE_VR || appType == App.Type.TYPE_PANEL) {
@@ -188,7 +191,7 @@ public abstract class Launch {
 
         // Chainload for advanced launch options
         if (SettingsManager.getShowAdvancedSizeOptions(activity)
-                && App.getType(activity, app) == App.Type.TYPE_PHONE &&
+                && App.getType(app) == App.Type.TYPE_PHONE &&
                 SettingsManager.getAppLaunchOut(app.packageName)) {
 
             int index = activity.dataStoreEditor.getInt(Settings.KEY_LAUNCH_SIZE + app.packageName, 1);

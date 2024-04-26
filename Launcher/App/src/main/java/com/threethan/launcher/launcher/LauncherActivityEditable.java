@@ -128,7 +128,7 @@ public class LauncherActivityEditable extends LauncherActivity {
             uninstallButton.setOnClickListener(view -> {
                 int delay = 0;
                 for (String currentSelectedApp : currentSelectedApps) {
-                    mainView.postDelayed(() -> App.uninstall(this, currentSelectedApp), delay);
+                    mainView.postDelayed(() -> App.uninstall(currentSelectedApp), delay);
                     if (!App.isWebsite(currentSelectedApp)) delay += 1000;
                 }
             });

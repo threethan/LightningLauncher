@@ -24,8 +24,22 @@ import java.util.Set;
  * Provides the dialog which appears when pressing the three-dots icon on a group,
  * or when long-pressing the single selected group in edit mode
  */
-public abstract class GroupDetailsDialog {
-    public static void showGroupDetails(int groupPosition, LauncherActivity launcherActivity) {
+public class GroupDetailsDialog {
+    private final LauncherActivity launcherActivity;
+    private final int groupPosition;
+
+    /**
+     * Constructs a new GroupDetailsDialog. Make sure to call .show()!
+     *
+     * @param launcherActivity Parent activity
+     * @param groupPosition Position index of the group to show details for
+     */
+    public GroupDetailsDialog(LauncherActivity launcherActivity, int groupPosition) {
+        this.launcherActivity = launcherActivity;
+        this.groupPosition = groupPosition;
+    }
+
+    public void show() {
         final Map<String, String> apps = SettingsManager.getAppGroupMap();
         final Set<String> appGroupsSet = SettingsManager.getAppGroups();
         SettingsManager settingsManager = launcherActivity.settingsManager;

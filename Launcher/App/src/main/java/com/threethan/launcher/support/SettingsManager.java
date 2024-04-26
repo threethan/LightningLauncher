@@ -174,8 +174,7 @@ public class SettingsManager extends Settings {
      * @param allApps A collection of all apps
      * @return Apps which should be shown
      */
-    public List<ApplicationInfo> getVisibleApps(LauncherActivity launcherActivity,
-                                List<String> selectedGroups, Collection<ApplicationInfo> allApps) {
+    public List<ApplicationInfo> getVisibleApps(List<String> selectedGroups, Collection<ApplicationInfo> allApps) {
         // Get list of installed apps
         ConcurrentHashMap<String, String> apps = getAppGroupMap();
 
@@ -191,7 +190,7 @@ public class SettingsManager extends Settings {
                 apps.put(app.packageName, Settings.UNSUPPORTED_GROUP);
             else if (!apps.containsKey(app.packageName) ||
                     Objects.equals(apps.get(app.packageName), Settings.UNSUPPORTED_GROUP)){
-                apps.put(app.packageName, App.getDefaultGroupFor(App.getType(launcherActivity, app)));
+                apps.put(app.packageName, App.getDefaultGroupFor(App.getType(app)));
             }
         }
 

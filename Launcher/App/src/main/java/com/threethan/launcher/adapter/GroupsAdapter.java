@@ -87,7 +87,7 @@ public class GroupsAdapter extends RecyclerView.Adapter<GroupsAdapter.GroupViewH
             else holder.textView.setBackground(null);
         });
         holder.menu.setOnClickListener(view ->
-                GroupDetailsDialog.showGroupDetails(holder.position, launcherActivity));
+                new GroupDetailsDialog(launcherActivity, holder.position).show());
     }
     @Override
     public void onBindViewHolder(@NonNull GroupViewHolder holder, @SuppressLint("RecyclerView") int position) {

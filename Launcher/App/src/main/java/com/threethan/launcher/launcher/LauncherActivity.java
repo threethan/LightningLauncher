@@ -225,7 +225,7 @@ public class LauncherActivity extends ComponentActivity {
     protected void onDestroy() {
         Log.v(TAG, "Activity is being destroyed - "
                 + (isFinishing() ? "Finishing" : "Not Finishing"));
-        if (launcherService != null) launcherService.destroyed(this);
+        if (launcherService != null && isFinishing()) launcherService.destroyed(this);
 
         if (isFinishing()) try {
             unbindService(launcherServiceConnection); // Should rarely cause exception

@@ -32,12 +32,24 @@ import java.util.Objects;
  * Provides the dialog which appears when pressing the three-dots icon on an app,
  * or when long-pressing an app in edit mode
  */
-public abstract class AppDetailsDialog {
+public class AppDetailsDialog {
     private static File customIconFile;
     private static ApplicationInfo imageApp;
+    private final LauncherActivity launcherActivity;
+    private final ApplicationInfo currentApp;
+
+    /**
+     * Constructs a new GroupDetailsDialog. Make sure to call .show()!
+     * @param launcherActivity Parent activity
+     * @param app App to show details of
+     */
+    public AppDetailsDialog(LauncherActivity launcherActivity, ApplicationInfo app) {
+        this.launcherActivity = launcherActivity;
+        this.currentApp = app;
+    }
 
     @SuppressLint("SetTextI18n")
-    public static void showAppDetails(ApplicationInfo currentApp, LauncherActivity launcherActivity) {
+    public void show() {
         // Set View
         AlertDialog dialog = Dialog.build(launcherActivity, R.layout.dialog_details_app);
         if (dialog == null) return;
@@ -52,7 +64,7 @@ public abstract class AppDetailsDialog {
         // Info Action
         dialog.findViewById(R.id.info).setOnClickListener(view -> App.openInfo(launcherActivity, currentApp.packageName));
         dialog.findViewById(R.id.uninstall).setOnClickListener(view -> {
-            App.uninstall(launcherActivity, currentApp.packageName); dialog.dismiss();});
+            App.uninstall(currentApp.packageName); dialog.dismiss();});
 
         // Launch Mode Toggle
         @SuppressLint("UseSwitchCompatOrMaterialCode")
@@ -85,7 +97,7 @@ public abstract class AppDetailsDialog {
             launcherActivity.showImagePicker(LauncherActivity.ImagePickerTarget.ICON);
         });
 
-        App.Type appType = App.getType(launcherActivity, currentApp);
+        App.Type appType = App.getType(currentApp);
         dialog.findViewById(R.id.info).setVisibility(currentApp.packageName.contains("://")
                 ? View.GONE : View.VISIBLE);
         if (appType == App.Type.TYPE_VR || appType == App.Type.TYPE_PANEL
@@ -165,7 +177,7 @@ public abstract class AppDetailsDialog {
         final View hideButton = dialog.findViewById(R.id.hide);
         String unhideGroup = SettingsManager.getAppGroupMap().get(currentApp.packageName);
         if (Objects.equals(unhideGroup, Settings.HIDDEN_GROUP))
-            unhideGroup = App.getDefaultGroupFor(App.getType(launcherActivity, currentApp));
+            unhideGroup = App.getDefaultGroupFor(App.getType(currentApp));
         if (Objects.equals(unhideGroup, Settings.HIDDEN_GROUP))
             try {
                 unhideGroup = (String) SettingsManager.getAppGroups().toArray()[0];

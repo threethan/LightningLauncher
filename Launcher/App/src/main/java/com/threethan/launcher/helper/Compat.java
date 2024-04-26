@@ -218,7 +218,7 @@ public abstract class Compat {
 
         Icon.cachedIcons.clear();
 
-        Icon.init(launcherActivity); // Recreate folders
+        Icon.init(); // Recreate folders
         launcherActivity.launcherService.forEachActivity(a -> {
             if (a.getAppAdapter() != null) a.getAppAdapter().notifyAllChanged();
         });

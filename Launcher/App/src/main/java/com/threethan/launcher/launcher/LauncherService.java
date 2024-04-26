@@ -104,9 +104,8 @@ public class LauncherService extends Service {
      * Includes chainLoadActivities as well and launcherActivities
      */
     public void finishAllActivities() {
-        for (Activity activity: activityByIndex.keySet()) activity.finishAndRemoveTask();
-        for (Activity activity : ChainLoadActivity.activityList)
-            activity.finishAndRemoveTask();
+        for (Activity activity : activityByIndex.keySet()) activity.finishAndRemoveTask();
+        for (Activity activity : ChainLoadActivity.activityList) activity.finishAndRemoveTask();
     }
 
     /**

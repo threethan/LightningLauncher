@@ -65,14 +65,14 @@ public class AppsAdapter extends ArrayListAdapter<ApplicationInfo, AppsAdapter.A
         launcherActivity = activity;
 
         setItems(Collections.unmodifiableList(settingsManager
-                .getVisibleApps(activity, settingsManager.getAppGroupsSorted(true), fullAppSet)));
+                .getVisibleApps(settingsManager.getAppGroupsSorted(true), fullAppSet)));
     }
     public synchronized void filterBy(String text) {
         boolean showHidden = !text.isEmpty() && launcherActivity.dataStoreEditor.getBoolean(Settings.KEY_SEARCH_HIDDEN, Settings.DEFAULT_SEARCH_HIDDEN);
 
         SettingsManager settingsManager = SettingsManager.getInstance(launcherActivity);
         final List<ApplicationInfo> newItems =
-                settingsManager.getVisibleApps(launcherActivity, settingsManager.getAppGroupsSorted(false), fullAppSet);
+                settingsManager.getVisibleApps(settingsManager.getAppGroupsSorted(false), fullAppSet);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             newItems.removeIf(item -> !StringLib.forSort(SettingsManager.getAppLabel(item)).contains(StringLib.forSort(text)));
@@ -151,7 +151,7 @@ public class AppsAdapter extends ArrayListAdapter<ApplicationInfo, AppsAdapter.A
     }
     private void setActions(AppViewHolder holder) {
         // Sub-buttons
-        holder.moreButton.setOnClickListener(view -> AppDetailsDialog.showAppDetails(holder.app, launcherActivity));
+        holder.moreButton.setOnClickListener(view -> new AppDetailsDialog(launcherActivity, holder.app).show());
 
         // Click
         holder.view.setOnClickListener(view -> {
@@ -168,7 +168,7 @@ public class AppsAdapter extends ArrayListAdapter<ApplicationInfo, AppsAdapter.A
         holder.view.setOnLongClickListener(view -> {
             if (getEditMode() || !launcherActivity.canEdit() || launcherActivity.dataStoreEditor
                     .getBoolean(Settings.KEY_DETAILS_LONG_PRESS, Settings.DEFAULT_DETAILS_LONG_PRESS)) {
-                AppDetailsDialog.showAppDetails(holder.app, launcherActivity);
+                new AppDetailsDialog(launcherActivity, holder.app).show();
             } else {
                 launcherActivity.setEditMode(true);
                 launcherActivity.selectApp(holder.app.packageName);

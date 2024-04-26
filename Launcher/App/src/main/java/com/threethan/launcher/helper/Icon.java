@@ -54,11 +54,11 @@ public abstract class Icon {
                 (custom ? ICON_CUSTOM_FOLDER : ICON_CACHE_FOLDER),
                 cacheName + (wide && !oneIcon ? "-wide" : "") + ".webp");
     }
-    public static void init(LauncherActivity launcherActivity) {
+    public static void init() {
         // Icon init
-        File cacheDir = new File(launcherActivity.getApplicationInfo().dataDir + Icon.ICON_CACHE_FOLDER);
+        File cacheDir = new File(LauncherActivity.getAnyInstance().getApplicationInfo().dataDir + Icon.ICON_CACHE_FOLDER);
         boolean ignored1 = cacheDir.mkdir();
-        File customDir = new File(launcherActivity.getApplicationInfo().dataDir + Icon.ICON_CUSTOM_FOLDER);
+        File customDir = new File(LauncherActivity.getAnyInstance().getApplicationInfo().dataDir + Icon.ICON_CUSTOM_FOLDER);
         boolean ignored2 = customDir.mkdir();
     }
 
