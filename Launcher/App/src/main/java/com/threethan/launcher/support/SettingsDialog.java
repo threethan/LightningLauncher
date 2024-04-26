@@ -234,7 +234,6 @@ public class SettingsDialog {
                 value -> {
                     showOneTimeWarningDialog(R.layout.dialog_info_hide_groups_tv,
                                              Settings.KEY_SEEN_HIDDEN_GROUPS_POPUP);
-                    LauncherActivity.groupsEnabled = value;
                     if (value) {
                         // Can edit, show switch
                         editSwitch.setChecked(a.isEditing());
@@ -477,10 +476,10 @@ public class SettingsDialog {
                                        boolean def, Consumer<Boolean> onSwitch) {
         toggle.setChecked(!a.dataStoreEditor.getBoolean(setting, def));
         toggle.setOnCheckedChangeListener((compoundButton, value) -> {
-            a.dataStoreEditor.putBoolean(setting, !value);
-            a.launcherService.forEachActivity(LauncherActivity::refreshInterface);
+            a.dataStoreEditor.putBoolean(setting, value);
             if (onSwitch != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
                 onSwitch.accept(value);
+            a.launcherService.forEachActivity(LauncherActivity::refreshInterface);
         });
     }
 
