@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:id="@id/back_to_top_button_height_layout" android:tag="layout/back_to_top_0" android:paddingTop="1.0dip" android:layout_width="wrap_content" android:layout_height="1.0dip" app:layout_constraintBottom_toBottomOf="@id/files_list" app:layout_constraintEnd_toEndOf="@id/files_list" app:layout_constraintStart_toStartOf="@id/files_list">
+        <androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/back_to_top_button" android:layout_width="wrap_content" android:layout_height="40.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent">
+            <ImageView android:id="@id/back_to_top_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/oc_icon_to_top_filled_24_d2d2d2" android:layout_marginStart="17.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+            <com.oculus.ocui.OCTextView android:gravity="center_vertical" android:id="@id/back_to_top_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/back_to_top_button_text" android:layout_marginStart="8.0dip" android:layout_marginEnd="17.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@id/back_to_top_icon" app:layout_constraintTop_toTopOf="parent" style="@style/Body1" />
+            <com.oculus.ocui.OCButton android:id="@id/back_to_top_button" android:layout_width="0.0dip" android:layout_height="fill_parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</merge>

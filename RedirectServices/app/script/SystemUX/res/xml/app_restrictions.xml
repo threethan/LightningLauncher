@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<restrictions
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <restriction android:title="Allow screen capture" android:key="SCREEN_CAPTURE_ENABLED" android:defaultValue="true" android:restrictionType="bool" />
+    <restriction android:title="Allow social integrations" android:key="SOCIAL_ENABLED" android:defaultValue="false" android:restrictionType="bool" />
+    <restriction android:title="Allows Horizon Worlds" android:key="HORIZON_WORLDS_ENABLED" android:defaultValue="true" android:restrictionType="bool" />
+    <restriction android:title="Allow report abuse" android:key="REPORT_ABUSE_ENABLED" android:defaultValue="false" android:restrictionType="bool" />
+    <restriction android:title="Kiosk Enabled" android:key="KIOSK_ENABLED" android:defaultValue="false" android:restrictionType="bool" />
+    <restriction android:title="FoA Features Enabled" android:key="FOA_FEATURES_ENABLED" android:defaultValue="true" android:restrictionType="bool" />
+</restrictions>

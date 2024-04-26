@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="wifitrackerlib_wifi_status">
+        <item></item>
+        <item>掃描中…</item>
+        <item>連線中…</item>
+        <item>驗證中…</item>
+        <item>正在取得 IP 位址…</item>
+        <item>已連線</item>
+        <item>已暫停使用</item>
+        <item>正在中斷連線…</item>
+        <item>已中斷連線</item>
+        <item>失敗</item>
+        <item>已封鎖</item>
+        <item>暫時不使用訊號較弱的連線</item>
+    </string-array>
+</resources>

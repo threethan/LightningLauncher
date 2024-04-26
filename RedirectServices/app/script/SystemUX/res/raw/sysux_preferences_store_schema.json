@@ -1,0 +1,2097 @@
+{
+  "contents": [
+    {
+      "key": "airlink_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "airlink_certificate",
+      "type": "string",
+      "default": "",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "airlink_certificate_private_key",
+      "type": "string",
+      "default": "",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "airlink_paired_pc_fingerprint",
+      "type": "string",
+      "default": "",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "airlink_paired_pc_service_name",
+      "type": "string",
+      "default": "",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "airlink_paired_pc_service_name_migrated_v55",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "ari_home_network_ssid",
+      "type": "string",
+      "default": "",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "quest_link_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "capability_system_oculus_link",
+      "type": "boolean",
+      "default": "true",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "app_sharing_upsell_key",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "lockscreen_user_switcher_setting",
+      "type": "boolean",
+      "default": "true",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "aui_onboarding_tutorial_state",
+      "type": "string",
+      "default": "not_started",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "aui_open_count",
+      "type": "integer",
+      "default": "0",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "interim_aui_onboarding_should_show",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "has_seen_quest_move_setup_dialog",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "copresence_contextual_tutorial_seen",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "hand_tracking_override_frequency",
+      "type": "integer",
+      "default": "0",
+      "hasWritePermission": true,
+      "scope": "system",
+      "isOwner": false
+    },
+    {
+      "key": "hand_tracking_override_version",
+      "type": "integer",
+      "default": "0",
+      "hasWritePermission": true,
+      "scope": "system",
+      "isOwner": false
+    },
+    {
+      "key": "hand_tracking_opt_in_salsa_parent_value",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "temperature_unit",
+      "type": "integer",
+      "default": "1",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "aui_bar_last_visible_timestamp",
+      "type": "long",
+      "default": "",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "aui_bar_apps_history",
+      "type": "string",
+      "default": "",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "aui_bar_apps_pinned",
+      "type": "string",
+      "default": "",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "aui_bar_num_max_apps_pinned",
+      "type": "integer",
+      "default": "5",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "multi_user_accounts_nux_pref_key",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "closed_captions_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "closed_captions_ondevice_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "closed_captions_text_size",
+      "type": "integer",
+      "default": "100",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "closed_captions_text_color",
+      "type": "string",
+      "default": "#FFFFFF",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "closed_captions_bg_color",
+      "type": "string",
+      "default": "#000000",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "closed_captions_window_color",
+      "type": "string",
+      "default": "#00000000",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "closed_captions_used",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "closed_captions_apps",
+      "type": "string",
+      "default": "{}",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "multi_user_lock_pattern_prompt_seen_key",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "multi_user_show_add_account_tooltip_key",
+      "type": "boolean",
+      "default": "true",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "multi_user_show_switch_account_tooltip_key",
+      "type": "boolean",
+      "default": "true",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "mouse_sensitivity",
+      "type": "double",
+      "default": "3",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "mouse_scroll_speed",
+      "type": "double",
+      "default": "5",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "mouse_invert_scroll",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "mouse_swap_primary_btn",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "mouse_cursor_scale",
+      "type": "double",
+      "default": "5",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "keyboard_dictation_federated_learning",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "keyboard_autocorrect_disabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "keyboard_default_locale",
+      "type": "string",
+      "default": "",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "keyboard_user_locale",
+      "type": "string",
+      "default": "",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "keyboard_long_press_timeout",
+      "type": "float",
+      "default": "0.65",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "keyboard_swipe_typing_disabled_v2",
+      "type": "boolean",
+      "default": "true",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "keyboard_swipe_typing_experiment_toggle_value",
+      "type": "boolean",
+      "default": false,
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "keyboard_swipe_typing_experiment_preference_set",
+      "type": "boolean",
+      "default": false,
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "physical_tracked_local_keyboard",
+      "type": "string",
+      "default": "",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "physical_tracked_remote_keyboard",
+      "type": "string",
+      "default": "",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "physical_tracked_keyboard_in_shell_enabled",
+      "type": "boolean",
+      "default": "true",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "passthrough_hands_contrast",
+      "type": "double",
+      "default": "12.0",
+      "hasWritePermission": true,
+      "scope": "system",
+      "isOwner": true
+    },
+    {
+      "key": "aui_has_seen_launch_together_tooltip",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "aui_has_seen_mivr_app_split_tooltip",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "aui_has_seen_multitask_tutorial_dialogs",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "aui_has_seen_panel_adaptability_tutorial_dialogs",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "aui_has_seen_app_menu_tutorial_dialog",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "aui_multi_window_tutorial_dialogs_v2_seen",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "auto_mute_microphone",
+      "type": "boolean",
+      "default": "true",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "desk_mode",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "store_voice_recordings",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "store_voice_transcripts",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "voice_gaze_invocation_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "device_privacy_identifier",
+      "type": "string",
+      "default": "",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "experimental_120hz_support_enabled",
+      "type": "boolean",
+      "default": "true",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "display_management_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "destination_ui_recording_button_oga_seen",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "destination_ui_invite_button_oga_seen",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "recently_met_notif_seen_times_key",
+      "type": "integer",
+      "default": 0,
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "destination_ui_friending_tooltip_oga_seen",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "guardian_debug_always_show_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "crossUser",
+      "isOwner": false
+    },
+    {
+      "key": "intrusion_detection_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "crossUser",
+      "isOwner": false
+    },
+    {
+      "key": "guardian_debug_ui_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "crossUser",
+      "isOwner": false
+    },
+    {
+      "key": "intrusion_detection_area_sensitivity",
+      "type": "double",
+      "default": "5.5",
+      "hasWritePermission": true,
+      "scope": "crossUser",
+      "isOwner": false
+    },
+    {
+      "key": "intrusion_detection_boundary_sensitivity",
+      "type": "double",
+      "default": "5.5",
+      "hasWritePermission": true,
+      "scope": "crossUser",
+      "isOwner": false
+    },
+    {
+      "key": "intrusion_detection_distance",
+      "type": "integer",
+      "default": "1",
+      "hasWritePermission": true,
+      "scope": "crossUser",
+      "isOwner": false
+    },
+    {
+      "key": "intrusion_detection_has_seen_nux",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "crossUser",
+      "isOwner": false
+    },
+    {
+      "key": "link_connection_dialog_disabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "local_account_mode_enabled_v1",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "settings_assistant_json",
+      "type": "string",
+      "default": "",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "profile_uri",
+      "type": "string",
+      "default": "",
+      "hasWritePermission": true,
+      "scope": "system",
+      "isOwner": false
+    },
+    {
+      "key": "world_from_imu_y_offset",
+      "type": "float",
+      "default": "0.0",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "system_color_filter",
+      "type": "integer",
+      "default": "1",
+      "hasWritePermission": true,
+      "scope": "crossUser",
+      "isOwner": true
+    },
+    {
+      "key": "system_color_filter_opt_in",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "crossUser",
+      "isOwner": true
+    },
+    {
+      "key": "aui_show_full_settings_tooltip",
+      "type": "boolean",
+      "default": "true",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "show_settings_grid_icon_tooltip",
+      "type": "boolean",
+      "default": "true",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "unlock_browser_password_autofill",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "night_shift_activated",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "crossUser",
+      "isOwner": false
+    },
+    {
+      "key": "night_shift_auto_mode",
+      "type": "integer",
+      "default": "0",
+      "hasWritePermission": true,
+      "scope": "crossUser",
+      "isOwner": false
+    },
+    {
+      "key": "night_shift_custom_start_time",
+      "type": "integer",
+      "default": "-1",
+      "hasWritePermission": true,
+      "scope": "crossUser",
+      "isOwner": false
+    },
+    {
+      "key": "night_shift_custom_end_time",
+      "type": "integer",
+      "default": "-1",
+      "hasWritePermission": true,
+      "scope": "crossUser",
+      "isOwner": false
+    },
+    {
+      "key": "night_shift_color_temperature",
+      "type": "integer",
+      "default": "2856",
+      "hasWritePermission": true,
+      "scope": "crossUser",
+      "isOwner": false
+    },
+    {
+      "key": "vrs_rewind_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "vrs_rewind_configuration",
+      "type": "string",
+      "default": "default",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "disable_all_backup",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "system",
+      "isOwner": false
+    },
+    {
+      "key": "cloud_backup_pin_exists",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "system",
+      "isOwner": false
+    },
+    {
+      "key": "cloud_backup_e2ee_key_exists",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "system",
+      "isOwner": false
+    },
+    {
+      "key": "right_thumbstick_up_angle_offset",
+      "type": "float",
+      "default": "0",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "left_thumbstick_up_angle_offset",
+      "type": "float",
+      "default": "0",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "is_right_thumbstick_up_angle_offset_set",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "is_left_thumbstick_up_angle_offset_set",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "is_right_thumbstick_range_set",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "is_left_thumbstick_range_set",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "is_right_thumbstick_deadzone_set",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "is_left_thumbstick_deadzone_set",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "is_messenger_signed_out",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "environment_customization",
+      "type": "string",
+      "default": "",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "hand_tracking_transition_user_preference",
+      "type": "integer",
+      "default": "1",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "manual_hand_tracking_request_signal",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "vrshell_launch_check_locked_apps",
+      "type": "string",
+      "default": "",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "vrshell_launch_check_apps_lock_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "et_consented",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "ft_consented",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "et_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "ft_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "codec_avatar_consented",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "codec_avatar_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "capture_eye_selection",
+      "type": "string",
+      "default": "left",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "capture_image_stabilization",
+      "type": "string",
+      "default": "0",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "capture_video_resolution",
+      "type": "string",
+      "default": "1024:1024",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "capture_video_frame_rate_fixed",
+      "type": "string",
+      "default": "30",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "capture_video_bitrate",
+      "type": "string",
+      "default": "5000000",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "camera_rebrand_notification_opened",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "capture_education_dui_last_opened_date",
+      "type": "long",
+      "default": "-1",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "casting_education_dui_opened",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "controller_emulation_mode",
+      "type": "integer",
+      "default": "0",
+      "hasWritePermission": true,
+      "scope": "system",
+      "isOwner": false
+    },
+    {
+      "key": "display_contrast",
+      "type": "integer",
+      "default": "0",
+      "hasWritePermission": true,
+      "scope": "crossUser",
+      "isOwner": true
+    },
+    {
+      "key": "calibration_nux_fit_adjustment_consented",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "calibration_nux_has_seen_fit_adjustment",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "orthofit_marginal_user_status",
+      "type": "string",
+      "default": "",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "non_essential_data_opted_in_value",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "crossUser",
+      "isOwner": false
+    },
+    {
+      "key": "non_essential_data_opted_in_last_updated",
+      "type": "long",
+      "default": "0",
+      "hasWritePermission": true,
+      "scope": "crossUser",
+      "isOwner": false
+    },
+    {
+      "key": "is_non_essential_consent_synced",
+      "type": "boolean",
+      "default": "true",
+      "hasWritePermission": true,
+      "scope": "crossUser",
+      "isOwner": false
+    },
+    {
+      "key": "browser_analytics_opted_in_value",
+      "type": "boolean",
+      "default": "true",
+      "hasWritePermission": true,
+      "scope": "crossUser",
+      "isOwner": false
+    },
+    {
+      "key": "browser_analytics_opted_in_last_updated",
+      "type": "long",
+      "default": "0",
+      "hasWritePermission": true,
+      "scope": "crossUser",
+      "isOwner": false
+    },
+    {
+      "key": "is_browser_analytics_consent_synced",
+      "type": "boolean",
+      "default": "true",
+      "hasWritePermission": true,
+      "scope": "crossUser",
+      "isOwner": false
+    },
+    {
+      "key": "display_brightness_last_changed",
+      "type": "string",
+      "default": "",
+      "hasWritePermission": true,
+      "scope": "system",
+      "isOwner": true
+    },
+    {
+      "key": "app_lock_filter",
+      "type": "string",
+      "default": "All",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "direct_touch_enabled",
+      "type": "boolean",
+      "default": "true",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "library_onboarding_tooltip_show",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "audio_responses_from_assistant",
+      "type": "integer",
+      "default": "0",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "assistant_output_captions",
+      "type": "boolean",
+      "default": "true",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "user_transcription",
+      "type": "boolean",
+      "default": "true",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "tts_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "crossUser",
+      "isOwner": true
+    },
+    {
+      "key": "tts_hover_duration",
+      "type": "integer",
+      "default": "0",
+      "hasWritePermission": true,
+      "scope": "crossUser",
+      "isOwner": true
+    },
+    {
+      "key": "controller_key_mapping",
+      "type": "string",
+      "default": "{\"0\":0,\"1\":1,\"2\":2,\"3\":3,\"4\":4,\"5\":5,\"6\":6,\"7\":7,\"8\":8,\"9\":9,\"10\":10,\"11\":11}",
+      "hasWritePermission": true,
+      "scope": "crossUser",
+      "isOwner": true
+    },
+    {
+      "key": "share_panel_media_sync_nux_seen",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "share_panel_media_auto_sync_nux_state",
+      "type": "string",
+      "default": "NEVER_SEEN",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "share_panel_media_auto_sync_nux_last_seen",
+      "type": "long",
+      "default": "0",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "media_sync_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "default_enable_auto_sync_notification_opened",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "media_sync_last_enabled_date_in_days",
+      "type": "long",
+      "default": "0",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "universal_share_sheet_last_opened_date",
+      "type": "long",
+      "default": "0",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "sharing_panel_education_tooltip_dismissed",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "exclusive_vista_env_unlocked",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "controller_key_mapping_mode",
+      "type": "integer",
+      "default": "0",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "xros_audio_enable_background_audio_playback",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "media_playback_control_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "enable_external_microphone",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "your_activity_break_reminder_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "your_activity_break_time_interval",
+      "type": "integer",
+      "default": "0",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "bug_report_buffer_is_recording",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "anchor_persistence_cloud_anchor_service_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "voice_controller_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "voice_controller_click_on_dwell_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "head_controller_mode",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "idle_shutdown_time",
+      "type": "integer",
+      "default": "-1",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "idle_time_threshold",
+      "type": "integer",
+      "default": "60",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "swap_controller_thumbsticks_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "lying_down_mode",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "immersive_do_not_disturb",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "copresence_update_environment_in_multiplayer_home",
+      "type": "integer",
+      "default": "-1",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false,
+      "ui_values": [ -1, 0, 1 ],
+      "ui_description": "Enable changing Home environment while in a co-presence session. -1: default, 0: disable, 1: enable"
+    },
+    {
+      "key": "double_tap_hand_autotransition",
+      "type": "boolean",
+      "default": "true",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "twilight_reauth_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "re_auth_session_active",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "re_auth_session_id",
+      "type": "string",
+      "default": "",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "re_auth_session_title",
+      "type": "string",
+      "default": "",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "re_auth_session_description",
+      "type": "string",
+      "default": "",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "shellenv_mirrors",
+      "type": "integer",
+      "default": "-1",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "shellenv_portals",
+      "type": "integer",
+      "default": "-1",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "is_portal_visible",
+      "type": "boolean",
+      "default": "true",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "is_portal_app_ever_installed",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "is_mr_object_visible",
+      "type": "boolean",
+      "default": "true",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "resumable_upload_status_map",
+      "type": "string",
+      "default": "{}",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "manual_sync_status_map",
+      "type": "string",
+      "default": "{}",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "debug_hars_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "system",
+      "isOwner": false
+    },
+    {
+      "key": "debug_hars_profile",
+      "type": "integer",
+      "default": "0",
+      "hasWritePermission": true,
+      "scope": "system",
+      "isOwner": false
+    },
+    {
+      "key": "passthrough_on_demand_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "crossUser",
+      "isOwner": false
+    },
+    {
+      "key": "has_seen_double_tap_nux",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "immersive_mr_mode_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "reality_tuner_value",
+      "type": "integer",
+      "default": "0",
+      "hasWritePermission": true,
+      "scope": "crossUser",
+      "isOwner": false
+    },
+    {
+      "key": "wifi_refresh_disabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "bluetooth_refresh_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "default_time_zone",
+      "type": "string",
+      "default": "",
+      "hasWritePermission": true,
+      "scope": "system",
+      "isOwner": true
+    },
+    {
+      "key": "skybox_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "shellenv_gen_home_skybox",
+      "type": "string",
+      "default": "",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "report_flow_education_complete",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "raycasting_toast_completed",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "swipe_to_delete_tooltip_exposure",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "avatar_call_shelf_position",
+      "type": "string",
+      "default": "NONE",
+      "hasWritePermission": true,
+      "migrate": 1,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "avatar_call_education_tooltip_seen",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "migrate": 1,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "mic_switcher_toast_shown",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "migrate": 1,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "capture_video_default_mic_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "capture_video_default_mic_nux_seen",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "passthrough_awareness_modal_seen",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "is_displaying_passthrough_content",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": false,
+      "scope": "system",
+      "isOwner": false
+    },
+    {
+      "key": "livestream_education_notification_opened_timestamp",
+      "type": "long",
+      "default": "0",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "livestream_chat_position",
+      "type": "string",
+      "default": "top",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "maintenance_boot_user_enabled",
+      "type": "integer",
+      "default": "-1",
+      "hasWritePermission": true,
+      "scope": "system",
+      "isOwner": true
+    },
+    {
+      "key": "is_user_screentime_checkpointed",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "is_user_break_time_checkpointed",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "teleport_arc_caster_stabilization_factor",
+      "type": "float",
+      "default": "1.0",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "teleport_arc_caster_pitchremap_factor",
+      "type": "float",
+      "default": "1.0",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "teleport_arc_caster_speed_factor",
+      "type": "float",
+      "default": "1.0",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "teleport_arc_caster_gravity_factor",
+      "type": "float",
+      "default": "1.0",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "online_user_ids_hash",
+      "type": "integer",
+      "default": "0",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "online_user_number_hash",
+      "type": "integer",
+      "default": "0",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "has_seen_direct_touch_announcement",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "screentime_break_end_time",
+      "type": "long",
+      "default": "0",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "local_dimming_user_override",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "project_dubai",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "project_dubai_opted_in",
+      "type": "integer",
+      "default": "-1",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "flight_mode_legal_ack",
+      "type": "boolean",
+      "default": false,
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "low_power_mode",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "hand_tracking_opt_in",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "has_seen_nux_aui_toast",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "battery_chime_enabled",
+      "type": "boolean",
+      "default": "true",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "location_permission_has_been_reset",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "developer_mode_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "usb_link_auto_connect_enabled",
+      "type": "boolean",
+      "default": "true",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "proximity_sensor_enabled",
+      "type": "boolean",
+      "default": "true",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "guardian_paused_dev",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "mtp_notification_enabled",
+      "type": "boolean",
+      "default": "true",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "gamepad_system_navigation_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "auto_up_releases_user_selected",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "system",
+      "isOwner": false
+    },
+    {
+      "key": "auto_up_releases_enabled",
+      "type": "boolean",
+      "default": "true",
+      "hasWritePermission": true,
+      "scope": "system",
+      "isOwner": false
+    },
+    {
+      "key": "auto_up_critical_enabled",
+      "type": "boolean",
+      "default": "true",
+      "hasWritePermission": true,
+      "scope": "system",
+      "isOwner": false
+    },
+    {
+      "key": "auto_up_notice_time_ms",
+      "type": "long",
+      "default": "0",
+      "hasWritePermission": false,
+      "scope": "system",
+      "isOwner": false
+    },
+    {
+      "key": "auto_up_defer_time_ms",
+      "type": "long",
+      "default": "2592000000",
+      "hasWritePermission": true,
+      "scope": "system",
+      "isOwner": false
+    },
+    {
+      "key": "auto_up_current_release_name",
+      "type": "string",
+      "default": "",
+      "hasWritePermission": false,
+      "scope": "system",
+      "isOwner": false
+    },
+    {
+      "key": "steady_hands",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "ota_in_progress_release_name",
+      "type": "string",
+      "default": "",
+      "hasWritePermission": false,
+      "scope": "system",
+      "isOwner": false
+    },
+    {
+      "key": "ota_in_progress_release_tag",
+      "type": "string",
+      "default": "",
+      "hasWritePermission": false,
+      "scope": "system",
+      "isOwner": false
+    },
+    {
+      "key": "ota_in_progress_version",
+      "type": "long",
+      "default": "0",
+      "hasWritePermission": false,
+      "scope": "system",
+      "isOwner": false
+    },
+    {
+      "key": "ota_in_progress_size",
+      "type": "long",
+      "default": "0",
+      "hasWritePermission": false,
+      "scope": "system",
+      "isOwner": false
+    },
+    {
+      "key": "shellenv_home_1p_embodiment",
+      "type": "integer",
+      "default": "-1",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "is_mr_object_env_supported",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "system",
+      "isOwner": true
+    },
+    {
+      "key": "is_portal_env_supported",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "system",
+      "isOwner": true
+    },
+    {
+      "key": "is_mirror_env_supported",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "system",
+      "isOwner": true
+    },
+    {
+      "key": "toast_swiping_education_exposure",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "casting_feedback_opened_timestamp",
+      "type": "long",
+      "default": "0",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "casting_event_session_id",
+      "type": "string",
+      "default": "",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "is_casting_on_metacam",
+      "type": "boolean",
+      "default": false,
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "vrshell_simple_quick_action_gestures_seen_toast",
+      "type": "integer",
+      "default": "-1",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "vrshell_meta_wrist_button_enable",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "mr_hands_scrim_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "app_library_default_section",
+      "type": "string",
+      "default": "",
+      "hasWritePermission": true,
+      "scope": "system",
+      "isOwner": false
+    },
+    {
+      "key": "should_show_library_downloads_tab",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    },
+    {
+      "key": "shellenv_gen_home_background_audio",
+      "type": "string",
+      "default": "",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": false
+    },
+    {
+      "key": "skybox_generated_ambient_sound_enabled",
+      "type": "boolean",
+      "default": "true",
+      "hasWritePermission": true,
+      "scope": "user",
+      "isOwner": true
+    }
+  ]
+}

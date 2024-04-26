@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="anytime_bar_active_call_bar_messenger_mic_switcher_use_call_audio_tooltip_subtitle">
+        <item quantity="other">%1$d personas</item>
+        <item quantity="one">%1$d persona</item>
+    </plurals>
+    <plurals name="anytime_bar_active_call_bar_party_button_tooltip_subtitle">
+        <item quantity="other">%1$d personas</item>
+        <item quantity="one">%1$d persona</item>
+    </plurals>
+    <plurals name="anytime_library_app_multiple_locked_toast_description">
+        <item quantity="other">Se bloquearon %1$d apps</item>
+        <item quantity="one">Se bloqueó %1$d app</item>
+    </plurals>
+    <plurals name="anytime_library_app_multiple_unlocked_toast_description">
+        <item quantity="other">Se desbloquearon %1$d apps</item>
+        <item quantity="one">Se desbloqueó %1$d app</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_install_warning_tooltip">
+        <item quantity="other">La instalación de esta app puede tardar %1$d minutos o más en finalizar.</item>
+        <item quantity="one">La instalación de esta app puede tardar %1$d minuto o más en finalizar.</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_lock_bulk_action_description">
+        <item quantity="other">bloquear %1$d apps</item>
+        <item quantity="one">bloquear %1$d app</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_lock_bulk_action_title">
+        <item quantity="other">¿Bloquear %1$d apps?</item>
+        <item quantity="one">¿Bloquear %1$d app?</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_tile_subtitle_supports_players">
+        <item quantity="other">1-%1$d personas</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_unlock_bulk_action_description">
+        <item quantity="other">desbloquear %1$d apps</item>
+        <item quantity="one">desbloquear %1$d app</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_unlock_bulk_action_title">
+        <item quantity="other">¿Desbloquear %1$d apps?</item>
+        <item quantity="one">¿Desbloquear %1$d app?</item>
+    </plurals>
+    <plurals name="anytime_tablet_profile_pending_follow_request_confirm_title">
+        <item quantity="other">%1$d solicitudes de seguimiento pendientes</item>
+        <item quantity="one">%1$d solicitud de seguimiento pendiente</item>
+    </plurals>
+    <plurals name="cloud_backups_num_attempts_remaining_text">
+        <item quantity="other">%1$d intentos más</item>
+        <item quantity="one">%1$d intento más</item>
+    </plurals>
+    <plurals name="follower_view_pill_title">
+        <item quantity="other">%1$d seguidores</item>
+        <item quantity="one">%1$d seguidor</item>
+    </plurals>
+    <plurals name="last_played_with_time_days">
+        <item quantity="other">Hace %1$d días</item>
+        <item quantity="one">Hace %1$d día</item>
+    </plurals>
+    <plurals name="last_played_with_time_hours">
+        <item quantity="other">Hace %1$d horas</item>
+        <item quantity="one">Hace %1$d hora</item>
+    </plurals>
+    <plurals name="last_played_with_time_minutes">
+        <item quantity="other">Hace %1$d minutos</item>
+        <item quantity="one">Hace %1$d minuto</item>
+    </plurals>
+    <plurals name="last_played_with_time_weeks">
+        <item quantity="other">Hace %1$d semanas</item>
+        <item quantity="one">Hace %1$d semana</item>
+    </plurals>
+    <plurals name="lockpassword_pin_too_long">
+        <item quantity="other">Debe tener menos de %1$d dígitos</item>
+        <item quantity="one">Debe tener menos de %1$d dígito</item>
+    </plurals>
+    <plurals name="lockpassword_pin_too_short">
+        <item quantity="other">El PIN debe tener al menos %1$d dígitos</item>
+        <item quantity="one">El PIN debe tener al menos %1$d dígito</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_hours">
+        <item quantity="other">Vuelve a intentarlo en %1$d horas</item>
+        <item quantity="one">Vuelve a intentarlo en %1$d hora</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_min">
+        <item quantity="other">Vuelve a intentarlo en %1$d minutos</item>
+        <item quantity="one">Vuelve a intentarlo en %1$d minuto</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_sec">
+        <item quantity="other">Vuelve a intentarlo en %1$d segundos</item>
+        <item quantity="one">Vuelve a intentarlo en %1$d segundo</item>
+    </plurals>
+    <plurals name="request_view_pill_title">
+        <item quantity="other">%1$d solicitudes</item>
+        <item quantity="one">%1$d solicitud</item>
+    </plurals>
+    <plurals name="safety_center_violation_list_enforcement_social_suspension">
+        <item quantity="other">No puedes usar el chat, los grupos ni Horizon Worlds por %1$d días</item>
+        <item quantity="one">No puedes usar el chat, los grupos ni Horizon Worlds por %1$d día</item>
+    </plurals>
+    <plurals name="settings_apps_lock_selected_items_text">
+        <item quantity="other">%1$d seleccionadas</item>
+        <item quantity="one">%1$d seleccionada</item>
+    </plurals>
+    <plurals name="settings_permissions_apps_granted_subtitle">
+        <item quantity="other">%1$d de %2$d apps permitidas</item>
+        <item quantity="one">%1$d de %2$d app permitida</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_days_ago">
+        <item quantity="other">Se accedió hace %1$d días</item>
+        <item quantity="one">Se accedió hace %1$d día</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_days_ago_short">
+        <item quantity="other">Hace %1$d días</item>
+        <item quantity="one">Hace %1$d día</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_hours_ago">
+        <item quantity="other">Se accedió hace %1$d horas</item>
+        <item quantity="one">Se accedió hace %1$d hora</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_hours_ago_short">
+        <item quantity="other">Hace %1$d horas</item>
+        <item quantity="one">Hace %1$d hora</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_minutes_ago">
+        <item quantity="other">Se accedió hace %1$d minutos</item>
+        <item quantity="one">Se accedió hace un minuto</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_minutes_ago_short">
+        <item quantity="other">Hace %1$d minutos</item>
+        <item quantity="one">Hace un minuto</item>
+    </plurals>
+    <plurals name="settings_privacy_unblock_users_subtitle">
+        <item quantity="other">%1$d perfiles bloqueados</item>
+        <item quantity="one">%1$d perfil bloqueado</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_new_violation">
+        <item quantity="other">%1$d infracciones recientes</item>
+        <item quantity="one">%1$d infracción reciente</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle">
+        <item quantity="other">No puedes usar los chats, los grupos ni Horizon Worlds por %1$d días.</item>
+        <item quantity="one">No puedes usar los chats, los grupos ni Horizon Worlds por %1$d día.</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle_hours">
+        <item quantity="other">Finaliza en %1$d horas.</item>
+        <item quantity="one">Finaliza en %1$d hora.</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle_minutes">
+        <item quantity="other">Finaliza en %1$d minutos.</item>
+        <item quantity="one">Finaliza en %1$d minuto.</item>
+    </plurals>
+    <plurals name="settings_storage_selected_items_text">
+        <item quantity="other">%1$d seleccionadas</item>
+        <item quantity="one">%1$d seleccionada</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_apps_title">
+        <item quantity="other">Desinstalar %1$d apps</item>
+        <item quantity="one">Desinstalar %1$d app</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_environments_title">
+        <item quantity="other">Desinstalar %1$d entornos</item>
+        <item quantity="one">Desinstalar %1$d entorno</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_files_title">
+        <item quantity="other">Eliminar %1$d archivos</item>
+        <item quantity="one">Eliminar %1$d archivo</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_images_title">
+        <item quantity="other">Eliminar %1$d imágenes</item>
+        <item quantity="one">Eliminar %1$d imagen</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_unknown_sources_title">
+        <item quantity="other">Eliminar %1$d orígenes desconocidos</item>
+        <item quantity="one">Eliminar %1$d origen desconocido</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_videos_title">
+        <item quantity="other">Eliminar %1$d videos</item>
+        <item quantity="one">Eliminar %1$d video</item>
+    </plurals>
+    <plurals name="social_suspension_description_days">
+        <item quantity="other">&lt;p style=\"text-align: center;\">Se restringió tu perfil porque no cumpliste nuestro &lt;a href=\"%1$s\">Código de conducta.&lt;/a> No puedes usar el chat, los grupos, las llamadas ni Horizon Worlds durante %2$s días. Finaliza el %3$s.&lt;/p></item>
+        <item quantity="one">&lt;p style=\"text-align: center;\">Se restringió tu perfil porque no cumpliste nuestro &lt;a href=\"%1$s\">Código de conducta.&lt;/a> No puedes usar el chat, los grupos, las llamadas ni Horizon Worlds durante %2$s día. Finaliza el %3$s.&lt;/p></item>
+    </plurals>
+    <plurals name="social_suspension_description_hours">
+        <item quantity="other">&lt;p style=\"text-align: center;\">Se restringió tu perfil porque no cumpliste nuestro &lt;a href=\"%1$s\">Código de conducta.&lt;/a> No puedes usar el chat, los grupos, las llamadas ni Horizon Worlds durante %2$s horas. Finaliza el %3$s.&lt;/p></item>
+        <item quantity="one">&lt;p style=\"text-align: center;\">Se restringió tu perfil porque no cumpliste nuestro &lt;a href=\"%1$s\">Código de conducta.&lt;/a> No puedes usar el chat, los grupos, las llamadas ni Horizon Worlds durante %2$s hora. Finaliza el %3$s.&lt;/p></item>
+    </plurals>
+    <plurals name="subdestination_max_users">
+        <item quantity="other">Hasta %1$d jugadores</item>
+        <item quantity="one">Hasta %1$d jugador</item>
+    </plurals>
+</resources>

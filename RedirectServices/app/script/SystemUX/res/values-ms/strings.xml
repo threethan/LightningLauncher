@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_up_description">Navigasi ke atas</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+</string>
+    <string name="abc_menu_delete_shortcut_label">delete</string>
+    <string name="abc_menu_enter_shortcut_label">enter</string>
+    <string name="abc_menu_function_shortcut_label">Fungsi+</string>
+    <string name="abc_menu_meta_shortcut_label">Meta+</string>
+    <string name="abc_menu_shift_shortcut_label">Shift+</string>
+    <string name="abc_menu_space_shortcut_label">ruang</string>
+    <string name="abc_menu_sym_shortcut_label">Sym+</string>
+    <string name="abc_prepend_shortcut_label">Menu+</string>
+    <string name="abc_searchview_description_clear">Kosongkan pertanyaan</string>
+    <string name="abc_searchview_description_search">Cari</string>
+    <string name="abc_searchview_description_submit">Serah pertanyaan</string>
+    <string name="abc_searchview_description_voice">Carian suara</string>
+    <string name="default_popup_window_title">Tetingkap Timbul</string>
+    <string name="in_progress">Dalam proses</string>
+    <string name="indeterminate">Sebahagiannya ditandai</string>
+    <string name="not_selected">Tidak dipilih</string>
+    <string name="off">Mati</string>
+    <string name="on">Hidup</string>
+    <string name="selected">Dipilih</string>
+    <string name="switch_role">Tukar</string>
+    <string name="tab">Tab</string>
+    <string name="template_percent">Peratus %1$d.</string>
+</resources>

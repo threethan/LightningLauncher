@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <selector>
+            <item android:state_checked="true">
+                <shape android:shape="rectangle">
+                    <size android:height="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" />
+                    <solid android:color="?ocControlBackgroundActive" />
+                    <corners android:radius="@dimen/active_call_bar_active_call_button_padding" />
+                </shape>
+            </item>
+            <item>
+                <shape android:shape="rectangle">
+                    <size android:height="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" />
+                    <solid android:color="?ocControlBackgroundInactive" />
+                    <corners android:radius="@dimen/active_call_bar_active_call_button_padding" />
+                </shape>
+            </item>
+        </selector>
+    </item>
+    <item>
+        <drawable class="com.oculus.ocui.drawable.OCInteractionOverlayDrawable">
+            <shape android:shape="rectangle">
+                <size android:height="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" />
+                <solid android:color="@android:color/transparent" />
+                <corners android:radius="@dimen/active_call_bar_active_call_button_padding" />
+            </shape>
+        </drawable>
+    </item>
+</layer-list>

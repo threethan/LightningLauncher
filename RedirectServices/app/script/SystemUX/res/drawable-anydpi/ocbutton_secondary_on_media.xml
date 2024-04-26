@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="?ocButtonBorderRadius" />
+            <solid android:color="?ocSecondaryButtonBackgroundOnMedia" />
+        </shape>
+    </item>
+    <item android:drawable="@drawable/ocbutton_borderless_on_media" />
+</layer-list>

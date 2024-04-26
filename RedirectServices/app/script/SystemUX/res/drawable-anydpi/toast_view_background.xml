@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<drawable app:ocInteractionUseBitmapMask="true" class="com.oculus.ocui.drawable.OCInteractionOverlayDrawable" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <drawable app:cornerRadius="16.0dip" app:solidBgColor="?ocPanelBackground" class="com.oculus.ocui.OCPanelBackgroundDrawable" />
+</drawable>

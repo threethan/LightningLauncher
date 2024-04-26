@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="ocanimation_fast2">200</integer>
+    <integer name="ocanimation_medium1">300</integer>
+    <integer name="ocanimation_medium2">500</integer>
+    <integer name="ocanimation_slow1">1000</integer>
+    <integer name="ocinteractions_fast1_in">100</integer>
+    <integer name="ocinteractions_fast1_out">70</integer>
+    <integer name="ocinteractions_fast2_out">140</integer>
+    <integer name="ocspinner_animation_duration">6000</integer>
+    <integer name="ocspinner_animation_repeat_infinity">-1</integer>
+    <integer name="profile_app_column_count">4</integer>
+    <item type="integer" name="profile_hover_delay_ms">@integer/ocanimation_medium1</item>
+    <integer name="profile_mutuality_modal_image_size">32</integer>
+    <integer name="profile_post_column_count">3</integer>
+</resources>

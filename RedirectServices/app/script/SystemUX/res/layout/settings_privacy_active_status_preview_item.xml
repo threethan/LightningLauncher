@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:tag="layout/settings_privacy_active_status_preview_item_0" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:layout_marginBottom="8.0dip" android:paddingStart="24.0dip" android:paddingEnd="24.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:id="@id/privacyACActiveStatusPreview" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginEnd="8.0dip" app:layout_constraintEnd_toStartOf="@id/privacyActiveStatusPreview" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintWidth_default="percent" app:layout_constraintWidth_percent="0.5">
+        <com.oculus.ocui.OCTextView android:textSize="@dimen/anytime_tablet_profile_text_size_small" android:textColor="?ocSecondaryText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/settings_privacy_approved_contacts_active_status_preview_explanation" android:lineHeight="@dimen/keypad_text_size" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/privacyACActiveStatusPreviewCard" android:background="@drawable/settings_privacy_preview_card_background" android:paddingTop="10.0dip" android:paddingBottom="8.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="8.0dip" android:paddingStart="10.0dip" android:paddingEnd="10.0dip">
+            <com.oculus.ocui.OCProfilePhoto android:id="@id/privacyACActiveStatusProfilePhoto" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginStart="12.0dip">
+                <com.oculus.ocui.OCTextView android:textSize="@dimen/anytime_tablet_profile_text_size_medium" android:textColor="?ocPrimaryText" android:id="@id/privacyACActiveStatusPreviewUsername" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lineHeight="@dimen/octypography_body1_line_height" />
+                <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_gravity="center_vertical" android:id="@id/privacyACActiveStatusIcon" android:layout_width="12.0dip" android:layout_height="12.0dip" android:layout_marginEnd="4.0dip" />
+                    <com.oculus.ocui.OCTextView android:textSize="@dimen/anytime_tablet_profile_text_size_small" android:textColor="?ocSecondaryText" android:id="@id/privacyACActiveStatusText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lineHeight="@dimen/keypad_text_size" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/privacyActiveStatusPreview" android:layout_width="0.0dip" android:layout_height="wrap_content" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@id/privacyACActiveStatusPreview" app:layout_constraintTop_toTopOf="parent">
+        <com.oculus.ocui.OCTextView android:textSize="@dimen/anytime_tablet_profile_text_size_small" android:textColor="?ocSecondaryText" android:id="@id/privacyActiveStatusPreviewExplanation" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lineHeight="@dimen/keypad_text_size" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/privacyActiveStatusPreviewCard" android:background="@drawable/settings_privacy_preview_card_background" android:paddingTop="10.0dip" android:paddingBottom="8.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="8.0dip" android:paddingStart="10.0dip" android:paddingEnd="10.0dip">
+            <com.oculus.ocui.OCProfilePhoto android:id="@id/privacyActiveStatusProfilePhoto" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginStart="12.0dip">
+                <com.oculus.ocui.OCTextView android:textSize="@dimen/anytime_tablet_profile_text_size_medium" android:textColor="?ocPrimaryText" android:id="@id/privacyActiveStatusPreviewUsername" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lineHeight="@dimen/octypography_body1_line_height" />
+                <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_gravity="center_vertical" android:id="@id/privacyActiveStatusIcon" android:layout_width="12.0dip" android:layout_height="12.0dip" android:layout_marginEnd="4.0dip" />
+                    <com.oculus.ocui.OCTextView android:textSize="@dimen/anytime_tablet_profile_text_size_small" android:textColor="?ocSecondaryText" android:id="@id/privacyActiveStatusText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lineHeight="@dimen/keypad_text_size" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

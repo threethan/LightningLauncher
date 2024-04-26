@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_up_description">Անցնել վերև</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+</string>
+    <string name="abc_menu_delete_shortcut_label">Delete</string>
+    <string name="abc_menu_enter_shortcut_label">Enter</string>
+    <string name="abc_menu_function_shortcut_label">Function+</string>
+    <string name="abc_menu_meta_shortcut_label">Meta+</string>
+    <string name="abc_menu_shift_shortcut_label">Shift+</string>
+    <string name="abc_menu_space_shortcut_label">բացատ</string>
+    <string name="abc_menu_sym_shortcut_label">Sym+</string>
+    <string name="abc_prepend_shortcut_label">Menu+</string>
+    <string name="abc_searchview_description_clear">Ջնջել հարցումը</string>
+    <string name="abc_searchview_description_search">Որոնել</string>
+    <string name="abc_searchview_description_submit">Ուղարկել հարցումը</string>
+    <string name="abc_searchview_description_voice">Ձայնային որոնում</string>
+    <string name="default_popup_window_title">Ելնող պատուհան</string>
+    <string name="in_progress">Ընթացքում է</string>
+    <string name="indeterminate">Մասնակի նշված</string>
+    <string name="not_selected">Ընտրված չէ</string>
+    <string name="off">Անջատված է</string>
+    <string name="on">Միացված է</string>
+    <string name="selected">Ընտրված է</string>
+    <string name="switch_role">Փոխանջատիչ</string>
+    <string name="tab">Ներդիր</string>
+    <string name="template_percent">%1$d տոկոս։</string>
+</resources>

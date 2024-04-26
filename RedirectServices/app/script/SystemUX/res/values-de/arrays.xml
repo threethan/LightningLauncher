@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="wifitrackerlib_wifi_status">
+        <item></item>
+        <item>Wird gescannt…</item>
+        <item>Verbindung wird hergestellt…</item>
+        <item>Wird authentifiziert…</item>
+        <item>IP-Adresse wird abgerufen…</item>
+        <item>Verbunden</item>
+        <item>Gesperrt</item>
+        <item>Verbindung wird getrennt…</item>
+        <item>Nicht verbunden</item>
+        <item>Fehlgeschlagen</item>
+        <item>Blockiert</item>
+        <item>Schlechte Internetverbindung wird vorübergehend vermieden</item>
+    </string-array>
+</resources>

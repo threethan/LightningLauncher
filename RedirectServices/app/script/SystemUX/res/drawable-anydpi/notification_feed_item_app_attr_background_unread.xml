@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<drawable class="com.oculus.ocui.drawable.OCInteractionOverlayDrawable"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <layer-list>
+        <item>
+            <shape android:shape="rectangle">
+                <corners android:radius="4.0dip" />
+                <solid android:color="?ocPanelBackground" />
+            </shape>
+        </item>
+        <item>
+            <shape android:shape="rectangle">
+                <corners android:radius="4.0dip" />
+                <solid android:color="?ocCardBackground" />
+            </shape>
+        </item>
+    </layer-list>
+</drawable>

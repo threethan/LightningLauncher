@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <layer-list>
+            <item>
+                <shape android:shape="oval">
+                    <solid android:color="@color/icon_backing_on_press" />
+                </shape>
+            </item>
+            <item android:left="6.0dip" android:top="6.0dip" android:right="6.0dip" android:bottom="6.0dip">
+                <bitmap android:src="@drawable/oc_icon_trash_filled_24_d2d2d2" android:alpha="0.8" />
+            </item>
+        </layer-list>
+    </item>
+    <item android:state_hovered="true">
+        <layer-list>
+            <item>
+                <shape android:shape="oval">
+                    <solid android:color="@color/icon_backing_on_enter" />
+                </shape>
+            </item>
+            <item android:left="6.0dip" android:top="6.0dip" android:right="6.0dip" android:bottom="6.0dip">
+                <bitmap android:src="@drawable/oc_icon_trash_filled_24_d2d2d2" />
+            </item>
+        </layer-list>
+    </item>
+    <item>
+        <layer-list>
+            <item android:left="6.0dip" android:top="6.0dip" android:right="6.0dip" android:bottom="6.0dip">
+                <bitmap android:src="@drawable/oc_icon_trash_filled_24_d2d2d2" android:alpha="0.6" />
+            </item>
+        </layer-list>
+    </item>
+</selector>

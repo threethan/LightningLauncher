@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<drawable app:ocInteractionOverlayHover="?ocHoverOverlayOnMedia" app:ocInteractionOverlayPress="?ocPressedOverlayOnMedia" class="com.oculus.ocui.drawable.OCInteractionOverlayDrawable"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <shape android:shape="rectangle">
+        <corners android:radius="?ocButtonBorderRadius" />
+        <solid android:color="@android:color/transparent" />
+    </shape>
+</drawable>

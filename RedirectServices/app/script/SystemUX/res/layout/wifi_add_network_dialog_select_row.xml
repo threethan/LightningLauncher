@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/root" android:tag="layout/wifi_add_network_dialog_select_row_0" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/active_call_bar_active_call_button_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:bind="http://schemas.android.com/apk/res-auto" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.oculus.ocui.OCTextView android:textColor="?ocSecondaryText" android:id="@id/header" android:tag="binding_1" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/Body2" />
+    <com.oculus.ocui.OCSelect android:textSize="@dimen/anytime_tablet_profile_text_size_medium" android:id="@id/selector" android:tag="binding_2" android:layout_width="fill_parent" android:layout_height="40.0dip" app:dropdownWidth="144.0dip" />
+    <com.oculus.ocui.OCInfo android:textSize="@dimen/anytime_tablet_profile_text_size_medium" android:textStyle="bold" android:gravity="center" android:id="@id/warning" android:tag="binding_3" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/active_call_bar_active_call_button_padding" android:lineHeight="@dimen/octypography_body1_line_height" />
+</LinearLayout>

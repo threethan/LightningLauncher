@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="anytime_bar_active_call_bar_messenger_mic_switcher_use_call_audio_tooltip_subtitle">
+        <item quantity="other">[%1$d people#688bd841d9e3ffa9037ccda77e5a9fe2:1]</item>
+        <item quantity="one">[%1$d person#676b9f589cc93ed1fcb3307c480847ec:1]</item>
+    </plurals>
+    <plurals name="anytime_bar_active_call_bar_party_button_tooltip_subtitle">
+        <item quantity="other">[%1$d people#688bd841d9e3ffa9037ccda77e5a9fe2:1]</item>
+        <item quantity="one">[%1$d person#676b9f589cc93ed1fcb3307c480847ec:1]</item>
+    </plurals>
+    <plurals name="anytime_library_app_multiple_locked_toast_description">
+        <item quantity="other">[%1$d apps have been locked#0737716ff9c9d7df3cdf7da49e925eb0:1]</item>
+        <item quantity="one">[%1$d app have been locked#d278d49130138ee72640ac7dacbe07ed:1]</item>
+    </plurals>
+    <plurals name="anytime_library_app_multiple_unlocked_toast_description">
+        <item quantity="other">[%1$d apps have been unlocked#a9a2b37abcbe186d8cba313b7109cf85:1]</item>
+        <item quantity="one">[%1$d app have been unlocked#29f106ea9f780e9d3586a24b25affa68:1]</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_install_warning_tooltip">
+        <item quantity="other">[This app can take %1$d minutes or longer to finish installing.#a06882b79240125c382234490e378d79:1]</item>
+        <item quantity="one">[This app can take %1$d minute or longer to finish installing.#9f09130e26149819cf8a9dfba8f44b46:1]</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_lock_bulk_action_description">
+        <item quantity="other">[lock %1$d apps#6adbe5b38dbd0b39449278800b31bc5b:1]</item>
+        <item quantity="one">[lock %1$d app#eb3d2990c9861e39b82c89f3874b4069:1]</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_lock_bulk_action_title">
+        <item quantity="other">[Lock %1$d Apps?#5a914a566c611b4098795c80821f94eb:1]</item>
+        <item quantity="one">[Lock %1$d App?#4b3abc6107780c793ea99a1821a1f023:1]</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_tile_subtitle_supports_players">
+        <item quantity="other">[1-%1$d people#e2785e00fc29ac6319ffcdd9afaf7dae:1]</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_unlock_bulk_action_description">
+        <item quantity="other">[unlock %1$d apps#c6fa0d202cee5d14953ca6a993ac021f:1]</item>
+        <item quantity="one">[unlock %1$d app#23e63fdecc244a8a917921a3367dc815:1]</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_unlock_bulk_action_title">
+        <item quantity="other">[Unlock %1$d Apps?#806f141b21b4ce8218aef8fb145364fa:1]</item>
+        <item quantity="one">[Unlock %1$d App?#0b9e1a9fcf8177cfc9bfcbeef1293935:1]</item>
+    </plurals>
+    <plurals name="anytime_tablet_profile_pending_follow_request_confirm_title">
+        <item quantity="other">[%1$d pending follow requests#f4bb52bb2990bc7a40f45dd9648102e5:1]</item>
+        <item quantity="one">[%1$d pending follow request#0d8604f8b340284239eb0ed87bf073d3:1]</item>
+    </plurals>
+    <plurals name="cloud_backups_num_attempts_remaining_text">
+        <item quantity="other">[%1$d more tries#ea971aef74190ad548b8e4b176c29dde:1]</item>
+        <item quantity="one">[%1$d more try#d85d326178f1daa26b2535caf38d19a8:1]</item>
+    </plurals>
+    <plurals name="last_played_with_time_days">
+        <item quantity="other">[%1$d days ago#d954d9f0788fb7fee1e85f682cb8400f:1]</item>
+        <item quantity="one">[%1$d day ago#9373cc950195abd0eb1c514bfd9c10ea:1]</item>
+    </plurals>
+    <plurals name="last_played_with_time_hours">
+        <item quantity="other">[%1$d hours ago#e998fbd60027ffac8a496690535ab0da:1]</item>
+        <item quantity="one">[%1$d hour ago#98ce079c0beae83fbfc7a235a66d22f6:1]</item>
+    </plurals>
+    <plurals name="last_played_with_time_minutes">
+        <item quantity="other">[%1$d minutes ago#3e5026daf090fb8784fe4d6ba5e29a81:1]</item>
+        <item quantity="one">[%1$d minute ago#b501b4b704af5e91784e4869a7166ef2:1]</item>
+    </plurals>
+    <plurals name="last_played_with_time_weeks">
+        <item quantity="other">[%1$d weeks ago#9830a56a780ad43b95ee614d0be269ed:1]</item>
+        <item quantity="one">[%1$d week ago#24b2901282df9301b6df4aca259cafc5:1]</item>
+    </plurals>
+    <plurals name="lockpassword_pin_too_long">
+        <item quantity="other">[Must be fewer than %1$d digits#55c3dbdb1ee5a8b527ec6f642f0bd00b:1]</item>
+        <item quantity="one">[Must be fewer than %1$d digit#4f502d36d1fd591c93b10c0a3f5a253e:1]</item>
+    </plurals>
+    <plurals name="lockpassword_pin_too_short">
+        <item quantity="other">[PIN must be at least %1$d digits#d1589fce58d881c8cde50a66b0566ccd:1]</item>
+        <item quantity="one">[PIN must contain at least %1$d digit#d41d5f96c28d5cce1219c1cdafc82b35:1]</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_hours">
+        <item quantity="other">[Try again in %1$d hours#02613931f537f9e0257d41927f3727fc:1]</item>
+        <item quantity="one">[Try again in %1$d hour#6a54048d4896f72164c18f01a53453c1:1]</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_min">
+        <item quantity="other">[Try again in %1$d minutes#27836cf8be21952d8883c35b44b5aff8:1]</item>
+        <item quantity="one">[Try again in %1$d minute#cac9538669537165fbdc48a035d5a69b:1]</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_sec">
+        <item quantity="other">[Try again in %1$d seconds#1f559b7220c91a448d8cd8d68b7c22c3:1]</item>
+        <item quantity="one">[Try again in %1$d second#06c30d09104d83f403f82ac35808240e:1]</item>
+    </plurals>
+    <plurals name="safety_center_violation_list_enforcement_social_suspension">
+        <item quantity="other">"[You can't use chat, groups, or Horizon Worlds for %1$d days#3f818e4f99c119fda3f272ee86f2b278:1]"</item>
+        <item quantity="one">"[You can't use chat, groups, or Horizon Worlds for %1$d day#1b416aee789deff84894e17d35392f24:1]"</item>
+    </plurals>
+    <plurals name="settings_apps_lock_selected_items_text">
+        <item quantity="other">[%1$d Selected#a95ce1225623a6544fdf8f54f92de908:1]</item>
+    </plurals>
+    <plurals name="settings_permissions_apps_granted_subtitle">
+        <item quantity="other">[%1$d of %2$d apps allowed#674606e217b03a1ec4793cd7126cc7dc:1]</item>
+        <item quantity="one">[%1$d of %2$d app allowed#c5ce79543b84e7b6438311b4881b7a2e:1]</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_days_ago">
+        <item quantity="other">[Accessed %1$d days ago#3dc0f9c461ecedacce53ccf68530e52b:1]</item>
+        <item quantity="one">[Accessed %1$d day ago#5caf30be26f46e773d4a6b65303f25b0:1]</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_days_ago_short">
+        <item quantity="other">[%1$d days ago#821e87402c4c6b541d3f4be41c831c4e:1]</item>
+        <item quantity="one">[%1$d day ago#becb1ae12b7bdb1d0d8ae47bb5b4ebd6:1]</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_hours_ago">
+        <item quantity="other">[Accessed %1$d hours ago#5ba51bb04699abb897ba7db28b2975a6:1]</item>
+        <item quantity="one">[Accessed %1$d hour ago#5d76ba8b5bace697ab69a557e257cb16:1]</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_hours_ago_short">
+        <item quantity="other">[%1$d hours ago#f1295d2460a3a72d1c0191d2cc3c6329:1]</item>
+        <item quantity="one">[%1$d hour ago#6be08dc7b35b6b48648826469b0f1734:1]</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_minutes_ago">
+        <item quantity="other">[Accessed %1$d minutes ago#2771e727d840d03755fc74d2ccef5c86:1]</item>
+        <item quantity="one">[Accessed 1 minute ago#1535b39bf2e6cd1e0a0e4f3cab2d24a0:1]</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_minutes_ago_short">
+        <item quantity="other">[%1$d minutes ago#3c8ffb3490436eea2436110f3d7f26fb:1]</item>
+        <item quantity="one">[1 minute ago#8b2bf3102fe8253ec39b3cc64096c0bc:1]</item>
+    </plurals>
+    <plurals name="settings_privacy_unblock_users_subtitle">
+        <item quantity="other">[%1$d profiles blocked#f18a38ca3d24043c58840da5be27aac4:1]</item>
+        <item quantity="one">[%1$d profile blocked#ca08358d579a6d0e525233831c9d4845:1]</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_new_violation">
+        <item quantity="other">[%1$d recent violations#493656fdf7a5a89e41a7bbb98c8ce968:1]</item>
+        <item quantity="one">[%1$d recent violation#c82a7e4ea686fba66ec04b723ffe8721:1]</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle">
+        <item quantity="other">"[You can't use chats, groups or Horizon Worlds for %1$d days.#cc20b6ffb0c06e49fb3d8d7dec54cea6:1]"</item>
+        <item quantity="one">"[You can't use chats, groups or Horizon Worlds for %1$d day.#a6761c3ffa5e73c73ddceefb14fc6544:1]"</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle_hours">
+        <item quantity="other">[Ends in %1$d hours.#9764e3054ea1c0f3a83795d2fd65917c:1]</item>
+        <item quantity="one">[Ends in %1$d hour.#ca1a546baea6e0658d651f810b2334f1:1]</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle_minutes">
+        <item quantity="other">[Ends in %1$d minutes.#28649aac00000563e33ec1dd49cbd235:1]</item>
+        <item quantity="one">[Ends in %1$d minute.#6e6293fe58613d4ba500353753bd2869:1]</item>
+    </plurals>
+    <plurals name="settings_storage_selected_items_text">
+        <item quantity="other">[%1$d Selected#a95ce1225623a6544fdf8f54f92de908:1]</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_apps_title">
+        <item quantity="other">[Uninstall %1$d Apps#ebcadcf8853b284f60f13da29a500489:1]</item>
+        <item quantity="one">[Uninstall %1$d App#92e85538f5e56affa9fc003e0e59edab:1]</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_environments_title">
+        <item quantity="other">[Uninstall %1$d Environments#67ebb433089945903b7432e1a5a56e3f:1]</item>
+        <item quantity="one">[Uninstall %1$d Environment#554270147e88bc3cc936b78c505b5446:1]</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_files_title">
+        <item quantity="other">[Delete %1$d Files#75db9672bcf52d4b7123c10d832dc2cd:1]</item>
+        <item quantity="one">[Delete %1$d File#e52b71634d01bbfa81161ad30f36b746:1]</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_images_title">
+        <item quantity="other">[Delete %1$d Images#2aa8f644b3ed58ef0598a6538208a4e3:1]</item>
+        <item quantity="one">[Delete %1$d Image#5e259f042f77ab1bb5f94fbb2df69a6c:1]</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_unknown_sources_title">
+        <item quantity="other">[Delete %1$d Unknown Sources#e0a7d4b8dbf84392ef3ece4a9077b40d:1]</item>
+        <item quantity="one">[Delete %1$d Unknown Source#2a95bee916067ffda14045d3afdeca62:1]</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_videos_title">
+        <item quantity="other">[Delete %1$d Videos#e44d8f9bd789eaa00ffb7e5e79849afa:1]</item>
+        <item quantity="one">[Delete %1$d Video#b95d5fb50f05708389631b88a1e6b6c8:1]</item>
+    </plurals>
+    <plurals name="social_suspension_description_days">
+        <item quantity="other">"[&lt;p style=\"text-align: center;\">Your profile is restricted because you didn't follow our &lt;a href=\"%1$s\"> code of conduct.&lt;/a> You can't use chat, groups, call, or Horizon Worlds for %2$s days. Ends %3$s.&lt;/p>#34765a1c3337b239fe53f50072e0f8c8:1]"</item>
+        <item quantity="one">"[&lt;p style=\"text-align: center;\">Your profile is restricted because you didn't follow our &lt;a href=\"%1$s\"> code of conduct.&lt;/a> You can't use chat, groups, call, or Horizon Worlds for %2$s day. Ends %3$s.&lt;/p>#e5decbe96bbb67fc4f5aa8520364c055:1]"</item>
+    </plurals>
+    <plurals name="social_suspension_description_hours">
+        <item quantity="other">"[&lt;p style=\"text-align: center;\">Your profile is restricted because you didn't follow our &lt;a href=\"%1$s\"> code of conduct.&lt;/a> You can't use chat, groups, call, or Horizon Worlds for %2$s hours. Ends %3$s.&lt;/p>#d51cc667fe7527231b88d22648ab92ee:1]"</item>
+        <item quantity="one">"[&lt;p style=\"text-align: center;\">Your profile is restricted because you didn't follow our &lt;a href=\"%1$s\"> code of conduct.&lt;/a> You can't use chat, groups, call, or Horizon Worlds for %2$s hour. Ends %3$s.&lt;/p>#89dc58518881eb453c58b97a8ad9f084:1]"</item>
+    </plurals>
+    <plurals name="subdestination_max_users">
+        <item quantity="other">[Up to %1$d players#ce3865ac0e593aec72949088f82ae6ab:1]</item>
+        <item quantity="one">[Up to %1$d player#7a681df1f6548110432929cf155405f9:1]</item>
+    </plurals>
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.panelapp.bugreporter.PTConfirmationView android:tag="layout/playtesting_feedback_confirmation_view_0" android:background="@drawable/ocpanel_background" android:paddingBottom="24.0dip" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <FrameLayout android:orientation="vertical" android:id="@id/frame" android:layout_width="fill_parent" android:layout_height="208.0dip" android:layout_above="@id/main_content">
+            <ImageView android:id="@id/confirm_image" android:layout_width="fill_parent" android:layout_height="208.0dip" android:src="@drawable/confirmation_cropped" android:scaleType="fitStart" />
+        </FrameLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/main_content" android:layout_width="fill_parent" android:layout_height="168.0dip" android:layout_alignParentBottom="true">
+            <com.oculus.ocui.OCTextView android:textSize="@dimen/octypography_body1_line_height" android:textStyle="bold" android:textColor="?ocPrimaryText" android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:text="@string/thank_you_text" android:includeFontPadding="false" />
+            <com.oculus.ocui.OCTextView android:gravity="center" android:layout_width="wrap_content" android:layout_height="0.0dip" android:text="@string/feedback_being_sent_text" android:layout_weight="1.0" android:layout_marginStart="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" android:layout_marginEnd="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" />
+            <com.oculus.ocui.OCButton android:id="@id/ok_button" android:layout_width="fill_parent" android:layout_height="@dimen/anytime_tablet_common_rectangular_button_height" android:layout_marginTop="24.0dip" android:text="@string/ok_text" android:layout_marginStart="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" android:layout_marginEnd="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" app:mode="primary" />
+        </LinearLayout>
+    </RelativeLayout>
+</com.oculus.panelapp.bugreporter.PTConfirmationView>

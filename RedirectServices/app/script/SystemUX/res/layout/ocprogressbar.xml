@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge>
+    <com.oculus.ocui.OCTextView android:id="@id/percantage_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textAlignment="viewEnd" app:layout_constraintBottom_toTopOf="@id/ocui_progress_bar" app:layout_constraintTop_toTopOf="parent"
+      xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" />
+    <ProgressBar android:id="@id/ocui_progress_bar" android:layout_width="fill_parent" android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/percantage_text" style="@android:style/Widget.ProgressBar.Horizontal"
+      xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" />
+</merge>

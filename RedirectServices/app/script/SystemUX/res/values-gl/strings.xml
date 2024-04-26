@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_up_description">Vai cara arriba</string>
+    <string name="abc_menu_alt_shortcut_label">Alt +</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl +</string>
+    <string name="abc_menu_delete_shortcut_label">eliminar</string>
+    <string name="abc_menu_enter_shortcut_label">intro</string>
+    <string name="abc_menu_function_shortcut_label">Función +</string>
+    <string name="abc_menu_meta_shortcut_label">Meta +</string>
+    <string name="abc_menu_shift_shortcut_label">Maiús +</string>
+    <string name="abc_menu_space_shortcut_label">espazo</string>
+    <string name="abc_menu_sym_shortcut_label">Sym +</string>
+    <string name="abc_prepend_shortcut_label">Menú +</string>
+    <string name="abc_searchview_description_clear">Borra a consulta</string>
+    <string name="abc_searchview_description_search">Realiza buscas</string>
+    <string name="abc_searchview_description_submit">Envía a consulta</string>
+    <string name="abc_searchview_description_voice">Busca por voz</string>
+    <string name="default_popup_window_title">Ventá emerxente</string>
+    <string name="in_progress">En curso</string>
+    <string name="indeterminate">Marcada parcialmente</string>
+    <string name="not_selected">Non seleccionado</string>
+    <string name="off">Desactivado</string>
+    <string name="on">Activado</string>
+    <string name="selected">Seleccionado</string>
+    <string name="switch_role">Interruptor</string>
+    <string name="tab">Tabulador</string>
+    <string name="template_percent">%1$d por cento.</string>
+</resources>

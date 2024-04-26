@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="anytime_bar_active_call_bar_messenger_mic_switcher_use_call_audio_tooltip_subtitle">
+        <item quantity="other">%1$d lidí</item>
+        <item quantity="one">%1$d člověk</item>
+        <item quantity="few">%1$d lidé</item>
+    </plurals>
+    <plurals name="anytime_bar_active_call_bar_party_button_tooltip_subtitle">
+        <item quantity="other">%1$d lidí</item>
+        <item quantity="one">%1$d člověk</item>
+        <item quantity="few">%1$d lidé</item>
+    </plurals>
+    <plurals name="anytime_library_app_multiple_locked_toast_description">
+        <item quantity="other">%1$d aplikací bylo odemknuto</item>
+        <item quantity="one">%1$d aplikace byla odemknuta</item>
+        <item quantity="few">%1$d aplikace byly odemknuty</item>
+    </plurals>
+    <plurals name="anytime_library_app_multiple_unlocked_toast_description">
+        <item quantity="other">%1$d aplikací bylo zamknuto</item>
+        <item quantity="one">%1$d aplikace byla zamknuta</item>
+        <item quantity="few">%1$d aplikace byly zamknuty</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_install_warning_tooltip">
+        <item quantity="other">Může %1$d minut nebo i déle trvat, než se tao aplikace doinstaluje.</item>
+        <item quantity="one">Může %1$d minutu nebo i déle trvat, než se tao aplikace doinstaluje.</item>
+        <item quantity="few">Může %1$d minuty nebo i déle trvat, než se tao aplikace doinstaluje.</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_lock_bulk_action_description">
+        <item quantity="other">zamknout %1$d aplikací</item>
+        <item quantity="one">zamknout %1$d aplikaci</item>
+        <item quantity="few">zamknout %1$d aplikace</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_lock_bulk_action_title">
+        <item quantity="other">Zamknout %1$d aplikací?</item>
+        <item quantity="one">Zamknout %1$d aplikaci?</item>
+        <item quantity="few">Zamknout %1$d aplikace?</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_tile_subtitle_supports_players">
+        <item quantity="other">1–%1$d lidí</item>
+        <item quantity="one">1–%1$d člověk</item>
+        <item quantity="few">1–%1$d lidé</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_unlock_bulk_action_description">
+        <item quantity="other">odemknout %1$d aplikací</item>
+        <item quantity="one">odemknout %1$d aplikaci</item>
+        <item quantity="few">odemknout %1$d aplikace</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_unlock_bulk_action_title">
+        <item quantity="other">Odemknout %1$d aplikací?</item>
+        <item quantity="one">Odemknout %1$d aplikaci?</item>
+        <item quantity="few">Odemknout %1$d aplikace?</item>
+    </plurals>
+    <plurals name="anytime_tablet_profile_pending_follow_request_confirm_title">
+        <item quantity="other">%1$d nevyřízených žádostí o povolení sledování</item>
+        <item quantity="one">%1$d nevyřízená žádost o povolení sledování</item>
+        <item quantity="few">%1$d nevyřízené žádosti o povolení sledování</item>
+    </plurals>
+    <plurals name="cloud_backups_num_attempts_remaining_text">
+        <item quantity="other">%1$d dalších pokusů</item>
+        <item quantity="one">%1$d další pokus</item>
+        <item quantity="few">%1$d další pokusy</item>
+    </plurals>
+    <plurals name="follower_view_pill_title">
+        <item quantity="other">%1$d sledujících</item>
+        <item quantity="one">%1$d sledující</item>
+        <item quantity="few">%1$d sledující</item>
+    </plurals>
+    <plurals name="last_played_with_time_days">
+        <item quantity="other">před %1$d dny</item>
+        <item quantity="one">před %1$d dnem</item>
+    </plurals>
+    <plurals name="last_played_with_time_hours">
+        <item quantity="other">před %1$d hodinami</item>
+        <item quantity="one">před %1$d hodinou</item>
+    </plurals>
+    <plurals name="last_played_with_time_minutes">
+        <item quantity="other">před %1$d minutami</item>
+        <item quantity="one">před %1$d minutou</item>
+    </plurals>
+    <plurals name="last_played_with_time_weeks">
+        <item quantity="other">před %1$d týdny</item>
+        <item quantity="one">před %1$d týdnem</item>
+    </plurals>
+    <plurals name="lockpassword_pin_too_long">
+        <item quantity="other">Musí se skládat z méně než %1$d číslic</item>
+    </plurals>
+    <plurals name="lockpassword_pin_too_short">
+        <item quantity="other">PIN se musí skládat alespoň z %1$d číslic</item>
+        <item quantity="one">PIN se musí skládat alespoň z %1$d číslice</item>
+        <item quantity="few">PIN se musí skládat alespoň ze %1$d číslic</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_hours">
+        <item quantity="other">Zkuste to znovu za %1$d hodin</item>
+        <item quantity="one">Zkuste to znovu za %1$d hodinu</item>
+        <item quantity="few">Zkuste to znovu za %1$d hodiny</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_min">
+        <item quantity="other">Zkuste to znovu za %1$d minut</item>
+        <item quantity="one">Zkuste to znovu za %1$d minutu</item>
+        <item quantity="few">Zkuste to znovu za %1$d minuty</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_sec">
+        <item quantity="other">Zkuste to znovu za %1$d sekund</item>
+        <item quantity="one">Zkuste to znovu za %1$d sekundu</item>
+        <item quantity="few">Zkuste to znovu za %1$d sekundy</item>
+    </plurals>
+    <plurals name="request_view_pill_title">
+        <item quantity="other">%1$d žádostí</item>
+        <item quantity="one">%1$d žádost</item>
+        <item quantity="few">%1$d žádosti</item>
+    </plurals>
+    <plurals name="safety_center_violation_list_enforcement_social_suspension">
+        <item quantity="other">Po dobu %1$d dne nebudete moct používat chat, skupiny ani Horizon Worlds</item>
+    </plurals>
+    <plurals name="settings_apps_lock_selected_items_text">
+        <item quantity="other">%1$d vybráno</item>
+        <item quantity="one">%1$d vybrána</item>
+        <item quantity="few">%1$d vybrány</item>
+    </plurals>
+    <plurals name="settings_permissions_apps_granted_subtitle">
+        <item quantity="other">Povoleno %1$d aplikací z %2$d</item>
+        <item quantity="one">Povolena %1$d aplikace z %2$d</item>
+        <item quantity="few">Povoleny %1$d aplikace z %2$d</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_days_ago">
+        <item quantity="other">Přístup před %1$d dny</item>
+        <item quantity="one">Přístup před %1$d dnem</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_days_ago_short">
+        <item quantity="other">před %1$d dny</item>
+        <item quantity="one">před %1$d dnem</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_hours_ago">
+        <item quantity="other">Přístup před %1$d hodinami</item>
+        <item quantity="one">Přístup před %1$d hodinou</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_hours_ago_short">
+        <item quantity="other">před %1$d hodinami</item>
+        <item quantity="one">před %1$d hodinou</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_minutes_ago">
+        <item quantity="other">Využito před %1$d minutami</item>
+        <item quantity="one">Využito před 1 minutou</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_minutes_ago_short">
+        <item quantity="other">Před %1$d minutami</item>
+        <item quantity="one">Před 1 minutou</item>
+    </plurals>
+    <plurals name="settings_privacy_unblock_users_subtitle">
+        <item quantity="other">%1$d profilů blokováno</item>
+        <item quantity="one">%1$d profil blokován</item>
+        <item quantity="few">%1$d profily blokovány</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_new_violation">
+        <item quantity="other">%1$d nedávných porušení</item>
+        <item quantity="one">%1$d nedávné porušení</item>
+        <item quantity="few">%1$d nedávná porušení</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle">
+        <item quantity="other">Po dobu %1$d dnů nebudete moct používat chaty, skupiny ani Horizon Worlds.</item>
+        <item quantity="one">Po dobu %1$d dne nebudete moct používat chaty, skupiny ani Horizon Worlds.</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle_hours">
+        <item quantity="other">Končí za %1$d hodin.</item>
+        <item quantity="one">Končí za %1$d hodinu.</item>
+        <item quantity="few">Končí za %1$d hodiny.</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle_minutes">
+        <item quantity="other">Končí za %1$d minut.</item>
+        <item quantity="one">Končí za %1$d minutu.</item>
+        <item quantity="few">Končí za %1$d minuty.</item>
+    </plurals>
+    <plurals name="settings_storage_selected_items_text">
+        <item quantity="other">%1$d vybráno</item>
+        <item quantity="one">%1$d vybrána</item>
+        <item quantity="few">%1$d vybrány</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_apps_title">
+        <item quantity="other">Odinstalovat %1$d aplikací</item>
+        <item quantity="one">Odinstalovat %1$d aplikaci</item>
+        <item quantity="few">Odinstalovat %1$d aplikace</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_environments_title">
+        <item quantity="other">Odinstalovat %1$d prostředí</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_files_title">
+        <item quantity="other">Odstranit %1$d souborů</item>
+        <item quantity="one">Odstranit %1$d soubor</item>
+        <item quantity="few">Odstranit %1$d soubory</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_images_title">
+        <item quantity="other">Odstranit %1$d obrázků</item>
+        <item quantity="one">Odstranit %1$d obrázek</item>
+        <item quantity="few">Odstranit %1$d obrázky</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_unknown_sources_title">
+        <item quantity="other">Odstranit %1$d neznámých zdrojů</item>
+        <item quantity="one">Odstranit %1$d neznámý zdroj</item>
+        <item quantity="few">Odstranit %1$d neznámé zdroje</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_videos_title">
+        <item quantity="other">Odstranit %1$d videí</item>
+        <item quantity="one">Odstranit %1$d video</item>
+        <item quantity="few">Odstranit %1$d videa</item>
+    </plurals>
+    <plurals name="social_suspension_description_days">
+        <item quantity="other">&lt;p style=\"text-align: center;\">Kvůli nedodržení &lt;a href=\"%1$s\"> zásad chování&lt;/a> máte profil omezený. Po dobu %2$s dní nemůžete používat chat, skupiny, hovory ani Horizon Worlds. Omezení skončí %3$s.&lt;/p></item>
+        <item quantity="one">&lt;p style=\"text-align: center;\">Kvůli nedodržení &lt;a href=\"%1$s\"> zásad chování&lt;/a> máte profil omezený. %2$s den nemůžete používat chat, skupiny, hovory ani Horizon Worlds. Omezení skončí %3$s.&lt;/p></item>
+    </plurals>
+    <plurals name="social_suspension_description_hours">
+        <item quantity="other">&lt;p style=\"text-align: center;\">Kvůli nedodržení &lt;a href=\"%1$s\"> zásad chování&lt;/a> máte profil omezený. Po dobu %2$s hodin nemůžete používat chat, skupiny, hovory ani Horizon Worlds. Omezení skončí %3$s.&lt;/p></item>
+        <item quantity="one">&lt;p style=\"text-align: center;\">Kvůli nedodržení &lt;a href=\"%1$s\"> zásad chování&lt;/a> máte profil omezený. %2$s hodinu nemůžete používat chat, skupiny, hovory ani Horizon Worlds. Omezení skončí %3$s.&lt;/p></item>
+    </plurals>
+    <plurals name="subdestination_max_users">
+        <item quantity="other">Až %1$d hráčů</item>
+        <item quantity="one">Až %1$d hráč</item>
+        <item quantity="few">Až %1$d hráči</item>
+    </plurals>
+</resources>

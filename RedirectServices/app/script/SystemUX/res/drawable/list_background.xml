@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="20.0dip" />
+    <solid android:color="?ocPanelSideNavBackground" />
+    <padding android:left="@dimen/active_call_bar_active_call_button_padding" android:top="@dimen/active_call_bar_active_call_button_padding" android:right="@dimen/active_call_bar_active_call_button_padding" android:bottom="@dimen/active_call_bar_active_call_button_padding" />
+</shape>

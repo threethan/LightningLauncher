@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_up_description">រំកិលឡើងលើ</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+</string>
+    <string name="abc_menu_delete_shortcut_label">លុប</string>
+    <string name="abc_menu_enter_shortcut_label">enter</string>
+    <string name="abc_menu_function_shortcut_label">Function+</string>
+    <string name="abc_menu_meta_shortcut_label">Meta+</string>
+    <string name="abc_menu_shift_shortcut_label">Shift+</string>
+    <string name="abc_menu_space_shortcut_label">space</string>
+    <string name="abc_menu_sym_shortcut_label">Sym+</string>
+    <string name="abc_prepend_shortcut_label">Menu+</string>
+    <string name="abc_searchview_description_clear">សម្អាត​សំណួរ</string>
+    <string name="abc_searchview_description_search">ស្វែងរក</string>
+    <string name="abc_searchview_description_submit">ដាក់បញ្ជូន​សំណួរ</string>
+    <string name="abc_searchview_description_voice">ស្វែងរក​តាម​សំឡេង</string>
+    <string name="default_popup_window_title">វិនដូ​លោតឡើង</string>
+    <string name="in_progress">កំពុងដំណើរការ</string>
+    <string name="indeterminate">បានធីកខ្លះ</string>
+    <string name="not_selected">មិនបាន​ជ្រើសរើស</string>
+    <string name="off">បិទ</string>
+    <string name="on">បើក</string>
+    <string name="selected">បានជ្រើសរើស</string>
+    <string name="switch_role">ប៊ូតុង​បិទបើក</string>
+    <string name="tab">Tab</string>
+    <string name="template_percent">%1$d ភាគរយ។</string>
+</resources>

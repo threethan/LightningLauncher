@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <selector>
+            <item android:state_activated="true">
+                <shape>
+                    <corners android:radius="?ocButtonBorderRadius" />
+                    <solid android:color="?ocPrimaryButtonBackground" />
+                </shape>
+            </item>
+            <item>
+                <shape>
+                    <corners android:radius="?ocButtonBorderRadius" />
+                    <solid android:color="?ocSecondaryButtonBackground" />
+                </shape>
+            </item>
+        </selector>
+    </item>
+    <item android:drawable="@drawable/ocbutton_borderless" />
+</layer-list>

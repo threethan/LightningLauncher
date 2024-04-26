@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="?ocTooltipBackground" />
+            <corners android:radius="@dimen/abc_button_padding_horizontal_material" />
+        </shape>
+    </item>
+</layer-list>

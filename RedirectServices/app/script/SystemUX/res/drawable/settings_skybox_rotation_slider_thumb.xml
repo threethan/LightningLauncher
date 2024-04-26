@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="?ocPrimaryIcon" />
+    <corners android:radius="100.0dip" />
+    <size android:height="24.0dip" android:width="44.0dip" />
+</shape>

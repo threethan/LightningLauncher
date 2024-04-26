@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item>
+        <selector>
+            <item app:button_state_in_progress="true">
+                <shape android:shape="oval">
+                    <solid android:color="@android:color/transparent" />
+                </shape>
+            </item>
+            <item>
+                <shape android:shape="oval">
+                    <solid android:color="?ocPrimaryButtonBackground" />
+                </shape>
+            </item>
+        </selector>
+    </item>
+    <item android:drawable="@drawable/oc_progress_circle_primary_track_circle" />
+</layer-list>

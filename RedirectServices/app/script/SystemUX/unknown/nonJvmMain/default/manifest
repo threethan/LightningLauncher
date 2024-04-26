@@ -1,0 +1,7 @@
+builtins_platform=NATIVE
+unique_name=androidx.annotation\:annotation_nonJvmMain
+compiler_version=1.9.0
+abi_version=1.8.0
+short_name=annotation_nonJvmMain
+native_targets=
+metadata_version=1.4.1

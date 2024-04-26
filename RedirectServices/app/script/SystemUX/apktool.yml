@@ -1,0 +1,257 @@
+version: 2.9.3
+apkFileName: SystemUX.apk
+isFrameworkApk: false
+usesFramework:
+  ids:
+  - 1
+  tag: null
+sdkInfo:
+  minSdkVersion: 32
+  targetSdkVersion: 32
+packageInfo:
+  forcedPackageId: 127
+  renameManifestPackage: null
+versionInfo:
+  versionCode: 588757515
+  versionName: 65.0.0.363.341
+resourcesAreCompressed: false
+sharedLibrary: false
+sparseResources: false
+unknownFiles:
+  DebugProbesKt.bin: 8
+  NOTICE: 8
+  com.facebook-br.bin: 8
+  com.facebook-setter_store.json: 8
+  com.oculus.common.airlink-br.bin: 8
+  com.oculus.common.airlink-setter_store.json: 8
+  com.oculus.common.appsutil-br.bin: 8
+  com.oculus.common.appsutil-setter_store.json: 8
+  com.oculus.common.captionutil-br.bin: 8
+  com.oculus.common.captionutil-setter_store.json: 8
+  com.oculus.common.captureutil-br.bin: 8
+  com.oculus.common.captureutil-setter_store.json: 8
+  com.oculus.common.copresencetutorial-br.bin: 8
+  com.oculus.common.copresencetutorial-setter_store.json: 8
+  com.oculus.common.follow-br.bin: 8
+  com.oculus.common.follow-setter_store.json: 8
+  com.oculus.common.livestreamsocialchat.livestreamsocialchatview-br.bin: 8
+  com.oculus.common.livestreamsocialchat.livestreamsocialchatview-setter_store.json: 8
+  com.oculus.common.privacyupsells-br.bin: 8
+  com.oculus.common.privacyupsells-setter_store.json: 8
+  com.oculus.common.quickpromotion-br.bin: 8
+  com.oculus.common.quickpromotion-setter_store.json: 8
+  com.oculus.common.sharing-br.bin: 8
+  com.oculus.common.sharing-setter_store.json: 8
+  com.oculus.common.socialactions-br.bin: 8
+  com.oculus.common.socialactions-setter_store.json: 8
+  com.oculus.common.socialtablet.salsa-br.bin: 8
+  com.oculus.common.socialtablet.salsa-setter_store.json: 8
+  com.oculus.common.status-br.bin: 8
+  com.oculus.common.status-setter_store.json: 8
+  com.oculus.common.survey-br.bin: 8
+  com.oculus.common.survey-setter_store.json: 8
+  com.oculus.common.utils-br.bin: 8
+  com.oculus.common.utils-setter_store.json: 8
+  com.oculus.panelapp.androiddialog-br.bin: 8
+  com.oculus.panelapp.androiddialog-setter_store.json: 8
+  com.oculus.panelapp.anytimeui-br.bin: 8
+  com.oculus.panelapp.anytimeui-setter_store.json: 8
+  com.oculus.panelapp.appmenu-br.bin: 8
+  com.oculus.panelapp.appmenu-setter_store.json: 8
+  com.oculus.panelapp.auiinternalsettings-br.bin: 8
+  com.oculus.panelapp.auiinternalsettings-setter_store.json: 8
+  com.oculus.panelapp.bugreporter-br.bin: 8
+  com.oculus.panelapp.bugreporter-setter_store.json: 8
+  com.oculus.panelapp.caption-br.bin: 8
+  com.oculus.panelapp.caption-setter_store.json: 8
+  com.oculus.panelapp.continuingeducation-br.bin: 8
+  com.oculus.panelapp.continuingeducation-setter_store.json: 8
+  com.oculus.panelapp.controlbar-br.bin: 8
+  com.oculus.panelapp.controlbar-setter_store.json: 8
+  com.oculus.panelapp.controllersettings-br.bin: 8
+  com.oculus.panelapp.controllersettings-setter_store.json: 8
+  com.oculus.panelapp.destinationui-br.bin: 8
+  com.oculus.panelapp.destinationui-setter_store.json: 8
+  com.oculus.panelapp.fileviewer-br.bin: 8
+  com.oculus.panelapp.fileviewer-setter_store.json: 8
+  com.oculus.panelapp.library-br.bin: 8
+  com.oculus.panelapp.library-setter_store.json: 8
+  com.oculus.panelapp.livestreamsocialchat-br.bin: 8
+  com.oculus.panelapp.livestreamsocialchat-setter_store.json: 8
+  com.oculus.panelapp.livestreamyoutubechat-br.bin: 8
+  com.oculus.panelapp.livestreamyoutubechat-setter_store.json: 8
+  com.oculus.panelapp.mixedrealityobjects-br.bin: 8
+  com.oculus.panelapp.mixedrealityobjects-setter_store.json: 8
+  com.oculus.panelapp.notificationinspector-br.bin: 8
+  com.oculus.panelapp.notificationinspector-setter_store.json: 8
+  com.oculus.panelapp.notifications-br.bin: 8
+  com.oculus.panelapp.notifications-setter_store.json: 8
+  com.oculus.panelapp.profile-br.bin: 8
+  com.oculus.panelapp.profile-setter_store.json: 8
+  com.oculus.panelapp.quicksettings-br.bin: 8
+  com.oculus.panelapp.quicksettings-setter_store.json: 8
+  com.oculus.panelapp.screentimeenforcement-br.bin: 8
+  com.oculus.panelapp.screentimeenforcement-setter_store.json: 8
+  com.oculus.panelapp.settings-br.bin: 8
+  com.oculus.panelapp.settings-setter_store.json: 8
+  com.oculus.panelapp.sharing-br.bin: 8
+  com.oculus.panelapp.sharing-setter_store.json: 8
+  com.oculus.panelapp.toasts-br.bin: 8
+  com.oculus.panelapp.toasts-setter_store.json: 8
+  com.oculus.panelapp.virtualobjects-br.bin: 8
+  com.oculus.panelapp.virtualobjects-setter_store.json: 8
+  com.oculus.tablet-br.bin: 8
+  com.oculus.tablet-setter_store.json: 8
+  com.oculus.tablet.library.common.models-br.bin: 8
+  com.oculus.tablet.library.common.models-setter_store.json: 8
+  com.oculus.tablet.library.common.views-br.bin: 8
+  com.oculus.tablet.library.common.views-setter_store.json: 8
+  com.oculus.vrshell.util-br.bin: 8
+  com.oculus.vrshell.util-setter_store.json: 8
+  com.oculus.vrshell.util2-br.bin: 8
+  com.oculus.vrshell.util2-setter_store.json: 8
+  isoparser-default.properties: 8
+  commonMain/default/manifest: 8
+  commonMain/default/linkdata/module: 8
+  commonMain/default/linkdata/package_kotlinx/0_kotlinx.knm: 8
+  commonMain/default/linkdata/package_kotlinx.coroutines/0_coroutines.knm: 8
+  commonMain/default/linkdata/package_kotlinx.coroutines/1_coroutines.knm: 8
+  commonMain/default/linkdata/package_kotlinx.coroutines/2_coroutines.knm: 8
+  commonMain/default/linkdata/package_kotlinx.coroutines/3_coroutines.knm: 8
+  commonMain/default/linkdata/package_kotlinx.coroutines.channels/0_channels.knm: 8
+  commonMain/default/linkdata/package_kotlinx.coroutines.channels/1_channels.knm: 8
+  commonMain/default/linkdata/package_kotlinx.coroutines.flow/0_flow.knm: 8
+  commonMain/default/linkdata/package_kotlinx.coroutines.flow/1_flow.knm: 8
+  commonMain/default/linkdata/package_kotlinx.coroutines.flow/2_flow.knm: 8
+  commonMain/default/linkdata/package_kotlinx.coroutines.flow.internal/0_internal.knm: 8
+  commonMain/default/linkdata/package_kotlinx.coroutines.flow.internal/1_internal.knm: 8
+  commonMain/default/linkdata/package_kotlinx.coroutines.internal/0_internal.knm: 8
+  commonMain/default/linkdata/package_kotlinx.coroutines.internal/1_internal.knm: 8
+  commonMain/default/linkdata/package_kotlinx.coroutines.intrinsics/0_intrinsics.knm: 8
+  commonMain/default/linkdata/package_kotlinx.coroutines.selects/0_selects.knm: 8
+  commonMain/default/linkdata/package_kotlinx.coroutines.selects/1_selects.knm: 8
+  commonMain/default/linkdata/package_kotlinx.coroutines.sync/0_sync.knm: 8
+  commonMain/default/linkdata/package_kotlinx.coroutines.sync/1_sync.knm: 8
+  commonMain/default/linkdata/root_package/0_.knm: 8
+  concurrentMain/default/manifest: 8
+  concurrentMain/default/linkdata/module: 8
+  concurrentMain/default/linkdata/package_kotlinx/0_kotlinx.knm: 8
+  concurrentMain/default/linkdata/package_kotlinx.coroutines/0_coroutines.knm: 8
+  concurrentMain/default/linkdata/package_kotlinx.coroutines/1_coroutines.knm: 8
+  concurrentMain/default/linkdata/package_kotlinx.coroutines.channels/0_channels.knm: 8
+  concurrentMain/default/linkdata/package_kotlinx.coroutines.internal/0_internal.knm: 8
+  concurrentMain/default/linkdata/package_kotlinx.coroutines.internal/1_internal.knm: 8
+  concurrentMain/default/linkdata/root_package/0_.knm: 8
+  nativeMain/default/manifest: 8
+  nativeMain/default/linkdata/module: 8
+  nativeMain/default/linkdata/package_kotlinx/0_kotlinx.knm: 8
+  nativeMain/default/linkdata/package_kotlinx.coroutines/0_coroutines.knm: 8
+  nativeMain/default/linkdata/package_kotlinx.coroutines/1_coroutines.knm: 8
+  nativeMain/default/linkdata/package_kotlinx.coroutines.flow/0_flow.knm: 8
+  nativeMain/default/linkdata/package_kotlinx.coroutines.flow.internal/0_internal.knm: 8
+  nativeMain/default/linkdata/package_kotlinx.coroutines.internal/0_internal.knm: 8
+  nativeMain/default/linkdata/package_kotlinx.coroutines.internal/1_internal.knm: 8
+  nativeMain/default/linkdata/root_package/0_.knm: 8
+  nativeOtherMain/default/manifest: 8
+  nativeOtherMain/default/linkdata/module: 8
+  nativeOtherMain/default/linkdata/package_kotlinx/0_kotlinx.knm: 8
+  nativeOtherMain/default/linkdata/package_kotlinx.coroutines/0_coroutines.knm: 8
+  nativeOtherMain/default/linkdata/package_kotlinx.coroutines/1_coroutines.knm: 8
+  nativeOtherMain/default/linkdata/root_package/0_.knm: 8
+  nonJvmMain/default/manifest: 8
+  nonJvmMain/default/linkdata/module: 8
+  okhttp3/internal/publicsuffix/NOTICE: 8
+  okhttp3/internal/publicsuffix/publicsuffixes.gz: 8
+  org/assertj/core/internal/cglib/util/words.txt: 8
+  org/bouncycastle/x509/CertPathReviewerMessages.properties: 8
+  org/bouncycastle/x509/CertPathReviewerMessages_de.properties: 8
+doNotCompress:
+- classes.dex
+- resources.arsc
+- jpg
+- mp4
+- png
+- ogg
+- lib/arm64-v8a/libairlinkjni.so
+- lib/arm64-v8a/libandroid_aware_dlopen.so
+- lib/arm64-v8a/libappmenupanel.so
+- lib/arm64-v8a/libarvr_projects_hyperspace_presence_service_client_fast_queue_fast_queue.so
+- lib/arm64-v8a/libarvr_projects_hyperspace_presence_service_client_java_com_facebook_hyperspace_api2_audio_audio-cpp.so
+- lib/arm64-v8a/libarvr_projects_hyperspace_presence_service_client_rtss_rtss.so
+- lib/arm64-v8a/libarvr_projects_unified_qpl_native_client_client-shared-lib.so
+- lib/arm64-v8a/libauiinternalsettingspanel.so
+- lib/arm64-v8a/libbreakpad.so
+- lib/arm64-v8a/libc++_shared.so
+- lib/arm64-v8a/libcaptionpanel.so
+- lib/arm64-v8a/libcontinuingeducationpanel.so
+- lib/arm64-v8a/libcontrolbarpanel.so
+- lib/arm64-v8a/libcontrollersettingspanel.so
+- lib/arm64-v8a/libdestinationuipanel.so
+- lib/arm64-v8a/libdevicepairingpanel.so
+- lib/arm64-v8a/libdouble-conversion.so
+- lib/arm64-v8a/libfb.so
+- lib/arm64-v8a/libfbandroid_java_com_facebook_djinni_mcf_djinniJniUtils.so
+- lib/arm64-v8a/libfbjni.so
+- lib/arm64-v8a/libfbsofterror.so
+- lib/arm64-v8a/libfbsystrace.so
+- lib/arm64-v8a/libfileviewerpanel.so
+- lib/arm64-v8a/libforce_dlopen.so
+- lib/arm64-v8a/libgifimage.so
+- lib/arm64-v8a/libhyperspace-aidl-client.so
+- lib/arm64-v8a/libimagepipeline.so
+- lib/arm64-v8a/libjniexecutor.so
+- lib/arm64-v8a/liblinkerutils.so
+- lib/arm64-v8a/liblivestreamsocialchatpanel.so
+- lib/arm64-v8a/liblivestreamyoutubechatpanel.so
+- lib/arm64-v8a/libmixedrealityobjectspanel.so
+- lib/arm64-v8a/libmsysjniinfranosqlite.so
+- lib/arm64-v8a/libmsysjniutils.so
+- lib/arm64-v8a/libnative-filters.so
+- lib/arm64-v8a/libnative-imagetranscoder.so
+- lib/arm64-v8a/libnotificationinspectorpanel.so
+- lib/arm64-v8a/libnotificationspanel.so
+- lib/arm64-v8a/libpanelappsdk.so
+- lib/arm64-v8a/libprofiloextapi.so
+- lib/arm64-v8a/libqplserviceclientjni.so
+- lib/arm64-v8a/libquicksettingspanel.so
+- lib/arm64-v8a/libscreentimeenforcementpanel.so
+- lib/arm64-v8a/libsettingspanel.so
+- lib/arm64-v8a/libsharingpanel.so
+- lib/arm64-v8a/libsigmux.so
+- lib/arm64-v8a/libsimplejni.so
+- lib/arm64-v8a/libsysux_common_guardianclient.so
+- lib/arm64-v8a/libthird-party_aidl_executor_executor.so
+- lib/arm64-v8a/libthird-party_libunifex_libunifex.so
+- lib/arm64-v8a/libthird-party_zlib_z.so
+- lib/arm64-v8a/libtoasts-panel.so
+- lib/arm64-v8a/libvirtualobjectspanel.so
+- lib/arm64-v8a/libvrshellandroiddialog.so
+- lib/arm64-v8a/libvrshellanytimeui.so
+- lib/arm64-v8a/libvrshellassistantpanel.so
+- lib/arm64-v8a/libvrshellbugreporterpanel.so
+- lib/arm64-v8a/libvrshelllibrarypanel.so
+- lib/arm64-v8a/libxplat_djinni_mcf_utils.so
+- lib/arm64-v8a/libxplat_djinni_record_visitor_utils_utils.so
+- lib/arm64-v8a/libxplat_folly_executorAndroid.so
+- lib/arm64-v8a/libxplat_folly_executors_global_executorAndroid.so
+- lib/arm64-v8a/libxplat_folly_futures_barrier.so
+- lib/arm64-v8a/libxplat_folly_futures_coreAndroid.so
+- lib/arm64-v8a/libxplat_folly_futures_shared_promise.so
+- lib/arm64-v8a/libxplat_mcfcpp_McfFolly_McfFolly.so
+- lib/arm64-v8a/libxplat_mcrypto_mem_extensions_MEMMediaTranscodePJPEGProvider.so
+- lib/arm64-v8a/libxplat_messenger_auth_session_MSGCAuthSessionLogin.so
+- lib/arm64-v8a/libxplat_messenger_auth_session_MSGCAuthSessionLogout.so
+- lib/arm64-v8a/libxplat_messenger_msys_trace_MsysTrace.so
+- lib/arm64-v8a/libxplat_msys_MessengerCorePlugin.so
+- lib/arm64-v8a/libxplat_msys_mcf_mcfDirect.so
+- lib/arm64-v8a/libxplat_msys_mcf_mcfDirectBase.so
+- lib/arm64-v8a/libxplat_msys_msysInfraNoSqlite-xplat-mobileconfig-library.so
+- lib/arm64-v8a/libxplat_msys_msysInfraNoSqlite.so
+- lib/arm64-v8a/libxplat_msys_utils_MessengerCoreUtilsJSON.so
+- lib/arm64-v8a/libxplat_msys_utils_MessengerCoreUtilsPlugin.so
+- lib/arm64-v8a/libxplat_secure_lib_secure_string.so
+- lib/arm64-v8a/libxplat_structuredlogger_events_RtcLogIndexEventNoBuilder.so
+- lib/arm64-v8a/libxplat_third-party_event_event.so
+- lib/arm64-v8a/libxplat_tourniquet_tourniquet.so
+- jpeg
+- webp

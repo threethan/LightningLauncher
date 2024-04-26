@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:height="@dimen/abc_star_small" android:width="@dimen/abc_button_padding_horizontal_material" android:viewportWidth="1.0" android:viewportHeight="2.0"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="?ocTooltipBackground" android:pathData="M0,0 L1,1 L0,2 Z" android:strokeColor="?ocTooltipBackground" />
+</vector>

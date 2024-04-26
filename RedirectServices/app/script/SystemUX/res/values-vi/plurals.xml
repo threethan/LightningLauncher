@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="last_played_with_time_minutes">
+        <item quantity="other">%1$d phút trước</item>
+    </plurals>
+</resources>

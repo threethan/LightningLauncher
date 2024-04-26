@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="anytime_bar_active_call_bar_messenger_mic_switcher_use_call_audio_tooltip_subtitle">
+        <item quantity="other">%1$d people</item>
+        <item quantity="one">%1$d person</item>
+    </plurals>
+    <plurals name="anytime_bar_active_call_bar_party_button_tooltip_subtitle">
+        <item quantity="other">%1$d people</item>
+        <item quantity="one">%1$d person</item>
+    </plurals>
+    <plurals name="anytime_library_app_multiple_locked_toast_description">
+        <item quantity="other">%1$d apps have been locked</item>
+        <item quantity="one">%1$d app have been locked</item>
+    </plurals>
+    <plurals name="anytime_library_app_multiple_unlocked_toast_description">
+        <item quantity="other">%1$d apps have been unlocked</item>
+        <item quantity="one">%1$d app have been unlocked</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_install_warning_tooltip">
+        <item quantity="other">This app can take %1$d minutes or longer to finish installing.</item>
+        <item quantity="one">This app can take %1$d minute or longer to finish installing.</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_lock_bulk_action_description">
+        <item quantity="other">lock %1$d apps</item>
+        <item quantity="one">lock %1$d app</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_lock_bulk_action_title">
+        <item quantity="other">Lock %1$d Apps?</item>
+        <item quantity="one">Lock %1$d App?</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_tile_subtitle_supports_players">
+        <item quantity="other">1-%1$d people</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_unlock_bulk_action_description">
+        <item quantity="other">unlock %1$d apps</item>
+        <item quantity="one">unlock %1$d app</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_unlock_bulk_action_title">
+        <item quantity="other">Unlock %1$d Apps?</item>
+        <item quantity="one">Unlock %1$d App?</item>
+    </plurals>
+    <plurals name="anytime_tablet_profile_pending_follow_request_confirm_title">
+        <item quantity="other">%1$d pending follow requests</item>
+        <item quantity="one">%1$d pending follow request</item>
+    </plurals>
+    <plurals name="cloud_backups_num_attempts_remaining_text">
+        <item quantity="other">%d more tries</item>
+        <item quantity="one">%d more try</item>
+    </plurals>
+    <plurals name="follower_view_pill_title">
+        <item quantity="other">%d followers</item>
+        <item quantity="one">%d follower</item>
+    </plurals>
+    <plurals name="last_played_with_time_days">
+        <item quantity="other">%d days ago</item>
+        <item quantity="one">%d day ago</item>
+    </plurals>
+    <plurals name="last_played_with_time_hours">
+        <item quantity="other">%d hours ago</item>
+        <item quantity="one">%d hour ago</item>
+    </plurals>
+    <plurals name="last_played_with_time_minutes">
+        <item quantity="other">%d minutes ago</item>
+        <item quantity="one">%d minute ago</item>
+    </plurals>
+    <plurals name="last_played_with_time_weeks">
+        <item quantity="other">%d weeks ago</item>
+        <item quantity="one">%d week ago</item>
+    </plurals>
+    <plurals name="lockpassword_pin_too_long">
+        <item quantity="other">Must be fewer than %d digits</item>
+        <item quantity="one">Must be fewer than %d digit</item>
+    </plurals>
+    <plurals name="lockpassword_pin_too_short">
+        <item quantity="other">PIN must be at least %d digits</item>
+        <item quantity="one">PIN must contain at least %d digit</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_hours">
+        <item quantity="other">Try again in %d hours</item>
+        <item quantity="one">Try again in %d hour</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_min">
+        <item quantity="other">Try again in %d minutes</item>
+        <item quantity="one">Try again in %d minute</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_sec">
+        <item quantity="other">Try again in %d seconds</item>
+        <item quantity="one">Try again in %d second</item>
+    </plurals>
+    <plurals name="request_view_pill_title">
+        <item quantity="other">%d requests</item>
+        <item quantity="one">%d request</item>
+    </plurals>
+    <plurals name="safety_center_violation_list_enforcement_social_suspension">
+        <item quantity="other">"You can't use chat, groups, or Horizon Worlds for %1$d days"</item>
+        <item quantity="one">"You can't use chat, groups, or Horizon Worlds for %1$d day"</item>
+    </plurals>
+    <plurals name="settings_apps_lock_selected_items_text">
+        <item quantity="other">%1$d Selected</item>
+        <item quantity="one">%1$d Selected</item>
+    </plurals>
+    <plurals name="settings_permissions_apps_granted_subtitle">
+        <item quantity="other">%1$d of %2$d apps allowed</item>
+        <item quantity="one">%1$d of %2$d app allowed</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_days_ago">
+        <item quantity="other">Accessed %1$d days ago</item>
+        <item quantity="one">Accessed %1$d day ago</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_days_ago_short">
+        <item quantity="other">%1$d days ago</item>
+        <item quantity="one">%1$d day ago</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_hours_ago">
+        <item quantity="other">Accessed %1$d hours ago</item>
+        <item quantity="one">Accessed %1$d hour ago</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_hours_ago_short">
+        <item quantity="other">%1$d hours ago</item>
+        <item quantity="one">%1$d hour ago</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_minutes_ago">
+        <item quantity="other">Accessed %1$d minutes ago</item>
+        <item quantity="one">Accessed 1 minute ago</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_minutes_ago_short">
+        <item quantity="other">%1$d minutes ago</item>
+        <item quantity="one">1 minute ago</item>
+    </plurals>
+    <plurals name="settings_privacy_unblock_users_subtitle">
+        <item quantity="other">%1$d profiles blocked</item>
+        <item quantity="one">%1$d profile blocked</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_new_violation">
+        <item quantity="other">%1$d recent violations</item>
+        <item quantity="one">%1$d recent violation</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle">
+        <item quantity="other">"You can't use chats, groups or Horizon Worlds for %1$d days."</item>
+        <item quantity="one">"You can't use chats, groups or Horizon Worlds for %1$d day."</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle_hours">
+        <item quantity="other">Ends in %1$d hours.</item>
+        <item quantity="one">Ends in %1$d hour.</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle_minutes">
+        <item quantity="other">Ends in %1$d minutes.</item>
+        <item quantity="one">Ends in %1$d minute.</item>
+    </plurals>
+    <plurals name="settings_storage_selected_items_text">
+        <item quantity="other">%1$d Selected</item>
+        <item quantity="one">%1$d Selected</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_apps_title">
+        <item quantity="other">Uninstall %1$d Apps</item>
+        <item quantity="one">Uninstall %1$d App</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_environments_title">
+        <item quantity="other">Uninstall %1$d Environments</item>
+        <item quantity="one">Uninstall %1$d Environment</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_files_title">
+        <item quantity="other">Delete %1$d Files</item>
+        <item quantity="one">Delete %1$d File</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_images_title">
+        <item quantity="other">Delete %1$d Images</item>
+        <item quantity="one">Delete %1$d Image</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_unknown_sources_title">
+        <item quantity="other">Delete %1$d Unknown Sources</item>
+        <item quantity="one">Delete %1$d Unknown Source</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_videos_title">
+        <item quantity="other">Delete %1$d Videos</item>
+        <item quantity="one">Delete %1$d Video</item>
+    </plurals>
+    <plurals name="social_suspension_description_days">
+        <item quantity="other">"&lt;p style=\"text-align: center;\">Your profile is restricted because you didn't follow our &lt;a href=\"%1$s\"> code of conduct.&lt;/a> You can't use chat, groups, call, or Horizon Worlds for %2$s days. Ends %3$s.&lt;/p>"</item>
+        <item quantity="one">"&lt;p style=\"text-align: center;\">Your profile is restricted because you didn't follow our &lt;a href=\"%1$s\"> code of conduct.&lt;/a> You can't use chat, groups, call, or Horizon Worlds for %2$s day. Ends %3$s.&lt;/p>"</item>
+    </plurals>
+    <plurals name="social_suspension_description_hours">
+        <item quantity="other">"&lt;p style=\"text-align: center;\">Your profile is restricted because you didn't follow our &lt;a href=\"%1$s\"> code of conduct.&lt;/a> You can't use chat, groups, call, or Horizon Worlds for %2$s hours. Ends %3$s.&lt;/p>"</item>
+        <item quantity="one">"&lt;p style=\"text-align: center;\">Your profile is restricted because you didn't follow our &lt;a href=\"%1$s\"> code of conduct.&lt;/a> You can't use chat, groups, call, or Horizon Worlds for %2$s hour. Ends %3$s.&lt;/p>"</item>
+    </plurals>
+    <plurals name="subdestination_max_users">
+        <item quantity="other">Up to %d players</item>
+        <item quantity="one">Up to %d player</item>
+    </plurals>
+    <plurals name="survey_invitation_dialog_subtitle">
+        <item quantity="other">Answer a few short questions to help us understand how we can make your experience better.</item>
+        <item quantity="one">Answer one short question to help us understand how we can make your experience better.</item>
+    </plurals>
+</resources>

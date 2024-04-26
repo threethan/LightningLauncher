@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:height="20.0dip" android:width="20.0dip" android:drawable="@drawable/oc_icon_parties_filled_24" />
+</layer-list>

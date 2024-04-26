@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@id/container" android:tag="layout/file_picker_row_0" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="24.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView android:layout_width="@dimen/abc_search_view_preferred_height" android:layout_height="@dimen/abc_search_view_preferred_height" android:layout_marginEnd="12.0dip" app:cardCornerRadius="4.0dip" app:cardElevation="0.0dip">
+        <ImageView android:id="@id/image" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" />
+        <View android:id="@id/selected_indicator" android:background="@drawable/file_picker_selected_indicator" android:layout_width="fill_parent" android:layout_height="fill_parent" android:alpha="0.0" />
+    </androidx.cardview.widget.CardView>
+    <com.oculus.ocui.OCTextView android:ellipsize="middle" android:gravity="start|center" android:id="@id/file_name" android:layout_width="wrap_content" android:layout_height="fill_parent" android:singleLine="true" android:color="?ocPrimaryText" />
+</LinearLayout>

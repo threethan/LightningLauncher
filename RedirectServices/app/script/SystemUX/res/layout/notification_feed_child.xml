@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:tag="layout/notification_feed_child_0" android:layout_width="fill_parent" android:layout_height="wrap_content" android:animateLayoutChanges="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/notification_underlying_item" android:tag="binding_1" android:layout_width="0.0dip" android:layout_height="0.0dip" app:layout_constraintBottom_toBottomOf="@id/notification_list_item" app:layout_constraintEnd_toEndOf="@id/notification_list_item" app:layout_constraintStart_toStartOf="@id/notification_list_item" app:layout_constraintTop_toTopOf="@id/notification_list_item">
+        <include android:id="@id/notification_feed_underlying_item_layout" layout="@layout/notification_feed_underlying_item" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.oculus.panelapp.notifications.NotificationsConstraintLayout android:id="@id/notification_list_item" android:tag="binding_2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="64.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
+        <include android:id="@id/notification_feed_item_layout" layout="@layout/notification_feed_item_qds" />
+    </com.oculus.panelapp.notifications.NotificationsConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

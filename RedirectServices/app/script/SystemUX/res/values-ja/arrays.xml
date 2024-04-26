@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="wifitrackerlib_wifi_status">
+        <item></item>
+        <item>スキャン中…</item>
+        <item>接続中…</item>
+        <item>認証中…</item>
+        <item>IP アドレスを取得中…</item>
+        <item>接続済み</item>
+        <item>停止中</item>
+        <item>切断中…</item>
+        <item>未接続</item>
+        <item>エラー</item>
+        <item>ブロック済み</item>
+        <item>接続不良により一時的に無効</item>
+    </string-array>
+</resources>

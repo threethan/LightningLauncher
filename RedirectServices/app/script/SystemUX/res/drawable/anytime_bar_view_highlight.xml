@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="@dimen/abc_edit_text_inset_top_material" />
+            <stroke android:width="@dimen/abc_control_corner_material" android:color="@color/oc_blue_50" />
+        </shape>
+    </item>
+    <item android:left="@dimen/abc_control_corner_material" android:top="@dimen/abc_control_corner_material" android:right="@dimen/abc_control_corner_material" android:bottom="@dimen/abc_control_corner_material">
+        <shape android:shape="rectangle">
+            <corners android:radius="@dimen/abc_edit_text_inset_top_material" />
+            <stroke android:width="@dimen/abc_control_corner_material" android:color="?ocPanelBackground" />
+        </shape>
+    </item>
+</layer-list>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_up_description">উপরে নেভিগেট করুন</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+</string>
+    <string name="abc_menu_delete_shortcut_label">মুছুন</string>
+    <string name="abc_menu_enter_shortcut_label">enter</string>
+    <string name="abc_menu_function_shortcut_label">Function+</string>
+    <string name="abc_menu_meta_shortcut_label">Meta+</string>
+    <string name="abc_menu_shift_shortcut_label">Shift+</string>
+    <string name="abc_menu_space_shortcut_label">space</string>
+    <string name="abc_menu_sym_shortcut_label">Sym+</string>
+    <string name="abc_prepend_shortcut_label">Menu+</string>
+    <string name="abc_searchview_description_clear">কোয়েরি মুছে ফেলুন</string>
+    <string name="abc_searchview_description_search">সার্চ করুন</string>
+    <string name="abc_searchview_description_submit">কোয়েরি জমা দিন</string>
+    <string name="abc_searchview_description_voice">ভয়েস সার্চ করুন</string>
+    <string name="default_popup_window_title">পপ-আপ উইন্ডো</string>
+    <string name="in_progress">কাজ চলছে</string>
+    <string name="indeterminate">কয়েকটি বিকল্প বেছে নেওয়া হয়েছে</string>
+    <string name="not_selected">বেছে নেওয়া হয়নি</string>
+    <string name="off">বন্ধ আছে</string>
+    <string name="on">চালু আছে</string>
+    <string name="selected">বেছে নেওয়া হয়েছে</string>
+    <string name="switch_role">সুইচ</string>
+    <string name="tab">ট্যাব</string>
+    <string name="template_percent">%1$d শতাংশ।</string>
+</resources>

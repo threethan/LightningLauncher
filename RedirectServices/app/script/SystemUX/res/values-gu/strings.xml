@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_up_description">ઉપર નૅવિગેટ કરો</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+</string>
+    <string name="abc_menu_delete_shortcut_label">delete</string>
+    <string name="abc_menu_enter_shortcut_label">Enter</string>
+    <string name="abc_menu_function_shortcut_label">Function+</string>
+    <string name="abc_menu_meta_shortcut_label">Meta+</string>
+    <string name="abc_menu_shift_shortcut_label">Shift+</string>
+    <string name="abc_menu_space_shortcut_label">space</string>
+    <string name="abc_menu_sym_shortcut_label">Sym+</string>
+    <string name="abc_prepend_shortcut_label">Menu+</string>
+    <string name="abc_searchview_description_clear">ક્વેરી સાફ કરો</string>
+    <string name="abc_searchview_description_search">શોધો</string>
+    <string name="abc_searchview_description_submit">ક્વેરી સબમિટ કરો</string>
+    <string name="abc_searchview_description_voice">વૉઇસ શોધ</string>
+    <string name="default_popup_window_title">પૉપ-અપ વિન્ડો</string>
+    <string name="in_progress">પ્રક્રિયામાં છે</string>
+    <string name="indeterminate">આંશિક રીતે ચેક કરેલા વિકલ્પો</string>
+    <string name="not_selected">પસંદગી કરી નથી</string>
+    <string name="off">બંધ છે</string>
+    <string name="on">ચાલુ છે</string>
+    <string name="selected">પસંદગી કરી</string>
+    <string name="switch_role">સ્વિચ</string>
+    <string name="tab">ટૅબ</string>
+    <string name="template_percent">%1$d ટકા.</string>
+</resources>

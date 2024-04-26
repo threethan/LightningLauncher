@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="anytime_bar_active_call_bar_messenger_mic_switcher_use_call_audio_tooltip_subtitle">
+        <item quantity="other">%1$d personer</item>
+        <item quantity="one">%1$d person</item>
+    </plurals>
+    <plurals name="anytime_bar_active_call_bar_party_button_tooltip_subtitle">
+        <item quantity="other">%1$d personer</item>
+        <item quantity="one">%1$d person</item>
+    </plurals>
+    <plurals name="anytime_library_app_multiple_locked_toast_description">
+        <item quantity="other">%1$d apper er blitt låst</item>
+        <item quantity="one">%1$d app er blitt låst</item>
+    </plurals>
+    <plurals name="anytime_library_app_multiple_unlocked_toast_description">
+        <item quantity="other">%1$d apper har blitt låst opp</item>
+        <item quantity="one">%1$d app er blitt låst opp</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_install_warning_tooltip">
+        <item quantity="other">Denne appen kan bruke %1$d minutter eller lenger på å fullføre installeringen.</item>
+        <item quantity="one">Denne appen kan bruke %1$d minutt eller lenger på å fullføre installeringen.</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_lock_bulk_action_description">
+        <item quantity="other">lås %1$d apper</item>
+        <item quantity="one">lås %1$d app</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_lock_bulk_action_title">
+        <item quantity="other">Låse %1$d apper?</item>
+        <item quantity="one">Låse %1$d app?</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_tile_subtitle_supports_players">
+        <item quantity="other">1–%1$d personer</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_unlock_bulk_action_description">
+        <item quantity="other">lås opp %1$d apper</item>
+        <item quantity="one">lås opp %1$d app</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_unlock_bulk_action_title">
+        <item quantity="other">Låse opp %1$d apper?</item>
+        <item quantity="one">Låse opp %1$d app?</item>
+    </plurals>
+    <plurals name="anytime_tablet_profile_pending_follow_request_confirm_title">
+        <item quantity="other">%1$d ventende følgeforespørsler</item>
+        <item quantity="one">%1$d ventende følgeforespørsel</item>
+    </plurals>
+    <plurals name="cloud_backups_num_attempts_remaining_text">
+        <item quantity="other">%1$d forsøk til</item>
+    </plurals>
+    <plurals name="follower_view_pill_title">
+        <item quantity="other">%1$d følgere</item>
+        <item quantity="one">%1$d følger</item>
+    </plurals>
+    <plurals name="last_played_with_time_days">
+        <item quantity="other">for %1$d dager siden</item>
+        <item quantity="one">for %1$d dag siden</item>
+    </plurals>
+    <plurals name="last_played_with_time_hours">
+        <item quantity="other">for %1$d timer siden</item>
+        <item quantity="one">for %1$d time siden</item>
+    </plurals>
+    <plurals name="last_played_with_time_minutes">
+        <item quantity="other">for %1$d minutter siden</item>
+        <item quantity="one">for %1$d minutt siden</item>
+    </plurals>
+    <plurals name="last_played_with_time_weeks">
+        <item quantity="other">for %1$d uker siden</item>
+        <item quantity="one">for %1$d uke siden</item>
+    </plurals>
+    <plurals name="lockpassword_pin_too_long">
+        <item quantity="other">Må være på under %1$d tall</item>
+    </plurals>
+    <plurals name="lockpassword_pin_too_short">
+        <item quantity="other">PIN-koden må være på minst %1$d tall</item>
+        <item quantity="one">PIN-koden må inneholde minst %1$d tall</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_hours">
+        <item quantity="other">Prøv på nytt om %1$d timer</item>
+        <item quantity="one">Prøv på nytt om %1$d time</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_min">
+        <item quantity="other">Prøv på nytt om %1$d minutter</item>
+        <item quantity="one">Prøv på nytt om %1$d minutt</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_sec">
+        <item quantity="other">Prøv på nytt om %1$d sekunder</item>
+        <item quantity="one">Prøv på nytt om %1$d sekund</item>
+    </plurals>
+    <plurals name="request_view_pill_title">
+        <item quantity="other">%1$d forespørsler</item>
+        <item quantity="one">%1$d forespørsel</item>
+    </plurals>
+    <plurals name="safety_center_violation_list_enforcement_social_suspension">
+        <item quantity="other">Du kan ikke bruke chat, grupper eller Horizon Worlds i %1$d dager</item>
+        <item quantity="one">Du kan ikke bruke chat, grupper eller Horizon Worlds i %1$d dag</item>
+    </plurals>
+    <plurals name="settings_apps_lock_selected_items_text">
+        <item quantity="other">%1$d er valgt</item>
+    </plurals>
+    <plurals name="settings_permissions_apps_granted_subtitle">
+        <item quantity="other">%1$d av %2$d apper tillatt</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_days_ago">
+        <item quantity="other">Tilgang for %1$d dager siden</item>
+        <item quantity="one">Tilgang for %1$d dag siden</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_days_ago_short">
+        <item quantity="other">For %1$d dager siden</item>
+        <item quantity="one">For %1$d dag siden</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_hours_ago">
+        <item quantity="other">Tilgang for %1$d timer siden</item>
+        <item quantity="one">Tilgang for %1$d time siden</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_hours_ago_short">
+        <item quantity="other">For %1$d timer siden</item>
+        <item quantity="one">For %1$d time siden</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_minutes_ago">
+        <item quantity="other">Tilgang for %1$d minutter siden</item>
+        <item quantity="one">Tilgang for 1 minutt siden</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_minutes_ago_short">
+        <item quantity="other">for %1$d minutter siden</item>
+        <item quantity="one">for 1 minutt siden</item>
+    </plurals>
+    <plurals name="settings_privacy_unblock_users_subtitle">
+        <item quantity="other">%1$d profiler blokkert</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_new_violation">
+        <item quantity="other">%1$d nylige overtredelser</item>
+        <item quantity="one">%1$d nylig overtredelse</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle">
+        <item quantity="other">Du kan ikke bruke chatter, grupper eller Horizon Worlds i %1$d dager.</item>
+        <item quantity="one">Du kan ikke bruke chatter, grupper eller Horizon Worlds i %1$d dag.</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle_hours">
+        <item quantity="other">Avsluttes om %1$d timer.</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle_minutes">
+        <item quantity="other">Avsluttes om %1$d minutter.</item>
+        <item quantity="one">Avsluttes om %1$d minutt.</item>
+    </plurals>
+    <plurals name="settings_storage_selected_items_text">
+        <item quantity="other">%1$d er valgt</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_apps_title">
+        <item quantity="other">Avinstaller %1$d apper</item>
+        <item quantity="one">Avinstaller %1$d app</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_environments_title">
+        <item quantity="other">Avinstaller %1$d miljøer</item>
+        <item quantity="one">Avinstaller %1$d miljø</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_files_title">
+        <item quantity="other">Slett %1$d filer</item>
+        <item quantity="one">Slett %1$d fil</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_images_title">
+        <item quantity="other">Slett %1$d bilder</item>
+        <item quantity="one">Slett %1$d bilde</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_unknown_sources_title">
+        <item quantity="other">Slett %1$d ukjente kilder</item>
+        <item quantity="one">Slett %1$d ukjent kilde</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_videos_title">
+        <item quantity="other">Slett %1$d videoer</item>
+        <item quantity="one">Slett %1$d video</item>
+    </plurals>
+    <plurals name="social_suspension_description_days">
+        <item quantity="other">&lt;p style=\"text-align: center;\">Profilen din er begrenset fordi du ikke fulgte våre &lt;a href=\"%1$s\">regler for god oppførsel.&lt;/a> Du kan ikke bruke chat, grupper, anrop eller Horizon Worlds i %2$s dager. Oppheves %3$s.&lt;/p></item>
+        <item quantity="one">&lt;p style=\"text-align: center;\">Profilen din er begrenset fordi du ikke fulgte våre &lt;a href=\"%1$s\">regler for god oppførsel.&lt;/a> Du kan ikke bruke chat, grupper, anrop eller Horizon Worlds i %2$s dag. Oppheves %3$s.&lt;/p></item>
+    </plurals>
+    <plurals name="social_suspension_description_hours">
+        <item quantity="other">&lt;p style=\"text-align: center;\">Profilen din er begrenset fordi du ikke fulgte våre &lt;a href=\"%1$s\">regler for god oppførsel.&lt;/a> Du kan ikke bruke chat, grupper, anrop eller Horizon Worlds i %2$s timer. Oppheves %3$s.&lt;/p></item>
+        <item quantity="one">&lt;p style=\"text-align: center;\">Profilen din er begrenset fordi du ikke fulgte våre &lt;a href=\"%1$s\">regler for god oppførsel.&lt;/a> Du kan ikke bruke chat, grupper, anrop eller Horizon Worlds i %2$s time. Oppheves %3$s.&lt;/p></item>
+    </plurals>
+    <plurals name="subdestination_max_users">
+        <item quantity="other">Opptil %1$d spillere</item>
+        <item quantity="one">Opptil %1$d spiller</item>
+    </plurals>
+</resources>

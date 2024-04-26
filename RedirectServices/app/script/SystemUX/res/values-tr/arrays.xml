@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="wifitrackerlib_wifi_status">
+        <item></item>
+        <item>Taranıyor…</item>
+        <item>Bağlanıyor…</item>
+        <item>Kimlik doğrulanıyor…</item>
+        <item>IP adresi alınıyor…</item>
+        <item>Bağlı</item>
+        <item>Askıya alındı</item>
+        <item>Bağlantı kesiliyor…</item>
+        <item>Bağlı değil</item>
+        <item>Başarısız</item>
+        <item>Engellendi</item>
+        <item>Zayıf bağlantıdan geçici olarak kaçınılıyor</item>
+    </string-array>
+</resources>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <selector>
+            <item android:state_focused="true">
+                <layer-list>
+                    <item>
+                        <shape android:shape="rectangle">
+                            <stroke android:width="2.0dip" android:color="?ocTextInputSelectedOutline" />
+                            <corners android:radius="8.0dip" />
+                        </shape>
+                    </item>
+                    <item>
+                        <shape android:shape="rectangle">
+                            <corners android:radius="8.0dip" />
+                            <solid android:color="?ocTextInputBackground" />
+                        </shape>
+                    </item>
+                </layer-list>
+            </item>
+            <item>
+                <shape android:shape="rectangle">
+                    <corners android:radius="8.0dip" />
+                    <solid android:color="?ocSecondaryButtonBackground" />
+                </shape>
+            </item>
+        </selector>
+    </item>
+    <item>
+        <drawable class="com.oculus.ocui.drawable.OCInteractionOverlayDrawable">
+            <shape android:shape="rectangle">
+                <corners android:radius="4.0dip" />
+                <solid android:color="@android:color/transparent" />
+            </shape>
+        </drawable>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <padding android:left="14.0dip" android:top="12.0dip" android:right="14.0dip" android:bottom="12.0dip" />
+        </shape>
+    </item>
+</layer-list>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <size android:height="60.0dip" android:width="60.0dip" />
+            <corners android:radius="@dimen/abc_edit_text_inset_top_material" />
+            <solid android:color="?ocCardBackground" />
+        </shape>
+    </item>
+    <item android:gravity="center" android:height="30.0dip" android:width="30.0dip" android:drawable="@drawable/vector_default_app" />
+</layer-list>

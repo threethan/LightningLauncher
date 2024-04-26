@@ -1,0 +1,12 @@
+{
+  "content": [
+    {
+      "key": "hand_tracking_enabled",
+      "type": "boolean",
+      "default": "false",
+      "hasWritePermission": false,
+      "scope": "system",
+      "isOwner": false
+    }
+  ]
+}

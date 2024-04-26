@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="oval"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <size android:height="32.0dip" android:width="32.0dip" />
+    <solid android:color="?ocControlIcon" />
+</shape>

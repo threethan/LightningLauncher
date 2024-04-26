@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="?ocAccent" />
+        </shape>
+    </item>
+    <item android:left="@dimen/abc_control_inset_material" android:top="@dimen/abc_control_inset_material" android:right="@dimen/abc_control_inset_material" android:bottom="@dimen/abc_control_inset_material">
+        <bitmap android:src="@drawable/oc_icon_tips_filled_24_c7c7c7" android:tint="?ocIconOnMedia" />
+    </item>
+</layer-list>

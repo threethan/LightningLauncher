@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="512.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="520.0dip" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="top" android:id="@id/main_view" android:background="@drawable/ocpanel_background" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/top_header_container" android:layout_width="fill_parent" android:layout_height="@dimen/attention_system_height" android:layout_marginTop="10.0dip" android:layout_marginBottom="20.0dip" android:layout_marginStart="24.0dip" android:layout_marginEnd="24.0dip" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent">
+            <com.oculus.panelapp.assistant.dialogs.components.RemoteImageViewComponent android:id="@id/icon" android:layout_width="48.0dip" android:layout_height="48.0dip" android:layout_centerVertical="true" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+            <com.oculus.panelapp.assistant.dialogs.components.TextComponentScrollView android:scrollbarThumbVertical="?scrollview_text_scroll_thumb_color" android:id="@id/title_scrollview" android:clipChildren="true" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_margin="10.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toStartOf="@id/close" app:layout_constraintStart_toEndOf="@id/icon" app:layout_constraintTop_toTopOf="parent">
+                <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <com.oculus.panelapp.assistant.dialogs.components.TextComponent android:id="@id/label" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+                    <com.oculus.panelapp.assistant.dialogs.components.TextComponent android:id="@id/sub_label" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+                </LinearLayout>
+            </com.oculus.panelapp.assistant.dialogs.components.TextComponentScrollView>
+            <com.oculus.ocui.OCButton android:id="@id/close" android:background="@drawable/assistant_attention_view_close_button_background" android:layout_width="48.0dip" android:layout_height="48.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <include android:id="@id/title_container" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" app:layout_constraintTop_toBottomOf="@id/top_header_container" layout="@layout/expanded_state_header" />
+        <ScrollView android:id="@id/scrolling_content" android:background="@drawable/assistant_expanded_state_background" android:clipChildren="true" android:layout_width="fill_parent" android:layout_height="0.0dip" android:fadeScrollbars="false" app:layout_constraintBottom_toTopOf="@id/button_container" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintTop_toBottomOf="@id/title_container">
+            <com.oculus.panelapp.assistant.dialogs.components.LinearLayoutComponent android:layout_gravity="center" android:orientation="vertical" android:id="@id/content" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="12.0dip" android:layout_marginTop="24.0dip" android:layout_marginRight="12.0dip" android:layout_marginBottom="24.0dip" />
+        </ScrollView>
+        <include android:id="@id/button_container" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dip" android:layout_marginBottom="24.0dip" android:layout_marginStart="24.0dip" android:layout_marginEnd="24.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" layout="@layout/dialog_buttons" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

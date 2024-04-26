@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:height="@dimen/abc_star_small" android:width="@dimen/abc_star_small" android:left="10.0dip" android:top="10.0dip" android:right="10.0dip" android:bottom="10.0dip">
+        <selector>
+            <item android:state_checked="true">
+                <shape android:shape="rectangle">
+                    <solid android:color="?ocControlBackgroundActive" />
+                    <corners android:radius="@dimen/abc_control_inset_material" />
+                </shape>
+            </item>
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="?ocControlBackgroundInactive" />
+                    <corners android:radius="@dimen/abc_control_inset_material" />
+                </shape>
+            </item>
+        </selector>
+    </item>
+    <item android:height="@dimen/abc_star_small" android:width="@dimen/abc_star_small" android:left="10.0dip" android:top="10.0dip" android:right="10.0dip" android:bottom="10.0dip">
+        <selector>
+            <item android:state_checked="true">
+                <vector android:height="16.0dip" android:width="16.0dip" android:viewportWidth="24.0" android:viewportHeight="24.0">
+                    <path android:fillColor="?ocControlIcon" android:pathData="M9 19l-6-5.98l1.42-1.4L9 16.17L19.58 5.63L21 7.03L9 19z" android:fillType="evenOdd" />
+                </vector>
+            </item>
+        </selector>
+    </item>
+    <item android:height="36.0dip" android:width="36.0dip">
+        <drawable class="com.oculus.ocui.drawable.OCInteractionOverlayDrawable">
+            <shape android:shape="oval">
+                <solid android:color="@android:color/transparent" />
+            </shape>
+        </drawable>
+    </item>
+</layer-list>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.ocui.OCButtonConstraintLayout android:id="@id/tile" android:tag="layout/library_dummy_tile_0" android:layout_width="@dimen/anytime_tablet_library_app_tile_image_width" android:layout_height="@dimen/anytime_tablet_library_app_tile_height"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView android:id="@id/card_view" android:layout_width="@dimen/anytime_tablet_library_app_tile_image_width" android:layout_height="@dimen/anytime_tablet_library_app_tile_image_height" android:layout_marginBottom="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" app:cardCornerRadius="?ocCardBorderRadius" app:cardElevation="0.0dip" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent">
+        <ImageView android:id="@id/image_view" android:layout_width="fill_parent" android:layout_height="fill_parent" android:foreground="@drawable/anytime_tablet_app_tile_interaction_overlay" app:failureImage="@drawable/anytime_tablet_library_app_tile_fallback" app:placeholderImage="@drawable/anytime_tablet_library_app_tile_fallback" />
+        <com.oculus.ocui.OCTextView android:textStyle="bold" android:textColor="?ocPrimaryTextOnMedia" android:gravity="center" android:id="@id/tile_text" android:tag="binding_1" android:layout_width="fill_parent" android:layout_height="fill_parent" style="@style/Body1" />
+    </androidx.cardview.widget.CardView>
+</com.oculus.ocui.OCButtonConstraintLayout>

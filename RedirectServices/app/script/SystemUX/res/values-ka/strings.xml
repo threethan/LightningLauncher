@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_up_description">ზემოთ გადასვლა</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+</string>
+    <string name="abc_menu_delete_shortcut_label">delete</string>
+    <string name="abc_menu_enter_shortcut_label">enter</string>
+    <string name="abc_menu_function_shortcut_label">Function+</string>
+    <string name="abc_menu_meta_shortcut_label">Meta+</string>
+    <string name="abc_menu_shift_shortcut_label">Shift+</string>
+    <string name="abc_menu_space_shortcut_label">შორისი</string>
+    <string name="abc_menu_sym_shortcut_label">Sym+</string>
+    <string name="abc_prepend_shortcut_label">Menu+</string>
+    <string name="abc_searchview_description_clear">მოთხოვნის გასუფთავება</string>
+    <string name="abc_searchview_description_search">ძიება</string>
+    <string name="abc_searchview_description_submit">მოთხოვნის გადაგზავნა</string>
+    <string name="abc_searchview_description_voice">ხმოვანი ძიება</string>
+    <string name="default_popup_window_title">ამომხტარი ფანჯარა</string>
+    <string name="in_progress">მუშავდება</string>
+    <string name="indeterminate">ნაწილობრივ შემოწმებულია</string>
+    <string name="not_selected">არ არის არჩეული</string>
+    <string name="off">გამორთული</string>
+    <string name="on">ჩართული</string>
+    <string name="selected">არჩეული</string>
+    <string name="switch_role">გადართვა</string>
+    <string name="tab">ჩანართი</string>
+    <string name="template_percent">%1$d პროცენტი.</string>
+</resources>

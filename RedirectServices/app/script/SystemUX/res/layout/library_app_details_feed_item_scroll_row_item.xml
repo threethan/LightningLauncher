@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.ocui.OCListItem android:id="@id/library_app_details_feed_item_scroll_row_item" android:tag="layout/library_app_details_feed_item_scroll_row_item_0" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/image" android:tag="list_item_image_view" android:layout_width="@dimen/abc_search_view_preferred_height" android:layout_height="@dimen/abc_search_view_preferred_height" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/list_item_btn_layout" android:tag="list_item_button_layout" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <com.oculus.panelapp.library.views.appdetails.LibraryAppDetailsFeedButton android:id="@id/primary_action_button" android:layout_width="@dimen/anytime_tablet_common_rectangular_button_height" android:layout_height="@dimen/anytime_tablet_common_rectangular_button_height" app:mode="borderless" />
+        <com.oculus.panelapp.library.views.appdetails.LibraryAppDetailsFeedButton android:id="@id/secondary_action_button" android:layout_width="@dimen/anytime_tablet_common_rectangular_button_height" android:layout_height="@dimen/anytime_tablet_common_rectangular_button_height" app:mode="borderless" />
+    </LinearLayout>
+</com.oculus.ocui.OCListItem>

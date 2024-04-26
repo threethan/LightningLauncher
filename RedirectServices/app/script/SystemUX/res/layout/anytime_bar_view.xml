@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.panelapp.anytimeui.bar.BarView android:id="@id/bar_view" android:tag="layout/anytime_bar_view_0" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.oculus.ocui.OCPanel android:id="@id/background" android:layout_width="fill_parent" android:layout_height="0.0dip" app:hasRoundedCorners="true" app:layout_constraintBottom_toBottomOf="@id/dynamic_apps_view" app:layout_constraintEnd_toEndOf="@id/dynamic_apps_view" app:layout_constraintStart_toStartOf="@id/system_status_view" app:layout_constraintTop_toTopOf="parent" />
+    <include android:id="@id/system_status_view" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" layout="@layout/anytime_bar_system_status" />
+    <com.oculus.panelapp.anytimeui.bar.apps.DynamicAppsView android:id="@id/dynamic_apps_view" android:tag="binding_1" android:clipChildren="false" android:layout_width="wrap_content" android:layout_height="@dimen/active_call_bar_height" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" />
+</com.oculus.panelapp.anytimeui.bar.BarView>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:androidprv="http://schemas.android.com/apk/res-auto">
+    <com.oculus.ocui.OCTextView android:textStyle="bold" android:textColor="?ocPrimaryText" android:ellipsize="end" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/main_message" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="@dimen/anytime_tablet_common_rectangular_button_height" android:text="@string/lockscreen_enter_pin" android:maxLines="3" android:layout_marginHorizontal="45.0dip" style="@style/H2" />
+    <com.oculus.panelapp.androiddialog.dialogs.security.lockpinview.OculusLockPinView android:layout_gravity="center_horizontal" android:id="@id/oculus_lock_pin_view" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content" androidprv:aspect="lock_width" androidprv:errorColor="?ocNegative" androidprv:regularColor="?ocAccent" androidprv:successColor="?ocAccent" androidprv:unselectedColor="?ocPrimaryIcon" />
+</merge>

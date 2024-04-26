@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:tag="layout/list_template_app_invite_view_0" android:background="@drawable/list_template_app_invite_background" android:layout_width="fill_parent" android:layout_height="@dimen/dui_invite_notif_height" android:layout_marginBottom="@dimen/abc_star_small"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.oculus.ocui.OCListItem android:id="@id/dui_inviter_list_item" android:layout_width="fill_parent" android:layout_height="@dimen/dui_invite_notif_height" android:paddingStart="@dimen/abc_star_small">
+        <com.oculus.ocui.OCProfilePhoto android:id="@id/dui_inviter_image" android:tag="list_item_image_view" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginStart="@dimen/abc_star_small" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/vertical_app_icon_guideline" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintGuide_begin="@dimen/abc_star_medium" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/horizontal_app_icon_guideline" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintGuide_begin="@dimen/abc_dropdownitem_icon_width" />
+        <FrameLayout android:background="@drawable/app_invite_icon" android:padding="@dimen/abc_control_corner_material" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="@id/vertical_app_icon_guideline" app:layout_constraintTop_toTopOf="@id/horizontal_app_icon_guideline">
+            <androidx.cardview.widget.CardView android:layout_width="wrap_content" android:layout_height="wrap_content" app:cardCornerRadius="@dimen/dui_invite_app_icon_corner_radius">
+                <ImageView android:id="@id/app_icon_image" android:layout_width="@dimen/anytime_tablet_library_footer_body_height" android:layout_height="@dimen/anytime_tablet_library_footer_body_height" />
+            </androidx.cardview.widget.CardView>
+        </FrameLayout>
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/list_item_btn_layout" android:tag="list_item_button_layout" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <com.oculus.ocui.OCButton android:id="@id/invite_primary_button" android:background="@drawable/ocbutton_primary_circle" android:layout_width="@dimen/anytime_tablet_common_rectangular_button_height" android:layout_height="@dimen/anytime_tablet_common_rectangular_button_height" android:layout_marginStart="@dimen/abc_star_small" android:layout_marginEnd="@dimen/abc_star_small" app:drawableCenter="@drawable/oc_icon_travel_go_filled_24" app:drawableCenterPadding="@dimen/abc_button_padding_horizontal_material" app:mode="primary" />
+            <com.oculus.ocui.OCButton android:id="@id/invite_dismiss_button" android:background="@drawable/ocbutton_borderless_circle" android:layout_width="@dimen/anytime_tablet_common_rectangular_button_height" android:layout_height="@dimen/anytime_tablet_common_rectangular_button_height" android:layout_marginEnd="@dimen/abc_button_padding_horizontal_material" app:drawableCenter="@drawable/oc_icon_close_filled_16" app:drawableCenterPadding="@dimen/active_call_bar_active_call_button_padding" app:mode="borderless" />
+        </LinearLayout>
+    </com.oculus.ocui.OCListItem>
+</LinearLayout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="wifitrackerlib_wifi_status">
+        <item></item>
+        <item>Vyhledávání…</item>
+        <item>Připojování…</item>
+        <item>Ověřování…</item>
+        <item>Načítání IP adresy…</item>
+        <item>Připojeno</item>
+        <item>Pozastaven</item>
+        <item>Odpojování…</item>
+        <item>Odpojeno</item>
+        <item>Neúspěšné</item>
+        <item>Blokováno</item>
+        <item>Dočasné předcházení slabému připojení</item>
+    </string-array>
+</resources>

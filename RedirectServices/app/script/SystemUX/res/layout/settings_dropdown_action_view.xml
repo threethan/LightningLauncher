@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/dropdown_container" android:tag="layout/settings_dropdown_action_view_0" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.oculus.ocui.OCSelect android:id="@id/dropdown" android:tag="binding_1" android:layout_width="wrap_content" android:layout_height="@dimen/anytime_tablet_common_rectangular_button_height" android:maxWidth="252.0dip" />
+    <View android:id="@id/dropdown_tooltip" android:visibility="gone" android:layout_width="0.0dip" android:layout_height="@dimen/anytime_tablet_common_rectangular_button_height" android:layout_alignLeft="@id/dropdown" android:layout_alignRight="@id/dropdown" app:layout_constraintBottom_toBottomOf="@id/dropdown" app:layout_constraintEnd_toEndOf="@id/dropdown" app:layout_constraintStart_toStartOf="@id/dropdown" app:layout_constraintTop_toTopOf="@id/dropdown" />
+</RelativeLayout>

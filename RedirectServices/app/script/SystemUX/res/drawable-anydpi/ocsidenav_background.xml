@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:topLeftRadius="?ocPanelBorderRadius" android:bottomLeftRadius="?ocPanelBorderRadius" />
+            <solid android:color="?ocPanelBackground" />
+        </shape>
+    </item>
+    <item android:left="-2.0dip" android:top="-2.0dip" android:bottom="-2.0dip">
+        <shape android:shape="rectangle">
+            <stroke android:width="1.0dip" android:color="?ocDivider" />
+            <solid android:color="@android:color/transparent" />
+        </shape>
+    </item>
+</layer-list>

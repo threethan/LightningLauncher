@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <set>
+            <objectAnimator android:interpolator="@interpolator/snappy_in" android:duration="@integer/ocinteractions_fast1_in" android:valueTo="0.95" android:propertyName="scaleX" />
+            <objectAnimator android:interpolator="@interpolator/snappy_in" android:duration="@integer/ocinteractions_fast1_in" android:valueTo="0.95" android:propertyName="scaleY" />
+        </set>
+    </item>
+    <item>
+        <set>
+            <objectAnimator android:interpolator="@interpolator/snappy_in" android:duration="@integer/ocinteractions_fast1_out" android:valueTo="1" android:propertyName="scaleX" />
+            <objectAnimator android:interpolator="@interpolator/snappy_in" android:duration="@integer/ocinteractions_fast1_out" android:valueTo="1" android:propertyName="scaleY" />
+        </set>
+    </item>
+</selector>

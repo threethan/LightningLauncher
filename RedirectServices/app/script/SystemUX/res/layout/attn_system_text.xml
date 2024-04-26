@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingTop="8.0dip" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="fill_parent" android:animateLayoutChanges="true" android:layout_marginStart="12.0dip" android:layout_marginEnd="12.0dip" app:layout_goneMarginLeft="84.0dip" app:layout_goneMarginRight="84.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.oculus.panelapp.assistant.dialogs.components.TextComponentScrollView android:scrollbarThumbVertical="?scrollview_text_scroll_thumb_color" android:id="@id/title_scrollview" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <com.oculus.panelapp.assistant.dialogs.components.TextComponent android:id="@id/label" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </com.oculus.panelapp.assistant.dialogs.components.TextComponentScrollView>
+    <com.oculus.panelapp.assistant.dialogs.components.TextComponent android:id="@id/sub_label" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+</LinearLayout>

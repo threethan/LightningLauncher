@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<View android:id="@id/footer_view" android:tag="layout/list_template_footer_view_0" android:background="@drawable/list_footer_background" android:layout_width="fill_parent" android:layout_height="@dimen/abc_button_padding_horizontal_material"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

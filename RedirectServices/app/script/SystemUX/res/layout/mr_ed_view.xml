@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.panelapp.virtualobjects.MREdView android:tag="layout/mr_ed_view_0" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.oculus.panelapp.virtualobjects.ui.Chrome android:id="@id/chrome" android:tag="binding_1" android:layout_width="@dimen/chrome_width" android:layout_height="@dimen/anytime_bar_library_tile_layout_width" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+</com.oculus.panelapp.virtualobjects.MREdView>

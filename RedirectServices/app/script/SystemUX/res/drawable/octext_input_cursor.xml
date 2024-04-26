@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="?ocTextInputSelectedOutline" />
+    <size android:height="@dimen/anytime_tablet_library_footer_body_height" android:width="@dimen/abc_control_corner_material" />
+</shape>

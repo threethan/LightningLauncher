@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="anytime_ui_debugToolsLayer">
+        <item>name:debugToolsLayer</item>
+    </string-array>
+    <string-array name="anytime_ui_draggable">
+        <item>name:draggable</item>
+        <item>ZeroCopyTW</item>
+    </string-array>
+    <string-array name="anytime_ui_dropTargetLayer">
+        <item>name:dropTargetLayer</item>
+    </string-array>
+    <array name="anytime_ui_layers">
+        <item>@array/anytime_ui_main</item>
+        <item>@array/anytime_ui_debugToolsLayer</item>
+        <item>@array/anytime_ui_dropTargetLayer</item>
+        <item>@array/anytime_ui_tooltip</item>
+        <item>@array/anytime_ui_toast</item>
+        <item>@array/anytime_ui_draggable</item>
+    </array>
+    <string-array name="anytime_ui_main">
+        <item>name:#main</item>
+    </string-array>
+    <string-array name="anytime_ui_toast">
+        <item>name:toast</item>
+        <item>InhibitCapture</item>
+        <item>RemoveCaptureProxy</item>
+    </string-array>
+    <string-array name="anytime_ui_tooltip">
+        <item>name:tooltip</item>
+    </string-array>
+    <string-array name="app_menu_draggable">
+        <item>name:draggable</item>
+        <item>ZeroCopyTW</item>
+    </string-array>
+    <array name="app_menu_layers">
+        <item>@array/app_menu_main</item>
+        <item>@array/app_menu_draggable</item>
+    </array>
+    <string-array name="app_menu_main">
+        <item>name:#main</item>
+        <item>ZeroCopyTW</item>
+    </string-array>
+    <string-array name="auiinternalsettings_draggable">
+        <item>name:draggable</item>
+        <item>ZeroCopyTW</item>
+    </string-array>
+    <array name="auiinternalsettings_layers">
+        <item>@array/auiinternalsettings_main</item>
+        <item>@array/auiinternalsettings_draggable</item>
+    </array>
+    <string-array name="auiinternalsettings_main">
+        <item>name:#main</item>
+        <item>ZeroCopyTW</item>
+    </string-array>
+    <string-array name="control_bar_controlbar1">
+        <item>name:controlbar1</item>
+        <item>ZeroCopyTW</item>
+    </string-array>
+    <string-array name="control_bar_controlbar2">
+        <item>name:controlbar2</item>
+        <item>ZeroCopyTW</item>
+    </string-array>
+    <string-array name="control_bar_controlbar3">
+        <item>name:controlbar3</item>
+        <item>ZeroCopyTW</item>
+    </string-array>
+    <string-array name="control_bar_controlbar4">
+        <item>name:controlbar4</item>
+        <item>ZeroCopyTW</item>
+    </string-array>
+    <string-array name="control_bar_controlbar5">
+        <item>name:controlbar5</item>
+        <item>ZeroCopyTW</item>
+    </string-array>
+    <string-array name="control_bar_controlbar6">
+        <item>name:controlbar6</item>
+        <item>ZeroCopyTW</item>
+    </string-array>
+    <string-array name="control_bar_controlbar7">
+        <item>name:controlbar7</item>
+        <item>ZeroCopyTW</item>
+    </string-array>
+    <string-array name="control_bar_main">
+        <item>name:#main</item>
+        <item>ZeroCopyTW</item>
+    </string-array>
+    <array name="control_bar_panel_layers">
+        <item>@array/control_bar_main</item>
+        <item>@array/control_bar_controlbar1</item>
+        <item>@array/control_bar_controlbar2</item>
+        <item>@array/control_bar_controlbar3</item>
+        <item>@array/control_bar_controlbar4</item>
+        <item>@array/control_bar_controlbar5</item>
+        <item>@array/control_bar_controlbar6</item>
+        <item>@array/control_bar_controlbar7</item>
+    </array>
+    <array name="destinationui_layers">
+        <item>@array/destinationui_main</item>
+    </array>
+    <string-array name="destinationui_main">
+        <item>name:#main</item>
+        <item>ZeroCopyTW</item>
+    </string-array>
+    <string-array name="file_viewer_images">
+        <item>name:images</item>
+    </string-array>
+    <array name="file_viewer_layers">
+        <item>@array/file_viewer_videos</item>
+        <item>@array/file_viewer_images</item>
+        <item>@array/file_viewer_main</item>
+    </array>
+    <string-array name="file_viewer_main">
+        <item>name:#main</item>
+        <item>ZeroCopyTW</item>
+    </string-array>
+    <string-array name="file_viewer_videos">
+        <item>name:videos</item>
+    </string-array>
+    <string-array name="library_draggable">
+        <item>name:draggable</item>
+        <item>ZeroCopyTW</item>
+    </string-array>
+    <array name="library_layers">
+        <item>@array/library_main</item>
+        <item>@array/library_draggable</item>
+    </array>
+    <string-array name="library_main">
+        <item>name:#main</item>
+        <item>ZeroCopyTW</item>
+    </string-array>
+    <string-array name="mixed_reality_objects_anchored_view">
+        <item>name:anchored</item>
+    </string-array>
+    <array name="mixed_reality_objects_layers">
+        <item>@array/mixed_reality_objects_main</item>
+        <item>@array/mixed_reality_objects_anchored_view</item>
+    </array>
+    <string-array name="mixed_reality_objects_main">
+        <item>name:#main</item>
+    </string-array>
+    <array name="notifications_layers">
+        <item>@array/notifications_main</item>
+    </array>
+    <string-array name="notifications_main">
+        <item>name:#main</item>
+        <item>ZeroCopyTW</item>
+    </string-array>
+    <array name="quicksettings_layers">
+        <item>@array/quicksettings_main</item>
+    </array>
+    <string-array name="quicksettings_main">
+        <item>name:#main</item>
+        <item>ZeroCopyTW</item>
+    </string-array>
+    <array name="settings_layers">
+        <item>@array/settings_main</item>
+    </array>
+    <string-array name="settings_main">
+        <item>name:#main</item>
+        <item>ZeroCopyTW</item>
+    </string-array>
+    <array name="sharing_layers">
+        <item>@array/sharing_main</item>
+    </array>
+    <string-array name="sharing_main">
+        <item>name:#main</item>
+        <item>ZeroCopyTW</item>
+    </string-array>
+    <array name="toasts_layers">
+        <item>@array/toasts_main</item>
+    </array>
+    <string-array name="toasts_main">
+        <item>name:#main</item>
+        <item>ZeroCopyTW</item>
+    </string-array>
+    <array name="virtual_object_layers">
+        <item>@array/virtual_objects_main</item>
+        <item>@array/virtual_objects_mirror</item>
+        <item>@array/virtual_objects_portal</item>
+    </array>
+    <string-array name="virtual_objects_main">
+        <item>name:#main</item>
+    </string-array>
+    <string-array name="virtual_objects_mirror">
+        <item>name:mirror</item>
+    </string-array>
+    <string-array name="virtual_objects_portal">
+        <item>name:portal</item>
+    </string-array>
+    <string-array name="wifitrackerlib_wifi_status">
+        <item></item>
+        <item>Scanning…</item>
+        <item>Connecting…</item>
+        <item>Authenticating…</item>
+        <item>Obtaining IP address…</item>
+        <item>Connected</item>
+        <item>Suspended</item>
+        <item>Disconnecting…</item>
+        <item>Disconnected</item>
+        <item>Unsuccessful</item>
+        <item>Blocked</item>
+        <item>Temporarily avoiding poor connection</item>
+    </string-array>
+</resources>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/oc_circle_background" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/profile" android:layout_width="@dimen/anytime_tablet_common_rectangular_button_height" android:layout_height="@dimen/anytime_tablet_common_rectangular_button_height" android:layout_centerInParent="true" />
+</RelativeLayout>

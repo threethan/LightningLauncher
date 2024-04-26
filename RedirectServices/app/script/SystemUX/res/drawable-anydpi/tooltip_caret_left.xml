@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:height="@dimen/anytime_tablet_profile_popup_list_item_x_offset" android:width="@dimen/tooltip_caret_height" android:viewportWidth="1.0" android:viewportHeight="2.0"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="#ffffffff" android:pathData="M1,0 L1,2 L0,1 Z" android:strokeColor="#ffffffff" />
+</vector>

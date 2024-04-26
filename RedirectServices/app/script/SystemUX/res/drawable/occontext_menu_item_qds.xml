@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<drawable class="com.oculus.ocui.drawable.OCInteractionOverlayDrawable"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <selector>
+        <item android:state_activated="true">
+            <shape android:shape="rectangle">
+                <corners android:radius="@dimen/active_call_bar_active_call_button_padding" />
+                <solid android:color="?ocPrimaryButtonBackground" />
+            </shape>
+        </item>
+        <item>
+            <shape android:shape="rectangle">
+                <corners android:radius="@dimen/active_call_bar_active_call_button_padding" />
+                <solid android:color="@android:color/transparent" />
+            </shape>
+        </item>
+    </selector>
+</drawable>

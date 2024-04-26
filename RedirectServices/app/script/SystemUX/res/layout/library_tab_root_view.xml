@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.panelapp.library.tabinfra.views.root.LibraryRootView android:tag="layout/library_tab_root_view_0" android:background="@drawable/ocpanel_background_disable_rounding" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.oculus.ocui.OCCollapsibleSidePanelLayout android:orientation="horizontal" android:id="@id/collapsible_side_panel_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" app:ocIsSidePanelCollapsed="false" app:ocSidePanelCollapseSize="@dimen/ocsidenav_min_collapsed_width" app:ocSidePanelExpandSize="272.0dip">
+        <com.oculus.ocui.OCSideNav android:id="@id/tab_layout" android:paddingTop="4.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" app:background="@drawable/ocsidenav_background_disable_rounding" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintTop_toTopOf="parent" />
+        <FrameLayout android:id="@id/tab_content_container" android:layout_width="0.0dip" android:layout_height="0.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintLeft_toRightOf="@id/tab_layout" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    </com.oculus.ocui.OCCollapsibleSidePanelLayout>
+</com.oculus.panelapp.library.tabinfra.views.root.LibraryRootView>

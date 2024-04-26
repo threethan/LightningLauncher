@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="wifitrackerlib_wifi_status">
+        <item></item>
+        <item>Söker …</item>
+        <item>Ansluter …</item>
+        <item>Autentiserar …</item>
+        <item>Hämtar IP-adress …</item>
+        <item>Ansluten</item>
+        <item>Avstängt</item>
+        <item>Kopplar från …</item>
+        <item>Frånkopplad</item>
+        <item>Misslyckades</item>
+        <item>Blockerat</item>
+        <item>Undviker just nu dålig anslutning</item>
+    </string-array>
+</resources>

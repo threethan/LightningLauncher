@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.oculus.ocui.OCButton android:id="@id/primary_button" android:tag="layout/settings_voice_activity_log_action_view_0" android:layout_width="@dimen/abc_star_medium" android:layout_height="@dimen/abc_star_medium" />
+    <com.oculus.ocui.OCButton android:id="@id/secondary_button" android:tag="layout/settings_voice_activity_log_action_view_1" android:background="@drawable/settings_voice_activity_log_delete_button" android:layout_width="@dimen/abc_star_medium" android:layout_height="@dimen/abc_star_medium" android:layout_marginStart="12.0dip" />
+</merge>

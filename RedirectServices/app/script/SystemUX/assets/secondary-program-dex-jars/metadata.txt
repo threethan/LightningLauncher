@@ -1,0 +1,5 @@
+.root_relative
+.locators
+classes2.dex 1048455c0ef352e852627c96bde2af3a3cc4d08c secondary.dex01.Canary
+classes3.dex 226a6d19619004a3df230f2c2dfbe188472940f8 secondary.dex02.Canary
+classes4.dex b17f356e1ff17fb927dc327da9c4a57765b54f74 secondary.dex03.Canary

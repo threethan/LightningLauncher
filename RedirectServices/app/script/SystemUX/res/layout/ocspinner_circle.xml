@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProgressBar android:layout_gravity="center" android:id="@id/ocspinner" android:layout_width="fill_parent" android:layout_height="fill_parent" android:max="100" android:indeterminate="true" android:indeterminateOnly="false" android:indeterminateDrawable="@drawable/ocspinner_indeterminate_circle_large" android:progressDrawable="@drawable/ocspinner_progress" style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Small"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.ocui.OCListItem android:id="@id/library_world_list_item" android:tag="layout/library_world_list_tile_0" android:layout_width="fill_parent" android:layout_height="64.0dip" android:paddingVertical="8.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/library_list_item_image" android:tag="list_item_image_view" android:background="@drawable/anytime_tablet_library_app_list_tile_icon_background" android:layout_width="@dimen/abc_search_view_preferred_height" android:layout_height="wrap_content" />
+    <LinearLayout android:id="@id/library_list_item_progress_bar" android:tag="list_item_bottom_component" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.oculus.ocui.OCProgressBar android:tag="binding_1" android:layout_width="fill_parent" android:layout_height="8.0dip" android:layout_marginTop="6.0dip" android:layout_marginStart="72.0dip" android:layout_marginEnd="10.0dip" app:fillType="gradient" app:progressType="linear" />
+    </LinearLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="@dimen/abc_search_view_preferred_height" android:layout_height="@dimen/abc_search_view_preferred_height" android:layout_marginStart="@dimen/abc_button_padding_horizontal_material" app:layout_constraintStart_toStartOf="parent">
+        <View android:id="@id/library_list_item_cta_image_overlay_icon_background" android:tag="binding_2" android:background="@drawable/anytime_tablet_library_app_list_icon_badge_background" android:layout_width="28.0dip" android:layout_height="28.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+        <ImageView android:id="@id/library_list_item_cta_image_overlay_icon" android:tag="binding_3" android:layout_width="20.0dip" android:layout_height="20.0dip" android:tint="?ocIconOnMedia" android:tintMode="src_in" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+        <View android:id="@id/library_list_item_app_badge" android:tag="binding_4" android:background="@drawable/anytime_tablet_library_app_tile_attention_dot" android:layout_width="8.0dip" android:layout_height="8.0dip" android:layout_marginTop="6.0dip" android:layout_marginEnd="6.0dip" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/library_list_item_cta" android:tag="list_item_button_layout" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <com.oculus.ocui.OCTextView android:id="@id/library_list_item_cta_text" android:tag="binding_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="4.0dip" style="@style/Body2" />
+        <ImageView android:id="@id/library_list_item_cta_icon" android:tag="binding_6" android:layout_width="20.0dip" android:layout_height="20.0dip" android:tint="?ocPrimaryIcon" android:layout_marginEnd="4.0dip" android:tintMode="src_in" />
+    </LinearLayout>
+</com.oculus.ocui.OCListItem>

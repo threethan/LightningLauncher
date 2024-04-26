@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/privacyActivityStatusPreview" android:tag="layout/settings_privacy_activity_status_preview_item_0" android:background="@drawable/settings_privacy_preview_card_background" android:paddingTop="10.0dip" android:paddingBottom="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dip" android:layout_marginBottom="8.0dip" android:paddingStart="10.0dip" android:paddingEnd="10.0dip" android:layout_marginStart="24.0dip" android:layout_marginEnd="24.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.oculus.panelapp.settings.ui.PrivacyActivityStatusAppTile android:id="@id/privacyActivityStatusAppTile" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="12.0dip">
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.oculus.ocui.OCTextView android:textSize="@dimen/anytime_tablet_profile_text_size_small" android:textColor="?ocPrimaryText" android:id="@id/privacyActivityStatusNotificationTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/notifications_default_title" android:lineHeight="@dimen/keypad_text_size" />
+            <ImageView android:layout_gravity="center_vertical" android:layout_width="8.0dip" android:layout_height="8.0dip" android:layout_marginLeft="2.0dip" android:layout_marginRight="2.0dip" android:src="@drawable/settings_privacy_activity_status_preview_title_sep_dot" />
+            <com.oculus.ocui.OCTextView android:textSize="@dimen/anytime_tablet_profile_text_size_small" android:textColor="?ocPrimaryText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/anytime_tablet_notifications_arrival_yesterday" android:lineHeight="@dimen/keypad_text_size" />
+        </LinearLayout>
+        <com.oculus.ocui.OCTextView android:textSize="@dimen/anytime_tablet_profile_text_size_medium" android:textColor="?ocPrimaryText" android:id="@id/privacyActivityStatusNotificationBody" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lineHeight="@dimen/octypography_body1_line_height" />
+    </LinearLayout>
+</LinearLayout>

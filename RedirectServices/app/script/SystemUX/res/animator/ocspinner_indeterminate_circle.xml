@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <objectAnimator android:interpolator="@anim/ocspinner_indeterminate_circle_trim_start_interpolator" android:duration="@integer/ocspinner_animation_duration" android:repeatCount="@integer/ocspinner_animation_repeat_infinity" android:valueFrom="0" android:valueTo="6" android:valueType="floatType" android:propertyName="trimPathStart" />
+    <objectAnimator android:interpolator="@anim/ocspinner_indeterminate_circle_trim_end_interpolator" android:duration="@integer/ocspinner_animation_duration" android:repeatCount="@integer/ocspinner_animation_repeat_infinity" android:valueFrom="0" android:valueTo="6" android:valueType="floatType" android:propertyName="trimPathEnd" />
+    <objectAnimator android:interpolator="@anim/ocspinner_indeterminate_circle_color_interpolator" android:duration="@integer/ocspinner_animation_duration" android:repeatCount="@integer/ocspinner_animation_repeat_infinity" android:valueFrom="@color/oc_blue_50" android:valueTo="@color/oc_blue_70" android:valueType="colorType" android:propertyName="strokeColor" />
+</set>

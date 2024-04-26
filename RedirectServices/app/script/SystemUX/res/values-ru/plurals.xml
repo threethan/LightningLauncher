@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="anytime_bar_active_call_bar_messenger_mic_switcher_use_call_audio_tooltip_subtitle">
+        <item quantity="other">Пользователи: %1$d</item>
+    </plurals>
+    <plurals name="anytime_bar_active_call_bar_party_button_tooltip_subtitle">
+        <item quantity="other">Пользователи: %1$d</item>
+    </plurals>
+    <plurals name="anytime_library_app_multiple_locked_toast_description">
+        <item quantity="other">%1$d приложений заблокировано</item>
+        <item quantity="one">%1$d приложение заблокировано</item>
+        <item quantity="few">%1$d приложения заблокированы</item>
+    </plurals>
+    <plurals name="anytime_library_app_multiple_unlocked_toast_description">
+        <item quantity="other">%1$d приложений разблокировано</item>
+        <item quantity="one">%1$d приложение разблокировано</item>
+        <item quantity="few">%1$d приложения разблокированы</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_install_warning_tooltip">
+        <item quantity="other">Установка этого приложения может занять %1$d минут или более.</item>
+        <item quantity="one">Установка этого приложения может занять %1$d минуту или более.</item>
+        <item quantity="few">Установка этого приложения может занять %1$d минуты или более.</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_lock_bulk_action_description">
+        <item quantity="other">заблокировать %1$d приложений</item>
+        <item quantity="one">заблокировать %1$d приложение</item>
+        <item quantity="few">заблокировать %1$d приложения</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_lock_bulk_action_title">
+        <item quantity="other">Заблокировать %1$d приложений?</item>
+        <item quantity="one">Заблокировать %1$d приложение?</item>
+        <item quantity="few">Заблокировать %1$d приложения?</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_tile_subtitle_supports_players">
+        <item quantity="other">От 1 до %1$d человек</item>
+        <item quantity="one">От 1 до %1$d человека</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_unlock_bulk_action_description">
+        <item quantity="other">разблокировать %1$d приложений</item>
+        <item quantity="one">разблокировать %1$d приложение</item>
+        <item quantity="few">разблокировать %1$d приложения</item>
+    </plurals>
+    <plurals name="anytime_tablet_library_app_unlock_bulk_action_title">
+        <item quantity="other">Разблокировать %1$d приложений?</item>
+        <item quantity="one">Разблокировать %1$d приложение?</item>
+        <item quantity="few">Разблокировать %1$d приложения?</item>
+    </plurals>
+    <plurals name="anytime_tablet_profile_pending_follow_request_confirm_title">
+        <item quantity="other">%1$d запросов на подписку на рассмотрении</item>
+        <item quantity="one">%1$d запрос на подписку на рассмотрении</item>
+        <item quantity="few">%1$d запроса на подписку на рассмотрении</item>
+    </plurals>
+    <plurals name="cloud_backups_num_attempts_remaining_text">
+        <item quantity="other">Осталось ещё %1$d попыток</item>
+        <item quantity="one">Осталась ещё %1$d попытка</item>
+        <item quantity="few">Осталось ещё %1$d попытки</item>
+    </plurals>
+    <plurals name="follower_view_pill_title">
+        <item quantity="other">%1$d подписчика</item>
+    </plurals>
+    <plurals name="last_played_with_time_days">
+        <item quantity="other">%1$d дней назад</item>
+        <item quantity="one">%1$d день назад</item>
+        <item quantity="few">%1$d дня назад</item>
+    </plurals>
+    <plurals name="last_played_with_time_hours">
+        <item quantity="other">%1$d часов назад</item>
+        <item quantity="one">%1$d час назад</item>
+        <item quantity="few">%1$d часа назад</item>
+    </plurals>
+    <plurals name="last_played_with_time_minutes">
+        <item quantity="other">%1$d минут назад</item>
+        <item quantity="one">%1$d минуту назад</item>
+        <item quantity="few">%1$d минуты назад</item>
+    </plurals>
+    <plurals name="last_played_with_time_weeks">
+        <item quantity="other">%1$d недель назад</item>
+        <item quantity="one">%1$d неделю назад</item>
+        <item quantity="few">%1$d недели назад</item>
+    </plurals>
+    <plurals name="lockpassword_pin_too_long">
+        <item quantity="other">Может содержать не более %1$d цифры</item>
+    </plurals>
+    <plurals name="lockpassword_pin_too_short">
+        <item quantity="other">PIN-код должен содержать хотя бы %1$d цифр</item>
+        <item quantity="one">PIN-код должен содержать хотя бы %1$d цифру</item>
+        <item quantity="few">PIN-код должен содержать хотя бы %1$d цифры</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_hours">
+        <item quantity="other">Повторите попытку через %1$d часов</item>
+        <item quantity="one">Повторите попытку через %1$d час</item>
+        <item quantity="few">Повторите попытку через %1$d часа</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_min">
+        <item quantity="other">Повторите попытку через %1$d минут</item>
+        <item quantity="one">Повторите попытку через %1$d минуту</item>
+        <item quantity="few">Повторите попытку через %1$d минуты</item>
+    </plurals>
+    <plurals name="lockscreen_try_countdown_sec">
+        <item quantity="other">Повторите попытку через %1$d секунд</item>
+        <item quantity="one">Повторите попытку через %1$d секунду</item>
+        <item quantity="few">Повторите попытку через %1$d секунды</item>
+    </plurals>
+    <plurals name="request_view_pill_title">
+        <item quantity="other">%1$d запросов</item>
+    </plurals>
+    <plurals name="safety_center_violation_list_enforcement_social_suspension">
+        <item quantity="other">Вы не можете использовать чаты, группы или Миры Horizon в течение %1$d дней</item>
+        <item quantity="one">Вы не можете использовать чаты, группы или Миры Horizon в течение %1$d дня</item>
+    </plurals>
+    <plurals name="settings_apps_lock_selected_items_text">
+        <item quantity="other">Выбрано: %1$d</item>
+    </plurals>
+    <plurals name="settings_permissions_apps_granted_subtitle">
+        <item quantity="other">Приложения, у которых есть разрешение: %1$d из %2$d</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_days_ago">
+        <item quantity="other">Получен доступ %1$d дней назад</item>
+        <item quantity="one">Получен доступ %1$d день назад</item>
+        <item quantity="few">Получен доступ %1$d дня назад</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_days_ago_short">
+        <item quantity="other">%1$d дней назад</item>
+        <item quantity="one">%1$d день назад</item>
+        <item quantity="few">%1$d дня назад</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_hours_ago">
+        <item quantity="other">Получен доступ %1$d часов назад</item>
+        <item quantity="one">Получен доступ %1$d час назад</item>
+        <item quantity="few">Получен доступ %1$d часа назад</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_hours_ago_short">
+        <item quantity="other">%1$d часов назад</item>
+        <item quantity="one">%1$d час назад</item>
+        <item quantity="few">%1$d часа назад</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_minutes_ago">
+        <item quantity="other">Получен доступ %1$d минут назад</item>
+        <item quantity="one">Получен доступ %1$d минуту назад</item>
+        <item quantity="few">Получен доступ %1$d минуты назад</item>
+    </plurals>
+    <plurals name="settings_privacy_dashboard_permission_access_minutes_ago_short">
+        <item quantity="other">%1$d минут назад</item>
+        <item quantity="one">%1$d минуту назад</item>
+        <item quantity="few">%1$d минуты назад</item>
+    </plurals>
+    <plurals name="settings_privacy_unblock_users_subtitle">
+        <item quantity="other">%1$d профилей заблокированы</item>
+        <item quantity="one">%1$d профиль заблокирован</item>
+        <item quantity="few">%1$d профиля заблокированы</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_new_violation">
+        <item quantity="other">%1$d недавних нарушений</item>
+        <item quantity="one">%1$d недавнее нарушение</item>
+        <item quantity="few">%1$d недавних нарушения</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle">
+        <item quantity="other">Вы не можете использовать чаты, группы или Миры Horizon в течение %1$d дней.</item>
+        <item quantity="one">Вы не можете использовать чаты, группы или Миры Horizon в течение %1$d дня.</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle_hours">
+        <item quantity="other">Ограничения будут сняты через %1$d часов.</item>
+        <item quantity="one">Ограничения будут сняты через %1$d час.</item>
+        <item quantity="few">Ограничения будут сняты через %1$d часа.</item>
+    </plurals>
+    <plurals name="settings_safety_center_enforcement_restricted_subtitle_minutes">
+        <item quantity="other">Ограничения будут сняты через %1$d минут.</item>
+        <item quantity="one">Ограничения будут сняты через %1$d минуту.</item>
+        <item quantity="few">Ограничения будут сняты через %1$d минуты.</item>
+    </plurals>
+    <plurals name="settings_storage_selected_items_text">
+        <item quantity="other">Выбрано: %1$d</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_apps_title">
+        <item quantity="other">Удалить %1$d приложений</item>
+        <item quantity="one">Удалить %1$d приложение</item>
+        <item quantity="few">Удалить %1$d приложения</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_environments_title">
+        <item quantity="other">Удалить %1$d сред</item>
+        <item quantity="one">Удалить %1$d среду</item>
+        <item quantity="few">Удалить %1$d среды</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_files_title">
+        <item quantity="other">Удалить %1$d файлов</item>
+        <item quantity="one">Удалить %1$d файл</item>
+        <item quantity="few">Удалить %1$d файла</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_images_title">
+        <item quantity="other">Удалить %1$d изображений</item>
+        <item quantity="one">Удалить %1$d изображение</item>
+        <item quantity="few">Удалить %1$d изображения</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_unknown_sources_title">
+        <item quantity="other">Удалить %1$d неизвестных источников</item>
+        <item quantity="one">Удалить %1$d неизвестный источник</item>
+        <item quantity="few">Удалить %1$d неизвестных источника</item>
+    </plurals>
+    <plurals name="settings_storage_uninstall_dialog_multiple_videos_title">
+        <item quantity="other">Удалить %1$d видео</item>
+    </plurals>
+    <plurals name="social_suspension_description_days">
+        <item quantity="other">&lt;p style=\"text-align: center;\">Для вашего профиля установлены ограничения за нарушение нашего &lt;a href=\"%1$s\"> кодекса поведения.&lt;/a> Вы не сможете использовать чаты, группы, звонки и Миры Horizon в течение %2$s  дней. Ограничения будут сняты %3$s.&lt;/p></item>
+        <item quantity="one">&lt;p style=\"text-align: center;\">Для вашего профиля установлены ограничения за нарушение нашего &lt;a href=\"%1$s\"> кодекса поведения.&lt;/a> Вы не сможете использовать чаты, группы, звонки и Миры Horizon в течение %2$s  дня. Ограничения будут сняты %3$s.&lt;/p></item>
+    </plurals>
+    <plurals name="social_suspension_description_hours">
+        <item quantity="other">&lt;p style=\"text-align: center;\">Для вашего профиля установлены ограничения за нарушение нашего &lt;a href=\"%1$s\"> кодекса поведения.&lt;/a> Вы не сможете использовать чаты, группы, звонки и Миры Horizon в течение %2$s  часов. Ограничения будут сняты %3$s.&lt;/p></item>
+        <item quantity="one">&lt;p style=\"text-align: center;\">Для вашего профиля установлены ограничения за нарушение нашего &lt;a href=\"%1$s\"> кодекса поведения.&lt;/a> Вы не сможете использовать чаты, группы, звонки и Миры Horizon в течение %2$s  часа. Ограничения будут сняты %3$s.&lt;/p></item>
+    </plurals>
+    <plurals name="subdestination_max_users">
+        <item quantity="other">До %1$d игроков</item>
+        <item quantity="one">До %1$d игрока</item>
+    </plurals>
+</resources>

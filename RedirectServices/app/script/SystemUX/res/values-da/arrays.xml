@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="wifitrackerlib_wifi_status">
+        <item></item>
+        <item>Søger…</item>
+        <item>Opretter forbindelse…</item>
+        <item>Godkender…</item>
+        <item>Henter IP-adresse…</item>
+        <item>Forbundet</item>
+        <item>Suspenderet</item>
+        <item>Afbryder…</item>
+        <item>Afbrudt</item>
+        <item>Mislykkedes</item>
+        <item>Blokeret</item>
+        <item>Undgår midlertidigt dårlig forbindelse</item>
+    </string-array>
+</resources>

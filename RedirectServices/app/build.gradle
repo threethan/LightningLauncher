@@ -1,0 +1,47 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.threethan.launcher.service'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.threethan.launcher.service"
+        minSdk 23
+        versionCode 720
+        versionName "7.2.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+
+    flavorDimensions = ['target']
+    productFlavors {
+        library {
+            dimension 'target'
+            applicationIdSuffix '.library'
+        }
+        feed {
+            dimension 'target'
+            applicationIdSuffix '.explore'
+        }
+        people {
+            dimension 'target'
+            applicationIdSuffix '.people'
+        }
+    }
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:gravity="center" android:left="?ocToggleKnobMargin" android:right="?ocToggleKnobMargin">
+        <shape android:shape="oval">
+            <size android:height="?ocToggleKnobSize" android:width="?ocToggleKnobSize" />
+            <solid android:color="?ocControlIcon" />
+        </shape>
+    </item>
+    <item android:gravity="center">
+        <selector>
+            <item android:state_checked="true">
+                <vector android:height="16.0dip" android:width="16.0dip" android:viewportWidth="24.0" android:viewportHeight="24.0">
+                    <path android:fillColor="?ocControlBackgroundActive" android:pathData="M9 19l-6-5.98l1.42-1.4L9 16.17L19.58 5.63L21 7.03L9 19z" android:fillType="evenOdd" />
+                </vector>
+            </item>
+        </selector>
+    </item>
+</layer-list>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.panelapp.androiddialog.dialogs.wifi.WifiAddNetworkDialog android:gravity="center" android:orientation="vertical" android:tag="layout/wifi_add_network_dialog_0" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:bind="http://schemas.android.com/apk/res-auto" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.oculus.ocui.OCMultiLayerContainer android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/loading_container" android:tag="binding_1" android:background="@drawable/control_bar_overflow_menu_background" android:paddingTop="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" android:paddingBottom="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.oculus.ocui.OCSpinner android:id="@id/loading_spinner" android:layout_width="@dimen/keypad_size_width" android:layout_height="@dimen/keypad_size_width" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/container" android:tag="binding_2" android:background="@drawable/control_bar_overflow_menu_background" android:paddingBottom="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="12.0dip">
+                <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/title_container" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" android:layout_marginHorizontal="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
+                    <com.oculus.ocui.OCBackButton android:id="@id/back_button" android:tag="binding_3" android:layout_width="40.0dip" android:layout_height="40.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+                    <com.oculus.ocui.OCTextView android:textSize="@dimen/octypography_body1_line_height" android:textStyle="bold" android:gravity="center" android:id="@id/title" android:tag="binding_4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lineHeight="@dimen/anytime_tablet_profile_text_size_large" app:layout_constrainedWidth="true" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.oculus.panelapp.androiddialog.dialogs.wifi.OptionalNestedScrollView android:scrollbarStyle="outsideOverlay" android:id="@id/dialog_scroll_view" android:scrollbars="vertical" android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0" android:overScrollMode="never">
+                <LinearLayout android:orientation="vertical" android:id="@id/container_scrollview" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <LinearLayout android:orientation="vertical" android:id="@id/wifi_type_fields" android:tag="binding_5" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginHorizontal="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins">
+                        <include android:id="@id/wifi_ssid" layout="@layout/wifi_add_network_dialog_textinput_row" />
+                        <include android:id="@id/wifi_security" layout="@layout/wifi_add_network_dialog_select_row" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="vertical" android:id="@id/wifi_security_fields" android:tag="binding_6" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/active_call_bar_active_call_button_padding" android:layout_marginHorizontal="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins">
+                        <LinearLayout android:orientation="vertical" android:id="@id/wifi_eap_settings" android:tag="binding_7" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                            <include android:id="@id/wifi_eap_method" layout="@layout/wifi_add_network_dialog_select_row" />
+                            <include android:id="@id/wifi_eap_sim" layout="@layout/wifi_add_network_dialog_select_row" />
+                            <com.oculus.ocui.OCInfo android:textSize="@dimen/anytime_tablet_profile_text_size_medium" android:textStyle="bold" android:textColorHighlight="#00ffffff" android:gravity="center" android:id="@id/warning" android:tag="binding_8" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/active_call_bar_active_call_button_padding" android:text="@string/wifi_eap_sim_not_available" android:lineHeight="@dimen/octypography_body1_line_height" />
+                            <include android:id="@id/wifi_eap_phase2" layout="@layout/wifi_add_network_dialog_select_row" />
+                            <include android:id="@id/wifi_eap_ca_cert" layout="@layout/wifi_add_network_dialog_select_row" />
+                            <include android:id="@id/wifi_eap_ocsp" layout="@layout/wifi_add_network_dialog_select_row" />
+                            <include android:id="@id/wifi_eap_domain" layout="@layout/wifi_add_network_dialog_textinput_row" />
+                            <include android:id="@id/wifi_eap_user_cert" layout="@layout/wifi_add_network_dialog_select_row" />
+                            <include android:id="@id/wifi_eap_identity" layout="@layout/wifi_add_network_dialog_textinput_row" />
+                            <include android:id="@id/wifi_eap_anonymous" layout="@layout/wifi_add_network_dialog_textinput_row" />
+                        </LinearLayout>
+                        <include android:id="@id/wifi_password" layout="@layout/wifi_add_network_dialog_textinput_row" />
+                    </LinearLayout>
+                    <com.oculus.ocui.OCButton android:textColor="?ocPrimaryTextOnMedia" android:gravity="start|center" android:id="@id/wifi_advanced_fields_accordion" android:tag="binding_9" android:layout_width="fill_parent" android:layout_height="@dimen/anytime_tablet_common_rectangular_button_height" android:text="@string/wifi_advanced_fields_accordion_title" android:drawableEnd="@drawable/oc_icon_chevron_right_filled_24" android:drawableTint="?ocIconOnMedia" android:layout_marginHorizontal="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" app:mode="borderless" />
+                    <LinearLayout android:orientation="vertical" android:id="@id/wifi_advanced_fields" android:tag="binding_10" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/active_call_bar_active_call_button_padding" android:layout_marginHorizontal="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins">
+                        <include android:id="@id/wifi_hidden_network" layout="@layout/wifi_add_network_dialog_select_row" />
+                        <include android:id="@id/wifi_proxy_settings" layout="@layout/wifi_add_network_dialog_select_row" />
+                        <LinearLayout android:orientation="vertical" android:id="@id/wifi_proxy_static_settings" android:tag="binding_11" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                            <com.oculus.ocui.OCInfo android:textSize="@dimen/anytime_tablet_profile_text_size_medium" android:textStyle="bold" android:textColorHighlight="#00ffffff" android:gravity="center" android:id="@id/wifi_proxy_warning_limited_support" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/active_call_bar_active_call_button_padding" android:text="@string/wifi_proxy_warning_limited_support" android:lineHeight="@dimen/octypography_body1_line_height" />
+                            <include android:id="@id/wifi_proxy_hostname" layout="@layout/wifi_add_network_dialog_textinput_row" />
+                            <include android:id="@id/wifi_proxy_port" layout="@layout/wifi_add_network_dialog_textinput_row" />
+                            <include android:id="@id/wifi_proxy_exclusion_list" layout="@layout/wifi_add_network_dialog_textinput_row" />
+                        </LinearLayout>
+                        <LinearLayout android:orientation="vertical" android:id="@id/wifi_proxy_pac_settings" android:tag="binding_12" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                            <include android:id="@id/wifi_proxy_pac" layout="@layout/wifi_add_network_dialog_textinput_row" />
+                        </LinearLayout>
+                        <include android:id="@id/wifi_ip_assignment" layout="@layout/wifi_add_network_dialog_select_row" />
+                        <LinearLayout android:orientation="vertical" android:id="@id/wifi_static_ip_settings" android:tag="binding_13" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                            <include android:id="@id/wifi_ip_address" layout="@layout/wifi_add_network_dialog_textinput_row" />
+                            <include android:id="@id/wifi_gateway" layout="@layout/wifi_add_network_dialog_textinput_row" />
+                            <include android:id="@id/wifi_network_prefix_length" layout="@layout/wifi_add_network_dialog_textinput_row" />
+                            <include android:id="@id/wifi_dns1" layout="@layout/wifi_add_network_dialog_textinput_row" />
+                            <include android:id="@id/wifi_dns2" layout="@layout/wifi_add_network_dialog_textinput_row" />
+                        </LinearLayout>
+                        <LinearLayout android:orientation="vertical" android:id="@id/wifi_privacy_settings" android:tag="binding_14" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                            <include android:id="@id/wifi_privacy" layout="@layout/wifi_add_network_dialog_select_row" />
+                        </LinearLayout>
+                        <LinearLayout android:orientation="vertical" android:id="@id/wifi_shared_settings" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/active_call_bar_active_call_button_padding">
+                            <com.oculus.ocui.OCCheckbox android:textSize="@dimen/anytime_tablet_profile_text_size_medium" android:textColor="?ocPrimaryText" android:id="@id/wifi_shared" android:layout_width="fill_parent" android:layout_height="wrap_content" android:checked="true" android:text="@string/wifi_shared" android:lineHeight="@dimen/octypography_body1_line_height" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.oculus.panelapp.androiddialog.dialogs.wifi.OptionalNestedScrollView>
+            <LinearLayout android:orientation="horizontal" android:id="@id/top_button_group" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <com.oculus.ocui.OCButton android:id="@id/cancel_button" android:tag="binding_15" android:layout_width="fill_parent" android:layout_height="@dimen/anytime_tablet_common_rectangular_button_height" android:layout_marginTop="12.0dip" android:text="@string/wifi_add_cancel" android:layout_weight="1.0" android:layout_marginStart="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" android:layout_marginEnd="@dimen/abc_button_inset_vertical_material" />
+                <com.oculus.ocui.OCButton android:id="@id/confirm_button" android:tag="binding_16" android:layout_width="fill_parent" android:layout_height="@dimen/anytime_tablet_common_rectangular_button_height" android:layout_marginTop="12.0dip" android:layout_weight="1.0" android:layout_marginEnd="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" app:mode="primary" />
+            </LinearLayout>
+            <com.oculus.ocui.OCButton android:id="@id/tertiary_button" android:tag="binding_17" android:layout_width="fill_parent" android:layout_height="@dimen/anytime_tablet_common_rectangular_button_height" android:layout_marginTop="8.0dip" android:text="@string/wifi_tertiary_button_text" android:layout_marginStart="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" android:layout_marginEnd="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" app:mode="borderless" />
+        </LinearLayout>
+    </com.oculus.ocui.OCMultiLayerContainer>
+</com.oculus.panelapp.androiddialog.dialogs.wifi.WifiAddNetworkDialog>

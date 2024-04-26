@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.ocui.OCTileButton android:id="@id/button" android:tag="layout/settings_grid_tile_0" android:layout_width="@dimen/settings_grid_tile_width" android:layout_height="@dimen/settings_grid_tile_height" app:titleTextSize="small" app:useBoldTitleText="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" />

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_up_description">Yuxarı keçin</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+</string>
+    <string name="abc_menu_delete_shortcut_label">silin</string>
+    <string name="abc_menu_enter_shortcut_label">daxil olun</string>
+    <string name="abc_menu_function_shortcut_label">Funksiya+</string>
+    <string name="abc_menu_meta_shortcut_label">Meta+</string>
+    <string name="abc_menu_shift_shortcut_label">Shift+</string>
+    <string name="abc_menu_space_shortcut_label">space</string>
+    <string name="abc_menu_sym_shortcut_label">Sym+</string>
+    <string name="abc_prepend_shortcut_label">Menyu+</string>
+    <string name="abc_searchview_description_clear">Sorğunu silin</string>
+    <string name="abc_searchview_description_search">Axtarın</string>
+    <string name="abc_searchview_description_submit">Sorğunu göndərin</string>
+    <string name="abc_searchview_description_voice">Səsli axtarış</string>
+    <string name="default_popup_window_title">Popap Pəncərəsi</string>
+    <string name="in_progress">Davam edir</string>
+    <string name="indeterminate">Qismən yoxlanıb</string>
+    <string name="not_selected">Seçilməyib</string>
+    <string name="off">Deaktiv</string>
+    <string name="on">Aktiv</string>
+    <string name="selected">Seçilib</string>
+    <string name="switch_role">Dəyişdirin</string>
+    <string name="tab">Tab</string>
+    <string name="template_percent">%1$d faiz.</string>
+</resources>

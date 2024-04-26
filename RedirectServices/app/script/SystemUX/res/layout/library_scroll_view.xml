@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.panelapp.library.tabinfra.views.tabs.apps.LibraryAppsTabScrollView android:tag="layout/library_scroll_view_0" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.oculus.panelapp.library.tabinfra.views.tabs.apps.LibraryRecyclerView android:id="@id/library_content" android:tag="binding_1" android:paddingBottom="@dimen/anytime_tablet_common_rectangular_button_height" android:scrollbars="vertical" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="0.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <include android:id="@id/back_to_top_button_layout" layout="@layout/back_to_top_button" />
+</com.oculus.panelapp.library.tabinfra.views.tabs.apps.LibraryAppsTabScrollView>

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<drawable app:cornerRadius="?ocContextMenuBorderRadius" app:solidBgColor="?ocContextMenuBackground" class="com.oculus.ocui.OCPanelBackgroundDrawable" xmlns:app="http://schemas.android.com/apk/res-auto" />

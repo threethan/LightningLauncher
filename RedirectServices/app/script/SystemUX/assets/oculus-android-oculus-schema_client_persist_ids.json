@@ -1,0 +1,1507 @@
+{
+  "AbuseReportButtonShowDisabledTooltipQuery": {
+    "operation_name": "AbuseReportButtonShowDisabledTooltipQuery",
+    "operation_name_hash": "1712195147",
+    "operation_text_hash": "12991766159214522661",
+    "client_doc_id": "171219514712991766159214522661",
+    "schema": "oculus"
+  },
+  "AbuseReportDemarcationNuxMutation": {
+    "operation_name": "AbuseReportDemarcationNuxMutation",
+    "operation_name_hash": "2915801514",
+    "operation_text_hash": "1605601339868200229",
+    "client_doc_id": "29158015141605601339868200229",
+    "schema": "oculus"
+  },
+  "AbuseReportDemarcationNuxQuery": {
+    "operation_name": "AbuseReportDemarcationNuxQuery",
+    "operation_name_hash": "3597207167",
+    "operation_text_hash": "742046022167031801",
+    "client_doc_id": "3597207167742046022167031801",
+    "schema": "oculus"
+  },
+  "AbuseReportShowDisabledTooltipMutation": {
+    "operation_name": "AbuseReportShowDisabledTooltipMutation",
+    "operation_name_hash": "4179121378",
+    "operation_text_hash": "1912249281792513605",
+    "client_doc_id": "41791213781912249281792513605",
+    "schema": "oculus"
+  },
+  "AcceptFollowRequestMutation": {
+    "operation_name": "AcceptFollowRequestMutation",
+    "operation_name_hash": "1963137323",
+    "operation_text_hash": "13179191554200160844",
+    "client_doc_id": "196313732313179191554200160844",
+    "schema": "oculus"
+  },
+  "ActiveStatusCardDetails": {
+    "operation_name": "ActiveStatusCardDetails",
+    "operation_name_hash": "1080336389",
+    "operation_text_hash": "15503885480519927383",
+    "client_doc_id": "108033638915503885480519927383",
+    "schema": "oculus"
+  },
+  "ActiveStatusCardDismiss": {
+    "operation_name": "ActiveStatusCardDismiss",
+    "operation_name_hash": "2036208874",
+    "operation_text_hash": "15762216560005054461",
+    "client_doc_id": "203620887415762216560005054461",
+    "schema": "oculus"
+  },
+  "ActiveStatusCardImpression": {
+    "operation_name": "ActiveStatusCardImpression",
+    "operation_name_hash": "2704344969",
+    "operation_text_hash": "4643247625921329198",
+    "client_doc_id": "27043449694643247625921329198",
+    "schema": "oculus"
+  },
+  "AddToFavoriteAppsMutation": {
+    "operation_name": "AddToFavoriteAppsMutation",
+    "operation_name_hash": "922050825",
+    "operation_text_hash": "3652546722125220616",
+    "client_doc_id": "9220508253652546722125220616",
+    "schema": "oculus"
+  },
+  "AppDetailsViewFeedItemQuery": {
+    "operation_name": "AppDetailsViewFeedItemQuery",
+    "operation_name_hash": "2131480268",
+    "operation_text_hash": "9926507054930793173",
+    "client_doc_id": "21314802689926507054930793173",
+    "schema": "oculus"
+  },
+  "AppDetailsViewFeedQuery": {
+    "operation_name": "AppDetailsViewFeedQuery",
+    "operation_name_hash": "1518746008",
+    "operation_text_hash": "5006120269192477014",
+    "client_doc_id": "15187460085006120269192477014",
+    "schema": "oculus"
+  },
+  "AppGroupingRestrictions": {
+    "operation_name": "AppGroupingRestrictions",
+    "operation_name_hash": "2074514791",
+    "operation_text_hash": "6925422436877754016",
+    "client_doc_id": "20745147916925422436877754016",
+    "schema": "oculus"
+  },
+  "AppSubdestinationsQuery": {
+    "operation_name": "AppSubdestinationsQuery",
+    "operation_name_hash": "4166181671",
+    "operation_text_hash": "7451286281480960612",
+    "client_doc_id": "41661816717451286281480960612",
+    "schema": "oculus"
+  },
+  "AppUpdateDevPostQuery": {
+    "operation_name": "AppUpdateDevPostQuery",
+    "operation_name_hash": "2270017770",
+    "operation_text_hash": "4655269790193234821",
+    "client_doc_id": "22700177704655269790193234821",
+    "schema": "oculus"
+  },
+  "ApplicationInvitesQuery": {
+    "operation_name": "ApplicationInvitesQuery",
+    "operation_name_hash": "907660971",
+    "operation_text_hash": "6008749467406198093",
+    "client_doc_id": "9076609716008749467406198093",
+    "schema": "oculus"
+  },
+  "ApplicationTagCheckerQuery": {
+    "operation_name": "ApplicationTagCheckerQuery",
+    "operation_name_hash": "2281694920",
+    "operation_text_hash": "17340875841892161031",
+    "client_doc_id": "228169492017340875841892161031",
+    "schema": "oculus"
+  },
+  "ApplicationVersionCheck": {
+    "operation_name": "ApplicationVersionCheck",
+    "operation_name_hash": "2325661373",
+    "operation_text_hash": "14145220445757850711",
+    "client_doc_id": "232566137314145220445757850711",
+    "schema": "oculus"
+  },
+  "ApprovedContactsQuery": {
+    "operation_name": "ApprovedContactsQuery",
+    "operation_name_hash": "3934209980",
+    "operation_text_hash": "4875281358014606802",
+    "client_doc_id": "39342099804875281358014606802",
+    "schema": "oculus"
+  },
+  "AssistantPrivacyDeviceRegistrationQuery": {
+    "operation_name": "AssistantPrivacyDeviceRegistrationQuery",
+    "operation_name_hash": "1186127161",
+    "operation_text_hash": "7465600735831542684",
+    "client_doc_id": "11861271617465600735831542684",
+    "schema": "oculus"
+  },
+  "AudienceAndVisibilityQuery": {
+    "operation_name": "AudienceAndVisibilityQuery",
+    "operation_name_hash": "613216091",
+    "operation_text_hash": "4816483702814783488",
+    "client_doc_id": "6132160914816483702814783488",
+    "schema": "oculus"
+  },
+  "AuiViewerProfileQuery": {
+    "operation_name": "AuiViewerProfileQuery",
+    "operation_name_hash": "2019799230",
+    "operation_text_hash": "13189552588502740653",
+    "client_doc_id": "201979923013189552588502740653",
+    "schema": "oculus"
+  },
+  "AutofollowModalEnableAutofollowMutation": {
+    "operation_name": "AutofollowModalEnableAutofollowMutation",
+    "operation_name_hash": "3979916298",
+    "operation_text_hash": "18239672459206040993",
+    "client_doc_id": "397991629818239672459206040993",
+    "schema": "oculus"
+  },
+  "BlendedFollowsQuery": {
+    "operation_name": "BlendedFollowsQuery",
+    "operation_name_hash": "2726715041",
+    "operation_text_hash": "7544814295309295052",
+    "client_doc_id": "27267150417544814295309295052",
+    "schema": "oculus"
+  },
+  "BlendedMultiplayerGamesQuery": {
+    "operation_name": "BlendedMultiplayerGamesQuery",
+    "operation_name_hash": "3593730866",
+    "operation_text_hash": "14227092379927828484",
+    "client_doc_id": "359373086614227092379927828484",
+    "schema": "oculus"
+  },
+  "BlockUserMutation": {
+    "operation_name": "BlockUserMutation",
+    "operation_name_hash": "2269009107",
+    "operation_text_hash": "2689035577594186180",
+    "client_doc_id": "22690091072689035577594186180",
+    "schema": "oculus"
+  },
+  "BlockedUsersQuery": {
+    "operation_name": "BlockedUsersQuery",
+    "operation_name_hash": "994893369",
+    "operation_text_hash": "9550342858651002522",
+    "client_doc_id": "9948933699550342858651002522",
+    "schema": "oculus"
+  },
+  "CanUserSubmitFeedback": {
+    "operation_name": "CanUserSubmitFeedback",
+    "operation_name_hash": "1451984676",
+    "operation_text_hash": "9241680464365132208",
+    "client_doc_id": "14519846769241680464365132208",
+    "schema": "oculus"
+  },
+  "CancelFollowRequestMutation": {
+    "operation_name": "CancelFollowRequestMutation",
+    "operation_name_hash": "3947605867",
+    "operation_text_hash": "17846259998680503448",
+    "client_doc_id": "394760586717846259998680503448",
+    "schema": "oculus"
+  },
+  "CancelInviteMutation": {
+    "operation_name": "CancelInviteMutation",
+    "operation_name_hash": "2408535102",
+    "operation_text_hash": "9715772894376948250",
+    "client_doc_id": "24085351029715772894376948250",
+    "schema": "oculus"
+  },
+  "CancelYouthSocialConnectionMutation": {
+    "operation_name": "CancelYouthSocialConnectionMutation",
+    "operation_name_hash": "2653313081",
+    "operation_text_hash": "3532414503046959303",
+    "client_doc_id": "26533130813532414503046959303",
+    "schema": "oculus"
+  },
+  "CapabilitiesQuery": {
+    "operation_name": "CapabilitiesQuery",
+    "operation_name_hash": "4294778856",
+    "operation_text_hash": "13804629567073386423",
+    "client_doc_id": "429477885613804629567073386423",
+    "schema": "oculus"
+  },
+  "CastNotificationSendMutation": {
+    "operation_name": "CastNotificationSendMutation",
+    "operation_name_hash": "638091533",
+    "operation_text_hash": "13033765327750792890",
+    "client_doc_id": "63809153313033765327750792890",
+    "schema": "oculus"
+  },
+  "CastOCCastingLinkMutation": {
+    "operation_name": "CastOCCastingLinkMutation",
+    "operation_name_hash": "1055919392",
+    "operation_text_hash": "8002896190029719498",
+    "client_doc_id": "10559193928002896190029719498",
+    "schema": "oculus"
+  },
+  "CastingAnywhereSendEmail": {
+    "operation_name": "CastingAnywhereSendEmail",
+    "operation_name_hash": "3636491700",
+    "operation_text_hash": "13547483009773440153",
+    "client_doc_id": "363649170013547483009773440153",
+    "schema": "oculus"
+  },
+  "CoPresenceDemoUpsellVideoQuery": {
+    "operation_name": "CoPresenceDemoUpsellVideoQuery",
+    "operation_name_hash": "3077565420",
+    "operation_text_hash": "3972304175091906353",
+    "client_doc_id": "30775654203972304175091906353",
+    "schema": "oculus"
+  },
+  "ConsentPlatformFetchPromptsQuery": {
+    "operation_name": "ConsentPlatformFetchPromptsQuery",
+    "operation_name_hash": "14227988",
+    "operation_text_hash": "11061471330359842108",
+    "client_doc_id": "1422798811061471330359842108",
+    "schema": "oculus"
+  },
+  "ConsentPlatformLaunchConsentFlowQuery": {
+    "operation_name": "ConsentPlatformLaunchConsentFlowQuery",
+    "operation_name_hash": "3435070846",
+    "operation_text_hash": "10981166736169457146",
+    "client_doc_id": "343507084610981166736169457146",
+    "schema": "oculus"
+  },
+  "CreateApplicationInviteMutation": {
+    "operation_name": "CreateApplicationInviteMutation",
+    "operation_name_hash": "2548074328",
+    "operation_text_hash": "13204963122102283310",
+    "client_doc_id": "254807432813204963122102283310",
+    "schema": "oculus"
+  },
+  "CreateApplicationInvitesMutation": {
+    "operation_name": "CreateApplicationInvitesMutation",
+    "operation_name_hash": "3312719031",
+    "operation_text_hash": "12269285720303848699",
+    "client_doc_id": "331271903112269285720303848699",
+    "schema": "oculus"
+  },
+  "CreateInviteLink": {
+    "operation_name": "CreateInviteLink",
+    "operation_name_hash": "1574766686",
+    "operation_text_hash": "15798298006622057653",
+    "client_doc_id": "157476668615798298006622057653",
+    "schema": "oculus"
+  },
+  "CreateInviteMutation": {
+    "operation_name": "CreateInviteMutation",
+    "operation_name_hash": "1671469402",
+    "operation_text_hash": "17780916272611062413",
+    "client_doc_id": "167146940217780916272611062413",
+    "schema": "oculus"
+  },
+  "CreateParcoInvitationMutation": {
+    "operation_name": "CreateParcoInvitationMutation",
+    "operation_name_hash": "2733996417",
+    "operation_text_hash": "17207571198042865961",
+    "client_doc_id": "273399641717207571198042865961",
+    "schema": "oculus"
+  },
+  "CreateParcoScreenTimeBundleMutation": {
+    "operation_name": "CreateParcoScreenTimeBundleMutation",
+    "operation_name_hash": "3528618868",
+    "operation_text_hash": "8054071562726800840",
+    "client_doc_id": "35286188688054071562726800840",
+    "schema": "oculus"
+  },
+  "CreateParcoScreenTimeMutation": {
+    "operation_name": "CreateParcoScreenTimeMutation",
+    "operation_name_hash": "2111700787",
+    "operation_text_hash": "17947455535306914547",
+    "client_doc_id": "211170078717947455535306914547",
+    "schema": "oculus"
+  },
+  "CreateYouthSocialConnectionMutation": {
+    "operation_name": "CreateYouthSocialConnectionMutation",
+    "operation_name_hash": "2009247136",
+    "operation_text_hash": "12325567818241326596",
+    "client_doc_id": "200924713612325567818241326596",
+    "schema": "oculus"
+  },
+  "CurrentPartyInfoQuery": {
+    "operation_name": "CurrentPartyInfoQuery",
+    "operation_name_hash": "490734018",
+    "operation_text_hash": "13834606739974235692",
+    "client_doc_id": "49073401813834606739974235692",
+    "schema": "oculus"
+  },
+  "CurrentPartySubscription": {
+    "operation_name": "CurrentPartySubscription",
+    "operation_name_hash": "1042633926",
+    "operation_text_hash": "12070507302304166183",
+    "client_doc_id": "104263392612070507302304166183",
+    "schema": "oculus"
+  },
+  "CurrentRosterUsersQuery": {
+    "operation_name": "CurrentRosterUsersQuery",
+    "operation_name_hash": "3747813923",
+    "operation_text_hash": "14793956615684151906",
+    "client_doc_id": "374781392314793956615684151906",
+    "schema": "oculus"
+  },
+  "DeeplinkTargetQuery": {
+    "operation_name": "DeeplinkTargetQuery",
+    "operation_name_hash": "2641235032",
+    "operation_text_hash": "3379612309547182598",
+    "client_doc_id": "26412350323379612309547182598",
+    "schema": "oculus"
+  },
+  "DeletePersonalMapDataMutation": {
+    "operation_name": "DeletePersonalMapDataMutation",
+    "operation_name_hash": "2504574897",
+    "operation_text_hash": "8052277614408939863",
+    "client_doc_id": "25045748978052277614408939863",
+    "schema": "oculus"
+  },
+  "DeleteWebRtcHandshakeMutation": {
+    "operation_name": "DeleteWebRtcHandshakeMutation",
+    "operation_name_hash": "464553411",
+    "operation_text_hash": "1828003360919211105",
+    "client_doc_id": "4645534111828003360919211105",
+    "schema": "oculus"
+  },
+  "EducationTipQuery": {
+    "operation_name": "EducationTipQuery",
+    "operation_name_hash": "2373242795",
+    "operation_text_hash": "6835909282524306400",
+    "client_doc_id": "23732427956835909282524306400",
+    "schema": "oculus"
+  },
+  "EventRSVPMutation": {
+    "operation_name": "EventRSVPMutation",
+    "operation_name_hash": "4087823986",
+    "operation_text_hash": "6387636641477594137",
+    "client_doc_id": "40878239866387636641477594137",
+    "schema": "oculus"
+  },
+  "FBAPoseMutation": {
+    "operation_name": "FBAPoseMutation",
+    "operation_name_hash": "2215137412",
+    "operation_text_hash": "18002852531409396807",
+    "client_doc_id": "221513741218002852531409396807",
+    "schema": "oculus"
+  },
+  "FBAPoseQuery": {
+    "operation_name": "FBAPoseQuery",
+    "operation_name_hash": "201173606",
+    "operation_text_hash": "15589931901664420204",
+    "client_doc_id": "20117360615589931901664420204",
+    "schema": "oculus"
+  },
+  "FXLinkedIdentitiesQuery": {
+    "operation_name": "FXLinkedIdentitiesQuery",
+    "operation_name_hash": "3002817560",
+    "operation_text_hash": "10044676025628416265",
+    "client_doc_id": "300281756010044676025628416265",
+    "schema": "oculus"
+  },
+  "FamilySendShareToSmartphoneNotification": {
+    "operation_name": "FamilySendShareToSmartphoneNotification",
+    "operation_name_hash": "1879313826",
+    "operation_text_hash": "11726946915108411359",
+    "client_doc_id": "187931382611726946915108411359",
+    "schema": "oculus"
+  },
+  "FetchHorizonProfileIdentitySyncedQuery": {
+    "operation_name": "FetchHorizonProfileIdentitySyncedQuery",
+    "operation_name_hash": "4218228580",
+    "operation_text_hash": "1404165212649954740",
+    "client_doc_id": "42182285801404165212649954740",
+    "schema": "oculus"
+  },
+  "FetchMultipleUserProfilesQuery": {
+    "operation_name": "FetchMultipleUserProfilesQuery",
+    "operation_name_hash": "2007884517",
+    "operation_text_hash": "11762107634632806789",
+    "client_doc_id": "200788451711762107634632806789",
+    "schema": "oculus"
+  },
+  "FetchPartyLeaderHomeInstance": {
+    "operation_name": "FetchPartyLeaderHomeInstance",
+    "operation_name_hash": "3342033488",
+    "operation_text_hash": "3155860755759884635",
+    "client_doc_id": "33420334883155860755759884635",
+    "schema": "oculus"
+  },
+  "FetchWebRtcHandshakeForIdLegacy": {
+    "operation_name": "FetchWebRtcHandshakeForIdLegacy",
+    "operation_name_hash": "4033776008",
+    "operation_text_hash": "10638935907315801299",
+    "client_doc_id": "403377600810638935907315801299",
+    "schema": "oculus"
+  },
+  "FollowsPresenceStatus": {
+    "operation_name": "FollowsPresenceStatus",
+    "operation_name_hash": "3460252779",
+    "operation_text_hash": "9203205948695307213",
+    "client_doc_id": "34602527799203205948695307213",
+    "schema": "oculus"
+  },
+  "GetDeviceManifestQuery": {
+    "operation_name": "GetDeviceManifestQuery",
+    "operation_name_hash": "1666081049",
+    "operation_text_hash": "3113531093410815930",
+    "client_doc_id": "16660810493113531093410815930",
+    "schema": "oculus"
+  },
+  "HandleGroupLaunchMutation": {
+    "operation_name": "HandleGroupLaunchMutation",
+    "operation_name_hash": "953342581",
+    "operation_text_hash": "5591895853809301087",
+    "client_doc_id": "9533425815591895853809301087",
+    "schema": "oculus"
+  },
+  "HeadsetCastingClearHandshake": {
+    "operation_name": "HeadsetCastingClearHandshake",
+    "operation_name_hash": "873539640",
+    "operation_text_hash": "12970594550370073777",
+    "client_doc_id": "87353964012970594550370073777",
+    "schema": "oculus"
+  },
+  "HideAppGrouping": {
+    "operation_name": "HideAppGrouping",
+    "operation_name_hash": "2745955557",
+    "operation_text_hash": "136910566535768538",
+    "client_doc_id": "2745955557136910566535768538",
+    "schema": "oculus"
+  },
+  "HorizonInstancePrecheckMutation": {
+    "operation_name": "HorizonInstancePrecheckMutation",
+    "operation_name_hash": "4253541970",
+    "operation_text_hash": "9887592183170808902",
+    "client_doc_id": "42535419709887592183170808902",
+    "schema": "oculus"
+  },
+  "HorizonWorldsFeedQuery": {
+    "operation_name": "HorizonWorldsFeedQuery",
+    "operation_name_hash": "1831338964",
+    "operation_text_hash": "11588463561102052480",
+    "client_doc_id": "183133896411588463561102052480",
+    "schema": "oculus"
+  },
+  "InAppFeedbackCreateMutation": {
+    "operation_name": "InAppFeedbackCreateMutation",
+    "operation_name_hash": "373020351",
+    "operation_text_hash": "8473680687782878941",
+    "client_doc_id": "3730203518473680687782878941",
+    "schema": "oculus"
+  },
+  "IntegrityAbuseReportQuery": {
+    "operation_name": "IntegrityAbuseReportQuery",
+    "operation_name_hash": "3699888033",
+    "operation_text_hash": "7912433710707119987",
+    "client_doc_id": "36998880337912433710707119987",
+    "schema": "oculus"
+  },
+  "IntegrityEnforcementQuery": {
+    "operation_name": "IntegrityEnforcementQuery",
+    "operation_name_hash": "1773629194",
+    "operation_text_hash": "389340893404075671",
+    "client_doc_id": "1773629194389340893404075671",
+    "schema": "oculus"
+  },
+  "IntegrityProfileCCVEStatusQuery": {
+    "operation_name": "IntegrityProfileCCVEStatusQuery",
+    "operation_name_hash": "1132530972",
+    "operation_text_hash": "3229508832945861497",
+    "client_doc_id": "11325309723229508832945861497",
+    "schema": "oculus"
+  },
+  "IntegrityResourcesRestrictedLaunchQuery": {
+    "operation_name": "IntegrityResourcesRestrictedLaunchQuery",
+    "operation_name_hash": "419541792",
+    "operation_text_hash": "12548950856261749925",
+    "client_doc_id": "41954179212548950856261749925",
+    "schema": "oculus"
+  },
+  "InviteUserToPartyMutation": {
+    "operation_name": "InviteUserToPartyMutation",
+    "operation_name_hash": "2577957180",
+    "operation_text_hash": "160925233020903756",
+    "client_doc_id": "2577957180160925233020903756",
+    "schema": "oculus"
+  },
+  "InvitedPartyNotificationsQuery": {
+    "operation_name": "InvitedPartyNotificationsQuery",
+    "operation_name_hash": "3827605464",
+    "operation_text_hash": "11111646863769620439",
+    "client_doc_id": "382760546411111646863769620439",
+    "schema": "oculus"
+  },
+  "IsSalsaQuery": {
+    "operation_name": "IsSalsaQuery",
+    "operation_name_hash": "1146330387",
+    "operation_text_hash": "3192870770271985742",
+    "client_doc_id": "11463303873192870770271985742",
+    "schema": "oculus"
+  },
+  "LiveVideoCommentCreateSubscription": {
+    "operation_name": "LiveVideoCommentCreateSubscription",
+    "operation_name_hash": "596703546",
+    "operation_text_hash": "5604075596557211839",
+    "client_doc_id": "5967035465604075596557211839",
+    "schema": "oculus"
+  },
+  "LivestreamCheckFbAccountLinkedQuery": {
+    "operation_name": "LivestreamCheckFbAccountLinkedQuery",
+    "operation_name_hash": "1362273402",
+    "operation_text_hash": "16677475123128149759",
+    "client_doc_id": "136227340216677475123128149759",
+    "schema": "oculus"
+  },
+  "LivestreamCreateVideoMutation": {
+    "operation_name": "LivestreamCreateVideoMutation",
+    "operation_name_hash": "293551166",
+    "operation_text_hash": "12696298663280752497",
+    "client_doc_id": "29355116612696298663280752497",
+    "schema": "oculus"
+  },
+  "LivestreamEndVideoMutation": {
+    "operation_name": "LivestreamEndVideoMutation",
+    "operation_name_hash": "104523314",
+    "operation_text_hash": "15431529843445400909",
+    "client_doc_id": "10452331415431529843445400909",
+    "schema": "oculus"
+  },
+  "LivestreamFeedbackQuery": {
+    "operation_name": "LivestreamFeedbackQuery",
+    "operation_name_hash": "1761185714",
+    "operation_text_hash": "5000977315565805159",
+    "client_doc_id": "17611857145000977315565805159",
+    "schema": "oculus"
+  },
+  "LivestreamSettingQuery": {
+    "operation_name": "LivestreamSettingQuery",
+    "operation_name_hash": "1713854802",
+    "operation_text_hash": "125555802629001957",
+    "client_doc_id": "1713854802125555802629001957",
+    "schema": "oculus"
+  },
+  "LivestreamSettingWithoutPageQuery": {
+    "operation_name": "LivestreamSettingWithoutPageQuery",
+    "operation_name_hash": "1694070363",
+    "operation_text_hash": "18228968882790589658",
+    "client_doc_id": "169407036318228968882790589658",
+    "schema": "oculus"
+  },
+  "LivestreamUpdateCurrentAppMutation": {
+    "operation_name": "LivestreamUpdateCurrentAppMutation",
+    "operation_name_hash": "213481914",
+    "operation_text_hash": "7103970829205760208",
+    "client_doc_id": "2134819147103970829205760208",
+    "schema": "oculus"
+  },
+  "LivestreamVideoLiveQuery": {
+    "operation_name": "LivestreamVideoLiveQuery",
+    "operation_name_hash": "492687131",
+    "operation_text_hash": "879704574075469260",
+    "client_doc_id": "492687131879704574075469260",
+    "schema": "oculus"
+  },
+  "LivestreamVideoQuery": {
+    "operation_name": "LivestreamVideoQuery",
+    "operation_name_hash": "2829867137",
+    "operation_text_hash": "7057353067610924737",
+    "client_doc_id": "28298671377057353067610924737",
+    "schema": "oculus"
+  },
+  "MarkPrivacyBannerImpressionMutation": {
+    "operation_name": "MarkPrivacyBannerImpressionMutation",
+    "operation_name_hash": "2682578966",
+    "operation_text_hash": "8402482190850419595",
+    "client_doc_id": "26825789668402482190850419595",
+    "schema": "oculus"
+  },
+  "MostRecentPresenceQuery": {
+    "operation_name": "MostRecentPresenceQuery",
+    "operation_name_hash": "3044925267",
+    "operation_text_hash": "4507784786454130962",
+    "client_doc_id": "30449252674507784786454130962",
+    "schema": "oculus"
+  },
+  "MvanAskForAccessMutation": {
+    "operation_name": "MvanAskForAccessMutation",
+    "operation_name_hash": "2527455778",
+    "operation_text_hash": "3283306963253184856",
+    "client_doc_id": "25274557783283306963253184856",
+    "schema": "oculus"
+  },
+  "MvanLaunchRestrictionDataQuery": {
+    "operation_name": "MvanLaunchRestrictionDataQuery",
+    "operation_name_hash": "2857001052",
+    "operation_text_hash": "6587758412386271463",
+    "client_doc_id": "28570010526587758412386271463",
+    "schema": "oculus"
+  },
+  "MvanResourcesRestrictedLaunchQuery": {
+    "operation_name": "MvanResourcesRestrictedLaunchQuery",
+    "operation_name_hash": "696808842",
+    "operation_text_hash": "9117309927269490819",
+    "client_doc_id": "6968088429117309927269490819",
+    "schema": "oculus"
+  },
+  "MvanScreenTimeRestrictionLiveQuery": {
+    "operation_name": "MvanScreenTimeRestrictionLiveQuery",
+    "operation_name_hash": "3777841497",
+    "operation_text_hash": "1120616003284658067",
+    "client_doc_id": "37778414971120616003284658067",
+    "schema": "oculus"
+  },
+  "NeutralAgeGateQuery": {
+    "operation_name": "NeutralAgeGateQuery",
+    "operation_name_hash": "3992112998",
+    "operation_text_hash": "14935403088898323509",
+    "client_doc_id": "399211299814935403088898323509",
+    "schema": "oculus"
+  },
+  "OCChatsUnreadThreadsCount": {
+    "operation_name": "OCChatsUnreadThreadsCount",
+    "operation_name_hash": "2905702412",
+    "operation_text_hash": "5909066960316414259",
+    "client_doc_id": "29057024125909066960316414259",
+    "schema": "oculus"
+  },
+  "OCCloudLinkCapacityTestTarget": {
+    "operation_name": "OCCloudLinkCapacityTestTarget",
+    "operation_name_hash": "4018761077",
+    "operation_text_hash": "1182586243441979305",
+    "client_doc_id": "40187610771182586243441979305",
+    "schema": "oculus"
+  },
+  "OCCloudLinkNegotiateSDP": {
+    "operation_name": "OCCloudLinkNegotiateSDP",
+    "operation_name_hash": "992541289",
+    "operation_text_hash": "6316517174384934511",
+    "client_doc_id": "9925412896316517174384934511",
+    "schema": "oculus"
+  },
+  "OCCloudLinkSpeedTestTarget": {
+    "operation_name": "OCCloudLinkSpeedTestTarget",
+    "operation_name_hash": "3446941095",
+    "operation_text_hash": "5804633942742267131",
+    "client_doc_id": "34469410955804633942742267131",
+    "schema": "oculus"
+  },
+  "OCCommunicatorMessageSendMutation": {
+    "operation_name": "OCCommunicatorMessageSendMutation",
+    "operation_name_hash": "219634981",
+    "operation_text_hash": "295074374772163342",
+    "client_doc_id": "219634981295074374772163342",
+    "schema": "oculus"
+  },
+  "OCCreateCastAnywhereLink": {
+    "operation_name": "OCCreateCastAnywhereLink",
+    "operation_name_hash": "1151972613",
+    "operation_text_hash": "15168593345698271744",
+    "client_doc_id": "115197261315168593345698271744",
+    "schema": "oculus"
+  },
+  "OCFetchActiveCallId": {
+    "operation_name": "OCFetchActiveCallId",
+    "operation_name_hash": "1461435330",
+    "operation_text_hash": "14990180746859096983",
+    "client_doc_id": "146143533014990180746859096983",
+    "schema": "oculus"
+  },
+  "OCFetchBlendedPeopleList": {
+    "operation_name": "OCFetchBlendedPeopleList",
+    "operation_name_hash": "1158258141",
+    "operation_text_hash": "9912132215065193635",
+    "client_doc_id": "11582581419912132215065193635",
+    "schema": "oculus"
+  },
+  "OCFetchBlendedPeopleSearch": {
+    "operation_name": "OCFetchBlendedPeopleSearch",
+    "operation_name_hash": "2994003932",
+    "operation_text_hash": "14503106106723214584",
+    "client_doc_id": "299400393214503106106723214584",
+    "schema": "oculus"
+  },
+  "OCFetchBlendedPeopleSearchLight": {
+    "operation_name": "OCFetchBlendedPeopleSearchLight",
+    "operation_name_hash": "4162599623",
+    "operation_text_hash": "12321136192762332345",
+    "client_doc_id": "416259962312321136192762332345",
+    "schema": "oculus"
+  },
+  "OCFetchCallUsersDataLiveQuery": {
+    "operation_name": "OCFetchCallUsersDataLiveQuery",
+    "operation_name_hash": "2620464229",
+    "operation_text_hash": "16082433078449037956",
+    "client_doc_id": "262046422916082433078449037956",
+    "schema": "oculus"
+  },
+  "OCFetchDetailedGroup": {
+    "operation_name": "OCFetchDetailedGroup",
+    "operation_name_hash": "154523958",
+    "operation_text_hash": "5130067335908888004",
+    "client_doc_id": "1545239585130067335908888004",
+    "schema": "oculus"
+  },
+  "OCFetchDetailedGroupLiveQuery": {
+    "operation_name": "OCFetchDetailedGroupLiveQuery",
+    "operation_name_hash": "1619835045",
+    "operation_text_hash": "5771405251257100671",
+    "client_doc_id": "16198350455771405251257100671",
+    "schema": "oculus"
+  },
+  "OCFetchDetailedGroupWithThreadID": {
+    "operation_name": "OCFetchDetailedGroupWithThreadID",
+    "operation_name_hash": "58495784",
+    "operation_text_hash": "16632090326901729480",
+    "client_doc_id": "5849578416632090326901729480",
+    "schema": "oculus"
+  },
+  "OCFetchGroup": {
+    "operation_name": "OCFetchGroup",
+    "operation_name_hash": "4146206988",
+    "operation_text_hash": "1824445528965339842",
+    "client_doc_id": "41462069881824445528965339842",
+    "schema": "oculus"
+  },
+  "OCFetchGroupIdsWithPartyID": {
+    "operation_name": "OCFetchGroupIdsWithPartyID",
+    "operation_name_hash": "2374161818",
+    "operation_text_hash": "15795862089858584452",
+    "client_doc_id": "237416181815795862089858584452",
+    "schema": "oculus"
+  },
+  "OCFetchGroupIdsWithThreadID": {
+    "operation_name": "OCFetchGroupIdsWithThreadID",
+    "operation_name_hash": "689752709",
+    "operation_text_hash": "16286948015904560764",
+    "client_doc_id": "68975270916286948015904560764",
+    "schema": "oculus"
+  },
+  "OCFetchGroupLink": {
+    "operation_name": "OCFetchGroupLink",
+    "operation_name_hash": "1992700610",
+    "operation_text_hash": "12584917911592734795",
+    "client_doc_id": "199270061012584917911592734795",
+    "schema": "oculus"
+  },
+  "OCFetchGroupLiveQuery": {
+    "operation_name": "OCFetchGroupLiveQuery",
+    "operation_name_hash": "2264431678",
+    "operation_text_hash": "12936569808334763124",
+    "client_doc_id": "226443167812936569808334763124",
+    "schema": "oculus"
+  },
+  "OCFetchGroupWithThreadID": {
+    "operation_name": "OCFetchGroupWithThreadID",
+    "operation_name_hash": "2809226058",
+    "operation_text_hash": "4466254065185338259",
+    "client_doc_id": "28092260584466254065185338259",
+    "schema": "oculus"
+  },
+  "OCFetchPYMK": {
+    "operation_name": "OCFetchPYMK",
+    "operation_name_hash": "3094425023",
+    "operation_text_hash": "11868381243178048844",
+    "client_doc_id": "309442502311868381243178048844",
+    "schema": "oculus"
+  },
+  "OCFetchPYMKLiveQuery": {
+    "operation_name": "OCFetchPYMKLiveQuery",
+    "operation_name_hash": "3758981456",
+    "operation_text_hash": "6559825357742399272",
+    "client_doc_id": "37589814566559825357742399272",
+    "schema": "oculus"
+  },
+  "OCFetchUsersProfileContexts": {
+    "operation_name": "OCFetchUsersProfileContexts",
+    "operation_name_hash": "424003248",
+    "operation_text_hash": "17545032707309322143",
+    "client_doc_id": "42400324817545032707309322143",
+    "schema": "oculus"
+  },
+  "OCFollowRequestsQuery": {
+    "operation_name": "OCFollowRequestsQuery",
+    "operation_name_hash": "1995382621",
+    "operation_text_hash": "7997497883970735425",
+    "client_doc_id": "19953826217997497883970735425",
+    "schema": "oculus"
+  },
+  "OCFollowRequestsSubscription": {
+    "operation_name": "OCFollowRequestsSubscription",
+    "operation_name_hash": "2592996423",
+    "operation_text_hash": "7032047403542352809",
+    "client_doc_id": "25929964237032047403542352809",
+    "schema": "oculus"
+  },
+  "OCGenAiSmartRepliesForCommunicatorQuery": {
+    "operation_name": "OCGenAiSmartRepliesForCommunicatorQuery",
+    "operation_name_hash": "3443484172",
+    "operation_text_hash": "13235154199139106841",
+    "client_doc_id": "344348417213235154199139106841",
+    "schema": "oculus"
+  },
+  "OCGraphQLInviteDismissMutation": {
+    "operation_name": "OCGraphQLInviteDismissMutation",
+    "operation_name_hash": "2436197738",
+    "operation_text_hash": "8796544519526538359",
+    "client_doc_id": "24361977388796544519526538359",
+    "schema": "oculus"
+  },
+  "OCGroupAddDestination": {
+    "operation_name": "OCGroupAddDestination",
+    "operation_name_hash": "3627236196",
+    "operation_text_hash": "16772391203282234318",
+    "client_doc_id": "362723619616772391203282234318",
+    "schema": "oculus"
+  },
+  "OCGroupAddParticipantsMutation": {
+    "operation_name": "OCGroupAddParticipantsMutation",
+    "operation_name_hash": "632720789",
+    "operation_text_hash": "3049738070634381547",
+    "client_doc_id": "6327207893049738070634381547",
+    "schema": "oculus"
+  },
+  "OCGroupCreateMutation": {
+    "operation_name": "OCGroupCreateMutation",
+    "operation_name_hash": "935721892",
+    "operation_text_hash": "4085772535506800797",
+    "client_doc_id": "9357218924085772535506800797",
+    "schema": "oculus"
+  },
+  "OCGroupRemoveDestination": {
+    "operation_name": "OCGroupRemoveDestination",
+    "operation_name_hash": "2186316864",
+    "operation_text_hash": "6376439766799073520",
+    "client_doc_id": "21863168646376439766799073520",
+    "schema": "oculus"
+  },
+  "OCGroupSendAppInvite": {
+    "operation_name": "OCGroupSendAppInvite",
+    "operation_name_hash": "1612344550",
+    "operation_text_hash": "1362535676314410232",
+    "client_doc_id": "16123445501362535676314410232",
+    "schema": "oculus"
+  },
+  "OCGroupUpdateMutation": {
+    "operation_name": "OCGroupUpdateMutation",
+    "operation_name_hash": "279238974",
+    "operation_text_hash": "2562963498503912281",
+    "client_doc_id": "2792389742562963498503912281",
+    "schema": "oculus"
+  },
+  "OCHidePYMKUserMutation": {
+    "operation_name": "OCHidePYMKUserMutation",
+    "operation_name_hash": "3091282209",
+    "operation_text_hash": "16152080158015705445",
+    "client_doc_id": "309128220916152080158015705445",
+    "schema": "oculus"
+  },
+  "OCPartyCreateMutation": {
+    "operation_name": "OCPartyCreateMutation",
+    "operation_name_hash": "3231950665",
+    "operation_text_hash": "15661913324382951691",
+    "client_doc_id": "323195066515661913324382951691",
+    "schema": "oculus"
+  },
+  "OCRegenerateGroupLink": {
+    "operation_name": "OCRegenerateGroupLink",
+    "operation_name_hash": "1618467831",
+    "operation_text_hash": "12301299412462240953",
+    "client_doc_id": "161846783112301299412462240953",
+    "schema": "oculus"
+  },
+  "OCUnblockMutation": {
+    "operation_name": "OCUnblockMutation",
+    "operation_name_hash": "2568686636",
+    "operation_text_hash": "8877678560773069913",
+    "client_doc_id": "25686866368877678560773069913",
+    "schema": "oculus"
+  },
+  "OculusFollowCountsQuery": {
+    "operation_name": "OculusFollowCountsQuery",
+    "operation_name_hash": "3653406633",
+    "operation_text_hash": "3469433370274153925",
+    "client_doc_id": "36534066333469433370274153925",
+    "schema": "oculus"
+  },
+  "OculusFollowRequestsReceived": {
+    "operation_name": "OculusFollowRequestsReceived",
+    "operation_name_hash": "1514984816",
+    "operation_text_hash": "13171517531859481544",
+    "client_doc_id": "151498481613171517531859481544",
+    "schema": "oculus"
+  },
+  "OculusFollowersQuery": {
+    "operation_name": "OculusFollowersQuery",
+    "operation_name_hash": "1278706284",
+    "operation_text_hash": "281391570183635574",
+    "client_doc_id": "1278706284281391570183635574",
+    "schema": "oculus"
+  },
+  "OculusFollowersViewerFollowsQuery": {
+    "operation_name": "OculusFollowersViewerFollowsQuery",
+    "operation_name_hash": "3772458004",
+    "operation_text_hash": "18291269552491546289",
+    "client_doc_id": "377245800418291269552491546289",
+    "schema": "oculus"
+  },
+  "OculusFollowsQuery": {
+    "operation_name": "OculusFollowsQuery",
+    "operation_name_hash": "2524078447",
+    "operation_text_hash": "2350651292147314985",
+    "client_doc_id": "25240784472350651292147314985",
+    "schema": "oculus"
+  },
+  "OculusPartyQuery": {
+    "operation_name": "OculusPartyQuery",
+    "operation_name_hash": "1171889000",
+    "operation_text_hash": "11887840218292756941",
+    "client_doc_id": "117188900011887840218292756941",
+    "schema": "oculus"
+  },
+  "OrcaVRAppEntitlementQuery": {
+    "operation_name": "OrcaVRAppEntitlementQuery",
+    "operation_name_hash": "3365844371",
+    "operation_text_hash": "3001253894676685720",
+    "client_doc_id": "33658443713001253894676685720",
+    "schema": "oculus"
+  },
+  "PartyApplicationsQuery": {
+    "operation_name": "PartyApplicationsQuery",
+    "operation_name_hash": "2934229521",
+    "operation_text_hash": "7569969598156397635",
+    "client_doc_id": "29342295217569969598156397635",
+    "schema": "oculus"
+  },
+  "PartyCheckForAssociatedThread": {
+    "operation_name": "PartyCheckForAssociatedThread",
+    "operation_name_hash": "3907896061",
+    "operation_text_hash": "163939348214273188",
+    "client_doc_id": "3907896061163939348214273188",
+    "schema": "oculus"
+  },
+  "PartyCreateMutation": {
+    "operation_name": "PartyCreateMutation",
+    "operation_name_hash": "932415036",
+    "operation_text_hash": "16746902914467529270",
+    "client_doc_id": "93241503616746902914467529270",
+    "schema": "oculus"
+  },
+  "PartyInfoQuery": {
+    "operation_name": "PartyInfoQuery",
+    "operation_name_hash": "1904207403",
+    "operation_text_hash": "13325556105430706310",
+    "client_doc_id": "190420740313325556105430706310",
+    "schema": "oculus"
+  },
+  "PartyInviteFriendsQuery": {
+    "operation_name": "PartyInviteFriendsQuery",
+    "operation_name_hash": "1965107317",
+    "operation_text_hash": "18349792842491035168",
+    "client_doc_id": "196510731718349792842491035168",
+    "schema": "oculus"
+  },
+  "PartyInviteInfoWithPartyIdQuery": {
+    "operation_name": "PartyInviteInfoWithPartyIdQuery",
+    "operation_name_hash": "3871279194",
+    "operation_text_hash": "72839913011368978",
+    "client_doc_id": "387127919472839913011368978",
+    "schema": "oculus"
+  },
+  "PartyInviteMultipleMutation": {
+    "operation_name": "PartyInviteMultipleMutation",
+    "operation_name_hash": "635940915",
+    "operation_text_hash": "7180539388962442225",
+    "client_doc_id": "6359409157180539388962442225",
+    "schema": "oculus"
+  },
+  "PartyJoinDialogInfoQuery": {
+    "operation_name": "PartyJoinDialogInfoQuery",
+    "operation_name_hash": "1679892809",
+    "operation_text_hash": "16279869436692993586",
+    "client_doc_id": "167989280916279869436692993586",
+    "schema": "oculus"
+  },
+  "PartyLeaveQuery": {
+    "operation_name": "PartyLeaveQuery",
+    "operation_name_hash": "3630374166",
+    "operation_text_hash": "3947814014916487820",
+    "client_doc_id": "36303741663947814014916487820",
+    "schema": "oculus"
+  },
+  "PartyNotifGetUserWithId": {
+    "operation_name": "PartyNotifGetUserWithId",
+    "operation_name_hash": "1831021154",
+    "operation_text_hash": "1413732662165859859",
+    "client_doc_id": "18310211541413732662165859859",
+    "schema": "oculus"
+  },
+  "PartySetDestination": {
+    "operation_name": "PartySetDestination",
+    "operation_name_hash": "1432757470",
+    "operation_text_hash": "16990178122427680140",
+    "client_doc_id": "143275747016990178122427680140",
+    "schema": "oculus"
+  },
+  "PeopleFollowCountsLiveQuery": {
+    "operation_name": "PeopleFollowCountsLiveQuery",
+    "operation_name_hash": "1849106627",
+    "operation_text_hash": "2640748349809274137",
+    "client_doc_id": "18491066272640748349809274137",
+    "schema": "oculus"
+  },
+  "PeopleFollowCountsQuery": {
+    "operation_name": "PeopleFollowCountsQuery",
+    "operation_name_hash": "1517111573",
+    "operation_text_hash": "9531499302154156085",
+    "client_doc_id": "15171115739531499302154156085",
+    "schema": "oculus"
+  },
+  "PortraitRequestsHeaderQuery": {
+    "operation_name": "PortraitRequestsHeaderQuery",
+    "operation_name_hash": "648201354",
+    "operation_text_hash": "11231236444606993585",
+    "client_doc_id": "64820135411231236444606993585",
+    "schema": "oculus"
+  },
+  "PortraitUpsells": {
+    "operation_name": "PortraitUpsells",
+    "operation_name_hash": "1416056030",
+    "operation_text_hash": "7507268398359720248",
+    "client_doc_id": "14160560307507268398359720248",
+    "schema": "oculus"
+  },
+  "PresenceHistoryQuery": {
+    "operation_name": "PresenceHistoryQuery",
+    "operation_name_hash": "1897833306",
+    "operation_text_hash": "12334622936018349792",
+    "client_doc_id": "189783330612334622936018349792",
+    "schema": "oculus"
+  },
+  "PreviousParties": {
+    "operation_name": "PreviousParties",
+    "operation_name_hash": "765202217",
+    "operation_text_hash": "10272922956301528659",
+    "client_doc_id": "76520221710272922956301528659",
+    "schema": "oculus"
+  },
+  "PrivacyAutoFollow": {
+    "operation_name": "PrivacyAutoFollow",
+    "operation_name_hash": "3651263418",
+    "operation_text_hash": "17938318220190673132",
+    "client_doc_id": "365126341817938318220190673132",
+    "schema": "oculus"
+  },
+  "PrivacyConceptMutation": {
+    "operation_name": "PrivacyConceptMutation",
+    "operation_name_hash": "1224713779",
+    "operation_text_hash": "18233343360712850959",
+    "client_doc_id": "122471377918233343360712850959",
+    "schema": "oculus"
+  },
+  "PrivacyDiscoverability": {
+    "operation_name": "PrivacyDiscoverability",
+    "operation_name_hash": "3661635536",
+    "operation_text_hash": "16688721176069323310",
+    "client_doc_id": "366163553616688721176069323310",
+    "schema": "oculus"
+  },
+  "PrivacySocialBlockedUsersQuery": {
+    "operation_name": "PrivacySocialBlockedUsersQuery",
+    "operation_name_hash": "598383687",
+    "operation_text_hash": "9821952151025207790",
+    "client_doc_id": "5983836879821952151025207790",
+    "schema": "oculus"
+  },
+  "PrivacySocialUnblockUserMutation": {
+    "operation_name": "PrivacySocialUnblockUserMutation",
+    "operation_name_hash": "475036984",
+    "operation_text_hash": "5380263095401997333",
+    "client_doc_id": "4750369845380263095401997333",
+    "schema": "oculus"
+  },
+  "PrivacyStandardsAndPolicies": {
+    "operation_name": "PrivacyStandardsAndPolicies",
+    "operation_name_hash": "2152784785",
+    "operation_text_hash": "15645632368482619184",
+    "client_doc_id": "215278478515645632368482619184",
+    "schema": "oculus"
+  },
+  "PrivacyUpsellImpressionMutation": {
+    "operation_name": "PrivacyUpsellImpressionMutation",
+    "operation_name_hash": "3315142254",
+    "operation_text_hash": "15402355146789300185",
+    "client_doc_id": "331514225415402355146789300185",
+    "schema": "oculus"
+  },
+  "PrivacyUpsellQuery": {
+    "operation_name": "PrivacyUpsellQuery",
+    "operation_name_hash": "3817306299",
+    "operation_text_hash": "5764178438961866112",
+    "client_doc_id": "38173062995764178438961866112",
+    "schema": "oculus"
+  },
+  "PrivateProfile": {
+    "operation_name": "PrivateProfile",
+    "operation_name_hash": "4135851447",
+    "operation_text_hash": "16884761714278734062",
+    "client_doc_id": "413585144716884761714278734062",
+    "schema": "oculus"
+  },
+  "PrivateProfileMutation": {
+    "operation_name": "PrivateProfileMutation",
+    "operation_name_hash": "3519335244",
+    "operation_text_hash": "6064356577572133084",
+    "client_doc_id": "35193352446064356577572133084",
+    "schema": "oculus"
+  },
+  "ProfileDuplicateAliasAckMutation": {
+    "operation_name": "ProfileDuplicateAliasAckMutation",
+    "operation_name_hash": "1448620846",
+    "operation_text_hash": "13760689689732181702",
+    "client_doc_id": "144862084613760689689732181702",
+    "schema": "oculus"
+  },
+  "ProfileMainDataQuery": {
+    "operation_name": "ProfileMainDataQuery",
+    "operation_name_hash": "1660218091",
+    "operation_text_hash": "8613123329463843450",
+    "client_doc_id": "16602180918613123329463843450",
+    "schema": "oculus"
+  },
+  "ProfileSocialContextDataQuery": {
+    "operation_name": "ProfileSocialContextDataQuery",
+    "operation_name_hash": "3947629740",
+    "operation_text_hash": "12630173090115744268",
+    "client_doc_id": "394762974012630173090115744268",
+    "schema": "oculus"
+  },
+  "ProfileUGCQuery": {
+    "operation_name": "ProfileUGCQuery",
+    "operation_name_hash": "3956932659",
+    "operation_text_hash": "12845467155655842055",
+    "client_doc_id": "395693265912845467155655842055",
+    "schema": "oculus"
+  },
+  "ProxyUserIDQuery": {
+    "operation_name": "ProxyUserIDQuery",
+    "operation_name_hash": "3055806200",
+    "operation_text_hash": "8058550480006573802",
+    "client_doc_id": "30558062008058550480006573802",
+    "schema": "oculus"
+  },
+  "RecentlyMetGroupsQuery": {
+    "operation_name": "RecentlyMetGroupsQuery",
+    "operation_name_hash": "673319776",
+    "operation_text_hash": "3209001625694523116",
+    "client_doc_id": "6733197763209001625694523116",
+    "schema": "oculus"
+  },
+  "RecentlyMetGroupsWithOculusPartyQuery": {
+    "operation_name": "RecentlyMetGroupsWithOculusPartyQuery",
+    "operation_name_hash": "3857294029",
+    "operation_text_hash": "8135186533004082489",
+    "client_doc_id": "38572940298135186533004082489",
+    "schema": "oculus"
+  },
+  "RecentlyMetRosterQuery": {
+    "operation_name": "RecentlyMetRosterQuery",
+    "operation_name_hash": "757201025",
+    "operation_text_hash": "14583168388494250662",
+    "client_doc_id": "75720102514583168388494250662",
+    "schema": "oculus"
+  },
+  "RecentlyMetRosterQueryV2": {
+    "operation_name": "RecentlyMetRosterQueryV2",
+    "operation_name_hash": "2213215490",
+    "operation_text_hash": "7305800873944379117",
+    "client_doc_id": "22132154907305800873944379117",
+    "schema": "oculus"
+  },
+  "RejectFollowRequestMutation": {
+    "operation_name": "RejectFollowRequestMutation",
+    "operation_name_hash": "4261803923",
+    "operation_text_hash": "17749143195214924649",
+    "client_doc_id": "426180392317749143195214924649",
+    "schema": "oculus"
+  },
+  "ReleaseChannelSettingsMutation": {
+    "operation_name": "ReleaseChannelSettingsMutation",
+    "operation_name_hash": "2510648914",
+    "operation_text_hash": "10998301438414254516",
+    "client_doc_id": "251064891410998301438414254516",
+    "schema": "oculus"
+  },
+  "ReleaseChannelsQuery": {
+    "operation_name": "ReleaseChannelsQuery",
+    "operation_name_hash": "1803035566",
+    "operation_text_hash": "11367258012961999824",
+    "client_doc_id": "180303556611367258012961999824",
+    "schema": "oculus"
+  },
+  "RemoveApprovedContactMutation": {
+    "operation_name": "RemoveApprovedContactMutation",
+    "operation_name_hash": "647970320",
+    "operation_text_hash": "896155677102917522",
+    "client_doc_id": "647970320896155677102917522",
+    "schema": "oculus"
+  },
+  "RemoveFollowerMutation": {
+    "operation_name": "RemoveFollowerMutation",
+    "operation_name_hash": "2212786695",
+    "operation_text_hash": "18185483439422027063",
+    "client_doc_id": "221278669518185483439422027063",
+    "schema": "oculus"
+  },
+  "RemoveFromFavoriteAppsMutation": {
+    "operation_name": "RemoveFromFavoriteAppsMutation",
+    "operation_name_hash": "2827193566",
+    "operation_text_hash": "10952205447883607685",
+    "client_doc_id": "282719356610952205447883607685",
+    "schema": "oculus"
+  },
+  "RestrictedApps": {
+    "operation_name": "RestrictedApps",
+    "operation_name_hash": "2661717320",
+    "operation_text_hash": "10594784534411825958",
+    "client_doc_id": "266171732010594784534411825958",
+    "schema": "oculus"
+  },
+  "RosterUsersQuery": {
+    "operation_name": "RosterUsersQuery",
+    "operation_name_hash": "1966455756",
+    "operation_text_hash": "13103105938249165371",
+    "client_doc_id": "196645575613103105938249165371",
+    "schema": "oculus"
+  },
+  "SendFollowRequestMutation": {
+    "operation_name": "SendFollowRequestMutation",
+    "operation_name_hash": "3049148366",
+    "operation_text_hash": "10745400329657280889",
+    "client_doc_id": "304914836610745400329657280889",
+    "schema": "oculus"
+  },
+  "SendTravelNotificationMutation": {
+    "operation_name": "SendTravelNotificationMutation",
+    "operation_name_hash": "3975938774",
+    "operation_text_hash": "5746575454044085066",
+    "client_doc_id": "39759387745746575454044085066",
+    "schema": "oculus"
+  },
+  "SetAllSeenFollowRequestsMutation": {
+    "operation_name": "SetAllSeenFollowRequestsMutation",
+    "operation_name_hash": "3553229158",
+    "operation_text_hash": "13691717438808366865",
+    "client_doc_id": "355322915813691717438808366865",
+    "schema": "oculus"
+  },
+  "SetInviteStatus": {
+    "operation_name": "SetInviteStatus",
+    "operation_name_hash": "4041984874",
+    "operation_text_hash": "3753463109983328125",
+    "client_doc_id": "40419848743753463109983328125",
+    "schema": "oculus"
+  },
+  "SetInviteStatusMutation": {
+    "operation_name": "SetInviteStatusMutation",
+    "operation_name_hash": "2018502822",
+    "operation_text_hash": "11898073009321370590",
+    "client_doc_id": "201850282211898073009321370590",
+    "schema": "oculus"
+  },
+  "SetMediaAutoSyncStatusMutation": {
+    "operation_name": "SetMediaAutoSyncStatusMutation",
+    "operation_name_hash": "2383041003",
+    "operation_text_hash": "8813554341317810594",
+    "client_doc_id": "23830410038813554341317810594",
+    "schema": "oculus"
+  },
+  "SkyboxAudioGenerationMutation": {
+    "operation_name": "SkyboxAudioGenerationMutation",
+    "operation_name_hash": "2234707853",
+    "operation_text_hash": "2417777887423190546",
+    "client_doc_id": "22347078532417777887423190546",
+    "schema": "oculus"
+  },
+  "SocialChannelBannerQuery": {
+    "operation_name": "SocialChannelBannerQuery",
+    "operation_name_hash": "1009337039",
+    "operation_text_hash": "6001255711403410754",
+    "client_doc_id": "10093370396001255711403410754",
+    "schema": "oculus"
+  },
+  "SocialSuspensionResourcesQuery": {
+    "operation_name": "SocialSuspensionResourcesQuery",
+    "operation_name_hash": "2162906431",
+    "operation_text_hash": "4147312641115896837",
+    "client_doc_id": "21629064314147312641115896837",
+    "schema": "oculus"
+  },
+  "SubmitNeutralAgeGateMutation": {
+    "operation_name": "SubmitNeutralAgeGateMutation",
+    "operation_name_hash": "418026294",
+    "operation_text_hash": "8968986232151257661",
+    "client_doc_id": "4180262948968986232151257661",
+    "schema": "oculus"
+  },
+  "SubmitSurveyMutation": {
+    "operation_name": "SubmitSurveyMutation",
+    "operation_name_hash": "2479286139",
+    "operation_text_hash": "2195680388825229758",
+    "client_doc_id": "24792861392195680388825229758",
+    "schema": "oculus"
+  },
+  "SubmitTessaEventMutation": {
+    "operation_name": "SubmitTessaEventMutation",
+    "operation_name_hash": "3747144193",
+    "operation_text_hash": "12490004380882664495",
+    "client_doc_id": "374714419312490004380882664495",
+    "schema": "oculus"
+  },
+  "SuggestedTrendingDestinationsQuery": {
+    "operation_name": "SuggestedTrendingDestinationsQuery",
+    "operation_name_hash": "400756785",
+    "operation_text_hash": "9143358139169950682",
+    "client_doc_id": "4007567859143358139169950682",
+    "schema": "oculus"
+  },
+  "SurveyQuery": {
+    "operation_name": "SurveyQuery",
+    "operation_name_hash": "2494112838",
+    "operation_text_hash": "792002309983781236",
+    "client_doc_id": "2494112838792002309983781236",
+    "schema": "oculus"
+  },
+  "SurveyStandaloneQuery": {
+    "operation_name": "SurveyStandaloneQuery",
+    "operation_name_hash": "897723440",
+    "operation_text_hash": "12652772393075011079",
+    "client_doc_id": "89772344012652772393075011079",
+    "schema": "oculus"
+  },
+  "TravelToHomeQuery": {
+    "operation_name": "TravelToHomeQuery",
+    "operation_name_hash": "2205460506",
+    "operation_text_hash": "2446684119775762315",
+    "client_doc_id": "22054605062446684119775762315",
+    "schema": "oculus"
+  },
+  "UnblockUserMutation": {
+    "operation_name": "UnblockUserMutation",
+    "operation_name_hash": "96490471",
+    "operation_text_hash": "12012268267396428182",
+    "client_doc_id": "9649047112012268267396428182",
+    "schema": "oculus"
+  },
+  "UnfollowMutation": {
+    "operation_name": "UnfollowMutation",
+    "operation_name_hash": "928707178",
+    "operation_text_hash": "7510373025441393892",
+    "client_doc_id": "9287071787510373025441393892",
+    "schema": "oculus"
+  },
+  "UnhideAppGrouping": {
+    "operation_name": "UnhideAppGrouping",
+    "operation_name_hash": "1871965058",
+    "operation_text_hash": "15762902040074824336",
+    "client_doc_id": "187196505815762902040074824336",
+    "schema": "oculus"
+  },
+  "UpdateDobReconciliationCompletedMutation": {
+    "operation_name": "UpdateDobReconciliationCompletedMutation",
+    "operation_name_hash": "2679068829",
+    "operation_text_hash": "349337179383274588",
+    "client_doc_id": "2679068829349337179383274588",
+    "schema": "oculus"
+  },
+  "UpdateManagedUserSettings": {
+    "operation_name": "UpdateManagedUserSettings",
+    "operation_name_hash": "1967812576",
+    "operation_text_hash": "6147352657631030437",
+    "client_doc_id": "19678125766147352657631030437",
+    "schema": "oculus"
+  },
+  "UpdateMediaLastAutoSyncedTimeMutation": {
+    "operation_name": "UpdateMediaLastAutoSyncedTimeMutation",
+    "operation_name_hash": "2060621999",
+    "operation_text_hash": "11829271681870422279",
+    "client_doc_id": "206062199911829271681870422279",
+    "schema": "oculus"
+  },
+  "UpdateNeutralAgeGateMutation": {
+    "operation_name": "UpdateNeutralAgeGateMutation",
+    "operation_name_hash": "3003268960",
+    "operation_text_hash": "4847561590181177899",
+    "client_doc_id": "30032689604847561590181177899",
+    "schema": "oculus"
+  },
+  "UpdateVoiceStorageStrategyMutation": {
+    "operation_name": "UpdateVoiceStorageStrategyMutation",
+    "operation_name_hash": "3739403597",
+    "operation_text_hash": "17338528762525598603",
+    "client_doc_id": "373940359717338528762525598603",
+    "schema": "oculus"
+  },
+  "UserAccountApplicationGroupingCapabilitesQuery": {
+    "operation_name": "UserAccountApplicationGroupingCapabilitesQuery",
+    "operation_name_hash": "2162695032",
+    "operation_text_hash": "1282523410388092720",
+    "client_doc_id": "21626950321282523410388092720",
+    "schema": "oculus"
+  },
+  "UserAccountCapabilitesQuery": {
+    "operation_name": "UserAccountCapabilitesQuery",
+    "operation_name_hash": "3613515857",
+    "operation_text_hash": "8265481584024479089",
+    "client_doc_id": "36135158578265481584024479089",
+    "schema": "oculus"
+  },
+  "UserAccountQuery": {
+    "operation_name": "UserAccountQuery",
+    "operation_name_hash": "317727697",
+    "operation_text_hash": "10986019941532583552",
+    "client_doc_id": "31772769710986019941532583552",
+    "schema": "oculus"
+  },
+  "UserBlockMutation": {
+    "operation_name": "UserBlockMutation",
+    "operation_name_hash": "4274852649",
+    "operation_text_hash": "13116442322594442789",
+    "client_doc_id": "427485264913116442322594442789",
+    "schema": "oculus"
+  },
+  "UserStatusQuery": {
+    "operation_name": "UserStatusQuery",
+    "operation_name_hash": "2817609661",
+    "operation_text_hash": "8093526266676664277",
+    "client_doc_id": "28176096618093526266676664277",
+    "schema": "oculus"
+  },
+  "VRProfileContentQuery": {
+    "operation_name": "VRProfileContentQuery",
+    "operation_name_hash": "2250106391",
+    "operation_text_hash": "9833865243781438473",
+    "client_doc_id": "22501063919833865243781438473",
+    "schema": "oculus"
+  },
+  "ViewerProfilePhotoQuery": {
+    "operation_name": "ViewerProfilePhotoQuery",
+    "operation_name_hash": "1734125376",
+    "operation_text_hash": "15320549638471620391",
+    "client_doc_id": "173412537615320549638471620391",
+    "schema": "oculus"
+  },
+  "ViewerSetCastSessionHandshakeMutation": {
+    "operation_name": "ViewerSetCastSessionHandshakeMutation",
+    "operation_name_hash": "4139911298",
+    "operation_text_hash": "9314289714061751580",
+    "client_doc_id": "41399112989314289714061751580",
+    "schema": "oculus"
+  },
+  "YoutubeSearchQuery": {
+    "operation_name": "YoutubeSearchQuery",
+    "operation_name_hash": "1111093240",
+    "operation_text_hash": "17364824408675780881",
+    "client_doc_id": "111109324017364824408675780881",
+    "schema": "oculus"
+  },
+  "YoutubeVideoSearchQuery": {
+    "operation_name": "YoutubeVideoSearchQuery",
+    "operation_name_hash": "659799056",
+    "operation_text_hash": "3587524684328613527",
+    "client_doc_id": "6597990563587524684328613527",
+    "schema": "oculus"
+  }
+}

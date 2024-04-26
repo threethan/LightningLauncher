@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_up_description">กลับ</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+</string>
+    <string name="abc_menu_delete_shortcut_label">ลบ</string>
+    <string name="abc_menu_enter_shortcut_label">Enter</string>
+    <string name="abc_menu_function_shortcut_label">Function+</string>
+    <string name="abc_menu_meta_shortcut_label">Meta+</string>
+    <string name="abc_menu_shift_shortcut_label">Shift+</string>
+    <string name="abc_menu_space_shortcut_label">Space</string>
+    <string name="abc_menu_sym_shortcut_label">Sym+</string>
+    <string name="abc_prepend_shortcut_label">เมนู+</string>
+    <string name="abc_searchview_description_clear">ล้างคำค้นหา</string>
+    <string name="abc_searchview_description_search">ค้นหา</string>
+    <string name="abc_searchview_description_submit">ส่งคำค้นหา</string>
+    <string name="abc_searchview_description_voice">ค้นหาด้วยเสียง</string>
+    <string name="default_popup_window_title">หน้าต่างป๊อปอัป</string>
+    <string name="in_progress">กำลังดำเนินการ</string>
+    <string name="indeterminate">เลือกบางส่วน</string>
+    <string name="not_selected">ไม่ได้เลือก</string>
+    <string name="off">ปิด</string>
+    <string name="on">เปิด</string>
+    <string name="selected">เลือกไว้</string>
+    <string name="switch_role">เปลี่ยน</string>
+    <string name="tab">แท็บ</string>
+    <string name="template_percent">%1$d เปอร์เซ็นต์</string>
+</resources>

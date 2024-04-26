@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/tab_view_icon" android:layout_width="@dimen/abc_star_small" android:layout_height="@dimen/abc_star_small" android:layout_marginRight="@dimen/abc_button_padding_horizontal_material" android:scaleType="fitXY" android:tint="@color/octablayout_tab_icon" />
+    <com.oculus.ocui.OCTextView android:textColor="@color/octablayout_tab_text" android:ellipsize="none" android:id="@id/tab_view_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" style="@style/Body2" />
+</merge>

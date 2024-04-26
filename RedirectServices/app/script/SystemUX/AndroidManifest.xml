@@ -1,0 +1,750 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="34" android:compileSdkVersionCodename="UpsideDownCake" android:installLocation="auto" package="com.oculus.systemux" platformBuildVersionCode="34" platformBuildVersionName="UpsideDownCake">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE"/>
+    <uses-permission android:name="android.permission.GRANT_RUNTIME_PERMISSIONS"/>
+    <uses-permission android:name="android.permission.REVOKE_RUNTIME_PERMISSIONS"/>
+    <uses-permission android:name="android.permission.SET_ACTIVITY_WATCHER"/>
+    <uses-permission android:name="com.oculus.permission.GET_WINDOW_LAYOUT"/>
+    <uses-permission android:name="android.permission.CONTROL_DISPLAY_COLOR_TRANSFORMS"/>
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"/>
+    <uses-permission android:name="com.oculus.assistant.PANEL"/>
+    <uses-permission android:name="com.oculus.companion.server.permission.SEND_INTENTS"/>
+    <uses-permission android:name="com.oculus.horizon.auth"/>
+    <uses-permission android:name="com.oculus.permission.MANAGE_LOCKSCREEN"/>
+    <uses-permission android:name="com.oculus.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.oculus.permission.COLLECT_BUG_REPORT"/>
+    <uses-permission android:name="com.oculus.permission.SUBMIT_BUG_REPORT"/>
+    <uses-permission android:name="com.oculus.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.oculus.permission.PLAY_AUDIO_BACKGROUND"/>
+    <uses-permission android:name="com.oculus.updater.core.os.OTA_OPERATION"/>
+    <uses-permission android:name="com.oculus.vrshell.VrNotificationServicePermission"/>
+    <uses-permission android:name="com.oculus.horizon.FBCONNECT_CONTENT_PROVIDER_READ_ACCESS"/>
+    <uses-permission android:name="com.oculus.presence.permissions.HYPERSPACE_CALL"/>
+    <uses-permission android:name="com.oculus.presence.permissions.COWATCHING"/>
+    <uses-permission android:name="com.oculus.presence.permissions.DESTINATION_SESSION"/>
+    <uses-permission android:name="com.oculus.permission.ACCESS_BACKGROUND_INPUT_TRACKING" android:protectionLevel="signatureOrSystem"/>
+    <uses-permission android:name="com.oculus.permission.ACCESS_VRSREWIND"/>
+    <uses-permission android:name="com.oculus.permission.FACE_EYE_INTERNAL_API"/>
+    <uses-permission android:name="com.oculus.permission.REPORT_EVENTS"/>
+    <uses-permission android:name="com.oculus.permission.REPORT_EVENTS_DEBUG"/>
+    <uses-permission android:name="com.oculus.permission.READ_PACKAGE_SETTINGS"/>
+    <uses-permission android:name="com.oculus.permission.WRITE_PACKAGE_SETTINGS"/>
+    <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL"/>
+    <uses-permission android:name="android.permission.SET_TIME_ZONE"/>
+    <uses-permission android:name="android.permission.SET_TIME"/>
+    <uses-permission android:name="android.permission.READ_WIFI_CREDENTIAL"/>
+    <uses-permission android:name="android.permission.REQUEST_NETWORK_SCORES"/>
+    <uses-permission android:name="com.oculus.permission.READ_FOCUS_STATE"/>
+    <uses-permission android:name="android.permission.GET_APP_OPS_STATS"/>
+    <uses-permission android:name="com.oculus.permission.OBSERVE_PRIVACY_INDICATORS"/>
+    <uses-permission android:name="android.permission.GET_HISTORICAL_APP_OPS_STATS"/>
+    <uses-permission android:name="com.oculus.permission.METACAM_SCREEN_CAPTURE"/>
+    <uses-permission android:name="com.oculus.permission.SET_VR_DEVICE_PARAMS"/>
+    <uses-permission android:name="com.oculus.vrshell.permission.SEND_GUIDING_TOAST"/>
+    <permission android:description="@string/permdesc_androidDialog" android:label="@string/permlab_androidDialog" android:name="com.oculus.panelapp.androiddialog.permission.DISMISS_DIALOG" android:protectionLevel="preinstalled|signature"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.oculus.permission.MODIFY_CONTROLLER_STATUS"/>
+    <uses-permission android:name="com.oculus.permission.READ_CONTROLLER_STATUS"/>
+    <uses-permission android:name="com.oculus.panelapp.androiddialog.permission.DISMISS_DIALOG"/>
+    <uses-permission android:name="com.oculus.permission.UPDATE_TELEMETRY_SESSIONS"/>
+    <uses-permission android:name="com.oculus.settings.wifi.permission.VIEW_WIFI_EAP_CERT_ALIASES"/>
+    <uses-permission android:name="com.oculus.permission.MANAGE_CUSTOM_PIN"/>
+    <uses-permission android:name="com.oculus.permission.MANAGE_CLOUD_BACKUP_KEYS"/>
+    <uses-permission android:name="com.oculus.permission.USE_GUARDIANSDK_IPC"/>
+    <uses-permission android:name="com.oculus.permission.USE_GUARDIANSDK_IPC_DEBUG"/>
+    <uses-permission android:name="com.oculus.panelapp.people.permission.RECEIVE_UPDATE_BADGING_EVENT"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS"/>
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.MODIFY_DAY_NIGHT_MODE"/>
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>
+    <uses-permission android:name="android.permission.REBOOT"/>
+    <uses-permission android:name="com.oculus.vrshell.RECEIVE_NOTIFICATION_DESTINATIONS"/>
+    <uses-permission android:name="com.oculus.userserver.USER_CHANGE_NOTIFICATIONS"/>
+    <uses-permission android:name="com.oculus.permission.XRS_OBSERVE_STATE"/>
+    <uses-permission android:name="com.oculus.assistant.BROADCAST_PERMISSION"/>
+    <uses-permission android:name="com.oculus.horizon.permission.OVR_PLATFORM_BROADCAST"/>
+    <uses-permission android:name="com.oculus.mediadownloader.ACCESS_DOWNLOADER"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="com.oculus.permission.BIND_PRESENCE_SERVICE"/>
+    <uses-permission android:name="com.oculus.permission.CONNECT_TO_DUMPSYSPROXY"/>
+    <uses-permission android:name="com.oculus.metacam.permission.CAPTURE_ACTIONS"/>
+    <uses-permission android:name="com.oculus.vrshell.permission.ACCESS_PRIVATE_IPC"/>
+    <meta-data android:name="oculus_preferences_panelapp_continuingeducation" android:resource="@raw/panelapp_continuingeducation_schema"/>
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
+    <uses-permission android:name="com.oculus.metacam.permission.CASTING_SERVICE"/>
+    <uses-permission android:name="com.oculus.permission.DEVICE_CONFIG_PUSH_TO_CLIENT"/>
+    <uses-permission android:name="com.oculus.vrshell.permission.ACCESS_PANEL_ACTIVITY_FEATURES"/>
+    <meta-data android:name="oculus_preferences_localaccountmode_library" android:resource="@raw/common_local_account_mode_schema"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CONNECTIVITY_USE_RESTRICTED_NETWORKS"/>
+    <uses-permission android:name="android.permission.MANAGE_USERS"/>
+    <uses-permission android:name="android.permission.NETWORK_SETTINGS"/>
+    <uses-permission android:name="android.permission.NETWORK_SIGNAL_STRENGTH_WAKEUP"/>
+    <uses-permission android:name="android.permission.NETWORK_STACK"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <permission android:name="com.oculus.systemux.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.oculus.systemux.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:debuggable="false" android:label="SystemUX" android:name="com.oculus.systemux.SystemUXApplication" android:networkSecurityConfig="@xml/fb_network_security_config" android:supportsRtl="true">
+        <meta-data android:name="com.google.android.ALLOW_PHISHING_DETECTION" android:value="false"/>
+        <meta-data android:name="com.facebook.build_rule" android:value="bin_systemux_arm64_release_fbsign"/>
+        <meta-data android:name="com.facebook.package_type" android:value="release"/>
+        <meta-data android:name="com.facebook.build_time" android:value="1713295659000L"/>
+        <meta-data android:name="com.facebook.versioncontrol.branch" android:value="master"/>
+        <meta-data android:name="com.facebook.versioncontrol.revision" android:value="MASTER"/>
+        <meta-data android:name="com.facebook.build_id" android:value="588757515"/>
+        <uses-native-library android:name="libossdk.oculus.so" android:required="true"/>
+        <uses-native-library android:name="libripcclient.oculus.so" android:required="true"/>
+        <meta-data android:name="android.content.APP_RESTRICTIONS" android:resource="@xml/app_restrictions"/>
+        <meta-data android:name="com.oculus.livingroom.fbpermission.ACCESS_DOWNLOADER" android:value=""/>
+        <meta-data android:name="com.oculus.ocms.fbpermission.LIBRARY_PROVIDER" android:value=""/>
+        <meta-data android:name="com.oculus.socialplatform.fbpermission.FRIEND_LIST_CONTENT_PROVIDER" android:value=""/>
+        <meta-data android:name="com.oculus.auth.fbpermission.USE_ACCOUNTS_OCULUS" android:value=""/>
+        <meta-data android:name="com.oculus.presence.fbpermission.HOME" android:value=""/>
+        <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+        <meta-data android:name="com.oculus.presence.fbpermission.RTGQL" android:value=""/>
+        <meta-data android:name="com.oculus.presence.fbpermission.HYPERSPACE" android:value=""/>
+        <service android:exported="true" android:name="com.oculus.panelapp.androiddialog.AndroidDialogPanelService" android:process=":SystemUX">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_instance" android:value="true"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_cursor" android:value="true"/>
+        </service>
+        <service android:exported="true" android:name="com.oculus.panelapp.androiddialog.AndroidDialogStandalonePanelService" android:process=":AndroidDialog">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_instance" android:value="true"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+        </service>
+        <service android:exported="true" android:name="com.oculus.panelapp.assistant.AssistantPanelService" android:process=":Assistant">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.oculus.assistant.ACTIVATE_ASSISTANT"/>
+            </intent-filter>
+            <meta-data android:name="com.meta.content_restrictions" android:value="system_restricted"/>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.required_panel_surfaces" android:value="attention"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_cursor" android:value="true"/>
+        </service>
+        <service android:exported="true" android:name="com.oculus.panelapp.bugreporter.BugReporterPanelService" android:process=":SystemUX">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_instance" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_cursor" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="false"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.upgrade_component_name" android:value="com.oculus.panelapp.bugreporter.BugReporterActivity"/>
+        </service>
+        <service android:exported="true" android:name="com.oculus.panelapp.bugreporter.BugReporterStandalonePanelService" android:process=":BugReporter">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_instance" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="false"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+        </service>
+        <activity android:exported="true" android:label="" android:launchMode="singleInstance" android:name="com.oculus.panelapp.bugreporter.BugReporterActivity" android:process=":SystemUX" android:resizeableActivity="false" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
+            <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="false"/>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="true" android:name="com.oculus.panelapp.anytimeui.AnytimeUIPanelService" android:process=":SystemUX">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+                <action android:name="com.oculus.assistant.ACTION_UI_CONTROL_SERVICE"/>
+                <action android:name="com.oculus.assistant.UI_LIFECYCLE_EVENT"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.layer_definition" android:resource="@array/anytime_ui_layers"/>
+            <meta-data android:name="com.oculus.vrshell.supports_drop_target_move_event" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_drag_type_application" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_cursor" android:value="true"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+        </service>
+        <service android:exported="true" android:name="com.oculus.panelapp.continuingeducation.ContinuingEducationPanelService" android:process=":SystemUX">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_cursor" android:value="true"/>
+        </service>
+        <service android:exported="true" android:name="com.oculus.panelapp.continuingeducation.ContinuingEducationStandalonePanelService" android:process=":ContinuingEducation">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+        </service>
+        <service android:exported="true" android:name="com.oculus.panelapp.controlbar.ControlBarPanelService" android:process=":SystemUX">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.layer_definition" android:resource="@array/control_bar_panel_layers"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_cursor" android:value="true"/>
+        </service>
+        <service android:exported="true" android:icon="@drawable/library_app_icon" android:name="com.oculus.panelapp.library.LibraryPanelService" android:process=":SystemUX">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.layer_definition" android:resource="@array/library_layers"/>
+            <meta-data android:name="com.oculus.vrshell.supports_loading_state" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_cursor" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_drop_target_move_event" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.loading_state_size" android:value="1024,640"/>
+            <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="false"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+        </service>
+        <service android:exported="true" android:icon="@drawable/library_app_icon" android:name="com.oculus.panelapp.library.LibraryStandalonePanelService" android:process=":Library">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.layer_definition" android:resource="@array/library_layers"/>
+            <meta-data android:name="com.oculus.vrshell.supports_loading_state" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_cursor" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_drop_target_move_event" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.loading_state_size" android:value="1024,640"/>
+            <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="false"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+        </service>
+        <service android:exported="true" android:icon="@drawable/app_icon" android:name="com.oculus.panelapp.destinationui.DestinationUiPanelService" android:process=":SystemUX">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.layer_definition" android:resource="@array/destinationui_layers"/>
+            <meta-data android:name="com.oculus.vrshell.supports_loading_state" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_cursor" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="false"/>
+            <meta-data android:name="com.oculus.vrshell.loading_state_size" android:value="1024,640"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+        </service>
+        <service android:exported="true" android:icon="@drawable/app_icon" android:name="com.oculus.panelapp.destinationui.DestinationUiStandalonePanelService" android:process=":DestinationUi">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.layer_definition" android:resource="@array/destinationui_layers"/>
+            <meta-data android:name="com.oculus.vrshell.supports_loading_state" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="false"/>
+            <meta-data android:name="com.oculus.vrshell.loading_state_size" android:value="1024,640"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+        </service>
+        <service android:exported="true" android:name="com.oculus.panelapp.appmenu.AppMenuPanelService" android:process=":SystemUX">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.layer_definition" android:resource="@array/app_menu_layers"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_cursor" android:value="true"/>
+        </service>
+        <service android:exported="true" android:name="com.oculus.panelapp.auiinternalsettings.AuiInternalSettingsPanelService" android:process=":SystemUX">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.layer_definition" android:resource="@array/auiinternalsettings_layers"/>
+            <meta-data android:name="com.oculus.vrshell.supports_loading_state" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_drop_target_move_event" android:value="true"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_cursor" android:value="true"/>
+        </service>
+        <service android:exported="true" android:name="com.oculus.panelapp.auiinternalsettings.AuiInternalSettingsStandalonePanelService" android:process=":AuiInternalSettings">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.layer_definition" android:resource="@array/auiinternalsettings_layers"/>
+            <meta-data android:name="com.oculus.vrshell.supports_loading_state" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_drop_target_move_event" android:value="true"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+        </service>
+        <service android:exported="true" android:icon="@drawable/quick_settings_app_icon" android:name="com.oculus.panelapp.quicksettings.QuickSettingsPanelService" android:process=":SystemUX">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.layer_definition" android:resource="@array/quicksettings_layers"/>
+            <meta-data android:name="com.oculus.vrshell.supports_loading_state" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.loading_state_size" android:value="1024,640"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_cursor" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="false"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+        </service>
+        <service android:exported="true" android:icon="@drawable/quick_settings_app_icon" android:name="com.oculus.panelapp.quicksettings.SysUXQuickSettingsStandalonePanelService" android:process=":QuickSettings">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.layer_definition" android:resource="@array/quicksettings_layers"/>
+            <meta-data android:name="com.oculus.vrshell.supports_loading_state" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.loading_state_size" android:value="1024,640"/>
+            <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="false"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+        </service>
+        <service android:exported="true" android:icon="@drawable/anytime_bar_icon_settings" android:name="com.oculus.panelapp.settings.SettingsPanelService" android:process=":SystemUX">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.layer_definition" android:resource="@array/settings_layers"/>
+            <meta-data android:name="com.oculus.vrshell.supports_loading_state" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.loading_state_size" android:value="1024,640"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_cursor" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="false"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_instance" android:value="true"/>
+        </service>
+        <service android:exported="true" android:icon="@drawable/anytime_bar_icon_settings" android:name="com.oculus.panelapp.settings.SysUXSettingsStandalonePanelService" android:process=":Settings">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.layer_definition" android:resource="@array/settings_layers"/>
+            <meta-data android:name="com.oculus.vrshell.supports_loading_state" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.loading_state_size" android:value="1024,640"/>
+            <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="false"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_instance" android:value="true"/>
+        </service>
+        <service android:exported="true" android:icon="@drawable/anytime_bar_icon_camera" android:name="com.oculus.panelapp.sharing.SharingPanelService" android:process=":SystemUX">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.layer_definition" android:resource="@array/sharing_layers"/>
+            <meta-data android:name="com.oculus.vrshell.supports_loading_state" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_cursor" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.loading_state_size" android:value="1024,640"/>
+            <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="false"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+        </service>
+        <service android:exported="true" android:icon="@drawable/anytime_bar_icon_camera" android:name="com.oculus.panelapp.sharing.SharingStandalonePanelService" android:process=":Sharing">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.layer_definition" android:resource="@array/sharing_layers"/>
+            <meta-data android:name="com.oculus.vrshell.supports_loading_state" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.loading_state_size" android:value="1024,640"/>
+            <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="false"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+        </service>
+        <service android:exported="true" android:name="com.oculus.panelapp.notificationinspector.NotificationInspectorPanelService" android:process=":SystemUX">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_instance" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_cursor" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_loading_state" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="false"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+        </service>
+        <service android:exported="true" android:name="com.oculus.panelapp.notificationinspector.NotificationInspectorStandalonePanelService" android:process=":NotificationInspector">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_instance" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_loading_state" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="false"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+        </service>
+        <service android:exported="true" android:icon="@drawable/notifications_app_icon" android:name="com.oculus.panelapp.notifications.NotificationsPanelService" android:process=":SystemUX">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.layer_definition" android:resource="@array/notifications_layers"/>
+            <meta-data android:name="com.oculus.vrshell.supports_loading_state" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_cursor" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.loading_state_size" android:value="1024,640"/>
+            <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="false"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+        </service>
+        <service android:exported="true" android:icon="@drawable/notifications_app_icon" android:name="com.oculus.panelapp.notifications.NotificationsStandalonePanelService" android:process=":Notifications">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.layer_definition" android:resource="@array/notifications_layers"/>
+            <meta-data android:name="com.oculus.vrshell.supports_loading_state" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.loading_state_size" android:value="1024,640"/>
+            <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="false"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+        </service>
+        <service android:exported="true" android:name="com.oculus.panelapp.controllersettings.ControllerSettingsPanelService" android:process=":SystemUX">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_cursor" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="false"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+        </service>
+        <service android:exported="true" android:name="com.oculus.panelapp.controllersettings.ControllerSettingsStandalonePanelService" android:process=":ControllerSettings">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="false"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+        </service>
+        <service android:exported="true" android:icon="@drawable/file_viewer_app_icon" android:name="com.oculus.panelapp.fileviewer.FileViewerPanelService" android:process=":SystemUX">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.layer_definition" android:resource="@array/file_viewer_layers"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_instance" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_cursor" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_loading_state" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.loading_state_size" android:value="1024,640"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+        </service>
+        <service android:exported="true" android:icon="@drawable/file_viewer_app_icon" android:name="com.oculus.panelapp.fileviewer.FileViewerStandalonePanelService" android:process=":FileViewer">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.layer_definition" android:resource="@array/file_viewer_layers"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_instance" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_loading_state" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.loading_state_size" android:value="1024,640"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+        </service>
+        <service android:exported="true" android:name="com.oculus.panelapp.screentimeenforcement.ScreenTimeEnforcementPanelService" android:process=":SystemUX">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="false"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_cursor" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_loading_state" android:value="false"/>
+        </service>
+        <service android:exported="true" android:name="com.oculus.panelapp.screentimeenforcement.ScreenTimeEnforcementStandalonePanelService" android:process=":ScreenTimeEnforcement">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="false"/>
+            <meta-data android:name="com.oculus.vrshell.supports_loading_state" android:value="false"/>
+        </service>
+        <service android:exported="true" android:name="com.oculus.panelapp.virtualobjects.VirtualObjectsPanelService" android:process=":SystemUX">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.layer_definition" android:resource="@array/virtual_object_layers"/>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_loading_state" android:value="false"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_cursor" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="false"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+        </service>
+        <service android:exported="true" android:name="com.oculus.panelapp.virtualobjects.VirtualObjectsStandalonePanelService" android:process=":VirtualObjects">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.layer_definition" android:resource="@array/virtual_object_layers"/>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_loading_state" android:value="false"/>
+            <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="false"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+        </service>
+        <service android:exported="true" android:name="com.oculus.panelapp.mixedrealityobjects.MixedRealityObjectsPanelService" android:process=":SystemUX">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.layer_definition" android:resource="@array/mixed_reality_objects_layers"/>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_cursor" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_loading_state" android:value="false"/>
+            <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="false"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+        </service>
+        <service android:exported="true" android:name="com.oculus.panelapp.mixedrealityobjects.MixedRealityObjectsStandalonePanelService" android:process=":MixedRealityObjects">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.layer_definition" android:resource="@array/mixed_reality_objects_layers"/>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_loading_state" android:value="false"/>
+            <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="false"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+        </service>
+        <service android:exported="true" android:name="com.oculus.panelapp.settings.service.SettingsService" android:process=":SystemUX">
+            <intent-filter>
+                <action android:name="com.oculus.common.settings.aidl.MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_cursor" android:value="true"/>
+        </service>
+        <receiver android:exported="false" android:name="com.oculus.panelapp.settings.jobs.SettingsReceiver" android:process=":SystemUX">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+        </receiver>
+        <service android:exported="false" android:name="com.oculus.panelapp.settings.jobs.SettingsDumpJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:process=":SystemUX">
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+        </service>
+        <service android:exported="true" android:name="com.oculus.panelapp.caption.CaptionPanelService" android:process=":SystemUX">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+        </service>
+        <service android:exported="true" android:name="com.oculus.panelapp.livestreamsocialchat.LivestreamSocialChatPanelService" android:process=":SystemUX">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_loading_state" android:value="false"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_cursor" android:value="true"/>
+        </service>
+        <service android:exported="true" android:name="com.oculus.panelapp.livestreamsocialchat.LivestreamSocialChatStandalonePanelService" android:process=":LivestreamSocialChat">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_loading_state" android:value="false"/>
+        </service>
+        <service android:exported="true" android:name="com.oculus.panelapp.livestreamyoutubechat.LivestreamYoutubeChatPanelService" android:process=":SystemUX">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="false"/>
+            <meta-data android:name="com.oculus.vrshell.supports_loading_state" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_cursor" android:value="true"/>
+        </service>
+        <service android:exported="true" android:name="com.oculus.panelapp.livestreamyoutubechat.LivestreamYoutubeChatStandalonePanelService" android:process=":LivestreamYoutubeChat">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="false"/>
+            <meta-data android:name="com.oculus.vrshell.supports_loading_state" android:value="true"/>
+        </service>
+        <service android:exported="true" android:name="com.oculus.panelapp.devicepairing.DevicePairingPanelService" android:process=":SystemUX">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="false"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_cursor" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_loading_state" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_instance" android:value="true"/>
+        </service>
+        <service android:exported="true" android:name="com.oculus.panelapp.devicepairing.DevicePairingStandalonePanelService" android:process=":DevicePairing">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="false"/>
+            <meta-data android:name="com.oculus.vrshell.supports_loading_state" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.supports_multi_instance" android:value="true"/>
+        </service>
+        <service android:exported="true" android:icon="@drawable/notifications_app_icon" android:name="com.oculus.panelapp.toasts.ToastsPanelService" android:process=":SystemUX">
+            <intent-filter>
+                <action android:name="com.oculus.vrshell.SHELL_MAIN"/>
+            </intent-filter>
+            <meta-data android:name="com.oculus.vrshell.supports_layers" android:value="true"/>
+            <meta-data android:name="com.oculus.vrshell.layer_definition" android:resource="@array/toasts_layers"/>
+            <meta-data android:name="com.oculus.lazy_gpumem_allocation" android:value="true"/>
+        </service>
+        <meta-data android:name="oculus_preferences_systemux" android:resource="@raw/sysux_preferences_store_schema"/>
+        <meta-data android:name="com.oculus.messagequeue.doctor" android:value="true"/>
+        <provider android:authorities="com.oculus.systemux.provider.messagequeue.doctor" android:exported="false" android:initOrder="100" android:name="com.oculus.messagequeue.MessageQueueDoctorInitProvider" android:process=":SystemUX"/>
+        <meta-data android:name="internalVersionName" android:value="65.0.0.363.341.9273e3b8ae44 2024_04_16_12_26"/>
+        <meta-data android:name="com.facebook.build_id" android:value="588757515"/>
+        <meta-data android:name="oculus_preferences_androiddialog_panelapp" android:resource="@raw/androiddialog_panelapp_schema"/>
+        <meta-data android:name="com.oculus.horizon.fbpermission.FRIEND_LIST_CONTENT_PROVIDER" android:value=""/>
+        <meta-data android:name="com.oculus.socialplatform.fbpermission.PARTIES_API_PROVIDER" android:value=""/>
+        <meta-data android:name="com.oculus.auth.fbpermission.USE_ACCOUNTS_META" android:value=""/>
+        <meta-data android:name="com.oculus.presence.fbpermission.GROUPING" android:value=""/>
+        <service android:name="com.oculus.systemux.SystemUXDumpService" android:process=":SystemUX"/>
+        <meta-data android:name="com.oculus.horizon.fbpermission.SYNC_CONSENT" android:value=""/>
+        <receiver android:exported="true" android:name="com.oculus.panelapp.sharing.broadcast.SharingUpsellReceiver" android:process=":SystemUX">
+            <intent-filter>
+                <action android:name="com.oculus.panelapp.intent.action.SHARING_UPSELL"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.oculus.panelapp.anytimeui.bar.apps.PinnedAppRequestReceiver" android:process=":SystemUX">
+            <intent-filter>
+                <action android:name="com.oculus.panelapp.intent.action.UPDATE_PINNED_APP_REQUEST"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.oculus.panelapp.androiddialog.dialogs.common.localstream.StartTwilightCastingDialogCompanionServerReceiver" android:process=":SystemUX">
+            <intent-filter>
+                <action android:name="GET_CASTING_DIALOG_STATUS"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.oculus.panelapp.androiddialog.dialogs.common.localstream.StartTwilightCastingDialogFBPermissionReceiver" android:process=":SystemUX">
+            <intent-filter>
+                <action android:name="com.oculus.metacam.START_CASTING_DIALOG_INITIALIZE"/>
+                <action android:name="com.oculus.metacam.START_CASTING_DIALOG_CLOSE"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="oculus_preferences" android:resource="@raw/sysux_preferences_store_schema"/>
+        <service android:enabled="false" android:exported="true" android:name="com.oculus.panelapp.anytimeui.bar.callbar.android.AnytimeUIInCallService" android:permission="android.permission.BIND_INCALL_SERVICE" android:process=":SystemUX">
+            <meta-data android:name="android.telecom.IN_CALL_SERVICE_UI" android:value="true"/>
+            <meta-data android:name="android.telecom.INCLUDE_SELF_MANAGED_CALLS" android:value="true"/>
+            <meta-data android:name="android.telecom.IN_CALL_SERVICE_RINGING" android:value="true"/>
+            <intent-filter>
+                <action android:name="android.telecom.InCallService"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="com.oculus.assistant.panel.version" android:value="11"/>
+        <meta-data android:name="com.oculus.auth.fbpermission.USE_DEVICE_AUTH" android:value=""/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.oculus.panelapp.bugreporter.broadcasts.BugReporterScreenshotBroadcastReceiver" android:process=":SystemUX">
+            <intent-filter>
+                <action android:name="com.oculus.systemux.action.SET_SCREENSHOT"/>
+                <action android:name="com.oculus.systemux.action.SET_VIDEO_BUFFER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.oculus.panelapp.destinationui.utils.RemoteLaunchAppRequestReceiver" android:process=":SystemUX">
+            <intent-filter>
+                <action android:name="com.oculus.panelapp.destinationui.utils.intent.action.UPDATE_REMOTE_LAUNCH_APP_REQUEST"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="oculus_preferences_controllersettings_panelapp" android:resource="@raw/controllersettings_panelapp_schema"/>
+        <meta-data android:name="com.oculus.deviceconfig.PARAMS_MAP_PATH" android:value="assets/params_map.txt"/>
+        <receiver android:exported="true" android:name="com.oculus.deviceconfigclient.DeviceConfigClientReceiver" android:permission="com.oculus.permission.DEVICE_CONFIG_PUSH_TO_CLIENT">
+            <intent-filter>
+                <action android:name="oculus.intent.action.DC_SET_CLIENT_VALUES"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.oculus.deviceconfigclient.DeviceConfigClientDebugReceiver">
+            <intent-filter>
+                <action android:name="oculus.intent.action.DC_EXPORT_CLIENT_ACCESS_LOG"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.oculus.socialplatform.fbpermission.MESSENGER_VR_ACCOUNTS_CONTENT_PROVIDER_READ_ONLY" android:value=""/>
+        <meta-data android:name="oculus_preferences_ims" android:resource="@raw/ims_salsa_prefs"/>
+        <meta-data android:name="com.oculus.systemux.fbpermission.SKYBOX_PROVIDER" android:value=""/>
+        <provider android:authorities="com.oculus.systemux.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
+            <meta-data android:name="androidx.profileinstaller.ProfileInstallerInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.work.WorkManagerInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.emoji2.text.EmojiCompatInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.lifecycle.ProcessLifecycleInitializer" android:value="androidx.startup"/>
+        </provider>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.profileinstaller.ProfileInstallReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SKIP_FILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION"/>
+            </intent-filter>
+        </receiver>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_foreground_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:name="androidx.work.impl.foreground.SystemForegroundService"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS"/>
+            </intent-filter>
+        </receiver>
+        <activity-alias android:enabled="false" android:exported="true" android:name="com.facebook.secure.packagefinder.PackageFinderActivity" android:targetActivity="com.oculus.panelapp.bugreporter.BugReporterActivity">
+            <intent-filter>
+                <action android:name="com.facebook.secure.packagefinder.intent.ACTION_QUERY_PACKAGES"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity-alias>
+    </application>
+    <queries>
+        <package android:name="com.oculus.backuptransportservice"/>
+        <package android:name="com.oculus.backuptransportservice"/>
+        <intent>
+            <action android:name="com.facebook.secure.packagefinder.intent.ACTION_QUERY_PACKAGES"/>
+        </intent>
+        <intent>
+            <action android:name="com.facebook.GET_PHONE_ID"/>
+        </intent>
+        <intent>
+            <action android:name="com.facebook.GET_UNIQUE_ID"/>
+        </intent>
+    </queries>
+</manifest>

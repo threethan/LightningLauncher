@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.ocui.OCPlaceholderGlint android:id="@id/placeholder" android:tag="layout/bug_report_camera_roll_placeholder_0" android:background="@drawable/bug_report_image_tile_background" android:layout_width="103.0dip" android:layout_height="103.0dip" android:layout_margin="6.0dip" app:autoStart="false"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" />

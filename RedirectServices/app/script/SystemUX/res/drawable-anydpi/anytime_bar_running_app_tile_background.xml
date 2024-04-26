@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:gravity="bottom|center" android:bottom="8.0dip">
+        <selector>
+            <item android:state_selected="true">
+                <shape>
+                    <size android:height="3.0dip" android:width="9.0dip" />
+                    <corners android:radius="3.0dip" />
+                    <solid android:color="?ocRunningAppIndicator" />
+                </shape>
+            </item>
+            <item android:drawable="@android:color/transparent" />
+        </selector>
+    </item>
+</layer-list>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/button_container" android:tag="layout/settings_button_action_view_0" android:layout_width="wrap_content" android:layout_height="@dimen/anytime_tablet_common_rectangular_button_height"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.oculus.ocui.OCButton android:id="@id/button" android:tag="binding_1" android:layout_width="wrap_content" android:layout_height="@dimen/anytime_tablet_common_rectangular_button_height" android:drawablePadding="@dimen/abc_button_padding_horizontal_material" />
+    <View android:id="@id/button_tooltip" android:visibility="gone" android:layout_width="0.0dip" android:layout_height="@dimen/anytime_tablet_common_rectangular_button_height" android:layout_alignLeft="@id/button" android:layout_alignRight="@id/button" app:layout_constraintBottom_toBottomOf="@id/button" app:layout_constraintEnd_toEndOf="@id/button" app:layout_constraintStart_toStartOf="@id/button" app:layout_constraintTop_toTopOf="@id/button" />
+</RelativeLayout>

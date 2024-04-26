@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_up_description">Gaan op</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+</string>
+    <string name="abc_menu_delete_shortcut_label">delete</string>
+    <string name="abc_menu_enter_shortcut_label">enter</string>
+    <string name="abc_menu_function_shortcut_label">Funksie+</string>
+    <string name="abc_menu_meta_shortcut_label">Meta+</string>
+    <string name="abc_menu_shift_shortcut_label">Shift+</string>
+    <string name="abc_menu_space_shortcut_label">spasiebalk</string>
+    <string name="abc_menu_sym_shortcut_label">Simbool+</string>
+    <string name="abc_prepend_shortcut_label">Kieslys+</string>
+    <string name="abc_searchview_description_clear">Vee navraag uit</string>
+    <string name="abc_searchview_description_search">Soek</string>
+    <string name="abc_searchview_description_submit">Dien navraag in</string>
+    <string name="abc_searchview_description_voice">Stemsoektog</string>
+    <string name="default_popup_window_title">Opspringvenster</string>
+    <string name="in_progress">Besig</string>
+    <string name="indeterminate">Gedeeltelik gemerk</string>
+    <string name="not_selected">Nie gekies nie</string>
+    <string name="off">Af</string>
+    <string name="on">Aan</string>
+    <string name="selected">Gekies</string>
+    <string name="switch_role">Skakel oor</string>
+    <string name="tab">Oortjie</string>
+    <string name="template_percent">%1$d persent.</string>
+</resources>

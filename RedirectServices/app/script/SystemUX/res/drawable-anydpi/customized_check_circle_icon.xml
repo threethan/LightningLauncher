@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@id/circle_background">
+        <shape android:shape="oval">
+            <solid android:color="@color/casting_feedback_thank_you_header_icon_color" />
+            <size android:height="40.0dip" android:width="40.0dip" />
+        </shape>
+    </item>
+    <item android:gravity="center" android:id="@id/icon" android:height="16.0dip" android:width="16.0dip" android:drawable="@drawable/oc_icon_check_alt_filled_24_ffffff" android:color="?ocPanelBackground" />
+</layer-list>

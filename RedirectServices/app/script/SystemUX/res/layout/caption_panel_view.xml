@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.panelapp.caption.CaptionPanelView android:id="@id/caption_view" android:tag="layout/caption_panel_view_0" android:background="@android:color/transparent" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="24.0sp" android:textColor="@android:color/white" android:gravity="bottom" android:id="@id/caption_text_content" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="2" android:maxEms="16" />
+</com.oculus.panelapp.caption.CaptionPanelView>

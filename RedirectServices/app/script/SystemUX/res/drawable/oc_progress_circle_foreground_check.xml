@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item>
+        <selector>
+            <item android:drawable="@drawable/oc_icon_check_alt_filled_24" app:button_state_in_progress="false" />
+            <item android:drawable="@android:color/transparent" />
+        </selector>
+    </item>
+</layer-list>

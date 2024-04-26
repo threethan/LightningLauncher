@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_activated="true">
+        <layer-list>
+            <item android:top="2.0dip" android:bottom="2.0dip" android:start="2.0dip" android:end="2.0dip">
+                <shape android:shape="oval">
+                    <size android:height="8.0dip" android:width="8.0dip" />
+                    <solid android:color="?ocBadge" />
+                </shape>
+            </item>
+            <item android:top="1.0dip" android:bottom="1.0dip" android:start="1.0dip" android:end="1.0dip">
+                <shape android:shape="oval">
+                    <size android:height="10.0dip" android:width="10.0dip" />
+                    <stroke android:width="1.0dip" android:color="?ocPanelSideNavBackground" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

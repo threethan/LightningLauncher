@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <drawable class="com.oculus.ocui.drawable.OCInteractionOverlayDrawable">
+            <shape android:shape="rectangle">
+                <size android:height="@dimen/abc_dropdownitem_icon_width" android:width="@dimen/abc_search_view_preferred_height" />
+                <corners android:radius="@dimen/anytime_tablet_library_footer_body_height" />
+                <solid android:color="@android:color/transparent" />
+            </shape>
+        </drawable>
+    </item>
+    <item android:gravity="center" android:height="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" android:width="@dimen/anytime_bar_view_app_tile_blue_attention_badge_big_margins" android:drawable="@drawable/oc_icon_close_circle_filled_24" />
+</layer-list>

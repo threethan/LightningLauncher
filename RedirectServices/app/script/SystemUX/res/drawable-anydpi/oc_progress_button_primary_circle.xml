@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/ocbutton_primary_circle" />
+    <item android:drawable="@drawable/oc_progress_button_progress_track_circle" />
+</layer-list>

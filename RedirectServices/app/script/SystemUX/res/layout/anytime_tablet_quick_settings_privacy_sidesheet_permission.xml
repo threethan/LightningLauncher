@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oculus.panelapp.quicksettings.QuickSettingsPrivacySidesheetPermission android:tag="layout/anytime_tablet_quick_settings_privacy_sidesheet_permission_0" android:paddingTop="10.0dip" android:paddingBottom="6.0dip" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.view.View android:id="@id/icon" android:tag="binding_1" android:layout_width="20.0dip" android:layout_height="20.0dip" android:layout_marginEnd="8.0dip" android:backgroundTint="?ocPrimaryIcon" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toStartOf="@id/permission_name" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <com.oculus.ocui.OCTextView android:id="@id/permission_name" android:tag="binding_2" android:layout_width="0.0dip" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@id/icon" app:layout_constraintTop_toTopOf="parent" style="@style/Body2" />
+</com.oculus.panelapp.quicksettings.QuickSettingsPrivacySidesheetPermission>

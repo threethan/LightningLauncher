@@ -1,0 +1,68 @@
+{
+    "contents": [
+      {
+        "key": "right_thumbstick_up_angle_offset",
+        "type": "float",
+        "default": "0",
+        "hasWritePermission": true,
+        "scope": "user",
+        "isOwner": false
+      },
+      {
+        "key": "left_thumbstick_up_angle_offset",
+        "type": "float",
+        "default": "0",
+        "hasWritePermission": true,
+        "scope": "user",
+        "isOwner": false
+      },
+      {
+        "key": "is_right_thumbstick_up_angle_offset_set",
+        "type": "boolean",
+        "default": "false",
+        "hasWritePermission": true,
+        "scope": "user",
+        "isOwner": true
+      },
+      {
+        "key": "is_left_thumbstick_up_angle_offset_set",
+        "type": "boolean",
+        "default": "false",
+        "hasWritePermission": true,
+        "scope": "user",
+        "isOwner": true
+      },
+      {
+        "key": "is_right_thumbstick_range_set",
+        "type": "boolean",
+        "default": "false",
+        "hasWritePermission": true,
+        "scope": "user",
+        "isOwner": true
+      },
+      {
+        "key": "is_left_thumbstick_range_set",
+        "type": "boolean",
+        "default": "false",
+        "hasWritePermission": true,
+        "scope": "user",
+        "isOwner": true
+      },
+      {
+        "key": "is_right_thumbstick_deadzone_set",
+        "type": "boolean",
+        "default": "false",
+        "hasWritePermission": true,
+        "scope": "user",
+        "isOwner": true
+      },
+      {
+        "key": "is_left_thumbstick_deadzone_set",
+        "type": "boolean",
+        "default": "false",
+        "hasWritePermission": true,
+        "scope": "user",
+        "isOwner": true
+      }
+    ]
+  }

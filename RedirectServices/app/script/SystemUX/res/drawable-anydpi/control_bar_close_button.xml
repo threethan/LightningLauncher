@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<drawable app:ocInteractionOverlayHover="@android:color/transparent" app:ocInteractionOverlayPress="?ocPressedOverlay" class="com.oculus.ocui.drawable.OCInteractionOverlayDrawable"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <drawable app:ocInteractionOverlayHover="?ocNegativeBackground" app:ocInteractionOverlayPress="?ocNegativeBackground" class="com.oculus.ocui.drawable.OCInteractionOverlayDrawable">
+        <shape android:shape="rectangle">
+            <corners android:radius="@dimen/anytime_tablet_library_footer_body_height" />
+            <solid android:color="@android:color/transparent" />
+        </shape>
+    </drawable>
+</drawable>
