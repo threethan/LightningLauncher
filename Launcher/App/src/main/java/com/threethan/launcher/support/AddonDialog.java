@@ -87,17 +87,10 @@ public abstract class AddonDialog {
                 deactivateButton.setVisibility(View.GONE);
 
                 View[] visibleButtons;
-<<<<<<< HEAD
                 switch (updater.getAddonState(addon)) {
                     case INSTALLED_APP              -> visibleButtons = new View[]{uninstallButton, openButton};
                     case INSTALLED_SERVICE_ACTIVE   -> visibleButtons = new View[]{deactivateButton, uninstallButton};
                     case INSTALLED_SERVICE_INACTIVE -> visibleButtons = new View[]{activateButton, uninstallButton};
-=======
-                switch (updater.getAddonState(updater.getAddon(tag))) {
-                    case INSTALLED_APP              -> visibleButtons = new View[]{uninstallButton, openButton};
-                    case INSTALLED_SERVICE_ACTIVE   -> visibleButtons = new View[]{deactivateButton, uninstallButton, openButton};
-                    case INSTALLED_SERVICE_INACTIVE -> visibleButtons = new View[]{activateButton, uninstallButton, openButton};
->>>>>>> 0a5529d (Shortcut settings fixes)
                     case INSTALLED_HAS_UPDATE       -> visibleButtons = new View[]{updateButton, uninstallButton};
                     case NOT_INSTALLED              -> visibleButtons = new View[]{installButton};
                     default                         -> throw new RuntimeException("UNIMPLEMENTED ADDON STATE");
