@@ -305,14 +305,9 @@
     <string name="addons_library">Library Shortcut</string>
     <string name="addons_library_desc">Install then activate to open Lightning Launcher whenever you hover over the &quot;App Library&quot; button on the dock.
         \n(This makes it hard to open the quest\'s app library)</string>
-<<<<<<< HEAD
-
     <string name="addons_store">Store Shortcut</string>
     <string name="addons_store_desc">Install then activate to open Lightning Launcher whenever you hover over the &quot;Store&quot; button on the dock.
         \n(This makes it hard to open the quest\'s store)</string>
-
-=======
->>>>>>> 0a5529d (Shortcut settings fixes)
     <string name="addons_people">People Shortcut</string>
     <string name="addons_people_desc">Install then activate to open Lightning Launcher whenever you hover over the &quot;People&quot; button on the dock.
         \n(This makes it hard to open the quest\'s people app)</string>
