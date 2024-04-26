@@ -6,8 +6,8 @@ import android.util.Log;
 
 import com.threethan.launcher.helper.App;
 import com.threethan.launcher.helper.Icon;
-import com.threethan.launcher.helper.PanelApp;
-import com.threethan.launcher.launcher.LauncherActivity;
+import com.threethan.launcher.data.PanelApplicationInfo;
+import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.lib.ImageLib;
 import com.threethan.launcher.lib.StringLib;
 
@@ -122,7 +122,7 @@ public abstract class IconUpdater {
                 try {
                     final String file = App.isWebsite(app) ?
                             StringLib.baseUrlWithScheme(packageName) :
-                            packageName.replace("://","").replace(PanelApp.packagePrefix, "");
+                            packageName.replace("://","").replace(PanelApplicationInfo.packagePrefix, "");
                     for (final String url : App.isWebsite(app) ? ICON_URLS_WEB : (isWide ? ICON_URLS_BANNER : ICON_URLS_SQUARE)) {
                         if (downloadIconFromUrl(String.format(url, file), iconFile)) {
                             final int delayMsUpd = (int) ((

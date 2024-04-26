@@ -190,7 +190,7 @@
 
     </LinearLayout>
 
-    <com.threethan.launcher.view.EditTextWatched
+    <com.threethan.launcher.activity.view.EditTextWatched
         android:id="@+id/appUrl"
         android:layout_width="match_parent"
         android:layout_height="40sp"

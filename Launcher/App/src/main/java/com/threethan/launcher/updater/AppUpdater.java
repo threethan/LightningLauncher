@@ -15,7 +15,7 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.threethan.launcher.R;
-import com.threethan.launcher.helper.Dialog;
+import com.threethan.launcher.activity.dialog.BasicDialog;
 import com.threethan.launcher.lib.FileLib;
 
 import org.json.JSONException;
@@ -201,7 +201,7 @@ public abstract class AppUpdater extends RemotePackageUpdater {
         skipDialogBuilder.setMessage(R.string.update_skip_content);
         skipDialogBuilder.setPositiveButton(R.string.update_skip_confirm_button, (dialog, i) -> {
             putIgnoredUpdateTag(versionTag);
-            Dialog.toast(activity.getString(R.string.update_skip_toast), versionTag, false);
+            BasicDialog.toast(activity.getString(R.string.update_skip_toast), versionTag, false);
             dialog.dismiss();
         });
         skipDialogBuilder.setNegativeButton(R.string.update_skip_cancel_button, ((dialog, i) -> dialog.dismiss()));

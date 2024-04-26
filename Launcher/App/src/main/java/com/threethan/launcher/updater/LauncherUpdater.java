@@ -2,7 +2,7 @@ package com.threethan.launcher.updater;
 
 import android.app.Activity;
 
-import com.threethan.launcher.helper.DataStoreEditor;
+import com.threethan.launcher.activity.support.DataStoreEditor;
 
 public class LauncherUpdater extends AppUpdater {
     private static final String GIT_REPO_LAUNCHER = "threethan/LightningLauncher";

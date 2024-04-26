@@ -8,8 +8,11 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 
 import com.threethan.launcher.R;
-import com.threethan.launcher.launcher.LauncherActivity;
-import com.threethan.launcher.support.SettingsManager;
+import com.threethan.launcher.activity.LauncherActivity;
+import com.threethan.launcher.activity.support.SettingsManager;
+import com.threethan.launcher.data.AppData;
+import com.threethan.launcher.data.PanelApplicationInfo;
+import com.threethan.launcher.data.Settings;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -42,12 +45,12 @@ public abstract class App {
         intent.addCategory(VR_INTENT_CATEGORY);
         intent.setPackage(applicationInfo.packageName);
 
-        PackageManager pm = LauncherActivity.getAnyInstance().getPackageManager();
+        PackageManager pm = LauncherActivity.getForegroundInstance().getPackageManager();
         return pm.resolveActivity(intent, 0) != null;
     }
     private static boolean checkAndroidTv
             (ApplicationInfo applicationInfo) {
-        PackageManager pm = LauncherActivity.getAnyInstance().getPackageManager();
+        PackageManager pm = LauncherActivity.getForegroundInstance().getPackageManager();
         // First check for banner
         if (applicationInfo.banner != 0) return true;
         // Then check for intent
@@ -64,7 +67,7 @@ public abstract class App {
     public static boolean isAppOfType
             (ApplicationInfo applicationInfo, App.Type appType) {
 
-        final LauncherActivity launcherActivity = LauncherActivity.getAnyInstance();
+        final LauncherActivity launcherActivity = LauncherActivity.getForegroundInstance();
 
         if (!categoryIncludedApps.containsKey(appType)) {
             // Create new hashsets for cache
@@ -101,8 +104,8 @@ public abstract class App {
 
     private static boolean checkPanelApp
             (ApplicationInfo applicationInfo, LauncherActivity launcherActivity) {
-        if (applicationInfo instanceof PanelApp &&
-                AppData.getFullPanelAppList().contains((PanelApp) applicationInfo)) return true;
+        if (applicationInfo instanceof PanelApplicationInfo &&
+                AppData.getFullPanelAppList().contains((PanelApplicationInfo) applicationInfo)) return true;
 
         if (AppData.AUTO_DETECT_PANEL_APPS) {
             PackageManager pm = launcherActivity.getPackageManager();
@@ -115,7 +118,7 @@ public abstract class App {
     }
 
     synchronized public static boolean isSupported(ApplicationInfo app) {
-        return isAppOfType(app, Type.TYPE_SUPPORTED);
+        return isAppOfType(app, App.Type.TYPE_SUPPORTED);
     }
     private static String[] unsupportedPrefixes;
     private static boolean checkSupported(ApplicationInfo app, LauncherActivity launcherActivity) {
@@ -129,7 +132,7 @@ public abstract class App {
 
         if (app.metaData != null)
             if (app.metaData.keySet().contains("com.oculus.environmentVersion"))
-                return isAppOfType(app, Type.TYPE_VR);
+                return isAppOfType(app, App.Type.TYPE_VR);
 
         return Launch.checkLaunchable(launcherActivity, app);
     }
@@ -160,12 +163,12 @@ public abstract class App {
     public static void openInfo(Context context, String packageName) {
         Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
         intent.setData(Uri.parse("package:" +
-                packageName.replace(PanelApp.packagePrefix, "")));
+                packageName.replace(PanelApplicationInfo.packagePrefix, "")));
         context.startActivity(intent);
     }
     // Requests to uninstall the app
     public static void uninstall(String packageName) {
-        LauncherActivity launcher = LauncherActivity.getAnyInstance();
+        LauncherActivity launcher = LauncherActivity.getForegroundInstance();
         if (App.isWebsite(packageName)) {
             Set<String> webApps = launcher.dataStoreEditor.getStringSet(Settings.KEY_WEBSITE_LIST, Collections.emptySet());
             webApps = new HashSet<>(webApps); // Copy since we're not supposed to modify directly
@@ -181,11 +184,11 @@ public abstract class App {
         }
     }
 
-    public static App.Type getType(ApplicationInfo app) {
-        for (Type type : Platform.getSupportedAppTypes(LauncherActivity.getAnyInstance())) {
+    public static Type getType(ApplicationInfo app) {
+        for (Type type : Platform.getSupportedAppTypes(LauncherActivity.getForegroundInstance())) {
             if (isAppOfType(app, type)) return type;
         }
-        return Type.TYPE_UNSUPPORTED;
+        return App.Type.TYPE_UNSUPPORTED;
     }
 
     public static String getTypeString(Activity a, Type type) {
@@ -199,10 +202,10 @@ public abstract class App {
         };
     }
 
-    public static String getDefaultGroupFor(App.Type type) {
+    public static String getDefaultGroupFor(Type type) {
         return SettingsManager.getDefaultGroupFor(type);
     }
-    public static boolean typeIsBanner(App.Type type) {
+    public static boolean typeIsBanner(Type type) {
         return SettingsManager.isTypeBanner(type);
     }
 

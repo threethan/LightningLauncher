@@ -3,6 +3,8 @@ package com.threethan.launcher.helper;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
@@ -11,7 +13,8 @@ import android.widget.ImageView;
 import androidx.annotation.Nullable;
 
 import com.threethan.launcher.R;
-import com.threethan.launcher.launcher.LauncherActivity;
+import com.threethan.launcher.activity.dialog.BasicDialog;
+import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.lib.ImageLib;
 import com.threethan.launcher.lib.StringLib;
 import com.threethan.launcher.updater.IconUpdater;
@@ -50,15 +53,15 @@ public abstract class Icon {
         tempApp.packageName = cacheName;
         final boolean wide = App.isBanner(tempApp);
         final boolean oneIcon = custom || App.isWebsite(tempApp) || App.isShortcut(tempApp);
-        return new File(LauncherActivity.getAnyInstance().getApplicationInfo().dataDir +
+        return new File(LauncherActivity.getForegroundInstance().getApplicationInfo().dataDir +
                 (custom ? ICON_CUSTOM_FOLDER : ICON_CACHE_FOLDER),
                 cacheName + (wide && !oneIcon ? "-wide" : "") + ".webp");
     }
     public static void init() {
         // Icon init
-        File cacheDir = new File(LauncherActivity.getAnyInstance().getApplicationInfo().dataDir + Icon.ICON_CACHE_FOLDER);
+        File cacheDir = new File(LauncherActivity.getForegroundInstance().getApplicationInfo().dataDir + Icon.ICON_CACHE_FOLDER);
         boolean ignored1 = cacheDir.mkdir();
-        File customDir = new File(LauncherActivity.getAnyInstance().getApplicationInfo().dataDir + Icon.ICON_CUSTOM_FOLDER);
+        File customDir = new File(LauncherActivity.getForegroundInstance().getApplicationInfo().dataDir + Icon.ICON_CUSTOM_FOLDER);
         boolean ignored2 = customDir.mkdir();
     }
 
@@ -88,7 +91,7 @@ public abstract class Icon {
     @SuppressLint("UseCompatLoadingForDrawables")
     @Nullable
     public static Drawable loadIcon(LauncherActivity activity, ApplicationInfo app, ImageView imageView) {
-        IconExecutor.execute(activity, app, imageView);
+        new LoadIconExecutor(activity, app, imageView).execute();
         if (Icon.cachedIcons.containsKey(Icon.cacheName(app))) return Icon.cachedIcons.get(Icon.cacheName(app));
         else return null;
     }
@@ -99,7 +102,7 @@ public abstract class Icon {
         final boolean ignored1 = iconFile.delete();
         downloadImageView.setImageDrawable(loadIcon(activity, app, downloadImageView));
         IconUpdater.download(activity, app, null);
-        Dialog.toast(activity.getString(R.string.refreshed_icon));
+        BasicDialog.toast(activity.getString(R.string.refreshed_icon));
     }
     public static void saveIconDrawableExternal(Activity activity, Drawable icon, ApplicationInfo app) {
         try {
@@ -143,6 +146,73 @@ public abstract class Icon {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
+
+    /**
+     * Loads an icon asynchronously
+     */
+    protected static class LoadIconExecutor {
+        private final LauncherActivity activity;
+        private final ApplicationInfo app;
+        private final ImageView imageView;
+
+        protected LoadIconExecutor(LauncherActivity activity, ApplicationInfo app, ImageView imageView) {
+            this.activity = activity;
+            this.app = app;
+            this.imageView = imageView;
+        }
+
+        public void execute() {
+            Thread thread = new Thread(() -> {
+                Drawable appIcon = loadIcon();
+                if (appIcon != null) {
+                    Icon.cacheIcon(app, appIcon);
+                    if (imageView != null) activity.runOnUiThread(() -> imageView.setImageDrawable(appIcon));
+                }
+            });
+            thread.setPriority(Thread.MIN_PRIORITY);
+            thread.start();
+        }
+        @SuppressLint("UseCompatLoadingForDrawables")
+        @Nullable
+        public Drawable loadIcon() {
+            Drawable appIcon = null;
+
+            // Try to load from custom icon file
+            final File iconCustomFile = Icon.iconCustomFileForApp(app);
+            if (iconCustomFile.exists()) appIcon = Drawable.createFromPath(iconCustomFile.getAbsolutePath());
+            if (appIcon != null) return appIcon;
+
+            // Everything in the try will still attempt to download an icon
+            try {
+                // Try to load from cached icon file
+                final File iconCacheFile = Icon.iconCacheFileForPackage(app);
+                if (iconCacheFile.exists()) appIcon = Drawable.createFromPath(iconCacheFile.getAbsolutePath());
+                if (appIcon != null) return appIcon;
+
+                // Try to load from package manager
+                PackageManager packageManager = activity.getPackageManager();
+                Resources resources = packageManager.getResourcesForApplication(app);
+
+                // Check Icon
+                int iconId = app.icon;
+                // Check AndroidTV banner
+                if (app.banner != 0 && App.isBanner(app)) iconId = app.banner;
+
+                if (iconId == 0) iconId = android.R.drawable.sym_def_app_icon;
+                appIcon = resources.getDrawable(iconId, null);
+
+                return appIcon;
+            } catch (PackageManager.NameNotFoundException ignored) { // Fails on websites
+                return null;
+            }  finally {
+                // Attempt to download the icon for this app from an online repo
+                // Done AFTER saving the drawable version to prevent a race condition)
+                IconUpdater.check(activity, app, () ->
+                        activity.launcherService.forEachActivity(a ->
+                                Objects.requireNonNull(a.getAppAdapter()).notifyItemChanged(app)));
+            }
+        }
     }
 }

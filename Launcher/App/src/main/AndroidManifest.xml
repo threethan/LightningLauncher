@@ -63,7 +63,7 @@
 
         <!-- Main activity, called by the launcher & shortcut apk (Quest) -->
         <activity
-            android:name=".launcher.LauncherActivitySearchable"
+            android:name=".activity.LauncherActivitySearchable"
             android:screenOrientation="unspecified"
             android:configChanges="density|keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|uiMode"
             android:windowSoftInputMode="adjustNothing"
@@ -90,7 +90,7 @@
         </activity>
         <!-- Main activity, called by leanback launcher & launcher manager (Android TV) -->
         <activity
-            android:name=".launcher.LauncherActivitySingle"
+            android:name=".activity.LauncherActivitySingle"
             android:screenOrientation="unspecified"
             android:configChanges="density|keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|uiMode"
             android:windowSoftInputMode="adjustNothing"
@@ -108,7 +108,7 @@
             </intent-filter>
         </activity>
         <!-- Custom Sizes -->
-        <activity android:name=".launcher.chainload.ChainLoadActivityPhone"
+        <activity android:name=".activity.chainload.ChainLoadActivityPhone"
             android:screenOrientation="unspecified"
             android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
             android:exported="true"
@@ -120,7 +120,7 @@
             <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="true"/>
             <meta-data android:name="com.oculus.vrshell.free_resizing_limits" android:value="300,2000,500,1000"/>
         </activity>
-        <activity android:name=".launcher.chainload.ChainLoadActivitySmall"
+        <activity android:name=".activity.chainload.ChainLoadActivitySmall"
             android:screenOrientation="unspecified"
             android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
             android:exported="true"
@@ -132,7 +132,7 @@
             <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="true"/>
             <meta-data android:name="com.oculus.vrshell.free_resizing_limits" android:value="300,2000,500,1000"/>
         </activity>
-        <activity android:name=".launcher.chainload.ChainLoadActivityLarge"
+        <activity android:name=".activity.chainload.ChainLoadActivityLarge"
             android:screenOrientation="unspecified"
             android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
             android:exported="true"
@@ -144,7 +144,7 @@
             <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="true"/>
             <meta-data android:name="com.oculus.vrshell.free_resizing_limits" android:value="300,2000,500,1000"/>
         </activity>
-        <activity android:name=".launcher.chainload.ChainLoadActivityHuge"
+        <activity android:name=".activity.chainload.ChainLoadActivityHuge"
             android:screenOrientation="unspecified"
             android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
             android:exported="true"
@@ -156,7 +156,7 @@
             <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="true"/>
             <meta-data android:name="com.oculus.vrshell.free_resizing_limits" android:value="300,2000,500,1000"/>
         </activity>
-        <activity android:name=".launcher.chainload.ChainLoadActivityPortrait"
+        <activity android:name=".activity.chainload.ChainLoadActivityPortrait"
             android:screenOrientation="unspecified"
             android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
             android:exported="true"
@@ -171,13 +171,13 @@
 
         <!-- Service that provides/manages Launcher views -->
         <service
-            android:name=".launcher.LauncherService"
+            android:name=".LauncherService"
             android:exported="true"
             android:permission="com.threethan.launcher.start">
         </service>
 
         <!-- Intent received used to install shortcuts from other applications -->
-        <activity android:name=".support.AddShortcutActivity"
+        <activity android:name=".activity.AddShortcutActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.content.pm.action.CONFIRM_PIN_SHORTCUT" />

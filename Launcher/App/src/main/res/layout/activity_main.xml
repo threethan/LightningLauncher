@@ -178,7 +178,7 @@
                     android:paddingEnd="1dp"
                     android:src="@drawable/ic_search" />
 
-                <com.threethan.launcher.view.EditTextWatched
+                <com.threethan.launcher.activity.view.EditTextWatched
                     android:id="@+id/searchText"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"

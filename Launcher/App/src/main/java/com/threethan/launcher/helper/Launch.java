@@ -12,9 +12,13 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 
 import com.threethan.launcher.R;
-import com.threethan.launcher.launcher.LauncherActivity;
-import com.threethan.launcher.support.AddShortcutActivity;
-import com.threethan.launcher.support.SettingsManager;
+import com.threethan.launcher.activity.support.SettingsManager;
+import com.threethan.launcher.data.AppData;
+import com.threethan.launcher.data.PanelApplicationInfo;
+import com.threethan.launcher.data.Settings;
+import com.threethan.launcher.activity.dialog.BasicDialog;
+import com.threethan.launcher.activity.LauncherActivity;
+import com.threethan.launcher.activity.AddShortcutActivity;
 import com.threethan.launcher.updater.BrowserUpdater;
 
 import java.util.Objects;
@@ -60,12 +64,12 @@ public abstract class Launch {
             } else {
                 // If browser is required, but not installed
                 // Prompt installation
-                AlertDialog dialog = Dialog.build(launcherActivity, R.layout.dialog_prompt_download_browser);
+                AlertDialog dialog = new BasicDialog<>(launcherActivity, R.layout.dialog_prompt_download_browser).show();
                 if (dialog == null) return false;
                 dialog.findViewById(R.id.cancel).setOnClickListener((view) -> dialog.dismiss());
                 dialog.findViewById(R.id.install).setOnClickListener((view) -> {
                     new BrowserUpdater(launcherActivity).checkAppUpdateAndInstall();
-                    Dialog.toast(launcherActivity.getString(R.string.download_browser_toast_main),
+                    BasicDialog.toast(launcherActivity.getString(R.string.download_browser_toast_main),
                             launcherActivity.getString(R.string.download_browser_toast_bold), true);
                 });
                 return false;
@@ -126,8 +130,8 @@ public abstract class Launch {
         // Detect panel apps
         if (App.isAppOfType(app, App.Type.TYPE_PANEL)) {
             String uri = app.packageName;
-            if (uri.startsWith(PanelApp.packagePrefix))
-                uri = uri.replace(PanelApp.packagePrefix, "");
+            if (uri.startsWith(PanelApplicationInfo.packagePrefix))
+                uri = uri.replace(PanelApplicationInfo.packagePrefix, "");
 
             Intent panelIntent = new Intent(Intent.ACTION_VIEW);
             panelIntent.setComponent(new ComponentName(

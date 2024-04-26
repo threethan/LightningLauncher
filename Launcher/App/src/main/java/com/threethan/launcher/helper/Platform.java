@@ -6,8 +6,10 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.res.Configuration;
 
+import com.threethan.launcher.activity.support.DataStoreEditor;
+import com.threethan.launcher.activity.support.SettingsManager;
+import com.threethan.launcher.data.Settings;
 import com.threethan.launcher.lib.StringLib;
-import com.threethan.launcher.support.SettingsManager;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -109,9 +111,10 @@ public abstract class Platform {
      * @return Types of apps which are supported on this device
      */
     public static List<App.Type> getSupportedAppTypes(Activity activity) {
-        if (cachedSupportedAppTypes != null) return  cachedSupportedAppTypes;
+        if (cachedSupportedAppTypes != null) return cachedSupportedAppTypes;
 
         final List<App.Type> validTypes = new ArrayList<>();
+
 
         // These must be in order of priority
         if (Platform.isQuest(activity)) validTypes.add(App.Type.TYPE_PANEL);

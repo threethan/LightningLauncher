@@ -5,11 +5,14 @@ import android.os.Build;
 import android.util.Log;
 
 import com.threethan.launcher.R;
-import com.threethan.launcher.launcher.LauncherActivity;
+import com.threethan.launcher.activity.support.DataStoreEditor;
+import com.threethan.launcher.activity.support.SettingsManager;
+import com.threethan.launcher.data.Settings;
+import com.threethan.launcher.activity.dialog.BasicDialog;
+import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.lib.FileLib;
 import com.threethan.launcher.lib.StringLib;
 import com.threethan.launcher.updater.IconUpdater;
-import com.threethan.launcher.support.SettingsManager;
 
 import java.io.File;
 import java.util.Collections;
@@ -50,7 +53,7 @@ public abstract class Compat {
                 dse2.asyncWrite = false;
                 dse2.migrateDefault(launcherActivity);
                 if (dataStoreEditor.getInt(Settings.KEY_BACKGROUND, -1) != -1)
-                    Dialog.toast(launcherActivity.getString(R.string.migrated));
+                    BasicDialog.toast(launcherActivity.getString(R.string.migrated));
                 clearIconCache(launcherActivity);
             }
         }
@@ -146,7 +149,7 @@ public abstract class Compat {
                         for (String key : oldWideKeyToType.keySet()) {
                             if (dataStoreEditor.contains(key)) {
                                 boolean val = dataStoreEditor.getBoolean(key, false);
-                                dataStoreEditor.putBoolean(Settings.KEY_BANNER + oldDefKeyToType.get(key), val);
+                                dataStoreEditor.putBoolean(Settings.KEY_BANNER + oldWideKeyToType.get(key), val);
                                 dataStoreEditor.removeBoolean(key);
                             }
                         }
