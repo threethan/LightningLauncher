@@ -269,7 +269,7 @@
     <string name="notification_content">This notification keeps your websites\' background audio running smoothly.</string>
 
     <!-- Addons -->
-    <string name="addons_main_vr">Install Shortcuts</string>
+    <string name="addons_main_vr">Shortcuts</string>
     <string name="addons_main_tv">Shortcut Options</string>
     <string name="addons_info">Shortcuts make it easier to open the launcher.
         \nIt\'s highly recommended that you set up use at least one.</string>
@@ -287,11 +287,8 @@
     \n
     \nPressing back once you get to the launcher will just toggle edit mode, keeping you from accidentally returning to the default launcher.</string>
 
-    <string name="addons_facebook">Facebook App Shortcut</string>
-    <string name="addons_facebook_desc">Adds an icon, which you can pin to the dock, that looks like the app \'Facebook\', but will actually open the launcher.</string>
 
-    <string name="addons_monday">Monday App Shortcut</string>
-    <string name="addons_monday_desc">Adds an icon, which you can pin to the dock, that looks like the app \'Monday.com\', but will actually open the launcher.</string>
+    <string name="addons_preamble">Each addon can be used for another window of Lighting Launcher. If you do not activate an addon, it will simply serve as an alternate icon.</string>
 
     <string name="addons_explore">Horizon Feed Shortcut Service</string>
     <string name="addons_explore_desc">Install then activate to open Lightning Launcher whenever you hover over the &quot;Horizon Feed&quot;/&quot;Oculus Explore&quot; button on the dock.</string>
@@ -312,5 +309,6 @@
     <string name="addons_install">Install</string>
     <string name="addons_update">Update</string>
     <string name="addons_activate">Activate</string>
+    <string name="addons_deactivate">Deactivate</string>
     <string name="addons_uninstall">Remove</string>
 </resources>

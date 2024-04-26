@@ -17,7 +17,9 @@ import androidx.annotation.Nullable;
 import java.util.List;
 
 public class AddonUpdater extends RemotePackageUpdater {
-    public static final String ADDON_TAG = "addons7.0.0"; // Tag for the release from which to download addons
+    public static final String ADDON_TAG = "addons7.2.0"; // Tag for the release from which to download addons
+    private static final String SHORTCUT_ADDON_VERSION = "7.2.0";
+
     public AddonUpdater(Activity activity) {
         super(activity);
     }
@@ -53,8 +55,6 @@ public class AddonUpdater extends RemotePackageUpdater {
         }
     }
     // Package names
-    public static final String TAG_FACEBOOK = "Facebook App Shortcut";
-    public static final String TAG_MONDAY   = "Monday App Shortcut";
     public static final String TAG_LIBRARY  = "Library Shortcut Service";
     public static final String TAG_PEOPLE   = "People Shortcut Service";
     public static final String TAG_FEED     = "Feed Shortcut Service";
@@ -75,20 +75,14 @@ public class AddonUpdater extends RemotePackageUpdater {
 
     public static final Addon[] addons = {
             // Quest-Exclusive
-            new Addon(TAG_FACEBOOK, "com.facebook.facebookvr",
-                    "6.3.0", false, addonUrl("ShortcutFacebook")),
-
-            new Addon(TAG_MONDAY, "oculuspwa.auth.monday.com",
-                    "6.3.0", false, addonUrl("ShortcutMonday")),
-
             new Addon(TAG_LIBRARY, "com.threethan.launcher.service.library",
-                    "7.0.0", true, addonUrl("ShortcutAppLibrary")),
+                    SHORTCUT_ADDON_VERSION, true, addonUrl("ShortcutLibrary")),
 
             new Addon(TAG_PEOPLE, "com.threethan.launcher.service.people",
-                    "7.0.0", true, addonUrl("ShortcutPeople")),
+                    SHORTCUT_ADDON_VERSION, true, addonUrl("ShortcutPeople")),
 
             new Addon(TAG_FEED, "com.threethan.launcher.service.explore",
-                    "7.0.0", true, addonUrl("ShortcutHorizonFeed")),
+                    SHORTCUT_ADDON_VERSION, true, addonUrl("ShortcutFeed")),
 
             // AndroidTV-Exclusive
             new Addon(TAG_ATV_LM, "com.wolf.google.lm",
@@ -131,10 +125,10 @@ public class AddonUpdater extends RemotePackageUpdater {
             for (AccessibilityServiceInfo enabledService : enabledServices) {
                 ServiceInfo enabledServiceInfo = enabledService.getResolveInfo().serviceInfo;
                 if (enabledServiceInfo.packageName.equals(addon.packageName))
-                    return AddonState.INSTALLED_ACTIVE;
+                    return AddonState.INSTALLED_SERVICE_ACTIVE;
             }
             return AddonState.INSTALLED_SERVICE_INACTIVE;
-        } else return AddonState.INSTALLED_ACTIVE;
+        } else return AddonState.INSTALLED_APP;
     }
     public void uninstallAddon(Activity activity, String tag) {
         RemotePackage addon = getAddon(tag);

@@ -42,10 +42,9 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/addonAndroidTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="8dp"
                 android:orientation="horizontal">
 
@@ -63,134 +62,14 @@
                     android:text="@string/addons_androidtv"
                     tools:layout_gravity="bottom" />
 
-                <LinearLayout
-                    android:id="@+id/addonUninstall"
-                    android:layout_width="120sp"
-                    android:layout_height="35dp"
-                    android:layout_gravity="bottom"
-                    android:background="@drawable/bkg_button"
-                    android:orientation="horizontal"
-                    android:visibility="gone"
-                    tools:ignore="DuplicateIds"
-                    tools:visibility="gone">
-
-                    <TextView
-                        style="@style/SettingButtonLabel"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="35dp"
-                        android:singleLine="true"
-                        android:text="@string/addons_uninstall"
-                        tools:ignore="NestedWeights,RtlSymmetry" />
-
-                    <ImageView
-                        android:layout_width="35dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="-35dp"
-                        android:layout_marginEnd="-8dp"
-                        android:src="@drawable/ic_uninstall" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/addonInstall"
-                    android:layout_width="120sp"
-                    android:layout_height="35dp"
-                    android:layout_gravity="bottom"
-                    android:background="@drawable/bkg_button_highlight"
-                    android:orientation="horizontal"
-                    android:visibility="gone"
-                    tools:ignore="DuplicateIds"
-                    tools:visibility="gone">
-
-                    <TextView
-                        style="@style/SettingButtonLabel"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="35dp"
-                        android:singleLine="true"
-                        android:text="@string/addons_install"
-                        android:textColor="#000000"
-                        tools:ignore="NestedWeights,RtlSymmetry" />
-
-                    <ImageView
-                        android:layout_width="35dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="-35dp"
-                        android:layout_marginEnd="-8dp"
-                        android:src="@drawable/ic_download"
-                        android:tint="#000000"
-                        tools:ignore="UseAppTint" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/addonUpdate"
-                    android:layout_width="120sp"
-                    android:layout_height="35dp"
-                    android:layout_gravity="bottom"
-                    android:background="@drawable/bkg_button_highlight"
-                    android:orientation="horizontal"
-                    android:visibility="gone"
-                    tools:ignore="DuplicateIds"
-                    tools:visibility="visible">
-
-                    <TextView
-                        style="@style/SettingButtonLabel"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="35dp"
-                        android:singleLine="true"
-                        android:text="@string/addons_update"
-                        android:textColor="#000000"
-                        tools:ignore="NestedWeights,RtlSymmetry" />
-
-                    <ImageView
-                        android:layout_width="35dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="-35dp"
-                        android:layout_marginEnd="-8dp"
-                        android:src="@drawable/ic_update"
-                        android:tint="#000000"
-                        tools:ignore="UseAppTint" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/addonActivate"
-                    android:layout_width="120sp"
-                    android:layout_height="35dp"
-                    android:layout_gravity="bottom"
-                    android:background="@drawable/bkg_button_highlight"
-                    android:orientation="horizontal"
-                    android:visibility="gone"
-                    tools:ignore="DuplicateIds">
-
-                    <TextView
-                        style="@style/SettingButtonLabel"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="30dp"
-                        android:singleLine="true"
-                        android:text="@string/addons_activate"
-                        android:textColor="#000000"
-                        tools:ignore="NestedWeights,RtlSymmetry" />
-
-                    <ImageView
-                        android:layout_width="35dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="-35dp"
-                        android:layout_marginEnd="-8dp"
-                        android:src="@drawable/ic_activate"
-                        android:tint="#000000"
-                        tools:ignore="UseAppTint" />
-
-                </LinearLayout>
             </LinearLayout>
+
+            <include
+                android:id="@+id/addonAndroidTv"
+                layout="@layout/addon_buttons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp" />
 
             <TextView
                 style="@style/SettingsText"

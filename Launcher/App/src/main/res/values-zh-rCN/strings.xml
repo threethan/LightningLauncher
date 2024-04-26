@@ -224,12 +224,7 @@
     <string name="addons_androidtv_alt">或直接使用返回按钮</string>
     <string name="addons_androidtv_alt_desc">如果你只使用遥控器上的返回键，而不是主页键，你将始终回到 Lightning Launcher。\n    \n\n    \n进入启动器后再按返回键，只会切换编辑模式，避免意外返回默认启动器。</string>
 
-    <string name="addons_facebook">Facebook 应用快捷方式</string>
-    <string name="addons_facebook_desc">添加一个图标，你可以把它固定在 dock 上，它看起来像 Facebook 但实际上会打开启动器。\n\n(如果已安装真正的 Messenger 应用程序，则不会安装该图标）</string>
-
-    <string name="addons_monday">Monday 快捷方式服务</string>
-    <string name="addons_monday_desc">添加一个图标，你可以把它固定在 dock 上，它看起来像应用 \"Monday.com\"，但实际上会打开启动器。</string>
-
+    <string name="addons_preamble"> </string>
     <string name="addons_explore">Horizon Feed 快捷方式服务</string>
     <string name="addons_explore_desc">安装后，只要悬停在基座上的 &quot;Horizon Feed&quot;/&quot;Oculus Explore&quot; 按钮上，就会激活打开 Lightning Launcher。</string>
 
@@ -247,5 +242,7 @@
     <string name="addons_install">安装</string>
     <string name="addons_update">更新</string>
     <string name="addons_activate">激活</string>
+    <string name="addons_deactivate">失活</string>
+
     <string name="addons_uninstall">移除</string>
 </resources>

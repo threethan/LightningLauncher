@@ -79,7 +79,7 @@ import eightbitlab.com.blurview.RenderScriptBlur;
 
 public class LauncherActivity extends ComponentActivity {
     public static Boolean darkMode = null;
-    public static Boolean groupsEnabled = null;
+    public static Boolean groupsEnabled = true;
     RecyclerView appsView;
     public ApplicationInfo currentTopSearchResult = null;
     public Set<String> clearFocusPackageNames = new HashSet<>();
@@ -393,6 +393,8 @@ public class LauncherActivity extends ComponentActivity {
      * It is extended further by child classes
      */
     public void refreshInterface() {
+        groupsEnabled = dataStoreEditor.getBoolean(Settings.KEY_GROUPS_ENABLED, Settings.DEFAULT_GROUPS_ENABLED);
+
         refreshAdapters();
 
         // Fix some focus issues

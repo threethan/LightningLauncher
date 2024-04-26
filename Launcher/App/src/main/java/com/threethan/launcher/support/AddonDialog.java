@@ -33,15 +33,9 @@ public abstract class AddonDialog {
         if (dialog == null) return;
         activityRef = new WeakReference<>(a);
 
-        View addonFacebook = dialog.findViewById(R.id.addonFacebook);
-        if (addonFacebook!=null) updateAddonButton(a, addonFacebook, AddonUpdater.TAG_FACEBOOK);
-
-        View addonMonday = dialog.findViewById(R.id.addonMonday);
-        if (addonMonday!=null) updateAddonButton(a, addonMonday, AddonUpdater.TAG_MONDAY);
-
-        View addonExplore = dialog.findViewById(R.id.addonExplore);
-        if (addonExplore!=null) {
-            updateAddonButton(a, addonExplore, AddonUpdater.TAG_FEED);
+        View addonFeed = dialog.findViewById(R.id.addonFeed);
+        if (addonFeed!=null) {
+            updateAddonButton(a, addonFeed, AddonUpdater.TAG_FEED);
             dialog.findViewById(R.id.disableExplore).setOnClickListener(v -> App.openInfo(a, AppData.EXPLORE_PACKAGE));
             ((TextView) dialog.findViewById(R.id.disableExploreWhy)).setText(
                     App.isPackageEnabled(a, AppData.EXPLORE_PACKAGE) ?
@@ -62,13 +56,15 @@ public abstract class AddonDialog {
 
         dialog.findViewById(R.id.exitButton).setOnClickListener(v -> dialog.dismiss());
     }
-    public static void updateAddonButton(final Activity a, final View outerView, final String tag) {
-        final View uninstallButton = outerView.findViewById(R.id.addonUninstall);
-        final View installButton = outerView.findViewById(R.id.addonInstall);
-        final View updateButton = outerView.findViewById(R.id.addonUpdate);
-        final View activateButton = outerView.findViewById(R.id.addonActivate);
+    public static void updateAddonButton(final Activity a, final View layout, final String tag) {
 
-        View icon = outerView.findViewById(R.id.icon);
+        final View uninstallButton = layout.findViewById(R.id.addonUninstall);
+        final View installButton = layout.findViewById(R.id.addonInstall);
+        final View updateButton = layout.findViewById(R.id.addonUpdate);
+        final View activateButton = layout.findViewById(R.id.addonActivate);
+        final View deactivateButton = layout.findViewById(R.id.addonDeactivate);
+
+        View icon = layout.findViewById(R.id.icon);
         if (icon != null) icon.setClipToOutline(true);
         Runnable updateButtonRunnable = new Runnable() {
             @Override
@@ -77,26 +73,31 @@ public abstract class AddonDialog {
                 installButton.setVisibility(View.GONE);
                 updateButton.setVisibility(View.GONE);
                 activateButton.setVisibility(View.GONE);
+                deactivateButton.setVisibility(View.GONE);
 
                 AddonUpdater updater = getUpdater();
                 if (updater == null) return;
 
+                View[] visibleButtons;
                 switch (updater.getAddonState(updater.getAddon(tag))) {
-                    case INSTALLED_SERVICE_INACTIVE -> activateButton.setVisibility(View.VISIBLE);
-                    case INSTALLED_ACTIVE -> uninstallButton.setVisibility(View.VISIBLE);
-                    case INSTALLED_HAS_UPDATE       -> updateButton.setVisibility(View.VISIBLE);
-                    case NOT_INSTALLED              -> installButton.setVisibility(View.VISIBLE);
-
+                    case INSTALLED_APP              -> visibleButtons = new View[]{uninstallButton};
+                    case INSTALLED_SERVICE_ACTIVE   -> visibleButtons = new View[]{deactivateButton, uninstallButton};
+                    case INSTALLED_SERVICE_INACTIVE -> visibleButtons = new View[]{activateButton, uninstallButton};
+                    case INSTALLED_HAS_UPDATE       -> visibleButtons = new View[]{updateButton, uninstallButton};
+                    case NOT_INSTALLED              -> visibleButtons = new View[]{installButton};
+                    default                         -> throw new RuntimeException("UNIMPLEMENTED ADDON STATE");
                 }
-                outerView.postDelayed(this, 100);
+                for (View view : visibleButtons) view.setVisibility(View.VISIBLE);
+                layout.postDelayed(this, 100);
             }
         };
-        outerView.post(updateButtonRunnable);
+        layout.post(updateButtonRunnable);
 
         uninstallButton.setOnClickListener((v -> Objects.requireNonNull(getUpdater()).uninstallAddon(a, tag)));
         installButton.setOnClickListener((v -> Objects.requireNonNull(getUpdater()).installAddon(tag)));
         updateButton.setOnClickListener((v -> Objects.requireNonNull(getUpdater()).installAddon(tag)));
-        activateButton.setOnClickListener((v -> showAccessibilityDialog()));
+        activateButton  .setOnClickListener((v -> showAccessibilityDialog()));
+        deactivateButton.setOnClickListener((v -> showAccessibilityDialog()));
     }
     @Nullable
     protected static AddonUpdater getUpdater() {

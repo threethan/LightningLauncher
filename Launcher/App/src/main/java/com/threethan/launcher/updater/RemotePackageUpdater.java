@@ -85,7 +85,7 @@ public class RemotePackageUpdater {
      * but does not yet have an active accessibility service
      */
     public enum AddonState
-    { NOT_INSTALLED, INSTALLED_HAS_UPDATE, INSTALLED_SERVICE_INACTIVE, INSTALLED_ACTIVE }
+    { NOT_INSTALLED, INSTALLED_HAS_UPDATE, INSTALLED_SERVICE_INACTIVE, INSTALLED_SERVICE_ACTIVE, INSTALLED_APP }
     String latestVersionTag;
     private AlertDialog downloadingDialog;
 
