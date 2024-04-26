@@ -609,7 +609,9 @@ public class LauncherActivity extends ComponentActivity {
         if (getAppAdapter() != null)
             getAppAdapter().setFullAppSet(Platform.apps);
 
+        final int scrollY = appsView.getScrollY();
         runOnUiThread(() -> getAppAdapter().setAppList(this));
+        appsView.setScrollY(scrollY);
     }
 
     /**
