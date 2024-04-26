@@ -25,5 +25,12 @@
         <item>com.oculus.environmentVersion</item>
         <!-- No need to launch the app we're already in -->
         <item>com.threethan.launcher</item>
+
+        <item>com.oculus.vrprivacycheckup</item>
+        <item>com.oculus.panelapp.settings</item>
+        <item>com.oculus.panelapp.kiosk</item>
+        <item>com.oculus.os.void</item>
+        <!-- New duplicate of systemux://sharing -->
+        <item>com.oculus.metacam</item>
     </string-array>
 </resources>
