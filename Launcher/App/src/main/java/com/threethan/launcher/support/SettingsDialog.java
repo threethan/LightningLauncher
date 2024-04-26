@@ -344,10 +344,7 @@ public class SettingsDialog {
 
         if (Platform.isVr(a)) {
             attachSwitchToSetting(dialog.findViewById(R.id.defaultLaunchOutSwitch),
-                    Settings.KEY_DEFAULT_LAUNCH_OUT, Settings.DEFAULT_DEFAULT_LAUNCH_OUT,
-                    value -> showOneTimeWarningDialog(R.layout.dialog_info_launch_out,
-                                                  Settings.KEY_SEEN_LAUNCH_OUT_POPUP)
-            );
+                    Settings.KEY_DEFAULT_LAUNCH_OUT, Settings.DEFAULT_DEFAULT_LAUNCH_OUT);
 
             attachSwitchToSetting(dialog.findViewById(R.id.advancedSizingSwitch),
                     Settings.KEY_ADVANCED_SIZING, Settings.DEFAULT_ADVANCED_SIZING,

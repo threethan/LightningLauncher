@@ -122,7 +122,7 @@ public abstract class Settings {
     public static final String KEY_LAUNCH_BROWSER = "prefLaunchBrowser";
     public static final String KEY_DEFAULT_BROWSER = "KEY_DEFAULT_BROWSER";
     public static final String KEY_DEFAULT_LAUNCH_OUT = "KEY_DEFAULT_LAUNCH_OUT";
-    public static final boolean DEFAULT_DEFAULT_LAUNCH_OUT = false;
+    public static final boolean DEFAULT_DEFAULT_LAUNCH_OUT = true;
     public static final String KEY_ADVANCED_SIZING = "KEY_ADVANCED_SIZING";
     public static final boolean DEFAULT_ADVANCED_SIZING = false;
     public static final int[] launchSizeStrings = {

@@ -111,19 +111,8 @@ public abstract class AppDetailsDialog {
 
             // Normal size settings
             launchModeSwitch.setChecked(SettingsManager.getAppLaunchOut(currentApp.packageName));
-            launchModeSwitch.setOnCheckedChangeListener((sw, value) -> {
-                SettingsManager.setAppLaunchOut(currentApp.packageName, value);
-
-                if (!launcherActivity.dataStoreEditor.getBoolean(Settings.KEY_SEEN_LAUNCH_OUT_POPUP, false)) {
-                    AlertDialog subDialog = Dialog.build(launcherActivity, R.layout.dialog_info_launch_out);
-                    if (subDialog == null) return;
-                    subDialog.findViewById(R.id.confirm).setOnClickListener(view -> {
-                        launcherActivity.dataStoreEditor
-                                .putBoolean(Settings.KEY_SEEN_LAUNCH_OUT_POPUP, true);
-                        subDialog.dismiss();
-                    });
-                }
-            });
+            launchModeSwitch.setOnCheckedChangeListener((sw, value)
+                    -> SettingsManager.setAppLaunchOut(currentApp.packageName, value));
             launchModeSwitch.setVisibility(Platform.isVr(launcherActivity) ? View.VISIBLE : View.GONE);
 
             // Browser selection spinner
