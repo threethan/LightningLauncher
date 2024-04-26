@@ -129,8 +129,9 @@ def write_string_file(path: str, value: str):
 
 def generate_all_strings():
     generate_strings("anytime_tablet_aui_horizon_feed_button", "../src/feed/res")
-    generate_strings("anytime_tablet_library_people_button", "../src/people/res")
-    generate_strings("library_display_name", "../src/library/res")
+    generate_strings("anytime_tablet_library_people_button"  , "../src/people/res")
+    generate_strings("anytime_tablet_library_store_button"   , "../src/store/res")
+    generate_strings("library_display_name_side_nav_enabled" , "../src/library/res")
 
 
 def run():

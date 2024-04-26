@@ -46,7 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="0dp"
                 android:orientation="horizontal"
                 tools:ignore="UseCompoundDrawables">
 
@@ -55,32 +55,32 @@
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_marginEnd="10dp"
-                    android:src="@drawable/ic_shortcut_lib"
+                    android:src="@drawable/ic_icon_library"
                     tools:ignore="DuplicateIds" />
 
                 <TextView
                     style="@style/SettingSubtitle"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center|start"
-                    android:layout_marginTop="0dp"
+                    android:layout_marginTop="4dp"
                     android:layout_marginBottom="0dp"
                     android:layout_weight="1"
                     android:paddingStart="0dp"
                     android:paddingTop="0dp"
                     android:paddingEnd="0dp"
-                    android:text="@string/addons_library"
-                    tools:layout_gravity="bottom" />
+                    android:paddingBottom="0dp"
+                    android:text="@string/addons_library" />
 
             </LinearLayout>
 
             <include
                 android:id="@+id/addonLibrary"
                 layout="@layout/addon_buttons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
-                android:layout_marginBottom="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_marginBottom="10dp" />
 
             <TextView
                 style="@style/SettingsText"
@@ -100,7 +100,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="0dp"
                 android:orientation="horizontal"
                 tools:ignore="UseCompoundDrawables">
 
@@ -109,22 +109,76 @@
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_marginEnd="10dp"
-                    android:src="@drawable/ic_shortcut_people"
+                    android:src="@drawable/ic_icon_store"
                     tools:ignore="DuplicateIds" />
 
                 <TextView
                     style="@style/SettingSubtitle"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center|start"
-                    android:layout_marginTop="0dp"
+                    android:layout_marginTop="4dp"
                     android:layout_marginBottom="0dp"
                     android:layout_weight="1"
                     android:paddingStart="0dp"
                     android:paddingTop="0dp"
                     android:paddingEnd="0dp"
-                    android:text="@string/addons_people"
-                    tools:layout_gravity="bottom" />
+                    android:paddingBottom="0dp"
+                    android:text="@string/addons_store" />
+
+            </LinearLayout>
+
+            <include
+                android:id="@+id/addonStore"
+                layout="@layout/addon_buttons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                style="@style/SettingsText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:minHeight="60sp"
+                android:text="@string/addons_store_desc" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="0dp"
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+                    android:id="@+id/icon"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/ic_icon_people"
+                    tools:ignore="DuplicateIds" />
+
+                <TextView
+                    style="@style/SettingSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center|start"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="0dp"
+                    android:layout_weight="1"
+                    android:paddingStart="0dp"
+                    android:paddingTop="0dp"
+                    android:paddingEnd="0dp"
+                    android:paddingBottom="0dp"
+                    android:text="@string/addons_people" />
 
             </LinearLayout>
 
@@ -154,7 +208,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="0dp"
                 android:orientation="horizontal"
                 tools:ignore="UseCompoundDrawables">
 
@@ -163,22 +217,22 @@
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_marginEnd="10dp"
-                    android:src="@drawable/ic_shortcut_feed"
+                    android:src="@drawable/ic_icon_feed"
                     tools:ignore="DuplicateIds" />
 
                 <TextView
                     style="@style/SettingSubtitle"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center|start"
-                    android:layout_marginTop="0dp"
+                    android:layout_marginTop="4dp"
                     android:layout_marginBottom="0dp"
                     android:layout_weight="1"
                     android:paddingStart="0dp"
                     android:paddingTop="0dp"
                     android:paddingEnd="0dp"
-                    android:text="@string/addons_explore"
-                    tools:layout_gravity="bottom" />
+                    android:paddingBottom="0dp"
+                    android:text="@string/addons_explore" />
 
             </LinearLayout>
 

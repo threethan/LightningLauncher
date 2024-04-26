@@ -27,7 +27,7 @@ public class AddonUpdater extends RemotePackageUpdater {
     /** --------------
      ADDON LIST
      -------------- */
-    protected static class Addon extends RemotePackage {
+    public static class Addon extends RemotePackage {
 
         public final String tag;
         public final Boolean isService;
@@ -57,6 +57,7 @@ public class AddonUpdater extends RemotePackageUpdater {
     // Package names
     public static final String TAG_LIBRARY  = "Library Shortcut Service";
     public static final String TAG_PEOPLE   = "People Shortcut Service";
+    public static final String TAG_STORE   = "Store Shortcut Service";
     public static final String TAG_FEED     = "Feed Shortcut Service";
     public static final String TAG_ATV_LM   = "Android TV Launcher Manager";
 
@@ -83,6 +84,9 @@ public class AddonUpdater extends RemotePackageUpdater {
 
             new Addon(TAG_FEED, "com.threethan.launcher.service.explore",
                     SHORTCUT_ADDON_VERSION, true, addonUrl("ShortcutFeed")),
+
+            new Addon(TAG_STORE, "com.threethan.launcher.service.store",
+                    SHORTCUT_ADDON_VERSION, true, addonUrl("ShortcutStore")),
 
             // AndroidTV-Exclusive
             new Addon(TAG_ATV_LM, "com.wolf.google.lm",

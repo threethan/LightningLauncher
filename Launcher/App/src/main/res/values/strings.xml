@@ -27,7 +27,7 @@
     <string name="settings_main">Launcher Settings</string>
     <string name="settings_appearance">Customize Appearance</string>
     <string name="settings_addons_attract">Set Up Shortcuts</string>
-    <string name="settings_addons">Shortcut Settings</string>
+    <string name="settings_addons">Shortcuts</string>
     <string name="settings_update">Download &amp; Install Latest Update</string>
 
     <string name="behavior_header">Behavior</string>
@@ -291,9 +291,9 @@
     \nPressing back once you get to the launcher will just toggle edit mode, keeping you from accidentally returning to the default launcher.</string>
 
 
-    <string name="addons_preamble">Each addon can be used for another window of Lighting Launcher. If you do not activate an addon, it will simply serve as an alternate icon.</string>
+    <string name="addons_preamble">Each addon can be used for another window of Lighting Launcher. You may use an addon as an alternate icon on the dock with or without activating it.</string>
 
-    <string name="addons_explore">Horizon Feed Shortcut Service</string>
+    <string name="addons_explore">Feed Shortcut</string>
     <string name="addons_explore_desc">Install then activate to open Lightning Launcher whenever you hover over the &quot;Horizon Feed&quot;/&quot;Oculus Explore&quot; button on the dock.</string>
 
     <string name="addons_explore_disable_why">Instead of using this shortcut, you can disable the Explore app &amp; reboot to remove the feed icon.</string>
@@ -302,16 +302,20 @@
     <string name="addons_explore_disable">(Optional) Disable the Explore app</string>
     <string name="addons_explore_enable">Re-Enable Explore app</string>
 
-    <string name="addons_library">App Library Shortcut Service</string>
+    <string name="addons_library">Library Shortcut</string>
     <string name="addons_library_desc">Install then activate to open Lightning Launcher whenever you hover over the &quot;App Library&quot; button on the dock.
         \n(This makes it hard to open the quest\'s app library)</string>
-    <string name="addons_people">People Shortcut Service</string>
+    <string name="addons_store">Store Shortcut</string>
+    <string name="addons_store_desc">Install then activate to open Lightning Launcher whenever you hover over the &quot;Store&quot; button on the dock.
+        \n(This makes it hard to open the quest\'s store)</string>
+    <string name="addons_people">People Shortcut</string>
     <string name="addons_people_desc">Install then activate to open Lightning Launcher whenever you hover over the &quot;People&quot; button on the dock.
         \n(This makes it hard to open the quest\'s people app)</string>
 
     <string name="addons_install">Install</string>
     <string name="addons_update">Update</string>
     <string name="addons_activate">Activate</string>
+    <string name="addons_open">Launch</string>
     <string name="addons_deactivate">Deactivate</string>
-    <string name="addons_uninstall">Remove</string>
+    <string name="addons_uninstall">Uninstall</string>
 </resources>
