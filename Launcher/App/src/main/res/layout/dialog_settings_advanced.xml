@@ -200,7 +200,6 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/textView5"
                 style="@style/SettingsText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -290,6 +289,76 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            style="@style/SettingSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/advanced_search" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/searchWebSection"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bkg_button"
+            android:gravity="clip_vertical|center_vertical">
+
+            <TextView
+                style="@style/SettingButtonLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="@string/search_web"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Switch
+                android:id="@+id/searchWebSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:foreground="@drawable/bkg_hover_button"
+                android:thumb="@drawable/switch_thumb_custom"
+                android:track="@drawable/switch_track_custom"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/searchHiddenSection"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bkg_button"
+            android:gravity="clip_vertical|center_vertical">
+
+            <TextView
+                style="@style/SettingButtonLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="@string/search_hidden"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Switch
+                android:id="@+id/searchHiddenSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:foreground="@drawable/bkg_hover_button"
+                android:thumb="@drawable/switch_thumb_custom"
+                android:track="@drawable/switch_track_custom"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

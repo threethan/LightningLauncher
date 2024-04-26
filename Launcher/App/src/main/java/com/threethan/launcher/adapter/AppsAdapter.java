@@ -68,16 +68,21 @@ public class AppsAdapter extends ArrayListAdapter<ApplicationInfo, AppsAdapter.A
                 .getVisibleApps(activity, settingsManager.getAppGroupsSorted(true), fullAppSet)));
     }
     public synchronized void filterBy(String text) {
+        boolean showHidden = !text.isEmpty() && launcherActivity.dataStoreEditor.getBoolean(Settings.KEY_SEARCH_HIDDEN, Settings.DEFAULT_SEARCH_HIDDEN);
+
         SettingsManager settingsManager = SettingsManager.getInstance(launcherActivity);
         final List<ApplicationInfo> newItems =
                 settingsManager.getVisibleApps(launcherActivity, settingsManager.getAppGroupsSorted(false), fullAppSet);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             newItems.removeIf(item -> !StringLib.forSort(SettingsManager.getAppLabel(item)).contains(StringLib.forSort(text)));
+            if (!showHidden)
+                newItems.removeIf(item -> Objects.equals(SettingsManager.getAppGroupMap().get(item.packageName), Settings.HIDDEN_GROUP));
         }
 
+        boolean showWeb = !text.isEmpty() && launcherActivity.dataStoreEditor.getBoolean(Settings.KEY_SEARCH_WEB, Settings.DEFAULT_SEARCH_WEB);
         // Add search queries
-        if (!text.isEmpty() && !launcherActivity.isEditing()) {
+        if (showWeb && !launcherActivity.isEditing()) {
 
             final ApplicationInfo googleProxy = new ApplicationInfo();
             googleProxy.packageName = StringLib.googleSearchForUrl(text);

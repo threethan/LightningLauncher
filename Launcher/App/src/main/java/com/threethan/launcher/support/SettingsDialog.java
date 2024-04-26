@@ -400,6 +400,12 @@ public class SettingsDialog {
             defaultBrowserSelection[0] = index;
         });
 
+        // Search settings
+        attachSwitchToSetting(dialog.findViewById(R.id.searchWebSwitch),
+                Settings.KEY_SEARCH_WEB, Settings.DEFAULT_SEARCH_WEB);
+        attachSwitchToSetting(dialog.findViewById(R.id.searchHiddenSwitch),
+                Settings.KEY_SEARCH_HIDDEN, Settings.DEFAULT_SEARCH_HIDDEN);
+
         // Save/load settings
         View loadSettings = dialog.findViewById(R.id.loadSettingsButton);
         loadSettings.setAlpha(SettingsSaver.canLoad(a) ? 1F : 0.5F);
@@ -449,6 +455,23 @@ public class SettingsDialog {
                                        boolean def) {
         attachSwitchToSetting(toggle, setting, def, null);
     }
+    /**
+     * Attaches a toggle switch to a specific setting
+     * @param toggle Switch ui element
+     * @param setting Setting string key
+     * @param def Default setting value
+     * @param onSwitch Consumes the new value when it is changed, after writing to the datastore
+     */
+    private void attachSwitchToSetting(Switch toggle, String setting,
+                                       boolean def, Consumer<Boolean> onSwitch) {
+        toggle.setChecked(a.dataStoreEditor.getBoolean(setting, def));
+        toggle.setOnCheckedChangeListener((compoundButton, value) -> {
+            a.dataStoreEditor.putBoolean(setting, value);
+            if (onSwitch != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+                onSwitch.accept(value);
+            a.launcherService.forEachActivity(LauncherActivity::refreshInterface);
+        });
+    }
 
     /**
      * Displays a one-time warning dialog
@@ -464,23 +487,6 @@ public class SettingsDialog {
                 subDialog.dismiss();
             });
         }
-    }
-    /**
-     * Attaches a toggle switch to a specific setting
-     * @param toggle Switch ui element
-     * @param setting Setting string key
-     * @param def Default setting value
-     * @param onSwitch Consumes the new value when it is changed, after writing to the datastore
-     */
-    private void attachSwitchToSetting(Switch toggle, String setting,
-                                       boolean def, Consumer<Boolean> onSwitch) {
-        toggle.setChecked(!a.dataStoreEditor.getBoolean(setting, def));
-        toggle.setOnCheckedChangeListener((compoundButton, value) -> {
-            a.dataStoreEditor.putBoolean(setting, value);
-            if (onSwitch != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
-                onSwitch.accept(value);
-            a.launcherService.forEachActivity(LauncherActivity::refreshInterface);
-        });
     }
 
     private void showGroupSettings() {

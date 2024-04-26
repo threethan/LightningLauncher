@@ -40,6 +40,7 @@
     <string name="advanced_interface">Interface Options</string>
     <string name="advanced_launching">Launching Options</string>
     <string name="advanced_features">Extra Features</string>
+    <string name="advanced_search">Search Settings</string>
     <string name="advanced_backup">Backup &amp; Restore</string>
     <string name="advanced_alpha">Background Translucency</string>
 
@@ -54,6 +55,8 @@
     <string name="long_press">Long Press to Edit</string>
     <string name="hide_empty">Hide Empty Groups</string>
     <string name="default_launch_out">Launch Apps in Own Window by Default</string>
+    <string name="search_web">Show Web Search Engines in Searches</string>
+    <string name="search_hidden">Show Hidden Apps in Searches</string>
     <string name="settings_save">Export Settings</string>
     <string name="settings_load">Import Settings</string>
     <string name="groupings_save">Export Groupings</string>
