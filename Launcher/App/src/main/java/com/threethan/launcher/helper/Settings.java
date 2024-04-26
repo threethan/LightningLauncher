@@ -67,6 +67,8 @@ public abstract class Settings {
     public static final String KEY_GROUPS_ENABLED = "KEY_GROUPS_ENABLED";
     public static final String KEY_DETAILS_LONG_PRESS = "KEY_DETAILS_LONG_PRESS";
     public static final String KEY_AUTO_HIDE_EMPTY = "KEY_AUTO_HIDE_EMPTY";
+    public static final String KEY_SEARCH_WEB = "KEY_SEARCH_WEB";
+    public static final String KEY_SEARCH_HIDDEN = "KEY_SEARCH_HIDDEN";
     public static final int DEFAULT_BACKGROUND_VR = 0;
     public static final int DEFAULT_BACKGROUND_TV = 9;
     public static final int DEFAULT_ALPHA = 255;
@@ -74,6 +76,8 @@ public abstract class Settings {
     public static final boolean DEFAULT_GROUPS_ENABLED = true;
     public static boolean DEFAULT_DETAILS_LONG_PRESS = false;
     public static final boolean DEFAULT_AUTO_HIDE_EMPTY = true;
+    public static final boolean DEFAULT_SEARCH_WEB = true;
+    public static final boolean DEFAULT_SEARCH_HIDDEN = true;
     public static final String CUSTOM_BACKGROUND_PATH = "background.png";
 
     // Basic UI keys

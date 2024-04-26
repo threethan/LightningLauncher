@@ -39,6 +39,7 @@
     <string name="advanced_interface">界面选项</string>
     <string name="advanced_launching">启动选项</string>
     <string name="advanced_features">附加特性</string>
+    <string name="advanced_search">搜索设置</string>
     <string name="advanced_backup">备份恢复</string>
     <string name="advanced_alpha">背景透明度</string>
 
@@ -53,6 +54,8 @@
     <string name="long_press">长按编辑</string>
     <string name="hide_empty">隐藏空分组</string>
     <string name="default_launch_out">默认在应用自身窗口启动</string>
+    <string name="search_web">在搜索中显示网络搜索引擎</string>
+    <string name="search_hidden">显示搜索中隐藏的应用程序</string>
     <string name="settings_save">导出配置</string>
     <string name="settings_load">导入配置</string>
     <string name="groupings_save">导出分组</string>
