@@ -50,18 +50,22 @@ public abstract class Launch {
                     +app.packageName);
             launcherActivity.refreshPackages();
             return false;
-        } else if (Objects.equals(intent.getPackage(), Platform.BROWSER_PACKAGE)
-            && !Platform.hasBrowser(launcherActivity)) {
-            // If browser is required, but not installed
-            // Prompt installation
-            AlertDialog dialog = Dialog.build(launcherActivity, R.layout.dialog_prompt_download_browser);
-            if (dialog == null) return false;
-            dialog.findViewById(R.id.cancel).setOnClickListener((view) -> dialog.dismiss());
-            dialog.findViewById(R.id.install).setOnClickListener((view) -> {
+        } else if (Objects.equals(intent.getPackage(), Platform.BROWSER_PACKAGE)) {
+            if (Platform.hasBrowser(launcherActivity)) {
+                // Check for browser update. User probably won't see the prompt until closing, though.
                 new BrowserUpdater(launcherActivity).checkAppUpdateAndInstall();
-                Dialog.toast(launcherActivity.getString(R.string.download_browser_toast_main),
-                        launcherActivity.getString(R.string.download_browser_toast_bold), true);
-            });
+            } else {
+                // If browser is required, but not installed
+                // Prompt installation
+                AlertDialog dialog = Dialog.build(launcherActivity, R.layout.dialog_prompt_download_browser);
+                if (dialog == null) return false;
+                dialog.findViewById(R.id.cancel).setOnClickListener((view) -> dialog.dismiss());
+                dialog.findViewById(R.id.install).setOnClickListener((view) -> {
+                    new BrowserUpdater(launcherActivity).checkAppUpdateAndInstall();
+                    Dialog.toast(launcherActivity.getString(R.string.download_browser_toast_main),
+                            launcherActivity.getString(R.string.download_browser_toast_bold), true);
+                });
+            }
             return false;
         }
 
