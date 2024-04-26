@@ -25,6 +25,7 @@ import java.util.Set;
  * Functions prefixed with "is" are wrappers around "check" functions which cache values
  */
 public abstract class App {
+    private static final String VR_INTENT_CATEGORY = "com.oculus.intent.category.VR";
     static Map<Type, Set<String>> categoryIncludedApps = new HashMap<>();
     static Map<Type, Set<String>> categoryExcludedApps = new HashMap<>();
 
@@ -36,14 +37,17 @@ public abstract class App {
         if (applicationInfo.metaData.containsKey("com.oculus.supportedDevices")) return true;
         if (applicationInfo.metaData.containsKey("com.oculus.ossplash")) return true;
         if (applicationInfo.metaData.containsKey("com.samsung.android.vr.application.mode")) return true;
-        // Just matches all unity apps, good enough for now
-        return applicationInfo.metaData.containsKey("notch.config")
-                && applicationInfo.metaData.containsKey("unity.splash-enable");
+
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(VR_INTENT_CATEGORY);
+        intent.setPackage(applicationInfo.packageName);
+
+        PackageManager pm = LauncherActivity.getAnyInstance().getPackageManager();
+        return pm.resolveActivity(intent, 0) != null;
     }
     private static boolean checkAndroidTv
-            (ApplicationInfo applicationInfo, LauncherActivity launcherActivity) {
-        PackageManager pm = launcherActivity.getPackageManager();
-
+            (ApplicationInfo applicationInfo) {
+        PackageManager pm = LauncherActivity.getAnyInstance().getPackageManager();
         // First check for banner
         if (applicationInfo.banner != 0) return true;
         // Then check for intent
@@ -76,7 +80,7 @@ public abstract class App {
 
         boolean isType = switch (appType) {
             case TYPE_VR -> checkVirtualReality(applicationInfo);
-            case TYPE_TV -> checkAndroidTv(applicationInfo, launcherActivity);
+            case TYPE_TV -> checkAndroidTv(applicationInfo);
             case TYPE_PANEL -> checkPanelApp(applicationInfo, launcherActivity);
             case TYPE_WEB -> isWebsite(applicationInfo);
             case TYPE_PHONE -> true;
