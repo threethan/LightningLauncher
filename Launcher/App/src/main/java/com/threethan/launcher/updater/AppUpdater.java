@@ -123,7 +123,7 @@ public abstract class AppUpdater extends RemotePackageUpdater {
         checkAppLatestVersion(this::updateApp);
     }
 
-    private String getInstalledVersion() {
+    public String getInstalledVersion() {
         PackageInfo packageInfo;
         try {
             packageInfo = packageManager.getPackageInfo(
@@ -133,6 +133,17 @@ public abstract class AppUpdater extends RemotePackageUpdater {
             return null;
         }
         return packageInfo.versionName;
+    }
+    public int getInstalledVersionCode() {
+        PackageInfo packageInfo;
+        try {
+            packageInfo = packageManager.getPackageInfo(
+                    activity.getPackageName(), PackageManager.GET_ACTIVITIES);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+            return 0;
+        }
+        return packageInfo.versionCode;
     }
 
     /**
@@ -147,7 +158,7 @@ public abstract class AppUpdater extends RemotePackageUpdater {
             Log.v(TAG, "New version available!");
             showAppUpdateDialog(installedVersion, newVersionName);
         } else {
-            Log.i(TAG, "App is up to date :)");
+            Log.i(TAG, getAppPackageName()+ " is up to date");
             updateAvailable = false;
             // Clear downloaded APKs
             FileLib.delete(activity.getExternalCacheDir()+"/"+APK_FOLDER);

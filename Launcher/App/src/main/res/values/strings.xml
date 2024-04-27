@@ -101,7 +101,8 @@
     <string name="download_browser_message">For the best experience, you must install Lightning Browser to open websites in Lightning Launcher.\n
         \n(Alternatively, you can try to change the browser in Advanced Settings, but this may not work as expected)
     </string>
-    <string name="download_browser_toast_main">Open the website again</string>
+    <string name="update_browser_message">For the best experience, you must update Lightning Browser.</string>
+=   <string name="download_browser_toast_main">Open the website again</string>
     <string name="download_browser_toast_bold">after installation is complete</string>
 
 

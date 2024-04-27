@@ -5,6 +5,8 @@ import android.os.Build;
 
 public class BrowserUpdater extends AppUpdater {
     public static final String GIT_REPO_BROWSER = "threethan/LightningBrowser";
+    // Will be prompted to update if version code is less than this
+    public static final int REQUIRED_VERSION_CODE = 1011;
 
     // URL Constants
     @Override

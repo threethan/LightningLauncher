@@ -60,11 +60,24 @@ public abstract class Launch {
         if (Objects.equals(intent.getPackage(), Platform.BROWSER_PACKAGE)) {
             if (Platform.hasBrowser(launcherActivity)) {
                 // Check for browser update. User probably won't see the prompt until closing, though.
-                new BrowserUpdater(launcherActivity).checkAppUpdateAndInstall();
+                BrowserUpdater browserUpdater = new BrowserUpdater(launcherActivity);
+                if (browserUpdater.getInstalledVersionCode() < BrowserUpdater.REQUIRED_VERSION_CODE) {
+                    // If browser is required, but not installed
+                    // Prompt installation
+                    AlertDialog dialog = new BasicDialog<>(launcherActivity, R.layout.dialog_prompt_browser_update).show();
+                    if (dialog == null) return false;
+                    dialog.findViewById(R.id.cancel).setOnClickListener((view) -> dialog.dismiss());
+                    dialog.findViewById(R.id.install).setOnClickListener((view) -> {
+                        new BrowserUpdater(launcherActivity).checkAppUpdateAndInstall();
+                        BasicDialog.toast(launcherActivity.getString(R.string.download_browser_toast_main),
+                                launcherActivity.getString(R.string.download_browser_toast_bold), true);
+                    });
+                    return false;
+                }
             } else {
                 // If browser is required, but not installed
                 // Prompt installation
-                AlertDialog dialog = new BasicDialog<>(launcherActivity, R.layout.dialog_prompt_download_browser).show();
+                AlertDialog dialog = new BasicDialog<>(launcherActivity, R.layout.dialog_prompt_browser_install).show();
                 if (dialog == null) return false;
                 dialog.findViewById(R.id.cancel).setOnClickListener((view) -> dialog.dismiss());
                 dialog.findViewById(R.id.install).setOnClickListener((view) -> {
