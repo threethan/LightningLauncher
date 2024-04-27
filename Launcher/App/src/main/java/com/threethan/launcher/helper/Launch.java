@@ -62,6 +62,7 @@ public abstract class Launch {
                 // Check for browser update. User probably won't see the prompt until closing, though.
                 BrowserUpdater browserUpdater = new BrowserUpdater(launcherActivity);
                 if (browserUpdater.getInstalledVersionCode() < BrowserUpdater.REQUIRED_VERSION_CODE) {
+                    Log.e("ASASDF", String.valueOf(browserUpdater.getInstalledVersionCode()));
                     // If browser is required, but not installed
                     // Prompt installation
                     AlertDialog dialog = new BasicDialog<>(launcherActivity, R.layout.dialog_prompt_browser_update).show();

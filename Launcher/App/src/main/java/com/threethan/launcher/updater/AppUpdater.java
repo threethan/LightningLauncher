@@ -127,7 +127,7 @@ public abstract class AppUpdater extends RemotePackageUpdater {
         PackageInfo packageInfo;
         try {
             packageInfo = packageManager.getPackageInfo(
-                    activity.getPackageName(), PackageManager.GET_ACTIVITIES);
+                    getAppPackageName(), PackageManager.GET_ACTIVITIES);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
             return null;
@@ -138,7 +138,7 @@ public abstract class AppUpdater extends RemotePackageUpdater {
         PackageInfo packageInfo;
         try {
             packageInfo = packageManager.getPackageInfo(
-                    activity.getPackageName(), PackageManager.GET_ACTIVITIES);
+                    getAppPackageName(), PackageManager.GET_ACTIVITIES);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
             return 0;
