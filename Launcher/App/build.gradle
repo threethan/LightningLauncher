@@ -4,7 +4,7 @@ android {
     defaultConfig {
         compileSdk 34
         minSdkVersion 24
-        targetSdk 33
+        targetSdk 34
         versionCode 724
         versionName "7.2.4"
     }
