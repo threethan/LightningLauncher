@@ -1,8 +1,8 @@
 # Lightning Launcher
 ### Fully compatible with Meta Quest & Android TV [Get it on SideQuest!](https://sidequestvr.com/app/21783)
-*Thanks for 80K SideQuest downloads and counting!*
+*Thanks for 80K SideQuest downloads and counting!* Join us on Discord! 
 
-Find us on Discord! [![](https://dcbadge.limes.pink/api/server/xG8EG2VxeS)](https://discord.gg/xG8EG2VxeS)
+[![](https://dcbadge.limes.pink/api/server/xG8EG2VxeS)](https://discord.gg/xG8EG2VxeS)
 
 <table>
 <tr>
