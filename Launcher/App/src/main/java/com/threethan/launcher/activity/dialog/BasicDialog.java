@@ -17,6 +17,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 
+import com.threethan.launcher.BuildConfig;
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launchercore.Core;
@@ -45,6 +46,26 @@ public class BasicDialog<T extends Context> extends AbstractDialog<T> {
         super(context);
         this.resource = resource;
     }
+
+    /**
+     * Checks if the app is running in a variant that is not sideload,
+     * and if not, shows a warning dialog and returns false.
+     * @return true if the app is running in sideload variant, false otherwise
+     * @noinspection ConstantValue
+     */
+    public static boolean validateVariantWithNotify() {
+        if (!BuildConfig.FLAVOR.equals("sideload")) {
+            new CustomDialog.Builder(LauncherActivity.getForegroundInstance())
+                    .setTitle(R.string.warning)
+                    .setMessage(Core.context().getString(R.string.app_variant_unavailable,
+                            Core.context().getString(R.string.app_variant_name)))
+                    .setPositiveButton(R.string.understood, (d,i) -> d.dismiss())
+                    .show();
+            return false;
+        }
+        return true;
+    }
+
     @Nullable
     public AlertDialog show() {
         AlertDialog dialog = new CustomDialog.Builder(a).setView(resource).create();

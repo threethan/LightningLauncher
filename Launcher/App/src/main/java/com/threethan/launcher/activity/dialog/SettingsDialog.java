@@ -348,7 +348,9 @@ public class SettingsDialog extends BasicDialog<LauncherActivity> {
                         Settings.DEFAULT_BACKGROUND_ALPHA_PRESERVE, v -> a.refreshBackground(), false);
                 alphaPreserve.setVisibility(View.VISIBLE);
 
-                if (Platform.getVrOsVersion() >= 77 && Platform.isQuestGen3()) {
+                //noinspection ConstantValue
+                if (!BuildConfig.FLAVOR.equals("metastore")
+                        && Platform.getVrOsVersion() >= 77 && Platform.isQuestGen3()) {
                     attachSwitchToSetting(alphaClamp, Settings.KEY_BACKGROUND_BLUR,
                             Settings.DEFAULT_BACKGROUND_BLUR, v -> a.refreshBackground(), false);
                     alphaClamp.setVisibility(View.VISIBLE);
@@ -363,7 +365,12 @@ public class SettingsDialog extends BasicDialog<LauncherActivity> {
         attachSwitchToSetting(dialog.findViewById(R.id.longPressEditSwitch),
                 Settings.KEY_DETAILS_LONG_PRESS, Settings.DEFAULT_DETAILS_LONG_PRESS, null, true);
 
-        attachSwitchToSetting(dialog.findViewById(R.id.showPlaytimesSwitch),
+        Switch showPlaytimesSwitch = dialog.findViewById(R.id.showPlaytimesSwitch);
+        //noinspection ConstantValue
+        showPlaytimesSwitch.setVisibility(!Platform.isTv()
+                && !BuildConfig.FLAVOR.equals("metastore")
+                ? View.VISIBLE : View.GONE);
+        attachSwitchToSetting(showPlaytimesSwitch,
                 Settings.KEY_SHOW_TIMES_BANNER, Settings.DEFAULT_SHOW_TIMES_BANNER,
                 b -> a.launcherService.forEachActivity(LauncherActivity::refreshInterface), false);
         dialog.findViewById(R.id.openUsageSettings).setOnClickListener(v -> PlaytimeHelper.requestPermission());

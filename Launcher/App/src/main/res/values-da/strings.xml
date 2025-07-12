@@ -1,4 +1,5 @@
 <resources>
+    <string name="app_variant_unavailable">Denne funktion er ikke tilgængelig på %s.  <i>Søg efter Lightning Launcher på GitHub for at få flere oplysninger.</i></string>
     <string name="add_group">Tilføj gruppe</string>
     <string name="apps_hidden">- Skjult</string>
     <string name="migrated">Gamle indstillinger er blevet migreret</string>

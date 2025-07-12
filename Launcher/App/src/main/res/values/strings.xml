@@ -3,6 +3,11 @@
     <string name="app_name" translatable="false">Lightning Launcher</string>
     <string name="app_name_for_list" translatable="false"> ➜ <u>Lightning</u> Launcher</string>
     <string name="app_name_for_activity" translatable="false">Lightning Launcher</string>
+
+    <string name="app_variant_name" translatable="false">Sideload Version</string>
+    <string name="app_variant_unavailable">This feature is not available on the %s.
+        \n\n<i>Look up Lightning Launcher on GitHub for more information.</i></string>
+
     <string name="add_group">Add Group</string>
     <string name="apps_hidden">- Hidden</string>
     <string name="migrated">Old settings have been migrated</string>

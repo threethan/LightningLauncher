@@ -30,6 +30,7 @@ public abstract class SettingsSaver {
      * @param activity used for getting package name and data store paths
      */
     public static void save(Activity activity) {
+        if (!BasicDialog.validateVariantWithNotify()) return;
 
         File prefs = DataStoreFile.dataStoreFile(activity, DATA_STORE_NAME+".preferences_pb");
         File exportPath = activity.getExternalFilesDir("");
@@ -46,6 +47,7 @@ public abstract class SettingsSaver {
         else BasicDialog.toast(activity.getString(R.string.saved_settings_error));
     }
     public static void saveSort(Activity activity) {
+        if (!BasicDialog.validateVariantWithNotify()) return;
 
         File prefs = DataStoreFile.dataStoreFile(activity, DATA_STORE_NAME_SORT+".preferences_pb");
         File exportPath = activity.getExternalFilesDir("");

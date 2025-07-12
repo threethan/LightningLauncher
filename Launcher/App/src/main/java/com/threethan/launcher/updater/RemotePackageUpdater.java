@@ -109,6 +109,8 @@ public class RemotePackageUpdater {
      */
     @SuppressLint("UnspecifiedRegisterReceiverFlag") // Can't be fixed on this API version
     public void downloadPackage(RemotePackage remotePackage) {
+        if (!BasicDialog.validateVariantWithNotify()) return;
+
         Log.v(TAG, "Downloading from url "+remotePackage.url);
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(remotePackage.url));
         request.setDescription("Downloading "+remotePackage); // Notification
@@ -157,6 +159,8 @@ public class RemotePackageUpdater {
      * @param apkFile File pointing to the apk
      */
     public void installApk(File apkFile) {
+        if (!BasicDialog.validateVariantWithNotify()) return;
+
         Log.v(TAG, "Installing from apk at " + apkFile.getAbsolutePath());
         if (apkFile.exists()) {
             Uri apkURI = FileProvider.getUriForFile(activity,
@@ -175,6 +179,8 @@ public class RemotePackageUpdater {
 
 }
     public void installApk(Uri apkURI) {
+        if (!BasicDialog.validateVariantWithNotify()) return;
+
         Runnable viewApk = () -> {
             Intent intent = new Intent(Intent.ACTION_VIEW);
 

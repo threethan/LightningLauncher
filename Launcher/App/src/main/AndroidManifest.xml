@@ -99,9 +99,10 @@
 
         <provider
             android:name=".provider.ShortcutStateProvider"
-            android:authorities="com.threethan.launcher.shortcutStateProvider"
+            android:authorities=".shortcutStateProvider"
             android:exported="true"
-            android:grantUriPermissions="true" />
+            android:grantUriPermissions="true"
+            tools:ignore="ExportedContentProvider" />
 
         <!-- Custom Sizes -->
         <activity android:name=".activity.chainload.ChainLoadActivityPhone"
@@ -211,9 +212,9 @@
         </activity>
 
         <provider
-            android:name="com.threethan.launcher.activity.QuestAppMenuProvider"
+            android:name=".activity.QuestAppMenuProvider"
             android:exported="true"
-            android:authorities="com.threethan.launcher.appMenuProvider"
+            android:authorities=".appMenuProvider"
             android:grantUriPermissions="true"
             tools:ignore="ExportedContentProvider">
         </provider>

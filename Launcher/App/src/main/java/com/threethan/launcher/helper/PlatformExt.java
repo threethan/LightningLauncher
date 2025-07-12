@@ -2,6 +2,7 @@ package com.threethan.launcher.helper;
 
 import android.app.Activity;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.LauncherActivity;
@@ -144,6 +145,16 @@ public abstract class PlatformExt {
     }
 
     /**
+     * Checks if uninstalling apps is supported on this build variant.
+     * @return True if we can request to uninstall apps
+     */
+    public static boolean canUninstall() {
+        return Core.context()
+                .checkCallingOrSelfPermission("android.permission.REQUEST_DELETE_PACKAGES")
+                != PackageManager.PERMISSION_GRANTED;
+    }
+
+    /**
      * An instance of UtilityApplicationInfo which provides an easy way to install APKs on v74+
      */
     public static class ApkInstallerUtilityApplication extends UtilityApplicationInfo {
@@ -158,6 +169,9 @@ public abstract class PlatformExt {
 
         public void launch() {
             BasicDialog.toast(Core.context().getString(R.string.apk_installer_tip));
+
+            if (!BasicDialog.validateVariantWithNotify()) return;
+
             if (LauncherActivity.getForegroundInstance() != null)
                 LauncherActivity.getForegroundInstance()
                         .showFilePicker(LauncherActivity.FilePickerTarget.APK);

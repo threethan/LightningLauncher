@@ -120,6 +120,7 @@ public class AppDetailsDialog extends BasicDialog<LauncherActivity> {
                 ? View.GONE : View.VISIBLE);
         dialog.findViewById(R.id.uninstall).setVisibility(appType == App.Type.PANEL
                 && app.packageName.contains("://") || (app.flags & ApplicationInfo.FLAG_SYSTEM) != 0
+                || (appType != App.Type.WEB && !PlatformExt.canUninstall())
                 ? View.GONE : View.VISIBLE);
         resetIconButton.setOnClickListener(view -> Compat.resetIcon(app, d
                 -> a.runOnUiThread(() -> {

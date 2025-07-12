@@ -13,6 +13,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.threethan.launcher.BuildConfig;
 import com.threethan.launchercore.lib.FileLib;
 import com.threethan.launcher.R;
 import com.threethan.launchercore.util.CustomDialog;
@@ -189,6 +190,12 @@ public abstract class AppUpdater extends RemotePackageUpdater {
      * @param callback Called asynchronously with the latest version of the app
      */
     public void checkAppLatestVersion(Response.Listener<String> callback) {
+        //noinspection ConstantValue
+        if (BuildConfig.FLAVOR.equals("playstore")) {
+            Log.i(TAG, "Skipping update check for Play Store build");
+            if (callback != null) callback.onResponse(getInstalledVersion());
+            return;
+        }
         StringRequest updateRequest = new StringRequest(
                 Request.Method.GET, String.format(URL_GITHUB_API_TEMPLATE, getGitRepo()),
                 (response -> handleUpdateResponse(response, callback)),

@@ -272,7 +272,8 @@ public class LauncherActivityEditable extends LauncherActivity {
     void updateSelectionHint() {
         TextView selectionHintText = rootView.findViewById(R.id.selectionHintText);
         final View uninstallButton = rootView.findViewById(R.id.uninstallBulk);
-        uninstallButton.setVisibility(currentSelectedApps.isEmpty() ? View.GONE : View.VISIBLE);
+        uninstallButton.setVisibility(currentSelectedApps.isEmpty()
+                && PlatformExt.canUninstall() ? View.GONE : View.VISIBLE);
 
         final int size = currentSelectedApps.size();
         runOnUiThread(() -> {

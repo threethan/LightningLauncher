@@ -1,4 +1,5 @@
 <resources>
+    <string name="app_variant_unavailable">Bu özellik %s üzerinde mevcut değil.  <i>Daha fazla bilgi için GitHub\'da Lightning Launcher\'ı arayın.</i></string>
     <string name="add_group">Grup Ekle</string>
     <string name="apps_hidden">- Gizli</string>
     <string name="migrated">Eski ayarlar taşındı</string>

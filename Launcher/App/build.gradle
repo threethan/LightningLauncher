@@ -19,16 +19,32 @@ android {
             shrinkResources true
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
         }
         debug {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
     namespace 'com.threethan.launcher'
     lint {
         abortOnError true
         disable 'Accessibility'
+    }
+
+    flavorDimensions = ['variant']
+    productFlavors {
+        sideload {
+            dimension 'variant'
+        }
+        playstore {
+            dimension 'variant'
+            applicationIdSuffix '.playstore'
+        }
+        metastore {
+            dimension 'variant'
+            applicationIdSuffix '.metastore'
+            targetSdkVersion 34
+        }
     }
 }
 dependencies {

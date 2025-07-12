@@ -1,4 +1,5 @@
 <resources>
+    <string name="app_variant_unavailable">Această funcție nu este disponibilă pe %s.  <i>Căutați Lightning Launcher pe GitHub pentru mai multe informații</i>.</string>
     <string name="add_group">Adaugă grup</string>
     <string name="apps_hidden">- Ascunse</string>
     <string name="migrated">Setările vechi au fost migrate</string>

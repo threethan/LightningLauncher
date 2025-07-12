@@ -58,6 +58,11 @@ public abstract class AppExt extends App {
                     .putStringSet(Settings.KEY_WEBSITE_LIST, webApps);
             launcher.launcherService.forEachActivity(LauncherActivity::refreshAppList);
         } else {
+            if (!PlatformExt.canUninstall()) {
+                BasicDialog.toast("Missing uninstall permission");
+                BasicDialog.validateVariantWithNotify();
+                return;
+            }
             Intent intent = new Intent(Intent.ACTION_UNINSTALL_PACKAGE);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.setData(Uri.parse("package:" + packageName));

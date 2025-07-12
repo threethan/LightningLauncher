@@ -1,4 +1,5 @@
 <resources>
+    <string name="app_variant_unavailable">Cette fonctionnalité n\'est pas disponible sur %s.  <i>Pour plus d\'informations, consultez Lightning Launcher sur GitHub.</i></string>
     <string name="add_group">Ajouter un groupe</string>
     <string name="apps_hidden">- Caché</string>
     <string name="migrated">Les anciens paramètres ont été transférés</string>

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.view.View;
 
+import com.threethan.launcher.BuildConfig;
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.data.Settings;
@@ -59,6 +60,7 @@ public class AddonDialog extends BasicDialog<LauncherActivity> {
     }
 
     public AlertDialog show() {
+        if (Platform.isVr() && !BasicDialog.validateVariantWithNotify()) return null;
         AlertDialog dialog = super.show();
         if (dialog == null) return null;
 

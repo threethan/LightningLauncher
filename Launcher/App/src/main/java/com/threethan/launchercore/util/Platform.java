@@ -6,14 +6,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
+import android.util.Log;
 
 import com.threethan.launchercore.Core;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -51,17 +55,59 @@ public abstract class Platform {
      */
     public static List<ApplicationInfo> listInstalledApps() {
         PackageManager pm = Core.context().getPackageManager();
-        @SuppressLint("QueryPermissionsNeeded")
-        List<ApplicationInfo> installedApps
-                = pm.getInstalledApplications(PackageManager.GET_META_DATA
-                | PackageManager.MATCH_DISABLED_UNTIL_USED_COMPONENTS);
-        if (Platform.isQuest()) for (String systemUxPanelApp : systemUxPanelApps) {
-            ApplicationInfo panelAppInfo = new ApplicationInfo();
-            panelAppInfo.packageName = systemUxPanelApp;
-            installedApps.add(panelAppInfo);
-        }
 
-        return installedApps;
+        // Check for QUERY_ALL_PACKAGES permission if needed (Android 11+)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R &&
+                pm.checkPermission(android.Manifest.permission.QUERY_ALL_PACKAGES, Core.context().getPackageName())
+                != PackageManager.PERMISSION_GRANTED) {
+            // Handle lack of permission if necessary (e.g., log, throw, or filter results)
+            Log.w("Platform", "QUERY_ALL_PACKAGES permission not granted, filtering apps");
+
+            Set<String> installedPackages = new HashSet<>();
+
+            for (String category : List.of(Intent.CATEGORY_LAUNCHER, Intent.CATEGORY_INFO,
+                    "com.oculus.intent.category.VR",
+                    "com.oculus.intent.category.2D",
+                    "android.intent.category.DEFAULT")) {
+                Intent intent = new Intent(Intent.ACTION_MAIN, null);
+                intent.addCategory(category);
+
+                @SuppressLint("QueryPermissionsNeeded")
+                List<ResolveInfo> apps = pm.queryIntentActivities(intent, 0);
+
+                for (ResolveInfo app : apps) {
+                    String packageName = app.activityInfo.packageName;
+                    installedPackages.add(packageName);
+                }
+            }
+
+            List<ApplicationInfo> installedApps = new ArrayList<>();
+            for (String packageName : installedPackages) {
+                ApplicationInfo appInfo;
+                appInfo = App.infoFor(packageName);
+                installedApps.add(appInfo);
+            }
+
+            if (Platform.isQuest()) for (String systemUxPanelApp : systemUxPanelApps) {
+                ApplicationInfo panelAppInfo = new ApplicationInfo();
+                panelAppInfo.packageName = systemUxPanelApp;
+                installedApps.add(panelAppInfo);
+            }
+
+            return installedApps;
+
+        } else {
+            @SuppressLint("QueryPermissionsNeeded")
+            List<ApplicationInfo> installedApps
+                    = pm.getInstalledApplications(PackageManager.GET_META_DATA
+                    | PackageManager.MATCH_DISABLED_UNTIL_USED_COMPONENTS);
+            if (Platform.isQuest()) for (String systemUxPanelApp : systemUxPanelApps) {
+                ApplicationInfo panelAppInfo = new ApplicationInfo();
+                panelAppInfo.packageName = systemUxPanelApp;
+                installedApps.add(panelAppInfo);
+            }
+            return installedApps;
+        }
     }
 
     private static final Set<String> systemUxPanelApps = Set.of(

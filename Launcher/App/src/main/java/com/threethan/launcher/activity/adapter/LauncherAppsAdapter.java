@@ -17,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
+import com.threethan.launcher.BuildConfig;
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.activity.dialog.AppDetailsDialog;
@@ -280,7 +281,9 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
             if (!Platform.isTv())
                 holder.moreButton.setVisibility(focused ? View.VISIBLE : View.INVISIBLE);
 
-            if (!Platform.isTv() && LauncherActivity.timesBanner) {
+            //noinspection ConstantValue
+            if (!Platform.isTv() && !BuildConfig.FLAVOR.equals("metastore")
+                    && LauncherActivity.timesBanner) {
                 if (focused) {
                     // Show and update view holder
                     holder.playtimeButton.setVisibility(Boolean.TRUE.equals(holder.banner)

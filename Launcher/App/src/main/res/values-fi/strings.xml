@@ -1,4 +1,5 @@
 <resources>
+    <string name="app_variant_unavailable">Tämä ominaisuus ei ole käytettävissä %s:ssä.  <i>Lisätietoja saat Lightning Launcherista GitHubissa.</i></string>
     <string name="add_group">Lisää ryhmä</string>
     <string name="apps_hidden">- Piilotettu</string>
     <string name="migrated">Vanhat asetukset on siirretty</string>

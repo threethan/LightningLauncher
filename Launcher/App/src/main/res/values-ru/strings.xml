@@ -1,4 +1,5 @@
 <resources>
+    <string name="app_variant_unavailable">Эта функция недоступна на %s.  <i>Для получения дополнительной информации о Lightning Launcher на GitHub.</i></string>
     <string name="add_group">Добавить группу</string>
     <string name="apps_hidden">- Скрытый</string>
     <string name="migrated">Старые настройки были перенесены</string>

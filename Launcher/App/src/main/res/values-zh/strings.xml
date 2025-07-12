@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="add_group">添加分组</string>
+    <string name="app_variant_unavailable">此功能在 %s 上不可用。  <i>请在 GitHub 上查找 Lightning Launcher 了解更多信息。</i></string>
+    <string name="add_group">此功能在 %s 上不可用。  <i>请在 GitHub 上查找 Lightning Launcher 了解更多信息。</i></string>
     <string name="apps_hidden">- 隐藏</string>
     <string name="migrated">已导入之前的配置</string>
 

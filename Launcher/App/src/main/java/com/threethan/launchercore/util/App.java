@@ -5,6 +5,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.util.Log;
 
+import com.threethan.launcher.BuildConfig;
 import com.threethan.launcher.activity.support.SettingsManager;
 import com.threethan.launchercore.Core;
 import com.threethan.launchercore.adapter.UtilityApplicationInfo;
@@ -90,10 +91,29 @@ public abstract class App {
                 || app.metaData.containsKey("com.samsung.android.vr.application.mode")
                 || app.metaData.containsKey("com.oculus.intent.category.VR"))
                 return true;
+
+        PackageManager pm = Core.context().getPackageManager();
+
+        // Additional check since we probably can't get metadata
+        //noinspection ConstantValue
+        if (BuildConfig.FLAVOR.equals("metastore")) {
+            Intent li = new Intent(Intent.ACTION_MAIN);
+            li.addCategory(Intent.CATEGORY_LAUNCHER);
+            li.setPackage(app.packageName);
+            boolean liResolves = pm.resolveActivity(li, 0) != null;
+            Intent ii = new Intent(Intent.ACTION_MAIN);
+            ii.addCategory(Intent.CATEGORY_INFO);
+            ii.setPackage(app.packageName);
+            boolean iiResolves = pm.resolveActivity(ii, 0) != null;
+            if (iiResolves && !liResolves) {
+                // If it resolves to info but not launcher, it's probably an older unity VR app
+                return true;
+            }
+        }
+
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.addCategory("com.oculus.intent.category.VR");
         intent.setPackage(app.packageName);
-        PackageManager pm = Core.context().getPackageManager();
         return pm.resolveActivity(intent, 0) != null;
     }
     private static boolean isTvApp(ApplicationInfo app) {

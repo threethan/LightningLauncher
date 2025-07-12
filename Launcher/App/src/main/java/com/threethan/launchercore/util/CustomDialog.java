@@ -3,6 +3,7 @@ package com.threethan.launchercore.util;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.Typeface;
+import android.util.Log;
 import android.util.TypedValue;
 import android.widget.TextView;
 

@@ -1,4 +1,5 @@
 <resources>
+    <string name="app_variant_unavailable">Αυτή η λειτουργία δεν είναι διαθέσιμη στο %s.  <i>Αναζητήστε το Lightning Launcher στο GitHub για περισσότερες πληροφορίες.</i></string>
     <string name="add_group">Προσθήκη ομάδας</string>
     <string name="apps_hidden">- Κρυφό</string>
     <string name="migrated">Οι παλιές ρυθμίσεις έχουν μεταφερθεί</string>
