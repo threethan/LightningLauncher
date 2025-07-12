@@ -25,6 +25,7 @@ import com.threethan.launcher.R;
 import com.threethan.launchercore.view.LcContainerView;
 
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -75,7 +76,7 @@ public class AppsAdapter<VH extends AppsAdapter.AppViewHolder>
     public void refresh() {
         if (fullAppList == null) return;
 
-        submitList(fullAppList);
+        submitList(new ArrayList<>(fullAppList));
     }
 
     protected void setFullItems(List<ApplicationInfo> items) {

@@ -2,6 +2,7 @@ package com.threethan.launcher.activity.adapter;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,6 +27,20 @@ public class LauncherGridLayoutManager extends GridLayoutManager {
         setMeasurementCacheEnabled(true);
         setItemPrefetchEnabled(true);
         setRecycleChildrenOnDetach(false);
+    }
+
+    static {
+        Thread.setDefaultUncaughtExceptionHandler((thread, throwable) -> {
+            if (throwable instanceof IllegalArgumentException &&
+                    throwable.getMessage() != null &&
+                    throwable.getMessage().contains("Scrapped or attached views may not be recycled")) {
+                // This exception rarely occurs due to async ops in ViewHolders
+                Log.e("RecyclerViewFix", "Ignoring known bad recycle exception", throwable);
+            } else {
+                Thread.UncaughtExceptionHandler dh = Thread.getDefaultUncaughtExceptionHandler();
+                if (dh != null) dh.uncaughtException(thread, throwable);
+            }
+        });
     }
 
     //

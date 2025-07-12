@@ -125,7 +125,7 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
         }
 
         topSearchResult = newItems.isEmpty() ? null : newItems.get(0);
-        submitList(newItems, () -> notifyItemChanged(topSearchResult));
+        submitList(new ArrayList<>(newItems), () -> notifyItemChanged(topSearchResult));
     }
     public void setLauncherActivity(LauncherActivity val) {
         launcherActivity = val;
@@ -133,10 +133,11 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
 
     @Override
     public void submitList(@Nullable List<ApplicationInfo> list) {
-        if (container != null) container.setAllowLayout(false);
-        super.submitList(list, () -> {
-            if (container != null) container.setAllowLayout(true);
-        });
+        if (container != null) {
+            container.setAllowLayout(false);
+            container.post(() -> super.submitList(list, () -> container.setAllowLayout(true)));
+        }
+        else super.submitList(list);
     }
 
     public ApplicationInfo getTopSearchResult() {
@@ -225,12 +226,11 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
 
     @Override
     protected void onIconChanged(AppViewHolderExt holder, Drawable icon) {
-        launcherActivity.runOnUiThread(() ->
+        holder.imageView.post(() ->
                 Glide.with(holder.imageView.getContext())
                 .load(icon)
                 .centerCrop()
                 .into(holder.imageView));
-
     }
 
     public void notifySelectionChange(String packageName) {
@@ -322,16 +322,6 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
             if (banner && !LauncherActivity.namesBanner || !banner && !LauncherActivity.namesSquare)
                 holder.textView.setVisibility(focused ? View.VISIBLE : View.INVISIBLE);
 
-//            View pv = holder.view;
-//            while (pv.getParent() instanceof View pv1) {
-//                pv1.bringToFront();
-//                pv1.setZ(10f);
-//                pv1.setTranslationZ(10f);
-//                pv = pv1;
-//            }
-//            holder.view.bringToFront();
-//            holder.view.setTranslationZ(10f);
-//            holder.view.setActivated(true);
             // Force correct state, even if interrupted
             holder.view.postDelayed(() -> {
                 if (Objects.equals(focusedHolderBySource.get(source), holder)) {
