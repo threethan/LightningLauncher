@@ -7,6 +7,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
+import android.graphics.Rect;
 import android.graphics.RenderEffect;
 import android.graphics.RenderNode;
 import android.graphics.Shader;
@@ -43,12 +44,18 @@ public class LcBlurCanvas extends LcContainerView {
     /** Drawn on top of the canvas */
     private static int overlayColor = Color.TRANSPARENT;
 
+    /** Whether the renderRect should be used to limit the rendering area */
+    public static boolean useRenderRect = false;
+
+    /** The region of the canvas that should be rendered. Used when useRenderRect is true */
+    public static Rect renderRect = new Rect();
+
     /** Sets a color to be drawn on top of the canvas */
     public static void setOverlayColor(int overlayColor) {
         LcBlurCanvas.overlayColor = overlayColor;
     }
 
-
+    private boolean hasRenderEffect;
     /** Renders the canvas as-needed */
     private final ViewTreeObserver.OnPreDrawListener listener = () -> {
         try {
@@ -68,8 +75,13 @@ public class LcBlurCanvas extends LcContainerView {
                 height = 720;
             }
 
+            if (useRenderRect && renderRect == null) return true;
+
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                renderNode.setPosition(0, 0, width, height);
+                if (useRenderRect)
+                    renderNode.setPosition(renderRect);
+                else
+                    renderNode.setPosition(0, 0, width, height);
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                     Canvas canvas = renderNode.beginRecording();
@@ -84,7 +96,10 @@ public class LcBlurCanvas extends LcContainerView {
 
                     renderNode.endRecording();
 
-                    renderNode.setRenderEffect(RenderEffect.createBlurEffect(BLUR_RADIUS, BLUR_RADIUS, Shader.TileMode.CLAMP));
+                    if (!hasRenderEffect) {
+                        renderNode.setRenderEffect(RenderEffect.createBlurEffect(BLUR_RADIUS, BLUR_RADIUS, Shader.TileMode.CLAMP));
+                        hasRenderEffect = true;
+                    }
 
                 } else {
                     renderLegacyBlur(renderNode.beginRecording(), width, height);

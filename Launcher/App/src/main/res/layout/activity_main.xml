@@ -30,16 +30,12 @@
         android:orientation="horizontal"
         android:visibility="gone">
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="-8dp"
-            android:clickable="true"
-            android:focusable="false"
-            app:layout_constraintBottom_toBottomOf="@id/blurViewGroups"
-            app:layout_constraintEnd_toEndOf="parent"
+        <com.threethan.launchercore.view.LcBlurMask
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+             android:layout_height="0dp" android:layout_width="0dp"/>
 
         <com.threethan.launchercore.view.LcBlurView
             android:id="@+id/blurViewGroups"
