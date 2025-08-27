@@ -98,8 +98,7 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
                         settingsManager.getAppGroupsSorted(false),
                         fullAppSet) : new ArrayList<>(getCurrentList());
 
-        newItems.removeIf(item -> !
-                SettingsManager.getAppLabel(item).toLowerCase().contains(text.toLowerCase()));
+        newItems.removeIf(new SortableFilterPredicate(text).negate());
 
 
         if (!showHidden) {
