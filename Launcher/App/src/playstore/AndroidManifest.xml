@@ -4,4 +4,32 @@
     <uses-permission
         android:name="android.permission.REQUEST_INSTALL_PACKAGES"
         tools:node="remove"/>
+
+    <application tools:ignore="MissingApplicationIcon">
+        <!--suppress AndroidDomInspection -->
+        <activity android:name="com.threethan.LightningLauncher">
+            <meta-data
+                android:name="com.oculus.vrshell.supports_blend_effects"
+                tools:node="remove" />
+        </activity>
+        <!--suppress AndroidDomInspection -->
+        <provider
+            android:name=".provider.ShortcutStateProvider"
+            tools:node="remove"/>
+        <!--suppress AndroidDomInspection -->
+        <provider
+            android:name="com.threethan.launcher.provider.QuestAppMenuProvider"
+            tools:node="remove"/>
+        <!--suppress AndroidDomInspection -->
+        <provider
+            android:name=".data.sync.SyncFileProvider"
+            tools:node="remove"/>
+        <!--suppress AndroidDomInspection -->
+        <receiver android:name=".data.sync.SyncReceiver"
+            tools:node="remove"/>
+        <!--suppress AndroidDomInspection -->
+        <provider
+            android:name="com.threethan.launcher.provider.QuestAppMenuProvider"
+            tools:node="remove"/>
+    </application>
 </manifest>

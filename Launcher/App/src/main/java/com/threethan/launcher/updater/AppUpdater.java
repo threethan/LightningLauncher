@@ -191,8 +191,8 @@ public abstract class AppUpdater extends RemotePackageUpdater {
      */
     public void checkAppLatestVersion(Response.Listener<String> callback) {
         //noinspection ConstantValue
-        if (BuildConfig.FLAVOR.equals("playstore")) {
-            Log.i(TAG, "Skipping update check for Play Store build");
+        if (!BuildConfig.FLAVOR.equals("sideload")) {
+            Log.i(TAG, "Skipping update check for Non-Sideload build");
             if (callback != null) callback.onResponse(getInstalledVersion());
             return;
         }

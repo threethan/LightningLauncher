@@ -34,6 +34,18 @@
                 android:name="com.oculus.vrshell.supports_blend_effects"
                 tools:node="remove" />
         </activity>
+        <!--suppress AndroidDomInspection -->
+        <provider
+            android:name=".provider.ShortcutStateProvider"
+            tools:node="remove"/>
+        <!--suppress AndroidDomInspection -->
+        <provider
+            android:name="com.threethan.launcher.provider.QuestAppMenuProvider"
+            tools:node="remove"/>
+        <!--suppress AndroidDomInspection -->
+        <provider
+            android:name="com.threethan.launcher.provider.QuestAppMenuProvider"
+            tools:node="remove"/>
     </application>
 
     <queries>

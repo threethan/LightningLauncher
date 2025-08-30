@@ -99,7 +99,7 @@
 
         <provider
             android:name=".provider.ShortcutStateProvider"
-            android:authorities=".shortcutStateProvider"
+            android:authorities="com.threethan.launcher.shortcutStateProvider"
             android:exported="true"
             android:grantUriPermissions="true"
             tools:ignore="ExportedContentProvider" />
@@ -212,12 +212,31 @@
         </activity>
 
         <provider
-            android:name=".activity.QuestAppMenuProvider"
+            android:name="com.threethan.launcher.provider.QuestAppMenuProvider"
             android:exported="true"
-            android:authorities=".appMenuProvider"
+            android:authorities="com.threethan.launcher.appMenuProvider"
             android:grantUriPermissions="true"
             tools:ignore="ExportedContentProvider">
         </provider>
+
+        <provider
+            android:name=".data.sync.SyncFileProvider"
+            android:authorities="${applicationId}.syncFileProvider"
+            android:grantUriPermissions="true"
+            android:exported="false"
+            tools:ignore="ExportedContentProvider">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths_datastore" />
+        </provider>
+        <receiver android:name=".data.sync.SyncReceiver"
+            android:exported="true"
+            tools:ignore="ExportedReceiver">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="com.threethan.launcher.GRANT_URI_RECEIVER" />
+            </intent-filter>
+        </receiver>
 
         <receiver
             android:name="com.threethan.launcher.PackageChangeReceiver"
