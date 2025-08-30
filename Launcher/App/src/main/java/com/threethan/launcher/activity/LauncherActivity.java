@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -46,6 +45,7 @@ import com.threethan.launcher.activity.dialog.SettingsDialog;
 import com.threethan.launcher.activity.support.WallpaperLoader;
 import com.threethan.launcher.activity.support.DataStoreEditor;
 import com.threethan.launcher.activity.support.SettingsManager;
+import com.threethan.launcher.data.sync.SyncFileProvider;
 import com.threethan.launchercore.view.LcBlurCanvas;
 import com.threethan.launcher.activity.view.MarginDecoration;
 import com.threethan.launcher.data.Settings;
@@ -63,7 +63,6 @@ import com.threethan.launchercore.util.Platform;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.ref.WeakReference;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
@@ -157,6 +156,9 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         setContentView(R.layout.activity_container);
 
         Core.init(this);
+
+        SyncFileProvider.onStart(this);
+
         if (dataStoreEditor == null) dataStoreEditor = Compat.getDataStore();
 
         Intent intent = new Intent(this, LauncherService.class);
@@ -274,12 +276,15 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         if (launcherService != null && isFinishing()) launcherService.destroyed(this);
 
         if (isFinishing()) try {
+            SyncFileProvider.onStop(this);
+
             unbindService(launcherServiceConnection); // Should rarely cause exception
             // For the GC & easier debugging
             settingsManager = null;
         } catch (RuntimeException ignored) {} //Runtime exception called when a service is invalid
 
         isActive = false;
+
         super.onDestroy();
     }
 
@@ -372,10 +377,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
             return;
         }
         refreshPackagesService.execute(() -> {
-            PackageManager packageManager = getPackageManager();
-
-            List<ApplicationInfo> newApps = Collections.synchronizedList(
-                    packageManager.getInstalledApplications(PackageManager.GET_META_DATA));
+            List<ApplicationInfo> newApps = Platform.listInstalledApps();
 
             if (newApps.size() != PlatformExt.installedApps.size())
                 runOnUiThread(() -> this.refreshPackagesInternal(newApps));
@@ -401,17 +403,13 @@ public class LauncherActivity extends Launch.LaunchingActivity {
 
         if (PlatformExt.installedApps == null || PlatformExt.installedApps.isEmpty()) {
             // Synchronous initial load
-            PackageManager packageManager = getPackageManager();
-            refreshPackagesInternal(Collections.synchronizedList(
-                    packageManager.getInstalledApplications(PackageManager.GET_META_DATA)));
+            refreshPackagesInternal(Platform.listInstalledApps());
         } else if (!forceRefreshOnCooldown) {
             forceRefreshCounter++;
             final int finalForceRefreshCounter = forceRefreshCounter;
             postDelayed(() -> {
                 if (forceRefreshCounter == finalForceRefreshCounter) {
-                    PackageManager packageManager = getPackageManager();
-                    refreshPackagesInternal(Collections.synchronizedList(
-                            packageManager.getInstalledApplications(PackageManager.GET_META_DATA)));
+                    refreshPackagesInternal(Platform.listInstalledApps());
                     forceRefreshOnCooldown = true;
                     postDelayed(() -> forceRefreshOnCooldown = false, 1000);
                 }

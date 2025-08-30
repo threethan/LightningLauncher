@@ -90,10 +90,10 @@ public abstract class AppExt extends App {
         };
     }
 
-    public static boolean doesPackageExist(Activity activity, String packageName) {
+    public static boolean doesPackageExist(Context context, String packageName) {
         try {
             ApplicationInfo ignored
-                    = activity.getPackageManager().getApplicationInfo(packageName,0);
+                    = context.getPackageManager().getApplicationInfo(packageName,0);
             return true;
         } catch (PackageManager.NameNotFoundException e) {
             return false;

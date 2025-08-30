@@ -70,6 +70,15 @@ public abstract class IconLoader {
     private static void loadIcon(Consumer<Drawable> callback, ApplicationInfo app) {
         // Everything in the try will still attempt to download an icon
         Drawable appIcon = null;
+
+//        Bitmap bitmap = SyncUtils.queryInstances(SharedImageProvider.TYPE_ANY_APP_IMAGE,
+//                app.packageName);
+//        if (bitmap != null) {
+//            appIcon = new BitmapDrawable(Core.context().getResources(), bitmap);
+//            callback.accept(appIcon);
+//            return;
+//        }
+
         // Try to load from external custom icon file
         final File iconCustomFile = iconCustomFileForApp(app);
         if (iconCustomFile.exists())
@@ -116,7 +125,7 @@ public abstract class IconLoader {
     }
 
     /** @return The file location which should be used for the applications cache file */
-    static File iconCacheFileForApp(ApplicationInfo app) {
+    public static File iconCacheFileForApp(ApplicationInfo app) {
         String cacheName = cacheName(app);
         final boolean banner = App.isBanner(app);
         return new File(Core.context().getApplicationInfo().dataDir + ICON_CACHE_FOLDER,
@@ -126,7 +135,8 @@ public abstract class IconLoader {
         String cacheName = cacheName(app);
         final boolean banner = App.isBanner(app);
         return new File(Core.context().getApplicationInfo().dataDir + ICON_CUSTOM_FOLDER,
-                cacheName + (banner ? "-banner" : "") + ".webp");    }
+                cacheName + (banner ? "-banner" : "") + ".webp");
+    }
     public static String cacheName(ApplicationInfo app) {
         if (App.getType(app.packageName) == App.Type.WEB)
             return StringLib.toValidFilename(StringLib.baseUrl(app.packageName));

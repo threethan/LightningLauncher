@@ -161,7 +161,8 @@ public abstract class LaunchExt extends Launch {
     @Nullable
     private static Intent getIntentForLaunch(LauncherActivity activity, ApplicationInfo app) {
         // Ignore apps which don't work or should be excluded
-        if (app.packageName.startsWith(activity.getPackageName())) return null;
+        if (app.packageName.equals(activity.getPackageName())
+                || app.packageName.contains("com.threethan.launcher.service")) return null;
 
         // Detect websites
         if (App.isWebsite(app.packageName)) {

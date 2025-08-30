@@ -365,12 +365,12 @@ public class SettingsDialog extends BasicDialog<LauncherActivity> {
         attachSwitchToSetting(dialog.findViewById(R.id.longPressEditSwitch),
                 Settings.KEY_DETAILS_LONG_PRESS, Settings.DEFAULT_DETAILS_LONG_PRESS, null, true);
 
-        Switch showPlaytimesSwitch = dialog.findViewById(R.id.showPlaytimesSwitch);
         //noinspection ConstantValue
-        showPlaytimesSwitch.setVisibility(!Platform.isTv()
+        dialog.findViewById(R.id.playtimeSection).setVisibility(!Platform.isTv()
                 && !BuildConfig.FLAVOR.equals("metastore")
                 ? View.VISIBLE : View.GONE);
-        attachSwitchToSetting(showPlaytimesSwitch,
+
+        attachSwitchToSetting(dialog.findViewById(R.id.showPlaytimesSwitch),
                 Settings.KEY_SHOW_TIMES_BANNER, Settings.DEFAULT_SHOW_TIMES_BANNER,
                 b -> a.launcherService.forEachActivity(LauncherActivity::refreshInterface), false);
         dialog.findViewById(R.id.openUsageSettings).setOnClickListener(v -> PlaytimeHelper.requestPermission());

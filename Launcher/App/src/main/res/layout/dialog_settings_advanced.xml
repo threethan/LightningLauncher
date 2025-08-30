@@ -69,7 +69,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/lc_bkg_button_middle"
+                android:background="@drawable/lc_bkg_button_bottom_left"
                 android:text="@string/long_press"
                 android:tooltipText="@string/long_press_tip"
                 tools:ignore="UnusedAttribute,UseSwitchCompatOrMaterialXml" />
@@ -80,26 +80,28 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="2dp"
                 android:layout_weight="1"
-                android:background="@drawable/lc_bkg_button_middle"
+                android:background="@drawable/lc_bkg_button_bottom_right"
                 android:text="@string/group_wide"
                 android:tooltipText="@string/group_wide_tip"
                 tools:ignore="UnusedAttribute,UseSwitchCompatOrMaterialXml" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/playtimeSection"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="2dp"
             android:baselineAligned="false"
             android:gravity="clip_vertical|center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            tools:layout_marginTop="10dp">
 
             <com.threethan.launchercore.view.LcSwitch
                 android:id="@+id/showPlaytimesSwitch"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/lc_bkg_button_bottom_left"
+                android:background="@drawable/lc_bkg_button_left"
                 android:text="@string/show_playtimes"
                 android:tooltipText="@string/show_playtimes_desc"
                 tools:ignore="UnusedAttribute,UseSwitchCompatOrMaterialXml" />
@@ -110,7 +112,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="2dp"
                 android:layout_weight="1"
-                android:background="@drawable/lc_bkg_button_bottom_right"
+                android:background="@drawable/lc_bkg_button_right"
                 android:drawableEnd="@drawable/ic_dialog"
                 android:text="@string/open_usage"
                 android:tooltipText="@string/open_usage_desc"

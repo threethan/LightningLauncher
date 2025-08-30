@@ -9,6 +9,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Configuration;
 import android.net.Uri;
+import android.os.BadParcelableException;
 import android.os.Build;
 import android.util.Log;
 
@@ -54,59 +55,65 @@ public abstract class Platform {
      * @return ApplicationInfo for each installed app (*sans exclusions)
      */
     public static List<ApplicationInfo> listInstalledApps() {
-        PackageManager pm = Core.context().getPackageManager();
+        try {
+            PackageManager pm = Core.context().getPackageManager();
 
-        // Check for QUERY_ALL_PACKAGES permission if needed (Android 11+)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R &&
-                pm.checkPermission(android.Manifest.permission.QUERY_ALL_PACKAGES, Core.context().getPackageName())
-                != PackageManager.PERMISSION_GRANTED) {
-            // Handle lack of permission if necessary (e.g., log, throw, or filter results)
-            Log.w("Platform", "QUERY_ALL_PACKAGES permission not granted, filtering apps");
+            // Check for QUERY_ALL_PACKAGES permission if needed (Android 11+)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R &&
+                    pm.checkPermission(android.Manifest.permission.QUERY_ALL_PACKAGES, Core.context().getPackageName())
+                            != PackageManager.PERMISSION_GRANTED) {
+                // Handle lack of permission if necessary (e.g., log, throw, or filter results)
+                Log.w("Platform", "QUERY_ALL_PACKAGES permission not granted, filtering apps");
 
-            Set<String> installedPackages = new HashSet<>();
+                Set<String> installedPackages = new HashSet<>();
 
-            for (String category : List.of(Intent.CATEGORY_LAUNCHER, Intent.CATEGORY_INFO,
-                    "com.oculus.intent.category.VR",
-                    "com.oculus.intent.category.2D",
-                    "android.intent.category.DEFAULT")) {
-                Intent intent = new Intent(Intent.ACTION_MAIN, null);
-                intent.addCategory(category);
+                for (String category : List.of(Intent.CATEGORY_LAUNCHER, Intent.CATEGORY_INFO,
+                        "com.oculus.intent.category.VR",
+                        "com.oculus.intent.category.2D",
+                        "android.intent.category.DEFAULT")) {
+                    Intent intent = new Intent(Intent.ACTION_MAIN, null);
+                    intent.addCategory(category);
 
-                @SuppressLint("QueryPermissionsNeeded")
-                List<ResolveInfo> apps = pm.queryIntentActivities(intent, 0);
+                    @SuppressLint("QueryPermissionsNeeded")
+                    List<ResolveInfo> apps = pm.queryIntentActivities(intent, 0);
 
-                for (ResolveInfo app : apps) {
-                    String packageName = app.activityInfo.packageName;
-                    installedPackages.add(packageName);
+                    for (ResolveInfo app : apps) {
+                        String packageName = app.activityInfo.packageName;
+                        installedPackages.add(packageName);
+                    }
                 }
-            }
 
-            List<ApplicationInfo> installedApps = new ArrayList<>();
-            for (String packageName : installedPackages) {
-                ApplicationInfo appInfo;
-                appInfo = App.infoFor(packageName);
-                installedApps.add(appInfo);
-            }
+                List<ApplicationInfo> installedApps = new ArrayList<>();
+                for (String packageName : installedPackages) {
+                    ApplicationInfo appInfo;
+                    appInfo = App.infoFor(packageName);
+                    installedApps.add(appInfo);
+                }
 
-            if (Platform.isQuest()) for (String systemUxPanelApp : systemUxPanelApps) {
-                ApplicationInfo panelAppInfo = new ApplicationInfo();
-                panelAppInfo.packageName = systemUxPanelApp;
-                installedApps.add(panelAppInfo);
-            }
+                if (Platform.isQuest()) for (String systemUxPanelApp : systemUxPanelApps) {
+                    ApplicationInfo panelAppInfo = new ApplicationInfo();
+                    panelAppInfo.packageName = systemUxPanelApp;
+                    installedApps.add(panelAppInfo);
+                }
 
-            return installedApps;
+                return installedApps;
 
-        } else {
-            @SuppressLint("QueryPermissionsNeeded")
-            List<ApplicationInfo> installedApps
-                    = pm.getInstalledApplications(PackageManager.GET_META_DATA
-                    | PackageManager.MATCH_DISABLED_UNTIL_USED_COMPONENTS);
-            if (Platform.isQuest()) for (String systemUxPanelApp : systemUxPanelApps) {
-                ApplicationInfo panelAppInfo = new ApplicationInfo();
-                panelAppInfo.packageName = systemUxPanelApp;
-                installedApps.add(panelAppInfo);
+            } else {
+                @SuppressLint("QueryPermissionsNeeded")
+                List<ApplicationInfo> installedApps
+                        = pm.getInstalledApplications(PackageManager.GET_META_DATA
+                        | PackageManager.MATCH_DISABLED_UNTIL_USED_COMPONENTS);
+                if (Platform.isQuest()) for (String systemUxPanelApp : systemUxPanelApps) {
+                    ApplicationInfo panelAppInfo = new ApplicationInfo();
+                    panelAppInfo.packageName = systemUxPanelApp;
+                    installedApps.add(panelAppInfo);
+                }
+                return installedApps;
             }
-            return installedApps;
+        } catch (BadParcelableException exception) {
+            Log.e("Platform", "Failed to list installed apps, retrying momentarily...", exception);
+            try { Thread.sleep(250L);} catch (InterruptedException ignored) {}
+            return listInstalledApps();
         }
     }
 
@@ -171,7 +178,8 @@ public abstract class Platform {
             "com.oculus.horizonmediaplayer", // Broken as of v78.1027
             "com.meta.worlds", // Broken as of v78.1027
             "com.oculus.guardiansetup",
-            "com.oculus.globalsearch" // Intended as part of the Navigator UI
+            "com.oculus.globalsearch", // Intended as part of the Navigator UI
+            "com.oculus.pclinkservice.server"
     );
 
     /**

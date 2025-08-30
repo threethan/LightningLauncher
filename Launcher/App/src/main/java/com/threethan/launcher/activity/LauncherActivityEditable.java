@@ -27,6 +27,7 @@ import com.threethan.launcher.activity.view.EditTextWatched;
 import com.threethan.launchercore.lib.StringLib;
 import com.threethan.launchercore.util.App;
 import com.threethan.launchercore.util.Platform;
+import com.threethan.launchercore.view.LcBlurCanvas;
 
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
@@ -220,6 +221,7 @@ public class LauncherActivityEditable extends LauncherActivity {
             focused.clearFocus();
             focused.post(focused::requestFocus);
         }
+        LcBlurCanvas.useRenderRect = !value;
         updateToolBars();
     }
 

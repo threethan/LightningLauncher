@@ -1,4 +1,4 @@
-package com.threethan.launcher.activity;
+package com.threethan.launcher.provider;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
