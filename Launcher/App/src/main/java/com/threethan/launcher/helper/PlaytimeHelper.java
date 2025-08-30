@@ -39,6 +39,7 @@ public abstract class PlaytimeHelper {
         usageStatsList.removeIf(usageStats -> !usageStats.getPackageName().equals(pkgName));
         long total = 0;
         for (UsageStats stats : usageStatsList) total += stats.getTotalTimeInForeground() / 1000;
+        total += QuestGameTuner.getUsageOffset(pkgName) * 60L;
         return total;
     }
 
@@ -64,6 +65,7 @@ public abstract class PlaytimeHelper {
 
     public static boolean hasUsagePermission() {
         AppOpsManager appOps = (AppOpsManager) Core.context().getSystemService(Context.APP_OPS_SERVICE);
+        //noinspection deprecation
         int mode = Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
                 ? appOps.unsafeCheckOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS, Process.myUid(), Core.context().getPackageName())
                 : appOps.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS, Process.myUid(), Core.context().getPackageName());

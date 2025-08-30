@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.view.View;
@@ -160,5 +161,32 @@ public abstract class QuestGameTuner {
             imageBanner.setCurrentScreen(new Random().nextInt() % imageBanner.getScreenCount());
             return dialog;
         }
+    }
+
+    /**
+     * Gets the playtime/usage offset (in minutes) that Quest Game Tuner has for a given package.
+     */
+    public static int getUsageOffset(String packageName) {
+        Uri uri = Uri.parse("content://com.threethan.tuner.usageOffsetProvider/" + packageName);
+        try {
+            // Attempt to gain permission to use the provider when tuner is closed
+            Core.context().getContentResolver().takePersistableUriPermission(
+                    uri,
+                    Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+            );
+        } catch (Exception ignored) {}
+        try (
+                Cursor cursor = Core.context().getContentResolver()
+                        .query(uri, null, null, null, null)
+        ){
+
+            assert cursor != null;
+            cursor.moveToFirst();
+
+            int usageOffsetMinutesIndex = cursor.getColumnIndex("usageOffsetMinutes");
+
+            return cursor.getInt(usageOffsetMinutesIndex);
+        } catch (Throwable ignored) {}
+        return 0;
     }
 }
