@@ -3,6 +3,7 @@ package com.threethan.launcher.data.sync;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.util.Log;
 
@@ -10,7 +11,6 @@ import androidx.annotation.Nullable;
 import androidx.core.content.FileProvider;
 
 import com.threethan.launcher.helper.SettingsSaver;
-import com.threethan.launchercore.util.App;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -154,7 +154,7 @@ public class SyncFileProvider extends FileProvider {
      */
     private static @Nullable String getOtherPackageName(Context context) {
         List<String> otherPackages = new ArrayList<>(SUPPORTED_PACKAGES);
-        otherPackages.removeIf(n -> !App.packageExists(n) || n.equals(context.getPackageName()));
+        otherPackages.removeIf(n -> !isInstalled(context, n) || n.equals(context.getPackageName()));
         if (otherPackages.size() > 1) {
             Log.e("DataStoreSync", "[CRITICAL] Too many packages installed! Sync will be suspended!");
             return null;
@@ -183,5 +183,15 @@ public class SyncFileProvider extends FileProvider {
     /** Call to propagate changed settings to other apps in case of an uninstall */
     public static void onStop(Activity activity) {
         copyDataToOtherApps(activity);
+    }
+
+    /** Check if a package is installed */
+    public static boolean isInstalled(Context context, String packageName) {
+        try {
+            context.getPackageManager().getApplicationInfo(packageName,0);
+            return true;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
     }
 }

@@ -5,8 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.activity.support.DataStoreEditor;
+import com.threethan.launcher.helper.Compat;
 
 public class SyncReceiver extends BroadcastReceiver {
 
@@ -17,9 +17,7 @@ public class SyncReceiver extends BroadcastReceiver {
         if (intent.hasExtra("grant") && intent.getBooleanExtra("grant", true))
             SyncFileProvider.grantAccessToOtherApp(context);
 
-        if (LauncherActivity.getForegroundInstance() != null)
-            LauncherActivity.getForegroundInstance().finishAffinity();
-
         DataStoreEditor.clearInstances();
+        Compat.restartFully();
     }
 }

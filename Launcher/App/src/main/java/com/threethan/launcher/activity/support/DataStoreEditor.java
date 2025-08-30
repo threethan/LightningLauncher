@@ -84,6 +84,12 @@ public class DataStoreEditor implements SharedPreferences, SharedPreferences.Edi
     public DataStoreEditor(File file) {
         dataStoreRX = getDataStore(file);
     }
+
+    /** Clears all cached DataStore instances. Use this with caution. */
+    public static void clearInstances() {
+        dataStoreByName.clear();
+    }
+
     synchronized private RxDataStore<Preferences> getDataStore(Context context, String name) {
         if (dataStoreByName.containsKey(name)) return dataStoreByName.get(name);
         RxDataStore<Preferences> ds = new RxPreferenceDataStoreBuilder(context, name).build();
