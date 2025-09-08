@@ -1,6 +1,7 @@
 package com.threethan.launcher.helper;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 
@@ -9,6 +10,8 @@ import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.activity.dialog.BasicDialog;
 import com.threethan.launcher.activity.support.DataStoreEditor;
 import com.threethan.launcher.data.Settings;
+import com.threethan.launcher.utility.ApkInstallerUtilityApplication;
+import com.threethan.launcher.utility.TVSmartHomeUtilityApplication;
 import com.threethan.launchercore.Core;
 import com.threethan.launchercore.adapter.UtilityApplicationInfo;
 import com.threethan.launchercore.util.App;
@@ -118,7 +121,10 @@ public abstract class PlatformExt {
             apps.add(applicationInfo);
         }
         // Utility apps
-        if (Platform.getVrOsVersion() >= 74) apps.add(ApkInstallerUtilityApplication.getInstance());
+        if (ApkInstallerUtilityApplication.shouldShow())
+            apps.add(ApkInstallerUtilityApplication.getInstance());
+        if (TVSmartHomeUtilityApplication.shouldShow())
+            apps.add(TVSmartHomeUtilityApplication.getInstance());
         return apps;
     }
 
@@ -154,27 +160,7 @@ public abstract class PlatformExt {
                 != PackageManager.PERMISSION_GRANTED;
     }
 
-    /**
-     * An instance of UtilityApplicationInfo which provides an easy way to install APKs on v74+
-     */
-    public static class ApkInstallerUtilityApplication extends UtilityApplicationInfo {
-        private ApkInstallerUtilityApplication() {
-            super("builtin://apk-install", R.drawable.ic_installer);
-        }
-        private static ApkInstallerUtilityApplication instance;
-        public static ApkInstallerUtilityApplication getInstance() {
-            if (instance== null) instance = new ApkInstallerUtilityApplication();
-            return instance;
-        }
 
-        public void launch() {
-            BasicDialog.toast(Core.context().getString(R.string.apk_installer_tip));
 
-            if (!BasicDialog.validateVariantWithNotify()) return;
 
-            if (LauncherActivity.getForegroundInstance() != null)
-                LauncherActivity.getForegroundInstance()
-                        .showFilePicker(LauncherActivity.FilePickerTarget.APK);
-        }
-    }
 }

@@ -99,6 +99,10 @@ public abstract class LaunchExt extends Launch {
         QuestGameTuner.applyTuning(app.packageName);
 
         if (Platform.isTv()) {
+            if (App.getType(app) == App.Type.UTILITY && app instanceof UtilityApplicationInfo) {
+                ((UtilityApplicationInfo) app).launch();
+                return false;
+            }
             startIntent(launcherActivity, intent);
             return true;
         }
