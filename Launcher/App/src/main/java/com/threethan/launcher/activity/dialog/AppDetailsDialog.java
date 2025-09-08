@@ -126,7 +126,6 @@ public class AppDetailsDialog extends BasicDialog<LauncherActivity> {
                 -> a.runOnUiThread(() -> {
                     iconImageView.setImageDrawable(d);
                     view.setVisibility(View.GONE);
-                    if (a.getAppAdapter() != null) a.getAppAdapter().notifyItemChanged(app);
         })));
         if (appType == App.Type.VR || appType == App.Type.PANEL
                 || Platform.isTv()) {
@@ -233,20 +232,26 @@ public class AppDetailsDialog extends BasicDialog<LauncherActivity> {
         dispBannerButton.setVisibility(!isBanner ? View.VISIBLE : View.GONE);
         dispIconButton.setOnClickListener(v -> {
             SettingsManager.setAppBannerOverride(app, false);
-            a.launcherService.forEachActivity(LauncherActivity::resetAdapters);
             iconImageView.getLayoutParams().width = a.dp(83);
             dispBannerButton.setVisibility(View.VISIBLE);
             dispIconButton.setVisibility(View.GONE);
-            resetIconButton.callOnClick();
+            Compat.resetIcon(app, d
+                    -> a.runOnUiThread(() -> {
+                iconImageView.setImageDrawable(d);
+                a.launcherService.forEachActivity(LauncherActivity::resetAdapters);
+            }));
         });
         dispBannerButton.setOnClickListener(v -> {
             SettingsManager.setAppBannerOverride(app, true);
             SettingsManager.sortableLabelCache.clear();
-            a.launcherService.forEachActivity(LauncherActivity::resetAdapters);
             iconImageView.getLayoutParams().width = a.dp(150);
             dispBannerButton.setVisibility(View.GONE);
             dispIconButton.setVisibility(View.VISIBLE);
-            resetIconButton.callOnClick();
+            Compat.resetIcon(app, d
+                    -> a.runOnUiThread(() -> {
+                iconImageView.setImageDrawable(d);
+                a.launcherService.forEachActivity(LauncherActivity::resetAdapters);
+            }));
         });
         iconImageView.setClipToOutline(true);
         iconImageView.getLayoutParams().width = a.dp(isBanner ? 150 : 83);

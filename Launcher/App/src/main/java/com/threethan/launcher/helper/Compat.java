@@ -284,14 +284,15 @@ public abstract class Compat {
             cFile.delete();
 
         IconLoader.loadIcon(app, d -> {
+            callback.accept(d);
+
             LauncherActivity foregroundInstance = LauncherActivity.getForegroundInstance();
             if (foregroundInstance != null && foregroundInstance.launcherService != null) {
                 foregroundInstance.launcherService.forEachActivity(a -> {
                     LauncherAppsAdapter appAdapter = a.getAppAdapter();
-                    if (appAdapter != null) a.runOnUiThread(() -> appAdapter.notifyItemChanged(app));
+                    if (appAdapter != null) a.post(() -> appAdapter.notifyItemChanged(app));
                 });
             }
-            callback.accept(d);
         });
     }
 

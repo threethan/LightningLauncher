@@ -1,19 +1,15 @@
 package com.threethan.launcher.helper;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 
-import com.threethan.launcher.R;
 import com.threethan.launcher.activity.LauncherActivity;
-import com.threethan.launcher.activity.dialog.BasicDialog;
 import com.threethan.launcher.activity.support.DataStoreEditor;
 import com.threethan.launcher.data.Settings;
 import com.threethan.launcher.utility.ApkInstallerUtilityApplication;
 import com.threethan.launcher.utility.TVSmartHomeUtilityApplication;
 import com.threethan.launchercore.Core;
-import com.threethan.launchercore.adapter.UtilityApplicationInfo;
 import com.threethan.launchercore.util.App;
 import com.threethan.launchercore.util.Platform;
 
