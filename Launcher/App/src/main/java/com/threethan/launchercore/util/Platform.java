@@ -90,7 +90,7 @@ public abstract class Platform {
                     installedApps.add(appInfo);
                 }
 
-                if (Platform.isQuest()) for (String systemUxPanelApp : systemUxPanelApps) {
+                if (Platform.isQuest()) for (String systemUxPanelApp : questVersionedIncludedApps) {
                     ApplicationInfo panelAppInfo = new ApplicationInfo();
                     panelAppInfo.packageName = systemUxPanelApp;
                     installedApps.add(panelAppInfo);
@@ -103,7 +103,7 @@ public abstract class Platform {
                 List<ApplicationInfo> installedApps
                         = pm.getInstalledApplications(PackageManager.GET_META_DATA
                         | PackageManager.MATCH_DISABLED_UNTIL_USED_COMPONENTS);
-                if (Platform.isQuest()) for (String systemUxPanelApp : systemUxPanelApps) {
+                if (Platform.isQuest()) for (String systemUxPanelApp : questVersionedIncludedApps) {
                     ApplicationInfo panelAppInfo = new ApplicationInfo();
                     panelAppInfo.packageName = systemUxPanelApp;
                     installedApps.add(panelAppInfo);
@@ -117,26 +117,43 @@ public abstract class Platform {
         }
     }
 
-    private static final Set<String> systemUxPanelApps = Set.of(
-            "systemux://settings",
-            "systemux://aui-social-v2",
-            "systemux://events",
-            "systemux://file-manager",
-            "systemux://sharing"
+    private static final Set<String> questVersionedIncludedApps =
+            Platform.getVrOsVersion() >= 81 ? Set.of(
+                "systemux://aui-people-blended",
+                "systemux://settings"
+            ) : Set.of(
+                "systemux://settings",
+                "systemux://aui-social-v2",
+                "systemux://file-manager",
+                "systemux://sharing"
+            );
+
+    private static final Set<String> questVersionedExcludedApps =
+            Platform.getVrOsVersion() >= 81 ? Set.of() : Set.of(
+                    "systemux://events",
+                    "systemux://file-manager",
+                    "systemux://sharing",
+                    "com.oculus.systemutilities",
+                    "com.meta.worlds",
+                    "com.oculus.metacam"
             );
     public static final Map<String, String> labelOverrides = new HashMap<>();
     static {
         labelOverrides.put("systemux://settings", "Quest Settings");
         labelOverrides.put("systemux://aui-social-v2", "People");
+        labelOverrides.put("systemux://aui-people-blended", "Chats");
         labelOverrides.put("systemux://events", "Events");
         labelOverrides.put("systemux://file-manager", "File Manager");
         labelOverrides.put("systemux://sharing", "Camera");
         labelOverrides.put("builtin://apk-install", "APK Installer");
+        labelOverrides.put("builtin://tv-smart-home", "Smart Home");
         labelOverrides.put("com.android.settings", "Android Settings");
         labelOverrides.put("com.oculus.tv", "Meta Quest TV");
+        labelOverrides.put("com.oculus.systemutilities", "Quest Files");
         labelOverrides.put("com.oculus.browser", "Browser");
+        labelOverrides.put("com.oculus.metacam", "Camera");
     }
-    public static final Set<String> excludedPackageNames = Set.of(
+    public static final Set<String> excludedPackageNames = new HashSet<>(Set.of(
             "android",
             "com.oculus.panelapp.library",
             "com.oculus.panelapp.devicepairing",
@@ -148,7 +165,6 @@ public abstract class Platform {
             "com.oculus.systemactivities",
             "com.oculus.systempermissions",
             "com.oculus.systemsearch",
-            "com.oculus.systemutilities",
             "com.oculus.systemresource",
             "com.oculus.extrapermissions",
             "com.oculus.mobile_mrc_setup",
@@ -174,13 +190,23 @@ public abstract class Platform {
             "com.oculus.systemux",
             "com.android.healthconnect.controller",
             "com.android.metacam",
-            "com.oculus.metacam",
             "com.oculus.horizonmediaplayer", // Broken as of v78.1027
-            "com.meta.worlds", // Broken as of v78.1027
             "com.oculus.guardiansetup",
             "com.oculus.globalsearch", // Intended as part of the Navigator UI
-            "com.oculus.pclinkservice.server"
-    );
+            "com.oculus.pclinkservice.server",
+            "com.meta.pclinkservice.server",
+
+            // Google/Android TV
+            "com.google.android.katniss",
+            "com.google.android.apps.tv.launcherx",
+            "com.google.android.healthconnect.controller",
+            "com.google.android.inputmethod.latin"
+    ));
+
+    static {
+        // Add removed systemux panel apps to the excluded list
+        excludedPackageNames.addAll(questVersionedExcludedApps);
+    }
 
     /**
      * Opens the application info settings page for a given package
