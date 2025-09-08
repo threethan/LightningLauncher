@@ -200,7 +200,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
 
     }
     protected void startWithNewView() {
-        Log.v(TAG, "Startup 0: Starting with new view");
+        Log.v(TAG, "Starting with new view");
         ViewGroup containerView = findViewById(R.id.container);
         launcherService.getNewView(this, containerView, view -> {
             rootView = view;
@@ -228,9 +228,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
 
             post(this::updateToolBars); // Fix visual bugs with the blur views
         } catch (Exception e) {
-            // Attempt to work around problems with backgrounded activities
             Log.e(TAG, "Crashed due to exception while re-initiating existing activity", e);
-            Log.e(TAG, "Attempting to start with a new activity...");
         }
 
         refreshBackground();
@@ -471,9 +469,6 @@ public class LauncherActivity extends Launch.LaunchingActivity {
     public void refreshInterface() {
         Log.v(TAG, "Refreshing interface (incl. Adapters)");
 
-        groupsEnabled = dataStoreEditor.getBoolean(Settings.KEY_GROUPS_ENABLED, Settings.DEFAULT_GROUPS_ENABLED);
-        groupsWide = dataStoreEditor.getBoolean(Settings.KEY_GROUPS_WIDE, Settings.DEFAULT_GROUPS_WIDE);
-
         refreshAdapters();
 
         // Fix some focus issues
@@ -486,6 +481,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         });
     }
 
+    private boolean hasRefreshedAdapters = false;
     /**
      * Refreshes the display and layout of the RecyclerViews used for the groups list and app grid.
      * Includes a call to updateGridLayouts();
@@ -497,6 +493,8 @@ public class LauncherActivity extends Launch.LaunchingActivity {
                 .getBoolean(Settings.KEY_DARK_MODE, Settings.DEFAULT_DARK_MODE);
         groupsEnabled = dataStoreEditor
                 .getBoolean(Settings.KEY_GROUPS_ENABLED, Settings.DEFAULT_GROUPS_ENABLED);
+        groupsWide = dataStoreEditor
+                .getBoolean(Settings.KEY_GROUPS_WIDE, Settings.DEFAULT_GROUPS_WIDE);
 
         namesSquare = dataStoreEditor
                 .getBoolean(Settings.KEY_SHOW_NAMES_SQUARE, Settings.DEFAULT_SHOW_NAMES_SQUARE);
@@ -505,19 +503,16 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         timesBanner = dataStoreEditor
                 .getBoolean(Settings.KEY_SHOW_TIMES_BANNER, Settings.DEFAULT_SHOW_TIMES_BANNER);
 
-        updateSelectedGroups(rootView.getWidth()/2, 0);
+        // Animate only once
+        if (hasRefreshedAdapters) updateSelectedGroups();
+        else updateSelectedGroups(rootView.getWidth() / 2, 0);
+        hasRefreshedAdapters = true;
+
         updateGridLayouts();
     }
 
     protected void updateSelectedGroups(int x, int y) {
-        groupsView.setAdapter(new GroupsAdapter(this, isEditing()));
-        if (getAppAdapter() == null) {
-            appsView.setAdapter(new LauncherAppsAdapter(this));
-        } else {
-            getAppAdapter().setAppList(this);
-        }
-        getAppAdapter().setContainer(findViewById(R.id.appsContainer));
-
+        updateSelectedGroups();
         if (isEditing()) return;
 
         try {
@@ -533,6 +528,15 @@ public class LauncherActivity extends Launch.LaunchingActivity {
                 }
             }, 500);
         } catch (Exception ignored) {}
+    }
+    protected void updateSelectedGroups() {
+        if (groupsEnabled) groupsView.setAdapter(new GroupsAdapter(this, isEditing()));
+        if (getAppAdapter() == null) {
+            appsView.setAdapter(new LauncherAppsAdapter(this));
+        } else {
+            getAppAdapter().setAppList(this);
+        }
+        getAppAdapter().setContainer(findViewById(R.id.appsContainer));
     }
 
     /**
@@ -658,8 +662,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
      */
     public void refreshBackground() {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
-
-            executorService.execute(() -> {
+        executorService.execute(() -> {
             // Set initial color, execute background task
             if (backgroundIndex == -2) {
                 backgroundIndex = dataStoreEditor.getInt(Settings.KEY_BACKGROUND,
@@ -698,6 +701,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
      */
     public void refreshAppList() {
         if (PlatformExt.installedApps == null) {
+            Log.v(TAG, "Package list empty, forcing package refresh");
             refreshPackages();
             return;
         }
@@ -705,8 +709,8 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         refreshAdapters();
 
         if (getAppAdapter() != null) {
-            getAppAdapter().setFullAppSet(PlatformExt.listInstalledApps(this));
             getAppAdapter().setLauncherActivity(this);
+            getAppAdapter().setFullAppSet(PlatformExt.listInstalledApps(this));
         }
         final int scrollY = appsView.getScrollY();
         appsView.setScrollY(scrollY);
@@ -724,9 +728,12 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         // This method is replaced with a greatly expanded one in the child class
         final List<String> groupsSorted = settingsManager.getAppGroupsSorted(false);
         final String group = groupsSorted.get(position);
-        settingsManager.selectGroup(group);
+        boolean doAnimation = settingsManager.selectGroup(group);
 
-        try {
+        if (!doAnimation) {
+            updateSelectedGroups();
+            return;
+        } try {
             int[] location = new int[2];
             source.getLocationInWindow(location);
             updateSelectedGroups(location[0] + source.getWidth()/2, location[1]);
@@ -835,7 +842,6 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         }
         if (getGroupAdapter() != null) getGroupAdapter().notifyDataSetChanged();
         refreshInterface();
-        updateSelectedGroups(0,0);
     }
 
     // Edit mode stubs, to be overridden by child

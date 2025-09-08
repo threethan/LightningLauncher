@@ -402,19 +402,19 @@ public class SettingsManager extends Settings {
         if (selectedGroupsSet.isEmpty()) {
             selectedGroupsSet.addAll(dataStoreEditor.getStringSet(KEY_SELECTED_GROUPS, getDefaultGroupsSet()));
         }
-        if (myLauncherActivityRef.get() != null &&
-                LauncherActivity.groupsEnabled || myLauncherActivityRef.get().isEditing()) {
+        if (myLauncherActivityRef.get() != null
+                && (LauncherActivity.groupsEnabled
+                || myLauncherActivityRef.get().isEditing())) {
 
             // Deselect hidden
-            if (myLauncherActivityRef.get() != null && !myLauncherActivityRef.get().isEditing())
+            if (!myLauncherActivityRef.get().isEditing())
                 selectedGroupsSet.removeIf(s -> s.equals(Settings.HIDDEN_GROUP)
                         || groupAppsMap.get(s) == null || Objects.requireNonNull(groupAppsMap.get(s)).isEmpty());
-            return selectedGroupsSet;
         } else {
-            Set<String> retSet = new HashSet<>(appGroupsSet);
-            retSet.remove(Settings.HIDDEN_GROUP);
-            return retSet;
+            selectedGroupsSet.addAll(getAppGroups());
+            selectedGroupsSet.remove(Settings.HIDDEN_GROUP);
         }
+        return selectedGroupsSet;
     }
 
     /**
@@ -550,11 +550,14 @@ public class SettingsManager extends Settings {
     /**
      * Select a group, adding it to the list of selected groups
      * @param name Name of the group to select
+     * @return If the group was newly selected
      */
-    public void selectGroup(String name) {
+    public boolean selectGroup(String name) {
+        boolean newlySelected = !selectedGroupsSet.contains(name);
         Set<String> selectFirst = new HashSet<>();
         selectFirst.add(name);
         setSelectedGroups(selectFirst);
+        return newlySelected;
     }
 
     final private static Map<App.Type, String> defaultGroupCache = new ConcurrentHashMap<>();
