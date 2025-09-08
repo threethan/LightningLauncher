@@ -47,5 +47,8 @@ public class LcBlurMask extends View {
         getViewTreeObserver().removeOnPreDrawListener(listener);
     }
 
-    private final ViewTreeObserver.OnPreDrawListener listener = () -> getGlobalVisibleRect(LcBlurCanvas.renderRect);
+    private final ViewTreeObserver.OnPreDrawListener listener = () -> {
+        if (getVisibility() == VISIBLE) getGlobalVisibleRect(LcBlurCanvas.renderRect);
+        return true;
+    };
 }

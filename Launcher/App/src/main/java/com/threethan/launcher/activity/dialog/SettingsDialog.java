@@ -297,6 +297,7 @@ public class SettingsDialog extends BasicDialog<LauncherActivity> {
             LauncherActivity fi = LauncherActivity.getForegroundInstance();
             if (fi != null) Compat.clearIconCacheNoRefresh(fi);
             a.launcherService.forEachActivity(LauncherActivity::forceRefreshPackages);
+            a.launcherService.forEachActivity(LauncherActivity::refreshInterface);
         });
         return dialog;
     }

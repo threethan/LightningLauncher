@@ -233,7 +233,6 @@ public class LauncherActivity extends Launch.LaunchingActivity {
 
         refreshBackground();
     }
-    @SuppressWarnings("InvalidSetHasFixedSize")
     protected void init() {
         Core.init(this);
         settingsManager = SettingsManager.getInstance(this);
@@ -530,7 +529,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         } catch (Exception ignored) {}
     }
     protected void updateSelectedGroups() {
-        if (groupsEnabled) groupsView.setAdapter(new GroupsAdapter(this, isEditing()));
+        groupsView.setAdapter(new GroupsAdapter(this, isEditing()));
         if (getAppAdapter() == null) {
             appsView.setAdapter(new LauncherAppsAdapter(this));
         } else {
@@ -569,6 +568,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
                 groupsView.setLayoutParams(new FrameLayout.LayoutParams
                         (ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             }
+            groupsView.post(() -> groupsView.setVisibility(View.VISIBLE));
         }
         updatePadding();
 
@@ -595,7 +595,6 @@ public class LauncherActivity extends Launch.LaunchingActivity {
             finalGridLayoutManager.setSpanCount(nCol);
         });
 
-        groupsView.post(() -> groupsView.setVisibility(View.VISIBLE));
         topBar.setVisibility(groupsEnabled ? View.VISIBLE : View.GONE);
     }
     /**
