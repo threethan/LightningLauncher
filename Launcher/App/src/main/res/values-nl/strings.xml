@@ -288,4 +288,5 @@
     <string name="new_label_duration_tip">Toont ►vóór de naam van apps die recentelijk aan Lightning Launcher zijn toegevoegd en sorteert ze vóór andere apps.</string>
     <string name="new_label_duration_zero">Niet weergeven</string>
     <string name="new_label_duration_template">Gedurende %d minuten</string>
+    <string name="settings_workaround">Klik op Openen in het infovenster om Android-instellingen te openen.</string>
 </resources>

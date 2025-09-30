@@ -36,6 +36,10 @@ public class LauncherService extends Service {
     private boolean isObservingInstallations = false;
     private final static ConcurrentHashMap<Integer, View> viewByIndex = new ConcurrentHashMap<>();
 
+    public void kill() {
+        android.os.Process.killProcess(android.os.Process.myPid());
+    }
+
     public class LocalBinder extends Binder {
         public LauncherService getService() {
             return LauncherService.this;

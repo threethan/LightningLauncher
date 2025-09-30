@@ -292,4 +292,5 @@
     <string name="new_label_duration_tip">Lightning Launcher\'a son eklenen uygulamaların adından önce ►gösterir ve bunları diğer uygulamalardan önce sıralar.</string>
     <string name="new_label_duration_template">%d dakika boyunca</string>
     <string name="new_label_duration_zero">Gösterme</string>
+    <string name="settings_workaround">Android Ayarlarını açmak için bilgi penceresinde Aç\'a tıklayın.</string>
 </resources>

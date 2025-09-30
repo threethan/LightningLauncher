@@ -139,7 +139,7 @@
     </string>
     <string name="update_browser_message">For the best experience, you must update Lightning Browser.</string>
 =   <string name="download_browser_toast_main">Open the website again</string>
-    <string name="download_browser_toast_bold">after installation is complete</string>
+    <string name="download_browser_toast_bold">after Lightning Browser is installed</string>
 
 
     <string name="website_title">Websites in Lightning Launcher</string>
@@ -406,4 +406,6 @@
 
     <!-- v74 APK INSTALLER -->
     <string name="apk_installer_tip">Select an APK file to install</string>
+
+    <string name="settings_workaround">Click <b>\"Open\"</b> in the info window to open Android Settings.</string>
 </resources>

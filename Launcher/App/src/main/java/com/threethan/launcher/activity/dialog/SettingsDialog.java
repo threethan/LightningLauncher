@@ -2,7 +2,11 @@ package com.threethan.launcher.activity.dialog;
 
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
+import android.app.AlarmManager;
 import android.app.AlertDialog;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
@@ -15,6 +19,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import com.threethan.launcher.BuildConfig;
+import com.threethan.launcher.LauncherService;
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.activity.support.SettingsManager;
@@ -25,6 +30,7 @@ import com.threethan.launcher.helper.PlatformExt;
 import com.threethan.launcher.helper.PlaytimeHelper;
 import com.threethan.launcher.helper.SettingsSaver;
 import com.threethan.launcher.updater.LauncherUpdater;
+import com.threethan.launchercore.Core;
 import com.threethan.launchercore.util.App;
 import com.threethan.launchercore.util.CustomDialog;
 import com.threethan.launchercore.util.Platform;
@@ -292,12 +298,30 @@ public class SettingsDialog extends BasicDialog<LauncherActivity> {
 
         // Advanced button
         dialog.findViewById(R.id.advancedSettingsButton).setOnClickListener(view -> showAdvancedSettings());
+
+        // Refresh button
         dialog.findViewById(R.id.refreshButton).setOnClickListener(view -> {
             view.setEnabled(false);
             LauncherActivity fi = LauncherActivity.getForegroundInstance();
             if (fi != null) Compat.clearIconCacheNoRefresh(fi);
             a.launcherService.forEachActivity(LauncherActivity::forceRefreshPackages);
             a.launcherService.forEachActivity(LauncherActivity::refreshInterface);
+
+            if (a.launcherService != null)
+                a.launcherService.kill();
+            a.finishAffinity();
+
+            int pendingId = 1330;
+
+            Intent intent = new Intent(Core.context(), LauncherService.class);
+
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(Core.context(), pendingId, intent,
+                    PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+
+            AlarmManager mgr = (AlarmManager) Core.context().getSystemService(Context.ALARM_SERVICE);
+            if (mgr != null) mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 1000, pendingIntent);
+
+            System.exit(0);
         });
         return dialog;
     }

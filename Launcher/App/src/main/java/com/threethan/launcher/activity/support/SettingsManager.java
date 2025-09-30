@@ -229,6 +229,7 @@ public class SettingsManager extends Settings {
         return App.getType(pkg) != App.Type.PANEL;
     }
     public static int getAppLaunchSize(String pkg) {
+        if (pkg.equals("com.android.settings")) return 0;
         int val = Compat.getDataStore().getInt(
                 Settings.KEY_LAUNCH_SIZE + pkg, 0);
         if (val <= 0 && pkg.equals("com.android.documentsui")) return 1;

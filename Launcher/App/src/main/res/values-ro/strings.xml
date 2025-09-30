@@ -292,4 +292,5 @@
     <string name="new_label_duration_tip">Se afișează ►înaintea numelui aplicațiilor adăugate recent în Lightning Launcher și le sortează înaintea altor aplicații.</string>
     <string name="new_label_duration_zero">Nu se afișează</string>
     <string name="new_label_duration_template">Timp de %d minute</string>
+    <string name="settings_workaround">Faceți clic pe Deschidere în fereastra de informații pentru a deschide Setările Android.</string>
 </resources>

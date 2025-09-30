@@ -292,4 +292,5 @@
     <string name="new_label_duration_tip">Показывает ►перед названием приложений, недавно добавленных в Lightning Launcher, и сортирует их перед другими приложениями.</string>
     <string name="new_label_duration_zero">Не показывать</string>
     <string name="new_label_duration_template">В течение %d минут</string>
+    <string name="settings_workaround">Нажмите «Открыть» в информационном окне, чтобы открыть настройки Android.</string>
 </resources>

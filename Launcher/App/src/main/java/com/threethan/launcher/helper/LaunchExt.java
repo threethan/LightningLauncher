@@ -69,6 +69,12 @@ public abstract class LaunchExt extends Launch {
             return false;
         }
 
+        if (app.packageName.equals("com.android.settings") && Platform.cantLaunchSettings()) {
+            BasicDialog.toast(Core.context().getString(R.string.settings_workaround));
+            launcherActivity.startActivity(intent);
+            return false;
+        }
+
         // Browser Check
         if (Objects.equals(intent.getPackage(), PlatformExt.BROWSER_PACKAGE)) {
             if (!PlatformExt.hasBrowser(launcherActivity) ||

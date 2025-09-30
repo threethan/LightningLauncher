@@ -288,4 +288,5 @@
     <string name="new_label_duration_tip">Lightning Launcher に最近追加されたアプリの名前の前に ► を表示し、他のアプリよりも前に表示します。</string>
     <string name="new_label_duration_zero">表示しない</string>
     <string name="new_label_duration_template">%d 分間</string>
+    <string name="settings_workaround">情報ウィンドウで「開く」をクリックして、Android 設定を開きます。</string>
 </resources>

@@ -288,4 +288,5 @@
     <string name="new_label_duration_tip">Mostra ►prima del nome delle app aggiunte di recente a Lightning Launcher e le ordina prima delle altre app.</string>
     <string name="new_label_duration_zero">Non mostrare</string>
     <string name="new_label_duration_template">Per %d minuti</string>
+    <string name="settings_workaround">Fare clic su Apri nella finestra informativa per aprire le Impostazioni di Android.</string>
 </resources>

@@ -6,8 +6,11 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.Paint;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -115,10 +118,21 @@ public class BasicDialog<T extends Context> extends AbstractDialog<T> {
             textMain.setText(stringMain);
             textBold.setText(stringBold);
 
-            Toast toast = new Toast(LauncherActivity.getForegroundInstance());
-            toast.setDuration(isLong ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT);
-            toast.setView(layout);
-            toast.show();
+            AlertDialog dialog = new AlertDialog.Builder(LauncherActivity.getForegroundInstance())
+                    .setView(layout)
+                    .setCancelable(true)
+                    .create();
+            Window window = dialog.getWindow();
+            if (window == null) return;
+            window.setBackgroundDrawableResource(android.R.color.transparent);
+            window.setType(WindowManager.LayoutParams.TYPE_APPLICATION_PANEL);
+            window.setFlags(
+                    WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE |
+                    WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+                    0xFFFFFFFF
+            );
+            textMain.postDelayed(dialog::dismiss, isLong ? 3500 : 2000);
+            dialog.show();
         } catch (Exception e) {
             Log.w("Toast", "Failed to show toast", e);
         }

@@ -288,5 +288,16 @@ public abstract class Platform {
                 || Build.HARDWARE.equalsIgnoreCase("panther");
     }
 
-
+    /**
+     * Returns true if the device is unable to open android settings
+     * @return False if an exported activity can be found to handle the intent
+     */
+    public static boolean cantLaunchSettings() {
+        Log.d("Platform", "Assuming settings cant be launched");
+        return true;
+//        Intent intent = new Intent(Intent.ACTION_DEFAULT);
+//        intent.setPackage("com.android.settings");
+//        PackageManager pm = Core.context().getPackageManager();
+//        return intent.resolveActivity(pm) == null;
+    }
 }

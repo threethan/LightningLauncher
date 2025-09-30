@@ -314,4 +314,5 @@
     <string name="new_label_duration_tip">在最近添加到 Lightning Launcher 的应用名称前显示 ►，并将其排序在其他应用之前。</string>
     <string name="new_label_duration_zero">不显示</string>
     <string name="new_label_duration_template">持续 %d 分钟</string>
+    <string name="settings_workaround">单击信息窗口中的“打开”以打开 Android 设置。</string>
 </resources>

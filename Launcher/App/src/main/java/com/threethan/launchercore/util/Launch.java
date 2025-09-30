@@ -32,6 +32,15 @@ public abstract class Launch {
         if (app.packageName.startsWith(Core.context().getPackageName())) return null;
         if (Platform.excludedPackageNames.contains(app.packageName)) return null;
 
+        if (app.packageName.equals("com.android.settings") && Platform.cantLaunchSettings()) {
+            // Get app info intent for the actual settings app
+            Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+            intent.setData(Uri.parse("package:com.android.settings"));
+            intent.setPackage("com.android.settings");
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            return intent;
+        }
+
         PackageManager pm = Core.context().getPackageManager();
 
         if (Platform.isQuest() && App.getType(app) == App.Type.PANEL) {

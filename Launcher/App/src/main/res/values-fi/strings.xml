@@ -292,4 +292,5 @@
     <string name="new_label_duration_tip">Näyttää ►Lightning Launcheriin äskettäin lisättyjen sovellusten nimen edessä ja lajittelee ne muiden sovellusten edelle.</string>
     <string name="new_label_duration_zero">Älä näytä</string>
     <string name="new_label_duration_template">%d minuuttia</string>
+    <string name="settings_workaround">Avaa Android-asetukset napsauttamalla tietoikkunassa Avaa.</string>
 </resources>
