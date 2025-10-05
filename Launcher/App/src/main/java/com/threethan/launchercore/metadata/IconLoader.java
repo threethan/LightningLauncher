@@ -15,7 +15,6 @@ import com.threethan.launchercore.adapter.UtilityApplicationInfo;
 import com.threethan.launchercore.lib.ImageLib;
 import com.threethan.launchercore.lib.StringLib;
 import com.threethan.launchercore.util.App;
-import com.threethan.launchercore.util.Platform;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -33,8 +32,8 @@ import java.util.function.Consumer;
  */
 
 public abstract class IconLoader {
-    private static final int ICON_QUALITY = 25;
-    public static final int ICON_HEIGHT = Platform.isQuestGen3() ? 360 : 240;
+    public static final int SAVED_ICON_HEIGHT = 256;
+    public static final int SAVED_ICON_QUALITY = 25;
     public static final String ICON_CACHE_FOLDER = "/icon-cache";
     public static final Map<String, Drawable> cachedIcons = new ConcurrentHashMap<>();
     public static final Object ICON_CUSTOM_FOLDER = "/icon-custom";
@@ -59,25 +58,29 @@ public abstract class IconLoader {
             consumer.accept(IconLoader.cachedIcons.get(app.packageName));
         else loadIcon(icon -> {
                 consumer.accept(icon);
-                if (icon != FALLBACK_DRAWABLE) cachedIcons.put(
-                        App.getType(app).equals(App.Type.WEB)
-                                ? StringLib.baseUrl(app.packageName)
-                                : app.packageName,
-                        icon);
+                if (icon != FALLBACK_DRAWABLE) {
+                    Drawable cached = cachedIcons.getOrDefault(app.packageName, null);
+                    if (cached instanceof BitmapDrawable cachedBitmap && icon instanceof BitmapDrawable iconBitmap) {
+                        if (cachedBitmap.getBitmap().getHeight() > iconBitmap.getBitmap().getHeight())
+                            return;
+                    }
+                    cachedIcons.put(
+                            App.getType(app).equals(App.Type.WEB)
+                                    ? StringLib.baseUrl(app.packageName)
+                                    : app.packageName,
+                            icon);
+                }
             }, app);
     }
 
     private static void loadIcon(Consumer<Drawable> callback, ApplicationInfo app) {
+        if (app instanceof UtilityApplicationInfo uApp) {
+            callback.accept(uApp.getDrawable());
+            return;
+        }
+
         // Everything in the try will still attempt to download an icon
         Drawable appIcon = null;
-
-//        Bitmap bitmap = SyncUtils.queryInstances(SharedImageProvider.TYPE_ANY_APP_IMAGE,
-//                app.packageName);
-//        if (bitmap != null) {
-//            appIcon = new BitmapDrawable(Core.context().getResources(), bitmap);
-//            callback.accept(appIcon);
-//            return;
-//        }
 
         // Try to load from external custom icon file
         final File iconCustomFile = iconCustomFileForApp(app);
@@ -165,8 +168,8 @@ public abstract class IconLoader {
             //noinspection ResultOfMethodCallIgnored
             Objects.requireNonNull(file.getParentFile()).mkdirs();
             FileOutputStream fileOutputStream = new FileOutputStream(file.getAbsolutePath(), false);
-            bitmap = ImageLib.getResizedBitmap(bitmap, ICON_HEIGHT);
-            bitmap.compress(Bitmap.CompressFormat.WEBP, ICON_QUALITY, fileOutputStream);
+            bitmap = ImageLib.getResizedBitmap(bitmap, SAVED_ICON_HEIGHT);
+            bitmap.compress(Bitmap.CompressFormat.WEBP, SAVED_ICON_QUALITY, fileOutputStream);
             fileOutputStream.close();
         } catch (IOException e) {
             Log.e("Icon", "IOException during bitmap save", e);
