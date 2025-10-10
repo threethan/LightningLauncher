@@ -61,6 +61,7 @@ public abstract class LaunchExt extends Launch {
         }
 
         Intent intent = getIntentForLaunch(launcherActivity, app);
+//        launcherActivity.settingsManager.registerRecentlyLaunchedApp(app);
 
         if (intent == null) {
             Log.w("AppLaunch", "Package could not be launched (Uninstalled?): "
@@ -138,7 +139,10 @@ public abstract class LaunchExt extends Launch {
             if (appType == App.Type.PANEL) startIntent(launcherActivity, intent);
             else if (appType == App.Type.WEB) launchInOwnWindow(intent, launcherActivity,
                     PlatformExt.useNewVrOsMultiWindow());
-            else if (appType == App.Type.UTILITY) ((UtilityApplicationInfo) app).launch();
+            else if (appType == App.Type.UTILITY && app instanceof UtilityApplicationInfo uApp) {
+                uApp.launch();
+                return false;
+            }
             else launcherActivity.startActivity(getIntentForLaunchVrOs(app));
             if (!PlatformExt.useNewVrOsMultiWindow()) launcherActivity.finishAffinity();
             return Platform.isTv() || (Platform.isQuest() && appType.equals(App.Type.VR));

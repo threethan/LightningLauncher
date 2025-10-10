@@ -21,131 +21,142 @@
             android:scrollbars="none" />
     </com.threethan.launcher.activity.view.LauncherAppListContainer>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.threethan.launchercore.view.LcBlurMaskFrame
         android:id="@+id/topBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clipChildren="false"
-        android:clipToPadding="false"
-        android:orientation="horizontal"
-        android:visibility="gone">
+        android:visibility="gone"
+        tools:visibility="visible">
 
-        <com.threethan.launchercore.view.LcBlurMask
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-             android:layout_height="0dp" android:layout_width="0dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <com.threethan.launchercore.view.LcBlurView
-            android:id="@+id/blurViewGroups"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="13dp"
-            android:layout_marginBottom="24dp"
-            android:background="@drawable/bkg_blur_view"
-            android:foreground="@drawable/fg_blur_view"
-            android:elevation="12dp"
-            android:minHeight="40dp"
-            android:nextFocusUp="@id/blurViewGroups"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/blurViewSearchIcon"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_conversion_absoluteHeight="32dp"
-            tools:layout_conversion_absoluteWidth="263dp">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/groupsView"
-                android:layout_width="match_parent"
+            <com.threethan.launchercore.view.LcBlurView
+                android:id="@+id/blurViewGroups"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:descendantFocusability="afterDescendants"
-                android:overScrollMode="never"
-                android:focusable="false"
-                android:layerType="hardware"
-                android:minWidth="100dp"
-                android:padding="0dp"
-                android:visibility="gone" />
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="13dp"
+                android:layout_marginBottom="24dp"
+                android:layout_weight="1"
+                android:background="@drawable/bkg_blur_view"
+                android:elevation="12dp"
+                android:foreground="@drawable/fg_blur_view"
+                android:minHeight="40dp"
+                android:nextFocusUp="@id/blurViewGroups"
+                android:visibility="visible">
 
-        </com.threethan.launchercore.view.LcBlurView>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/groupsView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:descendantFocusability="afterDescendants"
+                    android:focusable="false"
+                    android:layerType="hardware"
+                    android:minWidth="100dp"
+                    android:overScrollMode="never"
+                    android:padding="0dp"
+                    android:visibility="gone" />
 
-        <com.threethan.launchercore.view.LcBlurView
-            android:id="@+id/blurViewSearchIcon"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="13dp"
-            android:background="@drawable/bkg_blur_view"
-            android:foreground="@drawable/fg_blur_view"
-            android:elevation="12dp"
-            android:focusable="true"
-            android:nextFocusUp="@id/blurViewSearchIcon"
-            android:visibility="visible"
-            app:layout_constraintEnd_toStartOf="@id/blurViewSettingsIcon"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_conversion_absoluteHeight="40dp"
-            tools:layout_conversion_absoluteWidth="40dp"
-            tools:visibility="visible">
+            </com.threethan.launchercore.view.LcBlurView>
 
-            <ImageView
-                android:id="@+id/searchIcon"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:alpha="0.5"
-                android:background="@android:color/transparent"
-                android:padding="8dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_search_button"
-                tools:ignore="ImageContrastCheck"
-                tools:layout_conversion_absoluteHeight="40dp"
-                tools:layout_conversion_absoluteWidth="40dp"
-                tools:layout_editor_absoluteX="297dp"
-                tools:layout_editor_absoluteY="22dp" />
+            <com.threethan.launchercore.view.LcBlurView
+                android:id="@+id/blueViewSortIcon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="13dp"
+                android:background="@drawable/bkg_blur_view"
+                android:elevation="12dp"
+                android:foreground="@drawable/fg_blur_view"
+                android:nextFocusUp="@id/blurViewSettingsIcon"
+                android:visibility="gone"
+                tools:visibility="visible">
 
-        </com.threethan.launchercore.view.LcBlurView>
+                <ImageView
+                    android:id="@+id/sortIcon"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0.5"
+                    android:foreground="@drawable/bkg_hover_button_bar"
+                    android:nextFocusUp="@id/settingsIcon"
+                    android:padding="8dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_sort_standard"
+                    tools:ignore="ImageContrastCheck"
+                    tools:layout_conversion_absoluteHeight="40dp"
+                    tools:layout_conversion_absoluteWidth="40dp"
+                    tools:layout_editor_absoluteX="349dp"
+                    tools:layout_editor_absoluteY="22dp" />
+            </com.threethan.launchercore.view.LcBlurView>
 
-        <com.threethan.launchercore.view.LcBlurView
-            android:id="@+id/blurViewSettingsIcon"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="25dp"
-            android:background="@drawable/bkg_blur_view"
-            android:foreground="@drawable/fg_blur_view"
-            android:elevation="12dp"
-            android:nextFocusUp="@id/blurViewSettingsIcon"
-            android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_conversion_absoluteHeight="40dp"
-            tools:layout_conversion_absoluteWidth="40dp"
-            tools:visibility="visible">
+            <com.threethan.launchercore.view.LcBlurView
+                android:id="@+id/blurViewSearchIcon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="13dp"
+                android:background="@drawable/bkg_blur_view"
+                android:elevation="12dp"
+                android:focusable="true"
+                android:foreground="@drawable/fg_blur_view"
+                android:nextFocusUp="@id/blurViewSearchIcon"
+                android:visibility="visible">
 
-            <ImageView
-                android:id="@+id/settingsIcon"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:alpha="0.5"
-                android:foreground="@drawable/bkg_hover_button_bar"
-                android:nextFocusUp="@id/settingsIcon"
-                android:padding="8dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_config"
-                tools:ignore="ImageContrastCheck"
-                tools:layout_conversion_absoluteHeight="40dp"
-                tools:layout_conversion_absoluteWidth="40dp"
-                tools:layout_editor_absoluteX="349dp"
-                tools:layout_editor_absoluteY="22dp" />
-        </com.threethan.launchercore.view.LcBlurView>
+                <ImageView
+                    android:id="@+id/searchIcon"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0.5"
+                    android:background="@android:color/transparent"
+                    android:padding="8dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_search_button"
+                    tools:ignore="ImageContrastCheck"
+                    tools:layout_conversion_absoluteHeight="40dp"
+                    tools:layout_conversion_absoluteWidth="40dp"
+                    tools:layout_editor_absoluteX="297dp"
+                    tools:layout_editor_absoluteY="22dp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.threethan.launchercore.view.LcBlurView>
+
+            <com.threethan.launchercore.view.LcBlurView
+                android:id="@+id/blurViewSettingsIcon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="25dp"
+                android:background="@drawable/bkg_blur_view"
+                android:elevation="12dp"
+                android:foreground="@drawable/fg_blur_view"
+                android:nextFocusUp="@id/blurViewSettingsIcon"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/settingsIcon"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0.5"
+                    android:foreground="@drawable/bkg_hover_button_bar"
+                    android:nextFocusUp="@id/settingsIcon"
+                    android:padding="8dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_config"
+                    tools:ignore="ImageContrastCheck"
+                    tools:layout_conversion_absoluteHeight="40dp"
+                    tools:layout_conversion_absoluteWidth="40dp"
+                    tools:layout_editor_absoluteX="349dp"
+                    tools:layout_editor_absoluteY="22dp" />
+            </com.threethan.launchercore.view.LcBlurView>
+        </LinearLayout>
+    </com.threethan.launchercore.view.LcBlurMaskFrame>
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="88dp">
+        android:layout_height="88dp"
+        tools:visibility="gone">
 
         <com.threethan.launchercore.view.LcBlurView
             android:id="@+id/blurViewSearchBar"
@@ -154,10 +165,9 @@
             android:layout_gravity="center"
             android:layout_margin="24dp"
             android:background="@drawable/bkg_blur_view"
-            android:foreground="@drawable/fg_blur_view"
             android:elevation="10dp"
-            android:visibility="gone"
-            tools:visibility="visible">
+            android:foreground="@drawable/fg_blur_view"
+            android:visibility="gone">
 
             <View
                 android:layout_width="match_parent"

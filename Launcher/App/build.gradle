@@ -7,8 +7,8 @@ android {
         compileSdk 35
         minSdkVersion 24
         targetSdkVersion 36
-        versionCode 911
-        versionName "9.1.1"
+        versionCode 912
+        versionName "9.1.2"
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
@@ -55,7 +55,6 @@ dependencies {
 
     implementation 'androidx.datastore:datastore-preferences-rxjava3:1.1.7'
     implementation 'androidx.recyclerview:recyclerview:1.4.0'
-    implementation 'com.github.okcredit:OkLayoutInflater:1.0.2'
 
     implementation 'com.github.bumptech.glide:glide:5.0.4'
 }
