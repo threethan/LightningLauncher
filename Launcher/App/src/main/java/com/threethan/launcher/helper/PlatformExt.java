@@ -8,6 +8,7 @@ import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.activity.support.DataStoreEditor;
 import com.threethan.launcher.data.Settings;
 import com.threethan.launcher.utility.ApkInstallerUtilityApplication;
+import com.threethan.launcher.utility.LauncherSettingsApplication;
 import com.threethan.launcher.utility.TVSmartHomeUtilityApplication;
 import com.threethan.launchercore.Core;
 import com.threethan.launchercore.util.App;
@@ -121,6 +122,7 @@ public abstract class PlatformExt {
             apps.add(ApkInstallerUtilityApplication.getInstance());
         if (TVSmartHomeUtilityApplication.shouldShow())
             apps.add(TVSmartHomeUtilityApplication.getInstance());
+        apps.add(LauncherSettingsApplication.getInstance());
         return apps;
     }
 

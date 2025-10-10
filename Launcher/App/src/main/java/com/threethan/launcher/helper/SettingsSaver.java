@@ -8,6 +8,7 @@ import com.threethan.launcher.R;
 import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.activity.dialog.BasicDialog;
 import com.threethan.launcher.activity.support.DataStoreEditor;
+import com.threethan.launcher.data.sync.SyncCoordinator;
 import com.threethan.launchercore.lib.FileLib;
 
 import java.io.File;
@@ -20,8 +21,6 @@ import java.util.TimerTask;
  * and an arbitrary user-accessible file in android/data/
  */
 public abstract class SettingsSaver {
-    public static final String DATA_STORE_MAIN = "default.preferences_pb";
-    public static final String DATA_STORE_SORT = "sort.preferences_pb";
     public static final String EXPORT_FILE_NAME = "ExportedConfiguration.preferences_pb";
     public static final String EXPORT_FILE_NAME_SORT = "ExportedSort.preferences_pb";
 
@@ -32,7 +31,7 @@ public abstract class SettingsSaver {
     public static void save(Activity activity) {
         if (!BasicDialog.validateVariantWithNotify()) return;
 
-        File prefs = DataStoreFile.dataStoreFile(activity, DATA_STORE_MAIN +".preferences_pb");
+        File prefs = DataStoreFile.dataStoreFile(activity, "default.preferences_pb");
         File exportPath = activity.getExternalFilesDir("");
         File export = new File(exportPath, EXPORT_FILE_NAME);
         assert exportPath != null;
@@ -49,7 +48,7 @@ public abstract class SettingsSaver {
     public static void saveSort(Activity activity) {
         if (!BasicDialog.validateVariantWithNotify()) return;
 
-        File prefs = DataStoreFile.dataStoreFile(activity, DATA_STORE_SORT +".preferences_pb");
+        File prefs = DataStoreFile.dataStoreFile(activity, "sort.preferences_pb");
         File exportPath = activity.getExternalFilesDir("");
         File export = new File(exportPath, EXPORT_FILE_NAME_SORT);
         assert exportPath != null;
@@ -75,7 +74,7 @@ public abstract class SettingsSaver {
 
         BasicDialog.toast(activity.getString(R.string.settings_load));
 
-        new DataStoreEditor(activity.getApplicationContext(), DATA_STORE_MAIN).copyFrom(export);
+        SyncCoordinator.getDefaultDataStore(activity).copyFrom(export);
 
         BasicDialog.toast(activity.getString(R.string.saved_settings_loading));
         new Timer().schedule(new TimerTask() {
@@ -91,7 +90,7 @@ public abstract class SettingsSaver {
 
         BasicDialog.toast(activity.getString(R.string.settings_load));
 
-        new DataStoreEditor(activity.getApplicationContext(), DATA_STORE_SORT).copyFrom(export);
+        SyncCoordinator.getSortDataStore(activity).copyFrom(export);
 
         BasicDialog.toast(activity.getString(R.string.saved_settings_loading));
         new Timer().schedule(new TimerTask() {

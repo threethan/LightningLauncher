@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.activity.support.DataStoreEditor;
 import com.threethan.launcher.data.Settings;
+import com.threethan.launcher.data.sync.SyncCoordinator;
 import com.threethan.launchercore.Core;
 import com.threethan.launchercore.util.Platform;
 
@@ -36,7 +37,7 @@ public class ShortcutStateProvider extends ContentProvider {
         try {
             // Column 1: shouldBlur: Should launch Quest 3 blur activity
             final DataStoreEditor dse = Platform.isQuestGen3()
-                    ? new DataStoreEditor(Core.context().getApplicationContext())
+                    ? SyncCoordinator.getDefaultDataStore(Core.context())
                     : null;
             shouldBlur = dse != null
                     && dse.getBoolean(Settings.KEY_BACKGROUND_BLUR, Settings.DEFAULT_BACKGROUND_BLUR);

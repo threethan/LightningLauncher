@@ -3,40 +3,33 @@ package com.threethan.launchercore.lib;
 
 /** @noinspection unused*/
 public class StringLib {
-    private static final char STAR = '★';
-    public static String toggleStar(String in) {
-        if (hasStar(in)) return in.substring(1);
-        else return STAR + in;
+    public static final char STAR = '★';
+    public static final char NEW = '►';
+    public static final char RECENT = '◄';
+    public static String togglePreChar(String in, char c) {
+        if (hasPreChar(in, c)) return in.substring(1);
+        else return c + in;
     }
-    public static boolean hasStar(String in) {
-        return in.charAt(0) == STAR;
+    public static boolean hasPreChar(String in, char c) {
+        return in.charAt(0) == c;
     }
-    public static String withoutStar(String in) {
-        if (hasStar(in)) return in.substring(1);
+    public static String withoutPreChar(String in, char c) {
+        if (hasPreChar(in, c)) return in.substring(1);
         else return in;
     }
-    public static String setStarred(String in, boolean isStarred) {
+    public static String setPreChar(String in, char c, boolean present) {
         in = in.trim();
-        if (hasStar(in) != isStarred) return toggleStar(in);
+        if (hasPreChar(in, c) != present) return togglePreChar(in, c);
         else return in;
     }
 
-    private static final char NEW = '►';
-    public static String toggleNew(String in) {
-        if (hasNew(in)) return in.substring(1);
-        else return NEW + in;
+    public static String withoutPreChars(String in) {
+        in = withoutPreChar(in, STAR);
+        in = withoutPreChar(in, NEW);
+        in = withoutPreChar(in, RECENT);
+        return in;
     }
-    public static String withoutNew(String in) {
-        if (hasNew(in)) return in.substring(1);
-        else return in;
-    }
-    public static boolean hasNew(String in) {
-        return in.charAt(0) == NEW;
-    }
-    public static String setNew(String in, boolean isNew) {
-        if (hasNew(in) != isNew) return toggleNew(in);
-        else return in;
-    }
+
 
     public static boolean isInvalidUrl(String url) {
         if (url.startsWith("about:")) return false;

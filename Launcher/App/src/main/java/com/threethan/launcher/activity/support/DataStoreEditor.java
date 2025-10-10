@@ -53,6 +53,9 @@ public class DataStoreEditor implements SharedPreferences, SharedPreferences.Edi
     /** If true, all write operations will be done asynchronously.
      * If false, all write operations will be blocking. */
     public boolean asyncWrite = true;
+    /** Reference to the file backing this DataStore,
+     * may be null if not created from a file */
+    private File file = null;
     RxDataStore<Preferences> dataStoreRX;
 
     /** @noinspection rawtypes*/
@@ -67,6 +70,7 @@ public class DataStoreEditor implements SharedPreferences, SharedPreferences.Edi
      */
     public DataStoreEditor(Context context, String name) {
         dataStoreRX = getDataStore(context, name);
+        this.file = new File(context.getApplicationInfo().dataDir, "datastore/"+name+".preferences_pb");
     }
 
     /**
@@ -75,6 +79,7 @@ public class DataStoreEditor implements SharedPreferences, SharedPreferences.Edi
      */
     public DataStoreEditor(Context context) {
         dataStoreRX = getDataStore(context.getApplicationContext(), "default");
+        this.file = new File(context.getApplicationInfo().dataDir, "datastore/default.preferences_pb");
     }
 
     /**
@@ -83,6 +88,7 @@ public class DataStoreEditor implements SharedPreferences, SharedPreferences.Edi
      */
     public DataStoreEditor(File file) {
         dataStoreRX = getDataStore(file);
+        this.file = file;
     }
 
     /** Clears all cached DataStore instances. Use this with caution. */
@@ -138,7 +144,17 @@ public class DataStoreEditor implements SharedPreferences, SharedPreferences.Edi
      */
     public void copyFrom(File dataStoreFile) {
         DataStoreEditor other = new DataStoreEditor(dataStoreFile);
-        getAll().forEach((key, o) -> removeValue(key, o.getClass(), true));
+        copyFrom(other);
+    }
+
+    /**
+     * Copies all preferences from another DataStoreEditor instance
+     * @param other The other DataStoreEditor instance to copy from
+     */
+    public void copyFrom(DataStoreEditor other) {
+        getAll().forEach((key, o) -> {
+            if (!other.contains(key)) removeValue(key, o.getClass(), true);
+        });
         other.getAll().forEach((key, o) -> putValue(key, o, true));
     }
 
@@ -191,6 +207,15 @@ public class DataStoreEditor implements SharedPreferences, SharedPreferences.Edi
         nullFallbacks.put(Boolean.class, Boolean.FALSE);
         nullFallbacks.put(Set.class, new NullStringSet());
     }
+
+    /**
+     * Gets the file backing this DataStore, may be null if not created from a file
+     * @return The file backing this DataStore
+     */
+    public File getFile() {
+        return file;
+    }
+
     private static class NullStringSet extends HashSet<String> {
         public NullStringSet() {}
         @Override

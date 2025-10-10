@@ -147,6 +147,7 @@ public abstract class Platform {
         labelOverrides.put("systemux://sharing", "Camera");
         labelOverrides.put("builtin://apk-install", "APK Installer");
         labelOverrides.put("builtin://tv-smart-home", "Smart Home");
+        labelOverrides.put("builtin://launcher-settings", "Launcher Settings");
         labelOverrides.put("com.android.settings", "Android Settings");
         labelOverrides.put("com.oculus.tv", "Meta Quest TV");
         labelOverrides.put("com.oculus.systemutilities", "Quest Files");

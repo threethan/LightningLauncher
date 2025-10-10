@@ -19,6 +19,7 @@ import com.threethan.launcher.R;
 import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.activity.support.SettingsManager;
 import com.threethan.launcher.data.Settings;
+import com.threethan.launcher.data.sync.SyncCoordinator;
 import com.threethan.launcher.helper.AppExt;
 import com.threethan.launcher.helper.Compat;
 import com.threethan.launcher.helper.PlatformExt;
@@ -155,12 +156,12 @@ public class AppDetailsDialog extends BasicDialog<LauncherActivity> {
                 launchBrowserSpinner.setVisibility(View.VISIBLE);
             } else if (Platform.isVr() && !appType.equals(App.Type.UTILITY)) {
                 final String launchSizeKey = Settings.KEY_LAUNCH_SIZE + app.packageName;
-                final int launchSizeSelection = a.dataStoreEditor.getInt(
+                final int launchSizeSelection = SyncCoordinator.getPerAppDataStore(a).getInt(
                         launchSizeKey,
                         SettingsManager.getAppLaunchOut(app.packageName) ? 0 : 1);
                 AtomicBoolean isInit = new AtomicBoolean(true);
                 initSpinner(launchSizeSpinner, R.array.advanced_launch_sizes, p -> {
-                    a.dataStoreEditor.putInt(launchSizeKey, p);
+                    SyncCoordinator.getPerAppDataStore(a).putInt(launchSizeKey, p);
                     if (!isInit.get() && !a.dataStoreEditor.getBoolean("HAS_SEEN_3LS_PROMPT", false)) {
                         new CustomDialog.Builder(a)
                                 .setTitle(R.string.warning)
@@ -261,11 +262,11 @@ public class AppDetailsDialog extends BasicDialog<LauncherActivity> {
         final EditText appNameEditText = dialog.findViewById(R.id.appLabel);
         SettingsManager.getAppLabel(app, l -> {
             label[0] = l;
-            appNameEditText.setText(StringLib.withoutNew(StringLib.withoutStar(label[0])));
+            appNameEditText.setText(StringLib.withoutPreChars(label[0]));
         });
         // Star (actually changes label)
         final ImageView starButton = dialog.findViewById(R.id.star);
-        final boolean[] isStarred = {StringLib.hasStar(label[0])};
+        final boolean[] isStarred = {StringLib.hasPreChar(label[0], StringLib.STAR)};
         starButton.setImageResource(isStarred[0] ? R.drawable.ic_star_on : R.drawable.ic_star_off);
         starButton.setOnClickListener((view) -> {
             isStarred[0] = !isStarred[0];
@@ -274,7 +275,7 @@ public class AppDetailsDialog extends BasicDialog<LauncherActivity> {
 
         // Save Label & Reload on Confirm
         dialog.findViewById(R.id.confirm).setOnClickListener(view -> {
-            String newLabel = StringLib.setStarred(appNameEditText.getText().toString(), isStarred[0]);
+            String newLabel = StringLib.setPreChar(appNameEditText.getText().toString(), StringLib.STAR, isStarred[0]);
             if (!newLabel.equals(SettingsManager.getAppLabel(app))) {
                 SettingsManager.setAppLabel(app, newLabel);
                 a.launcherService.forEachActivity(a -> {
@@ -290,7 +291,7 @@ public class AppDetailsDialog extends BasicDialog<LauncherActivity> {
     }
     public static void onImageSelected(@NonNull Bitmap bitmap,
                                        ImageView selectedImageView, LauncherActivity launcherActivity) {
-        bitmap = ImageLib.getResizedBitmap(bitmap, IconLoader.ICON_HEIGHT);
+        bitmap = ImageLib.getResizedBitmap(bitmap, IconLoader.SAVED_ICON_HEIGHT);
         ImageLib.saveBitmap(bitmap, customIconFile);
         selectedImageView.setImageBitmap(bitmap);
 

@@ -30,18 +30,18 @@ public class LauncherUpdater extends AppUpdater {
     private static final String KEY_SHOULD_NOTIFY_UPDATES = "SHOULD_NOTIFY_UPDATES";
     @Override
     protected void putIgnoredUpdateTag(String ignoredUpdateTag) {
-        new DataStoreEditor(activity).putString(KEY_IGNORED_UPDATE_TAG, ignoredUpdateTag);
+        new DataStoreEditor(activity, "update").putString(KEY_IGNORED_UPDATE_TAG, ignoredUpdateTag);
     }
     @Override
     protected String getIgnoredUpdateTag() {
-        return new DataStoreEditor(activity).getString(KEY_IGNORED_UPDATE_TAG, "");
+        return new DataStoreEditor(activity, "update").getString(KEY_IGNORED_UPDATE_TAG, "");
     }
 
     public static void getShouldNotifyUpdates(io.reactivex.rxjava3.functions.Consumer<Boolean> then) {
-        new DataStoreEditor(Core.context()).getBoolean(KEY_SHOULD_NOTIFY_UPDATES, true, then);
+        new DataStoreEditor(Core.context(), "update").getBoolean(KEY_SHOULD_NOTIFY_UPDATES, true, then);
     }
     public static void setShouldNotifyUpdates(boolean value) {
-        new DataStoreEditor(Core.context()).putBoolean(KEY_SHOULD_NOTIFY_UPDATES, value);
+        new DataStoreEditor(Core.context(), "update").putBoolean(KEY_SHOULD_NOTIFY_UPDATES, value);
     }
 
     @Override

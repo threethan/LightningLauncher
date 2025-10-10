@@ -51,9 +51,9 @@ public class GroupDetailsDialog extends BasicDialog<LauncherActivity> {
         if (dialog == null) return null;
 
         final EditText groupNameInput = dialog.findViewById(R.id.groupName);
-        groupNameInput.setText(StringLib.withoutStar(groupName));
+        groupNameInput.setText(StringLib.withoutPreChar(groupName, StringLib.STAR));
 
-        final boolean[] starred = {StringLib.hasStar(groupName)};
+        final boolean[] starred = {StringLib.hasPreChar(groupName, StringLib.STAR)};
         ImageView starButton = dialog.findViewById(R.id.starGroupButton);
         starButton.setImageResource(starred[0] ? R.drawable.ic_star_on : R.drawable.ic_star_off);
         starButton.setOnClickListener(view1 -> {
@@ -93,7 +93,7 @@ public class GroupDetailsDialog extends BasicDialog<LauncherActivity> {
         }
 
         dialog.findViewById(R.id.install).setOnClickListener(view1 -> {
-            String newGroupName = StringLib.setStarred(groupNameInput.getText().toString(), starred[0]);
+            String newGroupName = StringLib.setPreChar(groupNameInput.getText().toString(), StringLib.STAR, starred[0]);
             if (newGroupName.equals(Settings.UNSUPPORTED_GROUP)) newGroupName = "UNSUPPORTED"; // Prevent permanently hiding apps
 
             // Move the default group when we rename

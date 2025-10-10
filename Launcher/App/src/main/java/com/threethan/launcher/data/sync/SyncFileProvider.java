@@ -10,8 +10,6 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.core.content.FileProvider;
 
-import com.threethan.launcher.helper.SettingsSaver;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -35,13 +33,14 @@ public class SyncFileProvider extends FileProvider {
             "com.threethan.launcher.metastore"
     );
 
-    private static final File FILE_MAIN = new File("datastore/" + SettingsSaver.DATA_STORE_MAIN);
-    private static final File FILE_SORT = new File("datastore/" + SettingsSaver.DATA_STORE_SORT);
+    private static final File FILE_MAIN = new File("datastore/" + SyncCoordinator.DATA_STORE_DEFAULT);
+    private static final File FILE_SORT = new File("datastore/" + SyncCoordinator.DATA_STORE_SORT);
+    private static final File FILE_PER_APP = new File("datastore/" + SyncCoordinator.DATA_STORE_PER_APP);
 
     /**
      * List of files to be synced
      */
-    private static final List<File> FILES_TO_SYNC = List.of(FILE_MAIN, FILE_SORT);
+    private static final List<File> FILES_TO_SYNC = List.of(FILE_MAIN, FILE_SORT, FILE_PER_APP);
 
     /**
      * Gets a content URI for a file from the provider
@@ -167,7 +166,7 @@ public class SyncFileProvider extends FileProvider {
     /**
      *  Copies this app's data to other supported apps
      */
-    private static void copyDataToOtherApps(Context context) {
+    static void copyDataToOtherApps(Context context) {
         String masterPackageName = getOtherPackageName(context);
         try {
             for (File file : FILES_TO_SYNC)

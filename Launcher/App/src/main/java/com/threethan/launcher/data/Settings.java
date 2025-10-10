@@ -75,7 +75,7 @@ public abstract class Settings {
     public static final String KEY_BACKGROUND_BLUR = "KEY_BACKGROUND_BLUR_CLAMP";
     public static final String KEY_DARK_MODE = "KEY_DARK_MODE";
     public static final String KEY_GROUPS_ENABLED = "KEY_GROUPS_ENABLED";
-    public static final String KEY_GROUPS_WIDE = "KEY_GROUPS_ENABLED";
+    public static final String KEY_GROUPS_WIDE = "KEY_GROUPS_WIDE";
     public static final String KEY_DETAILS_LONG_PRESS = "KEY_DETAILS_LONG_PRESS";
     public static final String KEY_SEARCH_WEB = "KEY_SEARCH_WEB";
     public static final String KEY_SEARCH_HIDDEN = "KEY_SEARCH_HIDDEN";
@@ -155,8 +155,8 @@ public abstract class Settings {
     static {
         FALLBACK_GROUPS.put(App.Type.PHONE, "Apps");
         FALLBACK_GROUPS.put(App.Type.WEB, "Apps");
-        FALLBACK_GROUPS.put(App.Type.VR, StringLib.setStarred("Games", true));
-        FALLBACK_GROUPS.put(App.Type.TV, StringLib.setStarred("Media", true));
+        FALLBACK_GROUPS.put(App.Type.VR, StringLib.setPreChar("Games", StringLib.STAR, true));
+        FALLBACK_GROUPS.put(App.Type.TV, StringLib.setPreChar("Media", StringLib.STAR, true));
         FALLBACK_GROUPS.put(App.Type.PANEL, "Apps");
     }
 
@@ -169,8 +169,10 @@ public abstract class Settings {
 
     public static final String KEY_NEWLY_ADDED_BASELINE = "KEY_NEWLY_ADDED_BASELINE";
     public static final String KEY_NEWLY_ADDED = "KEY_NEWLY_ADDED";
+    public static final String KEY_RECENTLY_LAUNCHED = "KEY_RECENTLY_LAUNCHED";
     public static final String PREF_NEWLY_ADDED_TIME = "prefNewlyAddedTime";
-    public static final String KEY_NEWLY_ADDED_DURATION = "KEY_NEWLY_ADDED_DURATION";
-    public static final int DEFAULT_NEWLY_ADDED_DURATION = 15; // 15 minutes
+    public static final String PREF_RECENTLY_LAUNCHED_TIME = "prefRecentlyLaunchedTime";
+    public static final String KEY_TAG_MAX_DURATION = "KEY_TAG_MAX_DURATION";
+    public static final int DEFAULT_KEY_TAG_MAX_DURATION = 30; // minutes
     public static final List<Integer> NEWLY_ADDED_DURATION_OPTIONS = List.of(0, 5, 15, 30, 90);
 }

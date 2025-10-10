@@ -405,8 +405,8 @@ public class SettingsDialog extends BasicDialog<LauncherActivity> {
         if (ctx != null) {
             final Spinner newLabelDurationSpinner = dialog.findViewById(R.id.newLabelDurationSpinner);
             final int newLabelValue = a.dataStoreEditor.getInt(
-                    Settings.KEY_NEWLY_ADDED_DURATION,
-                    Settings.DEFAULT_NEWLY_ADDED_DURATION);
+                    Settings.KEY_TAG_MAX_DURATION,
+                    Settings.DEFAULT_KEY_TAG_MAX_DURATION);
             final int newLabelIndex = Settings.NEWLY_ADDED_DURATION_OPTIONS.indexOf(newLabelValue);
 
             List<String> items = new ArrayList<>();
@@ -421,7 +421,7 @@ public class SettingsDialog extends BasicDialog<LauncherActivity> {
             newLabelDurationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    ctx.dataStoreEditor.putInt(Settings.KEY_NEWLY_ADDED_DURATION,
+                    ctx.dataStoreEditor.putInt(Settings.KEY_TAG_MAX_DURATION,
                             Settings.NEWLY_ADDED_DURATION_OPTIONS.get(position));
                 }
                 @Override
