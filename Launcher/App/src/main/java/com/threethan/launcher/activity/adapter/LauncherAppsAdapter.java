@@ -2,7 +2,9 @@ package com.threethan.launcher.activity.adapter;
 
 import android.animation.ObjectAnimator;
 import android.content.pm.ApplicationInfo;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -212,8 +214,6 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
 
         holder.view.findViewById(R.id.playtimeButton).setOnClickListener(v
                 -> PlaytimeHelper.openFor(holder.app.packageName));
-
-
     }
 
     @Override

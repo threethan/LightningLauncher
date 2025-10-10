@@ -45,7 +45,7 @@ import com.threethan.launcher.activity.dialog.SettingsDialog;
 import com.threethan.launcher.activity.support.WallpaperLoader;
 import com.threethan.launcher.activity.support.DataStoreEditor;
 import com.threethan.launcher.activity.support.SettingsManager;
-import com.threethan.launcher.data.sync.SyncFileProvider;
+import com.threethan.launcher.data.sync.SyncCoordinator;
 import com.threethan.launchercore.view.LcBlurCanvas;
 import com.threethan.launcher.activity.view.MarginDecoration;
 import com.threethan.launcher.data.Settings;
@@ -124,6 +124,15 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         return foregroundInstance.get();
     }
 
+    /** Notify necessary components that an app has changed (eg. label update) */
+    public void notifyAppChanged(ApplicationInfo app) {
+        LauncherAppsAdapter adapter = getAppAdapter();
+        if (adapter != null) {
+            adapter.setAppList(this);
+            adapter.notifyItemChanged(app);
+        }
+    }
+
     @Override
     public Resources getResources() {
         try {
@@ -134,7 +143,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
                 Locale currentLocale = config.getLocales().get(0);
 
                 // Check if user wants to force english
-                dataStoreEditor = new DataStoreEditor(getApplicationContext());
+                dataStoreEditor = SyncCoordinator.getDefaultDataStore(this);
                 boolean forceUntranslated
                         = dataStoreEditor.getBoolean(Settings.KEY_FORCE_UNTRANSLATED, false);
                 Locale targetLocale = forceUntranslated ? Locale.ENGLISH : implicitLocale;
@@ -157,7 +166,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
 
         Core.init(this);
 
-        SyncFileProvider.onStart(this);
+        SyncCoordinator.onStart(this);
 
         if (dataStoreEditor == null) dataStoreEditor = Compat.getDataStore();
 
@@ -242,9 +251,10 @@ public class LauncherActivity extends Launch.LaunchingActivity {
 
         mainView.addOnLayoutChangeListener(this::onLayoutChanged);
         appsView = rootView.findViewById(R.id.apps);
-        appsView.setHasFixedSize(true);
         appsView.setItemAnimator(null);
-        appsView.setItemViewCacheSize(512);
+        appsView.getRecycledViewPool().setMaxRecycledViews(1 ,128);
+        appsView.getRecycledViewPool().setMaxRecycledViews(2 ,64);
+        appsView.setItemViewCacheSize(32);
         groupsView = rootView.findViewById(R.id.groupsView);
 
         // Set logo button
@@ -273,7 +283,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         if (launcherService != null && isFinishing()) launcherService.destroyed(this);
 
         if (isFinishing()) try {
-            SyncFileProvider.onStop(this);
+            SyncCoordinator.onStop(this);
 
             unbindService(launcherServiceConnection); // Should rarely cause exception
             // For the GC & easier debugging
@@ -516,7 +526,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
 
         try {
             Animator anim = ViewAnimationUtils.createCircularReveal(appsView, x, y, 0, rootView.getHeight() + rootView.getWidth());
-            anim.setDuration(500);
+            anim.setDuration(400);
 
             appsView.setVisibility(View.INVISIBLE);
             appsView.postDelayed(() -> {
@@ -525,7 +535,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
                     anim.start();
                 } catch (Exception ignored) {
                 }
-            }, 500);
+            }, 400);
         } catch (Exception ignored) {}
     }
     protected void updateSelectedGroups() {
@@ -581,7 +591,6 @@ public class LauncherActivity extends Launch.LaunchingActivity {
                     return Objects.requireNonNull(appsView.getAdapter()).getItemViewType(position);
                 }
             });
-            gridLayoutManager.setItemPrefetchEnabled(true);
             appsView.setLayoutManager(gridLayoutManager);
         }
 

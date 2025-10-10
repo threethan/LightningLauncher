@@ -7,6 +7,7 @@ import android.content.pm.PackageInstaller;
 import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -19,8 +20,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-
-import tech.okcredit.layout_inflator.OkLayoutInflater;
 
 /**
     This class runs as a service, but does not do anything on its own.
@@ -63,14 +62,12 @@ public class LauncherService extends Service {
 
         Log.d("LauncherService", "New index: " + index);
 
-        new OkLayoutInflater(activity).inflate(R.layout.activity_main, root, (view, continuation) -> {
-            viewByIndex.put(index, view);
-            activityByIndex.put(activity, index);
-            root.post(() -> {
-                root.addView(view);
-                onReady.accept(view);
-            });
-            return continuation;
+        View view = LayoutInflater.from(activity).inflate(R.layout.activity_main, root, false);
+        viewByIndex.put(index, view);
+        activityByIndex.put(activity, index);
+        root.post(() -> {
+            root.addView(view);
+            onReady.accept(view);
         });
     }
 

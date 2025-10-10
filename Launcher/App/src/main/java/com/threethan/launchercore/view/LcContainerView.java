@@ -40,8 +40,8 @@ public class LcContainerView extends ViewGroup {
         synchronized (lock) {
             if (getChildCount() == 0) {
                 setMeasuredDimension(
-                        resolveSize(0, widthMeasureSpec),
-                        resolveSize(0, heightMeasureSpec)
+                        resolveSize(70, widthMeasureSpec),
+                        resolveSize(70, heightMeasureSpec)
                 );
                 return;
             }

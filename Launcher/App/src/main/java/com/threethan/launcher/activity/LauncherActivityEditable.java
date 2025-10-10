@@ -17,6 +17,7 @@ import androidx.annotation.Nullable;
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.adapter.LauncherAppsAdapter;
 import com.threethan.launcher.activity.adapter.GroupsAdapter;
+import com.threethan.launcher.data.sync.SyncCoordinator;
 import com.threethan.launcher.helper.AppExt;
 import com.threethan.launcher.activity.support.DataStoreEditor;
 import com.threethan.launcher.activity.dialog.BasicDialog;
@@ -82,7 +83,7 @@ public class LauncherActivityEditable extends LauncherActivity {
     @SuppressLint("UseCompatTextViewDrawableApis")
     @Override
     public void refreshInterface() {
-        dataStoreEditor = new DataStoreEditor(this);
+        dataStoreEditor = SyncCoordinator.getDefaultDataStore(this);
 
         if (editMode == null) editMode = dataStoreEditor.getBoolean(Settings.KEY_EDIT_MODE, false);
 
