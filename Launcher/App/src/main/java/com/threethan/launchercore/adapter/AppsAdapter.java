@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -18,7 +19,6 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.threethan.launcher.activity.LauncherActivity;
-import com.threethan.launchercore.Core;
 import com.threethan.launchercore.metadata.IconLoader;
 import com.threethan.launchercore.util.App;
 import com.threethan.launcher.R;
@@ -34,9 +34,6 @@ import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.function.Consumer;
-
-import tech.okcredit.layout_inflator.OkLayoutInflater;
-
 public class AppsAdapter<VH extends AppsAdapter.AppViewHolder>
         extends ListAdapter<ApplicationInfo, VH> {
 
@@ -125,8 +122,6 @@ public class AppsAdapter<VH extends AppsAdapter.AppViewHolder>
         }
     }
 
-    private final OkLayoutInflater inflater = new OkLayoutInflater(Core.context());
-
     @NonNull
     @Override
     public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -135,19 +130,14 @@ public class AppsAdapter<VH extends AppsAdapter.AppViewHolder>
         VH holder = newViewHolder(container);
         holder.container = container;
 
-        inflater.inflate(itemLayoutResId, parent,
-                (view, continuation) -> {
-                    holder.view = view;
-                    holder.imageView = view.findViewById(R.id.itemImage);
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(itemLayoutResId, holder.container, false);
+        holder.view = view;
+        holder.imageView = view.findViewById(R.id.itemImage);
+        holder.textView = view.findViewById(R.id.itemLabel);
 
-                    holder.textView = view.findViewById(R.id.itemLabel);
-
-                    setupViewHolder(holder);
-
-                    holder.container.post(holder::onReady);
-
-                    return continuation;
-                });
+        setupViewHolder(holder);
+        holder.onReady();
 
         return holder;
     }
@@ -162,9 +152,14 @@ public class AppsAdapter<VH extends AppsAdapter.AppViewHolder>
     @Override
     public void onBindViewHolder(@NonNull VH holder, int position) {
         ApplicationInfo app = getItem(position);
+        if (holder.app != app) {
+            holder.whenReady(() -> {
+                holder.imageView.setImageDrawable(null);
+                holder.textView.setText("");
+            });
+        }
         holder.app = app;
-        holder.whenReady(() -> holder.imageView.setImageDrawable(null));
-        holder.whenReady(() -> executorService.submit(() -> {
+        holder.whenReady(() -> {
 
             final Boolean darkMode = LauncherActivity.darkMode;
             if (!darkMode.equals(holder.darkMode)) {
@@ -190,6 +185,12 @@ public class AppsAdapter<VH extends AppsAdapter.AppViewHolder>
                 holder.showName = showName;
             }
 
+            App.getLabel(app, label
+                    -> holder.textView.post(() -> {
+                if (holder.app == app) holder.textView.setText(label);
+                else AppsAdapter.runOnEachInstance(a -> a.notifyItemChanged(app));
+            }));
+
             //Load Icon
             IconLoader.loadIcon(holder.app, drawable -> {
                 if (holder.app == app) onIconChanged(holder, drawable);
@@ -199,17 +200,11 @@ public class AppsAdapter<VH extends AppsAdapter.AppViewHolder>
                 }
             });
 
-            // Load label
-            App.getLabel(app, label
-                    -> holder.container.post(() -> {
-                if (holder.app == app) holder.textView.setText(label);
-                else AppsAdapter.runOnEachInstance(a -> a.notifyItemChanged(position));
-            }));
 
-            holder.container.post(() -> holder.container.addView(holder.view));
+            holder.container.addView(holder.view);
 
             onViewHolderReady(holder);
-        }));
+        });
     }
 
     protected void onViewHolderReady(VH holder) {}
@@ -218,7 +213,6 @@ public class AppsAdapter<VH extends AppsAdapter.AppViewHolder>
     protected void onIconChanged(VH holder, Drawable icon) {
         // Set the actual image with proper scaling
         if (icon instanceof BitmapDrawable bitmapIcon) {
-
             executorService.submit(() -> {
                 Bitmap bitmap = bitmapIcon.getBitmap();
                 holder.imageView.post(() -> holder.imageView.setImageBitmap(bitmap));
@@ -229,7 +223,9 @@ public class AppsAdapter<VH extends AppsAdapter.AppViewHolder>
     }
 
     public void notifyAllChanged() {
-        notifyItemRangeChanged(0, getItemCount());
+        try {
+            notifyItemRangeChanged(0, getItemCount());
+        } catch (Exception ignored) {}
     }
 
     @Override
@@ -249,10 +245,11 @@ public class AppsAdapter<VH extends AppsAdapter.AppViewHolder>
     }
 
     public void notifyItemChanged(ApplicationInfo ai) {
-        notifyItemChanged(indexOf(ai));
-    }
-
-    public int indexOf(ApplicationInfo ai) {
-        return getCurrentList().indexOf(ai);
+        for (int i = 0; i < getItemCount(); i++) {
+            if (getItem(i).packageName.equals(ai.packageName)) {
+                notifyItemChanged(i);
+                return;
+            }
+        }
     }
 }

@@ -14,6 +14,7 @@ import com.threethan.launcher.activity.dialog.BasicDialog;
 import com.threethan.launcher.activity.support.DataStoreEditor;
 import com.threethan.launcher.activity.support.SettingsManager;
 import com.threethan.launcher.data.Settings;
+import com.threethan.launcher.data.sync.SyncCoordinator;
 import com.threethan.launchercore.Core;
 import com.threethan.launchercore.lib.DelayLib;
 import com.threethan.launchercore.lib.FileLib;
@@ -42,7 +43,7 @@ import java.util.function.Consumer;
  */
 public abstract class Compat {
     public static final String KEY_COMPATIBILITY_VERSION = "KEY_COMPATIBILITY_VERSION";
-    public static final int CURRENT_COMPATIBILITY_VERSION = 11;
+    public static final int CURRENT_COMPATIBILITY_VERSION = 12;
     public static final boolean DEBUG_COMPATIBILITY = false;
     private static final String TAG = "Compatibility";
 
@@ -55,12 +56,10 @@ public abstract class Compat {
 
         if (storedVersion == -1) {
             // Attempt migration
-            DataStoreEditor dse1 = new DataStoreEditor(launcherActivity
-                    .getApplicationContext());
+            DataStoreEditor dse1 = SyncCoordinator.getDefaultDataStore(launcherActivity);
             dse1.asyncWrite = false;
             dse1.migrateDefault(launcherActivity);
-            DataStoreEditor dse2 = new DataStoreEditor(
-                    launcherActivity.getApplicationContext(), "sort");
+            DataStoreEditor dse2 = SyncCoordinator.getSortDataStore(launcherActivity);
             dse2.asyncWrite = false;
             dse2.migrateDefault(launcherActivity);
             if (dataStoreEditor.getInt(Settings.KEY_BACKGROUND, -1) != -1)
@@ -116,7 +115,7 @@ public abstract class Compat {
                     case (2):
                         String from = dataStoreEditor.getString("KEY_DEFAULT_GROUP_VR",
                                 Settings.FALLBACK_GROUPS.get(App.Type.VR));
-                        StringLib.setStarred(from, true);
+                        StringLib.setPreChar(from, StringLib.STAR, true);
                         break;
                     case (3): // Should just clear icon cache, which is called anyways
                         break;
@@ -173,6 +172,8 @@ public abstract class Compat {
                         clearIcons(launcherActivity);
                     case (11):
                         clearIconCache(launcherActivity);
+                    case (12):
+                        SyncCoordinator.getPerAppDataStore(launcherActivity).copyFrom(SyncCoordinator.getDefaultDataStore(launcherActivity));
                 }
             }
             Log.i(TAG, String.format("Settings Updated from v%s to v%s (Settings versions are not the same as app versions)",
@@ -270,7 +271,7 @@ public abstract class Compat {
             dataStoreEditor = LauncherActivity.getForegroundInstance().dataStoreEditor;
         } else if (dataStoreEditor == null) {
             Log.w(TAG, "Failed to grab dataStoreEditor from instance, using fallback");
-            dataStoreEditor = new DataStoreEditor(Core.context());
+            dataStoreEditor = SyncCoordinator.getDefaultDataStore(Core.context());
         }
         return dataStoreEditor;
     }
