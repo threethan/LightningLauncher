@@ -29,6 +29,16 @@ public class ShortcutStateProvider extends ContentProvider {
         String[] columnNames = new String[]{"isOpen", "shouldBlur"};
         MatrixCursor cursor = new MatrixCursor(columnNames);
 
+        // Column 2: isEnabled: Is the shortcut feature enabled for this variant
+        try {
+            boolean isEnable = SyncCoordinator.getDefaultDataStore(Core.context())
+                    .getBoolean(Settings.KEY_ALLOW_SHORTCUTS, Settings.DEFAULT_ALLOW_SHORTCUTS);
+            if (!isEnable) {
+                cursor.addRow(new Object[]{0, 0, 0});
+                return cursor;
+            }
+        } catch (Exception ignored) {}
+
         // Column 0: isOpen: Has foreground instance
         final boolean isOpen = LauncherActivity.getForegroundInstance() != null
                 && LauncherActivity.getForegroundInstance().isActive;
@@ -43,7 +53,7 @@ public class ShortcutStateProvider extends ContentProvider {
                     && dse.getBoolean(Settings.KEY_BACKGROUND_BLUR, Settings.DEFAULT_BACKGROUND_BLUR);
         } catch (Exception ignored) {}
 
-        cursor.addRow(new Object[]{isOpen ? 1 : 0, shouldBlur ? 1 : 0});
+        cursor.addRow(new Object[]{isOpen ? 1 : 0, shouldBlur ? 1 : 0, 1});
         return cursor;
     }
 

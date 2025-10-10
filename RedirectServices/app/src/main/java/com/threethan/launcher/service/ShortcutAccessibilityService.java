@@ -1,20 +1,28 @@
 package com.threethan.launcher.service;
 
 import android.accessibilityservice.AccessibilityService;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 /** Listens for specific accessibility events and opens the launcher appropriately */
+@SuppressLint("AccessibilityPolicy")
 public class ShortcutAccessibilityService extends AccessibilityService {
     private static final int HOVER_DELAY_MS = 500;
     private static final int LAUNCH_COOLDOWN_MS = 250;
     private static final int LAUNCH_COOLDOWN_EXTENDED_MS = 1750;
+    private static final List<String> TARGET_PACKAGES = List.of(
+            "com.threethan.launcher",
+            "com.threethan.launcher.metastore",
+            "com.threethan.launcher.playstore"
+    );
 
     /**
      * Times how long you continue to hover an icon.
@@ -95,10 +103,34 @@ public class ShortcutAccessibilityService extends AccessibilityService {
         }, extended ? LAUNCH_COOLDOWN_EXTENDED_MS : LAUNCH_COOLDOWN_MS);
     }
 
-    /** Launches a wrapped instance of Lightning Launcher if/as appropriate */
+    /** Trigger the launcher appropriately */
     private void trigger() {
+        List<String> targets = TARGET_PACKAGES.stream().filter(pkg ->
+                // Check if package exists
+                getPackageManager().getLaunchIntentForPackage(pkg) != null
+        );
+        for (String packageName : targets) {
+            if (triggerPackage(packageName, false)) break; // Stop after first successful launch
+        }
+        Log.w("LightningLauncherService", "No eligible target found, ignoring preference");
+        for (String packageName : targets) {
+            if (triggerPackage(packageName, true)) break; // Stop after first successful launch
+        }
+    }
+
+    /** Launches a wrapped instance of Lightning Launcher if/as appropriate.
+     * @param packageName The package to launch
+     * @param ignoreShortcutPreference If true, will launch even if the app is blocking shortcuts
+     * @return True if the app is not blocking shortcuts  */
+    private boolean triggerPackage(String packageName, boolean ignoreShortcutPreference) {
         Log.i("LightningLauncherService", "Triggered from accessibility event");
-        Uri uri = Uri.parse("content://com.threethan.launcher.shortcutStateProvider");
+
+        // Check if package even exists
+        if (getPackageManager().getLaunchIntentForPackage(packageName) == null) {
+            return false;
+        }
+
+        Uri uri = Uri.parse("content://"+packageName+".shortcutStateProvider");
         try {
             // Attempt to gain permission to use the provider when the launcher is closed
             getContentResolver().takePersistableUriPermission(
@@ -114,22 +146,34 @@ public class ShortcutAccessibilityService extends AccessibilityService {
             assert cursor != null;
             cursor.moveToFirst();
 
+            try {
+                int allowShortcutsIndex = cursor.getColumnIndex("allowShortcuts");
+                int allowShortcuts = cursor.getInt(allowShortcutsIndex);
+                if (allowShortcuts == 0) return false; // App is blocking shortcuts
+            } catch (Throwable ignored) {
+            } // Old versions don't have this column
+
             int isOpenIndex = cursor.getColumnIndex("isOpen");
             int shouldBlurIndex = cursor.getColumnIndex("shouldBlur");
 
             boolean currentlyOpen = cursor.getInt(isOpenIndex) != 0;
-            if (currentlyOpen) return; // Don't launch if already open
+            if (currentlyOpen) return true; // Don't launch if already open
             boolean shouldBlur = cursor.getInt(shouldBlurIndex) != 0;
 
-            launch(shouldBlur);
+            launchPackage(shouldBlur, packageName);
+            return true;
         } catch (Throwable e) {
+            // Old versions don't have the provider
             Log.w("LightningLauncherService", "Error reading state", e);
-            launch(false); // Fallback to non-blurred launch
+            launchPackage(false, packageName); // Fallback to non-blurred launch
+            return true;
         }
     }
 
     /** Launch LightningLauncher with the appropriate intent */
-    private void launch(boolean shouldBlur) {
+    private void launchPackage(boolean shouldBlur, String packageName) {
+        MainActivity.packageToOpen = packageName;
+
         Intent launchIntent = new Intent(this,
                 shouldBlur ? MainActivityBlur.class : MainActivity.class);
         launchIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NO_ANIMATION);

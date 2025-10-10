@@ -92,8 +92,12 @@ public class SettingsDialog extends BasicDialog<LauncherActivity> {
 
         // Addons
         View addonsButton = dialog.findViewById(R.id.addonsButton);
-        if (!Platform.isVr() && !Platform.isTv()) addonsButton.setVisibility(View.GONE);
-        addonsButton.setOnClickListener(view -> new AddonDialog(a).show());
+        //noinspection ConstantValue
+        if (!Platform.isVr() && !Platform.isTv() || !BuildConfig.FLAVOR.equals("metastore")) {
+            addonsButton.setVisibility(View.GONE);
+        } else {
+            addonsButton.setOnClickListener(view -> new AddonDialog(a).show());
+        }
         if (!a.dataStoreEditor.getBoolean(Settings.KEY_SEEN_ADDONS, false)
                 && (Platform.isVr() || Platform.isTv())) {
             View addonsButtonAttract = dialog.findViewById(R.id.addonsButtonAttract);

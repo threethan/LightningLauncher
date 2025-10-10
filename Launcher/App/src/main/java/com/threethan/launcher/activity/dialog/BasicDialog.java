@@ -57,7 +57,7 @@ public class BasicDialog<T extends Context> extends AbstractDialog<T> {
      * @noinspection ConstantValue
      */
     public static boolean validateVariantWithNotify() {
-        if (!BuildConfig.FLAVOR.equals("sideload")) {
+        if (BuildConfig.FLAVOR.equals("metastore")) {
             new CustomDialog.Builder(LauncherActivity.getForegroundInstance())
                     .setTitle(R.string.warning)
                     .setMessage(Core.context().getString(R.string.app_variant_unavailable,

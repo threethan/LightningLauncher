@@ -20,8 +20,8 @@ import java.util.Objects;
 
 public class AddonUpdater extends RemotePackageUpdater {
     // Tag for the GitHub release from which to download addons
-    public static final String ADDON_TAG = PlatformExt.isOldVrOs() ? "addonsLegacy" : "addons9.1.0";
-    private static final String SHORTCUT_ADDON_VERSION = PlatformExt.isOldVrOs() ? "LEGACY" : "9.1.0";
+    public static final String ADDON_TAG = PlatformExt.isOldVrOs() ? "addonsLegacy" : "addons10.0.0";
+    private static final String SHORTCUT_ADDON_VERSION = PlatformExt.isOldVrOs() ? "LEGACY" : "10.0.0";
 
     public AddonUpdater(Activity activity) {
         super(activity);

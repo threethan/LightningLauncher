@@ -175,4 +175,8 @@ public abstract class Settings {
     public static final String KEY_TAG_MAX_DURATION = "KEY_TAG_MAX_DURATION";
     public static final int DEFAULT_KEY_TAG_MAX_DURATION = 30; // minutes
     public static final List<Integer> NEWLY_ADDED_DURATION_OPTIONS = List.of(0, 5, 15, 30, 90);
+
+    // Variants
+    public static final String KEY_ALLOW_SHORTCUTS = "KEY_ALLOW_SHORTCUTS";
+    public static final boolean DEFAULT_ALLOW_SHORTCUTS = true;
 }

@@ -10,8 +10,8 @@ android {
         applicationId "com.threethan.launcher.service"
         minSdk 23
         targetSdkVersion 36
-        versionCode 910
-        versionName "9.1.0"
+        versionCode 1000
+        versionName "10.0.0"
     }
 
     buildTypes {

@@ -5,12 +5,14 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.view.View;
+import android.widget.Switch;
 
 import com.threethan.launcher.BuildConfig;
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.data.Settings;
 import com.threethan.launcher.helper.PlatformExt;
+import com.threethan.launcher.helper.VariantHelper;
 import com.threethan.launcher.updater.AddonUpdater;
 import com.threethan.launchercore.util.Platform;
 
@@ -82,6 +84,25 @@ public class AddonDialog extends BasicDialog<LauncherActivity> {
         View addDockButton = dialog.findViewById(R.id.addToDockButton);
         if (addDockButton != null) addDockButton.setOnClickListener(v -> showDockDialog());
         dialog.findViewById(R.id.exitButton).setOnClickListener(v -> dialog.dismiss());
+
+        View variantSwitchContainer = dialog.findViewById(R.id.variantSwitchContainer);
+        if (variantSwitchContainer != null) {
+            boolean allowShortcuts =
+                    a.dataStoreEditor.getBoolean(Settings.KEY_ALLOW_SHORTCUTS, Settings.DEFAULT_ALLOW_SHORTCUTS);
+
+            if (VariantHelper.hasVariants(a)) {
+                variantSwitchContainer.setVisibility(View.VISIBLE);
+
+                Switch variantSwitch = dialog.findViewById(R.id.variantSwitch);
+                variantSwitch.setChecked(allowShortcuts);
+
+                dialog.findViewById(R.id.variantSwitch).setOnClickListener(v
+                        -> a.dataStoreEditor.putBoolean(Settings.KEY_ALLOW_SHORTCUTS, variantSwitch.isChecked()));
+            } else {
+                variantSwitchContainer.setVisibility(View.GONE);
+                a.dataStoreEditor.putBoolean(Settings.KEY_ALLOW_SHORTCUTS, Settings.DEFAULT_ALLOW_SHORTCUTS);
+            }
+        }
 
         if (PlatformExt.isOldVrOs()) {
             View addToDockSuggest = dialog.findViewById(R.id.addToDockSuggest);
