@@ -85,7 +85,7 @@ public class LauncherActivityEditable extends LauncherActivity {
     public void refreshInterface() {
         dataStoreEditor = SyncCoordinator.getDefaultDataStore(this);
 
-        if (editMode == null) editMode = dataStoreEditor.getBoolean(Settings.KEY_EDIT_MODE, false);
+        if (editMode == null) setEditMode(dataStoreEditor.getBoolean(Settings.KEY_EDIT_MODE, false));
 
         super.refreshInterface();
 
@@ -222,7 +222,8 @@ public class LauncherActivityEditable extends LauncherActivity {
             focused.clearFocus();
             focused.post(focused::requestFocus);
         }
-        LcBlurCanvas.useRenderRect = !value;
+        LcBlurCanvas.useRenderRect = false;
+        postDelayed(() -> LcBlurCanvas.useRenderRect = !editMode, 500);
         updateToolBars();
     }
 

@@ -297,7 +297,9 @@ public class LauncherActivity extends Launch.LaunchingActivity {
 
     public enum FilePickerTarget {ICON, WALLPAPER, APK}
     private FilePickerTarget filePickerTarget;
-    public void showFilePicker(FilePickerTarget target) {
+    /** Opens a file picker for the given target
+     * @return True if it opened successfully */
+    public boolean showFilePicker(FilePickerTarget target) {
         filePickerTarget = target;
 
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
@@ -310,8 +312,10 @@ public class LauncherActivity extends Launch.LaunchingActivity {
 
         try {
             filePicker.launch(intent);
+            return true;
         } catch (Exception ignored) {
             BasicDialog.toast("No image picker available!");
+            return false;
         }
     }
 
@@ -338,6 +342,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
             bitmap = ImageLib.bitmapFromStream(getContentResolver().openInputStream(uri));
         } catch (FileNotFoundException e) {
             Log.e("PhotoPicker", "Error on load", e);
+            BasicDialog.toast("Could not load selected image");
             return;
         }
         if (bitmap == null) return;
@@ -348,6 +353,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
                 bitmap = ImageLib.getResizedBitmap(bitmap, 720);
                 ImageLib.saveBitmap(bitmap,
                         new File(getApplicationInfo().dataDir, Settings.CUSTOM_BACKGROUND_PATH));
+                bitmap.recycle();
                 refreshBackground();
             }
         }

@@ -28,6 +28,7 @@ import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.data.Settings;
 import com.threethan.launchercore.lib.ImageLib;
 import com.threethan.launchercore.util.Platform;
+import com.threethan.launchercore.view.LcBlurCanvas;
 
 import org.intellij.lang.annotations.Language;
 
@@ -50,20 +51,20 @@ public class WallpaperLoader {
         this.owner = owner;
     }
     public void crop() {
-        Thread thread = new Thread(this::cropInternal);
+        Thread thread = new Thread(this::cropInternalAndApply);
         thread.setPriority(Thread.MIN_PRIORITY);
         thread.start();
     }
     public void load() {
         Thread thread = new Thread(() -> {
             loadInternal();
-            cropInternal();
+            cropInternalAndApply();
         });
         thread.setPriority(Thread.MIN_PRIORITY);
         thread.start();
     }
 
-    private void cropInternal() {
+    private void cropInternalAndApply() {
         if (imageBitmap == null) loadInternal();
         synchronized (lock) {
             if (imageBitmap == null || baseBitmap == null) return;
@@ -100,8 +101,10 @@ public class WallpaperLoader {
                 }
             // Apply
             BitmapDrawable finalWallpaperDrawable = wallpaperDrawable;
-            owner.runOnUiThread(() ->
-                    owner.getWindow().setBackgroundDrawable(finalWallpaperDrawable));
+            owner.runOnUiThread(() -> {
+                    owner.getWindow().setBackgroundDrawable(finalWallpaperDrawable);
+                    LcBlurCanvas.invalidateAll();
+            });
         }
     }
 
