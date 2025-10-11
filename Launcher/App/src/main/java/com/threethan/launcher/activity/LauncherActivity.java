@@ -24,6 +24,7 @@ import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
+import android.view.ViewParent;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
@@ -46,6 +47,8 @@ import com.threethan.launcher.activity.support.WallpaperLoader;
 import com.threethan.launcher.activity.support.DataStoreEditor;
 import com.threethan.launcher.activity.support.SettingsManager;
 import com.threethan.launcher.data.sync.SyncCoordinator;
+import com.threethan.launcher.helper.LaunchExt;
+import com.threethan.launcher.status.view.StatusAdaptableView;
 import com.threethan.launchercore.view.LcBlurCanvas;
 import com.threethan.launcher.activity.view.MarginDecoration;
 import com.threethan.launcher.data.Settings;
@@ -88,8 +91,12 @@ public class LauncherActivity extends Launch.LaunchingActivity {
     private static Boolean groupsWide = false;
     public static boolean needsForceRefresh = false;
     public boolean queueOpenSettings = false;
-    RecyclerView appsView;
-    RecyclerView groupsView;
+    protected RecyclerView appsRecycler;
+    protected RecyclerView groupsRecycler;
+    protected View groupsBlurView;
+    protected ViewGroup groupsContainerWideWindow;
+    protected ViewGroup groupsContainerNarrowWindow;
+
     public DataStoreEditor dataStoreEditor;
     public View mainView;
     public View topBar;
@@ -101,7 +108,6 @@ public class LauncherActivity extends Launch.LaunchingActivity {
     public LauncherService launcherService;
     private WallpaperLoader wallpaperLoader;
     protected static final String TAG = "Lightning Launcher";
-    private int groupHeight;
     private MarginDecoration marginDecoration;
     public static int iconMargin = -1;
     public static int iconScale = -1;
@@ -229,7 +235,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         try {
             init();
 
-            appsView.setAlpha(1f); // Just in case the app was closed before it faded in
+            appsRecycler.setAlpha(1f); // Just in case the app was closed before it faded in
 
             // Take ownership of adapters (which are currently referencing a dead activity)
             Objects.requireNonNull(getAppAdapter()).setLauncherActivity(this);
@@ -250,16 +256,19 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         topBar = mainView.findViewById(R.id.topBarLayout);
 
         mainView.addOnLayoutChangeListener(this::onLayoutChanged);
-        appsView = rootView.findViewById(R.id.apps);
-        appsView.setItemAnimator(null);
-        appsView.getRecycledViewPool().setMaxRecycledViews(1 ,128);
-        appsView.getRecycledViewPool().setMaxRecycledViews(2 ,64);
-        appsView.setItemViewCacheSize(32);
-        groupsView = rootView.findViewById(R.id.groupsView);
+        appsRecycler = rootView.findViewById(R.id.apps);
+        appsRecycler.setItemAnimator(null);
+        appsRecycler.getRecycledViewPool().setMaxRecycledViews(1 ,128);
+        appsRecycler.getRecycledViewPool().setMaxRecycledViews(2 ,64);
+        appsRecycler.setItemViewCacheSize(32);
+        groupsRecycler = rootView.findViewById(R.id.groupsRecycler);
+
+        groupsBlurView = rootView.findViewById(R.id.blurViewGroups);
+        groupsContainerWideWindow = rootView.findViewById(R.id.groupsContainerWideWindow);
+        groupsContainerNarrowWindow = rootView.findViewById(R.id.groupsContainerNarrowWindow);
 
         // Set logo button
-        ImageView settingsImageView = rootView.findViewById(R.id.settingsIcon);
-        settingsImageView.setOnClickListener(view -> {
+        rootView.findViewById(R.id.blurViewSettingsIcon).setOnClickListener(view -> {
             if (!settingsVisible) new SettingsDialog(this).show();
         });
     }
@@ -268,11 +277,11 @@ public class LauncherActivity extends Launch.LaunchingActivity {
                                    int ignoredOldLeft, int ignoredOldTop, int oldRight, int oldBottom) {
         if (Math.abs(oldBottom-bottom) > 10 || Math.abs(oldRight-right) > 10) { // Only on significant diff
             wallpaperLoader.crop();
-            updateGridLayouts();
+            updateGridLayouts(false);
             post(this::updateToolBars);
             postDelayed(this::updateToolBars, 1000);
-            while (appsView.getItemDecorationCount() > 1)
-                appsView.removeItemDecorationAt(appsView.getItemDecorationCount()-1);
+            while (appsRecycler.getItemDecorationCount() > 1)
+                appsRecycler.removeItemDecorationAt(appsRecycler.getItemDecorationCount()-1);
         }
     }
 
@@ -444,32 +453,60 @@ public class LauncherActivity extends Launch.LaunchingActivity {
      * Note that these same views are also often manipulated in LauncherActivitySearchable
      */
     public void updateToolBars() {
-        View[] toolbars = new View[]{
-                rootView.findViewById(R.id.blurViewGroups),
-                rootView.findViewById(R.id.blurViewSettingsIcon),
-                rootView.findViewById(R.id.blurViewSearchIcon),
-                rootView.findViewById(R.id.blurViewSearchBar),
-        };
+        groupsBlurView.setVisibility(groupsEnabled ? View.VISIBLE : View.GONE);
 
-        final boolean hide = !groupsEnabled;
-        for (int i = 0; i<toolbars.length-1; i++) toolbars[i].setVisibility(hide ? View.GONE : View.VISIBLE);
-        if (isEditing() && hide) setEditMode(false); // If groups were disabled while in edit mode
+        if (isEditing() && !groupsEnabled) setEditMode(false); // If groups were disabled while in edit mode
 
         LcBlurCanvas.setOverlayColor((Color.parseColor(darkMode ? "#29000000" : "#40FFFFFF")));
 
-        if (groupsEnabled) {
-            for (View blurView : toolbars
-            ) {
-                blurView.setBackgroundTintList(ColorStateList.valueOf(Color.TRANSPARENT));
+        // Item visibility
+        View statusView = rootView.findViewById(R.id.blurViewStatus);
+        statusView.setVisibility(dataStoreEditor.getBoolean(Settings.KEY_SHOW_STATUS, Settings.DEFAULT_SHOW_STATUS) ? View.VISIBLE : View.GONE);
+        View sortView = rootView.findViewById(R.id.blurViewSortIcon);
+        sortView.setVisibility(dataStoreEditor.getBoolean(Settings.KEY_SHOW_SORT, Settings.DEFAULT_SHOW_SORT) ? View.VISIBLE : View.GONE);
+        View searchView = rootView.findViewById(R.id.blurViewSearchIcon);
+        searchView.setVisibility(dataStoreEditor.getBoolean(Settings.KEY_SHOW_SEARCH, Settings.DEFAULT_SHOW_SEARCH) ? View.VISIBLE : View.GONE);
+        View settingsView = rootView.findViewById(R.id.blurViewSettingsIcon);
+        settingsView.setVisibility(dataStoreEditor.getBoolean(Settings.KEY_SHOW_SETTINGS, Settings.DEFAULT_SHOW_SETTINGS) ? View.VISIBLE : View.GONE);
 
-                blurView.setOutlineProvider(ViewOutlineProvider.BACKGROUND);
-                blurView.setClipToOutline(true);
+        View searchBar = rootView.findViewById(R.id.blurViewSearchBar);
+
+        View[] itemViews = new View[]{
+                groupsBlurView,
+                statusView,
+                sortView,
+                searchView,
+                settingsView,
+                searchBar,
+        };
+        for (View itemView : itemViews
+        ) {
+            itemView.setBackgroundTintList(ColorStateList.valueOf(Color.TRANSPARENT));
+            itemView.setOutlineProvider(ViewOutlineProvider.BACKGROUND);
+            itemView.setClipToOutline(true);
+
+            if (itemView instanceof ViewGroup itemViewGroup) {
+                for (int i = 0; i < itemViewGroup.getChildCount(); i++) {
+                    View child = itemViewGroup.getChildAt(i);
+                    if (child instanceof StatusAdaptableView sChild)
+                        sChild.setDarkMode(darkMode);
+                    if (child instanceof ViewGroup childGroup) {
+                        for (int j = 0; j < childGroup.getChildCount(); j++) {
+                            View grandChild = childGroup.getChildAt(j);
+                            if (grandChild instanceof StatusAdaptableView gsChild)
+                                gsChild.setDarkMode(darkMode);
+                        }
+                    }
+                }
             }
+        }
 
-            ImageView settingsIcon = rootView.findViewById(R.id.settingsIcon);
-            settingsIcon.setImageTintList(ColorStateList.valueOf(darkMode ? Color.WHITE : Color.BLACK));
-            ImageView searchIcon = rootView.findViewById(R.id.searchIcon);
-            searchIcon.setImageTintList(ColorStateList.valueOf(darkMode ? Color.WHITE : Color.BLACK));
+        if (Platform.isQuest()) {
+            statusView.setOnClickListener(v -> {
+                ApplicationInfo quickSettingsApp = new ApplicationInfo();
+                quickSettingsApp.packageName = "systemux://quick_settings";
+                LaunchExt.launchApp(this, quickSettingsApp);
+            });
         }
 
         post(() -> { if (needsUpdateCleanup) Compat.doUpdateCleanup(this); });
@@ -523,7 +560,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         else updateSelectedGroups(rootView.getWidth() / 2, 0);
         hasRefreshedAdapters = true;
 
-        updateGridLayouts();
+        updateGridLayouts(false);
     }
 
     protected void updateSelectedGroups(int x, int y) {
@@ -531,13 +568,13 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         if (isEditing()) return;
 
         try {
-            Animator anim = ViewAnimationUtils.createCircularReveal(appsView, x, y, 0, rootView.getHeight() + rootView.getWidth());
+            Animator anim = ViewAnimationUtils.createCircularReveal(appsRecycler, x, y, 0, rootView.getHeight() + rootView.getWidth());
             anim.setDuration(400);
 
-            appsView.setVisibility(View.INVISIBLE);
-            appsView.postDelayed(() -> {
+            appsRecycler.setVisibility(View.INVISIBLE);
+            appsRecycler.postDelayed(() -> {
                 try {
-                    appsView.setVisibility(View.VISIBLE);
+                    appsRecycler.setVisibility(View.VISIBLE);
                     anim.start();
                 } catch (Exception ignored) {
                 }
@@ -545,59 +582,76 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         } catch (Exception ignored) {}
     }
     protected void updateSelectedGroups() {
-        groupsView.setAdapter(new GroupsAdapter(this, isEditing()));
+        groupsRecycler.setAdapter(new GroupsAdapter(this, isEditing()));
         if (getAppAdapter() == null) {
-            appsView.setAdapter(new LauncherAppsAdapter(this));
+            appsRecycler.setAdapter(new LauncherAppsAdapter(this));
         } else {
             getAppAdapter().setAppList(this);
         }
         getAppAdapter().setContainer(findViewById(R.id.appsContainer));
     }
 
+
     /**
      * Updates the heights and layouts of grid layout managers used by the groups bar and app grid
      */
-    public void updateGridLayouts() {
-        if (mainView.getWidth() == prevViewWidth) return;
+    public void updateGridLayouts(boolean force) {
+        if (mainView.getWidth() == prevViewWidth && !force) return;
         prevViewWidth = mainView.getWidth();
 
         // Group rows and relevant values
-        if (getGroupAdapter() != null && groupsEnabled) {
-            if (prevViewWidth < 1) return;
-            final int targetWidth
-                    = dp(groupsWide ? Settings.GROUP_WIDTH_DP_WIDE : Settings.GROUP_WIDTH_DP);
-            final int groupCols
-                    = Math.min(getGroupAdapter().getCount(), prevViewWidth / targetWidth);
+        if (prevViewWidth < 1) return;
+        final int targetWidth
+                = dp(groupsWide ? Settings.GROUP_WIDTH_DP_WIDE : Settings.GROUP_WIDTH_DP);
+        final int groupCols = getGroupAdapter() == null ? 1
+                : Math.min(getGroupAdapter().getCount(), prevViewWidth / targetWidth);
 
-            groupsView.setLayoutManager(new GridLayoutManager(this, Math.max(1, groupCols)));
-
-            final int groupRows = (int) Math.ceil((double) getGroupAdapter().getCount() / groupCols);
-            groupHeight = dp(40) * groupRows;
-
-            if (groupHeight > mainView.getMeasuredHeight() / 3) {
-                // Scroll groups if more than 1/3 the screen
-                groupHeight = mainView.getMeasuredHeight() / 3;
-                groupsView.setLayoutParams(new FrameLayout.LayoutParams
-                        (ViewGroup.LayoutParams.MATCH_PARENT,groupHeight));
-            } else {
-                // Otherwise don't
-                groupsView.setLayoutParams(new FrameLayout.LayoutParams
-                        (ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        // Dynamic placement of groups bar
+        boolean mainViewIsWideEnoughForGroups = mainView.getMeasuredWidth() > dp(groupsWide ? 1000 : 750);
+        ViewGroup groupsViewParent = mainViewIsWideEnoughForGroups
+                        ? groupsContainerWideWindow
+                        : groupsContainerNarrowWindow;
+        if (groupsViewParent != groupsBlurView.getParent()) {
+            ViewParent oldParent = groupsBlurView.getParent();
+            if (oldParent instanceof ViewGroup) {
+                ((ViewGroup) oldParent).removeView(groupsBlurView);
+                groupsViewParent.addView(groupsBlurView);
             }
-            groupsView.post(() -> groupsView.setVisibility(View.VISIBLE));
         }
-        updatePadding();
+        groupsContainerNarrowWindow
+                .setVisibility(mainViewIsWideEnoughForGroups || !groupsEnabled ? View.GONE : View.VISIBLE);
 
-        GridLayoutManager gridLayoutManager = (GridLayoutManager) appsView.getLayoutManager();
+        groupsRecycler.setLayoutManager(new GridLayoutManager(this, Math.max(1, groupCols)));
+
+        // Measure the top bar to determine additional top padding for the app grid
+        topBar.measure(View.MeasureSpec.makeMeasureSpec(mainView.getMeasuredWidth(), View.MeasureSpec.EXACTLY),
+                View.MeasureSpec.makeMeasureSpec(mainView.getMeasuredHeight(), View.MeasureSpec.AT_MOST));
+        int groupHeight = topBar.getMeasuredHeight();
+
+        if (groupHeight > mainView.getMeasuredHeight() / 3) {
+            // Scroll groups if more than 1/3 the screen
+            groupHeight = mainView.getMeasuredHeight() / 3;
+            groupsRecycler.setLayoutParams(new FrameLayout.LayoutParams
+                    (ViewGroup.LayoutParams.MATCH_PARENT, groupHeight));
+        } else {
+            // Otherwise don't
+            groupsRecycler.setLayoutParams(new FrameLayout.LayoutParams
+                    (ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        }
+        groupsRecycler.post(() -> groupsRecycler.setVisibility(View.VISIBLE));
+
+        updatePadding(groupHeight);
+
+        GridLayoutManager gridLayoutManager = (GridLayoutManager) appsRecycler.getLayoutManager();
         if (gridLayoutManager == null) {
             gridLayoutManager = new LauncherGridLayoutManager(this, 3);
             gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
                 @Override
                 public int getSpanSize(int position) {
-                    return Objects.requireNonNull(appsView.getAdapter()).getItemViewType(position);
+                    return Objects.requireNonNull(appsRecycler.getAdapter()).getItemViewType(position);
                 }
             });
-            appsView.setLayoutManager(gridLayoutManager);
+            appsRecycler.setLayoutManager(gridLayoutManager);
         }
 
         GridLayoutManager finalGridLayoutManager = gridLayoutManager;
@@ -610,7 +664,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
             finalGridLayoutManager.setSpanCount(nCol);
         });
 
-        topBar.setVisibility(groupsEnabled ? View.VISIBLE : View.GONE);
+        topBar.setVisibility(View.VISIBLE);
     }
     /**
      * Called by updateGridLayouts, updates padding on the app grid views:
@@ -618,18 +672,17 @@ public class LauncherActivity extends Launch.LaunchingActivity {
      * - Side padding to account for icon margins (otherwise icons would touch window edges)
      * - Bottom padding to account for icon margin, as well as the edit mode footer if applicable
      */
-    private void updatePadding() {
+    private void updatePadding(int groupHeight) {
         if (iconMargin == -1) iconMargin = dataStoreEditor.getInt(Settings.KEY_MARGIN, Settings.DEFAULT_MARGIN);
         if (iconScale  == -1) iconScale  = dataStoreEditor.getInt(Settings.KEY_SCALE , Settings.DEFAULT_SCALE );
 
         int targetSize = dp(iconScale);
         int margin = getMargin(targetSize);
 
-        final boolean groupsVisible = getGroupAdapter() != null && groupsEnabled && !getSearching();
-        final int topAdd = groupsVisible ? dp(32) + groupHeight : dp(23);
-        final int bottomAdd = groupsVisible ? getBottomBarHeight() + dp(11) : margin / 2 + getBottomBarHeight() + dp(11);
+        final int topAdd = groupHeight > 1 && !getSearching() ? dp(35) + groupHeight : dp(23);
+        final int bottomAdd = groupHeight > 1 ? getBottomBarHeight() + dp(11) : margin / 2 + getBottomBarHeight() + dp(11);
 
-        appsView.setPadding(
+        appsRecycler.setPadding(
                 dp(margin+25),
                 topAdd,
                 dp(margin+25),
@@ -638,11 +691,11 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         // Margins
         if (marginDecoration == null) {
             marginDecoration = new MarginDecoration(margin);
-            appsView.addItemDecoration(marginDecoration);
+            appsRecycler.addItemDecoration(marginDecoration);
         } else marginDecoration.setMargin(margin);
-        appsView.invalidateItemDecorations();
-        while (appsView.getItemDecorationCount() > 1)
-            appsView.removeItemDecorationAt(appsView.getItemDecorationCount()-1);
+        appsRecycler.invalidateItemDecorations();
+        while (appsRecycler.getItemDecorationCount() > 1)
+            appsRecycler.removeItemDecorationAt(appsRecycler.getItemDecorationCount()-1);
     }
 
     /** Get the margin, in dp, for the app grid */
@@ -726,8 +779,8 @@ public class LauncherActivity extends Launch.LaunchingActivity {
             getAppAdapter().setLauncherActivity(this);
             getAppAdapter().setFullAppSet(PlatformExt.listInstalledApps(this));
         }
-        final int scrollY = appsView.getScrollY();
-        appsView.setScrollY(scrollY);
+        final int scrollY = appsRecycler.getScrollY();
+        appsRecycler.setScrollY(scrollY);
     }
 
     /**
@@ -806,13 +859,13 @@ public class LauncherActivity extends Launch.LaunchingActivity {
 
     @Nullable
     public LauncherAppsAdapter getAppAdapter() {
-        if (appsView == null) return null;
-        return (LauncherAppsAdapter) appsView.getAdapter();
+        if (appsRecycler == null) return null;
+        return (LauncherAppsAdapter) appsRecycler.getAdapter();
     }
     @Nullable
     public GroupsAdapter getGroupAdapter() {
-        if (groupsView == null) return null;
-        return (GroupsAdapter) groupsView.getAdapter();
+        if (groupsRecycler == null) return null;
+        return (GroupsAdapter) groupsRecycler.getAdapter();
     }
 
     /**

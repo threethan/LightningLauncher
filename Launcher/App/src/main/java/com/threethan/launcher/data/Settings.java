@@ -1,5 +1,6 @@
 package com.threethan.launcher.data;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
 
@@ -151,13 +152,14 @@ public abstract class Settings {
     };
     // group
     public static final String KEY_DEFAULT_GROUP = "prefDefaultGroupForType";
-    public static final Map<App.Type, String> FALLBACK_GROUPS = new HashMap<>();
-    static {
-        FALLBACK_GROUPS.put(App.Type.PHONE, "Apps");
-        FALLBACK_GROUPS.put(App.Type.WEB, "Apps");
-        FALLBACK_GROUPS.put(App.Type.VR, StringLib.setPreChar("Games", StringLib.STAR, true));
-        FALLBACK_GROUPS.put(App.Type.TV, StringLib.setPreChar("Media", StringLib.STAR, true));
-        FALLBACK_GROUPS.put(App.Type.PANEL, "Apps");
+    public static String getDefaultGroupForType(Context context, App.Type type) {
+        return switch (type) {
+            case VR ->
+                    StringLib.setPreChar(context.getString(R.string.default_group_vr), StringLib.STAR, true);
+            case TV ->
+                    StringLib.setPreChar(context.getString(R.string.default_group_media), StringLib.STAR, true);
+            default -> context.getString(R.string.default_group_2d);
+        };
     }
 
     public static final int MAX_GROUPS = 20;
@@ -179,4 +181,14 @@ public abstract class Settings {
     // Variants
     public static final String KEY_ALLOW_SHORTCUTS = "KEY_ALLOW_SHORTCUTS";
     public static final boolean DEFAULT_ALLOW_SHORTCUTS = true;
+
+    // Top bar
+    public static final String KEY_SHOW_STATUS = "KEY_SHOW_STATUS";
+    public static final boolean DEFAULT_SHOW_STATUS = true;
+    public static final String KEY_SHOW_SEARCH = "KEY_SHOW_SEARCH";
+    public static final boolean DEFAULT_SHOW_SEARCH = true;
+    public static final String KEY_SHOW_SORT = "KEY_SHOW_SORT";
+    public static final boolean DEFAULT_SHOW_SORT = true;
+    public static final String KEY_SHOW_SETTINGS = "KEY_SHOW_SETTINGS";
+    public static final boolean DEFAULT_SHOW_SETTINGS = true;
 }

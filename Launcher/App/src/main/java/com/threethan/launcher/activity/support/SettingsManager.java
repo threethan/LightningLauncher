@@ -653,8 +653,7 @@ public class SettingsManager extends Settings {
         return group;
     }
     private static String defaultFallbackGroupFor(App.Type type) {
-        if (!Settings.FALLBACK_GROUPS.containsKey(type)) type = App.Type.PHONE;
-        return Settings.FALLBACK_GROUPS.get(type);
+        return Settings.getDefaultGroupForType(Core.context(), type);
     }
 
     private static final Map<App.Type, Boolean> isBannerCache = new ConcurrentHashMap<>();

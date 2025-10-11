@@ -45,17 +45,6 @@
             android:layout_height="wrap_content"
             android:text="@string/advanced_interface" />
 
-        <com.threethan.launchercore.view.LcSwitch
-            android:id="@+id/groupSwitch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/lc_bkg_button_top"
-
-            android:text="@string/group_mode"
-            android:tooltipText="@string/group_mode_tip"
-            tools:ignore="UnusedAttribute,UseSwitchCompatOrMaterialXml" />
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -69,7 +58,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/lc_bkg_button_bottom_left"
+                android:background="@drawable/lc_bkg_button_left"
                 android:text="@string/long_press"
                 android:tooltipText="@string/long_press_tip"
                 tools:ignore="UnusedAttribute,UseSwitchCompatOrMaterialXml" />
@@ -80,7 +69,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="2dp"
                 android:layout_weight="1"
-                android:background="@drawable/lc_bkg_button_bottom_right"
+                android:background="@drawable/lc_bkg_button_right"
                 android:text="@string/group_wide"
                 android:tooltipText="@string/group_wide_tip"
                 tools:ignore="UnusedAttribute,UseSwitchCompatOrMaterialXml" />

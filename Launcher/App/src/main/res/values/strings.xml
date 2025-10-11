@@ -70,11 +70,8 @@
 
     <string name="dark_mode">Dark Mode</string>
     <string name="dark_mode_tip">If on, labels will appear white on a dark background.</string>
-    <string name="group_mode">Enable Groups</string>
-    <string name="group_mode_tip">Turn this off to show all apps at once, without grouping.
-        \nSearch and settings icons will also be hidden.
-        \n
-        \n<i>Use the back button on your remote/controller to open Settings.</i></string>
+    <string name="enable_groups">Enable Groups</string>
+    <string name="enable_groups_tip">Turn this off to show all apps at once, without grouping.\nGroups will still show in Edit Mode when disabled.</string>
     <string name="group_wide">Wider Groups</string>
     <string name="group_wide_tip">Increases the minimum width of group buttons,
         \nensuring longer names don\'t get cut off.
@@ -413,7 +410,7 @@
     <string name="shortcuts_open_this_variant">Shortcuts open this variant of Lightning Launcher</string>
     <string name="shortcuts_open_this_variant_details">If you turn this off, shortcut services will attempt to open your other installation of Lighning Launcher.</string>
     <string name="manage_variants">Manage Installed Variants &amp; Transfer Settings</string>
-    <string name="customize_top_bar">Customize\nTop Bar</string>
+    <string name="customize_top_bar">Customize Toolbar</string>
     <string name="quest_settings">Quest Settings</string>
     <string name="quest_people">People</string>
     <string name="quest_chats">Chats</string>
@@ -433,4 +430,7 @@
     <string name="variant_playstore_details">This version can be installed and updated through Google Play on Google TV devices.</string>
     <string name="variant_sideload_details">This version was installed from an APK or SideQuest. It may only show up under \"Unofficial Sources.\"</string>
     <string name="manage_variants_details">You have multiple variants of Lightning Launcher installed. You can manage them from this menu.</string>
+    <string name="default_group_2d">Apps</string>
+    <string name="default_group_vr">Games</string>
+    <string name="default_group_media">Media</string>
 </resources>

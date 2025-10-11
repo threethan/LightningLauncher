@@ -62,7 +62,8 @@
         android:layout_weight="1"
         android:drawableEnd="@drawable/ic_launch_out"
         android:text="@string/addons_open"
-        android:visibility="gone" />
+        android:visibility="gone"
+        tools:visibility="visible" />
 
     <com.threethan.launchercore.view.LcButton
         android:id="@+id/addonActivate"

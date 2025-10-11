@@ -4,14 +4,17 @@
     android:id="@+id/editFooter"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bkg_blur_view"
     android:layout_gravity="bottom"
+    android:layout_marginBottom="-20dp"
+    android:background="@drawable/bkg_blur_view"
     android:elevation="13dp"
     android:paddingTop="10dp"
-    android:paddingBottom="10dp"
+    android:paddingBottom="30dp"
     android:visibility="gone"
+    tools:showIn="@layout/activity_main"
     tools:visibility="visible"
-    tools:showIn="@layout/activity_main">
+    android:clipToOutline="true"
+    tools:ignore="UnusedAttribute">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,6 +30,7 @@
             android:entries="@array/edit_actions">
 
         </Spinner>
+
         <TextView
             android:id="@+id/selectionHintText"
 
@@ -70,6 +74,8 @@
             android:layout_gravity="bottom|center_horizontal|end"
             android:layout_marginStart="10dp"
             android:background="@drawable/lc_bkg_button"
+            android:drawableStart="@drawable/ic_add"
+            android:drawablePadding="5dp"
             android:ellipsize="end"
             android:gravity="center"
             android:maxLines="2"
@@ -80,25 +86,23 @@
             android:paddingBottom="10dp"
             android:singleLine="false"
             android:text="@string/add_website"
-            android:drawableStart="@drawable/ic_add"
-            android:drawablePadding="5dp"
             android:textSize="16sp"
             tools:ignore="UseCompatTextViewDrawableXml" />
 
         <TextView
             android:id="@+id/stopEditing"
             android:layout_width="45dp"
-            android:layout_marginStart="5dp"
             android:layout_height="match_parent"
             android:layout_gravity="bottom|center_horizontal|end"
+            android:layout_marginStart="5dp"
             android:layout_marginEnd="10dp"
-            android:drawableEnd="@drawable/ic_cancel"
-            android:paddingEnd="10dp"
-            android:paddingStart="0dp"
             android:background="@drawable/bkg_hover_button"
+            android:drawableEnd="@drawable/ic_cancel"
             android:ellipsize="end"
             android:gravity="center"
             android:maxLines="2"
+            android:paddingStart="0dp"
+            android:paddingEnd="10dp"
             android:textSize="16sp"
             tools:ignore="UseCompatTextViewDrawableXml" />
     </LinearLayout>

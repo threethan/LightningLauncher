@@ -44,10 +44,10 @@
 
     <Button
         android:id="@+id/moreButton"
-        android:layout_margin="20dp"
-        android:layout_width="26dp"
-        android:layout_height="26dp"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
         android:layout_gravity="top|end"
+        android:layout_margin="20dp"
         android:background="@drawable/ic_more_button"
         android:focusable="false"
         android:focusableInTouchMode="false"
@@ -56,10 +56,10 @@
 
     <Button
         android:id="@+id/playtimeButton"
-        android:layout_margin="23dp"
-        android:layout_width="55dp"
+        android:layout_width="60dp"
         android:layout_height="23dp"
         android:layout_gravity="top|start"
+        android:layout_margin="23dp"
         android:background="@drawable/bkg_button_circle"
         android:focusable="false"
         android:focusableInTouchMode="false"

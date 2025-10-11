@@ -114,7 +114,7 @@ public abstract class Compat {
                         break;
                     case (2):
                         String from = dataStoreEditor.getString("KEY_DEFAULT_GROUP_VR",
-                                Settings.FALLBACK_GROUPS.get(App.Type.VR));
+                                Settings.getDefaultGroupForType(Core.context(), App.Type.VR));
                         StringLib.setPreChar(from, StringLib.STAR, true);
                         break;
                     case (3): // Should just clear icon cache, which is called anyways

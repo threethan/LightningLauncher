@@ -24,10 +24,14 @@ import android.view.ViewTreeObserver;
 
 import androidx.annotation.Nullable;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class LcBlurCanvas extends LcContainerView {
     protected static final RenderNode renderNode = Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q ? new RenderNode("BackgroundNode") : null;
     protected static @Nullable Bitmap fallbackBitmap = null;
     protected static final float BLUR_RADIUS = 25f;
+    protected static final Set<LcBlurCanvas> instances = new HashSet<>();
 
     /** Legacy blur (API < Q) is much less performant, so it is rendered at resolution / this */
     protected static final int LEGACY_DOWN_SAMPLE = 32;
@@ -53,6 +57,11 @@ public class LcBlurCanvas extends LcContainerView {
     /** Sets a color to be drawn on top of the canvas */
     public static void setOverlayColor(int overlayColor) {
         LcBlurCanvas.overlayColor = overlayColor;
+    }
+
+    /** Invalidates all existing LcBlurCanvas instances, causing them to redraw */
+    public static void invalidateAll() {
+        instances.forEach(View::postInvalidate);
     }
 
     private boolean hasRenderEffect;
@@ -194,6 +203,7 @@ public class LcBlurCanvas extends LcContainerView {
         super.onDetachedFromWindow();
         if (getChildCount() > 0)
             getChildAt(0).getViewTreeObserver().removeOnPreDrawListener(listener);
+        instances.remove(this);
     }
 
     @Override
@@ -201,5 +211,6 @@ public class LcBlurCanvas extends LcContainerView {
         super.onAttachedToWindow();
         if (getChildCount() > 0)
             getChildAt(0).getViewTreeObserver().addOnPreDrawListener(listener);
+        instances.add(this);
     }
 }

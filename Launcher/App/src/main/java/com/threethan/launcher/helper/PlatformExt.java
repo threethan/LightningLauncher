@@ -155,7 +155,7 @@ public abstract class PlatformExt {
     public static boolean canUninstall() {
         return Core.context()
                 .checkCallingOrSelfPermission("android.permission.REQUEST_DELETE_PACKAGES")
-                != PackageManager.PERMISSION_GRANTED;
+                == PackageManager.PERMISSION_GRANTED;
     }
 
 

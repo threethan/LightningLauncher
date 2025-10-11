@@ -12,6 +12,7 @@ import com.threethan.launcher.helper.PlatformExt;
 import com.threethan.launcher.data.Settings;
 import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.activity.support.SettingsManager;
+import com.threethan.launchercore.Core;
 import com.threethan.launchercore.lib.StringLib;
 import com.threethan.launchercore.util.App;
 
@@ -76,7 +77,7 @@ public class GroupDetailsDialog extends BasicDialog<LauncherActivity> {
                 if (cSwitch == null) continue;
                 cSwitch.setChecked(SettingsManager.getDefaultGroupFor(type).equals(groupName));
                 cSwitch.setOnCheckedChangeListener((switchView, value) -> {
-                    String newDefault = value ? groupName : Settings.FALLBACK_GROUPS.get(type);
+                    String newDefault = value ? groupName : Settings.getDefaultGroupForType(Core.context(), type);
                     if ((!value && groupName.equals(newDefault)) || !appGroupsSet.contains(newDefault))
                         newDefault = null;
                     SettingsManager.setDefaultGroupFor(type, newDefault);

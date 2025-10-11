@@ -33,7 +33,6 @@ import com.threethan.launcher.helper.VariantHelper;
 import com.threethan.launcher.updater.LauncherUpdater;
 import com.threethan.launchercore.Core;
 import com.threethan.launchercore.util.App;
-import com.threethan.launchercore.util.CustomDialog;
 import com.threethan.launchercore.util.Platform;
 
 import java.lang.ref.WeakReference;
@@ -94,7 +93,7 @@ public class SettingsDialog extends BasicDialog<LauncherActivity> {
         // Addons
         View addonsButton = dialog.findViewById(R.id.addonsButton);
         //noinspection ConstantValue
-        if (!Platform.isVr() && !Platform.isTv() || !BuildConfig.FLAVOR.equals("metastore")) {
+        if (!Platform.isVr() && !Platform.isTv() || BuildConfig.FLAVOR.equals("metastore")) {
             addonsButton.setVisibility(View.GONE);
         } else {
             addonsButton.setOnClickListener(view -> new AddonManagerDialog(a).show());
@@ -312,8 +311,17 @@ public class SettingsDialog extends BasicDialog<LauncherActivity> {
             dialog.findViewById(R.id.manageVariantsButton).setVisibility(View.GONE);
         }
 
+        // Top bar settings
+        dialog.findViewById(R.id.editTopBarButton).setOnClickListener(view -> {
+            new EditTopBarDialog(a).show();
+            dialog.dismiss();
+        });
+
         // Advanced button
-        dialog.findViewById(R.id.advancedSettingsButton).setOnClickListener(view -> showAdvancedSettings());
+        dialog.findViewById(R.id.advancedSettingsButton).setOnClickListener(view -> {
+            showAdvancedSettings();
+            dialog.dismiss();
+        });
 
         // Refresh button
         dialog.findViewById(R.id.refreshButton).setOnClickListener(view -> {
@@ -547,19 +555,6 @@ public class SettingsDialog extends BasicDialog<LauncherActivity> {
                 v -> a.launcherService.forEachActivity(LauncherActivity::forceRefreshPackages),
                 false);
 
-
-        attachSwitchToSetting(dialog.findViewById(R.id.groupSwitch),
-                Settings.KEY_GROUPS_ENABLED, Settings.DEFAULT_GROUPS_ENABLED,
-                value -> {
-                    new CustomDialog.Builder(a)
-                            .setTitle(R.string.warning)
-                            .setMessage(R.string.hidden_groups_message)
-                            .setPositiveButton(R.string.understood, (d, w) -> d.dismiss())
-                            .show();
-                    a.setEditMode(true);
-                    a.setEditMode(false);
-                }, false
-        );
 
         attachSwitchToSetting(dialog.findViewById(R.id.groupWideSwitch),
                 Settings.KEY_GROUPS_WIDE, Settings.DEFAULT_GROUPS_WIDE,

@@ -470,7 +470,7 @@
             android:orientation="horizontal">
 
             <com.threethan.launchercore.view.LcButton
-                android:id="@+id/topBarSettingsButton"
+                android:id="@+id/editTopBarButton"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="2dp"

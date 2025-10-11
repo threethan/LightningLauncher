@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:paddingStart="15dp"
+    android:paddingEnd="12dp"
+    android:gravity="center">
+
+    <com.threethan.launcher.status.view.StatusAdaptableTextClock
+        android:id="@+id/textClock"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="3dp"
+        android:gravity="center"
+        android:format12Hour="K:MM"/>
+
+    <com.threethan.launcher.status.view.WifiStatusIndicator
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="3dp"
+        android:layout_width="16dp"
+        android:layout_height="16dp" />
+
+    <com.threethan.launcher.status.view.BatteryLevelView
+        android:layout_marginStart="3dp"
+        android:layout_width="32dp"
+        android:layout_height="19dp"/>
+
+</LinearLayout>

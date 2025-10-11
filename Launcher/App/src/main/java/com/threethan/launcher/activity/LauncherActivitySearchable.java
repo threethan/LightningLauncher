@@ -1,14 +1,10 @@
 package com.threethan.launcher.activity;
 
 import android.animation.ObjectAnimator;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ImageView;
 
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.view.EditTextWatched;
@@ -99,11 +95,6 @@ public class LauncherActivitySearchable extends LauncherActivityEditable {
             rootView.findViewById(R.id.blurViewSearchBar).setVisibility(View.VISIBLE);
 
             EditTextWatched searchText = findViewById(R.id.searchText);
-            searchText.setTextColor(Color.parseColor(darkMode ? "#FFFFFF" : "#000000"));
-            ((ImageView) findViewById(R.id.searchHintIcon)).setImageTintList(
-                    ColorStateList.valueOf(Color.parseColor(darkMode ? "#FFFFFF" : "#000000")));
-            ((ImageView) findViewById(R.id.searchCancelIcon)).setImageTintList(
-                    ColorStateList.valueOf(Color.parseColor(darkMode ? "#FFFFFF" : "#000000")));
 
             if (getCurrentFocus() != null) getCurrentFocus().clearFocus();
             searchText.setText("");
@@ -124,7 +115,7 @@ public class LauncherActivitySearchable extends LauncherActivityEditable {
 
             searchBar.setVisibility(View.GONE);
 
-            topBar.setVisibility(groupsEnabled ? View.VISIBLE : View.GONE);
+            topBar.setVisibility(View.VISIBLE);
             topBar.setAlpha(1F);
             topBar.postDelayed(this::fixState, 500);
             refreshAdapters();
@@ -136,7 +127,7 @@ public class LauncherActivitySearchable extends LauncherActivityEditable {
     protected void fixState() {
         try {
             searchBar.setVisibility(searching ? View.VISIBLE : View.GONE);
-            topBar.setVisibility(!searching ? (groupsEnabled ? View.VISIBLE : View.GONE) : View.GONE);
+            topBar.setVisibility(!searching ? View.VISIBLE : View.GONE);
             searchBar.setAlpha(searching ? 1F : 0F);
             topBar.post(() -> topBar.setAlpha(1F)); // Prevent flicker on start
         } catch (NullPointerException ignored) {}
@@ -160,13 +151,6 @@ public class LauncherActivitySearchable extends LauncherActivityEditable {
 
         // Set logo button
         View searchIcon = rootView.findViewById(R.id.searchIcon);
-        searchIcon.setOnHoverListener((view, event) -> {
-            if (event.getAction() == MotionEvent.ACTION_HOVER_ENTER)
-                searchIcon.setBackgroundResource(R.drawable.bkg_hover_button_bar_hovered);
-            else if (event.getAction() == MotionEvent.ACTION_HOVER_EXIT)
-                searchIcon.setBackground(null);
-            return false;
-        });
         searchBar = rootView.findViewById(R.id.blurViewSearchBar);
 
 
