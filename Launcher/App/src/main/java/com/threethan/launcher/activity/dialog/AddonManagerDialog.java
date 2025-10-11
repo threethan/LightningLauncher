@@ -7,7 +7,6 @@ import android.content.pm.PackageManager;
 import android.view.View;
 import android.widget.Switch;
 
-import com.threethan.launcher.BuildConfig;
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.data.Settings;
@@ -18,13 +17,13 @@ import com.threethan.launchercore.util.Platform;
 
 import java.lang.ref.WeakReference;
 
-/*
+/**
     AddonDialog
 
     This class handles the addon manager, AKA shortcut settings
     It handles related popups, and updates buttons according to the state returned by Addon
  */
-public class AddonDialog extends BasicDialog<LauncherActivity> {
+public class AddonManagerDialog extends BasicDialog<LauncherActivity> {
     private static WeakReference<AddonUpdater> updaterRef;
 
     /**
@@ -33,7 +32,7 @@ public class AddonDialog extends BasicDialog<LauncherActivity> {
      *
      * @param activity LauncherActivity Context to show the dialog
      */
-    public AddonDialog(LauncherActivity activity) {
+    public AddonManagerDialog(LauncherActivity activity) {
         super(activity, determineLayoutRes(activity));
     }
 
@@ -117,7 +116,7 @@ public class AddonDialog extends BasicDialog<LauncherActivity> {
             a.dataStoreEditor.putValue(Settings.KEY_ADDONS_VR_TYPE_KNOWN, true, true);
             a.dataStoreEditor.putValue(Settings.KEY_ADDONS_VR_HAS_NAVIGATOR, true, true);
             dialog.dismiss();
-            new AddonDialog(a).show();
+            new AddonManagerDialog(a).show();
         });
 
         View dockGotoButton    = dialog.findViewById(R.id.addonDockGotoButton);
@@ -125,14 +124,14 @@ public class AddonDialog extends BasicDialog<LauncherActivity> {
             a.dataStoreEditor.putValue(Settings.KEY_ADDONS_VR_TYPE_KNOWN, true, true);
             a.dataStoreEditor.putValue(Settings.KEY_ADDONS_VR_HAS_NAVIGATOR, false, true);
             dialog.dismiss();
-            new AddonDialog(a).show();
+            new AddonManagerDialog(a).show();
         });
 
         View indeterminateGotoView = dialog.findViewById(R.id.addonIndeterminateGotoButton);
         if (indeterminateGotoView != null) indeterminateGotoView.setOnClickListener(v -> {
             a.dataStoreEditor.putValue(Settings.KEY_ADDONS_VR_TYPE_KNOWN, false, true);
             dialog.dismiss();
-            new AddonDialog(a).show();
+            new AddonManagerDialog(a).show();
         });
 
         return dialog;

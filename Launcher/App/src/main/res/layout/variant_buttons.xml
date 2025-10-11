@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="35dp"
+    android:layout_marginStart="40dp"
+    android:layout_marginBottom="10dp"
+    android:baselineAligned="false"
+    android:orientation="vertical"
+    tools:showIn="@layout/dialog_variants">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <com.threethan.launchercore.view.LcButton
+            android:id="@+id/variantInfo"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:drawableEnd="@drawable/ic_info"
+            android:text="@string/tip_info" />
+
+        <com.threethan.launchercore.view.LcButton
+            android:id="@+id/variantLaunch"
+            style="@style/buttonHighlight"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:drawableEnd="@drawable/ic_launch_out"
+            android:text="@string/addons_open" />
+
+    </LinearLayout>
+
+    <com.threethan.launchercore.view.LcButton
+        android:id="@+id/variantTransfer"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:drawableEnd="@drawable/ic_more"
+        android:text="@string/transfer_to_variant" />
+
+
+</LinearLayout>

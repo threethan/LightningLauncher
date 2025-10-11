@@ -3,7 +3,10 @@ package com.threethan.launcher.data.sync;
 import android.app.Activity;
 import android.content.Context;
 
+import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.activity.support.DataStoreEditor;
+
+import kotlin.NotImplementedError;
 
 public abstract class SyncCoordinator {
 
@@ -46,5 +49,10 @@ public abstract class SyncCoordinator {
     public static DataStoreEditor getPerAppDataStore(Context context) {
         context = context.getApplicationContext();
         return new DataStoreEditor(context, "perApp");
+    }
+
+    public static void transferSettingsTo(LauncherActivity a, String packageName, boolean b) {
+        //TODO!!!!!
+        throw new NotImplementedError();
     }
 }

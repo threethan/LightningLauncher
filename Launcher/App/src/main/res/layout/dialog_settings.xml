@@ -144,6 +144,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/lc_bkg_button_top_left"
+                    android:drawableStart="@drawable/ic_edit"
+                    android:drawablePadding="10dp"
                     android:switchPadding="7dp"
                     android:text="@string/edit_mode"
                     android:tooltipText="@string/edit_mode_tip"
@@ -456,7 +458,6 @@
             </LinearLayout>
         </LinearLayout>
 
-
         <TextView
             style="@style/SettingSubtitle"
             android:layout_width="wrap_content"
@@ -465,27 +466,49 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
+            <com.threethan.launchercore.view.LcButton
+                android:id="@+id/topBarSettingsButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="2dp"
+                android:layout_weight="3"
+                android:background="@drawable/lc_bkg_button_left"
+                android:drawableEnd="@drawable/ic_dialog"
+                android:text="@string/customize_top_bar" />
 
             <com.threethan.launchercore.view.LcButton
                 android:id="@+id/advancedSettingsButton"
                 android:layout_width="0dp"
-                android:layout_weight="2"
-                android:layout_height="39dp"
-                android:layout_marginEnd="10dp"
-                android:text="@string/advanced_header"
-                android:drawableEnd="@drawable/ic_dialog" />
+                android:layout_height="match_parent"
+                android:layout_marginEnd="2dp"
+                android:layout_weight="3"
+                android:background="@drawable/lc_bkg_button_middle"
+                android:drawableEnd="@drawable/ic_dialog"
+                android:text="@string/advanced_header" />
 
             <com.threethan.launchercore.view.LcButton
                 android:id="@+id/refreshButton"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="39dp"
-                android:text="@string/refresh_button"
-                android:drawableEnd="@drawable/ic_refresh" />
+                android:layout_width="62dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0"
+                android:background="@drawable/lc_bkg_button_right"
+                android:drawableEnd="@drawable/ic_refresh"
+                android:tooltipText="@string/refresh_button"
+                tools:ignore="UnusedAttribute" />
         </LinearLayout>
+
+        <com.threethan.launchercore.view.LcButton
+            android:id="@+id/manageVariantsButton"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/lc_bkg_button_section"
+            android:drawableEnd="@drawable/ic_dialog"
+            android:text="@string/manage_variants" />
+
 
     </LinearLayout>
 </ScrollView>

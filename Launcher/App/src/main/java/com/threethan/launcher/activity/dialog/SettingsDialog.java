@@ -29,6 +29,7 @@ import com.threethan.launcher.helper.Compat;
 import com.threethan.launcher.helper.PlatformExt;
 import com.threethan.launcher.helper.PlaytimeHelper;
 import com.threethan.launcher.helper.SettingsSaver;
+import com.threethan.launcher.helper.VariantHelper;
 import com.threethan.launcher.updater.LauncherUpdater;
 import com.threethan.launchercore.Core;
 import com.threethan.launchercore.util.App;
@@ -45,7 +46,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.function.Consumer;
 
-/*
+/**
     SettingsDialog
 
     This class handles the main settings page, including setting/getting preferences, button states,
@@ -96,7 +97,7 @@ public class SettingsDialog extends BasicDialog<LauncherActivity> {
         if (!Platform.isVr() && !Platform.isTv() || !BuildConfig.FLAVOR.equals("metastore")) {
             addonsButton.setVisibility(View.GONE);
         } else {
-            addonsButton.setOnClickListener(view -> new AddonDialog(a).show());
+            addonsButton.setOnClickListener(view -> new AddonManagerDialog(a).show());
         }
         if (!a.dataStoreEditor.getBoolean(Settings.KEY_SEEN_ADDONS, false)
                 && (Platform.isVr() || Platform.isTv())) {
@@ -105,7 +106,7 @@ public class SettingsDialog extends BasicDialog<LauncherActivity> {
             addonsButton.setVisibility(View.GONE);
             addonsButtonAttract.setOnClickListener(view -> {
                 a.dataStoreEditor.putBoolean(Settings.KEY_SEEN_ADDONS, true);
-                new AddonDialog(a).show();
+                new AddonManagerDialog(a).show();
             });
         }
 
@@ -226,7 +227,11 @@ public class SettingsDialog extends BasicDialog<LauncherActivity> {
                     lastIndex = SettingsManager.BACKGROUND_DRAWABLES.length;
                 ImageView last = views[lastIndex];
 
-                if (index == views.length-1) a.showFilePicker(LauncherActivity.FilePickerTarget.WALLPAPER);
+                if (index == views.length-1) {
+                    if (!a.showFilePicker(LauncherActivity.FilePickerTarget.WALLPAPER)) {
+                        return;
+                    }
+                }
                 if (last == view) return;
 
                 ValueAnimator viewAnimator = ValueAnimator.ofInt(view.getWidth(), selectedWallpaperWidthPx);
@@ -299,6 +304,13 @@ public class SettingsDialog extends BasicDialog<LauncherActivity> {
             }
         }));
         margin.setMax(40);
+
+        // Variants button
+        if (VariantHelper.hasVariants(a)) {
+            dialog.findViewById(R.id.manageVariantsButton).setOnClickListener(view -> new VariantManagerDialog(a).show());
+        } else {
+            dialog.findViewById(R.id.manageVariantsButton).setVisibility(View.GONE);
+        }
 
         // Advanced button
         dialog.findViewById(R.id.advancedSettingsButton).setOnClickListener(view -> showAdvancedSettings());

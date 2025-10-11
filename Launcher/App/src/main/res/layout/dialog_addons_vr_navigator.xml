@@ -27,7 +27,10 @@
             android:paddingBottom="2dp"
             android:text="@string/addons_main_vr" />
 
+        <include layout="@layout/dialog_addons_vr_variant_switch_container" />
+
         <TextView
+            android:id="@+id/textView"
             style="@style/SettingSubtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

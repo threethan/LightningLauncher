@@ -6,11 +6,17 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public abstract class VariantHelper {
+    public static final String VARIANT_SIDELOAD = "com.threethan.launcher";
+    public static final String VARIANT_METASTORE = "com.threethan.launcher.metastore";
+    public static final String VARIANT_PLAYSTORE = "com.threethan.launcher.playstore";
+
     /** Potential variant package names */
     private static final List<String> variants = List.of(
-            "com.threethan.launcher",
-            "com.threethan.launcher.metastore",
-            "com.threethan.launcher.playstore");
+            VARIANT_SIDELOAD,
+            VARIANT_METASTORE,
+            VARIANT_PLAYSTORE);
+
+
 
     /** Get the package names of all variants which are present on the device,
      * excluding this one. */

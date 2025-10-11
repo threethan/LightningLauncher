@@ -28,6 +28,10 @@
             android:text="@string/addons_main_vr" />
 
 
+        <include
+            layout="@layout/dialog_addons_vr_variant_switch_container"
+            android:layout_width="match_parent" />
+
         <LinearLayout
             android:id="@+id/addToDockSuggest"
             android:layout_width="match_parent"

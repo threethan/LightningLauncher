@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/variantSwitchContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:showIn="@layout/dialog_addons_vr_navigator">
+
+    <com.threethan.launchercore.view.LcSwitch
+        android:id="@+id/variantSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+
+        android:background="@drawable/lc_bkg_button_top"
+        android:text="@string/shortcuts_open_this_variant">
+
+    </com.threethan.launchercore.view.LcSwitch>
+
+    <TextView
+        style="@style/SettingsText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:alpha="0.7"
+        android:background="@drawable/lc_bkg_button_bottom"
+        android:gravity="bottom|center"
+        android:minHeight="40sp"
+        android:text="@string/shortcuts_open_this_variant_details" />
+</LinearLayout>
