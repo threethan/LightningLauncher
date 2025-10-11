@@ -13,6 +13,8 @@ import android.os.BadParcelableException;
 import android.os.Build;
 import android.util.Log;
 
+import com.threethan.launcher.R;
+import com.threethan.launcher.helper.VariantHelper;
 import com.threethan.launchercore.Core;
 
 import java.lang.reflect.Method;
@@ -137,22 +139,29 @@ public abstract class Platform {
                     "com.meta.worlds",
                     "com.oculus.metacam"
             );
-    public static final Map<String, String> labelOverrides = new HashMap<>();
-    static {
-        labelOverrides.put("systemux://settings", "Quest Settings");
-        labelOverrides.put("systemux://aui-social-v2", "People");
-        labelOverrides.put("systemux://aui-people-blended", "Chats");
-        labelOverrides.put("systemux://events", "Events");
-        labelOverrides.put("systemux://file-manager", "File Manager");
-        labelOverrides.put("systemux://sharing", "Camera");
-        labelOverrides.put("builtin://apk-install", "APK Installer");
-        labelOverrides.put("builtin://tv-smart-home", "Smart Home");
-        labelOverrides.put("builtin://launcher-settings", "Launcher Settings");
-        labelOverrides.put("com.android.settings", "Android Settings");
-        labelOverrides.put("com.oculus.tv", "Meta Quest TV");
-        labelOverrides.put("com.oculus.systemutilities", "Quest Files");
-        labelOverrides.put("com.oculus.browser", "Browser");
-        labelOverrides.put("com.oculus.metacam", "Camera");
+    public static Map<String, String> labelOverridesCache;
+    public static Map<String, String> getLabelOverrides(Context context) {
+        if (labelOverridesCache == null) {
+            Map<String, String> labelOverrides = new HashMap<>();
+            labelOverrides.put("systemux://settings", context.getString(R.string.quest_settings));
+            labelOverrides.put("systemux://aui-social-v2", context.getString(R.string.quest_people));
+            labelOverrides.put("systemux://aui-people-blended", context.getString(R.string.quest_chats));
+            labelOverrides.put("systemux://events", context.getString(R.string.quest_events));
+            labelOverrides.put("systemux://file-manager", context.getString(R.string.quest_files));
+            labelOverrides.put("systemux://sharing", context.getString(R.string.quest_camera));
+            labelOverrides.put("builtin://apk-install", context.getString(R.string.util_apk_installer));
+            labelOverrides.put("builtin://tv-smart-home", context.getString(R.string.util_tv_smart_home));
+            labelOverrides.put("builtin://launcher-settings", context.getString(R.string.launcher_settings));
+            labelOverrides.put("com.android.settings", context.getString(R.string.android_settings));
+            labelOverrides.put("com.oculus.systemutilities", context.getString(R.string.quest_files));
+            labelOverrides.put("com.oculus.browser", context.getString(R.string.quest_browser));
+            labelOverrides.put("com.oculus.metacam", context.getString(R.string.quest_camera));
+            labelOverrides.put(VariantHelper.VARIANT_SIDELOAD, context.getString(R.string.variant_sideload));
+            labelOverrides.put(VariantHelper.VARIANT_METASTORE, context.getString(R.string.variant_metastore));
+            labelOverrides.put(VariantHelper.VARIANT_PLAYSTORE, context.getString(R.string.variant_playstore));
+            labelOverridesCache = labelOverrides;
+        }
+        return labelOverridesCache;
     }
     public static final Set<String> excludedPackageNames = new HashSet<>(Set.of(
             "android",

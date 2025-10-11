@@ -25,7 +25,7 @@
     <string name="allow_chain_launch_tip">Launches apps with a method similar to the Quest\'s default launcher.
         \nTurning this off will change how windows are organized, and could cause issues.</string>
 
-    <string name="icons_size">Scale</string>
+    <string name="icons_size">Size</string>
     <string name="icons_size_tip">Target size for icons/banners.\n<i>May vary with window size.</i></string>
     <string name="icons_margin">Margin</string>
     <string name="icons_margin_tip">Target spacing between icons/banners.\n<i>May vary with window size.</i></string>
@@ -55,7 +55,7 @@
     <string name="disp_name">Always Show Names</string>
     <string name="more_options">More Options</string>
     <string name="advanced_header">Advanced Settings</string>
-    <string name="refresh_button">Refresh</string>
+    <string name="refresh_button">Reload &amp; Refresh</string>
     <string name="advanced_interface">Interface</string>
     <string name="advanced_reset">Refresh &amp; Reset</string>
     <string name="advanced_launching">Launch Preferences</string>
@@ -197,10 +197,10 @@
 
 
     <string name="browser_default_tip">Select the app which will open websites you\'ve added to Lightning Launcher.</string>
-    <string name="new_label_duration_setting">Indicate\ \ ►Apps:</string>
-    <string name="new_label_duration_tip">Shows \ \ ►before the name of apps recently added to Lightning Launcher, and sorts them before other apps.</string>
+    <string name="new_label_duration_setting">Indicate\ \ ► &amp;\ ◄ Apps:</string>
+    <string name="new_label_duration_tip">Shows \ \ ► &amp; ◄ before the name of apps added or launched apps, and sorts them before other apps.</string>
     <string name="new_label_duration_zero">Never</string>
-    <string name="new_label_duration_template">For %d minutes</string>
+    <string name="new_label_duration_template">For up to %d minutes</string>
 
 
     <string name="edit_move">Move</string>
@@ -286,7 +286,7 @@
     <string name="tip_info_website">About Adding Websites</string>
 
     <string name="tip_uninstall">Uninstall / Remove</string>
-    <string name="tip_info">Android App Info</string>
+    <string name="tip_info">Open App Info</string>
     <string name="tip_charts">View Playtime Charts\nin <i>Quest Game Tuner</i></string>
 
     <string name="tip_save_settings">Backup All Settings &amp; Groupings</string>
@@ -408,4 +408,29 @@
     <string name="apk_installer_tip">Select an APK file to install</string>
 
     <string name="settings_workaround">Click <b>\"Open\"</b> in the info window to open Android Settings.</string>
+
+    <!-- Labels -->
+    <string name="shortcuts_open_this_variant">Shortcuts open this variant of Lightning Launcher</string>
+    <string name="shortcuts_open_this_variant_details">If you turn this off, shortcut services will attempt to open your other installation of Lighning Launcher.</string>
+    <string name="manage_variants">Manage Installed Variants &amp; Transfer Settings</string>
+    <string name="customize_top_bar">Customize\nTop Bar</string>
+    <string name="quest_settings">Quest Settings</string>
+    <string name="quest_people">People</string>
+    <string name="quest_chats">Chats</string>
+    <string name="quest_files">Quest Files</string>
+    <string name="quest_events">Events</string>
+    <string name="quest_camera">Camera</string>
+    <string name="util_apk_installer">APK Installer</string>
+    <string name="util_tv_smart_home">Smart Home</string>
+    <string name="launcher_settings">Launcher Settings</string>
+    <string name="android_settings">Android Settings</string>
+    <string name="quest_browser">Quest Browser</string>
+    <string name="variant_sideload">LL: Sideloaded Version</string>
+    <string name="variant_metastore">LL: Quest Store Version</string>
+    <string name="variant_playstore">LL: Google Play Version</string>
+    <string name="transfer_to_variant">Transfer Launcher Settings to this Variant</string>
+    <string name="variant_metastore_details">This version will appear in your Quest\'s native app library, but is missing a few special features.</string>
+    <string name="variant_playstore_details">This version can be installed and updated through Google Play on Google TV devices.</string>
+    <string name="variant_sideload_details">This version was installed from an APK or SideQuest. It may only show up under \"Unofficial Sources.\"</string>
+    <string name="manage_variants_details">You have multiple variants of Lightning Launcher installed. You can manage them from this menu.</string>
 </resources>

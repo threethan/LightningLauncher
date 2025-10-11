@@ -134,7 +134,7 @@ public class SettingsManager extends Settings {
      * @param onLabel Called on success with the label
      */
     private static void fetchLabelAsync(ApplicationInfo app, Consumer<String> onLabel) {
-        if (Platform.labelOverrides.containsKey(app.packageName)) return;
+        if (Platform.getLabelOverrides(Core.context()).containsKey(app.packageName)) return;
         new Thread(() -> {
             MetaMetadata.App appMeta = MetaMetadata.getForPackage(app.packageName);
             if (appMeta != null) {
@@ -181,8 +181,9 @@ public class SettingsManager extends Settings {
     private static @Nullable String processAppLabel(ApplicationInfo app, String name) {
         if (!name.isEmpty()) return name;
 
-        if (Platform.labelOverrides.containsKey(app.packageName))
-            return Platform.labelOverrides.get(app.packageName);
+        Context context = Core.context();
+        if (Platform.getLabelOverrides(context).containsKey(app.packageName))
+            return Platform.getLabelOverrides(context).get(app.packageName);
 
         if (App.isWebsite(app.packageName) || StringLib.isSearchUrl(app.packageName)) {
             try {
