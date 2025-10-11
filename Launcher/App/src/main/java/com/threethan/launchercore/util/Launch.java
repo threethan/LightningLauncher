@@ -29,7 +29,8 @@ public abstract class Launch {
      */
     @Nullable
     public static Intent getLaunchIntent(ApplicationInfo app) {
-        if (app.packageName.startsWith(Core.context().getPackageName())) return null;
+        if (app.packageName.startsWith("com.threethan.launcher.service")) return null;
+        if (app.packageName.equals(Core.context().getPackageName())) return null;
         if (Platform.excludedPackageNames.contains(app.packageName)) return null;
 
         if (app.packageName.equals("com.android.settings") && Platform.cantLaunchSettings()) {

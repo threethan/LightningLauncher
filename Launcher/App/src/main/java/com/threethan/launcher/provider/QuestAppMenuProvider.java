@@ -10,6 +10,7 @@ import android.os.ParcelFileDescriptor;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.threethan.launcher.BuildConfig;
 import com.threethan.launchercore.Core;
 
 import java.io.IOException;
@@ -52,6 +53,10 @@ public class QuestAppMenuProvider extends ContentProvider {
     @Nullable
     @Override
     public ParcelFileDescriptor openFile(@NonNull Uri uri, @NonNull String mode) {
+        //noinspection ConstantValue
+        if (BuildConfig.FLAVOR.equals("metastore")) {
+            return null;
+        }
         try (AssetFileDescriptor afd = Core.context().getAssets().openFd("thumb.png")){
             return ParcelFileDescriptor.dup(afd.createInputStream().getFD());
         } catch (IOException e) {

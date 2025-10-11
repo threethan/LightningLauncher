@@ -19,10 +19,4 @@
     </declare-styleable>
 
     <attr format="dimension" name="buttonCornerRadius"/>
-
-    <declare-styleable name="BatteryLevelView">
-        <attr name="batteryBackgroundColor" format="color|reference" />
-        <attr name="batteryProgressColor" format="color|reference" />
-        <attr name="batteryContrastColor" format="color|reference" />
-    </declare-styleable>
 </resources>

@@ -79,7 +79,7 @@
             android:id="@+id/playtimeSection"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="10dp"
             android:baselineAligned="false"
             android:gravity="clip_vertical|center_vertical"
             android:orientation="horizontal"
@@ -173,8 +173,7 @@
             android:clipToPadding="false"
             android:gravity="center"
             android:paddingEnd="2dp"
-            tools:ignore="RtlSymmetry,UnusedAttribute"
-            android:tooltipText="@string/new_label_duration_tip">
+            tools:ignore="RtlSymmetry,UnusedAttribute">
 
             <TextView
                 style="@style/SettingsText"

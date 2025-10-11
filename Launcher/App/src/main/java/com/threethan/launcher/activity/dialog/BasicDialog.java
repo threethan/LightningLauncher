@@ -6,7 +6,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.Paint;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -95,6 +94,19 @@ public class BasicDialog<T extends Context> extends AbstractDialog<T> {
         toast(string, "", false);
     }
 
+    // Custom dialog that catches exceptions on dismiss
+    protected static class ToastDialog extends AlertDialog {
+        protected ToastDialog(Context context) {
+            super(context);
+        }
+
+        @Override
+        public void dismiss() {
+            try {
+                super.dismiss();
+            } catch (Exception ignored) {}
+        }
+    }
     public static void toast(CharSequence stringMain, CharSequence stringBold, boolean isLong) {
         if (Core.context() == null) return;
         Log.d("Toast", stringMain + " " + stringBold);
@@ -118,10 +130,10 @@ public class BasicDialog<T extends Context> extends AbstractDialog<T> {
             textMain.setText(stringMain);
             textBold.setText(stringBold);
 
-            AlertDialog dialog = new AlertDialog.Builder(LauncherActivity.getForegroundInstance())
-                    .setView(layout)
-                    .setCancelable(true)
-                    .create();
+            AlertDialog dialog = new ToastDialog(LauncherActivity.getForegroundInstance());
+            dialog.setView(layout);
+            dialog.setCancelable(true);
+
             Window window = dialog.getWindow();
             if (window == null) return;
             window.setBackgroundDrawableResource(android.R.color.transparent);

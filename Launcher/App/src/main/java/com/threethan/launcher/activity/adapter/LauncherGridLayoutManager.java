@@ -7,6 +7,9 @@ import android.util.Log;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.threethan.launcher.BuildConfig;
+import com.threethan.launcher.activity.dialog.BasicDialog;
+
 /**
  * Extends GridLayoutManager to prefetch more aggressively,
  * and to scroll to a target position even as data changes
@@ -50,6 +53,17 @@ public class LauncherGridLayoutManager extends GridLayoutManager {
             while (lastVisiblePosition != RecyclerView.NO_POSITION && lastVisiblePosition + 1 < itemCount) {
                 layoutPrefetchRegistry.addPosition(++lastVisiblePosition, lastVisiblePosition * 50 + 5000);
             }
+        }
+    }
+
+    @Override
+    public int scrollVerticallyBy(int dy, RecyclerView.Recycler recycler, RecyclerView.State state) {
+        try {
+            return super.scrollVerticallyBy(dy, recycler, state);
+        } catch (IllegalArgumentException e) {
+            Log.e("RecyclerViewFix", "Ignoring known IllegalArgumentException", e);
+            if (BuildConfig.DEBUG) BasicDialog.toast("RecyclerView scroll error ignored");
+            return 0;
         }
     }
 }

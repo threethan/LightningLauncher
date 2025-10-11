@@ -43,12 +43,14 @@ import com.threethan.launcher.activity.adapter.LauncherGridLayoutManager;
 import com.threethan.launcher.activity.dialog.AppDetailsDialog;
 import com.threethan.launcher.activity.dialog.BasicDialog;
 import com.threethan.launcher.activity.dialog.SettingsDialog;
+import com.threethan.launcher.activity.support.SortHandler;
 import com.threethan.launcher.activity.support.WallpaperLoader;
 import com.threethan.launcher.activity.support.DataStoreEditor;
 import com.threethan.launcher.activity.support.SettingsManager;
+import com.threethan.launcher.activity.view.SortCycler;
 import com.threethan.launcher.data.sync.SyncCoordinator;
 import com.threethan.launcher.helper.LaunchExt;
-import com.threethan.launcher.status.view.StatusAdaptableView;
+import com.threethan.launcher.activity.view.status.StatusAdaptableView;
 import com.threethan.launchercore.view.LcBlurCanvas;
 import com.threethan.launcher.activity.view.MarginDecoration;
 import com.threethan.launcher.data.Settings;
@@ -131,10 +133,12 @@ public class LauncherActivity extends Launch.LaunchingActivity {
     }
 
     /** Notify necessary components that an app has changed (eg. label update) */
-    public void notifyAppChanged(ApplicationInfo app) {
+    public void notifyAppChanged(ApplicationInfo app, boolean maybeEffectsStandardSort) {
         LauncherAppsAdapter adapter = getAppAdapter();
         if (adapter != null) {
-            adapter.setAppList(this);
+            if ((maybeEffectsStandardSort && getCurrentSortMode().equals(SortHandler.SortMode.STANDARD))
+                    || getCurrentSortMode().equals(SortHandler.SortMode.RECENTLY_USED))
+                adapter.setAppList(this);
             adapter.notifyItemChanged(app);
         }
     }
@@ -271,6 +275,22 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         rootView.findViewById(R.id.blurViewSettingsIcon).setOnClickListener(view -> {
             if (!settingsVisible) new SettingsDialog(this).show();
         });
+
+        // Sort modes
+        SortCycler sortCycler = rootView.findViewById(R.id.sortCycler);
+        sortCycler.cycleTo(getCurrentSortMode());
+
+        sortCycler.setOnCycledListener(mode -> {
+            int newIndex = mode.ordinal();
+            dataStoreEditor.putInt(Settings.KEY_SORT, newIndex);
+            if (getAppAdapter() != null) {
+                getAppAdapter().setSortMode(mode);
+                String displayText = mode.getDisplayText(this);
+                BasicDialog.toast(displayText);
+            }
+        });
+
+        rootView.findViewById(R.id.blurViewSortIcon).setOnClickListener(v -> sortCycler.cycleNext());
     }
 
     protected void onLayoutChanged(View ignoredV, int ignoredLeft, int ignoredTop, int right, int bottom,
@@ -509,7 +529,20 @@ public class LauncherActivity extends Launch.LaunchingActivity {
             });
         }
 
+        if (sortView.getVisibility() != View.VISIBLE) {
+            if (getAppAdapter() != null) getAppAdapter().setSortMode(getCurrentSortMode());
+        }
+
         post(() -> { if (needsUpdateCleanup) Compat.doUpdateCleanup(this); });
+    }
+
+    /** Gets the current sort mode for the apps list */
+    private SortHandler.SortMode getCurrentSortMode() {
+        boolean sortVisible = dataStoreEditor.getBoolean(Settings.KEY_SHOW_SORT, Settings.DEFAULT_SHOW_SORT);
+        if (!sortVisible) return SortHandler.SortMode.STANDARD;
+        int sortIndex = dataStoreEditor.getInt(Settings.KEY_SORT, Settings.DEFAULT_SORT);
+        SortHandler.SortMode[] values = SortHandler.SortMode.values();
+        return values[sortIndex % values.length];
     }
 
     public int lastSelectedGroup;
@@ -589,6 +622,9 @@ public class LauncherActivity extends Launch.LaunchingActivity {
             getAppAdapter().setAppList(this);
         }
         getAppAdapter().setContainer(findViewById(R.id.appsContainer));
+
+        // Apply sort mode
+        getAppAdapter().setSortMode(getCurrentSortMode());
     }
 
 

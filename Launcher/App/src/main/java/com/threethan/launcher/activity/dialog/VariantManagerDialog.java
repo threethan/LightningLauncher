@@ -6,13 +6,13 @@ import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 
+import com.threethan.launcher.BuildConfig;
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.data.sync.SyncCoordinator;
 import com.threethan.launcher.helper.AppExt;
 import com.threethan.launcher.helper.LaunchExt;
 import com.threethan.launcher.helper.VariantHelper;
-import com.threethan.launchercore.util.Platform;
 
 /**
  * Dialog for managing different app variants.
@@ -58,6 +58,12 @@ public class VariantManagerDialog extends BasicDialog<LauncherActivity> {
             view.setVisibility(View.VISIBLE);
 
             ViewGroup buttons = view.findViewById(R.id.variantButtons);
+
+            if (BuildConfig.APPLICATION_ID.equals(packageName)) {
+                buttons.setVisibility(View.GONE);
+                view.findViewById(R.id.variantCurrent).setVisibility(View.VISIBLE);
+            }
+
             buttons.findViewById(R.id.variantInfo).setOnClickListener(v -> AppExt.openInfo(a, packageName));
             buttons.findViewById(R.id.variantLaunch).setOnClickListener(v -> LaunchExt.launchApp(a, AppExt.infoFor(packageName)));
 

@@ -1,4 +1,4 @@
-package com.threethan.launcher.status.view;
+package com.threethan.launcher.activity.view.status;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

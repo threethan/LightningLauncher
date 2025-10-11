@@ -73,8 +73,23 @@
                     android:padding="0dp"
                     android:text="@string/variant_metastore" />
 
-            </LinearLayout>
+                <TextView
+                    android:id="@+id/variantCurrent"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|start"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="7dp"
+                    android:paddingVertical="3dp"
+                    android:background="#FFF"
+                    android:drawableTint="#000"
+                    android:drawablePadding="5dp"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:text="@string/current" />
 
+            </LinearLayout>
 
             <include
                 android:id="@+id/variantButtons"
@@ -128,7 +143,22 @@
                     android:gravity="center|start"
                     android:padding="0dp"
                     android:text="@string/variant_playstore" />
-
+                <TextView
+                    android:id="@+id/variantCurrent"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|start"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="7dp"
+                    android:paddingVertical="3dp"
+                    android:background="#FFF"
+                    android:drawableTint="#000"
+                    android:drawablePadding="5dp"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:text="@string/current"
+                    tools:ignore="DuplicateIds" />
             </LinearLayout>
 
 
@@ -184,7 +214,22 @@
                     android:gravity="center|start"
                     android:padding="0dp"
                     android:text="@string/variant_sideload" />
-
+                <TextView
+                    android:id="@+id/variantCurrent"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|start"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="7dp"
+                    android:paddingVertical="3dp"
+                    android:background="#FFF"
+                    android:drawableTint="#000"
+                    android:drawablePadding="5dp"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:text="@string/current"
+                    tools:ignore="DuplicateIds" />
             </LinearLayout>
 
             <include

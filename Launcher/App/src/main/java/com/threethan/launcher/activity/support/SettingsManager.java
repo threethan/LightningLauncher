@@ -116,7 +116,7 @@ public class SettingsManager extends Settings {
         Consumer<String> mOnLabel = label -> {
             final boolean isStar = StringLib.hasPreChar(label, StringLib.STAR);
             final boolean isRecent = false; //isRecentlyLaunchedPackage(app.packageName);
-            label = StringLib.setPreChar(label, StringLib.RECENT, isRecent && !isStar);
+//            label = StringLib.setPreChar(label, StringLib.RECENT, isRecent && !isStar);
             label = StringLib.setPreChar(label, StringLib.NEW, !isRecent && !isStar
                     && isNewlyAddedPackage(app.packageName));
             onLabel.accept(label);
@@ -159,14 +159,12 @@ public class SettingsManager extends Settings {
 
         final String base = getAppLabel(app);
         final boolean isStarred = StringLib.hasPreChar(base, StringLib.STAR);
-        final boolean isRecent = !isStarred && isRecentlyLaunchedPackage(app.packageName);
-        final boolean isNew = !isStarred && !isRecent && isNewlyAddedPackage(app.packageName);
-        final boolean banner = SettingsManager.getAppIsBanner(app);
+        final boolean isNew = isNewlyAddedPackage(app.packageName);
 
-        if (!isStarred && !banner && !isNew && !isRecent) return base;
+        if (!isStarred && !isNew) return base;
 
         final char[] rv = new char[base.length() + 1];
-        rv[0] = banner ? (isStarred ? '\0' : (isNew ? '\2' : (isRecent ? '\1' : '\3'))) : (isStarred ? '\4' : (isRecent ? '\5' : '\6'));
+        rv[0] = isStarred ? '\1' : '\2'; // Starred first, then new
         base.getChars(0, base.length(), rv, 1);
         return new String(rv);
     }
@@ -220,7 +218,7 @@ public class SettingsManager extends Settings {
         dataStoreEditorPerApp.putString(app.packageName, newName);
         if (LauncherActivity.getForegroundInstance() != null)
             LauncherActivity.getForegroundInstance().launcherService
-                    .forEachActivity(li -> li.notifyAppChanged(app));
+                    .forEachActivity(li -> li.notifyAppChanged(app, true));
     }
 
     public static boolean getAppLaunchOut(String pkg) {
@@ -275,7 +273,7 @@ public class SettingsManager extends Settings {
      * @return Apps which should be shown
      */
     public List<ApplicationInfo>
-    getVisibleAppsSorted(List<String> selectedGroups, Collection<ApplicationInfo> allApps) {
+    getVisibleApps(List<String> selectedGroups, Collection<ApplicationInfo> allApps) {
         // Get list of installed apps
         Map<String, Set<String>> gam = getGroupAppsMap();
 
@@ -321,12 +319,6 @@ public class SettingsManager extends Settings {
         currentApps.removeIf(Objects::isNull);
         currentApps.removeIf(app -> Platform.excludedPackageNames.contains(app.packageName));
 
-        // Must be set here, else labels might async load during sort which causes issues
-        Map<ApplicationInfo, String> labels = new HashMap<>();
-        currentApps.forEach(app -> labels.put(app, SettingsManager.getSortableAppLabel(app)));
-
-        currentApps.sort(Comparator.comparing(labels::get));
-        // Sort Done!
         return currentApps;
     }
 
@@ -343,30 +335,18 @@ public class SettingsManager extends Settings {
         // Get newly added apps and remove them if not-so-new anymore
         Set<String> newlyAddedApps = dataStoreEditorPerApp.getStringSet(Settings.KEY_NEWLY_ADDED, new HashSet<>());
         Set<String> recentlyLaunched = dataStoreEditorPerApp.getStringSet(Settings.KEY_RECENTLY_LAUNCHED, new HashSet<>());
-        long finalBaseline = baseline;
         long newLabelDurationMs
                 = dataStoreEditorPerApp.getInt(Settings.KEY_TAG_MAX_DURATION,
                 Settings.DEFAULT_KEY_TAG_MAX_DURATION) * 60 * 1000L * 2 / (1L + newlyAddedApps.size() + recentlyLaunched.size());
-        // Divide by number of newly added apps to avoid too many "new" apps at once
 
-        newlyAddedApps.forEach(pkgName -> {
-            long t0 = dataStoreEditorPerApp.getLong(Settings.PREF_NEWLY_ADDED_TIME+pkgName, 0);
-            if (t0 < System.currentTimeMillis() - newLabelDurationMs || t0 < finalBaseline)
-                dataStoreEditorPerApp.putLong(Settings.PREF_NEWLY_ADDED_TIME+pkgName, -1);
-        });
-        recentlyLaunched.forEach(pkgName -> {
-            long t0 = dataStoreEditorPerApp.getLong(Settings.PREF_RECENTLY_LAUNCHED_TIME+pkgName, 0);
-            if (t0 < System.currentTimeMillis() - newLabelDurationMs || t0 < finalBaseline)
-                dataStoreEditorPerApp.putLong(Settings.PREF_RECENTLY_LAUNCHED_TIME+pkgName, -1);
-        });
-        newlyAddedApps.removeIf(pkgName -> {
-            long t0 = dataStoreEditorPerApp.getLong(Settings.PREF_NEWLY_ADDED_TIME+pkgName, 0);
-            return t0 < 0;
-        });
-        recentlyLaunched.removeIf(pkgName -> {
-            long t0 = dataStoreEditorPerApp.getLong(Settings.PREF_RECENTLY_LAUNCHED_TIME+pkgName, 0);
-            return t0 < 0;
-        });
+        if (!newlyAddedApps.isEmpty()) {
+            long addedTimeThresh = System.currentTimeMillis() - newLabelDurationMs / newlyAddedApps.size();
+            newlyAddedApps.removeIf(pkgName -> getAppAddedTime(pkgName) < addedTimeThresh);
+        }
+        if (!recentlyLaunched.isEmpty()) {
+            long launchedTimeThresh = System.currentTimeMillis() - newLabelDurationMs / recentlyLaunched.size();
+            recentlyLaunched.removeIf(pkgName -> getAppLastLaunchedTime(pkgName) < launchedTimeThresh);
+        }
 
         newlyAddedAppsInternalCache = newlyAddedApps;
         recentlyLaunchedAppsInternalCache = recentlyLaunched;
@@ -378,16 +358,6 @@ public class SettingsManager extends Settings {
                 || newlyAddedAppsInternalCache.contains(packageName)) {
              getNewlyAddedAndRecentlyLaunchedApps();
              return newlyAddedAppsInternalCache.contains(packageName);
-        }
-        else return false;
-    }
-
-    /** Check if a package should display the "RECENT" label */
-    private static boolean isRecentlyLaunchedPackage(String packageName) {
-        if (recentlyLaunchedAppsInternalCache == null
-                || recentlyLaunchedAppsInternalCache.contains(packageName)) {
-            getNewlyAddedAndRecentlyLaunchedApps();
-            return recentlyLaunchedAppsInternalCache.contains(packageName);
         }
         else return false;
     }
@@ -405,10 +375,7 @@ public class SettingsManager extends Settings {
         if (recentlyLaunchedAppsInternalCache == null) getNewlyAddedAndRecentlyLaunchedApps();
         recentlyLaunchedAppsInternalCache.add(app.packageName);
         dataStoreEditorPerApp.putStringSet(Settings.KEY_RECENTLY_LAUNCHED, recentlyLaunchedAppsInternalCache);
-        dataStoreEditorPerApp.putLong(Settings.PREF_RECENTLY_LAUNCHED_TIME+app.packageName, System.currentTimeMillis());
-        if (LauncherActivity.getForegroundInstance() != null)
-            LauncherActivity.getForegroundInstance().launcherService
-                    .forEachActivity(li -> li.notifyAppChanged(app));
+        dataStoreEditorPerApp.putLong(Settings.PREF_LAST_LAUNCHED_TIME +app.packageName, System.currentTimeMillis());
     }
 
     /**
@@ -709,5 +676,12 @@ public class SettingsManager extends Settings {
         } else {
             return forcedBannerApps.contains(app.packageName);
         }
+    }
+
+    public static Long getAppLastLaunchedTime(String packageName) {
+        return dataStoreEditorPerApp.getLong(Settings.PREF_LAST_LAUNCHED_TIME +packageName, 0);
+    }
+    public static Long getAppAddedTime(String packageName) {
+        return dataStoreEditorPerApp.getLong(Settings.PREF_NEWLY_ADDED_TIME+packageName, 0);
     }
 }

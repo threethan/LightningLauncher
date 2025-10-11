@@ -13,7 +13,9 @@
         android:layout_width="match_parent"
         android:layout_height="39dp"
         android:orientation="vertical"
-        android:padding="20dp"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="17dp"
+        android:paddingBottom="15dp"
         android:clipToPadding="false">
 
         <View
@@ -66,13 +68,33 @@
             android:layout_width="match_parent"
             android:layout_height="100dp" />
 
-        <TextView
-            style="@style/SettingSubtitle"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:paddingTop="5dp"
-            android:text="@string/behavior_header" />
+            android:layout_height="wrap_content">
+            <TextView
+                style="@style/SettingSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:paddingTop="5dp"
+                android:text="@string/behavior_header" />
+            <com.threethan.launchercore.view.LcSwitch
+                android:id="@+id/multitaskSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:gravity="end"
+                android:ellipsize="end"
+                android:layout_marginBottom="5dp"
+                android:background="@android:color/transparent"
+                android:scaleX="0.85"
+                android:scaleY="0.85"
+                android:layout_marginEnd="-6dp"
+                android:switchPadding="5dp"
+                android:text="@string/new_multitasking"
+                android:tooltipText="@string/new_multitasking_tip"
+                tools:ignore="UnusedAttribute" />
+        </FrameLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -142,8 +164,8 @@
                     android:id="@+id/editModeSwitch"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/lc_bkg_button_top_left"
+                    android:layout_weight="3"
+                    android:background="@drawable/lc_bkg_button_section"
                     android:drawableStart="@drawable/ic_edit"
                     android:drawablePadding="10dp"
                     android:switchPadding="7dp"
@@ -155,8 +177,8 @@
                     android:id="@+id/addWebsiteButton"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/lc_bkg_button_top_left"
+                    android:layout_weight="3"
+                    android:background="@drawable/lc_bkg_button_section"
                     android:drawableStart="@drawable/ic_add"
                     android:drawablePadding="5dp"
                     android:paddingStart="5dp"
@@ -172,9 +194,9 @@
                     style="@style/buttonHighlight"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="2dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/lc_bkg_button_top_right"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/lc_bkg_button_section"
                     android:drawableEnd="@drawable/ic_dialog"
                     android:text="@string/settings_addons_attract"
                     android:tooltipText="@string/settings_addons_tip"
@@ -185,9 +207,9 @@
                     android:id="@+id/addonsButton"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="2dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/lc_bkg_button_top_right"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/lc_bkg_button_section"
                     android:drawableEnd="@drawable/ic_dialog"
                     android:text="@string/settings_addons"
                     android:tooltipText="@string/settings_addons_tip"
@@ -196,16 +218,7 @@
             </LinearLayout>
 
 
-            <com.threethan.launchercore.view.LcSwitch
-                android:id="@+id/multitaskSwitch"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:background="@drawable/lc_bkg_button_bottom"
-                android:switchPadding="7dp"
-                android:text="@string/new_multitasking"
-                android:tooltipText="@string/new_multitasking_tip"
-                tools:ignore="UnusedAttribute" />
+
         </LinearLayout>
 
         <FrameLayout
@@ -216,19 +229,21 @@
                 style="@style/SettingSubtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="5dp"
                 android:text="@string/background_header" />
 
             <com.threethan.launchercore.view.LcSwitch
                 android:id="@+id/darkModeSwitch"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
+                android:gravity="end"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|end"
                 android:layout_marginBottom="5dp"
+                android:ellipsize="end"
                 android:background="@android:color/transparent"
                 android:scaleX="0.85"
                 android:scaleY="0.85"
-                android:switchPadding="7dp"
+                android:switchPadding="5dp"
+                android:layout_marginEnd="-4dp"
                 android:text="@string/dark_mode"
                 tools:ignore="UnusedAttribute,UseSwitchCompatOrMaterialXml"
                 android:tooltipText="@string/dark_mode_tip"/>
@@ -467,6 +482,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="62dp"
             android:orientation="horizontal">
 
             <com.threethan.launchercore.view.LcButton
@@ -483,9 +499,9 @@
                 android:id="@+id/advancedSettingsButton"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginEnd="2dp"
+                android:layout_marginEnd="10dp"
                 android:layout_weight="3"
-                android:background="@drawable/lc_bkg_button_middle"
+                android:background="@drawable/lc_bkg_button_right"
                 android:drawableEnd="@drawable/ic_dialog"
                 android:text="@string/advanced_header" />
 
@@ -494,8 +510,9 @@
                 android:layout_width="62dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0"
-                android:background="@drawable/lc_bkg_button_right"
-                android:drawableEnd="@drawable/ic_refresh"
+                android:background="@drawable/lc_bkg_button_section"
+                android:foreground="@drawable/ic_refresh"
+                android:foregroundGravity="center"
                 android:tooltipText="@string/refresh_button"
                 tools:ignore="UnusedAttribute" />
         </LinearLayout>
@@ -508,7 +525,5 @@
             android:background="@drawable/lc_bkg_button_section"
             android:drawableEnd="@drawable/ic_dialog"
             android:text="@string/manage_variants" />
-
-
     </LinearLayout>
 </ScrollView>

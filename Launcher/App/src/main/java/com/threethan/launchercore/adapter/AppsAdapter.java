@@ -186,14 +186,15 @@ public class AppsAdapter<VH extends AppsAdapter.AppViewHolder>
             }
 
             App.getLabel(app, label
-                    -> holder.textView.post(() -> {
-                if (holder.app == app) holder.textView.setText(label);
-                else AppsAdapter.runOnEachInstance(a -> a.notifyItemChanged(app));
-            }));
+                    -> {
+                if (holder.textView != null) holder.textView.post(() -> {
+                    if (holder.app == app) holder.textView.setText(label);
+                    else AppsAdapter.runOnEachInstance(a -> a.notifyItemChanged(app));
+            });});
 
             //Load Icon
             IconLoader.loadIcon(holder.app, drawable -> {
-                if (holder.app == app) onIconChanged(holder, drawable);
+                if (holder.app == app || holder.imageView == null) onIconChanged(holder, drawable);
                 else {
                     holder.imageView.post(() ->
                             AppsAdapter.runOnEachInstance(a -> a.notifyItemChanged(position)));

@@ -1,10 +1,9 @@
 package com.threethan.launcher.activity.adapter;
 
 import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
 import android.content.pm.ApplicationInfo;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +23,7 @@ import com.threethan.launcher.R;
 import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.activity.dialog.AppDetailsDialog;
 import com.threethan.launcher.activity.support.SettingsManager;
+import com.threethan.launcher.activity.support.SortHandler;
 import com.threethan.launcher.activity.view.LauncherAppListContainer;
 import com.threethan.launcher.data.Settings;
 import com.threethan.launcher.helper.LaunchExt;
@@ -55,6 +55,7 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
     private Set<ApplicationInfo> fullAppSet;
     protected ApplicationInfo topSearchResult = null;
     private LauncherAppListContainer container;
+    private SortHandler.SortMode sortMode = SortHandler.SortMode.STANDARD;
 
     private boolean getEditMode() {
         return launcherActivity.isEditing();
@@ -67,14 +68,21 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
     public void setFullAppSet(Set<ApplicationInfo> myApps) {
         fullAppSet = myApps;
     }
+
+    public synchronized void setSortMode(SortHandler.SortMode mode) {
+        if (mode == sortMode) return;
+        sortMode = mode;
+        setAppList(launcherActivity);
+    }
     public synchronized void setAppList(LauncherActivity activity) {
         SettingsManager settingsManager = SettingsManager.getInstance(activity);
         launcherActivity = activity;
 
         topSearchResult = null;
         prevFilterText = "";
-        setFullItems(Collections.unmodifiableList(settingsManager
-                .getVisibleAppsSorted(settingsManager.getAppGroupsSorted(true), fullAppSet)));
+        setFullItems(Collections.unmodifiableList(new SortHandler(settingsManager)
+                .getVisibleAppsSorted(settingsManager.getAppGroupsSorted(true), fullAppSet,
+                        sortMode)));
     }
 
     private static String prevFilterText = "";
@@ -96,9 +104,9 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
 
 
         final List<ApplicationInfo> newItems = reList ?
-                settingsManager.getVisibleAppsSorted(
+                new SortHandler(settingsManager).getVisibleAppsSorted(
                         settingsManager.getAppGroupsSorted(false),
-                        fullAppSet) : new ArrayList<>(getCurrentList());
+                        fullAppSet, SortHandler.SortMode.SEARCH) : new ArrayList<>(getCurrentList());
 
         newItems.removeIf(new SortableFilterPredicate(text).negate());
 
@@ -176,7 +184,8 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
                 boolean selected = launcherActivity.selectApp(holder.app.packageName);
                 holder.view.animate().alpha(selected ? 0.5f : 1).setDuration(150).start();
             } else {
-                if (LaunchExt.launchApp(launcherActivity, holder.app)) animateOpen(holder);
+                boolean fullAnimation = LaunchExt.launchApp(launcherActivity, holder.app);
+                animateOpen(holder, fullAnimation);
             }
         });
         holder.view.setOnLongClickListener(view -> {
@@ -346,7 +355,7 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
 
     // Animation
 
-    private void animateOpen(AppViewHolderExt holder) {
+    private void animateOpen(AppViewHolderExt holder, boolean fullAnimation) {
         try {
             int[] l = new int[2];
             int[] lw = new int[2];
@@ -359,31 +368,42 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
             int h = holder.imageView.getHeight();
 
             View openAnim = launcherActivity.rootView.findViewById(R.id.openAnim);
-            openAnim.setX(l[0] + (Platform.isTv() ? 30 : 3));
-            openAnim.setY(l[1] + (Platform.isTv() ? 30 : 3));
+
+            ImageView openIcon = openAnim.findViewById(R.id.openIcon);
+            openIcon.setImageDrawable(holder.imageView.getDrawable());
+            openIcon.setAlpha(1F);
+            openAnim.setScaleX(holder.imageView.getScaleX());
+            openAnim.setScaleY(holder.imageView.getScaleY());
+            openAnim.setX(l[0]);
+            openAnim.setY(l[1]);
             ViewGroup.LayoutParams layoutParams = new FrameLayout.LayoutParams(w, h);
             openAnim.setLayoutParams(layoutParams);
 
             openAnim.setVisibility(View.VISIBLE);
             openAnim.setAlpha(1F);
             openAnim.setClipToOutline(true);
-            openAnim.setScaleX(Platform.isTv() ? 1.40F : 1.15F);
-            openAnim.setScaleY(Platform.isTv() ? 1.40F : 1.15F);
 
-            ImageView animIcon = openAnim.findViewById(R.id.openIcon);
-            animIcon.setImageDrawable(holder.imageView.getDrawable());
 
-            ObjectAnimator aX = ObjectAnimator.ofFloat(openAnim, "ScaleX", 100f);
-            ObjectAnimator aY = ObjectAnimator.ofFloat(openAnim, "ScaleY", 100f);
-            ObjectAnimator aA = ObjectAnimator.ofFloat(animIcon, "Alpha", 0f);
-            aX.setDuration(800);
-            aY.setDuration(800);
-            aA.setDuration(400);
+            ObjectAnimator aX = ObjectAnimator.ofFloat(openAnim, "ScaleX", fullAnimation ? 50f : 3f);
+            ObjectAnimator aY = ObjectAnimator.ofFloat(openAnim, "ScaleY", fullAnimation ? 50f : 3f);
+            @SuppressLint("ObjectAnimatorBinding")
+            ObjectAnimator aA = ObjectAnimator.ofFloat(fullAnimation ? openIcon : openAnim, "Alpha", 0f);
+            aX.setDuration(fullAnimation ? 800 : 300);
+            aY.setDuration(fullAnimation ? 800 : 300);
+            aA.setDuration(fullAnimation ? 400 : 300);
             aX.start();
             aY.start();
             aA.start();
 
-            openAnim.postDelayed(() -> openAnim.setVisibility(View.GONE), 1000);
+            ObjectAnimator aFade = ObjectAnimator.ofFloat(openAnim, "Alpha", 0f);
+            aFade.setStartDelay(400);
+            aFade.setDuration(400);
+            aFade.start();
+
+            openAnim.postDelayed(() -> {
+                openAnim.setVisibility(View.GONE);
+                openIcon.setImageDrawable(null);
+            }, 1000);
         } catch (Exception ignored) {}
     }
     public static void animateClose(LauncherActivity launcherActivity) {

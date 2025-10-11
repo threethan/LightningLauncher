@@ -16,9 +16,9 @@
     <string name="force_untranslated_tip">Force Lightning Launcher to be in English.\n(Do not translate to your language.)</string>
 
     <string name="edit_mode">Edit Mode</string>
-    <string name="edit_mode_tip">Change groups, add websites, and more.</string>
+    <string name="edit_mode_tip" translatable="false">Change groups, add websites, and more.</string>
 
-    <string name="new_multitasking">Close Launcher window after opening apps</string>
+    <string name="new_multitasking">Close after Launch</string>
     <string name="new_multitasking_tip">If enabled, Lightning Launcher will close itself when you open an app.</string>
 
     <string name="allow_chain_launch">Use Quest Native Launching</string>
@@ -55,7 +55,7 @@
     <string name="disp_name">Always Show Names</string>
     <string name="more_options">More Options</string>
     <string name="advanced_header">Advanced Settings</string>
-    <string name="refresh_button">Reload &amp; Refresh</string>
+    <string name="refresh_button">Full Reload &amp; Refresh</string>
     <string name="advanced_interface">Interface</string>
     <string name="advanced_reset">Refresh &amp; Reset</string>
     <string name="advanced_launching">Launch Preferences</string>
@@ -71,7 +71,7 @@
     <string name="dark_mode">Dark Mode</string>
     <string name="dark_mode_tip">If on, labels will appear white on a dark background.</string>
     <string name="enable_groups">Enable Groups</string>
-    <string name="enable_groups_tip">Turn this off to show all apps at once, without grouping.\nGroups will still show in Edit Mode when disabled.</string>
+    <string name="enable_groups_tip">Turn this off to show all apps at once, without grouping.</string>
     <string name="group_wide">Wider Groups</string>
     <string name="group_wide_tip">Increases the minimum width of group buttons,
         \nensuring longer names don\'t get cut off.
@@ -194,8 +194,7 @@
 
 
     <string name="browser_default_tip">Select the app which will open websites you\'ve added to Lightning Launcher.</string>
-    <string name="new_label_duration_setting">Indicate\ \ ► &amp;\ ◄ Apps:</string>
-    <string name="new_label_duration_tip">Shows \ \ ► &amp; ◄ before the name of apps added or launched apps, and sorts them before other apps.</string>
+    <string name="new_label_duration_setting">Indicate\ \ ► Apps:</string>
     <string name="new_label_duration_zero">Never</string>
     <string name="new_label_duration_template">For up to %d minutes</string>
 
@@ -430,7 +429,17 @@
     <string name="variant_playstore_details">This version can be installed and updated through Google Play on Google TV devices.</string>
     <string name="variant_sideload_details">This version was installed from an APK or SideQuest. It may only show up under \"Unofficial Sources.\"</string>
     <string name="manage_variants_details">You have multiple variants of Lightning Launcher installed. You can manage them from this menu.</string>
+
+    <!-- Default Groups -->
     <string name="default_group_2d">Apps</string>
     <string name="default_group_vr">Games</string>
     <string name="default_group_media">Media</string>
+
+    <!-- Sort Mode -->
+    <string name="sort_standard">Standard Sorting</string>
+    <string name="sort_recently_used">Sorting by Recently Used</string>
+    <string name="sort_recently_installed">Sorting by Recently Installed</string>
+    <string name="sort_recently_used_no_perm">Sorting by Recently Launched</string>
+    <string name="sort_recently_installed_no_perm">Sorting by Recently Added</string>
+    <string name="current">★ Current</string>
 </resources>

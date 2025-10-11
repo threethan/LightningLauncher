@@ -173,9 +173,9 @@ public abstract class Settings {
     public static final String KEY_NEWLY_ADDED = "KEY_NEWLY_ADDED";
     public static final String KEY_RECENTLY_LAUNCHED = "KEY_RECENTLY_LAUNCHED";
     public static final String PREF_NEWLY_ADDED_TIME = "prefNewlyAddedTime";
-    public static final String PREF_RECENTLY_LAUNCHED_TIME = "prefRecentlyLaunchedTime";
+    public static final String PREF_LAST_LAUNCHED_TIME = "prefRecentlyLaunchedTime";
     public static final String KEY_TAG_MAX_DURATION = "KEY_TAG_MAX_DURATION";
-    public static final int DEFAULT_KEY_TAG_MAX_DURATION = 30; // minutes
+    public static final int DEFAULT_KEY_TAG_MAX_DURATION = 15; // minutes
     public static final List<Integer> NEWLY_ADDED_DURATION_OPTIONS = List.of(0, 15, 30, 90);
 
     // Variants
@@ -191,4 +191,7 @@ public abstract class Settings {
     public static final boolean DEFAULT_SHOW_SORT = true;
     public static final String KEY_SHOW_SETTINGS = "KEY_SHOW_SETTINGS";
     public static final boolean DEFAULT_SHOW_SETTINGS = true;
+    public static final String KEY_SORT = "KEY_SORT_MODE";
+    public static final int DEFAULT_SORT = 0; // Standard
+
 }

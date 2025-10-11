@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mainLayout"
     android:layout_width="match_parent"
@@ -106,8 +105,8 @@
                     android:visibility="gone"
                     tools:visibility="visible">
 
-                    <com.threethan.launcher.status.view.StatusAdaptableImageView
-                        android:id="@+id/sortIcon"
+                    <com.threethan.launcher.activity.view.SortCycler
+                        android:id="@+id/sortCycler"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:foreground="@drawable/bkg_hover_button_bar"
@@ -134,7 +133,7 @@
                     android:nextFocusUp="@id/blurViewSearchIcon"
                     android:visibility="visible">
 
-                    <com.threethan.launcher.status.view.StatusAdaptableImageView
+                    <com.threethan.launcher.activity.view.status.StatusAdaptableImageView
                         android:id="@+id/searchIcon"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -161,7 +160,7 @@
                     android:nextFocusUp="@id/blurViewSettingsIcon"
                     android:visibility="visible">
 
-                    <com.threethan.launcher.status.view.StatusAdaptableImageView
+                    <com.threethan.launcher.activity.view.status.StatusAdaptableImageView
                         android:id="@+id/settingsIcon"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -199,7 +198,7 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-                <com.threethan.launcher.status.view.StatusAdaptableImageView
+                <com.threethan.launcher.activity.view.status.StatusAdaptableImageView
                     android:id="@+id/searchHintIcon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -208,7 +207,7 @@
                     android:paddingEnd="1dp"
                     android:src="@drawable/ic_search" />
 
-                <com.threethan.launcher.status.view.StatusAdaptableEditTextWatched
+                <com.threethan.launcher.activity.view.status.StatusAdaptableEditTextWatched
                     android:id="@+id/searchText"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -227,7 +226,7 @@
                     android:singleLine="true" />
 
 
-                <com.threethan.launcher.status.view.StatusAdaptableImageView
+                <com.threethan.launcher.activity.view.status.StatusAdaptableImageView
                     android:id="@+id/searchCancelIcon"
                     android:layout_width="40dp"
                     android:layout_height="match_parent"
