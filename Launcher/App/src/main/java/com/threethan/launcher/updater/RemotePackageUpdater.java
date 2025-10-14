@@ -13,6 +13,7 @@ import android.content.IntentSender;
 import android.content.pm.PackageInstaller;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -139,14 +140,16 @@ public class RemotePackageUpdater {
 
         // Registers a one-off receiver to install the downloaded package
         // Android will prompt the user if they actually want to install
-        activity.registerReceiver(new BroadcastReceiver() {
+        BroadcastReceiver receiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
                 if (downloadingDialog != null) downloadingDialog.dismiss();
                 installApk(apkFile);
                 activity.unregisterReceiver(this);
             }
-        }, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+        };
+
+        activity.registerReceiver(receiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
 
         // Start the download
         manager.enqueue(request);
@@ -178,6 +181,7 @@ public class RemotePackageUpdater {
         }
 
 }
+    @SuppressLint("RequestInstallPackagesPolicy")
     public void installApk(Uri apkURI) {
         if (!BasicDialog.validateVariantWithNotify()) return;
 
@@ -221,13 +225,14 @@ public class RemotePackageUpdater {
             BasicDialog.toast(activity.getString(R.string.installing));
             InstallReceiver.setOnSuccess(() ->
                     BasicDialog.toast(activity.getString(R.string.installed_successfully)));
+
             session.commit(createIntentSender(activity, sessionId));
 
             session.close();
 
             Log.i(TAG, "Session-based install finished for " + apkURI);
 
-        } catch (Exception e) {
+        } catch (Throwable e) {
 
             Log.w(TAG, "Session-based install failed, fallback to view intent", e);
 

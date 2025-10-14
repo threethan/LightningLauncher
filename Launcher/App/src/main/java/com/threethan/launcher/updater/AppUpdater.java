@@ -8,11 +8,6 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.threethan.launcher.BuildConfig;
 import com.threethan.launchercore.lib.FileLib;
 import com.threethan.launcher.R;
@@ -22,6 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Objects;
+import java.util.function.Consumer;
 
 /**
  * General Purpose App Updater which check for and pulls updates from GitHub
@@ -33,8 +29,6 @@ public abstract class AppUpdater extends RemotePackageUpdater {
 
     private static final String URL_GITHUB_API_TEMPLATE =
             "https://api.github.com/repos/%s/releases/latest";
-
-    private final RequestQueue requestQueue;
 
     private static boolean updateAvailable = false;
 
@@ -77,7 +71,6 @@ public abstract class AppUpdater extends RemotePackageUpdater {
 
     public AppUpdater(Activity activity) {
         super(activity);
-        this.requestQueue = Volley.newRequestQueue(activity);
     }
 
     private static boolean hasUpdateDialog = false;
@@ -187,27 +180,43 @@ public abstract class AppUpdater extends RemotePackageUpdater {
 
     /**
      * Checks the latest version of the app
-     * @param callback Called asynchronously with the latest version of the app
+     * @param consumer Called asynchronously with the latest version of the app
      */
-    public void checkAppLatestVersion(Response.Listener<String> callback) {
+    public void checkAppLatestVersion(Consumer<String> consumer) {
         //noinspection ConstantValue
         if (!BuildConfig.FLAVOR.equals("sideload")) {
             Log.i(TAG, "Skipping update check for Non-Sideload build");
-            if (callback != null) callback.onResponse(getInstalledVersion());
+            if (consumer != null) consumer.accept(getInstalledVersion());
             return;
         }
-        StringRequest updateRequest = new StringRequest(
-                Request.Method.GET, String.format(URL_GITHUB_API_TEMPLATE, getGitRepo()),
-                (response -> handleUpdateResponse(response, callback)),
-                ((error) -> Log.w(TAG, "Couldn't get update info", error)));
-        requestQueue.add(updateRequest);
+        new Thread(() -> {
+            try {
+                java.net.URL url = new java.net.URL(String.format(URL_GITHUB_API_TEMPLATE, getGitRepo()));
+                java.net.HttpURLConnection conn = (java.net.HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("GET");
+                conn.setConnectTimeout(5000);
+                conn.setReadTimeout(5000);
+                int responseCode = conn.getResponseCode();
+                if (responseCode == java.net.HttpURLConnection.HTTP_OK) {
+                    java.io.InputStream is = conn.getInputStream();
+                    java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
+                    String response = s.hasNext() ? s.next() : "";
+                    is.close();
+                    activity.runOnUiThread(() -> handleUpdateResponse(response, consumer ));
+                } else {
+                    Log.w(TAG, "Couldn't get update info: HTTP " + responseCode);
+                }
+                conn.disconnect();
+            } catch (Exception e) {
+                Log.w(TAG, "Couldn't get update info", e);
+            }
+        }).start();
     }
-
-    private void handleUpdateResponse(String response, @Nullable Response.Listener<String> callback) {
+    private void handleUpdateResponse(String response, @Nullable Consumer<String> consumer) {
         try {
             JSONObject latestReleaseJson = new JSONObject(response);
             String tagName = latestReleaseJson.getString("tag_name");
-            if (callback != null) callback.onResponse(tagName);
+            if (consumer != null) consumer.accept(tagName);
         } catch (JSONException ignored) {}
     }
 
