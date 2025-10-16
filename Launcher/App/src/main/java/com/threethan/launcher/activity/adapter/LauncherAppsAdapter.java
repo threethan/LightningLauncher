@@ -493,6 +493,7 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
 
             ImageView openIcon = openAnim.findViewById(R.id.openIcon);
             openIcon.setImageDrawable(holder.imageView.getDrawable());
+            openIcon.setBackground(holder.imageView.getBackground());
             openIcon.setAlpha(1F);
             openAnim.setScaleX(holder.view.getScaleX());
             openAnim.setScaleY(holder.view.getScaleY());
@@ -503,7 +504,7 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
 
             openAnim.setVisibility(View.VISIBLE);
             openAnim.setAlpha(1F);
-            openAnim.setClipToOutline(true);
+            openIcon.setClipToOutline(true);
 
             ObjectAnimator aX = ObjectAnimator.ofFloat(openAnim, "ScaleX", fullAnimation ? 50f : 3f);
             ObjectAnimator aY = ObjectAnimator.ofFloat(openAnim, "ScaleY", fullAnimation ? 50f : 3f);

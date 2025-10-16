@@ -186,6 +186,7 @@
                     android:layout_marginTop="-2sp"
                     android:layout_marginBottom="-1sp"
                     android:layout_weight="1"
+                    android:foreground="@drawable/lc_fg_focusable"
                     android:singleLine="true"
                     android:textColor="#79FFFFFF"
                     tools:text="com.package.name" />
@@ -199,6 +200,7 @@
                     android:layout_marginEnd="3dp"
                     android:layout_marginBottom="-1sp"
                     android:ellipsize="end"
+                    android:foreground="@drawable/lc_fg_focusable"
                     android:maxWidth="80dp"
                     android:singleLine="true"
                     android:textColor="#79FFFFFF"

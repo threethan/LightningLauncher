@@ -1,10 +1,14 @@
 package com.threethan.launcher.activity.view;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BlendMode;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -13,7 +17,10 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.threethan.launcher.R;
+import com.threethan.launcher.helper.PlatformExt;
 import com.threethan.launchercore.Core;
+import com.threethan.launchercore.util.Platform;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -86,7 +93,18 @@ public class LauncherAppImageView extends ImageView {
                 // Draw drawable to a bitmap
                 Bitmap bitmap = Bitmap.createBitmap(viewWidth, viewHeight, Bitmap.Config.ARGB_8888);
                 Canvas bitmapCanvas = new Canvas(bitmap);
-                drawable.draw(bitmapCanvas);
+                boolean drawPhoneMaskBg = isPhone && viewWidth - viewHeight < 5 && getBackgroundForPhone() != null;
+                if (drawPhoneMaskBg) {
+                    backgroundForPhone.setBounds(0, 0, viewWidth, viewHeight);
+                    backgroundForPhone.draw(bitmapCanvas);
+                }
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && drawPhoneMaskBg) {
+                    bitmapCanvas.saveLayer(0, 0, viewWidth, viewHeight, bitmapPaint);
+                    drawable.draw(bitmapCanvas);
+                    bitmapCanvas.restore();
+                } else {
+                    drawable.draw(bitmapCanvas);
+                }
                 cacheBitmap.set(bitmap);
 
                 post(() -> {
@@ -96,9 +114,65 @@ public class LauncherAppImageView extends ImageView {
             }
         });
     }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        if (isPhone) {
+            setBackground(getBackgroundForPhone());
+        }
+    }
+
+    private boolean hasMeasured = false;
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        if (isPhone && !hasMeasured) {
+            hasMeasured = true;
+            if (getMeasuredWidth() - getMeasuredHeight() > 5) {
+                setBackground(getContext().getDrawable(R.drawable.bkg_app));
+            }
+        }
+    }
+
+    private Drawable backgroundForPhone = null;
+    private boolean noBackgroundForPhone = false;
+    private synchronized Drawable getBackgroundForPhone() {
+        if (noBackgroundForPhone) return null;
+        if (backgroundForPhone != null) return backgroundForPhone;
+        PackageManager pm = getContext().getPackageManager();
+        Drawable someIcon = null;
+        for (String testPkg : new String[] {
+                "com.android.settings",
+                "com.google.chrome",
+                "com.threethan.launcher",
+                "com.threethan.launcher.playstore"}) {
+            try {
+                someIcon = pm.getApplicationIcon(testPkg);
+                break;
+            } catch (PackageManager.NameNotFoundException e) {
+                // Ignore
+            }
+        }
+        if (someIcon != null) {
+            Bitmap someIconBitmap = Bitmap.createBitmap(someIcon.getIntrinsicWidth(), someIcon.getIntrinsicHeight(), Bitmap.Config.ALPHA_8);
+            Canvas canvas = new Canvas(someIconBitmap);
+            someIcon.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+            someIcon.draw(canvas);
+            backgroundForPhone = new BitmapDrawable(getResources(), someIconBitmap);
+        } else {
+            noBackgroundForPhone = true;
+        }
+        return backgroundForPhone;
+    }
+    private static boolean isPhone = Platform.isPhone();
+
     private static final Paint bitmapPaint = new Paint();
     static {
         bitmapPaint.setFilterBitmap(true);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && isPhone) {
+            bitmapPaint.setBlendMode(BlendMode.SRC_ATOP);
+        }
     }
     private final AtomicReference<Bitmap> cacheBitmap = new AtomicReference<>( null );
     @Override
@@ -111,7 +185,7 @@ public class LauncherAppImageView extends ImageView {
             } else if (!awaitingBoundsUpdate.get() && cacheBitmap.get() != null) {
                 canvas.drawBitmap(cacheBitmap.get(), 0, 0, bitmapPaint);
 
-                if (translationZ <= 0.001f && translationZ >= -0.001f || translationParent == null) {
+                if (translationZ <= 0.001f && translationZ >= -0.001f || translationParent == null || isPhone) {
                     return;
                 }
                 float translationX = translationParent.getRotationY() * -40f;

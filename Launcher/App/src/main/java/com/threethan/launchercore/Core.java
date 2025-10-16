@@ -39,5 +39,5 @@ public abstract class Core {
         onReadyRunnableList.add(run);
     }
 
-    public static final ExecutorService EXECUTOR = Executors.newFixedThreadPool(8);
+    public static final ExecutorService EXECUTOR = Executors.newCachedThreadPool();
 }

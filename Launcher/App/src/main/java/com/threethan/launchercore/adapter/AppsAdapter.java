@@ -157,9 +157,19 @@ public class AppsAdapter<VH extends AppsAdapter.AppViewHolder>
     @Override
     public void onBindViewHolder(@NonNull VH holder, int position) {
         ApplicationInfo app = getItem(position);
+
+        // Conditionally clear the view
+        boolean clearImmediate = holder.app != null && fullAppList.size() > 100
+                && !Objects.equals(app.packageName, holder.app.packageName);
+
         holder.app = app;
         holder.whenReady(() -> {
 //
+            if (clearImmediate) {
+                holder.imageView.setImageDrawable(null);
+                holder.textView.setText("", TextView.BufferType.NORMAL);
+            }
+
             // Offload everything possible to background thread
             executorService.submit(() -> {
                 final boolean darkMode = LauncherActivity.darkMode;

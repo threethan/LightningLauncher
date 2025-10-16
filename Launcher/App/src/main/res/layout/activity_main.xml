@@ -270,7 +270,6 @@
         android:id="@+id/openAnim"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bkg_app"
         android:visibility="gone"
         tools:visibility="gone">
 
@@ -278,7 +277,8 @@
             android:id="@+id/openIcon"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="fitXY" />
+            android:background="@drawable/bkg_app"
+            android:scaleType="centerCrop" />
 
     </FrameLayout>
 
