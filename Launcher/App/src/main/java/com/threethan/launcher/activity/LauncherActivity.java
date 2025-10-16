@@ -444,6 +444,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         isActive = true;
 
         foregroundInstance = new WeakReference<>(this);
+        checkRefreshPackages();
 
         try {
             LauncherAppsAdapter.animateClose(this);
@@ -459,12 +460,14 @@ public class LauncherActivity extends Launch.LaunchingActivity {
      * Reloads and refreshes the current list of packages,
      * and then the resulting app list for every activity.
      */
-    public void refreshPackages() {
-        Log.v(TAG, "Refreshing Package List");
+    public void checkRefreshPackages() {
         if (PlatformExt.installedApps == null || needsForceRefresh) {
+            Log.d(TAG, "Force-Refresh Package List");
             forceRefreshPackages();
             return;
         }
+        Log.d(TAG, "Checking Package List");
+
         refreshPackagesService.execute(() -> {
             List<ApplicationInfo> newApps = Platform.listInstalledApps();
 
@@ -477,8 +480,10 @@ public class LauncherActivity extends Launch.LaunchingActivity {
                 Set<Integer> newSet = new HashSet<>();
                 newApps.forEach(v -> newSet.add(v.packageName.hashCode()));
 
-                if (!newSet.equals(installedSet))
+                if (newSet.size() != installedSet.size() || !installedSet.containsAll(newSet)) {
+                    Log.d(TAG, "Refresh Package List due to mismatch");
                     runOnUiThread(() -> this.refreshPackagesInternal(newApps));
+                }
             }
         });
     }
@@ -634,7 +639,6 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         });
     }
 
-    private boolean hasRefreshedAdapters = false;
     /**
      * Refreshes the display and layout of the RecyclerViews used for the groups list and app grid.
      * Includes a call to updateGridLayouts();
@@ -666,10 +670,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
 
 
         // Animate only once
-        if (hasRefreshedAdapters) updateSelectedGroups();
-        else updateSelectedGroups();
-        hasRefreshedAdapters = true;
-
+        updateSelectedGroups();
         updateGridLayouts(false);
     }
 
@@ -882,7 +883,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
     public void refreshAppList() {
         if (PlatformExt.installedApps == null) {
             Log.v(TAG, "Package list empty, forcing package refresh");
-            refreshPackages();
+            checkRefreshPackages();
             return;
         }
 
@@ -900,8 +901,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
      * @param source Source of the click (optional)
      */
     public void clickGroup(int position, View source) {
-        refreshPackages();
-
+        checkRefreshPackages();
         lastSelectedGroup = position;
         // This method is replaced with a greatly expanded one in the child class
         final List<String> groupsSorted = settingsManager.getAppGroupsSorted(false);

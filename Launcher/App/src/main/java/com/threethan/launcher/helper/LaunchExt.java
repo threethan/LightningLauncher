@@ -83,7 +83,7 @@ public abstract class LaunchExt extends Launch {
         if (intent == null) {
             Log.w("AppLaunch", "Package could not be launched (No launch intent?): "
                     +app.packageName);
-            launcherActivity.refreshPackages();
+            launcherActivity.checkRefreshPackages();
             return false;
         }
         // Browser Check

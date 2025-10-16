@@ -166,6 +166,7 @@ public class LauncherAppImageView extends ImageView {
     private static final Paint bitmapPaint = new Paint();
     static {
         bitmapPaint.setFilterBitmap(true);
+        bitmapPaint.setAntiAlias(false);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && isPhone) {
             bitmapPaint.setBlendMode(BlendMode.SRC_ATOP);
         }

@@ -73,7 +73,7 @@ public abstract class AppExt extends App {
             }
             if (launcher != null) {
                 for (int i = 2; i < 15; i++) // Check for uninstall completion
-                    launcher.postDelayed(launcher::refreshPackages, i*1000);
+                    launcher.postDelayed(launcher::checkRefreshPackages, i*1000);
             }
 
         }

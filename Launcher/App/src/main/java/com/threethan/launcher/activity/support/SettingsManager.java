@@ -511,6 +511,7 @@ public class SettingsManager extends Settings {
      * since writing is async
      */
     private static synchronized void readGroupsAndSort() {
+        if (!appGroupsSet.isEmpty() && !groupAppsMap.isEmpty()) return;
         try {
             appGroupsSet.clear();
             appGroupsSet.addAll(dataStoreEditorSort.getStringSet(KEY_GROUPS, getDefaultGroupsSet()));

@@ -61,7 +61,6 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
     private SortHandler.SortMode sortMode = SortHandler.SortMode.STANDARD;
     private Runnable onListReadyEveryTime;
     private Runnable onListReadyOneShot;
-
     private boolean getEditMode() {
         return launcherActivity.isEditing();
     }
@@ -404,7 +403,7 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
             }
             try {
                 View view = holder.view;
-                view.setZ(focused ? 2 : 1);
+                view.setZ(focused ? 10000 : 1);
                 holder.hovered = focused;
             } catch (Exception e) {
                 Log.w("LauncherAppsAdapter", "Failed to update z-order", e);
