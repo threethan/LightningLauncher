@@ -2,7 +2,8 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    tools:background="#8EA9BA">
 
     <View
         android:id="@+id/sizer"
@@ -17,7 +18,9 @@
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="40dp"
         android:background="@drawable/bkg_dialog"
+        android:elevation="8dp"
         android:maxWidth="600dp"
+        android:minWidth="150dp"
         android:orientation="horizontal"
         android:paddingStart="15sp"
         android:paddingTop="8sp"

@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -17,7 +18,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 
 import com.threethan.launcher.BuildConfig;
 import com.threethan.launcher.R;
@@ -77,10 +77,12 @@ public class BasicDialog<T extends Context> extends AbstractDialog<T> {
         final View rootView = dialog.getWindow().getDecorView().findViewById(android.R.id.content).getRootView();
         rootView.setLayerType(View.LAYER_TYPE_HARDWARE, new Paint());
 
-        ObjectAnimator animator = ObjectAnimator.ofFloat(rootView, "TranslationY", 100, 0);
-        animator.setDuration(300);
-        animator.setInterpolator(new FastOutSlowInInterpolator());
-        animator.start();
+        if (!LauncherActivity.shouldReduceMotion()) {
+            ObjectAnimator animator = ObjectAnimator.ofFloat(rootView, "TranslationY", 100, 0);
+            animator.setDuration(300);
+            animator.setInterpolator(new DecelerateInterpolator());
+            animator.start();
+        }
 
         dialog.show();
 
@@ -107,6 +109,7 @@ public class BasicDialog<T extends Context> extends AbstractDialog<T> {
             } catch (Exception ignored) {}
         }
     }
+    private static AlertDialog currentToast = null;
     public static void toast(CharSequence stringMain, CharSequence stringBold, boolean isLong) {
         if (Core.context() == null) return;
         Log.d("Toast", stringMain + " " + stringBold);
@@ -144,6 +147,10 @@ public class BasicDialog<T extends Context> extends AbstractDialog<T> {
                     0xFFFFFFFF
             );
             textMain.postDelayed(dialog::dismiss, isLong ? 3500 : 2000);
+            if (currentToast != null) {
+                try {currentToast.dismiss();} catch (Exception ignored) {}
+            }
+            currentToast = dialog;
             dialog.show();
         } catch (Exception e) {
             Log.w("Toast", "Failed to show toast", e);
