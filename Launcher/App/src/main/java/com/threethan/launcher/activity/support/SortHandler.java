@@ -94,6 +94,12 @@ public abstract class SortHandler {
                 allApps
         );
 
+        if (apps.isEmpty()) {
+            Log.w("SortHandler", "No visible apps after filtering");
+            onSorted.accept(List.of());
+            return;
+        }
+
         Consumer<List<ApplicationInfo>> onPreSorted = applicationInfos -> {
             // Divide by banner/icon
             apps.sort((a, b) -> {

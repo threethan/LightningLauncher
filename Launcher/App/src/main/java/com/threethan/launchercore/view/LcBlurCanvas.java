@@ -38,10 +38,12 @@ public class LcBlurCanvas extends LcContainerView {
     protected static final float BLUR_RADIUS = 25f;
     protected static final Set<LcBlurCanvas> instances = new HashSet<>();
 
-    /** Modern blur (API >= Q) is very performant, so it is rendered at resolution * this */
-    static final float MODERN_RES_MULT = Platform.isTv() ? 0.125f :
+    /** Modern blur (API >= S) is very performant, so it is rendered at resolution * this */
+    // APIs Q to R use legacy blur on a render node, so this must be 1f
+    static final float MODERN_RES_MULT = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S ?
+            (Platform.isTv() ? 0.125f :
             (Platform.isPhone() ? 0.25f :
-                    (Platform.isQuestGen3() ? 0.1f : 0.05f));
+                    (Platform.isQuestGen3() ? 0.1f : 0.05f))) : 1f;
 
     /** Legacy blur (API < Q) is much less performant, so it is rendered at resolution / this */
     protected static final int LEGACY_DOWN_SAMPLE = 32;

@@ -552,12 +552,14 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
         // Names
         attachSwitchToSetting(dialog.findViewById(R.id.namesSquareSwitch),
                 Settings.KEY_SHOW_NAMES_SQUARE, Settings.DEFAULT_SHOW_NAMES_SQUARE,
-                v -> a.launcherService.forEachActivity(LauncherActivity::forceRefreshPackages),
+                v -> a.postDelayed(() ->
+                        a.launcherService.forEachActivity(LauncherActivity::forceRefreshPackages), 500),
                 false);
 
         attachSwitchToSetting(dialog.findViewById(R.id.namesBannerSwitch),
                 Settings.KEY_SHOW_NAMES_BANNER, Settings.DEFAULT_SHOW_NAMES_BANNER,
-                v -> a.launcherService.forEachActivity(LauncherActivity::forceRefreshPackages),
+                v -> a.postDelayed(() ->
+                        a.launcherService.forEachActivity(LauncherActivity::forceRefreshPackages), 500),
                 false);
 
 

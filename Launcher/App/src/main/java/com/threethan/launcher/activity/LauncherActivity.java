@@ -935,7 +935,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
             return true;
         }
         settingsManager.setSelectedGroups(selectedGroups);
-        refreshInterface();
+        refreshAdapters();
         return false;
     }
 

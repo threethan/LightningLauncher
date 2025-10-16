@@ -45,9 +45,11 @@ public class LcBlurView extends FrameLayout {
         // Draw blurred content
         canvas.translate(-position[0], -position[1]);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            canvas.scale(1f / LcBlurCanvas.MODERN_RES_MULT, 1f / LcBlurCanvas.MODERN_RES_MULT);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+                canvas.scale(1f / LcBlurCanvas.MODERN_RES_MULT, 1f / LcBlurCanvas.MODERN_RES_MULT);
             canvas.drawRenderNode(LcBlurCanvas.getRenderNode());
-            canvas.scale(LcBlurCanvas.MODERN_RES_MULT, LcBlurCanvas.MODERN_RES_MULT);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+                canvas.scale(LcBlurCanvas.MODERN_RES_MULT, LcBlurCanvas.MODERN_RES_MULT);
         } else {
             Bitmap bitmap = LcBlurCanvas.getFallbackBitmap();
             if (bitmap != null) canvas.drawBitmap(bitmap, 0, 0, null);
