@@ -86,7 +86,7 @@ public class GroupsAdapter extends RecyclerView.Adapter<GroupsAdapter.GroupViewH
             return false;
         });
         holder.textView.setOnFocusChangeListener((view, hasFocus) -> {
-            if (hasFocus || view.isHovered()) holder.textView.setBackgroundResource(R.drawable.bkg_hover_button_bar_hovered);
+            if (hasFocus || view.isHovered()) holder.textView.setBackgroundResource(R.drawable.tab_focused);
             else holder.textView.setBackground(null);
         });
         holder.menu.setOnClickListener(view ->

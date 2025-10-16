@@ -31,7 +31,13 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.*;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
+import android.view.VelocityTracker;
+import android.view.View;
+import android.view.ViewConfiguration;
+import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.widget.Scroller;
 
 import androidx.annotation.ColorInt;
@@ -53,7 +59,7 @@ import java.util.ArrayList;
  * - Now supports optionally supports looping and/or auto-advance
  * - Now supports adding customizable page indicators
  * - Foregrounds now render correctly, with support for the hover state
- * @noinspection unused, SpellCheckingInspection
+ * @noinspection unused
  */
 public class ViewFlinger extends ViewGroup {
     private static final String TAG = "ViewFlinger";
@@ -165,7 +171,7 @@ public class ViewFlinger extends ViewGroup {
                 }
                 case CENTER -> {
                     if (style == Style.WIDEN || style == Style.WIDEN_ALPHA)
-                        x = f.getWidth()/2F - d*count*(radius + separation/2) + d*length;
+                        x = f.getWidth()/2F - d*count*(radius + separation/2) - d*length;
                     else
                         x = f.getWidth()/2F - d*count*(radius + length + separation/2);
                 }
@@ -282,8 +288,6 @@ public class ViewFlinger extends ViewGroup {
     private final static int TOUCH_STATE_SCROLLING = 1;
 
     private int mTouchState = TOUCH_STATE_REST;
-
-    //private OnLongClickListener mLongClickListener;
 
     private boolean mAllowLongPress = true;
 
@@ -468,7 +472,6 @@ public class ViewFlinger extends ViewGroup {
         // children, etc. The following implementation attempts to fast-track
         // the drawing dispatch by drawing only what we know needs to be drawn.
 
-
         if (mLooping) requestLayout();
 
         boolean fastDraw = mTouchState != TOUCH_STATE_SCROLLING && mNextScreen == INVALID_SCREEN
@@ -481,14 +484,11 @@ public class ViewFlinger extends ViewGroup {
         } else {
             final long drawingTime = getDrawingTime();
             // If we are flinging, draw only the current screen and the target screen
-            if (!mLooping && mNextScreen >= 0 && mNextScreen < getScreenCount() &&
+            if (!mLooping && mNextScreen != null && mNextScreen >= 0 && mNextScreen < getScreenCount() &&
                     Math.abs(mCurrentScreen - mNextScreen) == 1) {
                 drawChild(canvas, getScreenAt(mCurrentScreen), drawingTime);
                 drawChild(canvas, getScreenAt(mNextScreen), drawingTime);
             } else {
-//                drawChild(canvas, getScreenAt(mCurrentScreen-1), drawingTime);
-//                drawChild(canvas, getScreenAt(mCurrentScreen), drawingTime);
-//                drawChild(canvas, getScreenAt(mCurrentScreen+1), drawingTime);
                 // If we are scrolling, draw all of our children
                 final int count = getChildCount();
                 for (int i = 0; i < count; i++) {
@@ -693,7 +693,9 @@ public class ViewFlinger extends ViewGroup {
                 mPointerScrollX = 0;
             } else {
                 final float hScroll = ev.getAxisValue(MotionEvent.AXIS_HSCROLL);
+
                 mPointerScrollX += hScroll * getWidth() * 0.001F;
+
                 final int scrollAmt = (int) (Math.pow(mPointerScrollX * 5, 2)
                         * Math.signum(mPointerScrollX));
 
@@ -704,6 +706,13 @@ public class ViewFlinger extends ViewGroup {
 
                 if (mPointerResetAnimator != null) mPointerResetAnimator.cancel();
 
+                // Cap pointer scroll
+                if (!isLooping()) {
+                    if (getCurrentScreen() >= getScreenCount() -1 && mPointerScrollX > 0)
+                        mPointerScrollX = 0;
+                    if (getCurrentScreen() <= 0 && mPointerScrollX < 0)
+                        mPointerScrollX = 0;
+                }
                 if (Math.abs(scrollAmt) > getWidth() * 0.3F) {
                     if (scrollAmt > 0) scrollRight();
                     else scrollLeft();
@@ -1324,8 +1333,8 @@ public class ViewFlinger extends ViewGroup {
             out.writeInt(currentScreen);
         }
 
-        public static final Parcelable.Creator<SavedState> CREATOR =
-                new Parcelable.Creator<>() {
+        public static final Creator<SavedState> CREATOR =
+                new Creator<>() {
                     public SavedState createFromParcel(Parcel in) {
                         return new SavedState(in);
                     }
@@ -1351,5 +1360,13 @@ public class ViewFlinger extends ViewGroup {
 
     public void removeViewFromBack() {
         removeViewAt(getChildCount() - 1);
+    }
+
+    @Override
+    public void invalidate() {
+        super.invalidate();
+        if (mOnScrollListener != null) {
+            mOnScrollListener.onScroll(getCurrentScreenFraction());
+        }
     }
 }

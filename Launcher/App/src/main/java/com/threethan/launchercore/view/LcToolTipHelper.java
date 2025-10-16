@@ -20,6 +20,7 @@ public abstract class LcToolTipHelper {
     private static final int DEFAULT_TOOLTIP_DELAY_MS = 250;
 
     public static void init(View view, AttributeSet attrs) {
+        view.setForeground(view.getContext().getDrawable(R.drawable.lc_fg_focusable));
         if (attrs != null) {
             //noinspection resource
             TypedArray a = view.getContext().getTheme().obtainStyledAttributes(
@@ -43,8 +44,8 @@ public abstract class LcToolTipHelper {
         init(view, -1, tooltipText);
     }
     private static void init(View view, int textResId, CharSequence text) {
+        if (textResId == -1 && (text == null || text == "")) {return;}
         final PopupWindow[] popupWindow = {null};
-        if (textResId == -1 && (text == null || text == "")) return;
         @SuppressLint("SetTextI18n") Runnable showToolTip = () -> {
             if (popupWindow[0] != null && popupWindow[0].isShowing()) return;
             LayoutInflater inflater = (LayoutInflater) view.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -75,6 +76,23 @@ public abstract class LcToolTipHelper {
                 }
             }
             return false;
+        });
+
+        view.setOnFocusChangeListener((v, hasFocus) -> {
+            if (hasFocus) {
+                view.postDelayed(() -> {
+                    if (view.isFocused() && view.isFocusable()
+                            && view.getVisibility() == View.VISIBLE
+                            && view.getWindowToken() != null
+                    ) showToolTip.run();
+                }, 1250);
+            }
+            else {
+                handler.removeCallbacks(showToolTip);
+                if (popupWindow[0] != null && popupWindow[0].isShowing()) {
+                    popupWindow[0].dismiss();
+                }
+            }
         });
     }
 }

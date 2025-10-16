@@ -1,6 +1,5 @@
 package com.threethan.launcher.activity;
 
-import android.animation.Animator;
 import android.annotation.SuppressLint;
 import android.content.ComponentName;
 import android.content.Context;
@@ -21,7 +20,6 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
 import android.view.ViewParent;
@@ -32,11 +30,17 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.threethan.launcher.LauncherService;
 import com.threethan.launcher.R;
+import com.threethan.launcher.activity.adapter.CustomItemAnimator;
 import com.threethan.launcher.activity.adapter.GroupsAdapter;
 import com.threethan.launcher.activity.adapter.LauncherAppsAdapter;
 import com.threethan.launcher.activity.adapter.LauncherGridLayoutManager;
@@ -76,7 +80,6 @@ import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /**
     The class handles most of what the launcher does, though it is extended by it's child classes
@@ -91,6 +94,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
     public static Boolean darkMode = null;
     public static Boolean groupsEnabled = true;
     private static Boolean groupsWide = false;
+    private static boolean reduceMotion = Settings.DEFAULT_REDUCE_MOTION;
     public static boolean needsForceRefresh = false;
     public boolean queueOpenSettings = false;
     protected RecyclerView appsRecycler;
@@ -168,12 +172,20 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         return super.getResources();
     }
 
+    private Insets barInsets = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_container);
-
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.container), (v, insets) -> {
+            barInsets = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            if (rootView != null) rootView.setPadding(
+                    barInsets.left, barInsets.top, barInsets.right, barInsets.bottom
+            );
+            if (appsRecycler != null) appsRecycler.setVerticalFadingEdgeEnabled(barInsets.top > 1);
+            return insets;
+        });
         Core.init(this);
 
         SyncCoordinator.onStart(this);
@@ -193,7 +205,10 @@ public class LauncherActivity extends Launch.LaunchingActivity {
 
         Drawable cd = new ColorDrawable(backgroundColor);
         if (Platform.isQuest()) cd.setAlpha(WallpaperLoader.getBackgroundAlpha(dataStoreEditor));
-        post(() -> getWindow().setBackgroundDrawable(cd));
+        post(() -> {
+            getWindow().setBackgroundDrawable(cd);
+            LcBlurCanvas.invalidateAll();
+        });
 
         // Set back action
         getOnBackPressedDispatcher().addCallback(new OnBackPressedCallback(true) {
@@ -229,6 +244,9 @@ public class LauncherActivity extends Launch.LaunchingActivity {
             refreshBackground();
             refreshAppList();
             refreshInterface();
+
+            appsRecycler.setAlpha(0f);
+            appsRecycler.post(() -> appsRecycler.animate().alpha(1f).setDuration(400).start());
         });
     }
     protected void startWithExistingView() {
@@ -261,10 +279,12 @@ public class LauncherActivity extends Launch.LaunchingActivity {
 
         mainView.addOnLayoutChangeListener(this::onLayoutChanged);
         appsRecycler = rootView.findViewById(R.id.apps);
-        appsRecycler.setItemAnimator(null);
-        appsRecycler.getRecycledViewPool().setMaxRecycledViews(1 ,128);
-        appsRecycler.getRecycledViewPool().setMaxRecycledViews(2 ,64);
-        appsRecycler.setItemViewCacheSize(32);
+        appsRecycler.setItemAnimator(reduceMotion ? null : new CustomItemAnimator());
+        appsRecycler.setNestedScrollingEnabled(false);
+        appsRecycler.setItemViewCacheSize(128);
+
+        appsRecycler.setHasFixedSize(true);
+
         groupsRecycler = rootView.findViewById(R.id.groupsRecycler);
 
         groupsBlurView = rootView.findViewById(R.id.blurViewGroups);
@@ -291,6 +311,16 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         });
 
         rootView.findViewById(R.id.blurViewSortIcon).setOnClickListener(v -> sortCycler.cycleNext());
+
+        if (barInsets != null) rootView.setPadding(
+                barInsets.left, barInsets.top, barInsets.right, barInsets.bottom
+        );
+        if (barInsets != null) appsRecycler.setVerticalFadingEdgeEnabled(barInsets.top > 1);
+
+        View topGradient = rootView.findViewById(R.id.topGradient);
+
+        appsRecycler.setOnScrollChangeListener((view, x, y, oldX, oldY)
+                -> topGradient.setAlpha(Math.clamp((y - 50f) / 100f, 0f, 1f)));
     }
 
     protected void onLayoutChanged(View ignoredV, int ignoredLeft, int ignoredTop, int right, int bottom,
@@ -407,7 +437,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         postDelayed(() -> new LauncherUpdater(this).checkAppUpdateInteractive(), 1000);
     }
 
-    static final ExecutorService refreshPackagesService = Executors.newSingleThreadExecutor();
+    static final ExecutorService refreshPackagesService = Core.EXECUTOR;
     /**
      * Reloads and refreshes the current list of packages,
      * and then the resulting app list for every activity.
@@ -527,10 +557,31 @@ public class LauncherActivity extends Launch.LaunchingActivity {
                 quickSettingsApp.packageName = "systemux://quick_settings";
                 LaunchExt.launchApp(this, quickSettingsApp);
             });
+        } else if (AppExt.packageExists("com.android.tv.settings")) {
+            statusView.setOnClickListener(v -> {
+                Intent intent = new Intent();
+                intent.setComponent(new ComponentName("com.android.tv.settings",
+                        "com.android.tv.settings.MainSettings"));
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                try {
+                    startActivity(intent);
+                } catch (Exception ignored) {}
+            });
+        } else {
+            statusView.setOnClickListener(v -> {
+                Intent intent = new Intent(android.provider.Settings.ACTION_SETTINGS);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                try {
+                    startActivity(intent);
+                } catch (Exception ignored) {}
+            });
         }
 
         if (sortView.getVisibility() != View.VISIBLE) {
-            if (getAppAdapter() != null) getAppAdapter().setSortMode(getCurrentSortMode());
+            post(() -> {
+                if (getAppAdapter() != null)
+                    getAppAdapter().setSortMode(getCurrentSortMode());
+            });
         }
 
         post(() -> { if (needsUpdateCleanup) Compat.doUpdateCleanup(this); });
@@ -588,43 +639,50 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         timesBanner = dataStoreEditor
                 .getBoolean(Settings.KEY_SHOW_TIMES_BANNER, Settings.DEFAULT_SHOW_TIMES_BANNER);
 
+        setReduceMotion(dataStoreEditor
+                .getBoolean(Settings.KEY_REDUCE_MOTION, Settings.DEFAULT_REDUCE_MOTION));
+        try {
+            WindowInsetsControllerCompat controller = WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
+            controller.setAppearanceLightStatusBars(!darkMode);
+            controller.setAppearanceLightNavigationBars(!darkMode);
+        } catch (Exception ignored) {}
+
+
         // Animate only once
         if (hasRefreshedAdapters) updateSelectedGroups();
-        else updateSelectedGroups(rootView.getWidth() / 2, 0);
+        else updateSelectedGroups();
         hasRefreshedAdapters = true;
 
         updateGridLayouts(false);
     }
 
-    protected void updateSelectedGroups(int x, int y) {
+    protected void updateSelectedGroupsAnimated() {
         updateSelectedGroups();
         if (isEditing()) return;
-
+        if (reduceMotion) return;
         try {
-            Animator anim = ViewAnimationUtils.createCircularReveal(appsRecycler, x, y, 0, rootView.getHeight() + rootView.getWidth());
-            anim.setDuration(400);
-
-            appsRecycler.setVisibility(View.INVISIBLE);
-            appsRecycler.postDelayed(() -> {
-                try {
-                    appsRecycler.setVisibility(View.VISIBLE);
-                    anim.start();
-                } catch (Exception ignored) {
-                }
-            }, 400);
+            appsRecycler.setAlpha(0f);
+            LcBlurCanvas.invalidateAll();
+            Objects.requireNonNull(getAppAdapter()).setOnListReadyOneShot(()
+                    -> appsRecycler.post(()
+                    -> appsRecycler.post(() // Double post to ensure it runs after layout
+                    -> appsRecycler.animate().alpha(1f).setDuration(200).start())));
         } catch (Exception ignored) {}
     }
     protected void updateSelectedGroups() {
         groupsRecycler.setAdapter(new GroupsAdapter(this, isEditing()));
         if (getAppAdapter() == null) {
             appsRecycler.setAdapter(new LauncherAppsAdapter(this));
+            getAppAdapter().setOnListReadyEveryTime(() -> appsRecycler.scrollToPosition(0));
         } else {
             getAppAdapter().setAppList(this);
         }
         getAppAdapter().setContainer(findViewById(R.id.appsContainer));
 
         // Apply sort mode
-        getAppAdapter().setSortMode(getCurrentSortMode());
+        post(() -> {
+            if (getAppAdapter() != null) getAppAdapter().setSortMode(getCurrentSortMode());
+        });
     }
 
 
@@ -662,7 +720,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         // Measure the top bar to determine additional top padding for the app grid
         topBar.measure(View.MeasureSpec.makeMeasureSpec(mainView.getMeasuredWidth(), View.MeasureSpec.EXACTLY),
                 View.MeasureSpec.makeMeasureSpec(mainView.getMeasuredHeight(), View.MeasureSpec.AT_MOST));
-        int groupHeight = topBar.getMeasuredHeight();
+        int groupHeight = topBar.getMeasuredHeight() - dp(40); // Minus margins
 
         if (groupHeight > mainView.getMeasuredHeight() / 3) {
             // Scroll groups if more than 1/3 the screen
@@ -764,7 +822,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
      * then calls an additional Executor to actually load the background image
      */
     public void refreshBackground() {
-        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        ExecutorService executorService = Core.EXECUTOR;
         executorService.execute(() -> {
             // Set initial color, execute background task
             if (backgroundIndex == -2) {
@@ -815,8 +873,6 @@ public class LauncherActivity extends Launch.LaunchingActivity {
             getAppAdapter().setLauncherActivity(this);
             getAppAdapter().setFullAppSet(PlatformExt.listInstalledApps(this));
         }
-        final int scrollY = appsRecycler.getScrollY();
-        appsRecycler.setScrollY(scrollY);
     }
 
     /**
@@ -833,15 +889,10 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         final String group = groupsSorted.get(position);
         boolean doAnimation = settingsManager.selectGroup(group);
 
-        if (!doAnimation) {
+        if (doAnimation) {
+            updateSelectedGroupsAnimated();
+        } else {
             updateSelectedGroups();
-            return;
-        } try {
-            int[] location = new int[2];
-            source.getLocationInWindow(location);
-            updateSelectedGroups(location[0] + source.getWidth()/2, location[1]);
-        } catch (Exception ignored) {
-            updateSelectedGroups(0,0);
         }
     }
     /**
@@ -947,6 +998,14 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         refreshInterface();
     }
 
+    /** Must be called if the display mode (icon/banner) is changed */
+    public void notifyAdapterDisplayModeChanged() {
+        SettingsManager.sortableLabelCache.clear();
+        appsRecycler.setAdapter(null);
+        refreshAppList();
+        updateSelectedGroups();
+    }
+
     // Edit mode stubs, to be overridden by child
     public void setEditMode(boolean b) {
         Log.w(TAG, "Tried to set edit mode on an uneditable activity");
@@ -984,5 +1043,21 @@ public class LauncherActivity extends Launch.LaunchingActivity {
     protected void onStop() {
         super.onStop();
         isActive = false;
+    }
+
+    public void setReduceMotion(boolean reduceMotion) {
+        if (reduceMotion != LauncherActivity.reduceMotion) {
+            if (getAppAdapter() != null) getAppAdapter().clearAppFocus();
+            LauncherActivity.reduceMotion = reduceMotion;
+            if (reduceMotion) {
+                appsRecycler.setItemAnimator(null);
+            } else {
+                appsRecycler.setItemAnimator(new CustomItemAnimator());
+            }
+        }
+    }
+
+    public static boolean shouldReduceMotion() {
+        return LauncherActivity.reduceMotion;
     }
 }

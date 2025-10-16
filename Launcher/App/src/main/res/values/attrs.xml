@@ -17,6 +17,10 @@
         <attr name="android:text" />
         <attr name="defaultTooltip" format="boolean"/>
     </declare-styleable>
+    <declare-styleable name="WidthAdaptiveLinearLayout">
+        <attr format="dimension" name="widthThreshold"/>
+        <attr format="dimension" name="childMargin"/>
+    </declare-styleable>
 
     <attr format="dimension" name="buttonCornerRadius"/>
 </resources>

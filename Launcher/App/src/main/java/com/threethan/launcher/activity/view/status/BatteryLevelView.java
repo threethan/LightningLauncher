@@ -18,6 +18,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.graphics.PathParser;
 
+import com.threethan.launchercore.util.Platform;
+
 
 public class BatteryLevelView extends View implements StatusAdaptableView {
     String pathData = "M18.75,12.07l-7,-4c-0.16,-0.09 -0.35,-0.09 -0.5," +
@@ -70,27 +72,36 @@ public class BatteryLevelView extends View implements StatusAdaptableView {
     }
 
     private void init(Context context) {
+        BatteryManager bm = (BatteryManager) context.getSystemService(Context.BATTERY_SERVICE);
+        // check for tv or unknown battery status. hide if no battery present.
+        if (Platform.isTv() ||
+                (bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_STATUS) == BatteryManager.BATTERY_STATUS_UNKNOWN
+                && bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY) == 0)
+        || bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY) < 0) {
+            setVisibility(GONE);
+            return;
+        }
+
         int color = darkMode ? Color.WHITE : Color.BLACK;
 
         strokePaint.setColor(color);
-        strokePaint.setStrokeWidth(1.5f);
+        strokePaint.setStrokeWidth(dp(1.5));
         strokePaint.setStyle(Paint.Style.STROKE);
 
         mainPaint.setColor(color);
         mainPaint.setStyle(Paint.Style.FILL);
         mainPaint.setTextAlign(Paint.Align.CENTER);
         mainPaint.setFakeBoldText(true);
-        mainPaint.setTextSize(16);
+        mainPaint.setTextSize(dp(10));
 
-        BatteryManager bm = (BatteryManager) context.getSystemService(Context.BATTERY_SERVICE);
         charging = bm.isCharging();
 
         clearStrokePaint.setStyle(Paint.Style.STROKE);
         clearStrokePaint.setTextAlign(Paint.Align.CENTER);
-        clearStrokePaint.setTextSize(16);
+        clearStrokePaint.setTextSize(dp(10));
         clearStrokePaint.setFakeBoldText(true);
 
-        clearStrokePaint.setStrokeWidth(3);
+        clearStrokePaint.setStrokeWidth(dp(3));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             clearStrokePaint.setBlendMode(BlendMode.CLEAR);
             clearStrokePaint.setColor(Color.TRANSPARENT);
@@ -110,6 +121,10 @@ public class BatteryLevelView extends View implements StatusAdaptableView {
             int chargePlug = batteryStatus.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1);
             charging = chargePlug == BatteryManager.BATTERY_PLUGGED_AC || chargePlug == BatteryManager.BATTERY_PLUGGED_USB;
         }
+    }
+
+    private float dp(double px) {
+        return (float) (px * getResources().getDisplayMetrics().density);
     }
 
     public void setBatteryLevel(int level) {
@@ -139,18 +154,14 @@ public class BatteryLevelView extends View implements StatusAdaptableView {
         int width = getWidth();
         int height = getHeight();
 
-        int o = 5;
-        float or = 4;
-        float ir = 2;
-        int i = 2 + o;
+        float o = dp(5);
+        float or = dp(3);
+        float ir = dp(1);
+        float i = dp(2) + o;
 
         // use separate layer
         int layerId = canvas.saveLayer(0, 0, width, height, null);
 
-        // Draw bg
-        canvas.drawRoundRect(o, o, width-o, height-o, or, or, strokePaint);
-        // Nubbin
-        canvas.drawRoundRect(width - o + 2, height*0.4f, width - o + 4, height*0.6f, or, or, mainPaint);
 
 
         float progWidth = batteryLevel / 100f * (width-i*2) + i;
@@ -158,7 +169,7 @@ public class BatteryLevelView extends View implements StatusAdaptableView {
 
         if (charging) {
             // Bolt
-            float cx = (width-25f)/2;
+            float cx = (width-25f)/2 + dp(0.6);
             float cy = (height - 24f)/2;
             path.offset(cx, cy);
             canvas.drawPath(path, clearStrokePaint);
@@ -167,13 +178,19 @@ public class BatteryLevelView extends View implements StatusAdaptableView {
         } else {
             // Percent text
             String text = batteryLevel + "";
-            float x = width / 2f - 1;
-            float y = height / 2f - ((clearStrokePaint.descent() + clearStrokePaint.ascent()) / 2f);
+            float x = width / 2f;
+            float y = height / 2f - ((clearStrokePaint.descent() + clearStrokePaint.ascent()) / 1.99f);
             canvas.drawText(text, x, y, clearStrokePaint);
             canvas.drawText(text, x, y, mainPaint);
         }
 
         canvas.restoreToCount(layerId);
+
+        // Draw bg
+        canvas.drawRoundRect(o, o, width-o, height-o, or, or, strokePaint);
+        // Nubbin
+        canvas.drawRoundRect(width - o, height*0.38f, width - o + dp(2.25), height*0.62f, or, or, mainPaint);
+
     }
 
     @Override

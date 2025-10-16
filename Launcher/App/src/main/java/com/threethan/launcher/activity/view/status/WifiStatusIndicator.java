@@ -32,11 +32,15 @@ public class WifiStatusIndicator extends View implements StatusAdaptableView {
     public WifiStatusIndicator(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(context);
-        // On TVs, it's reasonable to expect a good connection is always present
-        if (Platform.isTv()) setVisibility(GONE);
     }
 
     private void init(Context context) {
+        // On TVs, it's reasonable to expect a good connection is always present
+        if (Platform.isTv()) {
+            setVisibility(GONE);
+            return;
+        }
+
         signalDrawables = new Drawable[]{
                 ContextCompat.getDrawable(context, R.drawable.status_wifi_signal_0),
                 ContextCompat.getDrawable(context, R.drawable.status_wifi_signal_1),

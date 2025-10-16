@@ -4,53 +4,65 @@
     android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-
     <com.threethan.launcher.activity.view.LauncherAppListContainer
         android:id="@+id/appsContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <androidx.recyclerview.widget.RecyclerView
+        <com.threethan.launcher.activity.view.ExtendedRecyclerView
             android:id="@+id/apps"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:clipChildren="false"
             android:clipToPadding="false"
             android:overScrollMode="never"
+            android:fadingEdgeLength="15dp"
             android:scrollbars="none" />
     </com.threethan.launcher.activity.view.LauncherAppListContainer>
+
+
+    <com.threethan.launcher.activity.view.TopGradientBlurView
+        android:id="@+id/topGradient"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_gravity="top"
+        android:alpha="0"
+        />
 
     <com.threethan.launchercore.view.LcBlurMaskFrame
         android:id="@+id/topBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
         android:visibility="gone"
         tools:visibility="visible">
-
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginTop="19dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            >
 
             <FrameLayout
                 android:id="@+id/groupsContainerNarrowWindow"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="25dp"
-                android:layout_marginEnd="25dp"
-                android:layout_marginBottom="10dp">
+                android:paddingHorizontal="19dp"
+                android:layout_marginBottom="4dp"
+                android:clipChildren="false"
+                android:clipToPadding="false">
 
-                <com.threethan.launchercore.view.LcBlurView
+                <com.threethan.launchercore.view.LcBlurViewPill
                     android:id="@+id/blurViewGroups"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bkg_blur_view"
-                    android:elevation="12dp"
                     android:foreground="@drawable/fg_blur_view"
                     android:minWidth="500dp"
                     android:minHeight="40dp"
+                    android:layout_margin="6dp"
+
+                    android:elevation="6dp"
                     android:nextFocusUp="@id/blurViewGroups"
                     android:visibility="visible">
 
@@ -66,40 +78,47 @@
                         android:padding="0dp"
                         android:visibility="gone" />
 
-                </com.threethan.launchercore.view.LcBlurView>
+                </com.threethan.launchercore.view.LcBlurViewPill>
             </FrameLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginEnd="25dp">
+                android:paddingHorizontal="19dp"
+                android:paddingBottom="20dp"
+                android:clipToPadding="false"
+                android:clipChildren="false">
 
 
-                <com.threethan.launchercore.view.LcBlurView
-                    android:id="@+id/blurViewStatus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_marginEnd="13dp"
-                    android:foreground="@drawable/fg_blur_view"
-                    android:background="@drawable/bkg_blur_view">
 
-                    <include layout="@layout/activity_main_status_widget" />
-                </com.threethan.launchercore.view.LcBlurView>
+                    <com.threethan.launchercore.view.LcBlurViewPill
+                        android:id="@+id/blurViewStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_margin="6dp"
+
+                        android:elevation="6dp"
+                        android:foreground="@drawable/fg_blur_view"
+                        android:background="@drawable/bkg_blur_view">
+
+                        <include layout="@layout/activity_main_status_widget" />
+                    </com.threethan.launchercore.view.LcBlurViewPill>
 
                 <FrameLayout
                     android:id="@+id/groupsContainerWideWindow"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
-                <com.threethan.launchercore.view.LcBlurView
+                    android:layout_weight="1"
+                    android:clipToPadding="false"
+                    android:clipChildren="false"/>
+                <com.threethan.launchercore.view.LcBlurViewPill
                     android:id="@+id/blurViewSortIcon"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_marginStart="13dp"
+                    android:layout_margin="6dp"
+
+                    android:elevation="6dp"
                     android:background="@drawable/bkg_blur_view"
-                    android:elevation="12dp"
                     android:foreground="@drawable/fg_blur_view"
                     android:nextFocusUp="@id/blurViewSettingsIcon"
                     android:visibility="gone"
@@ -114,20 +133,17 @@
                         android:padding="8dp"
                         android:scaleType="centerCrop"
                         android:src="@drawable/ic_sort_standard"
-                        tools:ignore="ImageContrastCheck"
-                        tools:layout_conversion_absoluteHeight="40dp"
-                        tools:layout_conversion_absoluteWidth="40dp"
-                        tools:layout_editor_absoluteX="349dp"
-                        tools:layout_editor_absoluteY="22dp" />
-                </com.threethan.launchercore.view.LcBlurView>
+                        tools:ignore="ImageContrastCheck" />
+                </com.threethan.launchercore.view.LcBlurViewPill>
 
-                <com.threethan.launchercore.view.LcBlurView
+                <com.threethan.launchercore.view.LcBlurViewPill
                     android:id="@+id/blurViewSearchIcon"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="@drawable/bkg_blur_view"
-                    android:elevation="12dp"
-                    android:layout_marginStart="13dp"
+                    android:layout_margin="6dp"
+
+                    android:elevation="6dp"
                     android:focusable="true"
                     android:foreground="@drawable/fg_blur_view"
                     android:nextFocusUp="@id/blurViewSearchIcon"
@@ -147,15 +163,16 @@
                         tools:layout_editor_absoluteX="297dp"
                         tools:layout_editor_absoluteY="22dp" />
 
-                </com.threethan.launchercore.view.LcBlurView>
-
-                <com.threethan.launchercore.view.LcBlurView
+                </com.threethan.launchercore.view.LcBlurViewPill>
+                <com.threethan.launchercore.view.LcBlurViewPill
                     android:id="@+id/blurViewSettingsIcon"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="@drawable/bkg_blur_view"
-                    android:elevation="12dp"
-                    android:layout_marginStart="13dp"
+                    android:layout_marginStart="6dp"
+                    android:layout_margin="6dp"
+
+                    android:elevation="6dp"
                     android:foreground="@drawable/fg_blur_view"
                     android:nextFocusUp="@id/blurViewSettingsIcon"
                     android:visibility="visible">
@@ -169,7 +186,7 @@
                         android:scaleType="centerCrop"
                         android:src="@drawable/ic_config"
                         tools:ignore="ImageContrastCheck" />
-                </com.threethan.launchercore.view.LcBlurView>
+                </com.threethan.launchercore.view.LcBlurViewPill>
             </LinearLayout>
 
         </LinearLayout>
@@ -181,7 +198,7 @@
         android:layout_height="wrap_content"
         tools:visibility="visible">
 
-        <com.threethan.launchercore.view.LcBlurView
+        <com.threethan.launchercore.view.LcBlurViewPill
             android:id="@+id/blurViewSearchBar"
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -189,6 +206,7 @@
             android:layout_marginTop="25dp"
             android:background="@drawable/bkg_blur_view"
             android:elevation="15dp"
+            android:layout_marginBottom="20dp"
             android:foreground="@drawable/fg_blur_view"
             android:visibility="gone"
             tools:visibility="visible">
@@ -240,7 +258,7 @@
                     tools:ignore="ImageContrastCheck" />
             </LinearLayout>
 
-        </com.threethan.launchercore.view.LcBlurView>
+        </com.threethan.launchercore.view.LcBlurViewPill>
     </FrameLayout>
 
     <include layout="@layout/activity_main_edit_footer" />
