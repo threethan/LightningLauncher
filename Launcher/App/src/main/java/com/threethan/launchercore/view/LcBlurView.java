@@ -8,6 +8,8 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
+import androidx.annotation.NonNull;
+
 /**
  * FrameLayout that blurs its underlying content.
  * Can have children and draw them over blurred background.
@@ -25,26 +27,32 @@ public class LcBlurView extends FrameLayout {
         super(context, attrs, defStyleAttr);
     }
 
-
+    // Prevents allocation during onDraw
+    private final int[] mPosition = new int[2];
     @Override
-    public void draw(Canvas canvas) {
-        int[] position = new int[2];
-        getLocationInWindow(position);
+    protected void onDraw(@NonNull Canvas canvas) {
+        getLocationInWindow(mPosition);
+        clearCanvas(canvas);
+        drawBlur(canvas, mPosition);
+        super.onDraw(canvas);
+    }
 
-        // Clear canvas
+    protected void clearCanvas(Canvas canvas) {
         canvas.drawColor(0, PorterDuff.Mode.CLEAR);
+    }
 
+    protected void drawBlur(Canvas canvas, int[] position) {
         // Draw blurred content
         canvas.translate(-position[0], -position[1]);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            canvas.scale(1f / LcBlurCanvas.MODERN_RES_MULT, 1f / LcBlurCanvas.MODERN_RES_MULT);
             canvas.drawRenderNode(LcBlurCanvas.getRenderNode());
+            canvas.scale(LcBlurCanvas.MODERN_RES_MULT, LcBlurCanvas.MODERN_RES_MULT);
         } else {
             Bitmap bitmap = LcBlurCanvas.getFallbackBitmap();
             if (bitmap != null) canvas.drawBitmap(bitmap, 0, 0, null);
-            invalidate();
+            LcBlurCanvas.addInvalidatingView(this);
         }
-        canvas.translate(position[0], position[1]);
-
-        super.draw(canvas);
+        canvas.translate(mPosition[0], mPosition[1]);
     }
 }

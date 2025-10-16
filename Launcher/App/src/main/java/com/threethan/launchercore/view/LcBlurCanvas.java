@@ -20,9 +20,14 @@ import android.renderscript.ScriptIntrinsicBlur;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 
 import androidx.annotation.Nullable;
+
+import com.threethan.launcher.BuildConfig;
+import com.threethan.launcher.activity.LauncherActivity;
+import com.threethan.launchercore.util.Platform;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -32,6 +37,11 @@ public class LcBlurCanvas extends LcContainerView {
     protected static @Nullable Bitmap fallbackBitmap = null;
     protected static final float BLUR_RADIUS = 25f;
     protected static final Set<LcBlurCanvas> instances = new HashSet<>();
+
+    /** Modern blur (API >= Q) is very performant, so it is rendered at resolution * this */
+    static final float MODERN_RES_MULT = Platform.isTv() ? 0.125f :
+            (Platform.isPhone() ? 0.25f :
+                    (Platform.isQuestGen3() ? 0.1f : 0.05f));
 
     /** Legacy blur (API < Q) is much less performant, so it is rendered at resolution / this */
     protected static final int LEGACY_DOWN_SAMPLE = 32;
@@ -61,12 +71,22 @@ public class LcBlurCanvas extends LcContainerView {
 
     /** Invalidates all existing LcBlurCanvas instances, causing them to redraw */
     public static void invalidateAll() {
+        instances.forEach(LcBlurCanvas::notifyShouldForceRender);
         instances.forEach(View::postInvalidate);
     }
 
     private boolean hasRenderEffect;
+    private boolean shouldForceRender = true;
+    private static final boolean supportTranslucent = Platform.isQuest();
+    public void notifyShouldForceRender() {
+        shouldForceRender = true;
+    }
+
+    /** If true, the blur will be static and not update when most contents change */
+    public boolean useStaticBlur = false;
     /** Renders the canvas as-needed */
     private final ViewTreeObserver.OnPreDrawListener listener = () -> {
+        if (useStaticBlur && !shouldForceRender) return true;
         try {
             if (getChildCount() == 0) return true;
             // Get window dimensions
@@ -87,28 +107,41 @@ public class LcBlurCanvas extends LcContainerView {
             if (useRenderRect && renderRect == null) return true;
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                if (useRenderRect)
-                    renderNode.setPosition(renderRect);
-                else
-                    renderNode.setPosition(0, 0, width, height);
-
+                if (useRenderRect && !useStaticBlur) {
+                    renderNode.setPosition(
+                            (int) (renderRect.left * MODERN_RES_MULT),
+                            (int) (renderRect.top * MODERN_RES_MULT),
+                            (int) Math.ceil(renderRect.width() * MODERN_RES_MULT),
+                            (int) Math.ceil(renderRect.height() * MODERN_RES_MULT)
+                    );
+                } else {
+                    renderNode.setPosition(0, 0,
+                            (int) Math.ceil(width * MODERN_RES_MULT), (int) Math.ceil(height * MODERN_RES_MULT));
+                }
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                     Canvas canvas = renderNode.beginRecording();
+                    canvas.scale(MODERN_RES_MULT, MODERN_RES_MULT);
 
-                    canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
+                    if (supportTranslucent) canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
                     // Draw window background
-                    drawWindowBackground(canvas);
-                    drawChild(canvas);
+                    if (useStaticBlur) drawWindowBackground(canvas);
+                    else drawContents(canvas);
 
                     // Canvas overlay
                     canvas.drawColor(overlayColor);
+                    canvas.scale(1/ MODERN_RES_MULT, 1/ MODERN_RES_MULT);
 
                     renderNode.endRecording();
 
                     if (!hasRenderEffect) {
-                        renderNode.setRenderEffect(RenderEffect.createBlurEffect(BLUR_RADIUS, BLUR_RADIUS, Shader.TileMode.CLAMP));
+                        renderNode.setRenderEffect(RenderEffect.createBlurEffect(
+                                BLUR_RADIUS * MODERN_RES_MULT,
+                                BLUR_RADIUS * MODERN_RES_MULT,
+                                Shader.TileMode.CLAMP
+                        ));
                         hasRenderEffect = true;
                     }
+
 
                 } else {
                     renderLegacyBlur(renderNode.beginRecording(), width, height);
@@ -122,16 +155,39 @@ public class LcBlurCanvas extends LcContainerView {
             Log.w("LcBlurCanvas", "Error while drawing", e);
         }
 
+        invalidatingViews.forEach(View::invalidate);
         return true;
     };
 
-    private void drawChild(Canvas canvas) {
+    /** Used to redraw legacy blur */
+    private static final Set<LcBlurView> invalidatingViews = new HashSet<>();
+
+    /** Called by LcBlurView to register itself for invalidation when legacy blur is redrawn */
+    public static void addInvalidatingView(LcBlurView lcBlurView) {
+        invalidatingViews.add(lcBlurView);
+    }
+
+    protected void drawContents(Canvas canvas) {
         int[] location = new int[2];
         getLocationInWindow(location);
-        canvas.translate(location[0], location[1]);
-        // Draw child
-        getChildAt(0).draw(canvas);
         canvas.translate(-location[0], -location[1]);
+        if (useRenderRect && renderRect != null)
+            canvas.translate(-renderRect.left, -renderRect.top);
+        drawWindowBackground(canvas);
+        // Draw children
+        for (int i = 0; i < getChildCount(); i++) {
+            final View child = getChildAt(i);
+            if (child.getVisibility() != VISIBLE) continue;
+            if (child.getAlpha() == 0f) continue;
+            if (child.getAlpha() != 1f)
+                canvas.saveLayerAlpha(0, 0, getWidth(), getHeight(), (int) (child.getAlpha() * 255));
+            getChildAt(i).draw(canvas);
+            if (child.getAlpha() != 1f)
+                canvas.restore();
+        }
+        canvas.translate(location[0], location[1]);
+        if (useRenderRect && renderRect != null)
+            canvas.translate(renderRect.left, renderRect.top);
     }
 
     private void renderLegacyBlur(Canvas canvas, int width, int height) {
@@ -141,8 +197,7 @@ public class LcBlurCanvas extends LcContainerView {
         Canvas bitmapCanvas = new Canvas(bitmap);
         bitmapCanvas.scale(1f / LEGACY_DOWN_SAMPLE, 1f / LEGACY_DOWN_SAMPLE);
         // Draw window background
-        drawWindowBackground(bitmapCanvas);
-        drawChild(bitmapCanvas);
+        drawContents(bitmapCanvas);
 
         // Blur bitmap
         blurBitmap(bitmap, (float) Math.ceil(BLUR_RADIUS / LEGACY_DOWN_SAMPLE));
@@ -169,13 +224,20 @@ public class LcBlurCanvas extends LcContainerView {
     }
 
     private void drawWindowBackground(Canvas canvas) {
-        if (getContext() instanceof Activity activity) {
+        Activity activity = LauncherActivity.getForegroundInstance();
+        if (activity == null) activity = (getContext() instanceof Activity a) ? a : null;
+        if (activity != null) {
             try {
                 Drawable windowBackground = activity.getWindow().getDecorView().getBackground();
                 if (windowBackground != null) {
+                    if (windowBackground.getBounds().right == 0 || windowBackground.getBounds().bottom == 0) {
+                        windowBackground.setBounds(0, 0, getWidth(), getHeight());
+                        Log.d("LcBlurCanvas", "Window background bounds were empty, setting to own size.");
+                    }
                     windowBackground.draw(canvas);
                 }
-            } catch (Exception ignored) {
+            } catch (Exception e) {
+                Log.w("LcBlurCanvas", "Failed to draw window background", e);
             }
         }
     }
@@ -196,6 +258,9 @@ public class LcBlurCanvas extends LcContainerView {
     public void addView(View child, int index, LayoutParams params) {
         super.addView(child, index, params);
         child.getViewTreeObserver().addOnPreDrawListener(listener);
+        if (BuildConfig.DEBUG && child instanceof ViewGroup cvg && cvg.getClipChildren()) {
+            Log.w("LcBlurCanvas", "Child ViewGroup has clipChildren=true, which will cause rendering issues on older Android versions");
+        }
     }
 
     @Override
