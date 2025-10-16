@@ -210,7 +210,9 @@ public abstract class Platform {
             "com.google.android.katniss",
             "com.google.android.apps.tv.launcherx",
             "com.google.android.healthconnect.controller",
-            "com.google.android.inputmethod.latin"
+            "com.google.android.inputmethod.latin",
+            "com.android.tv",
+            "com.google.android.tvlauncher"
     ));
 
     static {
@@ -304,10 +306,12 @@ public abstract class Platform {
      */
     public static boolean cantLaunchSettings() {
         Log.d("Platform", "Assuming settings cant be launched");
-        return true;
-//        Intent intent = new Intent(Intent.ACTION_DEFAULT);
-//        intent.setPackage("com.android.settings");
-//        PackageManager pm = Core.context().getPackageManager();
-//        return intent.resolveActivity(pm) == null;
+        Intent intent = new Intent(Intent.ACTION_DEFAULT);
+        intent.setPackage("com.android.settings");
+        PackageManager pm = Core.context().getPackageManager();
+        return intent.resolveActivity(pm) == null;
+    }
+    public static boolean isPhone() {
+        return !isTv() && !isVr();
     }
 }
