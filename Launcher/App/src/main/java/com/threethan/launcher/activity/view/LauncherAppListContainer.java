@@ -1,7 +1,9 @@
 package com.threethan.launcher.activity.view;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.util.AttributeSet;
+import android.util.Log;
 
 import com.threethan.launchercore.view.LcBlurCanvas;
 

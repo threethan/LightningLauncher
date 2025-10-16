@@ -19,19 +19,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:layout_margin="20dp"
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:clipToPadding="false"
         android:clipChildren="false">
 
-        <ImageView
+        <com.threethan.launcher.activity.view.LauncherAppImageView
+            android:layout_margin="20dp"
             android:id="@+id/itemImage"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:background="@drawable/bkg_app"
-            android:scaleType="centerCrop"
             android:elevation="3dp"
+            android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
@@ -44,8 +44,8 @@
 
     <Button
         android:id="@+id/moreButton"
-        android:layout_width="29dp"
-        android:layout_height="29dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:layout_gravity="top|end"
         android:layout_margin="20dp"
         android:background="@drawable/ic_more_button"
@@ -57,7 +57,7 @@
     <Button
         android:id="@+id/playtimeButton"
         android:layout_width="60dp"
-        android:layout_height="23dp"
+        android:layout_height="24dp"
         android:layout_gravity="top|start"
         android:layout_margin="23dp"
         android:background="@drawable/bkg_button_circle"
@@ -89,6 +89,8 @@
         android:singleLine="true"
         android:textColor="@android:color/white"
         android:textSize="16sp"
-        tools:text="App Name" />
+        android:text="\ "
+        tools:text="App Name"
+        tools:ignore="HardcodedText" />
 
 </FrameLayout>

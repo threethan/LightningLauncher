@@ -1,9 +1,10 @@
 package com.threethan.launcher.activity.adapter;
 
 import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.pm.ApplicationInfo;
-import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,13 +18,14 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.bumptech.glide.Glide;
 import com.threethan.launcher.BuildConfig;
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.activity.dialog.AppDetailsDialog;
 import com.threethan.launcher.activity.support.SettingsManager;
 import com.threethan.launcher.activity.support.SortHandler;
+import com.threethan.launcher.activity.view.FocusDirectionAwareContainer;
+import com.threethan.launcher.activity.view.LauncherAppImageView;
 import com.threethan.launcher.activity.view.LauncherAppListContainer;
 import com.threethan.launcher.data.Settings;
 import com.threethan.launcher.helper.LaunchExt;
@@ -39,6 +41,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import java.util.function.Consumer;
 
 /**
  *     The adapter for the main app grid.
@@ -56,6 +59,8 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
     protected ApplicationInfo topSearchResult = null;
     private LauncherAppListContainer container;
     private SortHandler.SortMode sortMode = SortHandler.SortMode.STANDARD;
+    private Runnable onListReadyEveryTime;
+    private Runnable onListReadyOneShot;
 
     private boolean getEditMode() {
         return launcherActivity.isEditing();
@@ -74,15 +79,34 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
         sortMode = mode;
         setAppList(launcherActivity);
     }
+
+    public synchronized void setOnListReadyOneShot(Runnable onListReadyOneShot) {
+        this.onListReadyOneShot = onListReadyOneShot;
+    }
+    public synchronized void setOnListReadyEveryTime(Runnable onListReadyEveryTime) {
+        this.onListReadyEveryTime = onListReadyEveryTime;
+    }
     public synchronized void setAppList(LauncherActivity activity) {
         SettingsManager settingsManager = SettingsManager.getInstance(activity);
         launcherActivity = activity;
 
         topSearchResult = null;
         prevFilterText = "";
-        setFullItems(Collections.unmodifiableList(new SortHandler(settingsManager)
-                .getVisibleAppsSorted(settingsManager.getAppGroupsSorted(true), fullAppSet,
-                        sortMode)));
+
+        SortHandler.getVisibleAppsSorted(
+                settingsManager,
+                true,
+                fullAppSet,
+                sortMode,
+                list -> setFullItems(Collections.unmodifiableList(list))
+        );
+
+        layoutInflater = activity.getLayoutInflater();
+    }
+
+    @Override
+    protected void setFullItems(List<ApplicationInfo> items) {
+        super.setFullItems(items);
     }
 
     private static String prevFilterText = "";
@@ -99,43 +123,55 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
         boolean showHidden = !text.isEmpty() && launcherActivity.dataStoreEditor.getBoolean(
                 Settings.KEY_SEARCH_HIDDEN, Settings.DEFAULT_SEARCH_HIDDEN);
 
+        Consumer<List<ApplicationInfo>> onSearchableListReady = newItems -> {
+            newItems.removeIf(new SortableFilterPredicate(text).negate());
+
+
+            if (!showHidden) {
+                Set<String> hg = SettingsManager.getGroupAppsMap().get(Settings.HIDDEN_GROUP);
+                if (hg != null) newItems.removeIf(ai -> hg.contains(ai.packageName));
+            }
+
+            boolean showWeb = !text.isEmpty() && launcherActivity.dataStoreEditor
+                    .getBoolean(Settings.KEY_SEARCH_WEB, Settings.DEFAULT_SEARCH_WEB);
+
+            // Add search queries
+            if (showWeb && !launcherActivity.isEditing()) {
+                // Remove existing search entries
+                newItems.removeIf(app
+                        -> app.packageName != null && StringLib.isSearchUrl(app.packageName));
+
+                final ApplicationInfo googleProxy = new ApplicationInfo();
+                googleProxy.packageName = StringLib.googleSearchForUrl(text);
+                newItems.add(googleProxy);
+
+                final ApplicationInfo youTubeProxy = new ApplicationInfo();
+                youTubeProxy.packageName = StringLib.youTubeSearchForUrl(text);
+                newItems.add(youTubeProxy);
+
+                final ApplicationInfo apkMirrorProxy = new ApplicationInfo();
+                apkMirrorProxy.packageName = StringLib.apkMirrorSearchForUrl(text);
+                newItems.add(apkMirrorProxy);
+            }
+
+            topSearchResult = newItems.isEmpty() ? null : newItems.get(0);
+            submitList(new ArrayList<>(newItems), () -> notifyItemChanged(topSearchResult));
+        };
+
         boolean reList = !text.startsWith(prevFilterText) || newSearch;
         prevFilterText = text;
 
-
-        final List<ApplicationInfo> newItems = reList ?
-                new SortHandler(settingsManager).getVisibleAppsSorted(
-                        settingsManager.getAppGroupsSorted(false),
-                        fullAppSet, SortHandler.SortMode.SEARCH) : new ArrayList<>(getCurrentList());
-
-        newItems.removeIf(new SortableFilterPredicate(text).negate());
-
-
-        if (!showHidden) {
-            Set<String> hg = SettingsManager.getGroupAppsMap().get(Settings.HIDDEN_GROUP);
-            if (hg != null) newItems.removeIf(ai -> hg.contains(ai.packageName));
+        if (reList) {
+            SortHandler.getVisibleAppsSorted(
+                    settingsManager,
+                    false,
+                    fullAppSet,
+                    SortHandler.SortMode.SEARCH,
+                    onSearchableListReady
+            );
+        } else {
+            onSearchableListReady.accept(new ArrayList<>(getCurrentList()));
         }
-
-        boolean showWeb = !text.isEmpty() && launcherActivity.dataStoreEditor
-                .getBoolean(Settings.KEY_SEARCH_WEB, Settings.DEFAULT_SEARCH_WEB);
-
-        // Add search queries
-        if (showWeb && !launcherActivity.isEditing()) {
-            final ApplicationInfo googleProxy = new ApplicationInfo();
-            googleProxy.packageName = StringLib.googleSearchForUrl(text);
-            newItems.add(googleProxy);
-
-            final ApplicationInfo youTubeProxy = new ApplicationInfo();
-            youTubeProxy.packageName = StringLib.youTubeSearchForUrl(text);
-            newItems.add(youTubeProxy);
-
-            final ApplicationInfo apkMirrorProxy = new ApplicationInfo();
-            apkMirrorProxy.packageName = StringLib.apkMirrorSearchForUrl(text);
-            newItems.add(apkMirrorProxy);
-        }
-
-        topSearchResult = newItems.isEmpty() ? null : newItems.get(0);
-        submitList(new ArrayList<>(newItems), () -> notifyItemChanged(topSearchResult));
     }
     public void setLauncherActivity(LauncherActivity val) {
         launcherActivity = val;
@@ -145,10 +181,17 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
     public void submitList(@Nullable List<ApplicationInfo> list) {
         if (container != null) {
             container.setAllowLayout(false);
-            container.post(() -> super.submitList(list, () -> container.setAllowLayout(true)));
         }
-        else super.submitList(list);
+        super.submitList(list, () -> {
+            if (container != null) {
+                container.setAllowLayout(true);
+            }
+            if (onListReadyEveryTime != null) onListReadyEveryTime.run();
+            if (onListReadyOneShot != null) onListReadyOneShot.run();
+            onListReadyOneShot = null;
+        });
     }
+
 
     public ApplicationInfo getTopSearchResult() {
         return topSearchResult;
@@ -156,6 +199,11 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
 
     public void setContainer(LauncherAppListContainer container) {
         this.container = container;
+    }
+
+    public void clearAppFocus() {
+        updateAppFocus(null, true, FocusSource.CURSOR);
+        updateAppFocus(null, true, FocusSource.SEARCH);
     }
 
     protected static class AppViewHolderExt extends AppsAdapter.AppViewHolder {
@@ -180,7 +228,8 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
         // Launch app on click
         holder.view.setOnClickListener(view -> {
             if (holder.app == null || holder.app.packageName == null) return;
-            if (getEditMode()) {
+
+            else if (getEditMode()) {
                 boolean selected = launcherActivity.selectApp(holder.app.packageName);
                 holder.view.animate().alpha(selected ? 0.5f : 1).setDuration(150).start();
             } else {
@@ -210,13 +259,72 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
                 for (View subView : new View[] {holder.playtimeButton, holder.moreButton})
                     if (view != subView && subView != null && subView.isHovered()) return false;
                 hovered = false;
-            } else return false;
-            updateAppFocus(holder, hovered, FocusSource.CURSOR);
+            } else {
+                if (event.getAction() == MotionEvent.ACTION_HOVER_MOVE) {
+                    // Depth effect on hover
+                    float oy = view == holder.view ? 0f : view.getY();
+                    float ox = view == holder.view ? 0f : view.getX();
+                    float y = (event.getY() + oy - holder.view.getHeight() / 2f);
+                    float x = (event.getX() + ox - holder.view.getWidth() / 2f);
+                    holder.view.setRotationY(-x / holder.view.getHeight() * -5);
+                    holder.view.setRotationX(y / holder.view.getHeight() * -5);
+                    holder.imageView.invalidate(); // redraw parallax
+                }
+                return false;
+            }
+            if (view == holder.view || event.getAction() == MotionEvent.ACTION_HOVER_ENTER)
+                updateAppFocus(holder, hovered, FocusSource.CURSOR);
             return false;
         };
 
         holder.view.setOnHoverListener(hoverListener);
-        holder.view.setOnFocusChangeListener((view, hasFocus) -> updateAppFocus(holder, hasFocus, FocusSource.CURSOR));
+        holder.moreButton.setOnHoverListener(hoverListener);
+        holder.playtimeButton.setOnHoverListener(hoverListener);
+        holder.view.setOnFocusChangeListener((view, hasFocus) -> {
+            updateAppFocus(holder, hasFocus, FocusSource.CURSOR);
+            if (LauncherActivity.shouldReduceMotion()) return;
+            if (view instanceof FocusDirectionAwareContainer fView) {
+                Consumer<Integer> animate = (fDir) -> {
+                    final float intensity = 6f;
+                    int xSign = 0;
+                    int ySign = 0;
+                    switch (fDir) {
+                        case View.FOCUS_UP -> ySign = -1;
+                        case View.FOCUS_DOWN -> ySign = 1;
+                        case View.FOCUS_LEFT -> xSign = -1;
+                        case View.FOCUS_RIGHT -> xSign = 1;
+                    }
+                    float tension = hasFocus ? -1f : -3f;
+                    if (hasFocus) {
+                        xSign *= -1;
+                        ySign *= -1;
+                    }
+                    view.animate().rotationX(ySign * intensity).rotationY(-xSign * intensity)
+                            .setDuration(50).setInterpolator(new OvershootInterpolator(tension))
+                            .withEndAction(() -> view.animate().rotationX(0).rotationY(0)
+                                    .setDuration(200).setInterpolator(new OvershootInterpolator(tension))
+                                    .start())
+                            .start();
+                    ValueAnimator va = ValueAnimator.ofFloat(0, 1);
+                    va.setInterpolator(new OvershootInterpolator());
+                    va.addUpdateListener(anim -> holder.imageView.invalidate());
+                    va.setDuration(300);
+                    va.start();
+                };
+                view.post(() -> {
+                    int fDir = fView.getFocusDirection();
+                    if (fDir != 0) {
+                        lastKnownFocusDirection = fDir;
+                        animate.accept(fView.getFocusDirection());
+                    } else {
+                        fView.post(() -> {
+                            animate.accept(lastKnownFocusDirection);
+                        });
+                    }
+                });
+            }
+        });
+
 
         holder.view.findViewById(R.id.moreButton).setOnClickListener(
                 view -> new AppDetailsDialog(launcherActivity, holder.app).show());
@@ -224,6 +332,7 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
         holder.view.findViewById(R.id.playtimeButton).setOnClickListener(v
                 -> PlaytimeHelper.openFor(holder.app.packageName));
     }
+    private static int lastKnownFocusDirection = 0;
 
     @Override
     protected void onViewHolderReady(AppViewHolderExt holder) {
@@ -231,15 +340,6 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
         if (!Platform.isTv())
             holder.playtimeButton.post(() -> holder.playtimeButton.setText("--:--"));
         holder.view.post(() -> updateSelected(holder));
-    }
-
-    @Override
-    protected void onIconChanged(AppViewHolderExt holder, Drawable icon) {
-        holder.imageView.post(() ->
-                Glide.with(holder.imageView.getContext())
-                .load(icon)
-                .centerCrop()
-                .into(holder.imageView));
     }
 
     public void notifySelectionChange(String packageName) {
@@ -252,10 +352,7 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
         if (holder.app == null || holder.app.packageName == null) return;
         boolean selected = launcherActivity.isSelected(holder.app.packageName);
         if (selected != holder.view.getAlpha() < 0.9) {
-            ObjectAnimator an = ObjectAnimator.ofFloat(holder.view, "alpha",
-                    selected ? 0.5F : 1.0F);
-            an.setDuration(150);
-            an.start();
+            holder.view.animate().alpha(selected ? 0.5f : 1).setDuration(150).start();
         }
 
         // Top search result
@@ -266,6 +363,11 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
     }
     // Only one focused app is allowed per source at a time.
     private enum FocusSource { CURSOR, SEARCH }
+
+    @Override
+    protected ViewGroup newContainer(ViewGroup parent) {
+        return new FocusDirectionAwareContainer(parent.getContext());
+    }
 
     private final Map<FocusSource, AppViewHolderExt> focusedHolderBySource = new HashMap<>();
     /** @noinspection ClassEscapesDefinedScope*/
@@ -294,10 +396,10 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
                     && LauncherActivity.timesBanner) {
                 if (focused) {
                     // Show and update view holder
-                    holder.playtimeButton.setVisibility(Boolean.TRUE.equals(holder.banner)
+                    holder.playtimeButton.setVisibility(holder.banner
                             && !holder.app.packageName.contains("://")
                             ? View.VISIBLE : View.INVISIBLE);
-                    if (Boolean.TRUE.equals(holder.banner)
+                    if (holder.banner
                             && !holder.app.packageName.contains("://")) {
                         PlaytimeHelper.getPlaytime(holder.app.packageName,
                                 t -> launcherActivity.runOnUiThread(()
@@ -305,21 +407,36 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
                     }
                 } else holder.playtimeButton.setVisibility(View.INVISIBLE);
             }
+            try {
+                View view = holder.view;
+                view.setZ(focused ? 2 : 1);
+                holder.hovered = focused;
+            } catch (Exception e) {
+                Log.w("LauncherAppsAdapter", "Failed to update z-order", e);
+            }
+
+            if (LauncherActivity.shouldReduceMotion()) {
+                holder.imageView.setForeground(focused ? holder.view.getContext().getDrawable(R.drawable.lc_fg_focused) : null);
+                return;
+            }
+
             final boolean tv = Platform.isTv();
-            final float newScaleInner = focused ? (tv ? 1.055f : 1.050f) : 1.005f;
-            final float newScaleOuter = focused ? (tv ? 1.270f : 1.085f) : 1.005f;
+            final float newScaleOuter = focused ? (tv ? 1.250f : 1.085f) : 1.005f;
 
             final float newElevation = focused ? 20f : 3f;
+            final float newZ = focused ? (Platform.isTv() ? -0.5f : (holder.banner ? 1f :0f)) : 0f;
 
             final float textScale = 1 - (1 - (1 / newScaleOuter)) * 0.7f;
             final int duration = tv ? 175 : 250;
             BaseInterpolator interpolator = Platform.isTv() ?
                     new LinearInterpolator() : new OvershootInterpolator();
 
-            holder.imageView.animate().scaleX(newScaleInner).scaleY(newScaleInner)
-                    .setDuration(duration).setInterpolator(interpolator).start();
             holder.view.animate().scaleX(newScaleOuter).scaleY(newScaleOuter)
                     .setDuration(duration).setInterpolator(interpolator).start();
+            if (!focused) {
+                holder.view.animate().rotationX(0).rotationY(0)
+                    .setDuration(duration).setInterpolator(new OvershootInterpolator(-3)).start();
+            }
             holder.moreButton.animate().alpha(focused ? 1f : 0f)
                     .setDuration(duration).setInterpolator(interpolator).start();
             holder.textView.animate().scaleX(textScale).scaleY(textScale)
@@ -327,35 +444,40 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
 
             ObjectAnimator aE = ObjectAnimator.ofFloat(holder.imageView, "elevation",
                     newElevation);
-            aE.setDuration(duration).start();
+            ObjectAnimator tz = ObjectAnimator.ofFloat(holder.imageView, "translationZ", newZ);
 
-            boolean banner = Boolean.TRUE.equals(holder.banner);
+            aE.setInterpolator(interpolator);
+            tz.setInterpolator(interpolator);
+
+            aE.setDuration(duration).start();
+            tz.setDuration(duration).start();
+
+            boolean banner = holder.banner;
             if (banner && !LauncherActivity.namesBanner || !banner && !LauncherActivity.namesSquare)
                 holder.textView.setVisibility(focused ? View.VISIBLE : View.INVISIBLE);
+
+            if (holder.imageView instanceof LauncherAppImageView li)
+                li.setTranslationParent(holder.view);
 
             // Force correct state, even if interrupted
             holder.view.postDelayed(() -> {
                 if (Objects.equals(focusedHolderBySource.get(source), holder)) {
-                    holder.imageView.setScaleX(newScaleInner);
-                    holder.imageView.setScaleY(newScaleInner);
                     holder.view.setScaleX(newScaleOuter);
                     holder.view.setScaleY(newScaleOuter);
                     holder.imageView.setElevation(newElevation);
+                    holder.imageView.setTranslationZ(newZ);
                     holder.view.setActivated(false);
                 }
             }, tv ? 200 : 300);
-
-            View pv = holder.view.getParent() instanceof View
-                    ? (View) holder.view.getParent() : holder.view;
-            pv.bringToFront();
-            pv.setZ(focused ? 2 : 1);
-            holder.hovered = focused;
         } catch (Exception ignored) {}
     }
 
     // Animation
 
     private void animateOpen(AppViewHolderExt holder, boolean fullAnimation) {
+        // If reduced motion is enabled, use an alternate fade anim
+        boolean srm = LauncherActivity.shouldReduceMotion();
+        if (srm) fullAnimation = false;
         try {
             int[] l = new int[2];
             int[] lw = new int[2];
@@ -372,17 +494,16 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
             ImageView openIcon = openAnim.findViewById(R.id.openIcon);
             openIcon.setImageDrawable(holder.imageView.getDrawable());
             openIcon.setAlpha(1F);
-            openAnim.setScaleX(holder.imageView.getScaleX());
-            openAnim.setScaleY(holder.imageView.getScaleY());
-            openAnim.setX(l[0]);
-            openAnim.setY(l[1]);
+            openAnim.setScaleX(holder.view.getScaleX());
+            openAnim.setScaleY(holder.view.getScaleY());
+            openAnim.setX(l[0] + (w * holder.view.getScaleX() - w) / 2f);
+            openAnim.setY(l[1] + (h * holder.view.getScaleY() - h) / 2f);
             ViewGroup.LayoutParams layoutParams = new FrameLayout.LayoutParams(w, h);
             openAnim.setLayoutParams(layoutParams);
 
             openAnim.setVisibility(View.VISIBLE);
             openAnim.setAlpha(1F);
             openAnim.setClipToOutline(true);
-
 
             ObjectAnimator aX = ObjectAnimator.ofFloat(openAnim, "ScaleX", fullAnimation ? 50f : 3f);
             ObjectAnimator aY = ObjectAnimator.ofFloat(openAnim, "ScaleY", fullAnimation ? 50f : 3f);
@@ -391,12 +512,19 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
             aX.setDuration(fullAnimation ? 800 : 300);
             aY.setDuration(fullAnimation ? 800 : 300);
             aA.setDuration(fullAnimation ? 400 : 300);
-            aX.start();
-            aY.start();
+
+            if (srm) {
+                openAnim.setScaleX(1.1f);
+                openAnim.setScaleY(1.1f);
+                openAnim.setAlpha(0.5f);
+            } else {
+                aX.start();
+                aY.start();
+            }
             aA.start();
 
             ObjectAnimator aFade = ObjectAnimator.ofFloat(openAnim, "Alpha", 0f);
-            aFade.setStartDelay(400);
+            aFade.setStartDelay(1000);
             aFade.setDuration(400);
             aFade.start();
 

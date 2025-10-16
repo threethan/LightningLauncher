@@ -6,6 +6,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.view.View;
 import android.widget.EditText;
@@ -98,9 +99,8 @@ public class AppDetailsDialog extends BasicDialog<LauncherActivity> {
         ImageView iconImageView = dialog.findViewById(R.id.appIcon);
         IconLoader.loadIcon(app, drawable -> {
             if (LauncherActivity.getForegroundInstance() != null)
-                LauncherActivity.getForegroundInstance().runOnUiThread(() ->
-                        iconImageView.setImageDrawable(drawable)
-                );
+                LauncherActivity.getForegroundInstance().runOnUiThread(()
+                        -> iconImageView.setImageDrawable(copy(drawable)));
         });
 
         iconImageView.setOnClickListener(iconPickerView -> {
@@ -125,7 +125,7 @@ public class AppDetailsDialog extends BasicDialog<LauncherActivity> {
                 ? View.GONE : View.VISIBLE);
         resetIconButton.setOnClickListener(view -> Compat.resetIcon(app, d
                 -> a.runOnUiThread(() -> {
-                    iconImageView.setImageDrawable(d);
+                    iconImageView.setImageDrawable(copy(d));
                     view.setVisibility(View.GONE);
         })));
         if (appType == App.Type.VR || appType == App.Type.PANEL
@@ -238,8 +238,8 @@ public class AppDetailsDialog extends BasicDialog<LauncherActivity> {
             dispIconButton.setVisibility(View.GONE);
             Compat.resetIcon(app, d
                     -> a.runOnUiThread(() -> {
-                iconImageView.setImageDrawable(d);
-                a.launcherService.forEachActivity(LauncherActivity::resetAdapters);
+                iconImageView.setImageDrawable(copy(d));
+                a.launcherService.forEachActivity(LauncherActivity::notifyAdapterDisplayModeChanged);
             }));
         });
         dispBannerButton.setOnClickListener(v -> {
@@ -250,8 +250,8 @@ public class AppDetailsDialog extends BasicDialog<LauncherActivity> {
             dispIconButton.setVisibility(View.VISIBLE);
             Compat.resetIcon(app, d
                     -> a.runOnUiThread(() -> {
-                iconImageView.setImageDrawable(d);
-                a.launcherService.forEachActivity(LauncherActivity::resetAdapters);
+                iconImageView.setImageDrawable(copy(d));
+                a.launcherService.forEachActivity(LauncherActivity::notifyAdapterDisplayModeChanged);
             }));
         });
         iconImageView.setClipToOutline(true);
@@ -289,6 +289,14 @@ public class AppDetailsDialog extends BasicDialog<LauncherActivity> {
         });
         return dialog;
     }
+
+    private Drawable copy(Drawable drawable) {
+        if (drawable.getConstantState() != null) {
+            return drawable.getConstantState().newDrawable().mutate();
+        } else return drawable.mutate();
+
+    }
+
     public static void onImageSelected(@NonNull Bitmap bitmap,
                                        ImageView selectedImageView, LauncherActivity launcherActivity) {
         bitmap = ImageLib.getResizedBitmap(bitmap, IconLoader.SAVED_ICON_HEIGHT);

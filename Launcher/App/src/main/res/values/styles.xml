@@ -80,12 +80,15 @@
         <item name="android:backgroundTint">@color/color_button_highlight</item>
         <item name="android:backgroundTintMode">add</item>
         <item name="android:drawableTint">#000</item>
+        <item name="android:foreground">@drawable/lc_fg_focusable</item>
     </style>
     <style name="customSpinner">
         <item name="android:background">@drawable/lc_bkg_spinner</item>
+        <item name="android:foreground">@drawable/lc_fg_focusable</item>
         <item name="android:foregroundGravity">center_vertical|right</item>
         <item name="android:gravity">center_vertical|left</item>
         <item name="android:popupBackground">@drawable/bkg_spinner_popup</item>
         <item name="android:spinnerMode">dropdown</item>
+
     </style>
 </resources>

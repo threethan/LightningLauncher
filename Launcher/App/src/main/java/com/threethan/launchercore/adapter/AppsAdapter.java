@@ -1,9 +1,7 @@
 package com.threethan.launchercore.adapter;
 
 import android.content.pm.ApplicationInfo;
-import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,13 +10,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.threethan.launcher.activity.LauncherActivity;
+import com.threethan.launchercore.Core;
 import com.threethan.launchercore.metadata.IconLoader;
 import com.threethan.launchercore.util.App;
 import com.threethan.launcher.R;
@@ -26,30 +24,22 @@ import com.threethan.launchercore.view.LcContainerView;
 
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.function.Consumer;
+
 public class AppsAdapter<VH extends AppsAdapter.AppViewHolder>
         extends ListAdapter<ApplicationInfo, VH> {
 
     private List<ApplicationInfo> fullAppList;
     protected final int itemLayoutResId;
 
-    private static final Set<AppsAdapter<?>> instances = new HashSet<>();
-
-    private static void runOnEachInstance(Consumer<AppsAdapter<?>> consumer) {
-        instances.forEach(consumer);
-    }
 
     private static final DiffUtil.ItemCallback<ApplicationInfo> DIFF_CALLBACK = new DiffUtil.ItemCallback<>() {
         @Override
         public boolean areItemsTheSame(@NonNull ApplicationInfo oldItem, @NonNull ApplicationInfo newItem) {
-            return oldItem.packageName.equals(newItem.packageName);
+            return oldItem == newItem;
         }
 
         @Override
@@ -61,13 +51,8 @@ public class AppsAdapter<VH extends AppsAdapter.AppViewHolder>
     public AppsAdapter(int itemLayoutResId) {
         super(DIFF_CALLBACK);
         setHasStableIds(true);
+        setStateRestorationPolicy(StateRestorationPolicy.PREVENT);
         this.itemLayoutResId = itemLayoutResId;
-        instances.add(this);
-    }
-    @Override
-    protected void finalize() throws Throwable {
-        instances.remove(this);
-        super.finalize();
     }
 
     public void refresh() {
@@ -75,7 +60,6 @@ public class AppsAdapter<VH extends AppsAdapter.AppViewHolder>
 
         submitList(new ArrayList<>(fullAppList));
     }
-
     protected void setFullItems(List<ApplicationInfo> items) {
         if (items.equals(fullAppList)) return;
         fullAppList = items;
@@ -88,11 +72,10 @@ public class AppsAdapter<VH extends AppsAdapter.AppViewHolder>
         public ImageView imageView;
         public TextView textView;
         public ApplicationInfo app;
-        @Nullable
-        public Boolean banner = null;
-        @Nullable
-        public Boolean darkMode = null;
-        @Nullable Boolean showName = true;
+        public boolean banner = false;
+        public boolean darkMode = true;
+        public int createdType;
+        boolean showName = true;
 
         public AppViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -122,19 +105,41 @@ public class AppsAdapter<VH extends AppsAdapter.AppViewHolder>
         }
     }
 
+    protected ViewGroup newContainer(ViewGroup parent) {
+        return new LcContainerView(parent.getContext());
+    }
+    protected LayoutInflater layoutInflater;
     @NonNull
     @Override
     public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        ViewGroup container = new LcContainerView(parent.getContext().getApplicationContext());
+        ViewGroup container = newContainer(parent);
         VH holder = newViewHolder(container);
         holder.container = container;
+        holder.createdType = viewType;
 
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(itemLayoutResId, holder.container, false);
+        if (layoutInflater == null)
+            layoutInflater = LayoutInflater.from(parent.getContext());
+
+        View view = layoutInflater.inflate(itemLayoutResId, holder.container, true);
         holder.view = view;
         holder.imageView = view.findViewById(R.id.itemImage);
         holder.textView = view.findViewById(R.id.itemLabel);
+
+        if (viewType == 2 && holder.imageView.getLayoutParams() instanceof ConstraintLayout.LayoutParams clp) {
+            clp.dimensionRatio = "16:9";
+            holder.banner = true;
+        }
+
+        final boolean darkMode = LauncherActivity.darkMode;
+        holder.textView.setTextColor(darkMode ? Color.WHITE : Color.BLACK);
+        holder.textView.setShadowLayer(6, 0, 0, darkMode ? Color.BLACK : Color.WHITE);
+        holder.darkMode = darkMode;
+
+        final boolean showName = holder.banner
+                ? LauncherActivity.namesBanner : LauncherActivity.namesSquare;
+        holder.textView.setVisibility(showName ? View.VISIBLE : View.GONE);
+        holder.showName = showName;
 
         setupViewHolder(holder);
         holder.onReady();
@@ -152,75 +157,50 @@ public class AppsAdapter<VH extends AppsAdapter.AppViewHolder>
     @Override
     public void onBindViewHolder(@NonNull VH holder, int position) {
         ApplicationInfo app = getItem(position);
-        if (holder.app != app) {
-            holder.whenReady(() -> {
-                holder.imageView.setImageDrawable(null);
-                holder.textView.setText("");
-            });
-        }
         holder.app = app;
         holder.whenReady(() -> {
-
-            final Boolean darkMode = LauncherActivity.darkMode;
-            if (!darkMode.equals(holder.darkMode)) {
-                holder.textView.setTextColor(darkMode ? Color.WHITE : Color.BLACK);
-                holder.textView.setShadowLayer(6, 0, 0,
-                        LauncherActivity.darkMode ? Color.BLACK : Color.WHITE);
-                holder.darkMode = darkMode;
-            }
-
-            //noinspection WrapperTypeMayBePrimitive
-            final Boolean banner = App.isBanner(app);
-            if (banner != holder.banner) {
-                if (holder.imageView.getLayoutParams() instanceof ConstraintLayout.LayoutParams clp) {
-                    clp.dimensionRatio = banner ? "16:9" : "1:1";
-                    holder.banner = banner;
+//
+            // Offload everything possible to background thread
+            executorService.submit(() -> {
+                final boolean darkMode = LauncherActivity.darkMode;
+                if (darkMode != holder.darkMode) {
+                    holder.textView.post(() -> {
+                        holder.textView.setTextColor(darkMode ? Color.WHITE : Color.BLACK);
+                        holder.textView.setShadowLayer(6, 0, 0, darkMode ? Color.BLACK : Color.WHITE);
+                    });
+                    holder.darkMode = darkMode;
                 }
-            }
-            //noinspection WrapperTypeMayBePrimitive
-            final Boolean showName = banner
-                    ? LauncherActivity.namesBanner : LauncherActivity.namesSquare;
-            if (showName != holder.showName) {
-                holder.textView.setVisibility(showName ? View.VISIBLE : View.GONE);
-                holder.showName = showName;
-            }
 
-            App.getLabel(app, label
-                    -> {
-                if (holder.textView != null) holder.textView.post(() -> {
-                    if (holder.app == app) holder.textView.setText(label);
-                    else AppsAdapter.runOnEachInstance(a -> a.notifyItemChanged(app));
-            });});
-
-            //Load Icon
-            IconLoader.loadIcon(holder.app, drawable -> {
-                if (holder.app == app || holder.imageView == null) onIconChanged(holder, drawable);
-                else {
-                    holder.imageView.post(() ->
-                            AppsAdapter.runOnEachInstance(a -> a.notifyItemChanged(position)));
+                final boolean showName = holder.banner
+                        ? LauncherActivity.namesBanner : LauncherActivity.namesSquare;
+                if (showName != holder.showName) {
+                    holder.textView.post(() -> holder.textView.setVisibility(showName ? View.VISIBLE : View.GONE));
+                    holder.showName = showName;
                 }
+
+                App.getLabel(app, label
+                        -> {
+                    if (holder.textView != null) onLabelChanged(holder, label);
+                });
+                IconLoader.loadIcon(holder.app, drawable -> {
+                    if (holder.imageView != null) onIconChanged(holder, drawable);
+                });
             });
-
-
-            holder.container.addView(holder.view);
-
             onViewHolderReady(holder);
         });
     }
 
     protected void onViewHolderReady(VH holder) {}
 
-    private static final ExecutorService executorService = Executors.newCachedThreadPool();
+    private static final ExecutorService executorService = Core.EXECUTOR;
     protected void onIconChanged(VH holder, Drawable icon) {
-        // Set the actual image with proper scaling
-        if (icon instanceof BitmapDrawable bitmapIcon) {
-            executorService.submit(() -> {
-                Bitmap bitmap = bitmapIcon.getBitmap();
-                holder.imageView.post(() -> holder.imageView.setImageBitmap(bitmap));
-            });
-        } else {
-            holder.imageView.post(() -> holder.imageView.setImageDrawable(icon));
-        }
+        holder.imageView.post(() -> holder.imageView.setImageDrawable(icon));
+    }
+    protected void onLabelChanged(VH holder, String label) {
+        holder.textView.post(() -> {
+            if (!holder.textView.getText().toString().equals(label))
+                holder.textView.setText(label, TextView.BufferType.NORMAL);
+        });
     }
 
     public void notifyAllChanged() {
