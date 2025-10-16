@@ -7,11 +7,31 @@
         </shape>
     </item>
     <item android:state_focused="true">
-        <shape android:shape="rectangle">
-            <corners android:radius="20dp" />
-            <stroke android:color="#FFF" android:width="2dp"/>
-            <solid android:color="#40FFFFFF"/>
-        </shape>
+        <layer-list>
+            <item>
+                <shape android:shape="rectangle">
+                    <stroke
+                        android:width="2dp"
+                        android:color="#FFF" />
+                    <corners android:radius="20dp" />
+                </shape>
+            </item>
+            <item
+                android:bottom="1dp"
+                android:left="1dp"
+                android:right="1dp"
+                android:top="1dp">
+
+                <shape android:shape="rectangle">
+                    <stroke
+                        android:width="2dp"
+                        android:color="#A000" />
+
+                    <solid android:color="#1CCC" />
+                    <corners android:radius="20dp" />
+                </shape>
+            </item>
+        </layer-list>
     </item>
     <item>
         <shape android:shape="rectangle">

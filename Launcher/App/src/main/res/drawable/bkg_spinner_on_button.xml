@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/lc_fg_focusable" android:gravity="fill"/>
     <item android:drawable="@drawable/lc_bkg_button_right"/>
+    <item android:left="-20dp" android:right="-20dp" android:top="-6dp" android:bottom="-6dp" android:drawable="@drawable/lc_fg_focusable" android:gravity="fill"/>
 
     <item android:right="0dp" android:gravity="center_vertical|right" android:drawable="@drawable/ic_arrow_drop_down" />
 </layer-list>
