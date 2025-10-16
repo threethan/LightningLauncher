@@ -171,7 +171,6 @@ public abstract class Settings {
 
     public static final String KEY_NEWLY_ADDED_BASELINE = "KEY_NEWLY_ADDED_BASELINE";
     public static final String KEY_NEWLY_ADDED = "KEY_NEWLY_ADDED";
-    public static final String KEY_RECENTLY_LAUNCHED = "KEY_RECENTLY_LAUNCHED";
     public static final String PREF_NEWLY_ADDED_TIME = "prefNewlyAddedTime";
     public static final String PREF_LAST_LAUNCHED_TIME = "prefRecentlyLaunchedTime";
     public static final String KEY_TAG_MAX_DURATION = "KEY_TAG_MAX_DURATION";

@@ -11,7 +11,6 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -791,7 +790,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         int targetSize = dp(iconScale);
         int margin = getMargin(targetSize);
 
-        final int topAdd = groupHeight > 1 && !getSearching() ? dp(35) + groupHeight : dp(23);
+        final int topAdd = groupHeight > 1 && !isSearching() ? dp(35) + groupHeight : dp(23);
         final int bottomAdd = groupHeight > 1 ? getBottomBarHeight() + dp(11) : margin / 2 + getBottomBarHeight() + dp(11);
 
         appsRecycler.setPadding(
@@ -1038,7 +1037,8 @@ public class LauncherActivity extends Launch.LaunchingActivity {
     public boolean isEditing() { return false; }
     public boolean canEdit() { return false; }
     public void addWebsite() {}
-    protected boolean getSearching() { return false; }
+    /** @noinspection BooleanMethodIsAlwaysInverted*/
+    public boolean isSearching() { return false; }
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_F2) ActivityCapture.takeAndStoreCapture(this);

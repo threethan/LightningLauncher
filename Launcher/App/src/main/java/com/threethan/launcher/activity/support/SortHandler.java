@@ -82,6 +82,7 @@ public abstract class SortHandler {
                                      Consumer<List<ApplicationInfo>> onSorted) {
 
         if (allApps.isEmpty()) {
+            Log.w("SortHandler", "No apps to sort");
             onSorted.accept(List.of());
             return;
         }
@@ -102,7 +103,7 @@ public abstract class SortHandler {
                 if (!aIsBanner && bIsBanner) return 1;
                 return 0;
             });
-            Log.d("SortHandler", "Sorting took took " + (System.currentTimeMillis() - startTime) + "ms");
+            Log.d("SortHandler", "Sorting took " + (System.currentTimeMillis() - startTime) + "ms");
             onSorted.accept(applicationInfos);
         };
 

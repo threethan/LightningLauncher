@@ -104,11 +104,6 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
         layoutInflater = activity.getLayoutInflater();
     }
 
-    @Override
-    protected void setFullItems(List<ApplicationInfo> items) {
-        super.setFullItems(items);
-    }
-
     private static String prevFilterText = "";
     public synchronized void filterBy(String text, boolean newSearch) {
         if (text.isEmpty()) {
@@ -227,14 +222,14 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
 
         // Launch app on click
         holder.view.setOnClickListener(view -> {
-            if (holder.app == null || holder.app.packageName == null) return;
-
-            else if (getEditMode()) {
-                boolean selected = launcherActivity.selectApp(holder.app.packageName);
-                holder.view.animate().alpha(selected ? 0.5f : 1).setDuration(150).start();
-            } else {
-                boolean fullAnimation = LaunchExt.launchApp(launcherActivity, holder.app);
-                animateOpen(holder, fullAnimation);
+            if (holder.app != null && holder.app.packageName != null) {
+                if (getEditMode()) {
+                    boolean selected = launcherActivity.selectApp(holder.app.packageName);
+                    holder.view.animate().alpha(selected ? 0.5f : 1).setDuration(150).start();
+                } else {
+                    boolean fullAnimation = LaunchExt.launchApp(launcherActivity, holder.app);
+                    animateOpen(holder, fullAnimation);
+                }
             }
         });
         holder.view.setOnLongClickListener(view -> {
@@ -317,9 +312,7 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
                         lastKnownFocusDirection = fDir;
                         animate.accept(fView.getFocusDirection());
                     } else {
-                        fView.post(() -> {
-                            animate.accept(lastKnownFocusDirection);
-                        });
+                        fView.post(() -> animate.accept(lastKnownFocusDirection));
                     }
                 });
             }

@@ -7,11 +7,14 @@ import android.view.KeyEvent;
 import android.view.View;
 
 import com.threethan.launcher.R;
+import com.threethan.launcher.activity.support.SortHandler;
 import com.threethan.launcher.activity.view.EditTextWatched;
+import com.threethan.launcher.data.Settings;
 import com.threethan.launcher.helper.LaunchExt;
 import com.threethan.launchercore.Core;
 import com.threethan.launchercore.util.Keyboard;
 
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -26,6 +29,7 @@ import java.util.TimerTask;
  */
 
 public class LauncherActivitySearchable extends LauncherActivityEditable {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Core.init(this);
@@ -33,6 +37,7 @@ public class LauncherActivitySearchable extends LauncherActivityEditable {
     }
     private boolean searching = false;
     private boolean isNewSearch = true;
+    private HashSet<String> groupSetRestore;
 
     protected void searchFor(String text) {
         Objects.requireNonNull(getAppAdapter()).filterBy(text, isNewSearch);
@@ -78,8 +83,19 @@ public class LauncherActivitySearchable extends LauncherActivityEditable {
 
     void showSearchBar() {
         beenNonEmpty = false;
+        searching = true;
+        groupSetRestore = new HashSet<>(settingsManager.getSelectedGroups());
+
+        // When opening the search bar, select all groups to search through everything
+        HashSet<String> groupSet = new HashSet<>(settingsManager.getAppGroupsSorted(false));
+        if (dataStoreEditor.getBoolean(Settings.KEY_SEARCH_HIDDEN, Settings.DEFAULT_SEARCH_HIDDEN))
+            groupSet.add(Settings.HIDDEN_GROUP);
+
+        settingsManager.setSelectedGroups(groupSet);
+        if (getAppAdapter() != null) {
+            getAppAdapter().setSortMode(SortHandler.SortMode.SEARCH);
+        }
         try {
-            searching = true;
             searchBar.setAlpha(0F);
 
             ObjectAnimator alphaIn = ObjectAnimator.ofFloat(searchBar, "alpha", 1f);
@@ -107,10 +123,13 @@ public class LauncherActivitySearchable extends LauncherActivityEditable {
     }
 
     void hideSearchBar() {
+        searching = false;
+        isNewSearch = true;
+        if (groupSetRestore != null) {
+            settingsManager.setSelectedGroups(groupSetRestore);
+            groupSetRestore = null;
+        }
         try {
-            searching = false;
-            isNewSearch = true;
-
             Keyboard.hide(mainView);
 
             searchBar.setVisibility(View.GONE);
@@ -204,7 +223,7 @@ public class LauncherActivitySearchable extends LauncherActivityEditable {
     }
 
     @Override
-    protected boolean getSearching() {
+    public boolean isSearching() {
         return searching;
     }
 }

@@ -10,7 +10,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -18,12 +17,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.threethan.launcher.R;
-import com.threethan.launcher.helper.PlatformExt;
 import com.threethan.launchercore.Core;
 import com.threethan.launchercore.util.Platform;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -165,7 +161,7 @@ public class LauncherAppImageView extends ImageView {
         }
         return backgroundForPhone;
     }
-    private static boolean isPhone = Platform.isPhone();
+    private static final boolean isPhone = Platform.isPhone();
 
     private static final Paint bitmapPaint = new Paint();
     static {

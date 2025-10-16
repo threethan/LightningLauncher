@@ -150,20 +150,18 @@ public abstract class LaunchExt extends Launch {
 
     /** Shows a prompt to install LightningBrowser */
     private static void showBrowserInstallPrompt(LauncherActivity launcherActivity) {
-        launcherActivity.runOnUiThread(() -> {
-            new CustomDialog.Builder(launcherActivity)
-                    .setTitle(R.string.warning)
-                    .setMessage(PlatformExt.hasBrowser(launcherActivity)
-                            ? R.string.update_browser_message
-                            : R.string.download_browser_message)
-                    .setPositiveButton(R.string.addons_install, (d, w) -> {
-                        new BrowserUpdater(launcherActivity).checkAppUpdateAndInstall();
-                        LcDialog.toast(launcherActivity.getString(R.string.download_browser_toast_main),
-                                launcherActivity.getString(R.string.download_browser_toast_bold), true);
-                    })
-                    .setNegativeButton(R.string.cancel, (d, w) -> d.dismiss())
-                    .show();
-        });
+        launcherActivity.runOnUiThread(() -> new CustomDialog.Builder(launcherActivity)
+                .setTitle(R.string.warning)
+                .setMessage(PlatformExt.hasBrowser(launcherActivity)
+                        ? R.string.update_browser_message
+                        : R.string.download_browser_message)
+                .setPositiveButton(R.string.addons_install, (d, w) -> {
+                    new BrowserUpdater(launcherActivity).checkAppUpdateAndInstall();
+                    LcDialog.toast(launcherActivity.getString(R.string.download_browser_toast_main),
+                            launcherActivity.getString(R.string.download_browser_toast_bold), true);
+                })
+                .setNegativeButton(R.string.cancel, (d, w) -> d.dismiss())
+                .show());
     }
 
     private static Intent getIntentForLaunchVrOs(ApplicationInfo app) {

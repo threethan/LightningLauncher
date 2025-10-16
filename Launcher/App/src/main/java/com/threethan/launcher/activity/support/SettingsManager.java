@@ -431,12 +431,13 @@ public class SettingsManager extends Settings {
                 || myLauncherActivityRef.get().isEditing())) {
 
             // Deselect hidden
-            if (!myLauncherActivityRef.get().isEditing())
+            if (!myLauncherActivityRef.get().isEditing() && !myLauncherActivityRef.get().isSearching())
                 selectedGroupsSet.removeIf(s -> s.equals(Settings.HIDDEN_GROUP)
                         || groupAppsMap.get(s) == null || Objects.requireNonNull(groupAppsMap.get(s)).isEmpty());
         } else {
             selectedGroupsSet.addAll(getAppGroups());
-            selectedGroupsSet.remove(Settings.HIDDEN_GROUP);
+            if (!myLauncherActivityRef.get().isSearching())
+                selectedGroupsSet.remove(Settings.HIDDEN_GROUP);
         }
         return selectedGroupsSet;
     }
@@ -469,10 +470,11 @@ public class SettingsManager extends Settings {
 
         sortedGroupList.remove(Settings.UNSUPPORTED_GROUP);
 
-        if (myLauncherActivityRef.get() != null && !myLauncherActivityRef.get().isEditing()) {
+        if (myLauncherActivityRef.get() != null && !myLauncherActivityRef.get().isEditing()
+        && !myLauncherActivityRef.get().isSearching()) {
             sortedGroupList.removeIf(s -> {
                 Set<String> gam = groupAppsMap.get(s);
-                return s.equals(Settings.HIDDEN_GROUP) || (gam == null || gam.isEmpty());
+                return s.equals(Settings.HIDDEN_GROUP ) || (gam == null || gam.isEmpty());
             });
         }
 
