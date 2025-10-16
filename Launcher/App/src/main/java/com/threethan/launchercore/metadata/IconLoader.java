@@ -19,6 +19,7 @@ import com.threethan.launchercore.util.App;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.lang.ref.SoftReference;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
@@ -35,14 +36,10 @@ public abstract class IconLoader {
     public static final int SAVED_ICON_HEIGHT = 256;
     public static final int SAVED_ICON_QUALITY = 25;
     public static final String ICON_CACHE_FOLDER = "/icon-cache";
-    public static final Map<String, Drawable> cachedIcons = new ConcurrentHashMap<>();
+    public static final Map<String, SoftReference<Drawable>> cachedIcons = new ConcurrentHashMap<>();
     public static final Object ICON_CUSTOM_FOLDER = "/icon-custom";
 
-    private static Drawable FALLBACK_DRAWABLE = null;
-    static {
-        Core.whenReady(() -> FALLBACK_DRAWABLE
-                = Core.context().getDrawable(R.drawable.ic_missing_icon));
-    }
+    private static final Drawable FALLBACK_DRAWABLE = null;
 
     /**
      * Loads the icon for an app.
@@ -54,12 +51,21 @@ public abstract class IconLoader {
     public static void loadIcon(ApplicationInfo app, final Consumer<Drawable> consumer) {
         if (app instanceof UtilityApplicationInfo uApp)
             consumer.accept(uApp.getDrawable());
-        else if (IconLoader.cachedIcons.containsKey(app.packageName))
-            consumer.accept(IconLoader.cachedIcons.get(app.packageName));
-        else loadIcon(icon -> {
+        else {
+            if (IconLoader.cachedIcons.containsKey(app.packageName)) {
+                if (IconLoader.cachedIcons.get(app.packageName) != null) {
+                    Drawable cached = IconLoader.cachedIcons.get(app.packageName).get();
+                    if (cached != null) {
+                        consumer.accept(cached);
+                        return;
+                    }
+                }
+            }
+            loadIcon(icon -> {
                 consumer.accept(icon);
                 if (icon != FALLBACK_DRAWABLE) {
-                    Drawable cached = cachedIcons.getOrDefault(app.packageName, null);
+                    SoftReference<Drawable> c1 = cachedIcons.getOrDefault(app.packageName, null);
+                    Drawable cached = c1 == null ? null : c1.get();
                     if (cached instanceof BitmapDrawable cachedBitmap && icon instanceof BitmapDrawable iconBitmap) {
                         if (cachedBitmap.getBitmap().getHeight() > iconBitmap.getBitmap().getHeight())
                             return;
@@ -68,9 +74,10 @@ public abstract class IconLoader {
                             App.getType(app).equals(App.Type.WEB)
                                     ? StringLib.baseUrl(app.packageName)
                                     : app.packageName,
-                            icon);
+                            new SoftReference<>(icon));
                 }
             }, app);
+        }
     }
 
     private static void loadIcon(Consumer<Drawable> callback, ApplicationInfo app) {

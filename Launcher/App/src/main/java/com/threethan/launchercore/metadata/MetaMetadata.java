@@ -61,6 +61,8 @@ public class MetaMetadata {
         try {
             URL url = new URL(String.format(COMMON_URL, packageName));
             URLConnection request = url.openConnection();
+            request.setConnectTimeout(1000); // 1 seconds timeout
+            request.setReadTimeout(1000);    // 1 seconds read timeout
             request.connect();
 
             Type type = new TypeToken<Map<String, String>>(){}.getType();

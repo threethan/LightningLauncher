@@ -8,6 +8,8 @@ import com.threethan.launcher.activity.support.DataStoreEditor;
 import com.threethan.launchercore.Core;
 import com.threethan.launchercore.util.CustomDialog;
 
+import java.util.function.Consumer;
+
 public class LauncherUpdater extends AppUpdater {
     private static final String GIT_REPO_LAUNCHER = "threethan/LightningLauncher";
 
@@ -37,7 +39,7 @@ public class LauncherUpdater extends AppUpdater {
         return new DataStoreEditor(activity, "update").getString(KEY_IGNORED_UPDATE_TAG, "");
     }
 
-    public static void getShouldNotifyUpdates(io.reactivex.rxjava3.functions.Consumer<Boolean> then) {
+    public static void getShouldNotifyUpdates(Consumer<Boolean> then) {
         new DataStoreEditor(Core.context(), "update").getBoolean(KEY_SHOULD_NOTIFY_UPDATES, true, then);
     }
     public static void setShouldNotifyUpdates(boolean value) {

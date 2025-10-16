@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -13,6 +14,7 @@ import com.threethan.launcher.activity.support.SettingsManager;
 import com.threethan.launchercore.Core;
 import com.threethan.launchercore.lib.StringLib;
 import com.threethan.launchercore.util.App;
+import com.threethan.launchercore.util.Platform;
 
 import java.io.File;
 import java.io.IOException;
@@ -73,7 +75,7 @@ public abstract class IconUpdater {
 
     // How many minutes before we can recheck/redownload an icon
     private static final long ICON_CHECK_TIME_MINUTES = 3;
-    public static final ExecutorService executorService = Executors.newFixedThreadPool(4);
+    public static final ExecutorService executorService = Core.EXECUTOR;
 
     /**
      * Check if an icon should be downloaded for a particular app
@@ -125,13 +127,15 @@ public abstract class IconUpdater {
                     }
 
                     // New Metadata method
-                    final MetaMetadata.App appMeta = MetaMetadata.getForPackage(dlPkg);
-                    if (appMeta != null) {
-                        Bitmap b = appMeta.downloadImage(
-                                isBanner ? IMAGE_TYPE_BANNER : IMAGE_TYPE_SQUARE, iconFile);
-                        if (b != null) {
-                            callback.accept(new BitmapDrawable(res, b));
-                            return;
+                    if (Platform.isVr()) {
+                        final MetaMetadata.App appMeta = MetaMetadata.getForPackage(dlPkg);
+                        if (appMeta != null) {
+                            Bitmap b = appMeta.downloadImage(
+                                    isBanner ? IMAGE_TYPE_BANNER : IMAGE_TYPE_SQUARE, iconFile);
+                            if (b != null) {
+                                callback.accept(new BitmapDrawable(res, b));
+                                return;
+                            }
                         }
                     }
 
@@ -143,7 +147,7 @@ public abstract class IconUpdater {
                             callback.accept(new BitmapDrawable(res, b));
                             return;
                         }
-}
+                    }
                 } catch (Exception e) {
                     //noinspection CallToPrintStackTrace
                     e.printStackTrace();
@@ -174,9 +178,14 @@ public abstract class IconUpdater {
      * @return True if icon was downloaded and saved successfully
      */
     static @Nullable Bitmap downloadIconFromUrl(String url, File iconFile) {
-        try (InputStream inputStream = new URL(url).openStream()) {
-            // Try to save
-            return saveStream(inputStream, iconFile);
+        try {
+            java.net.URLConnection connection = new URL(url).openConnection();
+            connection.setConnectTimeout(500);
+            connection.setReadTimeout(10000);
+            try (InputStream inputStreamWithTimeout = connection.getInputStream()) {
+                // Try to save
+                return saveStream(inputStreamWithTimeout, iconFile);
+            }
         } catch (IOException ignored) {}
         return null;
     }
@@ -188,6 +197,9 @@ public abstract class IconUpdater {
     private static @Nullable Bitmap saveStream(InputStream inputStream, File outputFile) {
         try {
             Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+            if (bitmap.getHeight() < 10) {
+                return null;
+            }
             IconLoader.compressAndSaveBitmap(outputFile, bitmap);
             return bitmap;
         } catch (Exception e) {
