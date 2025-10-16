@@ -72,10 +72,6 @@ public abstract class LaunchExt extends Launch {
                 showBrowserInstallPrompt(launcherActivity);
                 return false;
             }
-            Log.w("AppLaunch", "Package could not be launched (Uninstalled?): "
-                    +app.packageName);
-            launcherActivity.refreshPackages();
-            return false;
         }
 
         if (app.packageName.equals("com.android.settings") && Platform.cantLaunchSettings()) {
