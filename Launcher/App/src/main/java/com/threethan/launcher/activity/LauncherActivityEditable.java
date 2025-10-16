@@ -19,7 +19,6 @@ import com.threethan.launcher.activity.adapter.LauncherAppsAdapter;
 import com.threethan.launcher.activity.adapter.GroupsAdapter;
 import com.threethan.launcher.data.sync.SyncCoordinator;
 import com.threethan.launcher.helper.AppExt;
-import com.threethan.launcher.activity.support.DataStoreEditor;
 import com.threethan.launcher.activity.dialog.BasicDialog;
 import com.threethan.launcher.helper.PlatformExt;
 import com.threethan.launcher.data.Settings;
@@ -215,6 +214,10 @@ public class LauncherActivityEditable extends LauncherActivity {
         editMode = value;
         if (!editMode) currentSelectedApps.clear();
         if (dataStoreEditor == null) return;
+
+        View topGradient = rootView.findViewById(R.id.topGradient);
+        topGradient.setVisibility(editMode || groupsEnabled ? View.VISIBLE : View.GONE);
+
         dataStoreEditor.putBoolean(Settings.KEY_EDIT_MODE, editMode);
         final View focused = getCurrentFocus();
         refreshInterface();
@@ -340,5 +343,10 @@ public class LauncherActivityEditable extends LauncherActivity {
         AlertDialog subDialog = new BasicDialog<>(this, R.layout.dialog_info_websites).show();
         if (subDialog == null) return;
         subDialog.findViewById(R.id.vrOnlyInfo).setVisibility(Platform.isVr() ? View.VISIBLE : View.GONE);
+    }
+
+    @Override
+    protected void onLayoutChanged(View ignoredV, int ignoredLeft, int ignoredTop, int right, int bottom, int ignoredOldLeft, int ignoredOldTop, int oldRight, int oldBottom) {
+        super.onLayoutChanged(ignoredV, ignoredLeft, ignoredTop, right, bottom, ignoredOldLeft, ignoredOldTop, oldRight, oldBottom);
     }
 }

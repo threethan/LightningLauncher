@@ -1,6 +1,7 @@
 package com.threethan.launcher.activity.dialog;
 
 import android.app.AlertDialog;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Switch;
 
@@ -45,6 +46,9 @@ public class EditTopBarDialog extends BasicDialog<LauncherActivity> {
     }
     private void bindToggle(ViewGroup sectionView, String SettingKey, boolean defaultValue, boolean refreshGroups) {
         Switch toggle = sectionView.findViewById(R.id.toggle);
+        if (toggle.getParent() instanceof View parentView) {
+            parentView.setOnClickListener(v -> toggle.performClick());
+        }
         toggle.setChecked(a.dataStoreEditor.getBoolean(SettingKey, defaultValue));
         toggle.setOnCheckedChangeListener((b, checked) -> {
             a.dataStoreEditor.putBoolean(SettingKey, checked);
@@ -53,7 +57,10 @@ public class EditTopBarDialog extends BasicDialog<LauncherActivity> {
                 a.setEditMode(false);
             } : () -> {
                 a.updateToolBars();
-                a.post(() -> a.updateGridLayouts(true)); // Needed to update top-padding on list
+                a.postDelayed(() -> {
+                    a.updateToolBars();
+                    a.post(() -> a.updateGridLayouts(true)); // Needed to update top-padding on list
+                }, 500);
             }, 100));
         });
     }
