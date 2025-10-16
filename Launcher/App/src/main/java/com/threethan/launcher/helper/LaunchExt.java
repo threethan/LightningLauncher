@@ -61,8 +61,8 @@ public abstract class LaunchExt extends Launch {
         }
 
         Intent intent = getIntentForLaunch(launcherActivity, app);
-//        launcherActivity.settingsManager.registerRecentlyLaunchedApp(app);
-
+        SettingsManager.registerRecentlyLaunchedApp(app);
+//
         if (intent == null) {
             Log.w("AppLaunch", "Package could not be launched (Uninstalled?): "
                     +app.packageName);
