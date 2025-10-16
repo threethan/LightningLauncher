@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
@@ -14,7 +13,6 @@ import androidx.annotation.Nullable;
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.AddShortcutActivity;
 import com.threethan.launcher.activity.LauncherActivity;
-import com.threethan.launcher.activity.dialog.BasicDialog;
 import com.threethan.launcher.activity.support.SettingsManager;
 import com.threethan.launcher.data.Settings;
 import com.threethan.launcher.updater.BrowserUpdater;
@@ -25,6 +23,7 @@ import com.threethan.launchercore.util.App;
 import com.threethan.launchercore.util.CustomDialog;
 import com.threethan.launchercore.util.Keyboard;
 import com.threethan.launchercore.util.Launch;
+import com.threethan.launchercore.util.LcDialog;
 import com.threethan.launchercore.util.Platform;
 
 import java.util.Objects;
@@ -55,6 +54,8 @@ public abstract class LaunchExt extends Launch {
             Keyboard.hide(launcherActivity.mainView);
         } catch (Exception ignored) {}
 
+        Log.v("AppLaunch", "Launching app: "+app.packageName);
+
         if (!app.enabled) {
             AppExt.openInfo(launcherActivity, app.packageName);
             return false;
@@ -62,8 +63,15 @@ public abstract class LaunchExt extends Launch {
 
         Intent intent = getIntentForLaunch(launcherActivity, app);
         SettingsManager.registerRecentlyLaunchedApp(app);
-//
-        if (intent == null) {
+
+        // Prompt to install browser if launching a url without one installed
+        if (App.isWebsite(app.packageName)
+                || app.packageName.equals(PlatformExt.LIGHTNING_BROWSER_PACKAGE)
+                || app.packageName.equals(PlatformExt.OCULUS_BROWSER_PACKAGE)) {
+            if (!App.packageExists(app.packageName)) {
+                showBrowserInstallPrompt(launcherActivity);
+                return false;
+            }
             Log.w("AppLaunch", "Package could not be launched (Uninstalled?): "
                     +app.packageName);
             launcherActivity.refreshPackages();
@@ -71,32 +79,26 @@ public abstract class LaunchExt extends Launch {
         }
 
         if (app.packageName.equals("com.android.settings") && Platform.cantLaunchSettings()) {
-            BasicDialog.toast(Core.context().getString(R.string.settings_workaround));
+            LcDialog.toast(Core.context().getString(R.string.settings_workaround));
             launcherActivity.startActivity(intent);
             return false;
         }
 
+        if (intent == null) {
+            Log.w("AppLaunch", "Package could not be launched (No launch intent?): "
+                    +app.packageName);
+            launcherActivity.refreshPackages();
+            return false;
+        }
         // Browser Check
-        if (Objects.equals(intent.getPackage(), PlatformExt.BROWSER_PACKAGE)) {
+        if (Objects.equals(intent.getPackage(), PlatformExt.LIGHTNING_BROWSER_PACKAGE)) {
             if (!PlatformExt.hasBrowser(launcherActivity) ||
                     new BrowserUpdater(launcherActivity).getInstalledVersionCode()
                             < BrowserUpdater.REQUIRED_VERSION_CODE) {
                 // Check for browser update. User probably won't see the prompt until closing, though.
                 BrowserUpdater browserUpdater = new BrowserUpdater(launcherActivity);
                 if (browserUpdater.getInstalledVersionCode() < BrowserUpdater.REQUIRED_VERSION_CODE) {
-                    new CustomDialog.Builder(launcherActivity)
-                            .setTitle(R.string.warning)
-                            .setMessage(PlatformExt.hasBrowser(launcherActivity)
-                                    ? R.string.update_browser_message
-                                    : R.string.download_browser_message)
-                            .setPositiveButton(R.string.addons_install, (d, w) -> {
-                                new BrowserUpdater(launcherActivity).checkAppUpdateAndInstall();
-                                BasicDialog.toast(launcherActivity.getString(R.string.download_browser_toast_main),
-                                        launcherActivity.getString(R.string.download_browser_toast_bold), true);
-                            })
-                            .setNegativeButton(R.string.cancel, (d, w) -> d.dismiss())
-                            .show();
-
+                    showBrowserInstallPrompt(launcherActivity);
                     return false;
                 }
             }
@@ -150,6 +152,24 @@ public abstract class LaunchExt extends Launch {
         return true;
     }
 
+    /** Shows a prompt to install LightningBrowser */
+    private static void showBrowserInstallPrompt(LauncherActivity launcherActivity) {
+        launcherActivity.runOnUiThread(() -> {
+            new CustomDialog.Builder(launcherActivity)
+                    .setTitle(R.string.warning)
+                    .setMessage(PlatformExt.hasBrowser(launcherActivity)
+                            ? R.string.update_browser_message
+                            : R.string.download_browser_message)
+                    .setPositiveButton(R.string.addons_install, (d, w) -> {
+                        new BrowserUpdater(launcherActivity).checkAppUpdateAndInstall();
+                        LcDialog.toast(launcherActivity.getString(R.string.download_browser_toast_main),
+                                launcherActivity.getString(R.string.download_browser_toast_bold), true);
+                    })
+                    .setNegativeButton(R.string.cancel, (d, w) -> d.dismiss())
+                    .show();
+        });
+    }
+
     private static Intent getIntentForLaunchVrOs(ApplicationInfo app) {
         Intent intent = new Intent();
         intent.setAction("com.oculus.vrshell.intent.action.LAUNCH");
@@ -190,16 +210,16 @@ public abstract class LaunchExt extends Launch {
                 // Reference: arrays.xml -> advance_launch_browsers
                 switch (browserIndex) {
                     case (LAUNCH_BROWSER_QUEST):
-                        intent.setPackage("com.oculus.browser");
+                        intent.setPackage(PlatformExt.OCULUS_BROWSER_PACKAGE);
                         intent.setComponent(
-                                new ComponentName("com.oculus.browser",
+                                new ComponentName(PlatformExt.OCULUS_BROWSER_PACKAGE,
                                         "com.oculus.browser.PanelActivity"));
                         break;
 
                     case (LAUNCH_BROWSER_QUEST_SHORTCUT):
-                        intent.setPackage("com.oculus.browser");
+                        intent.setPackage(PlatformExt.OCULUS_BROWSER_PACKAGE);
                         intent.setComponent(
-                                new ComponentName("com.oculus.browser",
+                                new ComponentName(PlatformExt.OCULUS_BROWSER_PACKAGE,
                                         "com.oculus.browser.ShortcutLauncher"));
 
                         intent.putExtra("org.chromium.chrome.browser.webapp_url", app.packageName);
@@ -212,7 +232,7 @@ public abstract class LaunchExt extends Launch {
                         break;
 
                     default:
-                        intent.setPackage(PlatformExt.BROWSER_PACKAGE);
+                        intent.setPackage(PlatformExt.LIGHTNING_BROWSER_PACKAGE);
                         break;
                 }
                 return intent;
@@ -241,25 +261,24 @@ public abstract class LaunchExt extends Launch {
     /** Launches an URL using a view intent, in a new window.
      * If activity is null, it will attempt to close the foreground instance. */
     public static void launchUrl(@Nullable Activity activity, String url, boolean forceChromium) {
-        if (activity == null && LauncherActivity.getForegroundInstance() != null)
-            activity = LauncherActivity.getForegroundInstance();
-        if (activity != null) activity.finishAffinity();
 
         Intent openURL = new Intent(Intent.ACTION_VIEW);
         openURL.setData(Uri.parse(url));
         openURL.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-        if (forceChromium && Platform.isQuest())
+        if (forceChromium && Platform.isQuest()) {
             openURL.setComponent(
-                new ComponentName("com.oculus.browser",
-                        "com.oculus.browser.PanelActivity"));
-
-        DelayLib.delayed(() -> Core.context().startActivity(openURL), 50);
-
-        if (PlatformExt.useNewVrOsMultiWindow()) {
-            PackageManager pm = Core.context().getPackageManager();
-            Intent relaunch = pm.getLaunchIntentForPackage(Core.context().getPackageName());
-            DelayLib.delayed(() -> Core.context().startActivity(relaunch), 550);
+                    new ComponentName("com.oculus.browser",
+                            "com.oculus.browser.PanelActivity"));
+            DelayLib.delayed(() -> Core.context().startActivity(openURL), 50);
+        } else if (activity instanceof LauncherActivity
+                || LauncherActivity.getForegroundInstance() != null) {
+            ApplicationInfo urlApp = new ApplicationInfo();
+            urlApp.packageName = PlatformExt.LIGHTNING_BROWSER_PACKAGE;
+            LauncherActivity acl = activity instanceof LauncherActivity la ? la : LauncherActivity.getForegroundInstance();
+            DelayLib.delayed(() -> LaunchExt.launchApp(acl, urlApp));
+        } else {
+            DelayLib.delayed(() -> Core.context().startActivity(openURL), 50);
         }
     }
 }

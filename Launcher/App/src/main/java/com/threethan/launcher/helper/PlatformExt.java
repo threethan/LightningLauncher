@@ -69,11 +69,12 @@ public abstract class PlatformExt {
         changeIndex ++;
         return url;
     }
+    public static final String OCULUS_BROWSER_PACKAGE = "com.oculus.browser";
 
-    public static final String BROWSER_PACKAGE = "com.threethan.browser";
+    public static final String LIGHTNING_BROWSER_PACKAGE = "com.threethan.browser";
     /** Returns true if Lightning Browser is installed */
     public static boolean hasBrowser(Activity activity) {
-        return AppExt.doesPackageExist(activity, BROWSER_PACKAGE);
+        return AppExt.doesPackageExist(activity, LIGHTNING_BROWSER_PACKAGE);
     }
 
     // Get a list of valid app types depending on platform
