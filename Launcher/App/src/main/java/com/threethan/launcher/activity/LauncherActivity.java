@@ -685,6 +685,8 @@ public class LauncherActivity extends Launch.LaunchingActivity {
                     -> appsRecycler.post(() // Double post to ensure it runs after layout
                     -> appsRecycler.animate().alpha(1f).setDuration(200).start())));
         } catch (Exception ignored) {}
+        // Fallback
+        appsRecycler.postDelayed(() -> appsRecycler.setAlpha(1f), 500);
     }
     protected void updateSelectedGroups() {
         groupsRecycler.setAdapter(new GroupsAdapter(this, isEditing()));

@@ -173,7 +173,7 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
     }
 
     @Override
-    public void submitList(@Nullable List<ApplicationInfo> list) {
+    public synchronized void submitList(@Nullable List<ApplicationInfo> list) {
         if (container != null) {
             container.setAllowLayout(false);
         }
@@ -182,8 +182,10 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
                 container.setAllowLayout(true);
             }
             if (onListReadyEveryTime != null) onListReadyEveryTime.run();
-            if (onListReadyOneShot != null) onListReadyOneShot.run();
-            onListReadyOneShot = null;
+            if (onListReadyOneShot != null) {
+                onListReadyOneShot.run();
+                onListReadyOneShot = null;
+            }
         });
     }
 

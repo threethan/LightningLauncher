@@ -167,18 +167,17 @@ public abstract class SortHandler {
                     apps.sort(Comparator.comparingLong(a -> timeInstalled.getOrDefault((ApplicationInfo) a, 0L)).reversed());
                     onPreSorted.accept(apps);
                 } else {
-                    apps.forEach(app -> {
-                        SettingsManager.getAppAddedTimeAsync(app.packageName, time -> {
-                            // On time loaded
-                            timeInstalled.put(app, time);
-                            // If this is the last time, re-sort
-                            if (timeInstalled.size() == apps.size()) {
-                                apps.sort(Comparator.comparing(timeInstalled::get));
-                                // Notify all adapters to refresh
-                                onPreSorted.accept(apps);
-                            }
-                        });
-                    });
+                    apps.forEach(app ->
+                            SettingsManager.getAppAddedTimeAsync(app.packageName, time -> {
+                        // On time loaded
+                        timeInstalled.put(app, time);
+                        // If this is the last time, re-sort
+                        if (timeInstalled.size() == apps.size()) {
+                            apps.sort(Comparator.comparing(timeInstalled::get));
+                            // Notify all adapters to refresh
+                            onPreSorted.accept(apps);
+                        }
+                    }));
                 }
             }
         }
