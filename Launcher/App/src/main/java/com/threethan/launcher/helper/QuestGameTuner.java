@@ -133,6 +133,10 @@ public abstract class QuestGameTuner {
 
     /** Opens a dialog with info about getting Quest Game Tuner */
     public static void openInfoDialog() {
+        if (Platform.isPhone()) {
+            LaunchExt.launchUrl(null, Core.context().getString(R.string.tuner_info_get_link), true);
+            return;
+        }
         if (LauncherActivity.getForegroundInstance() == null) return;
         new InfoDialog(LauncherActivity.getForegroundInstance()).show();
     }
