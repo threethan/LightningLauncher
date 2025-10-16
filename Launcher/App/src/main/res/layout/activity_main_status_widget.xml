@@ -3,7 +3,7 @@
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:paddingStart="15dp"
-    android:paddingEnd="12dp"
+    android:paddingEnd="13dp"
     android:gravity="center">
 
     <com.threethan.launcher.activity.view.status.StatusAdaptableTextClock
@@ -11,8 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_marginEnd="3dp"
-        android:gravity="center"
-        android:format12Hour="K:MM"/>
+        android:gravity="center"/>
 
     <com.threethan.launcher.activity.view.status.WifiStatusIndicator
         android:layout_marginStart="4dp"
@@ -21,8 +20,8 @@
         android:layout_height="16dp" />
 
     <com.threethan.launcher.activity.view.status.BatteryLevelView
-        android:layout_marginStart="3dp"
+        android:layout_marginStart="1.6dp"
         android:layout_width="32dp"
-        android:layout_height="19dp"/>
+        android:layout_height="21dp"/>
 
 </LinearLayout>

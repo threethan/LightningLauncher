@@ -32,7 +32,7 @@
         tools:ignore="SystemPermissionTypo" />
 
     <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"
-        tools:ignore="QueryAllPackagesPermission" />
+        tools:ignore="PackageVisibilityPolicy,QueryAllPackagesPermission" />
 
     <!-- For playtime viewing. Requires user to grant manually. -->
     <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"
@@ -60,7 +60,7 @@
                 android:resource="@xml/file_paths" />
         </provider>
         <!-- Required for session-based installation -->
-        <receiver android:name=".updater.InstallReceiver" />
+        <receiver android:name=".updater.InstallReceiver" android:exported="false"/>
 
         <!-- Main activity -->
         <activity
