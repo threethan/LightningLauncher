@@ -36,7 +36,8 @@ public class WifiStatusIndicator extends View implements StatusAdaptableView {
 
     private void init(Context context) {
         // On TVs, it's reasonable to expect a good connection is always present
-        if (Platform.isTv()) {
+        // On phones, the status bar already shows Wi-Fi status (also mobile data)
+        if (Platform.isTv() || Platform.isPhone()) {
             setVisibility(GONE);
             return;
         }

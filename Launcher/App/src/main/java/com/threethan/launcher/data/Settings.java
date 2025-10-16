@@ -87,7 +87,7 @@ public abstract class Settings {
             = Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && Platform.isQuest();
     public static final boolean DEFAULT_BACKGROUND_BLUR = true;
     public static final boolean DEFAULT_DARK_MODE = true;
-    public static final boolean DEFAULT_GROUPS_ENABLED = true;
+    public static final boolean DEFAULT_GROUPS_ENABLED = !Platform.isPhone();
     public static final boolean DEFAULT_GROUPS_WIDE = false;
     public static boolean DEFAULT_DETAILS_LONG_PRESS = false;
     public static final boolean DEFAULT_SEARCH_WEB = true;

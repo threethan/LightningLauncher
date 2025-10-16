@@ -62,12 +62,8 @@ public class TopGradientBlurView extends LcBlurView {
         int layerId = canvas.saveLayer(0, 0, getMeasuredWidth(), getMeasuredHeight(),
                 normalPaint);
 
-        canvas.translate(-position[0], -position[1]);
-
         super.drawBlur(canvas, position);
         canvas.drawColor(OVERLAY_COLOR);
-
-        canvas.translate( position[0],  position[1]);
 
         canvas.drawRect(0, 0, getMeasuredWidth(), getMeasuredHeight(), multiplyPaint);
 

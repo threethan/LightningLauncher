@@ -216,7 +216,7 @@ public class LauncherActivityEditable extends LauncherActivity {
         if (dataStoreEditor == null) return;
 
         View topGradient = rootView.findViewById(R.id.topGradient);
-        topGradient.setVisibility(editMode || groupsEnabled ? View.VISIBLE : View.GONE);
+        topGradient.setVisibility(editMode || groupsEnabled || Platform.isPhone() ? View.VISIBLE : View.GONE);
 
         dataStoreEditor.putBoolean(Settings.KEY_EDIT_MODE, editMode);
         final View focused = getCurrentFocus();

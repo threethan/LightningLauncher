@@ -25,6 +25,8 @@
         android:layout_height="80dp"
         android:layout_gravity="top"
         android:alpha="0"
+        android:clipToPadding="false"
+        android:clipChildren="false"
         />
 
     <com.threethan.launchercore.view.LcBlurMaskFrame
@@ -194,6 +196,7 @@
     </com.threethan.launchercore.view.LcBlurMaskFrame>
 
     <FrameLayout
+        android:id="@+id/searchBarContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:visibility="visible">

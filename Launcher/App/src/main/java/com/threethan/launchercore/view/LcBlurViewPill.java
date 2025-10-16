@@ -43,8 +43,8 @@ public class LcBlurViewPill extends LcBlurView {
 
     @Override
     protected void drawBlur(Canvas canvas, int[] position) {
-        canvas.translate(0, Y_OFFSET);
+        canvas.translate(0, Y_OFFSET * LcBlurCanvas.MODERN_RES_MULT);
         super.drawBlur(canvas, position);
-        canvas.translate(0, -Y_OFFSET);
+        canvas.translate(0, -Y_OFFSET * LcBlurCanvas.MODERN_RES_MULT);
     }
 }

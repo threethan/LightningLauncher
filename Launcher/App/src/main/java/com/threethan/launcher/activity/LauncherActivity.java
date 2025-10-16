@@ -11,6 +11,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -180,10 +181,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         setContentView(R.layout.activity_container);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.container), (v, insets) -> {
             barInsets = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            if (rootView != null) rootView.setPadding(
-                    barInsets.left, barInsets.top, barInsets.right, barInsets.bottom
-            );
-            if (appsRecycler != null) appsRecycler.setVerticalFadingEdgeEnabled(barInsets.top > 1);
+            updateInsets();
             return insets;
         });
         Core.init(this);
@@ -312,15 +310,32 @@ public class LauncherActivity extends Launch.LaunchingActivity {
 
         rootView.findViewById(R.id.blurViewSortIcon).setOnClickListener(v -> sortCycler.cycleNext());
 
-        if (barInsets != null) rootView.setPadding(
-                barInsets.left, barInsets.top, barInsets.right, barInsets.bottom
-        );
-        if (barInsets != null) appsRecycler.setVerticalFadingEdgeEnabled(barInsets.top > 1);
+        if (barInsets != null) updateInsets();
 
         View topGradient = rootView.findViewById(R.id.topGradient);
 
         appsRecycler.setOnScrollChangeListener((view, x, y, oldX, oldY)
                 -> topGradient.setAlpha(Math.clamp((y - 50f) / 100f, 0f, 1f)));
+    }
+
+    private void updateInsets() {
+        try {
+            if (barInsets == null) return;
+            if (rootView != null) {
+                rootView.setPadding(
+                        barInsets.left, 0, barInsets.right, barInsets.bottom
+                );
+                if (appsRecycler != null)
+                    appsRecycler.setVerticalFadingEdgeEnabled(barInsets.top > 1);
+                if (topBar != null) topBar.setPadding(
+                        0, barInsets.top - dp(barInsets.top > 15 ? 10 : 0), 0, 0
+                );
+                View searchBarContainer = rootView.findViewById(R.id.searchBarContainer);
+                if (searchBarContainer != null) searchBarContainer.setPadding(
+                        0, barInsets.top - dp(barInsets.top > 15 ? 10 : 0), 0, 0
+                );
+            }
+        } catch (Exception ignored) {}
     }
 
     protected void onLayoutChanged(View ignoredV, int ignoredLeft, int ignoredTop, int right, int bottom,

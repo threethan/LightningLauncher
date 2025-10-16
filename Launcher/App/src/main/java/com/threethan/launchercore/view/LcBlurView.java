@@ -53,6 +53,6 @@ public class LcBlurView extends FrameLayout {
             if (bitmap != null) canvas.drawBitmap(bitmap, 0, 0, null);
             LcBlurCanvas.addInvalidatingView(this);
         }
-        canvas.translate(mPosition[0], mPosition[1]);
+        canvas.translate(position[0], position[1]);
     }
 }

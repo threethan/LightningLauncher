@@ -170,7 +170,7 @@ public class LcBlurCanvas extends LcContainerView {
     protected void drawContents(Canvas canvas) {
         int[] location = new int[2];
         getLocationInWindow(location);
-        canvas.translate(-location[0], -location[1]);
+        canvas.translate(location[0], location[1]);
         if (useRenderRect && renderRect != null)
             canvas.translate(-renderRect.left, -renderRect.top);
         drawWindowBackground(canvas);
@@ -185,7 +185,8 @@ public class LcBlurCanvas extends LcContainerView {
             if (child.getAlpha() != 1f)
                 canvas.restore();
         }
-        canvas.translate(location[0], location[1]);
+        canvas.translate(-location[0], -location[1]);
+
         if (useRenderRect && renderRect != null)
             canvas.translate(renderRect.left, renderRect.top);
     }
@@ -233,9 +234,6 @@ public class LcBlurCanvas extends LcContainerView {
                     if (windowBackground.getBounds().right == 0 || windowBackground.getBounds().bottom == 0) {
                         windowBackground.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
                         Log.d("LcBlurCanvas", "Window background bounds were empty, setting to canvas size");
-                        return;
-//                        if (LauncherActivity.getForegroundInstance() != null)
-//                            LauncherActivity.getForegroundInstance().updateToolBars();
                     }
                     windowBackground.draw(canvas);
                 }
