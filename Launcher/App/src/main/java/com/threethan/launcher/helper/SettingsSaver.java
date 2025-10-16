@@ -31,7 +31,8 @@ public abstract class SettingsSaver {
     public static void save(Activity activity) {
         if (!BasicDialog.validateVariantWithNotify()) return;
 
-        File prefs = DataStoreFile.dataStoreFile(activity, "default.preferences_pb");
+        File prefs1 = DataStoreFile.dataStoreFile(activity, SyncCoordinator.DATA_STORE_DEFAULT + ".preferences_pb");
+        File prefs2 = DataStoreFile.dataStoreFile(activity, SyncCoordinator.DATA_STORE_PER_APP + ".preferences_pb");
         File exportPath = activity.getExternalFilesDir("");
         File export = new File(exportPath, EXPORT_FILE_NAME);
         assert exportPath != null;
@@ -39,7 +40,8 @@ public abstract class SettingsSaver {
         boolean ignored1 = Objects.requireNonNull(export.getParentFile()).mkdirs();
         FileLib.delete(export);
 
-        if (FileLib.copy(prefs, export) && FileLib.copy(prefs, export))
+        if (FileLib.copy(prefs1, export) && FileLib.copy(prefs1, export)
+         && FileLib.copy(prefs2, export) && FileLib.copy(prefs2, export))
             BasicDialog.toast(activity.getText(R.string.saved_settings),
                 "Android/Data/"+activity.getPackageName()+"/"+EXPORT_FILE_NAME,
                 false);
@@ -48,7 +50,7 @@ public abstract class SettingsSaver {
     public static void saveSort(Activity activity) {
         if (!BasicDialog.validateVariantWithNotify()) return;
 
-        File prefs = DataStoreFile.dataStoreFile(activity, "sort.preferences_pb");
+        File prefs = DataStoreFile.dataStoreFile(activity, SyncCoordinator.DATA_STORE_SORT + ".preferences_pb");
         File exportPath = activity.getExternalFilesDir("");
         File export = new File(exportPath, EXPORT_FILE_NAME_SORT);
         assert exportPath != null;

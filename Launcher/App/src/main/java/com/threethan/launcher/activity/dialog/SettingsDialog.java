@@ -424,6 +424,12 @@ public class SettingsDialog extends BasicDialog<LauncherActivity> {
                 b -> a.launcherService.forEachActivity(LauncherActivity::refreshInterface), false);
         dialog.findViewById(R.id.openUsageSettings).setOnClickListener(v -> PlaytimeHelper.requestPermission());
 
+        attachSwitchToSetting(dialog.findViewById(R.id.reduceMotionSwitch),
+                Settings.KEY_REDUCE_MOTION, Settings.DEFAULT_REDUCE_MOTION, v
+                        -> a.launcherService.forEachActivity(a
+                        -> a.postDelayed(a::refreshInterface, 500)
+                ), false);
+
         // New label duration spinner
         LauncherActivity ctx = LauncherActivity.getForegroundInstance();
         if (ctx != null) {
@@ -534,7 +540,6 @@ public class SettingsDialog extends BasicDialog<LauncherActivity> {
                 bSwitch.setChecked(SettingsManager.isTypeBanner(type));
                 bSwitch.setOnCheckedChangeListener((switchView, value) -> {
                     SettingsManager.setTypeBanner(type, value);
-                    a.launcherService.forEachActivity(LauncherActivity::resetAdapters);
                 });
             } else {
                 Objects.requireNonNull(switchByType.get(type)).setVisibility(View.GONE);

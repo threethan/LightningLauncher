@@ -5,6 +5,8 @@ import android.content.Context;
 import java.lang.ref.WeakReference;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public abstract class Core {
     private static WeakReference<Context> context;
@@ -36,4 +38,6 @@ public abstract class Core {
         if (context != null) run.run();
         onReadyRunnableList.add(run);
     }
+
+    public static final ExecutorService EXECUTOR = Executors.newFixedThreadPool(8);
 }

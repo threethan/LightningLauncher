@@ -11,7 +11,7 @@ public class StringLib {
         else return c + in;
     }
     public static boolean hasPreChar(String in, char c) {
-        return in.charAt(0) == c;
+        return !in.isEmpty() && in.charAt(0) == c;
     }
     public static String withoutPreChar(String in, char c) {
         if (hasPreChar(in, c)) return in.substring(1);

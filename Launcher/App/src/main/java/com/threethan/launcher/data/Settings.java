@@ -184,7 +184,7 @@ public abstract class Settings {
 
     // Top bar
     public static final String KEY_SHOW_STATUS = "KEY_SHOW_STATUS";
-    public static final boolean DEFAULT_SHOW_STATUS = true;
+    public static final boolean DEFAULT_SHOW_STATUS = !Platform.isPhone();
     public static final String KEY_SHOW_SEARCH = "KEY_SHOW_SEARCH";
     public static final boolean DEFAULT_SHOW_SEARCH = true;
     public static final String KEY_SHOW_SORT = "KEY_SHOW_SORT";
@@ -194,4 +194,6 @@ public abstract class Settings {
     public static final String KEY_SORT = "KEY_SORT_MODE";
     public static final int DEFAULT_SORT = 0; // Standard
 
+    public static final String KEY_REDUCE_MOTION = "KEY_REDUCE_MOTION";
+    public static final boolean DEFAULT_REDUCE_MOTION = false;
 }

@@ -43,7 +43,7 @@ public abstract class PlaytimeHelper {
         total += QuestGameTuner.getUsageOffset(pkgName) * 60L;
         return total;
     }
-    private static final ExecutorService executorService = Executors.newSingleThreadExecutor();
+    private static final ExecutorService executorService = Core.EXECUTOR;
     public static void getPlaytime(String pkgName, Consumer<String> onTotalPlaytime) {
         if (!hasUsagePermission()) return;
         if (pkgName.equals(QuestGameTuner.PKG_NAME))

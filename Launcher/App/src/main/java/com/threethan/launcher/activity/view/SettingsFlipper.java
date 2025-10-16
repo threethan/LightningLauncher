@@ -14,7 +14,7 @@ import com.threethan.launcher.helper.QuestGameTuner;
 
 import java.util.Random;
 
-public class SettingsFlipper extends ViewFlinger {
+public class SettingsFlipper extends FocusableViewFlinger {
     public SettingsFlipper(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);

@@ -1,5 +1,6 @@
 package com.threethan.launcher.activity.support;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -32,6 +33,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutorService;
+import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
@@ -93,19 +96,25 @@ public class SettingsManager extends Settings {
         return instanceByContext.get(context);
     }
 
-    public static final HashMap<ApplicationInfo, String> appLabelCache = new HashMap<>();
+    public static final HashMap<String, String> appLabelCache = new HashMap<>();
     public static final HashMap<ApplicationInfo, String> sortableLabelCache = new HashMap<>();
+    static {
+        appLabelCache.put(null, "");
+        sortableLabelCache.put(null, "");
+    }
 
     /**
      * Gets the label for the given app.
      * Returns the package name if it hasn't been cached yet, but then gets it asynchronously.
      */
     public static String getAppLabel(ApplicationInfo app) {
-        if (appLabelCache.containsKey(app)) return appLabelCache.get(app);
         if (app == null) return "";
+        if (appLabelCache.containsKey(app.packageName)) return appLabelCache.get(app.packageName);
         final String customLabel = dataStoreEditorPerApp.getString(app.packageName, "");
-        if (customLabel.isEmpty()) fetchLabelAsync(app, l -> {});
-        return processAppLabel(app, customLabel);
+        if (customLabel.isEmpty()) fetchLabelAsync(app, l -> {}, () -> {});
+        String res = processAppLabel(app, customLabel);
+        appLabelCache.put(app.packageName, res);
+        return res;
     }
     /**
      * Gets the label for the given app.
@@ -113,55 +122,60 @@ public class SettingsManager extends Settings {
      * @param onLabel Called when the label is ready, may be called more than once!
      */
     public static void getAppLabel(ApplicationInfo app, Consumer<String> onLabel) {
-        Consumer<String> mOnLabel = label -> {
-            final boolean isStar = StringLib.hasPreChar(label, StringLib.STAR);
-            final boolean isRecent = false; //isRecentlyLaunchedPackage(app.packageName);
-//            label = StringLib.setPreChar(label, StringLib.RECENT, isRecent && !isStar);
-            label = StringLib.setPreChar(label, StringLib.NEW, !isRecent && !isStar
-                    && isNewlyAddedPackage(app.packageName));
-            onLabel.accept(label);
-        };
-
-        if (appLabelCache.containsKey(app)) mOnLabel.accept(appLabelCache.get(app));
+        if (appLabelCache.containsKey(app.packageName)) onLabel.accept(appLabelCache.get(app.packageName));
         final String customLabel = dataStoreEditorPerApp.getString(app.packageName, "");
-        mOnLabel.accept(processAppLabel(app, customLabel));
-        if (customLabel.isEmpty()) fetchLabelAsync(app, mOnLabel);
+        onLabel.accept(processAppLabel(app, customLabel));
+        if (customLabel.isEmpty()) fetchLabelAsync(app, onLabel, () -> {});
     }
 
     /**
      * Asynchronously fetches the app label from metadata repo
      * @param app ApplicationInfo of the app
      * @param onLabel Called on success with the label
+     * @param onError Called on error (not called if label not found)
      */
-    private static void fetchLabelAsync(ApplicationInfo app, Consumer<String> onLabel) {
+    private static void fetchLabelAsync(ApplicationInfo app, Consumer<String> onLabel, Runnable onError) {
         if (Platform.getLabelOverrides(Core.context()).containsKey(app.packageName)) return;
-        new Thread(() -> {
+        if (!Platform.isVr()) return;
+        executorService.submit(() -> {
             MetaMetadata.App appMeta = MetaMetadata.getForPackage(app.packageName);
             if (appMeta != null) {
                 String label = appMeta.label();
-                appLabelCache.put(app, label);
+                appLabelCache.put(app.packageName, label);
                 dataStoreEditorPerApp.putString(app.packageName+META_LABEL_SUFFIX, label);
                 onLabel.accept(label);
-            }
-        }).start();
+            } else onError.run();
+        });
     }
 
+
+    private final static ExecutorService executorService = Core.EXECUTOR;
     /**
-     * Gets the string which should be used to sort the given app
+     * Gets the string which should be used to sort the given app.
+     * Possibly async.
      */
-    public static String getSortableAppLabel(ApplicationInfo app) {
-        if (sortableLabelCache.containsKey(app)) return sortableLabelCache.get(app);
-        sortableLabelCache.put(app, getSortableAppLabelInternal(app));
-        return sortableLabelCache.get(app);
-    }
-    private static String getSortableAppLabelInternal(ApplicationInfo app) {
-        if (app == null) return "";
+    @SuppressLint("CheckResult")
+    public static void getSortableAppLabelsAsync(List<ApplicationInfo> apps,
+                                                 BiConsumer<ApplicationInfo, String> onLabelAsync) {
 
+        apps.forEach(app -> executorService.submit(() -> {
+            if (sortableLabelCache.containsKey(app))
+                onLabelAsync.accept(app, sortableLabelCache.get(app));
+            else {
+                String label = formatSortableAppLabel(app);
+                sortableLabelCache.put(app, label);
+                onLabelAsync.accept(app, label);
+            }
+        }));
+    }
+    private static String formatSortableAppLabel(ApplicationInfo app) {
         final String base = getAppLabel(app);
         final boolean isStarred = StringLib.hasPreChar(base, StringLib.STAR);
         final boolean isNew = isNewlyAddedPackage(app.packageName);
 
-        if (!isStarred && !isNew) return base;
+        if (!isStarred && !isNew) {
+            return base;
+        }
 
         final char[] rv = new char[base.length() + 1];
         rv[0] = isStarred ? '\1' : '\2'; // Starred first, then new
@@ -183,7 +197,11 @@ public class SettingsManager extends Settings {
         if (Platform.getLabelOverrides(context).containsKey(app.packageName))
             return Platform.getLabelOverrides(context).get(app.packageName);
 
-        if (App.isWebsite(app.packageName) || StringLib.isSearchUrl(app.packageName)) {
+        String metaLabel = dataStoreEditorPerApp.getString(app.packageName+META_LABEL_SUFFIX, "");
+        if (!metaLabel.isEmpty()) return metaLabel;
+
+        if (app.packageName.startsWith("http") &&
+                (App.isWebsite(app.packageName) || StringLib.isSearchUrl(app.packageName))) {
             try {
                 name = app.packageName.split("//")[1];
                 String[] split = name.split("\\.");
@@ -198,8 +216,7 @@ public class SettingsManager extends Settings {
             } catch (Exception ignored) {
             }
         }
-        String metaLabel = dataStoreEditor.getString(app.packageName+META_LABEL_SUFFIX, "");
-        if (!metaLabel.isEmpty()) return metaLabel;
+
         try {
             PackageManager pm = Core.context().getPackageManager();
             String label = app.loadLabel(pm).toString();
@@ -208,12 +225,12 @@ public class SettingsManager extends Settings {
             label = (String) app.loadLabel(pm);
             if (!label.isEmpty()) return label;
         } catch (NullPointerException ignored) {}
-        return null;
+        return "?";
     }
 
     public static void setAppLabel(ApplicationInfo app, String newName) {
         if (newName == null) return;
-        appLabelCache.put(app, newName);
+        appLabelCache.put(app.packageName, newName);
         sortableLabelCache.remove(app);
         dataStoreEditorPerApp.putString(app.packageName, newName);
         if (LauncherActivity.getForegroundInstance() != null)
@@ -242,7 +259,7 @@ public class SettingsManager extends Settings {
         return val;
     }
     public static int getDefaultBrowser() {
-        return dataStoreEditor.getInt(Settings.KEY_DEFAULT_BROWSER, Platform.isQuest() ? 3 : 0);
+        return dataStoreEditor.getInt(Settings.KEY_DEFAULT_BROWSER, Platform.isQuest() ? 2 : Platform.isTv() ? 0 : 1);
     }
 
     public static ConcurrentHashMap<String, Set<String>> getGroupAppsMap() {
@@ -323,9 +340,8 @@ public class SettingsManager extends Settings {
     }
 
     private static @Nullable Set<String> newlyAddedAppsInternalCache = null;
-    private static @Nullable Set<String> recentlyLaunchedAppsInternalCache = null;
     /** Get apps which should show the "NEW" label */
-    private static void getNewlyAddedAndRecentlyLaunchedApps() {
+    private static void getNewlyAddedApps() {
         // Don't flag everything right after install
         long baseline = dataStoreEditorPerApp.getLong(Settings.KEY_NEWLY_ADDED_BASELINE, -1);
         if (baseline == -1) {
@@ -334,29 +350,25 @@ public class SettingsManager extends Settings {
         }
         // Get newly added apps and remove them if not-so-new anymore
         Set<String> newlyAddedApps = dataStoreEditorPerApp.getStringSet(Settings.KEY_NEWLY_ADDED, new HashSet<>());
-        Set<String> recentlyLaunched = dataStoreEditorPerApp.getStringSet(Settings.KEY_RECENTLY_LAUNCHED, new HashSet<>());
         long newLabelDurationMs
                 = dataStoreEditorPerApp.getInt(Settings.KEY_TAG_MAX_DURATION,
-                Settings.DEFAULT_KEY_TAG_MAX_DURATION) * 60 * 1000L * 2 / (1L + newlyAddedApps.size() + recentlyLaunched.size());
+                Settings.DEFAULT_KEY_TAG_MAX_DURATION) * 60 * 1000L * 2 / (1L + newlyAddedApps.size());
 
         if (!newlyAddedApps.isEmpty()) {
             long addedTimeThresh = System.currentTimeMillis() - newLabelDurationMs / newlyAddedApps.size();
-            newlyAddedApps.removeIf(pkgName -> getAppAddedTime(pkgName) < addedTimeThresh);
-        }
-        if (!recentlyLaunched.isEmpty()) {
-            long launchedTimeThresh = System.currentTimeMillis() - newLabelDurationMs / recentlyLaunched.size();
-            recentlyLaunched.removeIf(pkgName -> getAppLastLaunchedTime(pkgName) < launchedTimeThresh);
+            newlyAddedApps.removeIf(pkgName
+                    -> dataStoreEditorPerApp.getLong(Settings.PREF_NEWLY_ADDED_TIME+pkgName, 0)
+                    < addedTimeThresh);
         }
 
         newlyAddedAppsInternalCache = newlyAddedApps;
-        recentlyLaunchedAppsInternalCache = recentlyLaunched;
     }
 
     /** Check if a package should display the "NEW" label */
     private static boolean isNewlyAddedPackage(String packageName) {
         if (newlyAddedAppsInternalCache == null
                 || newlyAddedAppsInternalCache.contains(packageName)) {
-             getNewlyAddedAndRecentlyLaunchedApps();
+             getNewlyAddedApps();
              return newlyAddedAppsInternalCache.contains(packageName);
         }
         else return false;
@@ -364,7 +376,7 @@ public class SettingsManager extends Settings {
 
     /** Register a newly added app */
     private static void registerNewlyAddedApp(ApplicationInfo app) {
-        if (newlyAddedAppsInternalCache == null) getNewlyAddedAndRecentlyLaunchedApps();
+        if (newlyAddedAppsInternalCache == null) getNewlyAddedApps();
         newlyAddedAppsInternalCache.add(app.packageName);
         dataStoreEditorPerApp.putStringSet(Settings.KEY_NEWLY_ADDED, newlyAddedAppsInternalCache);
         dataStoreEditorPerApp.putLong(Settings.PREF_NEWLY_ADDED_TIME+app.packageName, System.currentTimeMillis());
@@ -372,9 +384,6 @@ public class SettingsManager extends Settings {
 
     /** Register an app as recently launched */
     public static void registerRecentlyLaunchedApp(ApplicationInfo app) {
-        if (recentlyLaunchedAppsInternalCache == null) getNewlyAddedAndRecentlyLaunchedApps();
-        recentlyLaunchedAppsInternalCache.add(app.packageName);
-        dataStoreEditorPerApp.putStringSet(Settings.KEY_RECENTLY_LAUNCHED, recentlyLaunchedAppsInternalCache);
         dataStoreEditorPerApp.putLong(Settings.PREF_LAST_LAUNCHED_TIME +app.packageName, System.currentTimeMillis());
     }
 
@@ -642,20 +651,22 @@ public class SettingsManager extends Settings {
 
     /** Signal a change in the types which should be displayed as banners */
     public static void setTypeBanner(App.Type type, boolean banner) {
-        isBannerCache.put(type, banner);
-        dataStoreEditor.putBoolean(Settings.KEY_BANNER + type, banner);
-
         LauncherActivity la = LauncherActivity.getForegroundInstance();
         if (la != null) {
+            isBannerCache.put(type, banner);
+            dataStoreEditor.putBoolean(Settings.KEY_BANNER + type, banner);
+
             la.dataStoreEditor.removeStringSet(Settings.KEY_FORCED_SQUARE);
             la.dataStoreEditor.removeStringSet(Settings.KEY_FORCED_BANNER);
             Compat.clearIconCache(la);
+            la.launcherService.forEachActivity(LauncherActivity::notifyAdapterDisplayModeChanged);
         }
     }
 
     private static final Set<String> forcedBannerApps = new HashSet<>();
     private static final Set<String> forcedSquareApps = new HashSet<>();
-    /** Sets a specific app to use banner or icon display, regardless of type */
+    /** Sets a specific app to use banner or icon display, regardless of type.
+     * notifyAdapterDisplayModeChanged MUST be called afterwards! */
     public static void
     setAppBannerOverride(ApplicationInfo app, boolean isBanner) {
         if (isBanner) {
@@ -678,10 +689,10 @@ public class SettingsManager extends Settings {
         }
     }
 
-    public static Long getAppLastLaunchedTime(String packageName) {
-        return dataStoreEditorPerApp.getLong(Settings.PREF_LAST_LAUNCHED_TIME +packageName, 0);
+    public static void getAppLastLaunchedTimeAsync(String packageName, Consumer<Long> onTime) {
+        dataStoreEditorPerApp.getLong(Settings.PREF_LAST_LAUNCHED_TIME +packageName, 0, onTime);
     }
-    public static Long getAppAddedTime(String packageName) {
-        return dataStoreEditorPerApp.getLong(Settings.PREF_NEWLY_ADDED_TIME+packageName, 0);
+    public static void getAppAddedTimeAsync(String packageName, Consumer<Long> onTime) {
+        dataStoreEditorPerApp.getLong(Settings.PREF_NEWLY_ADDED_TIME+packageName, 0, onTime);
     }
 }

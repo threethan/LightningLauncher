@@ -21,9 +21,9 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.Consumer;
 
 import io.reactivex.rxjava3.core.Single;
-import io.reactivex.rxjava3.functions.Consumer;
 
 // Add the following to build.gradle (app) dependencies:
 // implementation 'androidx.datastore:datastore-preferences-rxjava3:1.0.0'
@@ -180,6 +180,14 @@ public class DataStoreEditor implements SharedPreferences, SharedPreferences.Edi
                 ", must be one of "+ Arrays.toString(classes));
     }
 
+    /**
+     * Gets the underlying RxDataStore instance, for external use
+     * @return The RxDataStore instance
+     */
+    public RxDataStore<Preferences> getDataStoreRX() {
+        return dataStoreRX;
+    }
+
     /** @noinspection unchecked
      * Gets the key which matches the type of the provided value
      * @param key Name of the key
@@ -273,7 +281,8 @@ public class DataStoreEditor implements SharedPreferences, SharedPreferences.Edi
         Preferences.Key<T> prefKey = getKey(key, tClass);
         Single<T> value = dataStoreRX.data().firstOrError()
                 .map(prefs -> prefs.get(prefKey)).onErrorReturn(throwable -> def);
-        value.blockingSubscribe(consumer);
+        if (Thread.currentThread().isInterrupted()) return;
+        value.blockingSubscribe(consumer::accept);
     }
     /**
      * Asynchronously gets the value of the given key
@@ -286,7 +295,8 @@ public class DataStoreEditor implements SharedPreferences, SharedPreferences.Edi
         Preferences.Key<T> prefKey = getKey(key, def);
         Single<T> value = dataStoreRX.data().firstOrError()
                 .map(prefs -> prefs.get(prefKey)).onErrorReturn(throwable -> def);
-        value.blockingSubscribe(consumer);
+        if (Thread.currentThread().isInterrupted()) return;
+        value.blockingSubscribe(consumer::accept);
     }
     /**
      * Asynchronously writes a value which matches the given class
