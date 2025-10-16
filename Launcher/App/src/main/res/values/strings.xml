@@ -106,6 +106,9 @@
     <string name="long_press_tip"><b>When on,</b> long-pressing an app will enter edit mode and select it.
     \n<b>When off,</b> long-pressing an app will show details.</string>
 
+    <string name="reduce_motion">Reduce Motion</string>
+    <string name="reduce_motion_tip">Disables animations in the app list.</string>
+    
     <string name="search_web">Show Web Search Engines in Searches</string>
     <string name="search_hidden">Show Hidden Apps in Searches</string>
     <string name="settings_save">Export Settings</string>

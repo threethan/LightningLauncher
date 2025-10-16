@@ -35,21 +35,6 @@
             android:text="@string/website_info1"
             android:textColor="@android:color/white" />
 
-        <TextView
-            style="@style/SettingSubtitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/website_subtitle2" />
-
-        <TextView
-            android:background="@drawable/lc_bkg_button_section"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autofillHints="text"
-            android:alpha="0.8"
-            android:text="@string/website_info2"
-            android:textColor="@android:color/white" />
-
         <LinearLayout
             android:id="@+id/vrOnlyInfo"
             android:layout_width="match_parent"

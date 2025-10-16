@@ -29,6 +29,7 @@
             android:layout_height="30dp"
             android:layout_marginBottom="-32dp"
             android:background="@drawable/bkg_hover_button"
+            android:foreground="@drawable/lc_fg_focusable"
             android:src="@drawable/ic_back" />
 
         <TextView
@@ -44,6 +45,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/advanced_interface" />
+
+        <com.threethan.launchercore.view.LcSwitch
+            android:id="@+id/reduceMotionSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/lc_bkg_button_section"
+            android:text="@string/reduce_motion"
+            android:tooltipText="@string/reduce_motion_tip"
+            tools:ignore="UnusedAttribute,UseSwitchCompatOrMaterialXml" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -203,15 +214,13 @@
 
         <com.threethan.launchercore.view.LcButton
             android:id="@+id/clearLabelButton"
-            style="@style/SettingButtonLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/lc_bkg_button_top"
+            android:foreground="@drawable/lc_fg_focusable"
             android:gravity="center"
-            android:orientation="horizontal"
             android:paddingStart="5dp"
             android:paddingEnd="5dp"
-            android:singleLine="true"
             android:text="@string/clear_labels" />
 
         <LinearLayout
@@ -244,16 +253,11 @@
 
         <com.threethan.launchercore.view.LcButton
             android:id="@+id/fullyCloseButton"
-            style="@style/SettingButtonLabel"
             android:layout_width="match_parent"
             android:layout_height="39dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/lc_bkg_button"
-            android:gravity="center"
-            android:orientation="horizontal"
             android:paddingStart="5dp"
             android:paddingEnd="5dp"
-            android:singleLine="true"
             android:text="@string/close_fully"
             android:tooltipText="@string/close_fully_desc"
             tools:ignore="UnusedAttribute">
