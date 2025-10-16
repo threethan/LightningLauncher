@@ -67,18 +67,29 @@ public class AppDetailsDialog extends LcDialog<LauncherActivity> {
         AlertDialog dialog = super.show();
         if (dialog == null) return null;
         // Package Name
-        ((TextView) dialog.findViewById(R.id.packageName)).setText(app.packageName);
+        TextView packageNameTextView = dialog.findViewById(R.id.packageName);
+        packageNameTextView.setText(app.packageName);
+        packageNameTextView.setOnClickListener(v -> {
+            LcDialog.toast(app.packageName);
+            copyToClipboard(app.packageName);
+        });
 
         PackageInfo packageInfo;
         try {
             packageInfo = a.getPackageManager().getPackageInfo(app.packageName, 0);
-            ((TextView) dialog.findViewById(R.id.packageVersion)).setText(packageInfo.versionName);
+            TextView packageVersionTextView = dialog.findViewById(R.id.packageVersion);
+            packageVersionTextView.setText(packageInfo.versionName);
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 View pnv = dialog.findViewById(R.id.packageNameAndVersion);
                 LcToolTipHelper.init(pnv, packageInfo.packageName
                         + "\n" + packageInfo.versionName);
             }
+
+            packageVersionTextView.setOnClickListener(v -> {
+                LcDialog.toast(packageInfo.versionName);
+                copyToClipboard(packageInfo.versionName);
+            });
         } catch (PackageManager.NameNotFoundException ignored) {}
         // Info Action
         dialog.findViewById(R.id.info).setOnClickListener(view
@@ -289,6 +300,16 @@ public class AppDetailsDialog extends LcDialog<LauncherActivity> {
             dialog.dismiss();
         });
         return dialog;
+    }
+
+    private void copyToClipboard(String packageName) {
+        try {
+            android.content.ClipboardManager clipboard = (android.content.ClipboardManager)
+                    a.getSystemService(LauncherActivity.CLIPBOARD_SERVICE);
+            android.content.ClipData clip = android.content.ClipData.newPlainText(
+                    "Package Name", packageName);
+            if (clipboard != null) clipboard.setPrimaryClip(clip);
+        } catch (Exception ignored) {}
     }
 
     private Drawable copy(Drawable drawable) {
