@@ -13,11 +13,12 @@ import com.threethan.launcher.data.sync.SyncCoordinator;
 import com.threethan.launcher.helper.AppExt;
 import com.threethan.launcher.helper.LaunchExt;
 import com.threethan.launcher.helper.VariantHelper;
+import com.threethan.launchercore.util.LcDialog;
 
 /**
  * Dialog for managing different app variants.
  */
-public class VariantManagerDialog extends BasicDialog<LauncherActivity> {
+public class VariantManagerDialog extends LcDialog<LauncherActivity> {
     /**
      * Constructs a new VariantManagerDialog.
      * @param context The LauncherActivity context.

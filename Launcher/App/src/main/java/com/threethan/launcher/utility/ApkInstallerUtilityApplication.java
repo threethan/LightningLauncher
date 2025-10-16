@@ -2,9 +2,10 @@ package com.threethan.launcher.utility;
 
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.LauncherActivity;
-import com.threethan.launcher.activity.dialog.BasicDialog;
+import com.threethan.launcher.helper.PlatformExt;
 import com.threethan.launchercore.Core;
 import com.threethan.launchercore.adapter.UtilityApplicationInfo;
+import com.threethan.launchercore.util.LcDialog;
 import com.threethan.launchercore.util.Platform;
 
 /**
@@ -25,9 +26,9 @@ public class ApkInstallerUtilityApplication extends UtilityApplicationInfo {
     }
 
     public void launch() {
-        BasicDialog.toast(Core.context().getString(R.string.apk_installer_tip));
+        LcDialog.toast(Core.context().getString(R.string.apk_installer_tip));
 
-        if (!BasicDialog.validateVariantWithNotify()) return;
+        if (!PlatformExt.validateVariantWithNotify()) return;
 
         if (LauncherActivity.getForegroundInstance() != null)
             LauncherActivity.getForegroundInstance()

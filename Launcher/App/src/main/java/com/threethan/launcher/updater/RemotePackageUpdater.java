@@ -21,9 +21,10 @@ import androidx.annotation.Nullable;
 import androidx.core.content.FileProvider;
 
 import com.threethan.launcher.R;
-import com.threethan.launcher.activity.dialog.BasicDialog;
+import com.threethan.launcher.helper.PlatformExt;
 import com.threethan.launchercore.lib.FileLib;
 import com.threethan.launchercore.util.CustomDialog;
+import com.threethan.launchercore.util.LcDialog;
 
 import java.io.File;
 import java.io.IOException;
@@ -110,7 +111,7 @@ public class RemotePackageUpdater {
      */
     @SuppressLint("UnspecifiedRegisterReceiverFlag") // Can't be fixed on this API version
     public void downloadPackage(RemotePackage remotePackage) {
-        if (!BasicDialog.validateVariantWithNotify()) return;
+        if (!PlatformExt.validateVariantWithNotify()) return;
 
         Log.v(TAG, "Downloading from url "+remotePackage.url);
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(remotePackage.url));
@@ -170,7 +171,7 @@ public class RemotePackageUpdater {
      * @param apkFile File pointing to the apk
      */
     public void installApk(File apkFile) {
-        if (!BasicDialog.validateVariantWithNotify()) return;
+        if (!PlatformExt.validateVariantWithNotify()) return;
 
         Log.v(TAG, "Installing from apk at " + apkFile.getAbsolutePath());
         if (apkFile.exists()) {
@@ -191,7 +192,7 @@ public class RemotePackageUpdater {
 }
     @SuppressLint("RequestInstallPackagesPolicy")
     public void installApk(Uri apkURI) {
-        if (!BasicDialog.validateVariantWithNotify()) return;
+        if (!PlatformExt.validateVariantWithNotify()) return;
 
         Runnable viewApk = () -> {
             Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -230,9 +231,9 @@ public class RemotePackageUpdater {
                 throw e;
             }
 
-            BasicDialog.toast(activity.getString(R.string.installing));
+            LcDialog.toast(activity.getString(R.string.installing));
             InstallReceiver.setOnSuccess(() ->
-                    BasicDialog.toast(activity.getString(R.string.installed_successfully)));
+                    LcDialog.toast(activity.getString(R.string.installed_successfully)));
 
             session.commit(createIntentSender(activity, sessionId));
 

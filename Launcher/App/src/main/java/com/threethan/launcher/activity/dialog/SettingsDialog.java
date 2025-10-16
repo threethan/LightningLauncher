@@ -33,6 +33,7 @@ import com.threethan.launcher.helper.VariantHelper;
 import com.threethan.launcher.updater.LauncherUpdater;
 import com.threethan.launchercore.Core;
 import com.threethan.launchercore.util.App;
+import com.threethan.launchercore.util.LcDialog;
 import com.threethan.launchercore.util.Platform;
 
 import java.lang.ref.WeakReference;
@@ -53,14 +54,14 @@ import java.util.function.Consumer;
  */
 @SuppressLint("UseSwitchCompatOrMaterialCode")
 
-public class SettingsDialog extends BasicDialog<LauncherActivity> {
+public class SettingsDialog extends LcDialog<LauncherActivity> {
     private static boolean clearedLabel;
     private static boolean clearedIconCache;
     private static boolean clearedIconCustom;
     private static boolean clearedSort;
     private static boolean clearedGroups;
-    private static AlertDialog instance;
-    private static AlertDialog advancedInstance;
+    private static WeakReference<AlertDialog> instance;
+    private static WeakReference<AlertDialog> advancedInstance;
     private WeakReference<Switch> darkSwitchRef;
 
     /**
@@ -73,13 +74,13 @@ public class SettingsDialog extends BasicDialog<LauncherActivity> {
 
     @SuppressLint("SetTextI18n")
     public AlertDialog show() {
-        if (instance != null) try {
-            instance.dismiss();
+        if (instance != null && instance.get() != null) try {
+            instance.get().dismiss();
         } catch (Exception ignored) {}
 
         AlertDialog dialog = super.show();
         if (dialog == null) return null;
-        instance = dialog;
+        instance = new WeakReference<>(dialog);
 
         a.settingsVisible = true;
 
@@ -352,13 +353,13 @@ public class SettingsDialog extends BasicDialog<LauncherActivity> {
 
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     public void showAdvancedSettings() {
-        if (advancedInstance != null) try {
-            advancedInstance.dismiss();
+        if (advancedInstance != null && advancedInstance.get() != null) try {
+            advancedInstance.get().dismiss();
         } catch (Exception ignored) {}
 
-        AlertDialog dialog = new BasicDialog<>(a, R.layout.dialog_settings_advanced).show();
+        AlertDialog dialog = new LcDialog<>(a, R.layout.dialog_settings_advanced).show();
         if (dialog == null) return;
-        advancedInstance = dialog;
+        advancedInstance = new WeakReference<>(dialog);
 
         dialog.findViewById(R.id.dismissButton).setOnClickListener(view -> dialog.dismiss());
 
@@ -494,7 +495,7 @@ public class SettingsDialog extends BasicDialog<LauncherActivity> {
                 dialog.dismiss();
                 SettingsSaver.load(a);
             } else {
-                BasicDialog.toast("Failed to find file!");
+                LcDialog.toast("Failed to find file!");
             }
         });
 
@@ -512,7 +513,7 @@ public class SettingsDialog extends BasicDialog<LauncherActivity> {
                 dialog.dismiss();
                 SettingsSaver.loadSort(a);
             } else {
-                BasicDialog.toast("Failed to find file!");
+                LcDialog.toast("Failed to find file!");
             }
         });
 
@@ -538,9 +539,8 @@ public class SettingsDialog extends BasicDialog<LauncherActivity> {
                 final Switch bSwitch = switchByType.get(type);
                 if (bSwitch == null) continue;
                 bSwitch.setChecked(SettingsManager.isTypeBanner(type));
-                bSwitch.setOnCheckedChangeListener((switchView, value) -> {
-                    SettingsManager.setTypeBanner(type, value);
-                });
+                bSwitch.setOnCheckedChangeListener((switchView, value)
+                        -> SettingsManager.setTypeBanner(type, value));
             } else {
                 Objects.requireNonNull(switchByType.get(type)).setVisibility(View.GONE);
             }
@@ -585,9 +585,8 @@ public class SettingsDialog extends BasicDialog<LauncherActivity> {
 
         View groupSettings = dialog.findViewById(R.id.groupDefaultsInfoButton);
         groupSettings.setOnClickListener(view -> showGroupSettings());
+
     }
-
-
 
     /**
      * Attaches a toggle switch to a specific setting
@@ -622,7 +621,7 @@ public class SettingsDialog extends BasicDialog<LauncherActivity> {
         clearedSort = false;
         clearedGroups = false;
 
-        AlertDialog dialog = new BasicDialog<>(a, R.layout.dialog_setting_reset_groups).show();
+        AlertDialog dialog = new LcDialog<>(a, R.layout.dialog_setting_reset_groups).show();
         if (dialog == null) return;
 
         View clearSort = dialog.findViewById(R.id.resortOnly);
@@ -632,7 +631,7 @@ public class SettingsDialog extends BasicDialog<LauncherActivity> {
                 clearSort.setAlpha(0.5f);
                 clearedSort = true;
 
-                BasicDialog.toast(a.getText(R.string.default_groups_resort_only_toast_main),
+                LcDialog.toast(a.getText(R.string.default_groups_resort_only_toast_main),
                         a.getString(R.string.default_groups_resort_only_toast_bold),
                         false);
             }
@@ -659,7 +658,7 @@ public class SettingsDialog extends BasicDialog<LauncherActivity> {
                 clearSort.setAlpha(0.5f);
                 clearedSort = true;
 
-                BasicDialog.toast(a.getString(R.string.default_groups_reset_groups_toast_main),
+                LcDialog.toast(a.getString(R.string.default_groups_reset_groups_toast_main),
                         a.getString(R.string.default_groups_reset_groups_toast_bold),
                         false);
 
@@ -681,7 +680,7 @@ public class SettingsDialog extends BasicDialog<LauncherActivity> {
         clearedIconCache = false;
         clearedIconCustom = false;
 
-        AlertDialog dialog = new BasicDialog<>(a, R.layout.dialog_setting_reset_icons).show();
+        AlertDialog dialog = new LcDialog<>(a, R.layout.dialog_setting_reset_icons).show();
         if (dialog == null) return;
 
         View clearCache = dialog.findViewById(R.id.clearCache);
@@ -691,7 +690,7 @@ public class SettingsDialog extends BasicDialog<LauncherActivity> {
                 clearCache.setAlpha(0.5f);
                 clearedSort = true;
 
-                BasicDialog.toast(a.getString(R.string.toast_cleared_icon_cache));
+                LcDialog.toast(a.getString(R.string.toast_cleared_icon_cache));
             }
         });
 
@@ -704,7 +703,7 @@ public class SettingsDialog extends BasicDialog<LauncherActivity> {
                 clearCache.setAlpha(0.5f);
                 clearedIconCache = true;
 
-                BasicDialog.toast(a.getString(R.string.toast_cleared_icon_all));
+                LcDialog.toast(a.getString(R.string.toast_cleared_icon_all));
             }
         });
 

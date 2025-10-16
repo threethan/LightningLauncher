@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.threethan.launcher.BuildConfig;
-import com.threethan.launcher.activity.dialog.BasicDialog;
+import com.threethan.launchercore.util.LcDialog;
 
 import java.util.Arrays;
 
@@ -40,7 +40,7 @@ public class LauncherGridLayoutManager extends GridLayoutManager {
                     && Arrays.stream(throwable.getStackTrace()).anyMatch(el -> el.getClassName().toLowerCase().contains("recyclerview"))) {
                 // This exception rarely occurs due to async ops in ViewHolders
                 if (BuildConfig.DEBUG) {
-                    BasicDialog.toast("RecyclerView recycling error ignored");
+                    LcDialog.toast("RecyclerView recycling error ignored");
                     Log.w("RecyclerViewFix", "Ignoring known IllegalArgumentException", throwable);
                 }
             } else {
@@ -73,7 +73,7 @@ public class LauncherGridLayoutManager extends GridLayoutManager {
             return super.scrollVerticallyBy(dy, recycler, state);
         } catch (IllegalArgumentException e) {
             Log.e("RecyclerViewFix", "Ignoring known IllegalArgumentException", e);
-            if (BuildConfig.DEBUG) BasicDialog.toast("RecyclerView scroll error ignored");
+            if (BuildConfig.DEBUG) LcDialog.toast("RecyclerView scroll error ignored");
             return 0;
         }
     }

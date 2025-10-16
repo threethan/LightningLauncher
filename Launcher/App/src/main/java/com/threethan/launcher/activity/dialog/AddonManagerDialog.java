@@ -13,6 +13,7 @@ import com.threethan.launcher.data.Settings;
 import com.threethan.launcher.helper.PlatformExt;
 import com.threethan.launcher.helper.VariantHelper;
 import com.threethan.launcher.updater.AddonUpdater;
+import com.threethan.launchercore.util.LcDialog;
 import com.threethan.launchercore.util.Platform;
 
 import java.lang.ref.WeakReference;
@@ -23,7 +24,7 @@ import java.lang.ref.WeakReference;
     This class handles the addon manager, AKA shortcut settings
     It handles related popups, and updates buttons according to the state returned by Addon
  */
-public class AddonManagerDialog extends BasicDialog<LauncherActivity> {
+public class AddonManagerDialog extends LcDialog<LauncherActivity> {
     private static WeakReference<AddonUpdater> updaterRef;
 
     /**
@@ -61,7 +62,7 @@ public class AddonManagerDialog extends BasicDialog<LauncherActivity> {
     }
 
     public AlertDialog show() {
-        if (Platform.isVr() && !BasicDialog.validateVariantWithNotify()) return null;
+        if (Platform.isVr() && !PlatformExt.validateVariantWithNotify()) return null;
         AlertDialog dialog = super.show();
         if (dialog == null) return null;
 
@@ -197,7 +198,7 @@ public class AddonManagerDialog extends BasicDialog<LauncherActivity> {
 
     protected static void showAccessibilityDialog() {
         Activity a = LauncherActivity.getForegroundInstance();
-        AlertDialog dialog = new BasicDialog<>(a, R.layout.dialog_info_redirect_activate).show();
+        AlertDialog dialog = new LcDialog<>(a, R.layout.dialog_info_redirect_activate).show();
         if (dialog != null) dialog.findViewById(R.id.openAccessibilitySettings).setOnClickListener(v -> {
             // Navigate to accessibility settings
             Intent localIntent = new Intent("android.settings.ACCESSIBILITY_SETTINGS");
@@ -209,6 +210,6 @@ public class AddonManagerDialog extends BasicDialog<LauncherActivity> {
 
     protected static void showDockDialog() {
         Activity a = LauncherActivity.getForegroundInstance();
-        new BasicDialog<>(a, R.layout.dialog_info_dock_add).show();
+        new LcDialog<>(a, R.layout.dialog_info_dock_add).show();
     }
 }

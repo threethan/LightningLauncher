@@ -19,13 +19,13 @@ import com.threethan.launcher.activity.adapter.LauncherAppsAdapter;
 import com.threethan.launcher.activity.adapter.GroupsAdapter;
 import com.threethan.launcher.data.sync.SyncCoordinator;
 import com.threethan.launcher.helper.AppExt;
-import com.threethan.launcher.activity.dialog.BasicDialog;
 import com.threethan.launcher.helper.PlatformExt;
 import com.threethan.launcher.data.Settings;
 import com.threethan.launcher.activity.support.SettingsManager;
 import com.threethan.launcher.activity.view.EditTextWatched;
 import com.threethan.launchercore.lib.StringLib;
 import com.threethan.launchercore.util.App;
+import com.threethan.launchercore.util.LcDialog;
 import com.threethan.launchercore.util.Platform;
 import com.threethan.launchercore.view.LcBlurCanvas;
 
@@ -292,7 +292,7 @@ public class LauncherActivityEditable extends LauncherActivity {
 
     public void addWebsite() {
         
-        AlertDialog dialog = new BasicDialog<>(this, R.layout.dialog_add_website).show();
+        AlertDialog dialog = new LcDialog<>(this, R.layout.dialog_add_website).show();
 
         // Set group to (one of) selected
         String group;
@@ -340,7 +340,7 @@ public class LauncherActivityEditable extends LauncherActivity {
     }
 
     void showWebsiteInfo() {
-        AlertDialog subDialog = new BasicDialog<>(this, R.layout.dialog_info_websites).show();
+        AlertDialog subDialog = new LcDialog<>(this, R.layout.dialog_info_websites).show();
         if (subDialog == null) return;
         subDialog.findViewById(R.id.vrOnlyInfo).setVisibility(Platform.isVr() ? View.VISIBLE : View.GONE);
     }

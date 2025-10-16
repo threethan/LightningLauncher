@@ -10,11 +10,12 @@ import androidx.annotation.Nullable;
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.data.Settings;
+import com.threethan.launchercore.util.LcDialog;
 
 /**
  * Dialog for editing the top bar settings in the launcher.
  */
-public class EditTopBarDialog extends BasicDialog<LauncherActivity> {
+public class EditTopBarDialog extends LcDialog<LauncherActivity> {
     public EditTopBarDialog(LauncherActivity activity) {
         super(activity, R.layout.dialog_edit_top_bar);
     }

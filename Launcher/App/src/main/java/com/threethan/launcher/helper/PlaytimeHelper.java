@@ -12,16 +12,15 @@ import android.provider.Settings;
 
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.LauncherActivity;
-import com.threethan.launcher.activity.dialog.BasicDialog;
 import com.threethan.launchercore.Core;
 import com.threethan.launchercore.lib.DelayLib;
 import com.threethan.launchercore.util.CustomDialog;
+import com.threethan.launchercore.util.LcDialog;
 
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.function.Consumer;
 
 /** Get basic info related to app/game play time */
@@ -100,7 +99,6 @@ public abstract class PlaytimeHelper {
 
     public static boolean hasUsagePermission() {
         AppOpsManager appOps = (AppOpsManager) Core.context().getSystemService(Context.APP_OPS_SERVICE);
-        //noinspection deprecation
         int mode = Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
                 ? appOps.unsafeCheckOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS, Process.myUid(), Core.context().getPackageName())
                 : appOps.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS, Process.myUid(), Core.context().getPackageName());
@@ -115,7 +113,7 @@ public abstract class PlaytimeHelper {
             try {
                 activity.startActivity(intent);
             } catch (Exception e) {
-                BasicDialog.toast("Usage permission settings are unavailable");
+                LcDialog.toast("Usage permission settings are unavailable");
             }
         else {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -132,7 +130,7 @@ public abstract class PlaytimeHelper {
             else {
                 if (hasJustShownToast) QuestGameTuner.openInfoDialog();
                 else {
-                    BasicDialog.toast(Core.context().getString(R.string.playtime_charts_warn));
+                    LcDialog.toast(Core.context().getString(R.string.playtime_charts_warn));
                     hasJustShownToast = true;
                     DelayLib.delayed(() -> hasJustShownToast = false);
                 }

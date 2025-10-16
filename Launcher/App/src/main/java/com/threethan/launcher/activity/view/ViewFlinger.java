@@ -676,7 +676,6 @@ public class ViewFlinger extends ViewGroup {
 
     @Override
     public boolean dispatchKeyEventPreIme(KeyEvent event) {
-        Log.v("KEV", event.toString());
         return super.dispatchKeyEvent(event);
     }
 

@@ -10,7 +10,6 @@ import android.util.Log;
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.activity.adapter.LauncherAppsAdapter;
-import com.threethan.launcher.activity.dialog.BasicDialog;
 import com.threethan.launcher.activity.support.DataStoreEditor;
 import com.threethan.launcher.activity.support.SettingsManager;
 import com.threethan.launcher.data.Settings;
@@ -22,6 +21,7 @@ import com.threethan.launchercore.lib.StringLib;
 import com.threethan.launchercore.metadata.IconLoader;
 import com.threethan.launchercore.metadata.IconUpdater;
 import com.threethan.launchercore.util.App;
+import com.threethan.launchercore.util.LcDialog;
 import com.threethan.launchercore.util.Platform;
 
 import java.io.File;
@@ -63,7 +63,7 @@ public abstract class Compat {
             dse2.asyncWrite = false;
             dse2.migrateDefault(launcherActivity);
             if (dataStoreEditor.getInt(Settings.KEY_BACKGROUND, -1) != -1)
-                BasicDialog.toast(launcherActivity.getString(R.string.migrated));
+                LcDialog.toast(launcherActivity.getString(R.string.migrated));
             clearIconCache(launcherActivity);
         }
 

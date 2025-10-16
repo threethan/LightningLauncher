@@ -3,10 +3,10 @@ package com.threethan.launcher.updater;
 import android.app.Activity;
 
 import com.threethan.launcher.R;
-import com.threethan.launcher.activity.dialog.BasicDialog;
 import com.threethan.launcher.activity.support.DataStoreEditor;
 import com.threethan.launchercore.Core;
 import com.threethan.launchercore.util.CustomDialog;
+import com.threethan.launchercore.util.LcDialog;
 
 import java.util.function.Consumer;
 
@@ -53,12 +53,12 @@ public class LauncherUpdater extends AppUpdater {
                 .setMessage(R.string.update_skip_content)
                 .setPositiveButton(R.string.update_skip_confirm_button, (dialog, i) -> {
                     putIgnoredUpdateTag(versionTag);
-                    BasicDialog.toast(activity.getString(R.string.update_skip_toast), versionTag, false);
+                    LcDialog.toast(activity.getString(R.string.update_skip_toast), versionTag, false);
                     dialog.dismiss();
                 })
                 .setNegativeButton(R.string.update_skip_all_button, (dialog, i) -> {
                     setShouldNotifyUpdates(false);
-                    BasicDialog.toast(activity.getString(R.string.update_skip_all_toast));
+                    LcDialog.toast(activity.getString(R.string.update_skip_all_toast));
                     dialog.dismiss();
                 })
                 .setNeutralButton(R.string.update_skip_cancel_button, ((dialog, i) -> dialog.dismiss()))

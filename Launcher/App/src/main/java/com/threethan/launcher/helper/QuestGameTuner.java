@@ -15,10 +15,10 @@ import androidx.annotation.Nullable;
 
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.LauncherActivity;
-import com.threethan.launcher.activity.dialog.BasicDialog;
 import com.threethan.launcher.activity.view.ViewFlinger;
 import com.threethan.launchercore.Core;
 import com.threethan.launchercore.util.App;
+import com.threethan.launchercore.util.LcDialog;
 import com.threethan.launchercore.util.Platform;
 
 import java.util.Random;
@@ -79,7 +79,7 @@ public abstract class QuestGameTuner {
             intent.putExtra(Intent.EXTRA_PACKAGE_NAME, packageName);
 
             if (getVersionCode() < 150)
-                BasicDialog.toast("Update Quest Game Tuner");
+                LcDialog.toast("Update Quest Game Tuner");
             else
                 tryStartActivity(intent);
         } else {
@@ -140,7 +140,7 @@ public abstract class QuestGameTuner {
         if (LauncherActivity.getForegroundInstance() == null) return;
         new InfoDialog(LauncherActivity.getForegroundInstance()).show();
     }
-    private static class InfoDialog extends BasicDialog<Context> {
+    private static class InfoDialog extends LcDialog<Context> {
         public InfoDialog(Context context) {
             super(context, R.layout.dialog_tuner_info);
         }

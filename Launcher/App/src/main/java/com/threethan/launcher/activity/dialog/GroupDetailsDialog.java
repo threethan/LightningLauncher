@@ -15,6 +15,7 @@ import com.threethan.launcher.activity.support.SettingsManager;
 import com.threethan.launchercore.Core;
 import com.threethan.launchercore.lib.StringLib;
 import com.threethan.launchercore.util.App;
+import com.threethan.launchercore.util.LcDialog;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -25,7 +26,7 @@ import java.util.Set;
  * Provides the dialog which appears when pressing the three-dots icon on a group,
  * or when long-pressing the single selected group in edit mode
  */
-public class GroupDetailsDialog extends BasicDialog<LauncherActivity> {
+public class GroupDetailsDialog extends LcDialog<LauncherActivity> {
     private final int groupPosition;
 
     /**
@@ -84,7 +85,7 @@ public class GroupDetailsDialog extends BasicDialog<LauncherActivity> {
                     final boolean newChecked = SettingsManager.getDefaultGroupFor(type).equals(groupName);
                     if (newChecked && !value) {
                         cSwitch.setChecked(true);
-                        BasicDialog.toast(a.getString(R.string.toast_cant_unset_group));
+                        LcDialog.toast(a.getString(R.string.toast_cant_unset_group));
                     }
                     else cSwitch.setChecked(newChecked);
                 });

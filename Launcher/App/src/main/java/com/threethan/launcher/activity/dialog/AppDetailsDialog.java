@@ -32,6 +32,7 @@ import com.threethan.launchercore.lib.ImageLib;
 import com.threethan.launchercore.lib.StringLib;
 import com.threethan.launchercore.util.App;
 import com.threethan.launchercore.util.CustomDialog;
+import com.threethan.launchercore.util.LcDialog;
 import com.threethan.launchercore.util.Platform;
 import com.threethan.launchercore.view.LcToolTipHelper;
 
@@ -45,7 +46,7 @@ import java.util.concurrent.atomic.AtomicReference;
  * Provides the dialog which appears when pressing the three-dots icon on an app,
  * or when long-pressing an app in edit mode
  */
-public class AppDetailsDialog extends BasicDialog<LauncherActivity> {
+public class AppDetailsDialog extends LcDialog<LauncherActivity> {
     private static File customIconFile;
     private static ApplicationInfo imageApp;
     private final ApplicationInfo app;
@@ -199,7 +200,7 @@ public class AppDetailsDialog extends BasicDialog<LauncherActivity> {
                 unhideGroup.set((String) SettingsManager.getAppGroups().toArray()[0]);
             } catch (AssertionError | IndexOutOfBoundsException ignored) {
                 unhideGroup.set(Settings.HIDDEN_GROUP);
-                BasicDialog.toast("Could not find a group to unhide app to!");
+                LcDialog.toast("Could not find a group to unhide app to!");
             }
         String finalUnhideGroup = unhideGroup.get();
 
@@ -212,7 +213,7 @@ public class AppDetailsDialog extends BasicDialog<LauncherActivity> {
             boolean nowHidden = hg != null && hg.contains(app.packageName);
             showButton.setVisibility( nowHidden ? View.VISIBLE : View.GONE);
             hideButton.setVisibility(!nowHidden ? View.VISIBLE : View.GONE);
-            BasicDialog.toast(a.getString(R.string.moved_shown), finalUnhideGroup, false);
+            LcDialog.toast(a.getString(R.string.moved_shown), finalUnhideGroup, false);
             a.launcherService.forEachActivity(LauncherActivity::refreshAppList);
 
         });
@@ -221,7 +222,7 @@ public class AppDetailsDialog extends BasicDialog<LauncherActivity> {
             boolean nowHidden = hg != null && hg.contains(app.packageName);
             showButton.setVisibility( nowHidden ? View.VISIBLE : View.GONE);
             hideButton.setVisibility(!nowHidden ? View.VISIBLE : View.GONE);
-            BasicDialog.toast(a.getString(R.string.moved_hidden),
+            LcDialog.toast(a.getString(R.string.moved_hidden),
                     a.getString(R.string.moved_hidden_bold), false);
             a.launcherService.forEachActivity(LauncherActivity::refreshAppList);
         });

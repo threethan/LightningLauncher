@@ -9,10 +9,10 @@ import android.net.Uri;
 
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.LauncherActivity;
-import com.threethan.launcher.activity.dialog.BasicDialog;
 import com.threethan.launcher.data.Settings;
 import com.threethan.launchercore.Core;
 import com.threethan.launchercore.util.App;
+import com.threethan.launchercore.util.LcDialog;
 import com.threethan.launchercore.util.Platform;
 
 import java.util.Collections;
@@ -42,7 +42,7 @@ public abstract class AppExt extends App {
         try {
             context.startActivity(intent);
         } catch (Exception e) {
-            BasicDialog.toast("App info unavailable");
+            LcDialog.toast("App info unavailable");
         }
     }
     // Requests to uninstall the app
@@ -59,8 +59,8 @@ public abstract class AppExt extends App {
             launcher.launcherService.forEachActivity(LauncherActivity::refreshAppList);
         } else {
             if (!PlatformExt.canUninstall()) {
-                BasicDialog.toast("Missing uninstall permission");
-                BasicDialog.validateVariantWithNotify();
+                LcDialog.toast("Missing uninstall permission");
+                PlatformExt.validateVariantWithNotify();
                 return;
             }
             Intent intent = new Intent(Intent.ACTION_UNINSTALL_PACKAGE);
@@ -69,7 +69,7 @@ public abstract class AppExt extends App {
             try {
                 Core.context().startActivity(intent);
             } catch (Exception e) {
-                BasicDialog.toast("Could not request uninstall");
+                LcDialog.toast("Could not request uninstall");
             }
             if (launcher != null) {
                 for (int i = 2; i < 15; i++) // Check for uninstall completion

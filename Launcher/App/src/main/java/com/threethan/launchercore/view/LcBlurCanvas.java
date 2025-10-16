@@ -231,8 +231,11 @@ public class LcBlurCanvas extends LcContainerView {
                 Drawable windowBackground = activity.getWindow().getDecorView().getBackground();
                 if (windowBackground != null) {
                     if (windowBackground.getBounds().right == 0 || windowBackground.getBounds().bottom == 0) {
-                        windowBackground.setBounds(0, 0, getWidth(), getHeight());
-                        Log.d("LcBlurCanvas", "Window background bounds were empty, setting to own size.");
+                        windowBackground.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+                        Log.d("LcBlurCanvas", "Window background bounds were empty, setting to canvas size");
+                        return;
+//                        if (LauncherActivity.getForegroundInstance() != null)
+//                            LauncherActivity.getForegroundInstance().updateToolBars();
                     }
                     windowBackground.draw(canvas);
                 }

@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 
+import com.threethan.launcher.BuildConfig;
+import com.threethan.launcher.R;
 import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.activity.support.DataStoreEditor;
 import com.threethan.launcher.data.Settings;
@@ -12,6 +14,7 @@ import com.threethan.launcher.utility.LauncherSettingsApplication;
 import com.threethan.launcher.utility.TVSmartHomeUtilityApplication;
 import com.threethan.launchercore.Core;
 import com.threethan.launchercore.util.App;
+import com.threethan.launchercore.util.CustomDialog;
 import com.threethan.launchercore.util.Platform;
 
 import java.util.ArrayList;
@@ -159,6 +162,22 @@ public abstract class PlatformExt {
     }
 
 
-
-
+    /**
+     * Checks if the app is running in a variant that is not sideload,
+     * and if not, shows a warning dialog and returns false.
+     * @return true if the app is running in sideload variant, false otherwise
+     * @noinspection ConstantValue
+     */
+    public static boolean validateVariantWithNotify() {
+        if (BuildConfig.FLAVOR.equals("metastore")) {
+            new CustomDialog.Builder(LauncherActivity.getForegroundInstance())
+                    .setTitle(R.string.warning)
+                    .setMessage(Core.context().getString(R.string.app_variant_unavailable,
+                            Core.context().getString(R.string.app_variant_name)))
+                    .setPositiveButton(R.string.understood, (d,i) -> d.dismiss())
+                    .show();
+            return false;
+        }
+        return true;
+    }
 }

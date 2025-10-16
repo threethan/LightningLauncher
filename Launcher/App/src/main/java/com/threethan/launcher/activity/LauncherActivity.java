@@ -45,7 +45,6 @@ import com.threethan.launcher.activity.adapter.GroupsAdapter;
 import com.threethan.launcher.activity.adapter.LauncherAppsAdapter;
 import com.threethan.launcher.activity.adapter.LauncherGridLayoutManager;
 import com.threethan.launcher.activity.dialog.AppDetailsDialog;
-import com.threethan.launcher.activity.dialog.BasicDialog;
 import com.threethan.launcher.activity.dialog.SettingsDialog;
 import com.threethan.launcher.activity.support.SortHandler;
 import com.threethan.launcher.activity.support.WallpaperLoader;
@@ -55,6 +54,7 @@ import com.threethan.launcher.activity.view.SortCycler;
 import com.threethan.launcher.data.sync.SyncCoordinator;
 import com.threethan.launcher.helper.LaunchExt;
 import com.threethan.launcher.activity.view.status.StatusAdaptableView;
+import com.threethan.launchercore.util.LcDialog;
 import com.threethan.launchercore.view.LcBlurCanvas;
 import com.threethan.launcher.activity.view.MarginDecoration;
 import com.threethan.launcher.data.Settings;
@@ -306,7 +306,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
             if (getAppAdapter() != null) {
                 getAppAdapter().setSortMode(mode);
                 String displayText = mode.getDisplayText(this);
-                BasicDialog.toast(displayText);
+                LcDialog.toast(displayText);
             }
         });
 
@@ -339,7 +339,10 @@ public class LauncherActivity extends Launch.LaunchingActivity {
     protected void onDestroy() {
         Log.v(TAG, "Activity is being destroyed - "
                 + (isFinishing() ? "Finishing" : "Not Finishing"));
-        if (launcherService != null && isFinishing()) launcherService.destroyed(this);
+        if (launcherService != null && isFinishing()) {
+            LcDialog.closeAll();
+            launcherService.destroyed(this);
+        }
 
         if (isFinishing()) try {
             SyncCoordinator.onStop(this);
@@ -373,7 +376,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
             filePicker.launch(intent);
             return true;
         } catch (Exception ignored) {
-            BasicDialog.toast("No image picker available!");
+            LcDialog.toast("No image picker available!");
             return false;
         }
     }
@@ -401,7 +404,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
             bitmap = ImageLib.bitmapFromStream(getContentResolver().openInputStream(uri));
         } catch (FileNotFoundException e) {
             Log.e("PhotoPicker", "Error on load", e);
-            BasicDialog.toast("Could not load selected image");
+            LcDialog.toast("Could not load selected image");
             return;
         }
         if (bitmap == null) return;

@@ -1,4 +1,4 @@
-package com.threethan.launcher.activity.dialog;
+package com.threethan.launchercore.util;
 
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
@@ -19,24 +19,26 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-import com.threethan.launcher.BuildConfig;
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.LauncherActivity;
+import com.threethan.launcher.activity.dialog.AbstractDialog;
 import com.threethan.launchercore.Core;
-import com.threethan.launchercore.util.CustomDialog;
-import com.threethan.launchercore.util.Platform;
 
+import java.lang.ref.WeakReference;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 import java.util.function.Consumer;
 
-/*
-    Dialog
+/**
+    LcDialog
 
     This provides a wrapper for AlertDialog.Builder that makes it even easier to create an alert
     dialog from a layout resource
  */
-public class BasicDialog<T extends Context> extends AbstractDialog<T> {
+public class LcDialog<T extends Context> extends AbstractDialog<T> {
     final int resource;
+    private static final Set<WeakReference<AlertDialog>> dialogInstances = new HashSet<>();
 
     /**
      * Constructs a new dialog from a context and resource.
@@ -44,28 +46,28 @@ public class BasicDialog<T extends Context> extends AbstractDialog<T> {
      * @param context Context to show the dialog
      * @param resource Resource of the dialog's layout
      */
-    public BasicDialog(T context, int resource) {
+    public LcDialog(T context, int resource) {
         super(context);
         this.resource = resource;
     }
 
     /**
-     * Checks if the app is running in a variant that is not sideload,
-     * and if not, shows a warning dialog and returns false.
-     * @return true if the app is running in sideload variant, false otherwise
-     * @noinspection ConstantValue
+     * Closes all open dialogs created by BasicDialog,
+     * for when activity is finishing.
      */
-    public static boolean validateVariantWithNotify() {
-        if (BuildConfig.FLAVOR.equals("metastore")) {
-            new CustomDialog.Builder(LauncherActivity.getForegroundInstance())
-                    .setTitle(R.string.warning)
-                    .setMessage(Core.context().getString(R.string.app_variant_unavailable,
-                            Core.context().getString(R.string.app_variant_name)))
-                    .setPositiveButton(R.string.understood, (d,i) -> d.dismiss())
-                    .show();
-            return false;
+    public static void closeAll() {
+        for (WeakReference<AlertDialog> ref : dialogInstances) {
+            if (ref != null && ref.get() != null) {
+                try {
+                    ref.get().dismiss();
+                } catch (Exception ignored) {}
+            }
         }
-        return true;
+        dialogInstances.clear();
+        try {
+            currentToast.dismiss();
+            currentToast = null;
+        } catch (Exception ignored) {}
     }
 
     @Nullable
@@ -85,6 +87,7 @@ public class BasicDialog<T extends Context> extends AbstractDialog<T> {
         }
 
         dialog.show();
+        LcDialog.dialogInstances.add(new WeakReference<>(dialog));
 
         View dismissButton = dialog.findViewById(R.id.dismissButton);
         if (dismissButton != null) dismissButton.setOnClickListener(view -> dialog.dismiss());

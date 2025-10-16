@@ -13,7 +13,6 @@ import android.util.Log;
 import androidx.activity.ComponentActivity;
 import androidx.annotation.Nullable;
 
-import com.threethan.launcher.activity.dialog.BasicDialog;
 import com.threethan.launcher.helper.PlatformExt;
 import com.threethan.launchercore.Core;
 import com.threethan.launchercore.lib.DelayLib;
@@ -101,7 +100,7 @@ public abstract class Launch {
             try {
                 activity.startActivity(intent);
             } catch (SecurityException ignored) {
-                BasicDialog.toast("No permission to launch app");
+                LcDialog.toast("No permission to launch app");
             }
             if (Platform.supportsNewVrOsMultiWindow() && allowNewVrOsMultiWindow) {
                 PackageManager pm = Core.context().getPackageManager();
@@ -111,7 +110,7 @@ public abstract class Launch {
                     try {
                         activity.startActivity(intent);
                     } catch (SecurityException ignored) {
-                        BasicDialog.toast("No permission to launch app");
+                        LcDialog.toast("No permission to launch app");
                     }
                 }, 2000);
             }

@@ -6,10 +6,9 @@ import androidx.datastore.DataStoreFile;
 
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.LauncherActivity;
-import com.threethan.launcher.activity.dialog.BasicDialog;
-import com.threethan.launcher.activity.support.DataStoreEditor;
 import com.threethan.launcher.data.sync.SyncCoordinator;
 import com.threethan.launchercore.lib.FileLib;
+import com.threethan.launchercore.util.LcDialog;
 
 import java.io.File;
 import java.util.Objects;
@@ -29,7 +28,7 @@ public abstract class SettingsSaver {
      * @param activity used for getting package name and data store paths
      */
     public static void save(Activity activity) {
-        if (!BasicDialog.validateVariantWithNotify()) return;
+        if (!PlatformExt.validateVariantWithNotify()) return;
 
         File prefs1 = DataStoreFile.dataStoreFile(activity, SyncCoordinator.DATA_STORE_DEFAULT + ".preferences_pb");
         File prefs2 = DataStoreFile.dataStoreFile(activity, SyncCoordinator.DATA_STORE_PER_APP + ".preferences_pb");
@@ -42,13 +41,13 @@ public abstract class SettingsSaver {
 
         if (FileLib.copy(prefs1, export) && FileLib.copy(prefs1, export)
          && FileLib.copy(prefs2, export) && FileLib.copy(prefs2, export))
-            BasicDialog.toast(activity.getText(R.string.saved_settings),
+            LcDialog.toast(activity.getText(R.string.saved_settings),
                 "Android/Data/"+activity.getPackageName()+"/"+EXPORT_FILE_NAME,
                 false);
-        else BasicDialog.toast(activity.getString(R.string.saved_settings_error));
+        else LcDialog.toast(activity.getString(R.string.saved_settings_error));
     }
     public static void saveSort(Activity activity) {
-        if (!BasicDialog.validateVariantWithNotify()) return;
+        if (!PlatformExt.validateVariantWithNotify()) return;
 
         File prefs = DataStoreFile.dataStoreFile(activity, SyncCoordinator.DATA_STORE_SORT + ".preferences_pb");
         File exportPath = activity.getExternalFilesDir("");
@@ -59,10 +58,10 @@ public abstract class SettingsSaver {
         FileLib.delete(export);
 
         if (FileLib.copy(prefs, export) && FileLib.copy(prefs, export))
-            BasicDialog.toast(activity.getString(R.string.saved_settings),
+            LcDialog.toast(activity.getString(R.string.saved_settings),
                     "Android/Data/"+activity.getPackageName()+"/"+EXPORT_FILE_NAME_SORT,
                     false);
-        else BasicDialog.toast(activity.getString(R.string.saved_settings_error));
+        else LcDialog.toast(activity.getString(R.string.saved_settings_error));
     }
     /**
      * Loads the contents of the DataStore from a file.
@@ -74,11 +73,11 @@ public abstract class SettingsSaver {
         File exportPath = activity.getExternalFilesDir("");
         File export = new File(exportPath, EXPORT_FILE_NAME);
 
-        BasicDialog.toast(activity.getString(R.string.settings_load));
+        LcDialog.toast(activity.getString(R.string.settings_load));
 
         SyncCoordinator.getDefaultDataStore(activity).copyFrom(export);
 
-        BasicDialog.toast(activity.getString(R.string.saved_settings_loading));
+        LcDialog.toast(activity.getString(R.string.saved_settings_loading));
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
@@ -90,11 +89,11 @@ public abstract class SettingsSaver {
         File exportPath = activity.getExternalFilesDir("");
         File export = new File(exportPath, EXPORT_FILE_NAME_SORT);
 
-        BasicDialog.toast(activity.getString(R.string.settings_load));
+        LcDialog.toast(activity.getString(R.string.settings_load));
 
         SyncCoordinator.getSortDataStore(activity).copyFrom(export);
 
-        BasicDialog.toast(activity.getString(R.string.saved_settings_loading));
+        LcDialog.toast(activity.getString(R.string.saved_settings_loading));
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {

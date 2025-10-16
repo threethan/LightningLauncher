@@ -205,8 +205,8 @@
             android:layout_marginHorizontal="25dp"
             android:layout_marginTop="25dp"
             android:background="@drawable/bkg_blur_view"
-            android:elevation="15dp"
-            android:layout_marginBottom="20dp"
+            android:elevation="10dp"
+            android:layout_marginBottom="30dp"
             android:foreground="@drawable/fg_blur_view"
             android:visibility="gone"
             tools:visibility="visible">
