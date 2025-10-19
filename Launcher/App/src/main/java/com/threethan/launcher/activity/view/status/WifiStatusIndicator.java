@@ -49,14 +49,10 @@ public class WifiStatusIndicator extends View implements StatusAdaptableView {
                 ContextCompat.getDrawable(context, R.drawable.status_wifi_signal_3)
         };
 
-        getContext().registerReceiver(receiverRSSI, filterRSSI);
-        getContext().registerReceiver(receiverEnablement, filterEnabled);
-
         signalOffDrawable = ContextCompat.getDrawable(context, R.drawable.status_wifi_signal_off);
         updateState(context);
 
         noWifi = !isWifiEnabled(context);
-
     }
 
 
@@ -76,6 +72,20 @@ public class WifiStatusIndicator extends View implements StatusAdaptableView {
                 signalDrawable.draw(canvas);
             }
         }
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        getContext().registerReceiver(receiverRSSI, filterRSSI);
+        getContext().registerReceiver(receiverEnablement, filterEnabled);
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        getContext().unregisterReceiver(receiverRSSI);
+        getContext().unregisterReceiver(receiverEnablement);
     }
 
     IntentFilter filterRSSI    = new IntentFilter(WifiManager.RSSI_CHANGED_ACTION);

@@ -109,11 +109,6 @@ public class BatteryLevelView extends View implements StatusAdaptableView {
             clearStrokePaint.setColor(Color.GRAY);
         }
 
-        // Register for battery change updates
-        context.registerReceiver(batteryReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
-        context.registerReceiver(chargingReceiver, new IntentFilter(Intent.ACTION_POWER_CONNECTED));
-        context.registerReceiver(dischargingReceiver, new IntentFilter(Intent.ACTION_POWER_DISCONNECTED));
-
         invalidate();
 
         Intent batteryStatus = context.registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
@@ -135,6 +130,11 @@ public class BatteryLevelView extends View implements StatusAdaptableView {
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
+        // Register for battery change updates
+        getContext().registerReceiver(batteryReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+        getContext().registerReceiver(chargingReceiver, new IntentFilter(Intent.ACTION_POWER_CONNECTED));
+        getContext().registerReceiver(dischargingReceiver, new IntentFilter(Intent.ACTION_POWER_DISCONNECTED));
+
     }
 
     @Override
@@ -142,6 +142,8 @@ public class BatteryLevelView extends View implements StatusAdaptableView {
         super.onDetachedFromWindow();
         try {
             getContext().unregisterReceiver(batteryReceiver);
+            getContext().unregisterReceiver(chargingReceiver);
+            getContext().unregisterReceiver(dischargingReceiver);
         } catch (IllegalArgumentException ignored) {
             // Already unregistered
         }
