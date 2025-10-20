@@ -21,14 +21,13 @@ import com.threethan.launchercore.Core;
 import com.threethan.launchercore.util.Platform;
 
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * A version of ImageView specifically for showing app icons.
  * Intended to be slightly lighter weight than a full ImageView.
  * Caches a bitmap of the drawable at the correct size to avoid re-scaling on every,
- * and implements parallax w/ translationX/Y/Z.
- * Also inc*/
+ * and implements parallax w/ translationZ & an assigned parallax parent.
+ */
 public class LauncherAppImageView extends ImageView {
     private Drawable drawable;
 
@@ -52,20 +51,18 @@ public class LauncherAppImageView extends ImageView {
     @Override
     public void setImageDrawable(@Nullable Drawable drawable) {
         this.drawable = drawable;
-        cacheBitmap.set(null);
         updateAsyncCache();
     }
 
-    private final AtomicBoolean awaitingBoundsUpdate = new AtomicBoolean(false);
+    private final AtomicBoolean awaitingUpdate = new AtomicBoolean(false);
 
+    /** Updates the cached bitmap asynchronously. */
     private synchronized void updateAsyncCache() {
-        if (drawable == null || awaitingBoundsUpdate.getAndSet(true)) return;
+        if (drawable == null) return;
+        cacheBitmap = null;
+        awaitingUpdate.set(true);
         Core.EXECUTOR.submit(() -> {
             if (drawable != null) {
-                if (cacheBitmap.get() != null) {
-                    cacheBitmap.get().recycle();
-                    cacheBitmap.set(null);
-                }
                 int viewWidth = getMeasuredWidth();
                 int viewHeight = getMeasuredHeight();
                 int drawableWidth = drawable.getIntrinsicWidth();
@@ -88,8 +85,11 @@ public class LauncherAppImageView extends ImageView {
 
                 // Draw drawable to a bitmap
                 Bitmap bitmap = Bitmap.createBitmap(viewWidth, viewHeight, Bitmap.Config.ARGB_8888);
+
                 Canvas bitmapCanvas = new Canvas(bitmap);
-                boolean drawPhoneMaskBg = isPhone && viewWidth - viewHeight < 5 && getBackgroundForPhone() != null;
+                boolean drawPhoneMaskBg = isPhone
+                        && viewWidth - viewHeight < 5
+                        && getBackgroundForPhone() != null;
                 if (drawPhoneMaskBg) {
                     backgroundForPhone.setBounds(0, 0, viewWidth, viewHeight);
                     backgroundForPhone.draw(bitmapCanvas);
@@ -101,10 +101,11 @@ public class LauncherAppImageView extends ImageView {
                 } else {
                     drawable.draw(bitmapCanvas);
                 }
-                cacheBitmap.set(bitmap);
 
                 post(() -> {
-                    awaitingBoundsUpdate.set(false);
+                    // This must be run on the UI thread to prevent race conditions
+                    cacheBitmap = bitmap;
+                    awaitingUpdate.set(false);
                     invalidate();
                 });
             }
@@ -133,6 +134,8 @@ public class LauncherAppImageView extends ImageView {
 
     private Drawable backgroundForPhone = null;
     private boolean noBackgroundForPhone = false;
+
+    /** Gets a suitable background mask for phones which may have dynamic icon shapes. */
     private synchronized Drawable getBackgroundForPhone() {
         if (noBackgroundForPhone) return null;
         if (backgroundForPhone != null) return backgroundForPhone;
@@ -167,35 +170,35 @@ public class LauncherAppImageView extends ImageView {
     static {
         bitmapPaint.setFilterBitmap(true);
         bitmapPaint.setAntiAlias(false);
+        // Use SRC_ATOP blend mode on for icon masking on phones (Android 10+ only)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && isPhone) {
             bitmapPaint.setBlendMode(BlendMode.SRC_ATOP);
         }
     }
-    private final AtomicReference<Bitmap> cacheBitmap = new AtomicReference<>( null );
+    private Bitmap cacheBitmap = null;
     @Override
     public void onDraw(@NonNull Canvas canvas) {
         super.onDraw(canvas);
-        if (drawable != null) {
-            if (cacheBitmap.get() == null) {
-                // Re-apply bounds if needed
-                updateAsyncCache();
-            } else if (!awaitingBoundsUpdate.get() && cacheBitmap.get() != null) {
-                canvas.drawBitmap(cacheBitmap.get(), 0, 0, bitmapPaint);
+        if (awaitingUpdate.get()) return;
+        if (cacheBitmap == null) {
+            // Re-apply bounds if needed
+            updateAsyncCache();
+        } else {
+            canvas.drawBitmap(cacheBitmap, 0, 0, bitmapPaint);
 
-                if (translationZ <= 0.001f && translationZ >= -0.001f || translationParent == null || isPhone) {
-                    return;
-                }
-                float translationX = translationParent.getRotationY() * -40f;
-                float translationY = -translationParent.getRotationX() * -40f;
-
-                // apply parallax
-                canvas.save();
-                float scale = (float) (1+(Math.sqrt(Math.abs(translationZ)) * getMeasuredWidth() / 15000f));
-                canvas.scale(scale, scale, getMeasuredWidth() / 2f, getMeasuredHeight() / 2f);
-                float transM = getWidth() * translationZ / 15000f;
-                canvas.drawBitmap(cacheBitmap.get(), translationX*transM, translationY*transM, bitmapPaint);
-                canvas.restore();
+            if (translationZ <= 0.001f && translationZ >= -0.001f || translationParent == null || isPhone) {
+                return;
             }
+            float translationX = translationParent.getRotationY() * -40f;
+            float translationY = -translationParent.getRotationX() * -40f;
+
+            // apply parallax
+            canvas.save();
+            float scale = (float) (1+(Math.sqrt(Math.abs(translationZ)) * getMeasuredWidth() / 15000f));
+            canvas.scale(scale, scale, getMeasuredWidth() / 2f, getMeasuredHeight() / 2f);
+            float transM = getWidth() * translationZ / 15000f;
+            canvas.drawBitmap(cacheBitmap, translationX*transM, translationY*transM, bitmapPaint);
+            canvas.restore();
         }
     }
 
@@ -219,9 +222,11 @@ public class LauncherAppImageView extends ImageView {
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         if (
-                changed && (cacheBitmap.get() == null
-                || Math.abs(cacheBitmap.get().getWidth() - (right-left)) > 1)
-        ) cacheBitmap.set(null);
+                changed && (cacheBitmap == null
+                || Math.abs(cacheBitmap.getWidth() - (right-left)) > 0)
+        ) {
+            post(this::updateAsyncCache);
+        }
         super.onLayout(changed, left, top, right, bottom);
     }
 

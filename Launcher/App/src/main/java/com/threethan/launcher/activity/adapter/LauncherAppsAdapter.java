@@ -4,6 +4,7 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.pm.ApplicationInfo;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -55,12 +56,14 @@ import java.util.function.Consumer;
  */
 public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppViewHolderExt> {
     private LauncherActivity launcherActivity;
-    private Set<ApplicationInfo> fullAppSet;
+    private List<ApplicationInfo> fullSortedAppList = Collections.emptyList();
     protected ApplicationInfo topSearchResult = null;
     private LauncherAppListContainer container;
-    private SortHandler.SortMode sortMode = SortHandler.SortMode.STANDARD;
+    private SortHandler.SortMode sortMode = null;
     private Runnable onListReadyEveryTime;
     private Runnable onListReadyOneShot;
+    private Set<ApplicationInfo> completeAppSet;
+
     private boolean getEditMode() {
         return launcherActivity.isEditing();
     }
@@ -69,14 +72,23 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
         launcherActivity = activity;
     }
 
-    public void setFullAppSet(Set<ApplicationInfo> myApps) {
-        fullAppSet = myApps;
-    }
-
     public synchronized void setSortMode(SortHandler.SortMode mode) {
         if (mode == sortMode) return;
         sortMode = mode;
-        setAppList(launcherActivity);
+        updateSortAndGroupsInternal();
+    }
+    protected void updateSortAndGroupsInternal() {
+        if (sortMode == null || completeAppSet == null) return;
+        SortHandler.getVisibleAppsSorted(
+                SettingsManager.getInstance(launcherActivity),
+                true,
+                completeAppSet,
+                sortMode,
+                newItems -> {
+                    fullSortedAppList = newItems;
+                    setAppList(fullSortedAppList);
+                }
+        );
     }
 
     public synchronized void setOnListReadyOneShot(Runnable onListReadyOneShot) {
@@ -85,20 +97,13 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
     public synchronized void setOnListReadyEveryTime(Runnable onListReadyEveryTime) {
         this.onListReadyEveryTime = onListReadyEveryTime;
     }
-    public synchronized void setAppList(LauncherActivity activity) {
-        SettingsManager settingsManager = SettingsManager.getInstance(activity);
+    public synchronized void setActivity(LauncherActivity activity) {
         launcherActivity = activity;
 
         topSearchResult = null;
         prevFilterText = "";
 
-        SortHandler.getVisibleAppsSorted(
-                settingsManager,
-                true,
-                fullAppSet,
-                sortMode,
-                list -> setFullItems(Collections.unmodifiableList(list))
-        );
+        setAppList(fullSortedAppList);
 
         layoutInflater = activity.getLayoutInflater();
     }
@@ -159,7 +164,7 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
             SortHandler.getVisibleAppsSorted(
                     settingsManager,
                     false,
-                    fullAppSet,
+                    appList,
                     SortHandler.SortMode.SEARCH,
                     onSearchableListReady
             );
@@ -200,6 +205,16 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
     public void clearAppFocus() {
         updateAppFocus(null, true, FocusSource.CURSOR);
         updateAppFocus(null, true, FocusSource.SEARCH);
+    }
+
+    public void updateSelectedGroups() {
+        updateSortAndGroupsInternal();
+    }
+
+    public void setCompleteAppSet(Set<ApplicationInfo> items) {
+        if (items.equals(completeAppSet)) return;
+        completeAppSet = Collections.unmodifiableSet(items);
+        updateSortAndGroupsInternal();
     }
 
     protected static class AppViewHolderExt extends AppsAdapter.AppViewHolder {
@@ -484,6 +499,7 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
             int h = holder.imageView.getHeight();
 
             View openAnim = launcherActivity.rootView.findViewById(R.id.openAnim);
+            if (Platform.isPhone()) openAnim.setBackground(null); // Allow for icon masks
 
             ImageView openIcon = openAnim.findViewById(R.id.openIcon);
             openIcon.setImageDrawable(holder.imageView.getDrawable());
@@ -532,5 +548,15 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
     public static void animateClose(LauncherActivity launcherActivity) {
         View openAnim = launcherActivity.rootView.findViewById(R.id.openAnim);
         openAnim.post(() -> openAnim.setVisibility(View.GONE));
+    }
+
+    @Override
+    protected void onIconChanged(AppViewHolderExt holder, Drawable icon) {
+        if (holder.imageView instanceof LauncherAppImageView li) {
+            // Call immediate since LauncherAppImageView loads off the main thread
+            li.setImageDrawable(icon);
+        } else {
+            super.onIconChanged(holder, icon);
+        }
     }
 }
