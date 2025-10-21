@@ -1,8 +1,9 @@
-<resources>
-    <string name="app_variant_unavailable">Tämä ominaisuus ei ole käytettävissä %s:ssä.  <i>Lisätietoja saat Lightning Launcherista GitHubissa.</i></string>
+<?xml version='1.0' encoding='utf-8'?>
+<resources><string name="app_variant_unavailable">Tämä ominaisuus ei ole käytettävissä %s:ssä.  <i>Lisätietoja saat Lightning Launcherista GitHubissa.</i></string>
     <string name="add_group">Lisää ryhmä</string>
     <string name="apps_hidden">- Piilotettu</string>
     <string name="migrated">Vanhat asetukset on siirretty</string>
+    <string name="force_untranslated">Käytä englannin kieltä</string>
     <string name="force_untranslated_tip">Pakota Lightning Launcher olemaan englanniksi.\\n(Älä käännä kielellesi.)</string>
     <string name="edit_mode">Muokkaustila</string>
     <string name="edit_mode_tip">Vaihda ryhmiä, lisää verkkosivustoja ja paljon muuta.</string>
@@ -45,8 +46,10 @@
     <string name="advanced_search">Hakuasetukset</string>
     <string name="advanced_backup">Asetusten varmuuskopiointi</string>
     <string name="advanced_alpha">Taustan läpikuultavuus</string>
+    <string name="advanced_alpha_preserve">Säilytä tiedot</string>
     <string name="advanced_alpha_preserve_tip">Säilytä taustatiedot, kun läpivienti on pois päältä, ja käytä</string>
     <string name="advanced_alpha_tip">poikkileikkauksen läpikuultavuus, kun se on päällä.</string>
+    <string name="advanced_alpha_clamp">Quest 3:n läpinäkyvyyden hämärtyminen</string>
     <string name="advanced_alpha_clamp_tip">Mahdollistaa taustan sumentumisen läpiviennin aikana. <i>Rajoittaa läpikuultavuuden määrää.</i></string>
     <string name="dark_mode">Tumma tila</string>
     <string name="dark_mode_tip">Jos tämä on päällä, tarrat näkyvät valkoisina tummalla taustalla.</string>
@@ -79,6 +82,9 @@
     <string name="long_press">Muokkaa painamalla pitkään</string>
     <string name="long_press_tip">Kun toiminto on päällä, sovelluksen pitkä painallus siirtyy muokkaustilaan ja valitsee sen.
     \nKun se on pois päältä, sovelluksen pitkä painallus näyttää tiedot.</string>
+    <string name="reduce_motion">Vähennä liikettä</string>
+    <string name="reduce_motion_tip">Poistaa animaatiot käytöstä sovellusluettelossa.</string>
+    
     <string name="search_web">Näytä Web-hakukoneet hakujen yhteydessä</string>
     <string name="search_hidden">Näytä piilotetut sovellukset hauissa</string>
     <string name="settings_save">Vie asetukset</string>
@@ -138,6 +144,11 @@
     <string name="browser_quest">Avaa Quest-selaimen välilehti</string>
     <string name="browser_quest_shortcut">Avaa Quest-selaimen verkkosovelluksena</string>
     <string name="browser_system">Yritä avata järjestelmän oletusasetuksissa</string>
+    <string name="browser_default_tip">Valitse sovellus, joka avaa Lightning Launcheriin lisäämäsi verkkosivustot.</string>
+    <string name="new_label_duration_setting">Osoita ►Sovellukset:</string>
+    <string name="new_label_duration_tip">Näytä tilapäinen \ \ ► ilmaisin äskettäin lisätyissä sovelluksissa ja siirrä ne vakiolajittelun etualalle.</string>
+    <string name="new_label_duration_zero">Älä näytä</string>
+    <string name="new_label_duration_template">%d minuuttia</string>
     <string name="edit_move">Siirrä</string>
     <string name="edit_copy">Kopioi</string>
     <string name="selection_hint_none">Valitse sovellus napsauttamalla sitä tai valitse kaikki napsauttamalla tätä</string>
@@ -252,6 +263,19 @@
     <string name="addons_store_desc">Asenna ja aktivoi sitten Lightning Launcher, kun viet Store-painikkeen telakalle.</string>
     <string name="addons_people">Ihmiset uudelleenohjaus</string>
     <string name="addons_people_desc">Asenna ja aktivoi sitten Lightning Launcher, kun viet Ihmiset-painiketta telakalle.</string>
+    <string name="addons_dock_suggest_title">Dock-käyttöliittymän pikavalinnat</string>
+    <string name="addons_dock_suggest_0">Dock on palkki, jossa on aika ja rivi sovelluskuvakkeita - <b>joka on aina läsnä 2D-ikkunoiden alapuolella</b>.</string>
+    <string name="addons_dock_suggest_1">Dock on ollut osa Quest-käyttöliittymää alusta asti, mutta se korvataan Navigatorilla.</string>
+    <string name="addons_dock_goto_button">Minulla on Dock</string>
+    <string name="addons_navigator_suggest_title">Navigator-käyttöliittymän pikavalinnat</string>
+    <string name="addons_navigator_suggest_0">Navigator on erityinen päällekkäiskuva, joka avautuu 2D-ikkunoiden eteen ja jonka avulla voit käynnistää virallisia sovelluksia.</string>
+    <string name="addons_navigator_suggest_1">Meta julkaisee tätä uutta käyttöliittymää joihinkin Quest-laitteisiin.</string>
+    <string name="addons_navigator_suggest_2">Jos sinulla on Navigator, <b>sinulla ei ole Dockia.</b></string>
+    <string name="addons_navigator_goto_button">Minulla on Navigator</string>
+    <string name="addons_navigator_title">Avaa Lightning Launcher Navigator-painikkeella</string>
+    <string name="addons_navigator_preamble">Sinun on asennettava palvelusovellus ja <b>aktivoitava se.</b></string>
+    <string name="addons_navigator">Navigator-painikkeen uudelleenohjauspalvelu</string>
+    <string name="addons_navigator_desc">Asenna ja aktivoi, jotta Lightning Launcher avautuu, kun painat <b>Meta / Navigator</b>-painiketta.</string>
     <string name="addons_navigator_postamble">Voit edelleen avata Navigatorin painamalla painiketta uudelleen - sen jälkeen, kun Lightning Launcher on avattu.</string>
     <string name="addons_install">Asenna</string>
     <string name="addons_update">Päivitys</string>
@@ -268,25 +292,41 @@
         \nQuest Game Tuner on satojen tuntien kehitystyön, tutkimuksen ja testauksen tulos samalta kehittäjältä, joka teki Lightning Launcherin.</string>
     <string name="tuner_info_get">Hanki Quest Game Tuner itch.iosta!</string>
     <string name="apk_installer_tip">Valitse asennettava APK-tiedosto</string>
-    <string name="advanced_alpha_preserve">Säilytä tiedot</string>
-    <string name="force_untranslated">Käytä englannin kieltä</string>
-    <string name="advanced_alpha_clamp">Quest 3:n läpinäkyvyyden hämärtyminen</string>
-    <string name="addons_dock_suggest_title">Dock-käyttöliittymän pikavalinnat</string>
-    <string name="addons_dock_suggest_0">Dock on palkki, jossa on aika ja rivi sovelluskuvakkeita - <b>joka on aina läsnä 2D-ikkunoiden alapuolella</b>.</string>
-    <string name="addons_dock_suggest_1">Dock on ollut osa Quest-käyttöliittymää alusta asti, mutta se korvataan Navigatorilla.</string>
-    <string name="addons_dock_goto_button">Minulla on Dock</string>
-    <string name="addons_navigator_suggest_title">Navigator-käyttöliittymän pikavalinnat</string>
-    <string name="addons_navigator_suggest_0">Navigator on erityinen päällekkäiskuva, joka avautuu 2D-ikkunoiden eteen ja jonka avulla voit käynnistää virallisia sovelluksia.</string>
-    <string name="addons_navigator_suggest_1">Meta julkaisee tätä uutta käyttöliittymää joihinkin Quest-laitteisiin.</string>
-    <string name="addons_navigator_suggest_2">Jos sinulla on Navigator, <b>sinulla ei ole Dockia.</b></string>
-    <string name="addons_navigator_goto_button">Minulla on Navigator</string>
-    <string name="addons_navigator_title">Avaa Lightning Launcher Navigator-painikkeella</string>
-    <string name="addons_navigator_preamble">Sinun on asennettava palvelusovellus ja <b>aktivoitava se.</b></string>
-    <string name="addons_navigator">Navigator-painikkeen uudelleenohjauspalvelu</string>
-    <string name="addons_navigator_desc">Asenna ja aktivoi, jotta Lightning Launcher avautuu, kun painat <b>Meta / Navigator</b>-painiketta.</string>
-    <string name="browser_default_tip">Valitse sovellus, joka avaa Lightning Launcheriin lisäämäsi verkkosivustot.</string>
-    <string name="new_label_duration_setting">Osoita ►Sovellukset:</string>
-    <string name="new_label_duration_zero">Älä näytä</string>
-    <string name="new_label_duration_template">%d minuuttia</string>
     <string name="settings_workaround">Avaa Android-asetukset napsauttamalla tietoikkunassa Avaa.</string>
+<string name="shortcuts_open_this_variant">Lightning Launcherin tämän muunnelman avaaminen pikanäppäimillä</string>
+    <string name="shortcuts_open_this_variant_details">Jos kytket tämän pois päältä, pikakuvakepalvelut yrittävät avata toisen Lighning Launcherin asennuksen.</string>
+    <string name="manage_variants">Asennettujen varianttien hallinta &amp; asetusten siirto</string>
+    <string name="customize_top_bar">Työkalurivin mukauttaminen</string>
+    <string name="quest_settings">Quest-asetukset</string>
+    <string name="quest_people">Ihmiset</string>
+    <string name="quest_chats">Keskustelut</string>
+    <string name="quest_files">Quest-tiedostot</string>
+    <string name="quest_events">Tapahtumat</string>
+    <string name="quest_camera">Kamera</string>
+    <string name="util_apk_installer">APK-asentaja</string>
+    <string name="util_tv_smart_home">Älykäs koti</string>
+    <string name="launcher_settings">Laukaisimen asetukset</string>
+    <string name="android_settings">Android-asetukset</string>
+    <string name="quest_browser">Quest-selain</string>
+    <string name="variant_sideload">LL: Sivulatausversio</string>
+    <string name="variant_metastore">LL: Quest Store -versio</string>
+    <string name="variant_playstore">LL: Google Play -versio</string>
+    <string name="transfer_to_variant">Siirrä käynnistimen asetukset tähän vaihtoehtoon</string>
+    <string name="variant_metastore_details">Tämä versio näkyy Quest\:n natiivissa sovelluskirjastossa, mutta siitä puuttuu muutama erikoisominaisuus.</string>
+    <string name="variant_playstore_details">Tämä versio voidaan asentaa ja päivittää Google Playn kautta Google TV -laitteisiin.</string>
+    <string name="variant_sideload_details">Tämä versio asennettiin APK:sta tai SideQuestista. Se voi näkyä vain kohdassa \"Epäviralliset lähteet.\"</string>
+    <string name="manage_variants_details">Sinulla on asennettuna useita Lightning Launcher -versioita. Voit hallita niitä tästä valikosta.</string>
+
+    
+    <string name="default_group_2d">Sovellukset</string>
+    <string name="default_group_vr">Pelit</string>
+    <string name="default_group_media">Media</string>
+
+    
+    <string name="sort_standard">Vakiolajittelu</string>
+    <string name="sort_recently_used">Lajittelu viimeksi käytettyjen mukaan</string>
+    <string name="sort_recently_installed">Lajittelu äskettäin asennettujen mukaan</string>
+    <string name="sort_recently_used_no_perm">Lajittelu äskettäin käynnistettyjen mukaan</string>
+    <string name="sort_recently_installed_no_perm">Lajittelu äskettäin lisättyjen mukaan</string>
+    <string name="current">★ Virta</string>
 </resources>

@@ -1,8 +1,9 @@
-<resources>
-    <string name="app_variant_unavailable">Questa funzionalità non è disponibile su %s.  <i>Cerca Lightning Launcher su GitHub per maggiori informazioni.</i></string>
+<?xml version='1.0' encoding='utf-8'?>
+<resources><string name="app_variant_unavailable">Questa funzionalità non è disponibile su %s.  <i>Cerca Lightning Launcher su GitHub per maggiori informazioni.</i></string>
     <string name="add_group">Aggiungi gruppo</string>
     <string name="apps_hidden">- Nascosto</string>
     <string name="migrated">Le vecchie impostazioni sono state migrate</string>
+    <string name="force_untranslated">Usa la lingua inglese</string>
     <string name="force_untranslated_tip">Force Lightning Launcher sarà in inglese.\\n(Non tradurre nella tua lingua.)</string>
     <string name="edit_mode">Modalità di modifica</string>
     <string name="edit_mode_tip">Modificare i gruppi, aggiungere siti web e altro ancora.</string>
@@ -45,8 +46,10 @@
     <string name="advanced_search">Impostazioni di ricerca</string>
     <string name="advanced_backup">Backup delle impostazioni</string>
     <string name="advanced_alpha">Traslucenza dello sfondo</string>
+    <string name="advanced_alpha_preserve">Conserva i dettagli</string>
     <string name="advanced_alpha_preserve_tip">Mantieni i dettagli dello sfondo quando il passthrough è disattivato e utilizza la traslucenza sezionale quando è attivato.</string>
     <string name="advanced_alpha_tip">Rende lo sfondo di Lightning Launcher traslucido in passthrough.</string>
+    <string name="advanced_alpha_clamp">Sfocatura della trasparenza passthrough di Quest 3</string>
     <string name="advanced_alpha_clamp_tip">Consente di ottenere uno sfondo sfocato durante il passthrough. <i>Limita la quantità di traslucenza.</i></string>
     <string name="dark_mode">Modalità scura</string>
     <string name="dark_mode_tip">Se è attiva, le etichette appariranno bianche su sfondo scuro.</string>
@@ -79,6 +82,9 @@
     <string name="long_press">Premere a lungo per modificare</string>
     <string name="long_press_tip">Quando è attivo, premendo a lungo un\'applicazione si accede alla modalità di modifica e la si seleziona.
     \Quando è spenta, premendo a lungo un\'applicazione vengono visualizzati i dettagli.</string>
+    <string name="reduce_motion">Ridurre il movimento</string>
+    <string name="reduce_motion_tip">Disattiva le animazioni nell\'elenco delle app.</string>
+    
     <string name="search_web">Mostra i motori di ricerca web nelle ricerche</string>
     <string name="search_hidden">Mostra le applicazioni nascoste nelle ricerche</string>
     <string name="settings_save">Impostazioni di esportazione</string>
@@ -138,6 +144,11 @@
     <string name="browser_quest">Aprire la scheda del browser Quest</string>
     <string name="browser_quest_shortcut">Aprire come applicazione web Quest Browser</string>
     <string name="browser_system">Provare ad aprire in System Default</string>
+    <string name="browser_default_tip">Seleziona l\'app che aprirà i siti web che hai aggiunto a Lightning Launcher.</string>
+    <string name="new_label_duration_setting">Indica ►App:</string>
+    <string name="new_label_duration_tip">Mostra un indicatore temporaneo ► sulle app appena aggiunte e le sposta in testa all\'ordinamento standard.</string>
+    <string name="new_label_duration_zero">Non mostrare</string>
+    <string name="new_label_duration_template">Per %d minuti</string>
     <string name="edit_move">Muoversi</string>
     <string name="edit_copy">Copia</string>
     <string name="selection_hint_none">Fare clic su un\'applicazione per selezionarla o fare clic qui per selezionarle tutte</string>
@@ -248,6 +259,19 @@
     <string name="addons_store_desc">Installare e attivare per aprire Lightning Launcher quando si passa il pulsante Store sul dock.</string>
     <string name="addons_people">Reindirizzamento delle persone</string>
     <string name="addons_people_desc">Installare e attivare per aprire Lightning Launcher quando si passa il pulsante Persone sul dock.</string>
+    <string name="addons_dock_suggest_title">Scorciatoie per l\'interfaccia utente del Dock</string>
+    <string name="addons_dock_suggest_0">Il Dock è una barra con l\'ora e una fila di icone delle app, <b>sempre presente sotto le finestre 2D</b>.</string>
+    <string name="addons_dock_suggest_1">Il Dock fa parte dell\'interfaccia utente di Quest fin dall\'inizio, ma è stato sostituito dal Navigatore.</string>
+    <string name="addons_dock_goto_button">Ho il Dock</string>
+    <string name="addons_navigator_suggest_title">Scorciatoie per l\'interfaccia utente del Navigatore</string>
+    <string name="addons_navigator_suggest_0">Il Navigatore è una speciale sovrapposizione che si apre davanti alle finestre 2D e consente di avviare le app ufficiali.</string>
+    <string name="addons_navigator_suggest_1">Meta sta implementando questa nuova interfaccia utente su alcuni dispositivi Quest.</string>
+    <string name="addons_navigator_suggest_2">Se hai il Navigatore, <b>non avrai un Dock.</b></string>
+    <string name="addons_navigator_goto_button">Ho il Navigatore</string>
+    <string name="addons_navigator_title">Aprire Lightning Launcher con il pulsante Navigatore</string>
+    <string name="addons_navigator_preamble">È necessario installare l\'applicazione di servizio e quindi attivarla.</string>
+    <string name="addons_navigator">Servizio di reindirizzamento del pulsante Navigatore</string>
+    <string name="addons_navigator_desc">Installarla e quindi attivarla per aprire Lightning Launcher quando si preme il pulsante <b>Meta / Navigatore</b>.</string>
     <string name="addons_navigator_postamble">Potrai comunque aprire il Navigatore premendo nuovamente il pulsante, dopo aver aperto Lightning Launcher.</string>
     <string name="addons_install">Installare</string>
     <string name="addons_update">Aggiornamento</string>
@@ -264,25 +288,41 @@
         \Quest Game Tuner è il risultato di centinaia di ore di sviluppo, ricerca e test da parte dello stesso sviluppatore che ha realizzato Lightning Launcher.</string>
     <string name="tuner_info_get">Ottieni Quest Game Tuner su itch.io!</string>
     <string name="apk_installer_tip">Selezionare un file APK da installare</string>
-    <string name="advanced_alpha_preserve">Conserva i dettagli</string>
-    <string name="force_untranslated">Usa la lingua inglese</string>
-    <string name="advanced_alpha_clamp">Sfocatura della trasparenza passthrough di Quest 3</string>
-    <string name="addons_dock_suggest_title">Scorciatoie per l\'interfaccia utente del Dock</string>
-    <string name="addons_dock_suggest_0">Il Dock è una barra con l\'ora e una fila di icone delle app, <b>sempre presente sotto le finestre 2D</b>.</string>
-    <string name="addons_dock_suggest_1">Il Dock fa parte dell\'interfaccia utente di Quest fin dall\'inizio, ma è stato sostituito dal Navigatore.</string>
-    <string name="addons_dock_goto_button">Ho il Dock</string>
-    <string name="addons_navigator_suggest_title">Scorciatoie per l\'interfaccia utente del Navigatore</string>
-    <string name="addons_navigator_suggest_0">Il Navigatore è una speciale sovrapposizione che si apre davanti alle finestre 2D e consente di avviare le app ufficiali.</string>
-    <string name="addons_navigator_suggest_1">Meta sta implementando questa nuova interfaccia utente su alcuni dispositivi Quest.</string>
-    <string name="addons_navigator_suggest_2">Se hai il Navigatore, <b>non avrai un Dock.</b></string>
-    <string name="addons_navigator_goto_button">Ho il Navigatore</string>
-    <string name="addons_navigator_title">Aprire Lightning Launcher con il pulsante Navigatore</string>
-    <string name="addons_navigator_preamble">È necessario installare l\'applicazione di servizio e quindi attivarla.</string>
-    <string name="addons_navigator">Servizio di reindirizzamento del pulsante Navigatore</string>
-    <string name="addons_navigator_desc">Installarla e quindi attivarla per aprire Lightning Launcher quando si preme il pulsante <b>Meta / Navigatore</b>.</string>
-    <string name="browser_default_tip">Seleziona l\'app che aprirà i siti web che hai aggiunto a Lightning Launcher.</string>
-    <string name="new_label_duration_setting">Indica ►App:</string>
-    <string name="new_label_duration_zero">Non mostrare</string>
-    <string name="new_label_duration_template">Per %d minuti</string>
     <string name="settings_workaround">Fare clic su Apri nella finestra informativa per aprire le Impostazioni di Android.</string>
+<string name="shortcuts_open_this_variant">Scorciatoie per aprire questa variante di Lightning Launcher</string>
+    <string name="shortcuts_open_this_variant_details">Se si disattiva questa opzione, i servizi di collegamento tenteranno di aprire l\'altra installazione di Lighning Launcher.</string>
+    <string name="manage_variants">Gestione delle varianti installate e trasferimento delle impostazioni</string>
+    <string name="customize_top_bar">Personalizzare la barra degli strumenti</string>
+    <string name="quest_settings">Impostazioni della missione</string>
+    <string name="quest_people">Persone</string>
+    <string name="quest_chats">Chat</string>
+    <string name="quest_files">File di ricerca</string>
+    <string name="quest_events">Eventi</string>
+    <string name="quest_camera">Macchina fotografica</string>
+    <string name="util_apk_installer">Installatore APK</string>
+    <string name="util_tv_smart_home">Casa intelligente</string>
+    <string name="launcher_settings">Impostazioni del Launcher</string>
+    <string name="android_settings">Impostazioni Android</string>
+    <string name="quest_browser">Browser della ricerca</string>
+    <string name="variant_sideload">LL: Versione sideloaded</string>
+    <string name="variant_metastore">LL: Versione Quest Store</string>
+    <string name="variant_playstore">LL: Versione Google Play</string>
+    <string name="transfer_to_variant">Trasferire le impostazioni del Launcher a questa variante</string>
+    <string name="variant_metastore_details">Questa versione apparirà nella libreria delle app native del vostro Quest, ma manca di alcune funzioni speciali.</string>
+    <string name="variant_playstore_details">Questa versione può essere installata e aggiornata tramite Google Play sui dispositivi Google TV.</string>
+    <string name="variant_sideload_details">Questa versione è stata installata da un APK o da SideQuest. Potrebbe essere visualizzata solo sotto \"Fonti non ufficiali.\".</string>
+    <string name="manage_variants_details">Sono state installate più varianti di Lightning Launcher. È possibile gestirle da questo menu.</string>
+
+    
+    <string name="default_group_2d">Applicazioni</string>
+    <string name="default_group_vr">Giochi</string>
+    <string name="default_group_media">Media</string>
+
+    
+    <string name="sort_standard">Ordinamento standard</string>
+    <string name="sort_recently_used">Ordinamento in base all\'uso recente</string>
+    <string name="sort_recently_installed">Ordinamento in base all\'installazione recente</string>
+    <string name="sort_recently_used_no_perm">Ordinamento per lanci recenti</string>
+    <string name="sort_recently_installed_no_perm">Ordinamento per Aggiunte recenti</string>
+    <string name="current">★ Corrente</string>
 </resources>

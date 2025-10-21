@@ -16,7 +16,7 @@
     <string name="force_untranslated_tip">Force Lightning Launcher to be in English.\n(Do not translate to your language.)</string>
 
     <string name="edit_mode">Edit Mode</string>
-    <string name="edit_mode_tip" translatable="false">Change groups, add websites, and more.</string>
+    <string name="edit_mode_tip">Change groups, add websites, and more.</string>
 
     <string name="new_multitasking">Close after Launch</string>
     <string name="new_multitasking_tip">If enabled, Lightning Launcher will close itself when you open an app.</string>
@@ -198,6 +198,7 @@
 
     <string name="browser_default_tip">Select the app which will open websites you\'ve added to Lightning Launcher.</string>
     <string name="new_label_duration_setting">Indicate\ \ ► Apps:</string>
+    <string name="new_label_duration_tip">Show a temporary\ \ ► indicator on newly added apps and move them to the front of standard sort.</string>
     <string name="new_label_duration_zero">Never</string>
     <string name="new_label_duration_template">For up to %d minutes</string>
 

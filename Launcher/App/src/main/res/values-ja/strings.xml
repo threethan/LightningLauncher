@@ -1,8 +1,9 @@
-<resources>
-    <string name="app_variant_unavailable">この機能は %s ではご利用いただけません。  <i>詳細については、GitHub で Lightning Launcher を参照してください。</i></string>
+<?xml version='1.0' encoding='utf-8'?>
+<resources><string name="app_variant_unavailable">この機能は %s ではご利用いただけません。  <i>詳細については、GitHub で Lightning Launcher を参照してください。</i></string>
     <string name="add_group">グループ追加</string>
     <string name="apps_hidden">- ヒドゥン</string>
     <string name="migrated">古い設定は移行されました</string>
+    <string name="force_untranslated">英語を使用する</string>
     <string name="force_untranslated_tip">Lightning Launcher を英語で表示するように強制します。\\n(あなたの言語に翻訳しないでください。)</string>
     <string name="edit_mode">編集モード</string>
     <string name="edit_mode_tip">グループの変更、ウェブサイトの追加など。</string>
@@ -45,8 +46,10 @@
     <string name="advanced_search">検索設定</string>
     <string name="advanced_backup">設定のバックアップ</string>
     <string name="advanced_alpha">背景の透明度</string>
+    <string name="advanced_alpha_preserve">詳細の保存</string>
     <string name="advanced_alpha_preserve_tip">パススルーがオフの場合は背景の詳細​​を保持し、オンの場合は断面の半透明を使用します。</string>
     <string name="advanced_alpha_tip">Lightning Launcherの背景をパススルーで半透明にする。</string>
+    <string name="advanced_alpha_clamp">クエスト3のパススルー透明ぼかし</string>
     <string name="advanced_alpha_clamp_tip">パススルー中に背景をぼかすことができます。<i>半透明の量を制限します。</i></string>
     <string name="dark_mode">ダークモード</string>
     <string name="dark_mode_tip">オンの場合、ラベルは暗い背景に白く表示される。</string>
@@ -79,6 +82,9 @@
     <string name="long_press">長押しで編集</string>
     <string name="long_press_tip">オンの場合、アプリを長押しすると編集モードになり、アプリが選択されます。
     \オフの場合、アプリを長押しすると詳細が表示されます。</string>
+    <string name="reduce_motion">動きを抑える</string>
+    <string name="reduce_motion_tip">アプリ一覧のアニメーションを無効にする。</string>
+    
     <string name="search_web">検索結果にウェブ検索エンジンを表示する</string>
     <string name="search_hidden">検索に隠しアプリを表示する</string>
     <string name="settings_save">エクスポート設定</string>
@@ -138,6 +144,11 @@
     <string name="browser_quest">クエストブラウザのタブで開く</string>
     <string name="browser_quest_shortcut">クエストブラウザのウェブアプリとして開く</string>
     <string name="browser_system">システムデフォルトで開く</string>
+    <string name="browser_default_tip">Lightning Launcher に追加した Web サイトを開くアプリを選択します。</string>
+    <string name="new_label_duration_setting">►アプリを表示:</string>
+    <string name="new_label_duration_tip">新しく追加されたアプリに一時的な►インジケータを表示し、標準ソートの前に移動します。</string>
+    <string name="new_label_duration_zero">表示しない</string>
+    <string name="new_label_duration_template">%d 分間</string>
     <string name="edit_move">移動</string>
     <string name="edit_copy">コピー</string>
     <string name="selection_hint_none">アプリをクリックして選択するか、ここをクリックしてすべてを選択する。</string>
@@ -248,6 +259,19 @@
     <string name="addons_store_desc">インストール後、ドック上のStoreボタンにカーソルを合わせると、Lightning Launcherが起動します。</string>
     <string name="addons_people">ピープル・リダイレクト</string>
     <string name="addons_people_desc">インストール後、ドック上のPeopleボタンにカーソルを合わせるとLightning Launcherが起動します。</string>
+    <string name="addons_dock_suggest_title">Dock UI のショートカット</string>
+    <string name="addons_dock_suggest_0">Dock は、時刻とアプリアイコンが並んだバーで、<b>2D ウィンドウの下に常に表示されます</b>。</string>
+    <string name="addons_dock_suggest_1">Dock は当初から Quest UI の一部でしたが、ナビゲーターに置き換えられます。</string>
+    <string name="addons_dock_goto_button">Dock を使用しています</string>
+    <string name="addons_navigator_suggest_title">ナビゲーター UI のショートカット</string>
+    <string name="addons_navigator_suggest_0">ナビゲーターは、2D ウィンドウの前面に表示される特別なオーバーレイで、公式アプリを起動できます。</string>
+    <string name="addons_navigator_suggest_1">Meta はこの新しい UI を一部の Quest デバイスに展開しています。</string>
+    <string name="addons_navigator_suggest_2">Navigator をお持ちの場合は、<b>Dock はありません。</b></string>
+    <string name="addons_navigator_goto_button">ナビゲーターを使用しています</string>
+    <string name="addons_navigator_title">ナビゲーターボタンで Lightning Launcher を開く</string>
+    <string name="addons_navigator_preamble">サービスアプリケーションをインストールし、<b>有効化</b>する必要があります。</string>
+    <string name="addons_navigator">ナビゲーターボタンリダイレクトサービス</string>
+    <string name="addons_navigator_desc">インストールして有効化すると、<b>Meta / ナビゲーター</b> ボタンを押したときに Lightning Launcher が開きます。</string>
     <string name="addons_navigator_postamble">Lightning Launcher を開いた後でも、ボタンをもう一度押すとナビゲーターを開くことができます。</string>
     <string name="addons_install">インストール</string>
     <string name="addons_update">更新</string>
@@ -264,25 +288,41 @@
         \Quest Game Tunerは、Lightning Launcherを開発したデベロッパーによる、数百時間に及ぶ開発、研究、テストの成果です。</string>
     <string name="tuner_info_get">itch.ioでQuest Game Tunerを手に入れよう！</string>
     <string name="apk_installer_tip">インストールするAPKファイルを選択する</string>
-    <string name="advanced_alpha_preserve">詳細の保存</string>
-    <string name="force_untranslated">英語を使用する</string>
-    <string name="advanced_alpha_clamp">クエスト3のパススルー透明ぼかし</string>
-    <string name="addons_dock_suggest_title">Dock UI のショートカット</string>
-    <string name="addons_dock_suggest_0">Dock は、時刻とアプリアイコンが並んだバーで、<b>2D ウィンドウの下に常に表示されます</b>。</string>
-    <string name="addons_dock_suggest_1">Dock は当初から Quest UI の一部でしたが、ナビゲーターに置き換えられます。</string>
-    <string name="addons_dock_goto_button">Dock を使用しています</string>
-    <string name="addons_navigator_suggest_title">ナビゲーター UI のショートカット</string>
-    <string name="addons_navigator_suggest_0">ナビゲーターは、2D ウィンドウの前面に表示される特別なオーバーレイで、公式アプリを起動できます。</string>
-    <string name="addons_navigator_suggest_1">Meta はこの新しい UI を一部の Quest デバイスに展開しています。</string>
-    <string name="addons_navigator_suggest_2">Navigator をお持ちの場合は、<b>Dock はありません。</b></string>
-    <string name="addons_navigator_goto_button">ナビゲーターを使用しています</string>
-    <string name="addons_navigator_title">ナビゲーターボタンで Lightning Launcher を開く</string>
-    <string name="addons_navigator_preamble">サービスアプリケーションをインストールし、<b>有効化</b>する必要があります。</string>
-    <string name="addons_navigator">ナビゲーターボタンリダイレクトサービス</string>
-    <string name="addons_navigator_desc">インストールして有効化すると、<b>Meta / ナビゲーター</b> ボタンを押したときに Lightning Launcher が開きます。</string>
-    <string name="browser_default_tip">Lightning Launcher に追加した Web サイトを開くアプリを選択します。</string>
-    <string name="new_label_duration_setting">►アプリを表示:</string>
-    <string name="new_label_duration_zero">表示しない</string>
-    <string name="new_label_duration_template">%d 分間</string>
     <string name="settings_workaround">情報ウィンドウで「開く」をクリックして、Android 設定を開きます。</string>
+<string name="shortcuts_open_this_variant">ライトニングランチャーのショートカットを開く</string>
+    <string name="shortcuts_open_this_variant_details">これをオフにした場合、ショートカットサービスは他のLighning Launcherを開こうとします。</string>
+    <string name="manage_variants">インストールされたバリアントの管理と設定の転送</string>
+    <string name="customize_top_bar">ツールバーのカスタマイズ</string>
+    <string name="quest_settings">クエスト設定</string>
+    <string name="quest_people">人々</string>
+    <string name="quest_chats">チャット</string>
+    <string name="quest_files">クエストファイル</string>
+    <string name="quest_events">イベント</string>
+    <string name="quest_camera">カメラ</string>
+    <string name="util_apk_installer">APKインストーラー</string>
+    <string name="util_tv_smart_home">スマートホーム</string>
+    <string name="launcher_settings">ランチャー設定</string>
+    <string name="android_settings">アンドロイド設定</string>
+    <string name="quest_browser">クエストブラウザ</string>
+    <string name="variant_sideload">LL: サイドロード版</string>
+    <string name="variant_metastore">LL：クエストストア版</string>
+    <string name="variant_playstore">LL：グーグルプレイ版</string>
+    <string name="transfer_to_variant">ランチャー設定をこのバリアントに転送する</string>
+    <string name="variant_metastore_details">このバージョンは、Questionのネイティブアプリライブラリに表示されますが、いくつかの特別な機能がありません。</string>
+    <string name="variant_playstore_details">このバージョンは、Google Playを通じてGoogle TVデバイスにインストールし、アップデートすることができる。</string>
+    <string name="variant_sideload_details">このバージョンはAPKまたはSideQuestからインストールされたものです。このバージョンはAPKまたはSideQuestからインストールされたものです。</string>
+    <string name="manage_variants_details">Lightning Launcherが複数インストールされています。このメニューから管理できます。</string>
+
+    
+    <string name="default_group_2d">アプリ</string>
+    <string name="default_group_vr">ゲーム</string>
+    <string name="default_group_media">メディア</string>
+
+    
+    <string name="sort_standard">スタンダード・ソート</string>
+    <string name="sort_recently_used">最近使用した順</string>
+    <string name="sort_recently_installed">最近インストールされた順</string>
+    <string name="sort_recently_used_no_perm">最近発売された順</string>
+    <string name="sort_recently_installed_no_perm">最近追加された順</string>
+    <string name="current">★電流</string>
 </resources>

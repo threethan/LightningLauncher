@@ -1,8 +1,9 @@
-<resources>
-    <string name="app_variant_unavailable">Αυτή η λειτουργία δεν είναι διαθέσιμη στο %s.  <i>Αναζητήστε το Lightning Launcher στο GitHub για περισσότερες πληροφορίες.</i></string>
+<?xml version='1.0' encoding='utf-8'?>
+<resources><string name="app_variant_unavailable">Αυτή η λειτουργία δεν είναι διαθέσιμη στο %s.  <i>Αναζητήστε το Lightning Launcher στο GitHub για περισσότερες πληροφορίες.</i></string>
     <string name="add_group">Προσθήκη ομάδας</string>
     <string name="apps_hidden">- Κρυφό</string>
     <string name="migrated">Οι παλιές ρυθμίσεις έχουν μεταφερθεί</string>
+    <string name="force_untranslated">Χρησιμοποιήστε την αγγλική γλώσσα</string>
     <string name="force_untranslated_tip">Αναγκάστε το Lightning Launcher να είναι στα Αγγλικά.\\n(Μην μεταφράσετε στη γλώσσα σας.)</string>
     <string name="edit_mode">Λειτουργία επεξεργασίας</string>
     <string name="edit_mode_tip">Αλλάξτε ομάδες, προσθέστε ιστότοπους και πολλά άλλα.</string>
@@ -45,8 +46,10 @@
     <string name="advanced_search">Ρυθμίσεις αναζήτησης</string>
     <string name="advanced_backup">Δημιουργία αντιγράφων ασφαλείας ρυθμίσεων</string>
     <string name="advanced_alpha">Διαφάνεια φόντου</string>
+    <string name="advanced_alpha_preserve">Διατήρηση λεπτομερειών</string>
     <string name="advanced_alpha_preserve_tip">Διατηρήστε τις λεπτομέρειες του φόντου όταν η διέλευση είναι απενεργοποιημένη και χρησιμοποιήστε</string>
     <string name="advanced_alpha_tip">ημιδιαφάνεια τομής όταν είναι ενεργοποιημένο.</string>
+    <string name="advanced_alpha_clamp">Θάμπωμα διαφάνειας διέλευσης Quest 3</string>
     <string name="advanced_alpha_clamp_tip">Επιτρέπει ένα θολό φόντο κατά τη μετάβαση. <i>Περιορίζει την ποσότητα ημιδιαφάνειας.</i></string>
     <string name="dark_mode">Σκοτεινή λειτουργία</string>
     <string name="dark_mode_tip">Εάν είναι ενεργοποιημένη, οι ετικέτες θα εμφανίζονται λευκές σε σκούρο φόντο.</string>
@@ -79,6 +82,9 @@
     <string name="long_press">Παρατεταμένο πάτημα για επεξεργασία</string>
     <string name="long_press_tip">Όταν είναι ενεργοποιημένη, πατώντας παρατεταμένα μια εφαρμογή θα εισέλθετε στη λειτουργία επεξεργασίας και θα την επιλέξετε.
     \nΌταν είναι απενεργοποιημένη, πατώντας παρατεταμένα μια εφαρμογή θα εμφανιστούν λεπτομέρειες.</string>
+    <string name="reduce_motion">Μείωση της κίνησης</string>
+    <string name="reduce_motion_tip">Απενεργοποιεί τα κινούμενα σχέδια στη λίστα εφαρμογών.</string>
+    
     <string name="search_web">Εμφάνιση μηχανών αναζήτησης στο Web στις αναζητήσεις</string>
     <string name="search_hidden">Εμφάνιση κρυφών εφαρμογών στις αναζητήσεις</string>
     <string name="settings_save">Ρυθμίσεις εξαγωγής</string>
@@ -138,6 +144,11 @@
     <string name="browser_quest">Άνοιγμα σε καρτέλα του προγράμματος περιήγησης Quest</string>
     <string name="browser_quest_shortcut">Άνοιγμα ως εφαρμογή Web Quest Browser</string>
     <string name="browser_system">Προσπαθήστε να ανοίξετε στην Προεπιλογή συστήματος</string>
+    <string name="browser_default_tip">Επιλέξτε την εφαρμογή που θα ανοίξει ιστότοπους που έχετε προσθέσει στο Lightning Launcher.</string>
+    <string name="new_label_duration_setting">Υποδείξτε ►Εφαρμογές:</string>
+    <string name="new_label_duration_tip">Εμφάνιση μιας προσωρινής \ \ ► ένδειξης στις νεοπροστιθέμενες εφαρμογές και μετακίνησή τους στο μπροστινό μέρος της τυπικής ταξινόμησης.</string>
+    <string name="new_label_duration_zero">Μην εμφανίζεται</string>
+    <string name="new_label_duration_template">Για %d λεπτά</string>
     <string name="edit_move">Μετακίνηση</string>
     <string name="edit_copy">Αντιγραφή</string>
     <string name="selection_hint_none">Κάντε κλικ σε μια εφαρμογή για να την επιλέξετε ή κάντε κλικ εδώ για να επιλέξετε όλες</string>
@@ -252,6 +263,19 @@
     <string name="addons_store_desc">Εγκαταστήστε και ενεργοποιήστε το για να ανοίξει ο Lightning Launcher όταν μετακινείτε το κουμπί Store στο dock.</string>
     <string name="addons_people">Επανακατεύθυνση ανθρώπων</string>
     <string name="addons_people_desc">Εγκαταστήστε και ενεργοποιήστε το για να ανοίξει ο Lightning Launcher όταν μετακινείτε το κουμπί People στο dock.</string>
+    <string name="addons_dock_suggest_title">Συντομεύσεις για το Dock UI</string>
+    <string name="addons_dock_suggest_0">Το Dock είναι μια γραμμή με την ώρα και μια σειρά από εικονίδια εφαρμογών - <b>η οποία υπάρχει πάντα κάτω από τα δισδιάστατα παράθυρα</b>.</string>
+    <string name="addons_dock_suggest_1">Το dock αποτελεί μέρος του Quest UI από την αρχή, αλλά αντικαθίσταται από το Navigator.</string>
+    <string name="addons_dock_goto_button">Έχω το Dock</string>
+    <string name="addons_navigator_suggest_title">Συντομεύσεις για το Navigator UI</string>
+    <string name="addons_navigator_suggest_0">Το Navigator είναι μια ειδική επικάλυψη που ανοίγει μπροστά από τα δισδιάστατα παράθυρά σας και σας επιτρέπει να εκκινείτε επίσημες εφαρμογές.</string>
+    <string name="addons_navigator_suggest_1">Το Meta κυκλοφορεί αυτό το νέο UI σε ορισμένες συσκευές Quest.</string>
+    <string name="addons_navigator_suggest_2">Αν έχετε το Navigator, <b>δεν θα έχετε Dock.</b></string>
+    <string name="addons_navigator_goto_button">Έχω το Navigator</string>
+    <string name="addons_navigator_title">Άνοιγμα του Lightning Launcher με το κουμπί Navigator</string>
+    <string name="addons_navigator_preamble">Πρέπει να εγκαταστήσετε την εφαρμογή υπηρεσίας και, στη συνέχεια, να την ενεργοποιήσετε.</string>
+    <string name="addons_navigator">Υπηρεσία ανακατεύθυνσης κουμπιού Navigator</string>
+    <string name="addons_navigator_desc">Εγκαταστήστε και, στη συνέχεια, ενεργοποιήστε το για να ανοίξετε το Lightning Launcher όταν πατάτε το κουμπί <b>Meta / Navigator</b>.</string>
     <string name="addons_navigator_postamble">Θα μπορείτε ακόμα να ανοίξετε το Navigator πατώντας ξανά το κουμπί - αφού ανοίξει το Lightning Launcher.</string>
     <string name="addons_install">Εγκαταστήστε το</string>
     <string name="addons_update">Ενημέρωση</string>
@@ -268,25 +292,41 @@
         \nΤο Quest Game Tuner είναι το αποτέλεσμα εκατοντάδων ωρών ανάπτυξης, έρευνας και δοκιμών από τον ίδιο προγραμματιστή που δημιούργησε το Lightning Launcher.</string>
     <string name="tuner_info_get">Αποκτήστε το Quest Game Tuner στο itch.io!</string>
     <string name="apk_installer_tip">Επιλέξτε ένα αρχείο APK για εγκατάσταση</string>
-    <string name="advanced_alpha_preserve">Διατήρηση λεπτομερειών</string>
-    <string name="force_untranslated">Χρησιμοποιήστε την αγγλική γλώσσα</string>
-    <string name="advanced_alpha_clamp">Θάμπωμα διαφάνειας διέλευσης Quest 3</string>
-    <string name="addons_dock_suggest_title">Συντομεύσεις για το Dock UI</string>
-    <string name="addons_dock_suggest_0">Το Dock είναι μια γραμμή με την ώρα και μια σειρά από εικονίδια εφαρμογών - <b>η οποία υπάρχει πάντα κάτω από τα δισδιάστατα παράθυρα</b>.</string>
-    <string name="addons_dock_suggest_1">Το dock αποτελεί μέρος του Quest UI από την αρχή, αλλά αντικαθίσταται από το Navigator.</string>
-    <string name="addons_dock_goto_button">Έχω το Dock</string>
-    <string name="addons_navigator_suggest_title">Συντομεύσεις για το Navigator UI</string>
-    <string name="addons_navigator_suggest_0">Το Navigator είναι μια ειδική επικάλυψη που ανοίγει μπροστά από τα δισδιάστατα παράθυρά σας και σας επιτρέπει να εκκινείτε επίσημες εφαρμογές.</string>
-    <string name="addons_navigator_suggest_1">Το Meta κυκλοφορεί αυτό το νέο UI σε ορισμένες συσκευές Quest.</string>
-    <string name="addons_navigator_suggest_2">Αν έχετε το Navigator, <b>δεν θα έχετε Dock.</b></string>
-    <string name="addons_navigator_goto_button">Έχω το Navigator</string>
-    <string name="addons_navigator_title">Άνοιγμα του Lightning Launcher με το κουμπί Navigator</string>
-    <string name="addons_navigator_preamble">Πρέπει να εγκαταστήσετε την εφαρμογή υπηρεσίας και, στη συνέχεια, να την ενεργοποιήσετε.</string>
-    <string name="addons_navigator">Υπηρεσία ανακατεύθυνσης κουμπιού Navigator</string>
-    <string name="addons_navigator_desc">Εγκαταστήστε και, στη συνέχεια, ενεργοποιήστε το για να ανοίξετε το Lightning Launcher όταν πατάτε το κουμπί <b>Meta / Navigator</b>.</string>
-    <string name="browser_default_tip">Επιλέξτε την εφαρμογή που θα ανοίξει ιστότοπους που έχετε προσθέσει στο Lightning Launcher.</string>
-    <string name="new_label_duration_setting">Υποδείξτε ►Εφαρμογές:</string>
-    <string name="new_label_duration_zero">Μην εμφανίζεται</string>
-    <string name="new_label_duration_template">Για %d λεπτά</string>
     <string name="settings_workaround">Κάντε κλικ στο Άνοιγμα στο παράθυρο πληροφοριών για να ανοίξετε τις Ρυθμίσεις Android.</string>
+<string name="shortcuts_open_this_variant">Συντομεύσεις που ανοίγουν αυτή την παραλλαγή του Lightning Launcher</string>
+    <string name="shortcuts_open_this_variant_details">Αν το απενεργοποιήσετε αυτό, οι υπηρεσίες συντόμευσης θα προσπαθήσουν να ανοίξουν την άλλη εγκατάσταση του Lighning Launcher.</string>
+    <string name="manage_variants">Διαχείριση εγκατεστημένων παραλλαγών &amp; μεταφορά ρυθμίσεων</string>
+    <string name="customize_top_bar">Προσαρμογή γραμμής εργαλείων</string>
+    <string name="quest_settings">Ρυθμίσεις αναζήτησης</string>
+    <string name="quest_people">Άνθρωποι</string>
+    <string name="quest_chats">Συζητήσεις</string>
+    <string name="quest_files">Αρχεία αναζήτησης</string>
+    <string name="quest_events">Εκδηλώσεις</string>
+    <string name="quest_camera">Κάμερα</string>
+    <string name="util_apk_installer">Εγκαταστάτης APK</string>
+    <string name="util_tv_smart_home">Έξυπνο σπίτι</string>
+    <string name="launcher_settings">Ρυθμίσεις εκτοξευτή</string>
+    <string name="android_settings">Ρυθμίσεις Android</string>
+    <string name="quest_browser">Πρόγραμμα περιήγησης Quest</string>
+    <string name="variant_sideload">LL: Έκδοση Sideloaded</string>
+    <string name="variant_metastore">LL: Έκδοση Quest Store</string>
+    <string name="variant_playstore">LL: Έκδοση Google Play</string>
+    <string name="transfer_to_variant">Μεταφορά ρυθμίσεων εκτοξευτή σε αυτή την παραλλαγή</string>
+    <string name="variant_metastore_details">Αυτή η έκδοση θα εμφανιστεί στη βιβλιοθήκη εγγενών εφαρμογών του Quest\ σας, αλλά της λείπουν μερικά ειδικά χαρακτηριστικά.</string>
+    <string name="variant_playstore_details">Αυτή η έκδοση μπορεί να εγκατασταθεί και να ενημερωθεί μέσω του Google Play σε συσκευές Google TV.</string>
+    <string name="variant_sideload_details">Αυτή η έκδοση εγκαταστάθηκε από ένα APK ή SideQuest. Μπορεί να εμφανίζεται μόνο κάτω από \"Ανεπίσημες πηγές.\"</string>
+    <string name="manage_variants_details">Έχετε εγκαταστήσει πολλές παραλλαγές του Lightning Launcher. Μπορείτε να τις διαχειριστείτε από αυτό το μενού.</string>
+
+    
+    <string name="default_group_2d">Εφαρμογές</string>
+    <string name="default_group_vr">Παιχνίδια</string>
+    <string name="default_group_media">Μέσα</string>
+
+    
+    <string name="sort_standard">Τυπική ταξινόμηση</string>
+    <string name="sort_recently_used">Ταξινόμηση με βάση την Πρόσφατη χρήση</string>
+    <string name="sort_recently_installed">Ταξινόμηση με βάση την Πρόσφατη Εγκατάσταση</string>
+    <string name="sort_recently_used_no_perm">Ταξινόμηση με βάση το Πρόσφατα λανσαρισμένο</string>
+    <string name="sort_recently_installed_no_perm">Ταξινόμηση με βάση την Πρόσφατη προσθήκη</string>
+    <string name="current">★ Τρέχον</string>
 </resources>

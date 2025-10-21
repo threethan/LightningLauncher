@@ -1,8 +1,9 @@
-<resources>
-    <string name="app_variant_unavailable">Bu özellik %s üzerinde mevcut değil.  <i>Daha fazla bilgi için GitHub\'da Lightning Launcher\'ı arayın.</i></string>
+<?xml version='1.0' encoding='utf-8'?>
+<resources><string name="app_variant_unavailable">Bu özellik %s üzerinde mevcut değil.  <i>Daha fazla bilgi için GitHub\'da Lightning Launcher\'ı arayın.</i></string>
     <string name="add_group">Grup Ekle</string>
     <string name="apps_hidden">- Gizli</string>
     <string name="migrated">Eski ayarlar taşındı</string>
+    <string name="force_untranslated">İngilizce Dilini Kullan</string>
     <string name="force_untranslated_tip">Lightning Launcher\'ın İngilizce olmasını zorunlu kılın.\\n(Kendi dilinize çevirmeyin.)</string>
     <string name="edit_mode">Düzenleme Modu</string>
     <string name="edit_mode_tip">Grupları değiştirin, web siteleri ekleyin ve daha fazlasını yapın.</string>
@@ -45,8 +46,10 @@
     <string name="advanced_search">Arama Ayarları</string>
     <string name="advanced_backup">Ayarlar Yedekleme</string>
     <string name="advanced_alpha">Arka Plan Saydamlığı</string>
+    <string name="advanced_alpha_preserve">Ayrıntıları Koru</string>
     <string name="advanced_alpha_preserve_tip">Geçiş kapalıyken arka plan ayrıntılarını koru ve açıkken kesitsel yarı saydamlığı kullan.</string>
     <string name="advanced_alpha_tip">Lightning Launcher\'ın arka planını geçişte yarı saydam hale getirir.</string>
+    <string name="advanced_alpha_clamp">Görev 3 geçiş şeffaflığı bulanıklığı</string>
     <string name="advanced_alpha_clamp_tip">Geçiş sırasında bulanık bir arka plana izin verir. <i>Yarı saydamlık miktarını sınırlar.</i></string>
     <string name="dark_mode">Karanlık Mod</string>
     <string name="dark_mode_tip">Açıksa, etiketler koyu bir arka plan üzerinde beyaz görünecektir.</string>
@@ -79,6 +82,9 @@
     <string name="long_press">Düzenlemek için Uzun Basın</string>
     <string name="long_press_tip">Açıkken, bir uygulamaya uzun basıldığında düzenleme moduna girilir ve uygulama seçilir.
     \nKapalıyken, bir uygulamaya uzun basıldığında ayrıntılar gösterilir.</string>
+    <string name="reduce_motion">Hareketi Azaltın</string>
+    <string name="reduce_motion_tip">Uygulama listesindeki animasyonları devre dışı bırakır.</string>
+    
     <string name="search_web">Aramalarda Web Arama Motorlarını Göster</string>
     <string name="search_hidden">Aramalarda Gizli Uygulamaları Göster</string>
     <string name="settings_save">Dışa Aktarma Ayarları</string>
@@ -138,6 +144,11 @@
     <string name="browser_quest">Görev Tarayıcı Sekmesinde Aç</string>
     <string name="browser_quest_shortcut">Quest Browser Web Uygulaması Olarak Aç</string>
     <string name="browser_system">Sistem Varsayılanında Açmayı Deneyin</string>
+    <string name="browser_default_tip">Lightning Launcher\'a eklediğiniz web sitelerini açacak uygulamayı seçin.</string>
+    <string name="new_label_duration_setting">►Uygulamalar\'ı göster:</string>
+    <string name="new_label_duration_tip">Yeni eklenen uygulamalarda geçici\ \ ► göstergesini gösterin ve bunları standart sıralamanın önüne taşıyın.</string>
+    <string name="new_label_duration_zero">Gösterme</string>
+    <string name="new_label_duration_template">%d dakika boyunca</string>
     <string name="edit_move">Anlaşıldı</string>
     <string name="edit_copy">Kopyala</string>
     <string name="selection_hint_none">Seçmek için bir uygulamaya tıklayın veya tümünü seçmek için buraya tıklayın</string>
@@ -252,6 +263,19 @@
     <string name="addons_store_desc">Yükleyin ve ardından dock üzerindeki Mağaza düğmesinin üzerine geldiğinizde Lightning Launcher\'ı açmak için etkinleştirin.</string>
     <string name="addons_people">Kişi Yönlendirme</string>
     <string name="addons_people_desc">Yükleyin ve ardından dock üzerindeki Kişiler düğmesinin üzerine geldiğinizde Lightning Launcher\'ı açmak için etkinleştirin.</string>
+    <string name="addons_dock_suggest_title">Dock UI için kısayollar</string>
+    <string name="addons_dock_suggest_0">Dock, zaman ve bir sıra uygulama simgesinin bulunduğu bir çubuktur - <b>bu her zaman 2D pencerelerin altında bulunur</b>.</string>
+    <string name="addons_dock_suggest_1">Dock, Quest UI\'nin başından beri bir parçasıydı, ancak yerini Navigator alıyor.</string>
+    <string name="addons_dock_goto_button">Dock\'um var</string>
+    <string name="addons_navigator_suggest_title">Navigator UI için kısayollar</string>
+    <string name="addons_navigator_suggest_0">Navigator, 2D pencerelerinizin önünde açılan ve resmi uygulamaları başlatmanızı sağlayan özel bir katmandır.</string>
+    <string name="addons_navigator_suggest_1">Meta bu yeni kullanıcı arayüzünü bazı Quest cihazlarına sunuyor.</string>
+    <string name="addons_navigator_suggest_2">Eğer Navigator\'ınız varsa, <b>bir Dock\'unuz olmayacak.</b></string>
+    <string name="addons_navigator_goto_button">Navigator\'um var</string>
+    <string name="addons_navigator_title">Navigator Düğmesiyle Lightning Launcher\'ı açın</string>
+    <string name="addons_navigator_preamble">Hizmet uygulamasını yüklemeli ve <b>sonra etkinleştirmelisiniz.</b></string>
+    <string name="addons_navigator">Navigator Düğmesi Yönlendirme Hizmeti</string>
+    <string name="addons_navigator_desc"><b>Meta / Navigator</b> düğmesine bastığınızda Lightning Launcher\'ı açmak için yükleyin ve ardından etkinleştirin.</string>
     <string name="addons_navigator_postamble">Lightning Launcher açıldıktan sonra düğmeye tekrar basarak Navigator\'ı açabilirsiniz</string>
     <string name="addons_install">Kurulum</string>
     <string name="addons_update">Güncelleme</string>
@@ -268,25 +292,41 @@
         \nQuest Game Tuner, Lightning Launcher\'ı yapan aynı geliştirici tarafından yüzlerce saat süren geliştirme, araştırma ve testlerin sonucudur.</string>
     <string name="tuner_info_get">Quest Game Tuner\'ı itch.io\'da edinin!</string>
     <string name="apk_installer_tip">Yüklemek için bir APK dosyası seçin</string>
-    <string name="advanced_alpha_preserve">Ayrıntıları Koru</string>
-    <string name="force_untranslated">İngilizce Dilini Kullan</string>
-    <string name="advanced_alpha_clamp">Görev 3 geçiş şeffaflığı bulanıklığı</string>
-    <string name="addons_dock_suggest_title">Dock UI için kısayollar</string>
-    <string name="addons_dock_suggest_0">Dock, zaman ve bir sıra uygulama simgesinin bulunduğu bir çubuktur - <b>bu her zaman 2D pencerelerin altında bulunur</b>.</string>
-    <string name="addons_dock_suggest_1">Dock, Quest UI\'nin başından beri bir parçasıydı, ancak yerini Navigator alıyor.</string>
-    <string name="addons_dock_goto_button">Dock\'um var</string>
-    <string name="addons_navigator_suggest_title">Navigator UI için kısayollar</string>
-    <string name="addons_navigator_suggest_0">Navigator, 2D pencerelerinizin önünde açılan ve resmi uygulamaları başlatmanızı sağlayan özel bir katmandır.</string>
-    <string name="addons_navigator_suggest_1">Meta bu yeni kullanıcı arayüzünü bazı Quest cihazlarına sunuyor.</string>
-    <string name="addons_navigator_suggest_2">Eğer Navigator\'ınız varsa, <b>bir Dock\'unuz olmayacak.</b></string>
-    <string name="addons_navigator_goto_button">Navigator\'um var</string>
-    <string name="addons_navigator_title">Navigator Düğmesiyle Lightning Launcher\'ı açın</string>
-    <string name="addons_navigator_preamble">Hizmet uygulamasını yüklemeli ve <b>sonra etkinleştirmelisiniz.</b></string>
-    <string name="addons_navigator">Navigator Düğmesi Yönlendirme Hizmeti</string>
-    <string name="addons_navigator_desc"><b>Meta / Navigator</b> düğmesine bastığınızda Lightning Launcher\'ı açmak için yükleyin ve ardından etkinleştirin.</string>
-    <string name="browser_default_tip">Lightning Launcher\'a eklediğiniz web sitelerini açacak uygulamayı seçin.</string>
-    <string name="new_label_duration_setting">►Uygulamalar\'ı göster:</string>
-    <string name="new_label_duration_template">%d dakika boyunca</string>
-    <string name="new_label_duration_zero">Gösterme</string>
     <string name="settings_workaround">Android Ayarlarını açmak için bilgi penceresinde Aç\'a tıklayın.</string>
+<string name="shortcuts_open_this_variant">Kısayollar Lightning Launcher\'ın bu varyantını açar</string>
+    <string name="shortcuts_open_this_variant_details">Bunu kapatırsanız, kısayol hizmetleri diğer Lighning Launcher yüklemenizi açmaya çalışacaktır.</string>
+    <string name="manage_variants">Yüklü Varyantları Yönetme ve Ayarları Aktarma</string>
+    <string name="customize_top_bar">Araç Çubuğunu Özelleştir</string>
+    <string name="quest_settings">Görev Ayarları</string>
+    <string name="quest_people">İnsanlar</string>
+    <string name="quest_chats">Sohbetler</string>
+    <string name="quest_files">Görev Dosyaları</string>
+    <string name="quest_events">Etkinlikler</string>
+    <string name="quest_camera">Kamera</string>
+    <string name="util_apk_installer">APK Yükleyici</string>
+    <string name="util_tv_smart_home">Akıllı Ev</string>
+    <string name="launcher_settings">Başlatıcı Ayarları</string>
+    <string name="android_settings">Android Ayarları</string>
+    <string name="quest_browser">Görev Tarayıcısı</string>
+    <string name="variant_sideload">LL: Yan Yüklenmiş Sürüm</string>
+    <string name="variant_metastore">LL: Görev Mağazası Sürümü</string>
+    <string name="variant_playstore">LL: Google Play Sürümü</string>
+    <string name="transfer_to_variant">Başlatıcı Ayarlarını Bu Varyanta Aktarın</string>
+    <string name="variant_metastore_details">Bu sürüm, Quest\'inizin yerel uygulama kitaplığında görünecektir, ancak birkaç özel özellik eksiktir.</string>
+    <string name="variant_playstore_details">Bu sürüm Google TV cihazlarına Google Play üzerinden yüklenebilir ve güncellenebilir.</string>
+    <string name="variant_sideload_details">Bu sürüm bir APK veya SideQuest\'ten yüklenmiştir. Yalnızca \"Resmi Olmayan Kaynaklar.\" altında görünebilir.</string>
+    <string name="manage_variants_details">Lightning Launcher\'ın birden fazla varyantı yüklü. Bunları bu menüden yönetebilirsiniz.</string>
+
+    
+    <string name="default_group_2d">Uygulamalar</string>
+    <string name="default_group_vr">Oyunlar</string>
+    <string name="default_group_media">Medya</string>
+
+    
+    <string name="sort_standard">Standart Sıralama</string>
+    <string name="sort_recently_used">Son Kullanılanlara Göre Sıralama</string>
+    <string name="sort_recently_installed">Son Yüklenenlere Göre Sıralama</string>
+    <string name="sort_recently_used_no_perm">Son Başlatılanlara Göre Sıralama</string>
+    <string name="sort_recently_installed_no_perm">Son Eklenenlere Göre Sıralama</string>
+    <string name="current">★ Akım</string>
 </resources>

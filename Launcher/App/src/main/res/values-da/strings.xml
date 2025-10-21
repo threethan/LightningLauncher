@@ -1,8 +1,9 @@
-<resources>
-    <string name="app_variant_unavailable">Denne funktion er ikke tilgængelig på %s.  <i>Søg efter Lightning Launcher på GitHub for at få flere oplysninger.</i></string>
+<?xml version='1.0' encoding='utf-8'?>
+<resources><string name="app_variant_unavailable">Denne funktion er ikke tilgængelig på %s.  <i>Søg efter Lightning Launcher på GitHub for at få flere oplysninger.</i></string>
     <string name="add_group">Tilføj gruppe</string>
     <string name="apps_hidden">- Skjult</string>
     <string name="migrated">Gamle indstillinger er blevet migreret</string>
+    <string name="force_untranslated">Brug engelsk sprog</string>
     <string name="force_untranslated_tip">Tving Lightning Launcher til at være på engelsk.\\n(Oversæt ikke til dit sprog.)</string>
     <string name="edit_mode">Redigeringstilstand</string>
     <string name="edit_mode_tip">Skift grupper, tilføj hjemmesider og meget mere.</string>
@@ -45,8 +46,10 @@
     <string name="advanced_search">Indstillinger for søgning</string>
     <string name="advanced_backup">Backup af indstillinger</string>
     <string name="advanced_alpha">Gennemsigtighed i baggrunden</string>
+    <string name="advanced_alpha_preserve">Bevar detaljer</string>
     <string name="advanced_alpha_preserve_tip">Bevar baggrundsdetaljer, når passthrough er slået fra, og brug</string>
     <string name="advanced_alpha_tip">sektionsgennemsigtighed, når den er tændt.</string>
+    <string name="advanced_alpha_clamp">Quest 3-gennemsigtighedssløring</string>
     <string name="advanced_alpha_clamp_tip">Giver mulighed for en sløret baggrund i passthrough. <i>Begrænser mængden af ​​gennemsigtighed.</i></string>
     <string name="dark_mode">Mørk tilstand</string>
     <string name="dark_mode_tip">Hvis den er slået til, bliver etiketterne hvide på en mørk baggrund.</string>
@@ -79,6 +82,9 @@
     <string name="long_press">Langt tryk for at redigere</string>
     <string name="long_press_tip">Når den er slået til, vil et langt tryk på en app åbne redigeringstilstand og vælge den.
     \Når den er slukket, vil et langt tryk på en app vise detaljer.</string>
+    <string name="reduce_motion">Reducer bevægelse</string>
+    <string name="reduce_motion_tip">Deaktiverer animationer i app-listen.</string>
+    
     <string name="search_web">Vis websøgemaskiner i søgninger</string>
     <string name="search_hidden">Vis skjulte apps i søgninger</string>
     <string name="settings_save">Eksportindstillinger</string>
@@ -138,6 +144,11 @@
     <string name="browser_quest">Åbn i Quest Browser-fanen</string>
     <string name="browser_quest_shortcut">Åbn som Quest Browser Web App</string>
     <string name="browser_system">Prøv at åbne i systemets standardindstillinger</string>
+    <string name="browser_default_tip">Vælg den app, der åbner websteder, du har tilføjet til Lightning Launcher.</string>
+    <string name="new_label_duration_setting">Angiv ►Apps:</string>
+    <string name="new_label_duration_tip">Vis en midlertidig \ ► indikator på nyligt tilføjede apps, og flyt dem til forsiden af standardsorteringen.</string>
+    <string name="new_label_duration_zero">Vis ikke</string>
+    <string name="new_label_duration_template">I %d minutter</string>
     <string name="edit_move">Flyt dig</string>
     <string name="edit_copy">Kopi</string>
     <string name="selection_hint_none">Klik på en app for at vælge den, eller klik her for at vælge alle</string>
@@ -252,6 +263,19 @@
     <string name="addons_store_desc">Installer og aktiver derefter for at åbne Lightning Launcher, når du holder Store-knappen på docken.</string>
     <string name="addons_people">Omdirigering af personer</string>
     <string name="addons_people_desc">Installer og aktiver derefter for at åbne Lightning Launcher, når du holder People-knappen på docken.</string>
+    <string name="addons_dock_suggest_title">Genveje til Dock UI</string>
+    <string name="addons_dock_suggest_0">Dock er en bjælke med tiden og en række appikoner - <b>som altid er til stede under 2D-vinduer</b>.</string>
+    <string name="addons_dock_suggest_1">Dock har været en del af Quest UI siden starten, men den bliver erstattet af Navigator.</string>
+    <string name="addons_dock_goto_button">Jeg har Dock</string>
+    <string name="addons_navigator_suggest_title">Genveje til Navigator UI</string>
+    <string name="addons_navigator_suggest_0">Navigator er et særligt overlay, der åbnes foran dine 2D-vinduer og lader dig starte officielle apps.</string>
+    <string name="addons_navigator_suggest_1">Meta ruller denne nye brugergrænseflade ud til nogle Quest-enheder.</string>
+    <string name="addons_navigator_suggest_2">Hvis du har Navigator, <b>har du ikke en Dock.</b></string>
+    <string name="addons_navigator_goto_button">Jeg har Navigator</string>
+    <string name="addons_navigator_title">Åbn Lightning Launcher med Navigator-knappen</string>
+    <string name="addons_navigator_preamble">Du skal installere serviceapplikationen og <b>derefter aktivere den.</b></string>
+    <string name="addons_navigator">Omdirigeringstjeneste for Navigator-knap</string>
+    <string name="addons_navigator_desc">Installer, og aktiver derefter for at åbne Lightning Launcher, når du trykker på <b>Meta / Navigator</b>-knappen.</string>
     <string name="addons_navigator_postamble">Du vil stadig kunne åbne Navigator ved at trykke på knappen igen - efter at Lightning Launcher er åben.</string>
     <string name="addons_install">Installer</string>
     <string name="addons_update">Opdatering</string>
@@ -268,25 +292,41 @@
         \Quest Game Tuner er resultatet af hundredvis af timers udvikling, forskning og testning af den samme udvikler, som lavede Lightning Launcher.</string>
     <string name="tuner_info_get">Få Quest Game Tuner på itch.io!</string>
     <string name="apk_installer_tip">Vælg en APK-fil, der skal installeres</string>
-    <string name="advanced_alpha_preserve">Bevar detaljer</string>
-    <string name="force_untranslated">Brug engelsk sprog</string>
-    <string name="advanced_alpha_clamp">Quest 3-gennemsigtighedssløring</string>
-    <string name="addons_dock_suggest_title">Genveje til Dock UI</string>
-    <string name="addons_dock_suggest_0">Dock er en bjælke med tiden og en række appikoner - <b>som altid er til stede under 2D-vinduer</b>.</string>
-    <string name="addons_dock_suggest_1">Dock har været en del af Quest UI siden starten, men den bliver erstattet af Navigator.</string>
-    <string name="addons_dock_goto_button">Jeg har Dock</string>
-    <string name="addons_navigator_suggest_title">Genveje til Navigator UI</string>
-    <string name="addons_navigator_suggest_0">Navigator er et særligt overlay, der åbnes foran dine 2D-vinduer og lader dig starte officielle apps.</string>
-    <string name="addons_navigator_suggest_1">Meta ruller denne nye brugergrænseflade ud til nogle Quest-enheder.</string>
-    <string name="addons_navigator_suggest_2">Hvis du har Navigator, <b>har du ikke en Dock.</b></string>
-    <string name="addons_navigator_goto_button">Jeg har Navigator</string>
-    <string name="addons_navigator_title">Åbn Lightning Launcher med Navigator-knappen</string>
-    <string name="addons_navigator_preamble">Du skal installere serviceapplikationen og <b>derefter aktivere den.</b></string>
-    <string name="addons_navigator">Omdirigeringstjeneste for Navigator-knap</string>
-    <string name="addons_navigator_desc">Installer, og aktiver derefter for at åbne Lightning Launcher, når du trykker på <b>Meta / Navigator</b>-knappen.</string>
-    <string name="browser_default_tip">Vælg den app, der åbner websteder, du har tilføjet til Lightning Launcher.</string>
-    <string name="new_label_duration_setting">Angiv ►Apps:</string>
-    <string name="new_label_duration_zero">Vis ikke</string>
-    <string name="new_label_duration_template">I %d minutter</string>
     <string name="settings_workaround">Klik på Åbn i informationsvinduet for at åbne Android-indstillinger.</string>
+<string name="shortcuts_open_this_variant">Genveje åbner denne variant af Lightning Launcher</string>
+    <string name="shortcuts_open_this_variant_details">Hvis du slår dette fra, vil genvejstjenester forsøge at åbne din anden installation af Lighning Launcher.</string>
+    <string name="manage_variants">Administrer installerede varianter og overfør indstillinger</string>
+    <string name="customize_top_bar">Tilpas værktøjslinjen</string>
+    <string name="quest_settings">Quest-indstillinger</string>
+    <string name="quest_people">Mennesker</string>
+    <string name="quest_chats">Chats</string>
+    <string name="quest_files">Quest-filer</string>
+    <string name="quest_events">Begivenheder</string>
+    <string name="quest_camera">Kamera</string>
+    <string name="util_apk_installer">APK-installationsprogram</string>
+    <string name="util_tv_smart_home">Smart hjem</string>
+    <string name="launcher_settings">Launcher-indstillinger</string>
+    <string name="android_settings">Android-indstillinger</string>
+    <string name="quest_browser">Quest-browser</string>
+    <string name="variant_sideload">LL: Sideladet version</string>
+    <string name="variant_metastore">LL: Quest Store-version</string>
+    <string name="variant_playstore">LL: Google Play-version</string>
+    <string name="transfer_to_variant">Overfør Launcher-indstillinger til denne variant</string>
+    <string name="variant_metastore_details">Denne version vises i din Quests oprindelige app-bibliotek, men den mangler et par særlige funktioner.</string>
+    <string name="variant_playstore_details">Denne version kan installeres og opdateres via Google Play på Google TV-enheder.</string>
+    <string name="variant_sideload_details">Denne version blev installeret fra en APK eller SideQuest. Den vises muligvis kun under \"Uofficielle kilder.\"</string>
+    <string name="manage_variants_details">Du har flere varianter af Lightning Launcher installeret. Du kan administrere dem fra denne menu.</string>
+
+    
+    <string name="default_group_2d">Apps</string>
+    <string name="default_group_vr">Spil</string>
+    <string name="default_group_media">Medier</string>
+
+    
+    <string name="sort_standard">Standard-sortering</string>
+    <string name="sort_recently_used">Sortering efter nyligt brugt</string>
+    <string name="sort_recently_installed">Sortering efter nyligt installeret</string>
+    <string name="sort_recently_used_no_perm">Sortering efter nyligt lanceret</string>
+    <string name="sort_recently_installed_no_perm">Sortering efter nyligt tilføjet</string>
+    <string name="current">★ Strøm</string>
 </resources>

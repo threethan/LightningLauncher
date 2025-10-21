@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_variant_unavailable">此功能在 %s 上不可用。  <i>请在 GitHub 上查找 Lightning Launcher 了解更多信息。</i></string>
+<?xml version='1.0' encoding='utf-8'?>
+<resources><string name="app_variant_unavailable">此功能在 %s 上不可用。  <i>请在 GitHub 上查找 Lightning Launcher 了解更多信息。</i></string>
     <string name="add_group">此功能在 %s 上不可用。  <i>请在 GitHub 上查找 Lightning Launcher 了解更多信息。</i></string>
     <string name="apps_hidden">- 隐藏</string>
     <string name="migrated">已导入之前的配置</string>
 
+    <string name="force_untranslated">使用英语</string>
     <string name="force_untranslated_tip">强制 Lightning Launcher 使用英文。\\n（不要翻译成您的语言。）</string>
     <string name="edit_mode">编辑模式</string>
     <string name="edit_mode_tip">更改群组、添加网站等等。</string>
@@ -54,8 +54,10 @@
     <string name="advanced_backup">备份恢复</string>
     <string name="advanced_alpha">背景透明度</string>
 
+    <string name="advanced_alpha_preserve">保留细节</string>
     <string name="advanced_alpha_preserve_tip">关闭透视时保留背景细节，开启透视时使用局部半透明效果。</string>
     <string name="advanced_alpha_tip">当直通摄像头打开时，使 Lightning Launcher 的背景变得半透明。</string>
+    <string name="advanced_alpha_clamp">Quest 3 透视透明模糊</string>
     <string name="advanced_alpha_clamp_tip">允许在真实世界透视模式下模糊背景。<i>限制半透明度。</i></string>
     <string name="dark_mode">深色模式主题。</string>
     <string name="dark_mode_tip">如果打开，标签将在深色背景上显示白色。</string>
@@ -89,6 +91,9 @@
     <string name="long_press">长按编辑</string>
     <string name="long_press_tip"><b>开启时</b>，长按某个应用程序将进入编辑模式并选择它。
         \n<b>关闭时</b>，长按某个应用程序将显示详细信息。</string>
+    <string name="reduce_motion">减少运动</string>
+    <string name="reduce_motion_tip">禁用应用程序列表中的动画。</string>
+    
     <string name="search_web">在搜索中显示网络搜索引擎</string>
     <string name="search_hidden">显示搜索中隐藏的应用程序</string>
     <string name="settings_save">导出配置</string>
@@ -146,11 +151,16 @@
     <string name="size_wide">在 21:9 大窗口中打开</string>
 
     <string name="browser_default_setting">网站默认设置:</string>
-    <string name="browser_default_in" >在浏览器当前窗口中打开</string>
+    <string name="browser_default_in">在浏览器当前窗口中打开</string>
     <string name="browser_quest">在 Meta Quest 浏览器中打开</string>
     <string name="browser_quest_shortcut">以 Quest 浏览器网页应用形式打开</string>
     <string name="browser_system">尝试用默认浏览器打开</string>
 
+    <string name="browser_default_tip">选择将打开您添加到 Lightning Launcher 的网站的应用程序。</string>
+    <string name="new_label_duration_setting">指示 ►应用：</string>
+    <string name="new_label_duration_tip">在新添加的应用程序上显示临时 \ ► 指示器，并将它们移到标准排序的前面。</string>
+    <string name="new_label_duration_zero">不显示</string>
+    <string name="new_label_duration_template">持续 %d 分钟</string>
     <string name="edit_move">移动</string>
     <string name="edit_copy">复制</string>
 
@@ -166,7 +176,7 @@
     <string name="selection_hint_cleared">清除选择</string>
     <string name="selection_hint_all">选择所有可见的应用</string>
 
-    <!--  Updater  -->
+    
     <string name="update_title">有更新可用!</string>
     <string name="update_content">您可以在此应用程序中将 %1$s 版本升级到 %2$s。</string>
     <string name="update_button">继续</string>
@@ -215,7 +225,7 @@
     <string name="toast_cleared_icon_cache">图标缓存已被清空</string>
     <string name="toast_cleared_icon_all">所有图标已经重置为默认</string>
 
-    <!--  Tooltips  -->
+    
     <string name="tip_info_website">关于添加网站</string>git
 
     <string name="tip_uninstall">卸载 / 删除</string>
@@ -227,18 +237,18 @@
     <string name="tip_hide">隐藏该应用</string>
     <string name="tip_show">取消隐藏</string>
 
-    <!--  Toasts  -->
+    
     <string name="moved_hidden">移动到</string>
     <string name="moved_hidden_bold">隐藏分组</string>
     <string name="moved_shown">移动到</string>
-    <!-- Addons -->
+    
     <string name="addons_main_vr">安装快捷方式</string>
     <string name="addons_main_tv">快捷方式选项</string>
     <string name="addons_tv_info">遗憾的是，Android TV 限制了辅助服务和第三方启动器的功能</string>
     <string name="addons_exit">回到设置</string>
 
     <string name="addons_androidtv">Android TV 启动管理器</string>
-    <string name="addons_androidtv_desc">安装一个第三方应用程序，它可以让你更改 Android TV 上的默认主页。\n    \n这需要启用 ADB 调试，而且可能无法在每台设备上运行。\n    \n\n    \n如果无法通过此处安装，请查找 &quot;Android TV Launcher Manager XDA&quot;，然后手动下载并安装。</string>
+    <string name="addons_androidtv_desc">安装一个第三方应用程序，它可以让你更改 Android TV 上的默认主页。\n    \n这需要启用 ADB 调试，而且可能无法在每台设备上运行。\n    \n\n    \n如果无法通过此处安装，请查找 "Android TV Launcher Manager XDA"，然后手动下载并安装。</string>
 
     <string name="addons_androidtv_alt">或直接使用返回按钮</string>
     <string name="addons_androidtv_alt_desc">如果你只使用遥控器上的返回键，而不是主页键，你将始终回到 Lightning Launcher。\n    \n\n    \n进入启动器后再按返回键，只会切换编辑模式，避免意外返回默认启动器。</string>
@@ -269,32 +279,15 @@
     <string name="addons_redirect">重定向内置图标</string>
 
     <string name="addons_explore">Horizon Feed 快捷方式服务</string>
-    <string name="addons_explore_desc">安装后，只要悬停在基座上的 &quot;Horizon Feed&quot;/&quot;Oculus Explore&quot; 按钮上，就会激活打开 Lightning Launcher。</string>
+    <string name="addons_explore_desc">安装后，只要悬停在基座上的 "Horizon Feed"/"Oculus Explore" 按钮上，就会激活打开 Lightning Launcher。</string>
 
     <string name="addons_library">Library 快捷方式服务</string>
-    <string name="addons_library_desc">安装后，只要悬停在 dock 上的 &quot;App Library&quot; 按钮上，就会激活打开 Lightning Launcher。</string>
-    <string name="addons_people">People 快捷方式服务</string>
-    <string name="addons_people_desc">安装后，只要悬停在 dock 上的 &quot;People&quot; 按钮上，就会激活打开 Lightning Launcher。</string>
+    <string name="addons_library_desc">安装后，只要悬停在 dock 上的 "App Library" 按钮上，就会激活打开 Lightning Launcher。</string>
     <string name="addons_store">Store 快捷方式服务</string>
-    <string name="addons_store_desc">安装后，只要悬停在 dock 上的 &quot;Store&quot; 按钮上，就会激活打开 Lightning Launcher。</string>
+    <string name="addons_store_desc">安装后，只要悬停在 dock 上的 "Store" 按钮上，就会激活打开 Lightning Launcher。</string>
 
-    <string name="addons_navigator_postamble">在 Lightning Launcher 打开后，您仍然可以通过再次按下该按钮来打开 Navigator。</string>
-    <string name="addons_install">安装</string>
-    <string name="addons_update">更新</string>
-    <string name="addons_activate">激活</string>
-    <string name="addons_open">打开</string>
-    <string name="addons_deactivate">失活</string>
-    <string name="addons_uninstall">移除</string>
-    <string name="installing">安装…</string>
-    <string name="installed_successfully">安装成功</string>
-
-    <!-- v74 APK INSTALLER -->
-    <string name="apk_installer_tip"><b>Quest Game Tuner</b> 是 Lightning Launcher 的开发者历经数百小时开发、研究和测试的成果。</string>
-    <string name="advanced_alpha_preserve">保留细节</string>
-    <string name="tuner_info_desc">Meta 限制了应用的性能。 <b>Quest Game Tuner</b> 打破了这些限制，让您能够充分利用现有硬件。 您还可以<i>录制更优质的视频</i>、<i>屏蔽广告</i>、<i>自动关机</i>等等。  <b>Quest Game Tuner</b> 是 Lightning Launcher 的开发者历经数百小时开发、研究和测试的成果。</string>
-    <string name="tuner_info_get">在 itch.io 上获取<b>Quest Game Tuner</b>！</string>
-    <string name="force_untranslated">使用英语</string>
-    <string name="advanced_alpha_clamp">Quest 3 透视透明模糊</string>
+    <string name="addons_people">People 快捷方式服务</string>
+    <string name="addons_people_desc">安装后，只要悬停在 dock 上的 "People" 按钮上，就会激活打开 Lightning Launcher。</string>
     <string name="addons_dock_suggest_title">Dock UI 的快捷方式</string>
     <string name="addons_dock_suggest_0">Dock 是一个包含时间和一排应用图标的栏 - <b>它始终显示在 2D 窗口下方</b>。</string>
     <string name="addons_dock_suggest_1">Dock 自诞生之日起就一直是 Quest UI 的一部分，但它正在被 Navigator 取代。</string>
@@ -308,9 +301,55 @@
     <string name="addons_navigator_preamble">您必须安装该服务应用程序，<b>然后激活它。</b></string>
     <string name="addons_navigator">Navigator 按钮重定向服务</string>
     <string name="addons_navigator_desc">安装并激活后，按下 <b>Meta / Navigator</b> 按钮即可打开 Lightning Launcher。</string>
-    <string name="browser_default_tip">选择将打开您添加到 Lightning Launcher 的网站的应用程序。</string>
-    <string name="new_label_duration_setting">指示 ►应用：</string>
-    <string name="new_label_duration_zero">不显示</string>
-    <string name="new_label_duration_template">持续 %d 分钟</string>
+    <string name="addons_navigator_postamble">在 Lightning Launcher 打开后，您仍然可以通过再次按下该按钮来打开 Navigator。</string>
+    <string name="addons_install">安装</string>
+    <string name="addons_update">更新</string>
+    <string name="addons_activate">激活</string>
+    <string name="addons_open">打开</string>
+    <string name="addons_deactivate">失活</string>
+    <string name="addons_uninstall">移除</string>
+    <string name="installing">安装…</string>
+    <string name="installed_successfully">安装成功</string>
+
+    
+    <string name="tuner_info_desc">Meta 限制了应用的性能。 <b>Quest Game Tuner</b> 打破了这些限制，让您能够充分利用现有硬件。 您还可以<i>录制更优质的视频</i>、<i>屏蔽广告</i>、<i>自动关机</i>等等。  <b>Quest Game Tuner</b> 是 Lightning Launcher 的开发者历经数百小时开发、研究和测试的成果。</string>
+    <string name="tuner_info_get">在 itch.io 上获取<b>Quest Game Tuner</b>！</string>
+    <string name="apk_installer_tip"><b>Quest Game Tuner</b> 是 Lightning Launcher 的开发者历经数百小时开发、研究和测试的成果。</string>
     <string name="settings_workaround">单击信息窗口中的“打开”以打开 Android 设置。</string>
+<string name="shortcuts_open_this_variant">打开 \"闪电启动器 \"变体的快捷方式</string>
+    <string name="shortcuts_open_this_variant_details">如果关闭此选项，快捷服务将尝试打开 Lighning Launcher 的其他安装。</string>
+    <string name="manage_variants">管理已安装的变体和传输设置</string>
+    <string name="customize_top_bar">自定义工具栏</string>
+    <string name="quest_settings">任务设置</string>
+    <string name="quest_people">人</string>
+    <string name="quest_chats">聊天</string>
+    <string name="quest_files">任务文件</string>
+    <string name="quest_events">活动</string>
+    <string name="quest_camera">照相机</string>
+    <string name="util_apk_installer">APK 安装程序</string>
+    <string name="util_tv_smart_home">智能家居</string>
+    <string name="launcher_settings">启动器设置</string>
+    <string name="android_settings">安卓设置</string>
+    <string name="quest_browser">探索浏览器</string>
+    <string name="variant_sideload">LL：侧载版本</string>
+    <string name="variant_metastore">LL：任务商店版本</string>
+    <string name="variant_playstore">LL：Google Play 版本</string>
+    <string name="transfer_to_variant">将启动器设置转移到该变体</string>
+    <string name="variant_metastore_details">该版本将出现在 Quest 的本地应用程序库中，但缺少一些特殊功能。</string>
+    <string name="variant_playstore_details">该版本可通过 Google Play 在 Google TV 设备上安装和更新。</string>
+    <string name="variant_sideload_details">该版本是从 APK 或 SideQuest 安装的。可能只显示在 \"非官方来源 \"下</string>
+    <string name="manage_variants_details">您安装了多个 Lightning Launcher 版本。您可以通过此菜单管理它们。</string>
+
+    
+    <string name="default_group_2d">应用程序</string>
+    <string name="default_group_vr">游戏</string>
+    <string name="default_group_media">媒体</string>
+
+    
+    <string name="sort_standard">标准分类</string>
+    <string name="sort_recently_used">按最近使用排序</string>
+    <string name="sort_recently_installed">按最近安装排序</string>
+    <string name="sort_recently_used_no_perm">按最近发布排序</string>
+    <string name="sort_recently_installed_no_perm">按最近添加排序</string>
+    <string name="current">★电流</string>
 </resources>

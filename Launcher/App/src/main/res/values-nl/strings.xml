@@ -1,8 +1,9 @@
-<resources>
-    <string name="app_variant_unavailable">Deze functie is niet beschikbaar op de %s.  <i>Zoek Lightning Launcher op GitHub voor meer informatie.</i></string>
+<?xml version='1.0' encoding='utf-8'?>
+<resources><string name="app_variant_unavailable">Deze functie is niet beschikbaar op de %s.  <i>Zoek Lightning Launcher op GitHub voor meer informatie.</i></string>
     <string name="add_group">Groep toevoegen</string>
     <string name="apps_hidden">- Verborgen</string>
     <string name="migrated">Oude instellingen zijn gemigreerd</string>
+    <string name="force_untranslated">Brug engelsk sprog</string>
     <string name="force_untranslated_tip">Dwing Lightning Launcher om in het Engels te zijn.\\n(Vertaal niet naar jouw taal.)</string>
     <string name="edit_mode">Modus Bewerken</string>
     <string name="edit_mode_tip">Wijzig groepen, voeg websites toe en meer.</string>
@@ -45,8 +46,10 @@
     <string name="advanced_search">Instellingen zoeken</string>
     <string name="advanced_backup">Instellingen back-up</string>
     <string name="advanced_alpha">Achtergrond doorschijnendheid</string>
+    <string name="advanced_alpha_preserve">Details behouden</string>
     <string name="advanced_alpha_preserve_tip">Behoud achtergronddetails wanneer passthrough is uitgeschakeld en gebruik</string>
     <string name="advanced_alpha_tip">doorsnedetranslucentie wanneer deze is ingeschakeld.</string>
+    <string name="advanced_alpha_clamp">Quest 3 passthrough transparantievervaging</string>
     <string name="advanced_alpha_clamp_tip">Zorgt voor een wazige achtergrond tijdens de passthrough. <i>Beperkt de hoeveelheid doorschijnendheid.</i></string>
     <string name="dark_mode">Donkere modus</string>
     <string name="dark_mode_tip">Als deze optie is ingeschakeld, worden labels wit weergegeven op een donkere achtergrond.</string>
@@ -79,6 +82,9 @@
     <string name="long_press">Lang indrukken om te bewerken</string>
     <string name="long_press_tip">Als deze functie is ingeschakeld, wordt de bewerkingsmodus geopend en wordt de app geselecteerd door er lang op te drukken.
     \Uitgeschakeld: als u lang op een app drukt, worden de details weergegeven.</string>
+    <string name="reduce_motion">Beweging verminderen</string>
+    <string name="reduce_motion_tip">Schakelt animaties in de app-lijst uit.</string>
+    
     <string name="search_web">Toon webzoekmachines in zoekopdrachten</string>
     <string name="search_hidden">Verborgen apps weergeven in zoekopdrachten</string>
     <string name="settings_save">Instellingen exporteren</string>
@@ -138,6 +144,11 @@
     <string name="browser_quest">Openen in Quest Browser Tab</string>
     <string name="browser_quest_shortcut">Openen als Quest Browser Web App</string>
     <string name="browser_system">Probeer te openen in Systeemstandaard</string>
+    <string name="browser_default_tip">Selecteer de app waarmee u de websites opent die u aan Lightning Launcher hebt toegevoegd.</string>
+    <string name="new_label_duration_setting">►Apps aangeven:</string>
+    <string name="new_label_duration_tip">Toon een tijdelijke ► indicator op nieuw toegevoegde apps en verplaats ze naar voren in de standaardsortering.</string>
+    <string name="new_label_duration_zero">Niet weergeven</string>
+    <string name="new_label_duration_template">Gedurende %d minuten</string>
     <string name="edit_move">Verplaats</string>
     <string name="edit_copy">Kopie</string>
     <string name="selection_hint_none">Klik op een app om deze te selecteren of klik hier om alles te selecteren</string>
@@ -248,6 +259,19 @@
     <string name="addons_store_desc">Installeer en activeer vervolgens om Lightning Launcher te openen wanneer je met de muis over de Store-knop op het dock gaat.</string>
     <string name="addons_people">Mensen omleiden</string>
     <string name="addons_people_desc">Installeer en activeer vervolgens om Lightning Launcher te openen wanneer je met de muis over de knop Mensen op het dock gaat.</string>
+    <string name="addons_dock_suggest_title">Snelkoppelingen voor de Dock-gebruikersinterface</string>
+    <string name="addons_dock_suggest_0">Het Dock is een balk met de tijd en een rij app-pictogrammen - <b>die altijd onder 2D-vensters staat</b>.</string>
+    <string name="addons_dock_suggest_1">Het Dock maakt al sinds het begin deel uit van de Quest-gebruikersinterface, maar wordt vervangen door de Navigator.</string>
+    <string name="addons_dock_goto_button">Ik heb de Dock</string>
+    <string name="addons_navigator_suggest_title">Snelkoppelingen voor de Navigator-gebruikersinterface</string>
+    <string name="addons_navigator_suggest_0">De Navigator is een speciale overlay die voor je 2D-vensters wordt geopend en waarmee je officiële apps kunt starten.</string>
+    <string name="addons_navigator_suggest_1">Meta rolt deze nieuwe gebruikersinterface uit naar sommige Quest-apparaten.</string>
+    <string name="addons_navigator_suggest_2">Als je de Navigator hebt, <b>heb je geen Dock.</b></string>
+    <string name="addons_navigator_goto_button">Ik heb de Navigator</string>
+    <string name="addons_navigator_title">Open Lightning Launcher met de Navigator-knop</string>
+    <string name="addons_navigator_preamble">Je moet de service-app installeren en <b>vervolgens activeren</b>.</string>
+    <string name="addons_navigator">Navigator-knop omleidingsservice</string>
+    <string name="addons_navigator_desc">Installeer en activeer vervolgens om Lightning Launcher te openen wanneer je op de <b>Meta / Navigator</b>-knop drukt.</string>
     <string name="addons_navigator_postamble">Je kunt de Navigator nog steeds openen door nogmaals op de knop te drukken - nadat Lightning Launcher is geopend.</string>
     <string name="addons_install">Installeer</string>
     <string name="addons_update">Update</string>
@@ -264,25 +288,41 @@
         \Quest Game Tuner is het resultaat van honderden uren ontwikkeling, onderzoek en testen door dezelfde ontwikkelaar die Lightning Launcher heeft gemaakt.</string>
     <string name="tuner_info_get">Haal Quest Game Tuner op itch.io!</string>
     <string name="apk_installer_tip">Selecteer een APK-bestand om te installeren</string>
-    <string name="advanced_alpha_preserve">Details behouden</string>
-    <string name="force_untranslated">Brug engelsk sprog</string>
-    <string name="advanced_alpha_clamp">Quest 3 passthrough transparantievervaging</string>
-    <string name="addons_dock_suggest_title">Snelkoppelingen voor de Dock-gebruikersinterface</string>
-    <string name="addons_dock_suggest_0">Het Dock is een balk met de tijd en een rij app-pictogrammen - <b>die altijd onder 2D-vensters staat</b>.</string>
-    <string name="addons_dock_suggest_1">Het Dock maakt al sinds het begin deel uit van de Quest-gebruikersinterface, maar wordt vervangen door de Navigator.</string>
-    <string name="addons_dock_goto_button">Ik heb de Dock</string>
-    <string name="addons_navigator_suggest_title">Snelkoppelingen voor de Navigator-gebruikersinterface</string>
-    <string name="addons_navigator_suggest_0">De Navigator is een speciale overlay die voor je 2D-vensters wordt geopend en waarmee je officiële apps kunt starten.</string>
-    <string name="addons_navigator_suggest_1">Meta rolt deze nieuwe gebruikersinterface uit naar sommige Quest-apparaten.</string>
-    <string name="addons_navigator_suggest_2">Als je de Navigator hebt, <b>heb je geen Dock.</b></string>
-    <string name="addons_navigator_goto_button">Ik heb de Navigator</string>
-    <string name="addons_navigator_title">Open Lightning Launcher met de Navigator-knop</string>
-    <string name="addons_navigator_preamble">Je moet de service-app installeren en <b>vervolgens activeren</b>.</string>
-    <string name="addons_navigator">Navigator-knop omleidingsservice</string>
-    <string name="addons_navigator_desc">Installeer en activeer vervolgens om Lightning Launcher te openen wanneer je op de <b>Meta / Navigator</b>-knop drukt.</string>
-    <string name="browser_default_tip">Selecteer de app waarmee u de websites opent die u aan Lightning Launcher hebt toegevoegd.</string>
-    <string name="new_label_duration_setting">►Apps aangeven:</string>
-    <string name="new_label_duration_zero">Niet weergeven</string>
-    <string name="new_label_duration_template">Gedurende %d minuten</string>
     <string name="settings_workaround">Klik op Openen in het infovenster om Android-instellingen te openen.</string>
+<string name="shortcuts_open_this_variant">Snelkoppelingen openen deze variant van Lightning Launcher</string>
+    <string name="shortcuts_open_this_variant_details">Als je dit uitschakelt, zullen snelkoppelingsservices proberen om je andere installatie van Lighning Launcher te openen.</string>
+    <string name="manage_variants">Geïnstalleerde varianten beheren en instellingen overdragen</string>
+    <string name="customize_top_bar">Werkbalk aanpassen</string>
+    <string name="quest_settings">Zoektocht Instellingen</string>
+    <string name="quest_people">Mensen</string>
+    <string name="quest_chats">Praatjes</string>
+    <string name="quest_files">Zoektocht bestanden</string>
+    <string name="quest_events">Evenementen</string>
+    <string name="quest_camera">Camera</string>
+    <string name="util_apk_installer">APK Installer</string>
+    <string name="util_tv_smart_home">Slim Thuis</string>
+    <string name="launcher_settings">Lanceerinstellingen</string>
+    <string name="android_settings">Android-instellingen</string>
+    <string name="quest_browser">Zoektocht browser</string>
+    <string name="variant_sideload">LL: Geïnstalleerde versie</string>
+    <string name="variant_metastore">LL: Quest Store-versie</string>
+    <string name="variant_playstore">LL: Google Play-versie</string>
+    <string name="transfer_to_variant">Launcher-instellingen overbrengen naar deze variant</string>
+    <string name="variant_metastore_details">Deze versie verschijnt in de native app bibliotheek van je Quest, maar mist een paar speciale functies.</string>
+    <string name="variant_playstore_details">Deze versie kan worden geïnstalleerd en bijgewerkt via Google Play op Google TV-apparaten.</string>
+    <string name="variant_sideload_details">Deze versie is geïnstalleerd vanaf een APK of SideQuest. Het kan zijn dat deze alleen te zien is onder \"Unofficial Sources.\".</string>
+    <string name="manage_variants_details">Je hebt meerdere varianten van Lightning Launcher geïnstalleerd. Je kunt ze vanuit dit menu beheren.</string>
+
+    
+    <string name="default_group_2d">Apps</string>
+    <string name="default_group_vr">Spelletjes</string>
+    <string name="default_group_media">Media</string>
+
+    
+    <string name="sort_standard">Standaard sorteren</string>
+    <string name="sort_recently_used">Sorteren op recent gebruikt</string>
+    <string name="sort_recently_installed">Sorteren op recent geïnstalleerd</string>
+    <string name="sort_recently_used_no_perm">Sorteren op recent gelanceerd</string>
+    <string name="sort_recently_installed_no_perm">Sorteren op recent toegevoegd</string>
+    <string name="current">★ Stroom</string>
 </resources>

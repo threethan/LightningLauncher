@@ -1,8 +1,9 @@
-<resources>
-    <string name="app_variant_unavailable">Această funcție nu este disponibilă pe %s.  <i>Căutați Lightning Launcher pe GitHub pentru mai multe informații</i>.</string>
+<?xml version='1.0' encoding='utf-8'?>
+<resources><string name="app_variant_unavailable">Această funcție nu este disponibilă pe %s.  <i>Căutați Lightning Launcher pe GitHub pentru mai multe informații</i>.</string>
     <string name="add_group">Adaugă grup</string>
     <string name="apps_hidden">- Ascunse</string>
     <string name="migrated">Setările vechi au fost migrate</string>
+    <string name="force_untranslated">Folosiți limba engleză</string>
     <string name="force_untranslated_tip">Forțați Lightning Launcher să fie în engleză.\\n(Nu traduceți în limba dvs.)</string>
     <string name="edit_mode">Mod editare</string>
     <string name="edit_mode_tip">Schimbați grupurile, adăugați site-uri web și multe altele.</string>
@@ -45,8 +46,10 @@
     <string name="advanced_search">Setări de căutare</string>
     <string name="advanced_backup">Setări de rezervă</string>
     <string name="advanced_alpha">Transluciditate fundal</string>
+    <string name="advanced_alpha_preserve">Păstrează detaliile</string>
     <string name="advanced_alpha_preserve_tip">Păstrați detaliile de fundal când trecerea este dezactivată și utilizați</string>
     <string name="advanced_alpha_tip">transluciditatea secțională atunci când este activată.</string>
+    <string name="advanced_alpha_clamp">Încețoșarea transparenței Quest 3</string>
     <string name="advanced_alpha_clamp_tip">Permite un fundal neclar în timpul trecerii. <i>Limitează cantitatea de transluciditate.</i></string>
     <string name="dark_mode">Mod întunecat</string>
     <string name="dark_mode_tip">Dacă este activată, etichetele vor apărea albe pe un fundal închis.</string>
@@ -79,6 +82,9 @@
     <string name="long_press">Apăsare lungă pentru editare</string>
     <string name="long_press_tip">Când este activată, apăsarea lungă a unei aplicații va intra în modul de editare și o va selecta.
     \nCând este oprită, apăsarea lungă a unei aplicații va afișa detalii.</string>
+    <string name="reduce_motion">Reducerea mișcării</string>
+    <string name="reduce_motion_tip">Dezactivează animațiile din lista de aplicații.</string>
+    
     <string name="search_web">Afișarea motoarelor de căutare web în căutări</string>
     <string name="search_hidden">Afișați aplicațiile ascunse în căutări</string>
     <string name="settings_save">Setări de export</string>
@@ -138,6 +144,11 @@
     <string name="browser_quest">Deschidere în fila browser Quest</string>
     <string name="browser_quest_shortcut">Deschidere ca aplicație web Quest Browser</string>
     <string name="browser_system">Încercați să deschideți în sistemul implicit</string>
+    <string name="browser_default_tip">Selectați aplicația care va deschide site-urile web pe care le-ați adăugat la Lightning Launcher.</string>
+    <string name="new_label_duration_setting">Indicați ►Aplicații:</string>
+    <string name="new_label_duration_tip">Afișați un indicator temporar \ \ ► pe aplicațiile nou adăugate și mutați-le în prima parte a sortării standard.</string>
+    <string name="new_label_duration_zero">Nu se afișează</string>
+    <string name="new_label_duration_template">Timp de %d minute</string>
     <string name="edit_move">Mutare</string>
     <string name="edit_copy">Copiați</string>
     <string name="selection_hint_none">Faceți clic pe o aplicație pentru a o selecta sau faceți clic aici pentru a le selecta pe toate</string>
@@ -252,6 +263,19 @@
     <string name="addons_store_desc">Instalați apoi activați pentru a deschide Lightning Launcher atunci când treceți peste butonul Magazin de pe dock.</string>
     <string name="addons_people">Redirecționarea persoanelor</string>
     <string name="addons_people_desc">Instalați apoi activați pentru a deschide Lightning Launcher atunci când treceți butonul Persoane pe dock.</string>
+    <string name="addons_dock_suggest_title">Comenzi rapide pentru interfața cu Dock</string>
+    <string name="addons_dock_suggest_0">Dock este o bară cu ora și un rând de pictograme de aplicații - <b>care este întotdeauna prezentă sub ferestrele 2D</b>.</string>
+    <string name="addons_dock_suggest_1">Dock a făcut parte din interfața cu Quest de la început, dar este înlocuită de Navigator.</string>
+    <string name="addons_dock_goto_button">Am Dock</string>
+    <string name="addons_navigator_suggest_title">Comenzi rapide pentru interfața cu Navigator</string>
+    <string name="addons_navigator_suggest_0">Navigator este o suprapunere specială care se deschide în fața ferestrelor 2D și vă permite să lansați aplicații oficiale.</string>
+    <string name="addons_navigator_suggest_1">Meta lansează această nouă interfață cu utilizatorul pe unele dispozitive Quest.</string>
+    <string name="addons_navigator_suggest_2">Dacă aveți Navigator, <b>nu veți avea un Dock</b>.</string>
+    <string name="addons_navigator_goto_button">Am Navigator</string>
+    <string name="addons_navigator_title">Deschideți Lightning Launcher cu butonul Navigator</string>
+    <string name="addons_navigator_preamble">Trebuie să instalați aplicația de serviciu, <b>apoi să o activați.</b></string>
+    <string name="addons_navigator">Serviciu de redirecționare a butonului Navigator</string>
+    <string name="addons_navigator_desc">Instalați, apoi activați, pentru a deschide Lightning Launcher atunci când apăsați butonul <b>Meta / Navigator</b>.</string>
     <string name="addons_navigator_postamble">Veți putea în continuare deschide Navigator apăsând din nou butonul - după ce Lightning Launcher este deschis</string>
     <string name="addons_install">Instalați</string>
     <string name="addons_update">Actualizare</string>
@@ -268,25 +292,41 @@
         \nQuest Game Tuner este rezultatul a sute de ore de dezvoltare, cercetare și testare de către același dezvoltator care a realizat Lightning Launcher.</string>
     <string name="tuner_info_get">Obțineți Quest Game Tuner pe itch.io!</string>
     <string name="apk_installer_tip">Selectați un fișier APK pentru instalare</string>
-    <string name="advanced_alpha_preserve">Păstrează detaliile</string>
-    <string name="force_untranslated">Folosiți limba engleză</string>
-    <string name="advanced_alpha_clamp">Încețoșarea transparenței Quest 3</string>
-    <string name="addons_dock_suggest_title">Comenzi rapide pentru interfața cu Dock</string>
-    <string name="addons_dock_suggest_0">Dock este o bară cu ora și un rând de pictograme de aplicații - <b>care este întotdeauna prezentă sub ferestrele 2D</b>.</string>
-    <string name="addons_dock_suggest_1">Dock a făcut parte din interfața cu Quest de la început, dar este înlocuită de Navigator.</string>
-    <string name="addons_dock_goto_button">Am Dock</string>
-    <string name="addons_navigator_suggest_title">Comenzi rapide pentru interfața cu Navigator</string>
-    <string name="addons_navigator_suggest_0">Navigator este o suprapunere specială care se deschide în fața ferestrelor 2D și vă permite să lansați aplicații oficiale.</string>
-    <string name="addons_navigator_suggest_1">Meta lansează această nouă interfață cu utilizatorul pe unele dispozitive Quest.</string>
-    <string name="addons_navigator_suggest_2">Dacă aveți Navigator, <b>nu veți avea un Dock</b>.</string>
-    <string name="addons_navigator_goto_button">Am Navigator</string>
-    <string name="addons_navigator_title">Deschideți Lightning Launcher cu butonul Navigator</string>
-    <string name="addons_navigator_preamble">Trebuie să instalați aplicația de serviciu, <b>apoi să o activați.</b></string>
-    <string name="addons_navigator">Serviciu de redirecționare a butonului Navigator</string>
-    <string name="addons_navigator_desc">Instalați, apoi activați, pentru a deschide Lightning Launcher atunci când apăsați butonul <b>Meta / Navigator</b>.</string>
-    <string name="browser_default_tip">Selectați aplicația care va deschide site-urile web pe care le-ați adăugat la Lightning Launcher.</string>
-    <string name="new_label_duration_setting">Indicați ►Aplicații:</string>
-    <string name="new_label_duration_zero">Nu se afișează</string>
-    <string name="new_label_duration_template">Timp de %d minute</string>
     <string name="settings_workaround">Faceți clic pe Deschidere în fereastra de informații pentru a deschide Setările Android.</string>
+<string name="shortcuts_open_this_variant">Comenzile rapide deschid această variantă de Lightning Launcher</string>
+    <string name="shortcuts_open_this_variant_details">Dacă dezactivați această opțiune, serviciile de comandă rapidă vor încerca să deschidă cealaltă instalare a Lighning Launcher.</string>
+    <string name="manage_variants">Gestionați variantele instalate și transferați setările</string>
+    <string name="customize_top_bar">Personalizarea barei de instrumente</string>
+    <string name="quest_settings">Setări Quest</string>
+    <string name="quest_people">Oameni</string>
+    <string name="quest_chats">Conversații</string>
+    <string name="quest_files">Fișiere Quest</string>
+    <string name="quest_events">Evenimente</string>
+    <string name="quest_camera">Aparat foto</string>
+    <string name="util_apk_installer">Instalator APK</string>
+    <string name="util_tv_smart_home">Casă inteligentă</string>
+    <string name="launcher_settings">Setări lansator</string>
+    <string name="android_settings">Setări Android</string>
+    <string name="quest_browser">Browser Quest</string>
+    <string name="variant_sideload">LL: Versiunea Sideloaded</string>
+    <string name="variant_metastore">LL: Versiunea magazinului Quest</string>
+    <string name="variant_playstore">LL: Versiunea Google Play</string>
+    <string name="transfer_to_variant">Transferați setările lansatorului la această variantă</string>
+    <string name="variant_metastore_details">Această versiune va apărea în biblioteca de aplicații native a Quest-ului, dar îi lipsesc câteva caracteristici speciale.</string>
+    <string name="variant_playstore_details">Această versiune poate fi instalată și actualizată prin Google Play pe dispozitivele Google TV.</string>
+    <string name="variant_sideload_details">Această versiune a fost instalată de la un APK sau SideQuest. Este posibil să apară doar sub \"Unofficial Sources.\"</string>
+    <string name="manage_variants_details">Aveți mai multe variante de Lightning Launcher instalate. Le puteți gestiona din acest meniu.</string>
+
+    
+    <string name="default_group_2d">Aplicații</string>
+    <string name="default_group_vr">Jocuri</string>
+    <string name="default_group_media">Media</string>
+
+    
+    <string name="sort_standard">Sortare standard</string>
+    <string name="sort_recently_used">Sortarea în funcție de utilizările recente</string>
+    <string name="sort_recently_installed">Sortarea în funcție de instalația recentă</string>
+    <string name="sort_recently_used_no_perm">Sortarea după lansare recentă</string>
+    <string name="sort_recently_installed_no_perm">Sortarea după adăugate recent</string>
+    <string name="current">★ Curent</string>
 </resources>
