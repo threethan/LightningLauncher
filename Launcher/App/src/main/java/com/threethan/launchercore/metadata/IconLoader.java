@@ -54,9 +54,9 @@ public abstract class IconLoader {
         else {
             if (IconLoader.cachedIcons.containsKey(app.packageName)) {
                 if (IconLoader.cachedIcons.get(app.packageName) != null) {
-                    Drawable cached = IconLoader.cachedIcons.get(app.packageName).get();
-                    if (cached != null) {
-                        consumer.accept(cached);
+                    SoftReference<Drawable> cached = IconLoader.cachedIcons.get(app.packageName);
+                    if (cached != null && cached.get() != null) {
+                        consumer.accept(cached.get());
                         return;
                     }
                 }
@@ -122,16 +122,7 @@ public abstract class IconLoader {
 
         // Attempt to download the icon for this app from an online repo
         // Done AFTER saving the drawable version to prevent a race condition)
-        Drawable oldIcon = appIcon;
-        IconUpdater.check(app, icon -> {
-            // Callback again only if icon has changed
-            if (oldIcon instanceof BitmapDrawable oldBmp && icon instanceof BitmapDrawable newBmp) {
-                if (!ImageLib.isIdenticalFast(oldBmp.getBitmap(), newBmp.getBitmap()))
-                    callback.accept(icon);
-            } else {
-                callback.accept(icon);
-            }
-        });
+        IconUpdater.check(app, callback);
     }
 
     /** @return The file location which should be used for the applications cache file */
@@ -174,10 +165,10 @@ public abstract class IconLoader {
         try {
             //noinspection ResultOfMethodCallIgnored
             Objects.requireNonNull(file.getParentFile()).mkdirs();
-            FileOutputStream fileOutputStream = new FileOutputStream(file.getAbsolutePath(), false);
-            bitmap = ImageLib.getResizedBitmap(bitmap, SAVED_ICON_HEIGHT);
-            bitmap.compress(Bitmap.CompressFormat.WEBP, SAVED_ICON_QUALITY, fileOutputStream);
-            fileOutputStream.close();
+            Bitmap resizedBitmap = ImageLib.getResizedBitmap(bitmap, SAVED_ICON_HEIGHT);
+            try (FileOutputStream fileOutputStream = new FileOutputStream(file.getAbsolutePath(), false)) {
+                resizedBitmap.compress(Bitmap.CompressFormat.WEBP, SAVED_ICON_QUALITY, fileOutputStream);
+            }
         } catch (IOException e) {
             Log.e("Icon", "IOException during bitmap save", e);
         }

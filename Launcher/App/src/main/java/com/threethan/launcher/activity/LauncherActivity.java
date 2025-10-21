@@ -16,6 +16,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.os.StrictMode;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.KeyEvent;
@@ -38,6 +39,7 @@ import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.threethan.launcher.BuildConfig;
 import com.threethan.launcher.LauncherService;
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.adapter.CustomItemAnimator;
@@ -142,7 +144,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         if (adapter != null) {
             if ((maybeEffectsStandardSort && getCurrentSortMode().equals(SortHandler.SortMode.STANDARD))
                     || getCurrentSortMode().equals(SortHandler.SortMode.RECENTLY_USED))
-                adapter.setAppList(this);
+                adapter.setActivity(this);
             adapter.notifyItemChanged(app);
         }
     }
@@ -175,6 +177,14 @@ public class LauncherActivity extends Launch.LaunchingActivity {
     private Insets barInsets = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        if (BuildConfig.DEBUG) {
+            StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
+                        .detectAll()
+                        .penaltyLog()
+                        .build());
+        }
+
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_container);
@@ -280,6 +290,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         appsRecycler.setNestedScrollingEnabled(false);
         appsRecycler.setItemViewCacheSize(128);
 
+        //noinspection InvalidSetHasFixedSize
         appsRecycler.setHasFixedSize(true);
 
         groupsRecycler = rootView.findViewById(R.id.groupsRecycler);
@@ -516,7 +527,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         Log.v(TAG, "Package reload - Found "+ PlatformExt.installedApps.size() +" packages");
         AppExt.invalidateCaches();
 
-        launcherService.forEachActivity(LauncherActivity::refreshAppList);
+        if (launcherService != null) launcherService.forEachActivity(LauncherActivity::refreshAppList);
     }
 
 
@@ -695,7 +706,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
             appsRecycler.setAdapter(new LauncherAppsAdapter(this));
             getAppAdapter().setOnListReadyEveryTime(() -> appsRecycler.scrollToPosition(0));
         } else {
-            getAppAdapter().setAppList(this);
+            getAppAdapter().updateSelectedGroups();
         }
         getAppAdapter().setContainer(findViewById(R.id.appsContainer));
 
@@ -794,12 +805,12 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         int margin = getMargin(targetSize);
 
         final int topAdd = groupHeight > 1 && !isSearching() ? dp(35) + groupHeight : dp(23);
-        final int bottomAdd = groupHeight > 1 ? getBottomBarHeight() + dp(11) : margin / 2 + getBottomBarHeight() + dp(11);
+        final int bottomAdd = groupHeight > 1 ? getBottomBarHeight() + dp(11) : margin / 2 + getBottomBarHeight() + dp(Platform.isVr() ? 15 : 25);
 
         appsRecycler.setPadding(
-                dp(margin+25),
+                dp((margin+27)*(Platform.isVr() ? 1f : 1.25f)),
                 topAdd,
-                dp(margin+25),
+                dp((margin+27)*(Platform.isVr() ? 1f : 1.25f)),
                 bottomAdd);
 
         // Margins
@@ -891,7 +902,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
 
         if (getAppAdapter() != null) {
             getAppAdapter().setLauncherActivity(this);
-            getAppAdapter().setFullAppSet(PlatformExt.listInstalledApps(this));
+            getAppAdapter().setCompleteAppSet(PlatformExt.listInstalledApps(this));
         }
     }
 

@@ -54,11 +54,12 @@ public class MetaMetadata {
      * @param packageName Package name of the app
      * @return metadata for the app
      */
-    @Nullable public static App getForPackage(String packageName) {
+@Nullable public static App getForPackage(String packageName) {
         if (byPackage.containsKey(packageName))
             return byPackage.get(packageName);
 
         try {
+            android.net.TrafficStats.setThreadStatsTag(3);
             URL url = new URL(String.format(COMMON_URL, packageName));
             URLConnection request = url.openConnection();
             request.setConnectTimeout(1000); // 1 seconds timeout
@@ -67,9 +68,10 @@ public class MetaMetadata {
 
             Type type = new TypeToken<Map<String, String>>(){}.getType();
             Map<String, String> data;
-            try {
-                data = new Gson()
-                        .fromJson(new InputStreamReader((InputStream) request.getContent()), type);
+            try (InputStream in = request.getInputStream();
+                 InputStreamReader reader = new InputStreamReader(in)) {
+                data = new Gson().fromJson(reader, type);
+                if (data == null) return null;
             } catch (FileNotFoundException e) {
                 return null;
             } catch (Exception e) {

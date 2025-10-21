@@ -65,7 +65,7 @@ public abstract class LaunchExt extends Launch {
         SettingsManager.registerRecentlyLaunchedApp(app);
 
         // Prompt to install browser if launching a url without one installed
-        if (App.isWebsite(app.packageName)
+        if (App.getType(app) == App.Type.WEB
                 || app.packageName.equals(PlatformExt.LIGHTNING_BROWSER_PACKAGE)
                 || app.packageName.equals(PlatformExt.OCULUS_BROWSER_PACKAGE)) {
             if (!App.packageExists(app.packageName)) {

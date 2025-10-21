@@ -34,7 +34,8 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
-import java.util.function.BiConsumer;
+import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
@@ -96,11 +97,10 @@ public class SettingsManager extends Settings {
         return instanceByContext.get(context);
     }
 
-    public static final HashMap<String, String> appLabelCache = new HashMap<>();
-    public static final HashMap<ApplicationInfo, String> sortableLabelCache = new HashMap<>();
+    public static final Map<String, String> appLabelCache = new HashMap<>();
+    public static final Map<ApplicationInfo, String> sortableLabelCache = new ConcurrentHashMap<>();
     static {
         appLabelCache.put(null, "");
-        sortableLabelCache.put(null, "");
     }
 
     /**
@@ -123,9 +123,10 @@ public class SettingsManager extends Settings {
      */
     public static void getAppLabel(ApplicationInfo app, Consumer<String> onLabel) {
         if (appLabelCache.containsKey(app.packageName)) onLabel.accept(appLabelCache.get(app.packageName));
-        final String customLabel = dataStoreEditorPerApp.getString(app.packageName, "");
-        onLabel.accept(processAppLabel(app, customLabel));
-        if (customLabel.isEmpty()) fetchLabelAsync(app, onLabel, () -> {});
+        dataStoreEditorPerApp.getString(app.packageName, "", customLabel -> {
+            onLabel.accept(processAppLabel(app, customLabel));
+            if (customLabel.isEmpty()) fetchLabelAsync(app, onLabel, () -> {});
+        });
     }
 
     /**
@@ -135,9 +136,9 @@ public class SettingsManager extends Settings {
      * @param onError Called on error (not called if label not found)
      */
     private static void fetchLabelAsync(ApplicationInfo app, Consumer<String> onLabel, Runnable onError) {
-        if (Platform.getLabelOverrides(Core.context()).containsKey(app.packageName)) return;
         if (!Platform.isVr()) return;
-        executorService.submit(() -> {
+        asyncLabelExecutor.submit(() -> {
+            if (Platform.getLabelOverrides(Core.context()).containsKey(app.packageName)) return;
             MetaMetadata.App appMeta = MetaMetadata.getForPackage(app.packageName);
             if (appMeta != null) {
                 String label = appMeta.label();
@@ -149,38 +150,56 @@ public class SettingsManager extends Settings {
     }
 
 
-    private final static ExecutorService executorService = Core.EXECUTOR;
+    // Lower priority executor for label fetching
+    private final static ExecutorService asyncLabelExecutor = Executors.newSingleThreadExecutor();
     /**
      * Gets the string which should be used to sort the given app.
      * Possibly async.
      */
     @SuppressLint("CheckResult")
     public static void getSortableAppLabelsAsync(List<ApplicationInfo> apps,
-                                                 BiConsumer<ApplicationInfo, String> onLabelAsync) {
+                                                 Consumer<Map<ApplicationInfo, String>> onLabels) {
 
-        apps.forEach(app -> executorService.submit(() -> {
-            if (sortableLabelCache.containsKey(app))
-                onLabelAsync.accept(app, sortableLabelCache.get(app));
-            else {
-                String label = formatSortableAppLabel(app);
-                sortableLabelCache.put(app, label);
-                onLabelAsync.accept(app, label);
-            }
-        }));
+
+        Core.EXECUTOR.submit(() -> {
+            newlyAddedAppsInternalCache = null; // Clear cache to force refresh
+            Map <ApplicationInfo, String> result = new HashMap<>();
+
+            AtomicInteger remaining = new AtomicInteger(apps.size());
+
+            apps.forEach(app -> {
+                if (sortableLabelCache.containsKey(app)) {
+                    result.put(app, sortableLabelCache.get(app));
+                    if (remaining.decrementAndGet() == 0)
+                        onLabels.accept(result);
+                } else {
+                    formatSortableAppLabel(app, label -> {
+                        sortableLabelCache.put(app, label);
+                        result.put(app, label);
+                        if (remaining.decrementAndGet() == 0)
+                            onLabels.accept(result);
+                    });
+                }
+            });
+        });
     }
-    private static String formatSortableAppLabel(ApplicationInfo app) {
-        final String base = getAppLabel(app);
-        final boolean isStarred = StringLib.hasPreChar(base, StringLib.STAR);
-        final boolean isNew = isNewlyAddedPackage(app.packageName);
+    private static void formatSortableAppLabel(ApplicationInfo app, Consumer<String> onLabel) {
+        getAppLabel(app, base -> {
+            final boolean isStarred = StringLib.hasPreChar(base, StringLib.STAR);
 
-        if (!isStarred && !isNew) {
-            return base;
-        }
+            final boolean isNew = isNewlyAddedPackage(app.packageName);
 
-        final char[] rv = new char[base.length() + 1];
-        rv[0] = isStarred ? '\1' : '\2'; // Starred first, then new
-        base.getChars(0, base.length(), rv, 1);
-        return new String(rv);
+            if (!isStarred && !isNew) {
+                onLabel.accept(base);
+                return;
+            }
+
+            final char[] rv = new char[base.length() + 1];
+            rv[0] = isStarred ? '\1' : '\2'; // Starred first, then new
+            base.getChars(0, base.length(), rv, 1);
+            onLabel.accept(new String(rv));
+        });
+
     }
     public static String getSortableGroupLabel(String base) {
         if (!StringLib.hasPreChar(base, StringLib.STAR)) return base;
@@ -219,12 +238,11 @@ public class SettingsManager extends Settings {
 
         try {
             PackageManager pm = Core.context().getPackageManager();
-            String label = app.loadLabel(pm).toString();
+            final String label = pm.getApplicationLabel(app).toString();
             if (!label.isEmpty()) return label;
-            // Try to load this app's real app info
-            label = (String) app.loadLabel(pm);
-            if (!label.isEmpty()) return label;
-        } catch (NullPointerException ignored) {}
+        } catch (NullPointerException e) {
+            Log.w("SettingsManager", "Failed to get label for " + app.packageName, e);
+        }
         return "?";
     }
 
@@ -366,12 +384,10 @@ public class SettingsManager extends Settings {
 
     /** Check if a package should display the "NEW" label */
     private static boolean isNewlyAddedPackage(String packageName) {
-        if (newlyAddedAppsInternalCache == null
-                || newlyAddedAppsInternalCache.contains(packageName)) {
+        if (newlyAddedAppsInternalCache == null) {
              getNewlyAddedApps();
-             return newlyAddedAppsInternalCache.contains(packageName);
         }
-        else return false;
+        return newlyAddedAppsInternalCache.contains(packageName);
     }
 
     /** Register a newly added app */

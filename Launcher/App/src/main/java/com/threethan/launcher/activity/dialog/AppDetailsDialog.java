@@ -313,10 +313,10 @@ public class AppDetailsDialog extends LcDialog<LauncherActivity> {
     }
 
     private Drawable copy(Drawable drawable) {
+        if (drawable == null) return null;
         if (drawable.getConstantState() != null) {
             return drawable.getConstantState().newDrawable().mutate();
         } else return drawable.mutate();
-
     }
 
     public static void onImageSelected(@NonNull Bitmap bitmap,

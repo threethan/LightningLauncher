@@ -211,6 +211,7 @@ public class LauncherActivityEditable extends LauncherActivity {
     // Function overrides
     @Override
     public void setEditMode(boolean value) {
+        boolean wasNull = editMode == null;
         editMode = value;
         if (!editMode) currentSelectedApps.clear();
         if (dataStoreEditor == null) return;
@@ -220,14 +221,16 @@ public class LauncherActivityEditable extends LauncherActivity {
 
         dataStoreEditor.putBoolean(Settings.KEY_EDIT_MODE, editMode);
         final View focused = getCurrentFocus();
-        refreshInterface();
-        if (focused != null) {
-            focused.clearFocus();
-            focused.post(focused::requestFocus);
+        if (!wasNull) {
+            refreshInterface();
+            if (focused != null) {
+                focused.clearFocus();
+                focused.post(focused::requestFocus);
+            }
+            LcBlurCanvas.useRenderRect = false;
+            updateToolBars();
         }
-        LcBlurCanvas.useRenderRect = false;
         postDelayed(() -> LcBlurCanvas.useRenderRect = !editMode, 500);
-        updateToolBars();
     }
 
     @Override

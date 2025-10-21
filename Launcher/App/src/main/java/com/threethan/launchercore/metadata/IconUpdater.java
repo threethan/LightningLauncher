@@ -178,26 +178,34 @@ public abstract class IconUpdater {
      * @return True if icon was downloaded and saved successfully
      */
     static @Nullable Bitmap downloadIconFromUrl(String url, File iconFile) {
+        java.net.HttpURLConnection connection = null;
         try {
-            java.net.URLConnection connection = new URL(url).openConnection();
+            android.net.TrafficStats.setThreadStatsTag(1);
+            connection = (java.net.HttpURLConnection) new URL(url).openConnection();
+            connection.setInstanceFollowRedirects(true);
             connection.setConnectTimeout(500);
             connection.setReadTimeout(10000);
+
+            Bitmap bitmap;
             try (InputStream inputStreamWithTimeout = connection.getInputStream()) {
-                // Try to save
-                return saveStream(inputStreamWithTimeout, iconFile);
+                bitmap = saveStream(inputStreamWithTimeout, iconFile);
             }
-        } catch (IOException ignored) {}
+            return bitmap;
+        } catch (IOException ignored) {} finally {
+            if (connection != null) {
+                connection.disconnect();
+            }
+        }
         return null;
     }
-
     /**
      * Saves an input stream used to download a bitmap to an actual file, applying webp compression.
      * @return A bitmap if the stream was different and has been saved
      */
     private static @Nullable Bitmap saveStream(InputStream inputStream, File outputFile) {
         try {
-            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-            if (bitmap.getHeight() < 10) {
+            final Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+            if (bitmap == null || bitmap.getHeight() < 10) {
                 return null;
             }
             IconLoader.compressAndSaveBitmap(outputFile, bitmap);
@@ -206,12 +214,6 @@ public abstract class IconUpdater {
             //noinspection CallToPrintStackTrace
             e.printStackTrace();
             return null;
-        } finally {
-            if (inputStream != null) {
-                try {
-                    inputStream.close();
-                } catch (IOException ignored) {}
-            }
         }
     }
 }

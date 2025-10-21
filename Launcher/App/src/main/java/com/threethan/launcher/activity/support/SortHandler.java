@@ -129,16 +129,11 @@ public abstract class SortHandler {
                 AtomicInteger labelsLoaded = new AtomicInteger(0);
                 // Standard sort (by label)
                 // Must be set here, else labels might async load during sort which causes issues
-                Map<ApplicationInfo, String> labels = new HashMap<>();
-                SettingsManager.getSortableAppLabelsAsync(apps, (app, label) -> {
-                    // On label loaded
-                    labels.put(app, label);
-                    if (Thread.currentThread().isInterrupted()) return;
-                    if (labelsLoaded.incrementAndGet() == apps.size()) {
-                        apps.sort(Comparator.comparing(labels::get));
-                        // Notify all adapters to refresh
-                        onPreSorted.accept(apps);
-                    }
+                SettingsManager.getSortableAppLabelsAsync(apps, labels -> {
+                    // On labels loaded
+                    apps.sort(Comparator.comparing(a -> labels.getOrDefault(a, "")));
+                    // Notify all adapters to refresh
+                    onPreSorted.accept(apps);
                 });
             }
             case RECENTLY_USED -> {
