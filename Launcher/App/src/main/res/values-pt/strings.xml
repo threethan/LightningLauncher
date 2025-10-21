@@ -50,11 +50,8 @@
     <string name="advanced_alpha_clamp_tip">Permite um fundo desfocado durante a passagem. <i>Limite a quantidade de translucidez.</i></string>
     <string name="dark_mode">Modo escuro</string>
     <string name="dark_mode_tip">Se estiver ligado, as etiquetas aparecerão a branco num fundo escuro.</string>
-    <string name="group_mode">Ativar grupos</string>
-    <string name="group_mode_tip">Desactive esta opção para mostrar todas as aplicações de uma só vez, sem agrupamento.
-        \Os ícones de pesquisa e definições também serão ocultados.
-        \n
-        \nUtilize o botão de retrocesso no seu controlo remoto/controlador para abrir as Definições.</string>
+    <string name="enable_groups">Ativar grupos</string>
+    <string name="enable_groups_tip">Desactive esta opção para mostrar todas as aplicações de uma só vez, sem agrupamento.</string>
     <string name="group_wide">Grupos mais alargados</string>
     <string name="group_wide_tip">Aumenta a largura mínima dos botões de grupo,
         \garantindo que nomes mais longos não sejam cortados.
@@ -289,7 +286,6 @@
     <string name="addons_navigator_desc">Instale e, em seguida, ative para abrir o Lightning Launcher ao premir o botão <b>Meta/Navegador</b>.</string>
     <string name="browser_default_tip">Selecione a aplicação que abrirá os sites que adicionou ao Lightning Launcher.</string>
     <string name="new_label_duration_setting">Indicar ►Aplicações:</string>
-    <string name="new_label_duration_tip">Mostra ►antes do nome das aplicações recentemente adicionadas ao Lightning Launcher e classifica-as antes de outras aplicações.</string>
     <string name="new_label_duration_zero">Não mostrar</string>
     <string name="new_label_duration_template">Durante %d minutos</string>
     <string name="settings_workaround">Clique em Abrir na janela de informações para abrir as Definições do Android.</string>

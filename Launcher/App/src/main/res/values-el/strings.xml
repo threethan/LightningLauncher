@@ -50,11 +50,8 @@
     <string name="advanced_alpha_clamp_tip">Επιτρέπει ένα θολό φόντο κατά τη μετάβαση. <i>Περιορίζει την ποσότητα ημιδιαφάνειας.</i></string>
     <string name="dark_mode">Σκοτεινή λειτουργία</string>
     <string name="dark_mode_tip">Εάν είναι ενεργοποιημένη, οι ετικέτες θα εμφανίζονται λευκές σε σκούρο φόντο.</string>
-    <string name="group_mode">Ενεργοποίηση ομάδων</string>
-    <string name="group_mode_tip">Απενεργοποιήστε το για να εμφανίσετε όλες τις εφαρμογές ταυτόχρονα, χωρίς ομαδοποίηση.
-        \nΤα εικονίδια αναζήτησης και ρυθμίσεων θα είναι επίσης κρυμμένα.
-        \n
-        \nΧρησιμοποιήστε το κουμπί επιστροφής στο τηλεχειριστήριο/χειριστήριο για να ανοίξετε τις Ρυθμίσεις.</string>
+    <string name="enable_groups">Ενεργοποίηση ομάδων</string>
+    <string name="enable_groups_tip">Απενεργοποιήστε το για να εμφανίσετε όλες τις εφαρμογές ταυτόχρονα, χωρίς ομαδοποίηση.</string>
     <string name="group_wide">Ευρύτερες ομάδες</string>
     <string name="group_wide_tip">Αυξάνει το ελάχιστο πλάτος των κουμπιών ομάδας,
         \εξασφαλίζει ότι τα μεγαλύτερα ονόματα δεν θα αποκόπτονται.
@@ -289,7 +286,6 @@
     <string name="addons_navigator_desc">Εγκαταστήστε και, στη συνέχεια, ενεργοποιήστε το για να ανοίξετε το Lightning Launcher όταν πατάτε το κουμπί <b>Meta / Navigator</b>.</string>
     <string name="browser_default_tip">Επιλέξτε την εφαρμογή που θα ανοίξει ιστότοπους που έχετε προσθέσει στο Lightning Launcher.</string>
     <string name="new_label_duration_setting">Υποδείξτε ►Εφαρμογές:</string>
-    <string name="new_label_duration_tip">Εμφανίζεται ►πριν από το όνομα των εφαρμογών που προστέθηκαν πρόσφατα στο Lightning Launcher και τις ταξινομεί πριν από άλλες εφαρμογές.</string>
     <string name="new_label_duration_zero">Μην εμφανίζεται</string>
     <string name="new_label_duration_template">Για %d λεπτά</string>
     <string name="settings_workaround">Κάντε κλικ στο Άνοιγμα στο παράθυρο πληροφοριών για να ανοίξετε τις Ρυθμίσεις Android.</string>

@@ -50,11 +50,8 @@
     <string name="advanced_alpha_clamp_tip">Umożliwia rozmycie tła podczas przechodzenia. <i>Ogranicza stopień przezroczystości.</i></string>
     <string name="dark_mode">Tryb ciemny</string>
     <string name="dark_mode_tip">Jeśli jest włączona, etykiety będą białe na ciemnym tle.</string>
-    <string name="group_mode">Włącz grupy</string>
-    <string name="group_mode_tip">Wyłącz tę opcję, aby wyświetlać wszystkie aplikacje jednocześnie, bez grupowania.
-        \Ikony wyszukiwania i ustawień również zostaną ukryte.
-        \n
-        \Użyj przycisku Wstecz na pilocie/kontrolerze, aby otworzyć Ustawienia.</string>
+    <string name="enable_groups">Włącz grupy</string>
+    <string name="enable_groups_tip">Wyłącz tę opcję, aby wyświetlać wszystkie aplikacje jednocześnie, bez grupowania.</string>
     <string name="group_wide">Szersze grupy</string>
     <string name="group_wide_tip">Zwiększa minimalną szerokość przycisków grup,
         \zapewniając, że dłuższe nazwy nie zostaną obcięte.
@@ -289,7 +286,6 @@
     <string name="addons_navigator_desc">Zainstaluj, a następnie aktywuj, aby otworzyć Lightning Launcher po naciśnięciu przycisku <b>Meta / Navigator</b>.</string>
     <string name="browser_default_tip">Wybierz aplikację, która będzie otwierać strony internetowe dodane do Lightning Launcher.</string>
     <string name="new_label_duration_setting">Wskaż ►Aplikacje:</string>
-    <string name="new_label_duration_tip">Pokazuje ►przed nazwą aplikacji ostatnio dodanych do Lightning Launcher i sortuje je przed innymi aplikacjami.</string>
     <string name="new_label_duration_zero">Nie pokazuj</string>
     <string name="new_label_duration_template">Przez %d minut</string>
     <string name="settings_workaround">Kliknij Otwórz w oknie informacyjnym, aby otworzyć Ustawienia Androida.</string>

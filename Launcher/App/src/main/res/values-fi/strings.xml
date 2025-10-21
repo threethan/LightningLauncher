@@ -50,11 +50,8 @@
     <string name="advanced_alpha_clamp_tip">Mahdollistaa taustan sumentumisen läpiviennin aikana. <i>Rajoittaa läpikuultavuuden määrää.</i></string>
     <string name="dark_mode">Tumma tila</string>
     <string name="dark_mode_tip">Jos tämä on päällä, tarrat näkyvät valkoisina tummalla taustalla.</string>
-    <string name="group_mode">Ota ryhmät käyttöön</string>
-    <string name="group_mode_tip">Kytke tämä pois päältä, jos haluat näyttää kaikki sovellukset kerralla ilman ryhmittelyä.
-        \nHaku- ja asetuskuvakkeet ovat myös piilossa.
-        \n
-        \nAvaa Asetukset kaukosäätimen/ohjaimen takaisin-painikkeella.</string>
+    <string name="enable_groups">Ota ryhmät käyttöön</string>
+    <string name="enable_groups_tip">Kytke tämä pois päältä, jos haluat näyttää kaikki sovellukset kerralla ilman ryhmittelyä.</string>
     <string name="group_wide">Laajemmat ryhmät</string>
     <string name="group_wide_tip">Lisää ryhmäpainikkeiden vähimmäisleveyttä,
         \varmistaa, että pidemmät nimet eivät katkea.
@@ -289,7 +286,6 @@
     <string name="addons_navigator_desc">Asenna ja aktivoi, jotta Lightning Launcher avautuu, kun painat <b>Meta / Navigator</b>-painiketta.</string>
     <string name="browser_default_tip">Valitse sovellus, joka avaa Lightning Launcheriin lisäämäsi verkkosivustot.</string>
     <string name="new_label_duration_setting">Osoita ►Sovellukset:</string>
-    <string name="new_label_duration_tip">Näyttää ►Lightning Launcheriin äskettäin lisättyjen sovellusten nimen edessä ja lajittelee ne muiden sovellusten edelle.</string>
     <string name="new_label_duration_zero">Älä näytä</string>
     <string name="new_label_duration_template">%d minuuttia</string>
     <string name="settings_workaround">Avaa Android-asetukset napsauttamalla tietoikkunassa Avaa.</string>

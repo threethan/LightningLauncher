@@ -50,11 +50,8 @@
     <string name="advanced_alpha_clamp_tip">パススルー中に背景をぼかすことができます。<i>半透明の量を制限します。</i></string>
     <string name="dark_mode">ダークモード</string>
     <string name="dark_mode_tip">オンの場合、ラベルは暗い背景に白く表示される。</string>
-    <string name="group_mode">グループを有効にする</string>
-    <string name="group_mode_tip">グループ化せずにすべてのアプリを一度に表示するには、これをオフにします。
-        \検索や設定のアイコンも非表示になります。
-        \n
-        \リモート/コントローラーの戻るボタンを使用して、[設定]を開きます。</string>
+    <string name="enable_groups">グループを有効にする</string>
+    <string name="enable_groups_tip">グループ化せずにすべてのアプリを一度に表示するには、これをオフにします。</string>
     <string name="group_wide">より広いグループ</string>
     <string name="group_wide_tip">グループボタンの最小幅を広げる、
         \長い名前が切れないようにします。
@@ -285,7 +282,6 @@
     <string name="addons_navigator_desc">インストールして有効化すると、<b>Meta / ナビゲーター</b> ボタンを押したときに Lightning Launcher が開きます。</string>
     <string name="browser_default_tip">Lightning Launcher に追加した Web サイトを開くアプリを選択します。</string>
     <string name="new_label_duration_setting">►アプリを表示:</string>
-    <string name="new_label_duration_tip">Lightning Launcher に最近追加されたアプリの名前の前に ► を表示し、他のアプリよりも前に表示します。</string>
     <string name="new_label_duration_zero">表示しない</string>
     <string name="new_label_duration_template">%d 分間</string>
     <string name="settings_workaround">情報ウィンドウで「開く」をクリックして、Android 設定を開きます。</string>

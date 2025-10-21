@@ -50,11 +50,8 @@
     <string name="advanced_alpha_clamp_tip">Geçiş sırasında bulanık bir arka plana izin verir. <i>Yarı saydamlık miktarını sınırlar.</i></string>
     <string name="dark_mode">Karanlık Mod</string>
     <string name="dark_mode_tip">Açıksa, etiketler koyu bir arka plan üzerinde beyaz görünecektir.</string>
-    <string name="group_mode">Grupları Etkinleştir</string>
-    <string name="group_mode_tip">Gruplama yapmadan tüm uygulamaları aynı anda göstermek için bunu kapatın.
-        \nArama ve ayarlar simgeleri de gizlenecektir.
-        \n
-        \nAyarlar\'ı açmak için uzaktan kumandanızdaki/kontrol cihazınızdaki geri düğmesini kullanın.</string>
+    <string name="enable_groups">Grupları Etkinleştir</string>
+    <string name="enable_groups_tip">Gruplama yapmadan tüm uygulamaları aynı anda göstermek için bunu kapatın.</string>
     <string name="group_wide">Daha Geniş Gruplar</string>
     <string name="group_wide_tip">Grup düğmelerinin minimum genişliğini artırır,
         \Uzun isimlerin kesilmemesini sağlamak.
@@ -289,7 +286,6 @@
     <string name="addons_navigator_desc"><b>Meta / Navigator</b> düğmesine bastığınızda Lightning Launcher\'ı açmak için yükleyin ve ardından etkinleştirin.</string>
     <string name="browser_default_tip">Lightning Launcher\'a eklediğiniz web sitelerini açacak uygulamayı seçin.</string>
     <string name="new_label_duration_setting">►Uygulamalar\'ı göster:</string>
-    <string name="new_label_duration_tip">Lightning Launcher\'a son eklenen uygulamaların adından önce ►gösterir ve bunları diğer uygulamalardan önce sıralar.</string>
     <string name="new_label_duration_template">%d dakika boyunca</string>
     <string name="new_label_duration_zero">Gösterme</string>
     <string name="settings_workaround">Android Ayarlarını açmak için bilgi penceresinde Aç\'a tıklayın.</string>

@@ -50,11 +50,8 @@
     <string name="advanced_alpha_clamp_tip">패스스루 중 배경을 흐리게 처리할 수 있습니다. <i>반투명도의 양을 제한합니다.</i></string>
     <string name="dark_mode">다크 모드</string>
     <string name="dark_mode_tip">켜져 있으면 레이블이 어두운 배경에 흰색으로 표시됩니다.</string>
-    <string name="group_mode">그룹 사용</string>
-    <string name="group_mode_tip">이 기능을 끄면 그룹화하지 않고 모든 앱을 한 번에 표시합니다.
-        \n검색 및 설정 아이콘도 숨겨집니다.
-        \n
-        \n리모컨/컨트롤러의 뒤로 버튼을 사용하여 설정을 엽니다.</string>
+    <string name="enable_groups">그룹 사용</string>
+    <string name="enable_groups_tip">이 기능을 끄면 그룹화하지 않고 모든 앱을 한 번에 표시합니다.</string>
     <string name="group_wide">더 넓은 그룹</string>
     <string name="group_wide_tip">그룹 버튼의 최소 너비를 늘립니다,
         \긴 이름이 잘리지 않도록 합니다.
@@ -289,7 +286,6 @@
     <string name="addons_navigator_desc"><b>Meta/Navigator</b> 버튼을 누를 때 Lightning Launcher가 열리도록 설치한 후 활성화하세요.</string>
     <string name="browser_default_tip">Lightning Launcher에 추가한 웹사이트를 열 앱을 선택하세요.</string>
     <string name="new_label_duration_setting">►앱 표시:</string>
-    <string name="new_label_duration_tip">Lightning Launcher에 최근 추가된 앱 이름 앞에 ►를 표시하고 다른 앱보다 먼저 정렬합니다.</string>
     <string name="new_label_duration_zero">표시 안 함</string>
     <string name="new_label_duration_template">%d분 동안</string>
     <string name="settings_workaround">정보 창에서 열기를 클릭하면 Android 설정이 열립니다.</string>

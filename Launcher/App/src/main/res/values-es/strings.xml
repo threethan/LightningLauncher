@@ -50,11 +50,8 @@
     <string name="advanced_alpha_clamp_tip">Permite un fondo borroso durante el paso a través. <i>Limita la cantidad de translucidez.</i></string>
     <string name="dark_mode">Modo oscuro</string>
     <string name="dark_mode_tip">Si está activada, las etiquetas aparecerán en blanco sobre un fondo oscuro.</string>
-    <string name="group_mode">Habilitar grupos</string>
-    <string name="group_mode_tip">Desactívalo para mostrar todas las aplicaciones a la vez, sin agruparlas.
-        \Los iconos de búsqueda y configuración también se ocultarán.
-        \n
-        \Utilice el botón Atrás del mando a distancia para abrir Ajustes.</string>
+    <string name="enable_groups">Habilitar grupos</string>
+    <string name="enable_groups_tip">Desactívalo para mostrar todas las aplicaciones a la vez, sin agruparlas.</string>
     <string name="group_wide">Grupos más amplios</string>
     <string name="group_wide_tip">Aumenta la anchura mínima de los botones de grupo,
         \asegurando que los nombres más largos no se corten.

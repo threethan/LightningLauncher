@@ -50,11 +50,8 @@
     <string name="advanced_alpha_clamp_tip">Giver mulighed for en sløret baggrund i passthrough. <i>Begrænser mængden af ​​gennemsigtighed.</i></string>
     <string name="dark_mode">Mørk tilstand</string>
     <string name="dark_mode_tip">Hvis den er slået til, bliver etiketterne hvide på en mørk baggrund.</string>
-    <string name="group_mode">Aktivér grupper</string>
-    <string name="group_mode_tip">Slå dette fra for at vise alle apps på én gang uden gruppering.
-        \Søg- og indstillingsikonerne bliver også skjult.
-        \n
-        \nBrug tilbage-knappen på din fjernbetjening/controller til at åbne Indstillinger.</string>
+    <string name="enable_groups">Aktivér grupper</string>
+    <string name="enable_groups_tip">Slå dette fra for at vise alle apps på én gang uden gruppering.</string>
     <string name="group_wide">Større grupper</string>
     <string name="group_wide_tip">Øger minimumsbredden på gruppeknapper,
         \sikrer, at længere navne ikke afskæres.
@@ -289,7 +286,6 @@
     <string name="addons_navigator_desc">Installer, og aktiver derefter for at åbne Lightning Launcher, når du trykker på <b>Meta / Navigator</b>-knappen.</string>
     <string name="browser_default_tip">Vælg den app, der åbner websteder, du har tilføjet til Lightning Launcher.</string>
     <string name="new_label_duration_setting">Angiv ►Apps:</string>
-    <string name="new_label_duration_tip">Viser ►før navnet på apps, der for nylig er tilføjet til Lightning Launcher, og sorterer dem før andre apps.</string>
     <string name="new_label_duration_zero">Vis ikke</string>
     <string name="new_label_duration_template">I %d minutter</string>
     <string name="settings_workaround">Klik på Åbn i informationsvinduet for at åbne Android-indstillinger.</string>

@@ -50,11 +50,8 @@
     <string name="advanced_alpha_clamp_tip">Ermöglicht einen unscharfen Hintergrund im Durchgang. <i>Begrenzt die Transparenz.</i></string>
     <string name="dark_mode">Dunkler Modus</string>
     <string name="dark_mode_tip">Wenn diese Option aktiviert ist, erscheinen die Etiketten weiß auf einem dunklen Hintergrund.</string>
-    <string name="group_mode">Gruppen freigeben</string>
-    <string name="group_mode_tip">Deaktivieren Sie diese Option, um alle Anwendungen auf einmal anzuzeigen, ohne sie zu gruppieren.
-        \nDie Such- und Einstellungssymbole werden ebenfalls ausgeblendet.
-        \n
-        \nBenutzen Sie die Zurück-Taste auf Ihrer Fernbedienung/Controller, um die Einstellungen zu öffnen.</string>
+    <string name="enable_groups">Gruppen freigeben</string>
+    <string name="enable_groups_tip">Deaktivieren Sie diese Option, um alle Anwendungen auf einmal anzuzeigen, ohne sie zu gruppieren.</string>
     <string name="group_wide">Größere Gruppen</string>
     <string name="group_wide_tip">Erhöht die Mindestbreite von Gruppenschaltflächen,
         \nur so werden längere Namen nicht abgeschnitten.
@@ -289,7 +286,6 @@
     <string name="addons_navigator_desc">Installieren und aktivieren Sie die Anwendung, um den Lightning Launcher zu öffnen, wenn Sie die <b>Meta / Navigator</b>-Schaltfläche drücken.</string>
     <string name="browser_default_tip">Wählen Sie die App aus, die die Websites öffnet, die Sie zu Lightning Launcher hinzugefügt haben.</string>
     <string name="new_label_duration_setting">►Apps anzeigen:</string>
-    <string name="new_label_duration_tip">Zeigt ► vor dem Namen kürzlich zu Lightning Launcher hinzugefügter Apps an und sortiert sie vor anderen Apps.</string>
     <string name="new_label_duration_zero">Nicht anzeigen</string>
     <string name="new_label_duration_template">Für %d Minuten</string>
     <string name="settings_workaround">Klicken Sie im Infofenster auf „Öffnen“, um die Android-Einstellungen zu öffnen.</string>

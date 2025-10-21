@@ -134,8 +134,8 @@
     </string>
 
 
-    <string name="download_browser_message">For the best experience, you must install Lightning Browser to open websites in Lightning Launcher.\n
-        \n(Alternatively, you can try to change the browser in Settings -> Advanced Settings)
+    <string name="download_browser_message">For the best experience, you must install <b>Lightning Browser</b> to open websites.\n
+        \n<i>(Alternatively, you can try to change the browser in Settings > Advanced Settings)</i>
     </string>
     <string name="update_browser_message">For the best experience, you must update Lightning Browser.</string>
 =   <string name="download_browser_toast_main">Open the website again</string>

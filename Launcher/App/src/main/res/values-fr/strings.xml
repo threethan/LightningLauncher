@@ -50,8 +50,8 @@
     <string name="advanced_alpha_clamp_tip">Permet un arrière-plan flou lors du passage. <i>Limite la translucidité.</i></string>
     <string name="dark_mode">Mode sombre</string>
     <string name="dark_mode_tip">Si cette option est activée, les étiquettes apparaîtront en blanc sur un fond sombre.</string>
-    <string name="group_mode">Activer les groupes</string>
-    <string name="group_mode_tip">Désactivez cette option pour afficher toutes les applications en même temps, sans les regrouper.
+    <string name="enable_groups">Activer les groupes</string>
+    <string name="enable_groups_tip">Désactivez cette option pour afficher toutes les applications en même temps, sans les regrouper.
         \Les icônes de recherche et de paramètres seront également masquées.
         \n
         \NUtilisez le bouton retour de votre télécommande/contrôleur pour ouvrir les paramètres.</string>
@@ -285,7 +285,6 @@
     <string name="addons_navigator_desc">Installez-la, puis activez-la pour ouvrir Lightning Launcher en appuyant sur le bouton <b>Meta / Navigateur</b>.</string>
     <string name="browser_default_tip">Sélectionnez l\'application qui ouvrira les sites Web que vous avez ajoutés à Lightning Launcher.</string>
     <string name="new_label_duration_setting">Indiquer ►Applications :</string>
-    <string name="new_label_duration_tip">Affiche ► avant le nom des applications récemment ajoutées à Lightning Launcher et les classe avant les autres applications.</string>
     <string name="new_label_duration_zero">Ne pas afficher</string>
     <string name="new_label_duration_template">Pendant %d minutes</string>
     <string name="settings_workaround">Cliquez sur Ouvrir dans la fenêtre d’informations pour ouvrir les paramètres Android.</string>

@@ -50,11 +50,8 @@
     <string name="advanced_alpha_clamp_tip">Позволяет использовать размытый фон при сквозном прохождении. <i>Ограничивает степень полупрозрачности.</i></string>
     <string name="dark_mode">Темный режим</string>
     <string name="dark_mode_tip">Если включено, то этикетки будут выглядеть белыми на темном фоне.</string>
-    <string name="group_mode">Включить группы</string>
-    <string name="group_mode_tip">Выключите эту функцию, чтобы показать все приложения сразу, без группировки.
-        \nПоиск и значки настроек также будут скрыты.
-        \n
-        \nИспользуйте кнопку назад на пульте дистанционного управления, чтобы открыть Настройки.</string>
+    <string name="enable_groups">Включить группы</string>
+    <string name="enable_groups_tip">Выключите эту функцию, чтобы показать все приложения сразу, без группировки.</string>
     <string name="group_wide">Более широкие группы</string>
     <string name="group_wide_tip">Увеличивает минимальную ширину кнопок групп,
         \nзаботясь о том, чтобы длинные имена не обрезались.
@@ -289,7 +286,6 @@
     <string name="addons_navigator_desc">Установите, а затем активируйте, чтобы открыть Lightning Launcher при нажатии кнопки <b>Meta / Navigator</b>.</string>
     <string name="browser_default_tip">Выберите приложение, которое будет открывать веб-сайты, добавленные вами в Lightning Launcher.</string>
     <string name="new_label_duration_setting">Указать ►Приложения:</string>
-    <string name="new_label_duration_tip">Показывает ►перед названием приложений, недавно добавленных в Lightning Launcher, и сортирует их перед другими приложениями.</string>
     <string name="new_label_duration_zero">Не показывать</string>
     <string name="new_label_duration_template">В течение %d минут</string>
     <string name="settings_workaround">Нажмите «Открыть» в информационном окне, чтобы открыть настройки Android.</string>

@@ -50,11 +50,8 @@
     <string name="advanced_alpha_clamp_tip">Consente di ottenere uno sfondo sfocato durante il passthrough. <i>Limita la quantità di traslucenza.</i></string>
     <string name="dark_mode">Modalità scura</string>
     <string name="dark_mode_tip">Se è attiva, le etichette appariranno bianche su sfondo scuro.</string>
-    <string name="group_mode">Abilitazione dei gruppi</string>
-    <string name="group_mode_tip">Disattivare questa opzione per mostrare tutte le app in una volta sola, senza raggrupparle.
-        \Anche le icone della ricerca e delle impostazioni saranno nascoste.
-        \n
-        \Utilizzare il pulsante Indietro del telecomando per aprire le Impostazioni.</string>
+    <string name="enable_groups">Abilitazione dei gruppi</string>
+    <string name="enable_groups_tip">Disattivare questa opzione per mostrare tutte le app in una volta sola, senza raggrupparle.</string>
     <string name="group_wide">Gruppi più ampi</string>
     <string name="group_wide_tip">Aumenta la larghezza minima dei pulsanti di gruppo,
         \´per evitare che i nomi più lunghi vengano tagliati.
@@ -285,7 +282,6 @@
     <string name="addons_navigator_desc">Installarla e quindi attivarla per aprire Lightning Launcher quando si preme il pulsante <b>Meta / Navigatore</b>.</string>
     <string name="browser_default_tip">Seleziona l\'app che aprirà i siti web che hai aggiunto a Lightning Launcher.</string>
     <string name="new_label_duration_setting">Indica ►App:</string>
-    <string name="new_label_duration_tip">Mostra ►prima del nome delle app aggiunte di recente a Lightning Launcher e le ordina prima delle altre app.</string>
     <string name="new_label_duration_zero">Non mostrare</string>
     <string name="new_label_duration_template">Per %d minuti</string>
     <string name="settings_workaround">Fare clic su Apri nella finestra informativa per aprire le Impostazioni di Android.</string>

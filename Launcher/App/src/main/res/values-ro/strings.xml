@@ -50,11 +50,8 @@
     <string name="advanced_alpha_clamp_tip">Permite un fundal neclar în timpul trecerii. <i>Limitează cantitatea de transluciditate.</i></string>
     <string name="dark_mode">Mod întunecat</string>
     <string name="dark_mode_tip">Dacă este activată, etichetele vor apărea albe pe un fundal închis.</string>
-    <string name="group_mode">Activarea grupurilor</string>
-    <string name="group_mode_tip">Dezactivați această opțiune pentru a afișa toate aplicațiile simultan, fără grupare.
-        \nIcoanele de căutare și de setări vor fi, de asemenea, ascunse.
-        \n
-        \nUtilizați butonul înapoi de pe telecomandă/controler pentru a deschide Setări.</string>
+    <string name="enable_groups">Activarea grupurilor</string>
+    <string name="enable_groups_tip">Dezactivați această opțiune pentru a afișa toate aplicațiile simultan, fără grupare.</string>
     <string name="group_wide">Grupuri mai largi</string>
     <string name="group_wide_tip">Crește lățimea minimă a butoanelor de grup,
         \nasigurându-se că numele mai lungi nu sunt tăiate.
@@ -289,7 +286,6 @@
     <string name="addons_navigator_desc">Instalați, apoi activați, pentru a deschide Lightning Launcher atunci când apăsați butonul <b>Meta / Navigator</b>.</string>
     <string name="browser_default_tip">Selectați aplicația care va deschide site-urile web pe care le-ați adăugat la Lightning Launcher.</string>
     <string name="new_label_duration_setting">Indicați ►Aplicații:</string>
-    <string name="new_label_duration_tip">Se afișează ►înaintea numelui aplicațiilor adăugate recent în Lightning Launcher și le sortează înaintea altor aplicații.</string>
     <string name="new_label_duration_zero">Nu se afișează</string>
     <string name="new_label_duration_template">Timp de %d minute</string>
     <string name="settings_workaround">Faceți clic pe Deschidere în fereastra de informații pentru a deschide Setările Android.</string>

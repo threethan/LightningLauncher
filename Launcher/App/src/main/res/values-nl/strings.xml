@@ -50,11 +50,8 @@
     <string name="advanced_alpha_clamp_tip">Zorgt voor een wazige achtergrond tijdens de passthrough. <i>Beperkt de hoeveelheid doorschijnendheid.</i></string>
     <string name="dark_mode">Donkere modus</string>
     <string name="dark_mode_tip">Als deze optie is ingeschakeld, worden labels wit weergegeven op een donkere achtergrond.</string>
-    <string name="group_mode">Groepen inschakelen</string>
-    <string name="group_mode_tip">Schakel dit uit om alle apps tegelijk weer te geven, zonder te groeperen.
-        \Zoek- en instellingenpictogrammen worden ook verborgen.
-        \n
-        \Gebruik de terugknop op uw afstandsbediening/controller om Instellingen te openen.</string>
+    <string name="enable_groups">Groepen inschakelen</string>
+    <string name="enable_groups_tip">Schakel dit uit om alle apps tegelijk weer te geven, zonder te groeperen.</string>
     <string name="group_wide">Grotere groepen</string>
     <string name="group_wide_tip">Vergroot de minimale breedte van groepsknoppen,
         \zodat langere namen niet worden afgesneden.
@@ -285,7 +282,6 @@
     <string name="addons_navigator_desc">Installeer en activeer vervolgens om Lightning Launcher te openen wanneer je op de <b>Meta / Navigator</b>-knop drukt.</string>
     <string name="browser_default_tip">Selecteer de app waarmee u de websites opent die u aan Lightning Launcher hebt toegevoegd.</string>
     <string name="new_label_duration_setting">►Apps aangeven:</string>
-    <string name="new_label_duration_tip">Toont ►vóór de naam van apps die recentelijk aan Lightning Launcher zijn toegevoegd en sorteert ze vóór andere apps.</string>
     <string name="new_label_duration_zero">Niet weergeven</string>
     <string name="new_label_duration_template">Gedurende %d minuten</string>
     <string name="settings_workaround">Klik op Openen in het infovenster om Android-instellingen te openen.</string>
