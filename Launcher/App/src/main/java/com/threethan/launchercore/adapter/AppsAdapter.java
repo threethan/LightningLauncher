@@ -32,7 +32,7 @@ import java.util.concurrent.ExecutorService;
 public class AppsAdapter<VH extends AppsAdapter.AppViewHolder>
         extends ListAdapter<ApplicationInfo, VH> {
 
-    private List<ApplicationInfo> fullAppList;
+    protected List<ApplicationInfo> appList;
     protected final int itemLayoutResId;
 
 
@@ -56,13 +56,13 @@ public class AppsAdapter<VH extends AppsAdapter.AppViewHolder>
     }
 
     public void refresh() {
-        if (fullAppList == null) return;
+        if (appList == null) return;
 
-        submitList(new ArrayList<>(fullAppList));
+        submitList(new ArrayList<>(appList));
     }
-    protected void setFullItems(List<ApplicationInfo> items) {
-        if (items.equals(fullAppList)) return;
-        fullAppList = items;
+    protected void setAppList(List<ApplicationInfo> items) {
+        if (items.equals(appList)) return;
+        appList = items;
         refresh();
     }
 
@@ -159,7 +159,7 @@ public class AppsAdapter<VH extends AppsAdapter.AppViewHolder>
         ApplicationInfo app = getItem(position);
 
         // Conditionally clear the view
-        boolean clearImmediate = holder.app != null && fullAppList.size() > 100
+        boolean clearImmediate = holder.app != null && appList.size() > 100
                 && !Objects.equals(app.packageName, holder.app.packageName);
 
         holder.app = app;

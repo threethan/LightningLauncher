@@ -191,6 +191,7 @@ public abstract class AppUpdater extends RemotePackageUpdater {
         }
         new Thread(() -> {
             try {
+                android.net.TrafficStats.setThreadStatsTag(5);
                 java.net.URL url = new java.net.URL(String.format(URL_GITHUB_API_TEMPLATE, getGitRepo()));
                 java.net.HttpURLConnection conn = (java.net.HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("GET");

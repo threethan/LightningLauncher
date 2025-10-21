@@ -5,6 +5,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:overScrollMode="never"
     android:padding="0dp"
     tools:ignore="TextSizeCheck">
 
@@ -12,11 +13,11 @@
         android:id="@+id/itemLaunch"
         android:layout_width="match_parent"
         android:layout_height="39dp"
+        android:clipToPadding="false"
         android:orientation="vertical"
         android:paddingHorizontal="20dp"
         android:paddingTop="17dp"
-        android:paddingBottom="15dp"
-        android:clipToPadding="false">
+        android:paddingBottom="15dp">
 
         <View
             android:layout_width="455dp"
@@ -32,10 +33,10 @@
             android:src="@drawable/ic_back" />
 
         <TextView
-            android:layout_marginTop="-9dp"
             style="@style/SettingTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="-9dp"
             android:text="@string/settings_main"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -52,18 +53,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="0.0.0" />
+
         <TextView
             android:id="@+id/variantLabel"
             android:layout_width="wrap_content"
-            android:layout_marginTop="-28dp"
-            android:layout_marginBottom="5dp"
             android:layout_height="20dp"
             android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginTop="-28dp"
+            android:layout_marginBottom="5dp"
             android:alpha="0.5"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/app_variant_name"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:text="@string/app_variant_name" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <include
             layout="@layout/flipper"
             android:layout_width="match_parent"
@@ -74,19 +77,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
-            app:childMargin="10dp"
             android:orientation="horizontal"
+            app:childMargin="10dp"
             app:widthThreshold="400dp">
+
             <com.threethan.launchercore.view.LcButton
-                style="@style/buttonHighlight"
                 android:id="@+id/updateButton"
+                style="@style/buttonHighlight"
                 android:layout_width="0dp"
                 android:layout_height="39dp"
+                android:drawableEnd="@drawable/ic_update"
+                android:drawablePadding="10dp"
                 android:text="@string/settings_update"
                 android:visibility="gone"
                 tools:ignore="UnusedAttribute"
-                android:drawableEnd="@drawable/ic_update"
-                android:drawablePadding="10dp"
                 tools:visibility="visible" />
 
             <com.threethan.launchercore.view.LcButton
@@ -103,6 +107,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <TextView
                 style="@style/SettingSubtitle"
                 android:layout_width="match_parent"
@@ -110,18 +115,19 @@
                 android:layout_marginTop="5dp"
                 android:paddingTop="5dp"
                 android:text="@string/behavior_header" />
+
             <com.threethan.launchercore.view.LcSwitch
                 android:id="@+id/multitaskSwitch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|end"
-                android:gravity="end"
-                android:ellipsize="end"
+                android:layout_marginEnd="-6dp"
                 android:layout_marginBottom="5dp"
                 android:background="@android:color/transparent"
+                android:ellipsize="end"
+                android:gravity="end"
                 android:scaleX="0.85"
                 android:scaleY="0.85"
-                android:layout_marginEnd="-6dp"
                 android:switchPadding="5dp"
                 android:text="@string/new_multitasking"
                 android:tooltipText="@string/new_multitasking_tip"
@@ -139,17 +145,17 @@
             android:padding="0dp">
 
             <com.threethan.launchercore.view.LcSwitch
-                android:layout_marginBottom="10dp"
                 android:id="@+id/forceUntranslatedSwitch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/lc_bkg_button_section"
                 android:switchPadding="7dp"
                 android:text="@string/force_untranslated"
                 android:tooltipText="@string/force_untranslated_tip"
                 android:visibility="gone"
-                tools:visibility="visible"
-                tools:ignore="UnusedAttribute" />
+                tools:ignore="UnusedAttribute"
+                tools:visibility="visible" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -176,9 +182,9 @@
                     android:layout_height="match_parent"
                     android:layout_weight="3"
                     android:background="@drawable/lc_bkg_button_section"
-                    android:foreground="@drawable/lc_fg_focusable"
                     android:drawableStart="@drawable/ic_add"
                     android:drawablePadding="5dp"
+                    android:foreground="@drawable/lc_fg_focusable"
                     android:paddingStart="5dp"
                     android:paddingEnd="5dp"
                     android:text="@string/add_website"
@@ -215,7 +221,6 @@
             </LinearLayout>
 
 
-
         </LinearLayout>
 
         <FrameLayout
@@ -231,34 +236,34 @@
             <com.threethan.launchercore.view.LcSwitch
                 android:id="@+id/darkModeSwitch"
                 android:layout_width="150dp"
-                android:gravity="end"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|end"
+                android:layout_marginEnd="-4dp"
                 android:layout_marginBottom="5dp"
-                android:ellipsize="end"
                 android:background="@android:color/transparent"
+                android:ellipsize="end"
+                android:gravity="end"
                 android:scaleX="0.85"
                 android:scaleY="0.85"
                 android:switchPadding="5dp"
-                android:layout_marginEnd="-4dp"
                 android:text="@string/dark_mode"
-                tools:ignore="UnusedAttribute,UseSwitchCompatOrMaterialXml"
-                android:tooltipText="@string/dark_mode_tip"/>
+                android:tooltipText="@string/dark_mode_tip"
+                tools:ignore="UnusedAttribute,UseSwitchCompatOrMaterialXml" />
         </FrameLayout>
 
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="42dp"
+            android:background="@drawable/lc_bkg_button_top"
             android:padding="0dp"
             android:scrollbars="none"
-            android:background="@drawable/lc_bkg_button_top"
             tools:ignore="SpeakableTextPresentCheck">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:padding="6dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:padding="6dp">
 
                 <ImageView
                     android:id="@+id/background0"
@@ -400,11 +405,11 @@
             android:layout_marginTop="-18dp"
             android:background="@drawable/lc_bkg_button_section"
             android:backgroundTint="#0000"
-            android:paddingHorizontal="0dp"
-            android:paddingBottom="0dp"
-            android:paddingTop="20dp"
             android:baselineAligned="false"
             android:orientation="horizontal"
+            android:paddingHorizontal="0dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="0dp"
             app:childMargin="2dp"
             app:widthThreshold="-1dp">
 
@@ -465,9 +470,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="2"
+                    android:foreground="@drawable/lc_fg_focusable"
                     android:max="255"
                     android:padding="0dp"
-                    android:foreground="@drawable/lc_fg_focusable"
                     android:progressBackgroundTint="@android:color/white"
                     android:progressDrawable="@drawable/seekbar_custom"
                     android:thumb="@null" />
@@ -484,26 +489,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:baselineAligned="false"
+            android:minHeight="54dp"
             android:orientation="horizontal">
 
             <com.threethan.launcher.activity.view.WidthAdaptiveLinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:orientation="horizontal"
-                app:widthThreshold="300dp"
                 android:background="@drawable/lc_bkg_button_section"
                 android:backgroundTint="#0000"
+                android:orientation="horizontal"
                 android:padding="0dp"
                 app:childMargin="2dp"
-                android:layout_marginEnd="8dp"
+                app:widthThreshold="300dp"
                 tools:ignore="UnusedAttribute">
 
                 <com.threethan.launchercore.view.LcButton
                     android:id="@+id/editTopBarButton"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="62dp"
+                    android:layout_weight="1"
                     android:background="@drawable/lc_bkg_button_middle"
                     android:drawableEnd="@drawable/ic_dialog"
                     android:text="@string/customize_top_bar" />
@@ -511,8 +517,8 @@
                 <com.threethan.launchercore.view.LcButton
                     android:id="@+id/advancedSettingsButton"
                     android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_height="62dp"
                     android:background="@drawable/lc_bkg_button_middle"
                     android:drawableEnd="@drawable/ic_dialog"
                     android:text="@string/advanced_header" />
@@ -529,12 +535,12 @@
                     android:background="@drawable/lc_bkg_button_section"
                     android:tooltipText="@string/refresh_button"
                     tools:ignore="UnusedAttribute" />
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_refresh"
-                    />
+                    android:src="@drawable/ic_refresh" />
             </FrameLayout>
         </LinearLayout>
 
