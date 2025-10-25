@@ -128,7 +128,7 @@ public abstract class App {
     }
 
     public static boolean isWebsite(String packageName) {
-        return packageName.contains("//")
+        return packageName.contains("://")
                 && !packageName.startsWith("systemux:")
                 && !isShortcut(packageName);
     }

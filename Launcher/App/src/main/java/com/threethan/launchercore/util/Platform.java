@@ -212,7 +212,8 @@ public abstract class Platform {
             "com.google.android.healthconnect.controller",
             "com.google.android.inputmethod.latin",
             "com.android.tv",
-            "com.google.android.tvlauncher"
+            "com.google.android.tvlauncher",
+            "com.google.android.tv.remoteservice"
     ));
 
     static {

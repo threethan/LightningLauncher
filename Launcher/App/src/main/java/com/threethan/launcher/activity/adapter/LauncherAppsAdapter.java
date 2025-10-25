@@ -10,7 +10,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.BaseInterpolator;
-import android.view.animation.LinearInterpolator;
+import android.view.animation.DecelerateInterpolator;
 import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -305,7 +305,7 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
                         case View.FOCUS_LEFT -> xSign = -1;
                         case View.FOCUS_RIGHT -> xSign = 1;
                     }
-                    float tension = hasFocus ? -1f : -3f;
+                    float tension = hasFocus ? 1f : -3f;
                     if (hasFocus) {
                         xSign *= -1;
                         ySign *= -1;
@@ -313,7 +313,7 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
                     view.animate().rotationX(ySign * intensity).rotationY(-xSign * intensity)
                             .setDuration(50).setInterpolator(new OvershootInterpolator(tension))
                             .withEndAction(() -> view.animate().rotationX(0).rotationY(0)
-                                    .setDuration(200).setInterpolator(new OvershootInterpolator(tension))
+                                    .setDuration(hasFocus ? 60 : 120).setInterpolator(new OvershootInterpolator(tension))
                                     .start())
                             .start();
                     ValueAnimator va = ValueAnimator.ofFloat(0, 1);
@@ -436,9 +436,9 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
             final float newZ = focused ? (Platform.isTv() ? -0.5f : (holder.banner ? 1f :0f)) : 0f;
 
             final float textScale = 1 - (1 - (1 / newScaleOuter)) * 0.7f;
-            final int duration = tv ? 175 : 250;
+            final int duration = tv ? 200 : 250;
             BaseInterpolator interpolator = Platform.isTv() ?
-                    new LinearInterpolator() : new OvershootInterpolator();
+                    new DecelerateInterpolator() : new OvershootInterpolator();
 
             holder.view.animate().scaleX(newScaleOuter).scaleY(newScaleOuter)
                     .setDuration(duration).setInterpolator(interpolator).start();
@@ -446,8 +446,10 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
                 holder.view.animate().rotationX(0).rotationY(0)
                     .setDuration(duration).setInterpolator(new OvershootInterpolator(-3)).start();
             }
+            if (!tv) {
             holder.moreButton.animate().alpha(focused ? 1f : 0f)
                     .setDuration(duration).setInterpolator(interpolator).start();
+            }
             holder.textView.animate().scaleX(textScale).scaleY(textScale)
                     .setDuration(duration).setInterpolator(interpolator).start();
 

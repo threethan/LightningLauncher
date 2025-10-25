@@ -65,13 +65,13 @@ public abstract class LaunchExt extends Launch {
         SettingsManager.registerRecentlyLaunchedApp(app);
 
         // Prompt to install browser if launching a url without one installed
-        if (App.getType(app) == App.Type.WEB
-                || app.packageName.equals(PlatformExt.LIGHTNING_BROWSER_PACKAGE)
-                || app.packageName.equals(PlatformExt.OCULUS_BROWSER_PACKAGE)) {
-            if (!App.packageExists(app.packageName)) {
-                showBrowserInstallPrompt(launcherActivity);
-                return false;
-            }
+        if (intent == null && App.getType(app) == App.Type.WEB ||
+                (intent != null && intent.getPackage() != null &&
+                    (intent.getPackage().equals(PlatformExt.LIGHTNING_BROWSER_PACKAGE)
+                    || intent.getPackage().equals(PlatformExt.OCULUS_BROWSER_PACKAGE))
+                && !App.packageExists(intent.getPackage()))) {
+            showBrowserInstallPrompt(launcherActivity);
+            return false;
         }
 
         if (app.packageName.equals("com.android.settings") && Platform.cantLaunchSettings()) {
@@ -255,6 +255,9 @@ public abstract class LaunchExt extends Launch {
     /** Launches an URL using a view intent, in a new window.
      * If activity is null, it will attempt to close the foreground instance. */
     public static void launchUrl(@Nullable Activity activity, String url, boolean forceChromium) {
+        Log.d("LaunchExt", "Launching URL: "+url+" (forceChromium="+forceChromium+")");
+
+        if (!url.contains("://")) url = "https://" + url;
 
         Intent openURL = new Intent(Intent.ACTION_VIEW);
         openURL.setData(Uri.parse(url));
@@ -268,10 +271,11 @@ public abstract class LaunchExt extends Launch {
         } else if (activity instanceof LauncherActivity
                 || LauncherActivity.getForegroundInstance() != null) {
             ApplicationInfo urlApp = new ApplicationInfo();
-            urlApp.packageName = PlatformExt.LIGHTNING_BROWSER_PACKAGE;
+            urlApp.packageName = url;
             LauncherActivity acl = activity instanceof LauncherActivity la ? la : LauncherActivity.getForegroundInstance();
             DelayLib.delayed(() -> LaunchExt.launchApp(acl, urlApp));
         } else {
+            Log.w("LaunchExt", "No launcher activity to launch URL from, launching directly");
             DelayLib.delayed(() -> Core.context().startActivity(openURL), 50);
         }
     }
