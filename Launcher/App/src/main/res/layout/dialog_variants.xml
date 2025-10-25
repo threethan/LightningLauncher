@@ -60,7 +60,7 @@
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_marginEnd="10dp"
-                    android:src="@drawable/ic_icon_feed"
+                    android:src="@drawable/ic_icon_blue"
                     tools:ignore="DuplicateIds" />
 
                 <TextView
@@ -131,7 +131,7 @@
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_marginEnd="10dp"
-                    android:src="@drawable/ic_icon_store"
+                    android:src="@drawable/ic_icon_orange"
                     tools:ignore="DuplicateIds" />
 
                 <TextView
@@ -202,7 +202,7 @@
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_marginEnd="10dp"
-                    android:src="@drawable/ic_icon_library"
+                    android:src="@drawable/ic_icon_grey"
                     tools:ignore="DuplicateIds" />
 
                 <TextView

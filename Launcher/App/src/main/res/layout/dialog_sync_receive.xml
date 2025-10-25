@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <View
+            android:layout_width="500dp"
+            android:layout_height="0dp"/>
+        <TextView
+            style="@style/DialogTitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="center"
+            android:drawablePadding="10dp"
+            android:text="@string/transfer_dialog_title"
+            android:drawableStart="@drawable/ic_transfer_settings"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/lc_bkg_button_section"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/syncFromIcon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_icon_grey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/syncFromName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical|start"
+                    android:text="\?\?\?"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/syncFromDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0.5"
+                    android:gravity="center_vertical|start"
+                    android:lineSpacingExtra="-4dp"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_arrow_drop_down" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/lc_bkg_button_top"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/syncToIcon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_icon_grey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/syncToName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical|start"
+                    android:text="\?\?\?"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/syncToDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0.5"
+                    android:gravity="center_vertical|start"
+                    android:lineSpacingExtra="-4dp"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/lc_bkg_button_bottom"
+            android:gravity="center"
+            android:text="@string/transfer_dialog_destination_disclaimer" />
+
+        <TextView
+            android:layout_margin="20dp"
+            android:layout_gravity="start|center_vertical"
+            android:layout_width="match_parent"
+            android:minLines="3"
+            android:layout_height="wrap_content"
+            android:text="@string/transfer_dialog_details" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <com.threethan.launchercore.view.LcButton
+                android:id="@+id/cancel"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="10dp"
+                android:layout_height="match_parent"
+                android:text="@string/cancel"/>
+
+            <com.threethan.launchercore.view.LcButton
+                android:id="@+id/confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/transfer_dialog_confirm"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>

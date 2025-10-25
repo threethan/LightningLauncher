@@ -299,6 +299,7 @@ public abstract class Compat {
 
     public static void restartFully() {
         LauncherActivity foregroundInstance = LauncherActivity.getForegroundInstance();
+        LcDialog.closeAll();
         if (foregroundInstance != null && foregroundInstance.launcherService != null) {
             foregroundInstance.launcherService.forEachActivity(Activity::finishAffinity);
             foregroundInstance.launcherService.stopSelf();

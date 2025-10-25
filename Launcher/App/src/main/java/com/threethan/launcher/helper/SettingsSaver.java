@@ -2,8 +2,6 @@ package com.threethan.launcher.helper;
 
 import android.app.Activity;
 
-import androidx.datastore.DataStoreFile;
-
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.data.sync.SyncCoordinator;
@@ -30,8 +28,8 @@ public abstract class SettingsSaver {
     public static void save(Activity activity) {
         if (!PlatformExt.validateVariantWithNotify()) return;
 
-        File prefs1 = DataStoreFile.dataStoreFile(activity, SyncCoordinator.DATA_STORE_DEFAULT + ".preferences_pb");
-        File prefs2 = DataStoreFile.dataStoreFile(activity, SyncCoordinator.DATA_STORE_PER_APP + ".preferences_pb");
+        File prefs1 = SyncCoordinator.getAbsoluteFileFor(activity, SyncCoordinator.DATA_STORE_DEFAULT);
+        File prefs2 = SyncCoordinator.getAbsoluteFileFor(activity, SyncCoordinator.DATA_STORE_PER_APP);
         File exportPath = activity.getExternalFilesDir("");
         File export = new File(exportPath, EXPORT_FILE_NAME);
         assert exportPath != null;
@@ -49,7 +47,7 @@ public abstract class SettingsSaver {
     public static void saveSort(Activity activity) {
         if (!PlatformExt.validateVariantWithNotify()) return;
 
-        File prefs = DataStoreFile.dataStoreFile(activity, SyncCoordinator.DATA_STORE_SORT + ".preferences_pb");
+        File prefs = SyncCoordinator.getAbsoluteFileFor(activity, SyncCoordinator.DATA_STORE_SORT);
         File exportPath = activity.getExternalFilesDir("");
         File export = new File(exportPath, EXPORT_FILE_NAME_SORT);
         assert exportPath != null;

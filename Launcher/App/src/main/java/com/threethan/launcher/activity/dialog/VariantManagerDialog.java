@@ -69,7 +69,7 @@ public class VariantManagerDialog extends LcDialog<LauncherActivity> {
             buttons.findViewById(R.id.variantLaunch).setOnClickListener(v -> LaunchExt.launchApp(a, AppExt.infoFor(packageName)));
 
             buttons.findViewById(R.id.variantTransfer).setOnClickListener(v ->
-                    SyncCoordinator.transferSettingsTo(a, packageName, true)
+                    SyncCoordinator.transferSettingsTo(a, packageName)
             );
         } else {
             view.setVisibility(View.GONE);

@@ -232,14 +232,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths_datastore" />
         </provider>
-        <receiver android:name=".data.sync.SyncReceiver"
-            android:exported="true"
-            tools:ignore="ExportedReceiver">
-            <intent-filter>
-                <category android:name="android.intent.category.DEFAULT" />
-                <action android:name="com.threethan.launcher.GRANT_URI_RECEIVER" />
-            </intent-filter>
-        </receiver>
 
         <receiver
             android:name="com.threethan.launcher.PackageChangeReceiver"
@@ -252,5 +244,17 @@
             </intent-filter>
         </receiver>
 
+
+        <activity android:name=".activity.SyncReceiveActivity"
+            android:exported="true"
+            android:theme="@style/ThemeOverlay.Standard">
+            <layout android:defaultWidth="1024dp" android:defaultHeight="640dp" android:gravity="top|end" />
+            <meta-data android:name="com.oculus.vrshell.supports_free_resizing" android:value="false"/>
+
+            <intent-filter>
+                <action android:name="com.threethan.launcher.action.SYNC_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 </manifest>

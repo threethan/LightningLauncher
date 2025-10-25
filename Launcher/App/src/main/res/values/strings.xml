@@ -428,11 +428,23 @@
     <string name="variant_sideload">LL: Sideloaded Version</string>
     <string name="variant_metastore">LL: Quest Store Version</string>
     <string name="variant_playstore">LL: Google Play Version</string>
+
     <string name="transfer_to_variant">Transfer Launcher Settings to this Variant</string>
     <string name="variant_metastore_details">This version will appear in your Quest\'s native app library, but is missing a few special features.</string>
     <string name="variant_playstore_details">This version can be installed and updated through Google Play on Google TV devices.</string>
     <string name="variant_sideload_details">This version was installed from an APK or SideQuest. It may only show up under \"Unofficial Sources.\"</string>
     <string name="manage_variants_details">You have multiple variants of Lightning Launcher installed. You can manage them from this menu.</string>
+
+    <string name="transfer_dialog_title">Transfer Launcher Settings</string>
+    <string name="transfer_dialog_details">All settings, <u>including groups and sort</u>,
+        will be copied from the source <i>(top)</i> to the destination <i>(bottom)</i>.
+        \n<b>This cannot be undone!</b></string>
+    <string name="transfer_dialog_destination_disclaimer">⚠️   This variant\'s current settings will be lost!</string>
+    <string name="transfer_dialog_confirm">⚠️ Transfer Settings</string>
+
+    <string name="transfer_issue_generic">An issue occurred, and settings could not be transferred!</string>
+    <string name="transfer_issue_other_older">Update the target variant first!</string>
+    <string name="transfer_issue_other_newer">Update this variant first!</string>
 
     <!-- Default Groups -->
     <string name="default_group_2d">Apps</string>
@@ -446,4 +458,5 @@
     <string name="sort_recently_used_no_perm">Sorting by Recently Launched</string>
     <string name="sort_recently_installed_no_perm">Sorting by Recently Added</string>
     <string name="current">★ Current</string>
+
 </resources>
