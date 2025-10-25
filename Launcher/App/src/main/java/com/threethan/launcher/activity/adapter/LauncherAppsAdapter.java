@@ -119,7 +119,7 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
 
         SettingsManager settingsManager = SettingsManager.getInstance(launcherActivity);
 
-        boolean showHidden = !text.isEmpty() && launcherActivity.dataStoreEditor.getBoolean(
+        boolean showHidden = !text.isEmpty() && launcherActivity.getDataStoreEditor().getBoolean(
                 Settings.KEY_SEARCH_HIDDEN, Settings.DEFAULT_SEARCH_HIDDEN);
 
         Consumer<List<ApplicationInfo>> onSearchableListReady = newItems -> {
@@ -131,7 +131,7 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
                 if (hg != null) newItems.removeIf(ai -> hg.contains(ai.packageName));
             }
 
-            boolean showWeb = !text.isEmpty() && launcherActivity.dataStoreEditor
+            boolean showWeb = !text.isEmpty() && launcherActivity.getDataStoreEditor()
                     .getBoolean(Settings.KEY_SEARCH_WEB, Settings.DEFAULT_SEARCH_WEB);
 
             // Add search queries
@@ -250,7 +250,7 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
         });
         holder.view.setOnLongClickListener(view -> {
             if (holder.app == null || holder.app.packageName == null) return false;
-            if (getEditMode() || !launcherActivity.canEdit() || launcherActivity.dataStoreEditor
+            if (getEditMode() || !launcherActivity.canEdit() || launcherActivity.getDataStoreEditor()
                     .getBoolean(Settings.KEY_DETAILS_LONG_PRESS, Settings.
                             DEFAULT_DETAILS_LONG_PRESS)) {
                 new AppDetailsDialog(launcherActivity, holder.app).show();

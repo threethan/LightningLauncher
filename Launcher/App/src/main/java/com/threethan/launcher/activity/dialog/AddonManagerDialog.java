@@ -43,12 +43,12 @@ public class AddonManagerDialog extends LcDialog<LauncherActivity> {
             if (
                     Platform.getVrOsVersion() > 76 &&
                             Platform.getVrOsVersion() < 82 && // [SPECULATION] Navigator will be default by v82
-                            !activity.dataStoreEditor.getBoolean(Settings.KEY_ADDONS_VR_TYPE_KNOWN, false)
+                            !activity.getDataStoreEditor().getBoolean(Settings.KEY_ADDONS_VR_TYPE_KNOWN, false)
             ) {
                 return R.layout.dialog_addons_vr_indeterminate;
             } else {
                 boolean defaultHasNavigator = Platform.getVrOsVersion() > 76;
-                boolean hasNavigator = activity.dataStoreEditor.getBoolean(
+                boolean hasNavigator = activity.getDataStoreEditor().getBoolean(
                         Settings.KEY_ADDONS_VR_HAS_NAVIGATOR,
                         defaultHasNavigator
                 );
@@ -88,7 +88,7 @@ public class AddonManagerDialog extends LcDialog<LauncherActivity> {
         View variantSwitchContainer = dialog.findViewById(R.id.variantSwitchContainer);
         if (variantSwitchContainer != null) {
             boolean allowShortcuts =
-                    a.dataStoreEditor.getBoolean(Settings.KEY_ALLOW_SHORTCUTS, Settings.DEFAULT_ALLOW_SHORTCUTS);
+                    a.getDataStoreEditor().getBoolean(Settings.KEY_ALLOW_SHORTCUTS, Settings.DEFAULT_ALLOW_SHORTCUTS);
 
             if (VariantHelper.hasVariants(a)) {
                 variantSwitchContainer.setVisibility(View.VISIBLE);
@@ -97,10 +97,10 @@ public class AddonManagerDialog extends LcDialog<LauncherActivity> {
                 variantSwitch.setChecked(allowShortcuts);
 
                 dialog.findViewById(R.id.variantSwitch).setOnClickListener(v
-                        -> a.dataStoreEditor.putBoolean(Settings.KEY_ALLOW_SHORTCUTS, variantSwitch.isChecked()));
+                        -> a.getDataStoreEditor().putBoolean(Settings.KEY_ALLOW_SHORTCUTS, variantSwitch.isChecked()));
             } else {
                 variantSwitchContainer.setVisibility(View.GONE);
-                a.dataStoreEditor.putBoolean(Settings.KEY_ALLOW_SHORTCUTS, Settings.DEFAULT_ALLOW_SHORTCUTS);
+                a.getDataStoreEditor().putBoolean(Settings.KEY_ALLOW_SHORTCUTS, Settings.DEFAULT_ALLOW_SHORTCUTS);
             }
         }
 
@@ -114,23 +114,23 @@ public class AddonManagerDialog extends LcDialog<LauncherActivity> {
 
         View navigatorGotoView = dialog.findViewById(R.id.addonNavigatorGotoButton);
         if (navigatorGotoView != null) navigatorGotoView.setOnClickListener(v -> {
-            a.dataStoreEditor.putValue(Settings.KEY_ADDONS_VR_TYPE_KNOWN, true, true);
-            a.dataStoreEditor.putValue(Settings.KEY_ADDONS_VR_HAS_NAVIGATOR, true, true);
+            a.getDataStoreEditor().putValue(Settings.KEY_ADDONS_VR_TYPE_KNOWN, true, true);
+            a.getDataStoreEditor().putValue(Settings.KEY_ADDONS_VR_HAS_NAVIGATOR, true, true);
             dialog.dismiss();
             new AddonManagerDialog(a).show();
         });
 
         View dockGotoButton    = dialog.findViewById(R.id.addonDockGotoButton);
         if (dockGotoButton    != null) dockGotoButton   .setOnClickListener(v -> {
-            a.dataStoreEditor.putValue(Settings.KEY_ADDONS_VR_TYPE_KNOWN, true, true);
-            a.dataStoreEditor.putValue(Settings.KEY_ADDONS_VR_HAS_NAVIGATOR, false, true);
+            a.getDataStoreEditor().putValue(Settings.KEY_ADDONS_VR_TYPE_KNOWN, true, true);
+            a.getDataStoreEditor().putValue(Settings.KEY_ADDONS_VR_HAS_NAVIGATOR, false, true);
             dialog.dismiss();
             new AddonManagerDialog(a).show();
         });
 
         View indeterminateGotoView = dialog.findViewById(R.id.addonIndeterminateGotoButton);
         if (indeterminateGotoView != null) indeterminateGotoView.setOnClickListener(v -> {
-            a.dataStoreEditor.putValue(Settings.KEY_ADDONS_VR_TYPE_KNOWN, false, true);
+            a.getDataStoreEditor().putValue(Settings.KEY_ADDONS_VR_TYPE_KNOWN, false, true);
             dialog.dismiss();
             new AddonManagerDialog(a).show();
         });

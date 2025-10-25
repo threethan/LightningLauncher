@@ -50,13 +50,13 @@ public abstract class Compat {
     public static synchronized void checkCompatibilityUpdate(LauncherActivity launcherActivity) {
         Core.init(launcherActivity);
         if (DEBUG_COMPATIBILITY) Log.e(TAG, "CRITICAL WARNING: DEBUG_COMPATIBILITY IS ON");
-        DataStoreEditor dataStoreEditor = launcherActivity.dataStoreEditor;
+        DataStoreEditor dataStoreEditor = launcherActivity.getDataStoreEditor();
 
         int storedVersion = DEBUG_COMPATIBILITY ? 0 : dataStoreEditor.getInt(Compat.KEY_COMPATIBILITY_VERSION, -1);
 
         if (storedVersion == -1) {
             // Attempt migration
-            DataStoreEditor dse1 = SyncCoordinator.getDefaultDataStore(launcherActivity);
+            DataStoreEditor dse1 = SyncCoordinator.getDefaultDataStoreEditor(launcherActivity);
             dse1.asyncWrite = false;
             dse1.migrateDefault(launcherActivity);
             DataStoreEditor dse2 = SyncCoordinator.getSortDataStore(launcherActivity);
@@ -173,7 +173,7 @@ public abstract class Compat {
                     case (11):
                         clearIconCache(launcherActivity);
                     case (12):
-                        SyncCoordinator.getPerAppDataStore(launcherActivity).copyFrom(SyncCoordinator.getDefaultDataStore(launcherActivity));
+                        SyncCoordinator.getPerAppDataStore(launcherActivity).copyFrom(SyncCoordinator.getDefaultDataStoreEditor(launcherActivity));
                 }
             }
             Log.i(TAG, String.format("Settings Updated from v%s to v%s (Settings versions are not the same as app versions)",
@@ -183,7 +183,7 @@ public abstract class Compat {
             Log.e(TAG, "An exception occurred when attempting to perform the compatibility update", e);
         }
 
-        launcherActivity.dataStoreEditor.removeStringSet(Settings.KEY_GROUP_APP_LIST + Settings.UNSUPPORTED_GROUP);
+        launcherActivity.getDataStoreEditor().removeStringSet(Settings.KEY_GROUP_APP_LIST + Settings.UNSUPPORTED_GROUP);
         launcherActivity.needsUpdateCleanup = true;
 
         // Store the updated version
@@ -198,8 +198,8 @@ public abstract class Compat {
     public static void clearIcons(LauncherActivity launcherActivity) {
         Log.i(TAG, "Icons are being cleared");
         FileLib.delete(launcherActivity.getApplicationInfo().dataDir + IconLoader.ICON_CUSTOM_FOLDER);
-        launcherActivity.dataStoreEditor.removeStringSet(Settings.KEY_FORCED_BANNER);
-        launcherActivity.dataStoreEditor.removeStringSet(Settings.KEY_FORCED_SQUARE);
+        launcherActivity.getDataStoreEditor().removeStringSet(Settings.KEY_FORCED_BANNER);
+        launcherActivity.getDataStoreEditor().removeStringSet(Settings.KEY_FORCED_SQUARE);
         clearIconCache(launcherActivity);
     }
     // Clears all icons, except for custom icons, and sets them to be re-downloaded
@@ -224,8 +224,8 @@ public abstract class Compat {
         SettingsManager.appLabelCache.clear();
         SettingsManager.sortableLabelCache.clear();
         for (String packageName : launcherActivity.getAllPackages()) {
-            launcherActivity.dataStoreEditor.removeString(packageName);
-            launcherActivity.dataStoreEditor.removeString(packageName+META_LABEL_SUFFIX);
+            launcherActivity.getDataStoreEditor().removeString(packageName);
+            launcherActivity.getDataStoreEditor().removeString(packageName+META_LABEL_SUFFIX);
         }
 
         launcherActivity.launcherService.forEachActivity(LauncherActivity::refreshAppList);
@@ -234,9 +234,9 @@ public abstract class Compat {
     public static void clearSort(LauncherActivity launcherActivity) {
         new Thread(() -> {
             Log.i(TAG, "App sort is being cleared");
-            Set<String> appGroupsSet = launcherActivity.dataStoreEditor.getStringSet(Settings.KEY_GROUPS, new HashSet<>());
+            Set<String> appGroupsSet = launcherActivity.getDataStoreEditor().getStringSet(Settings.KEY_GROUPS, new HashSet<>());
             for (String groupName : appGroupsSet)
-                launcherActivity.dataStoreEditor.removeStringSet(Settings.KEY_GROUP_APP_LIST + groupName);
+                launcherActivity.getDataStoreEditor().removeStringSet(Settings.KEY_GROUP_APP_LIST + groupName);
             SettingsManager.clearDefaultGroupsCache();
             dataStoreEditor.removeLong(Settings.KEY_NEWLY_ADDED_BASELINE); // Reset newly added baseline
             storeAndReload(launcherActivity);
@@ -246,7 +246,7 @@ public abstract class Compat {
     public static void resetDefaultGroups(LauncherActivity launcherActivity) {
         new Thread(() -> {
             for (App.Type type : PlatformExt.getSupportedAppTypes())
-                launcherActivity.dataStoreEditor.removeString(Settings.KEY_DEFAULT_GROUP + type);
+                launcherActivity.getDataStoreEditor().removeString(Settings.KEY_DEFAULT_GROUP + type);
             SettingsManager.clearDefaultGroupsCache();
             launcherActivity.settingsManager.resetGroupsAndSort();
             clearSort(launcherActivity);
@@ -265,14 +265,16 @@ public abstract class Compat {
         ));
     }
     private static DataStoreEditor dataStoreEditor;
-    public static DataStoreEditor getDataStore() {
+    public static DataStoreEditor getDataStoreEditor() {
         if (LauncherActivity.getForegroundInstance() != null
-        && LauncherActivity.getForegroundInstance().dataStoreEditor != null) {
-            dataStoreEditor = LauncherActivity.getForegroundInstance().dataStoreEditor;
+        && LauncherActivity.getForegroundInstance().getDataStoreEditor() != null) {
+            dataStoreEditor = LauncherActivity.getForegroundInstance().getDataStoreEditor();
         } else if (dataStoreEditor == null) {
             Log.w(TAG, "Failed to grab dataStoreEditor from instance, using fallback");
-            dataStoreEditor = SyncCoordinator.getDefaultDataStore(Core.context());
+            dataStoreEditor = SyncCoordinator.getDefaultDataStoreEditor(Core.context());
         }
+        if (dataStoreEditor == null)
+            throw new IllegalStateException("dataStoreEditor is null!");
         return dataStoreEditor;
     }
 

@@ -99,13 +99,13 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
         } else {
             addonsButton.setOnClickListener(view -> new AddonManagerDialog(a).show());
         }
-        if (!a.dataStoreEditor.getBoolean(Settings.KEY_SEEN_ADDONS, false)
+        if (!a.getDataStoreEditor().getBoolean(Settings.KEY_SEEN_ADDONS, false)
                 && (Platform.isVr() || Platform.isTv())) {
             View addonsButtonAttract = dialog.findViewById(R.id.addonsButtonAttract);
             addonsButtonAttract.setVisibility(View.VISIBLE);
             addonsButton.setVisibility(View.GONE);
             addonsButtonAttract.setOnClickListener(view -> {
-                a.dataStoreEditor.putBoolean(Settings.KEY_SEEN_ADDONS, true);
+                a.getDataStoreEditor().putBoolean(Settings.KEY_SEEN_ADDONS, true);
                 new AddonManagerDialog(a).show();
             });
         }
@@ -203,7 +203,7 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
                 dialog.findViewById(R.id.background9),
                 dialog.findViewById(R.id.background_custom)
         };
-        int background = a.dataStoreEditor.getInt(Settings.KEY_BACKGROUND,
+        int background = a.getDataStoreEditor().getInt(Settings.KEY_BACKGROUND,
                 Platform.isTv()
                         ? Settings.DEFAULT_BACKGROUND_TV
                         : Settings.DEFAULT_BACKGROUND_VR);
@@ -219,7 +219,7 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
         for (int i = 0; i < views.length; i++) {
             int index = i;
             views[i].setOnClickListener(view -> {
-                int lastIndex = a.dataStoreEditor.getInt(Settings.KEY_BACKGROUND,
+                int lastIndex = a.getDataStoreEditor().getInt(Settings.KEY_BACKGROUND,
                         Platform.isTv()
                                 ? Settings.DEFAULT_BACKGROUND_TV
                                 : Settings.DEFAULT_BACKGROUND_VR);
@@ -262,12 +262,12 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
 
         // Icons & Layout
         SeekBar scale = dialog.findViewById(R.id.scaleSeekBar);
-        scale.setProgress(a.dataStoreEditor.getInt(Settings.KEY_SCALE, Settings.DEFAULT_SCALE));
+        scale.setProgress(a.getDataStoreEditor().getInt(Settings.KEY_SCALE, Settings.DEFAULT_SCALE));
 
         scale.post(() -> scale.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int value, boolean b) {
-                a.dataStoreEditor.putInt(Settings.KEY_SCALE, value);
+                a.getDataStoreEditor().putInt(Settings.KEY_SCALE, value);
                 LauncherActivity.iconScale = value;
                 a.refreshInterface();
             }
@@ -285,11 +285,11 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) scale.setMin(Settings.MIN_SCALE);
 
         SeekBar margin = dialog.findViewById(R.id.marginSeekBar);
-        margin.setProgress(a.dataStoreEditor.getInt(Settings.KEY_MARGIN, Settings.DEFAULT_MARGIN));
+        margin.setProgress(a.getDataStoreEditor().getInt(Settings.KEY_MARGIN, Settings.DEFAULT_MARGIN));
         margin.post(() -> margin.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int value, boolean b) {
-                a.dataStoreEditor.putInt(Settings.KEY_MARGIN, value);
+                a.getDataStoreEditor().putInt(Settings.KEY_MARGIN, value);
                 LauncherActivity.iconMargin = value;
                 a.refreshAdapters();
             }
@@ -368,11 +368,11 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
 
         if (Platform.isQuest()) {
             SeekBar alpha = dialog.findViewById(R.id.alphaSeekBar);
-            alpha.setProgress(255 - a.dataStoreEditor.getInt(Settings.KEY_BACKGROUND_ALPHA, Settings.DEFAULT_ALPHA));
+            alpha.setProgress(255 - a.getDataStoreEditor().getInt(Settings.KEY_BACKGROUND_ALPHA, Settings.DEFAULT_ALPHA));
             alpha.post(() -> alpha.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                 @Override
                 public void onProgressChanged(SeekBar seekBar, int value, boolean b) {
-                    a.dataStoreEditor.putInt(Settings.KEY_BACKGROUND_ALPHA, 255 - value);
+                    a.getDataStoreEditor().putInt(Settings.KEY_BACKGROUND_ALPHA, 255 - value);
                     // Automatically turn on dark mode if we're settings transparency above 50%
                     // (the user can turn it back on themselves after, if they want)
                     if (value > 128) {
@@ -435,7 +435,7 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
         LauncherActivity ctx = LauncherActivity.getForegroundInstance();
         if (ctx != null) {
             final Spinner newLabelDurationSpinner = dialog.findViewById(R.id.newLabelDurationSpinner);
-            final int newLabelValue = a.dataStoreEditor.getInt(
+            final int newLabelValue = a.getDataStoreEditor().getInt(
                     Settings.KEY_TAG_MAX_DURATION,
                     Settings.DEFAULT_KEY_TAG_MAX_DURATION);
             final int newLabelIndex = Settings.NEWLY_ADDED_DURATION_OPTIONS.indexOf(newLabelValue);
@@ -452,7 +452,7 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
             newLabelDurationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    ctx.dataStoreEditor.putInt(Settings.KEY_TAG_MAX_DURATION,
+                    ctx.getDataStoreEditor().putInt(Settings.KEY_TAG_MAX_DURATION,
                             Settings.NEWLY_ADDED_DURATION_OPTIONS.get(position));
                 }
                 @Override
@@ -463,14 +463,14 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
         // Launch Section
         final Spinner defaultBrowserSpinner = dialog.findViewById(R.id.launchBrowserSpinner);
 
-        final int defaultBrowserSelection = a.dataStoreEditor.getInt(
+        final int defaultBrowserSelection = a.getDataStoreEditor().getInt(
                 Settings.KEY_DEFAULT_BROWSER,
                 SettingsManager.getDefaultBrowser());
         initSpinner(defaultBrowserSpinner,
                 Platform.isQuest()
                         ? R.array.advanced_launch_browsers_quest
                         : R.array.advanced_launch_browsers,
-                p -> a.dataStoreEditor.putInt(Settings.KEY_DEFAULT_BROWSER, p),
+                p -> a.getDataStoreEditor().putInt(Settings.KEY_DEFAULT_BROWSER, p),
                 defaultBrowserSelection);
 
         Switch chainLaunchSwitch = dialog.findViewById(R.id.allowChainLaunchSwitch);
@@ -611,9 +611,9 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
      */
     private void attachSwitchToSetting(Switch toggle, String setting,
                                        boolean def, Consumer<Boolean> onSwitch, boolean inverted) {
-        toggle.setChecked(inverted != a.dataStoreEditor.getBoolean(setting, def));
+        toggle.setChecked(inverted != a.getDataStoreEditor().getBoolean(setting, def));
         toggle.setOnCheckedChangeListener((compoundButton, value) -> {
-            a.dataStoreEditor.putBoolean(setting, inverted != value);
+            a.getDataStoreEditor().putBoolean(setting, inverted != value);
             if (onSwitch != null) onSwitch.accept(inverted != value);
             a.launcherService.forEachActivity(LauncherActivity::refreshInterface);
         });

@@ -197,8 +197,8 @@ public abstract class LaunchExt extends Launch {
             Intent intent;
             if (app.packageName.startsWith("http://") || (app.packageName.startsWith("https://"))) {
                 final int browserIndex
-                        = activity.dataStoreEditor.getInt(Settings.KEY_LAUNCH_BROWSER + app.packageName,
-                        activity.dataStoreEditor.getInt(Settings.KEY_DEFAULT_BROWSER, 0));
+                        = activity.getDataStoreEditor().getInt(Settings.KEY_LAUNCH_BROWSER + app.packageName,
+                        activity.getDataStoreEditor().getInt(Settings.KEY_DEFAULT_BROWSER, 0));
                 intent = new Intent(Intent.ACTION_VIEW, Uri.parse(app.packageName));
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 // Reference: arrays.xml -> advance_launch_browsers

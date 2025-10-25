@@ -101,7 +101,7 @@ public class GroupDetailsDialog extends LcDialog<LauncherActivity> {
             // Move the default group when we rename
             for (App.Type type : PlatformExt.getSupportedAppTypes())
                 if (SettingsManager.getDefaultGroupFor(type).equals(groupName))
-                    a.dataStoreEditor.putValue(Settings.KEY_DEFAULT_GROUP + type,
+                    a.getDataStoreEditor().putValue(Settings.KEY_DEFAULT_GROUP + type,
                             newGroupName, true);
             SettingsManager.clearDefaultGroupsCache();
 

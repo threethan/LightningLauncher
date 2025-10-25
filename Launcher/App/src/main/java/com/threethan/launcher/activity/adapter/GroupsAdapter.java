@@ -3,6 +3,7 @@ package com.threethan.launcher.activity.adapter;
 import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -49,6 +50,16 @@ public class GroupsAdapter extends RecyclerView.Adapter<GroupsAdapter.GroupViewH
         selectedGroups = settings.getSelectedGroups();
         if (!editMode) selectedGroups.remove(Settings.HIDDEN_GROUP);
         if (selectedGroups.isEmpty()) selectedGroups.addAll(appGroups);
+
+        if (appGroups.isEmpty()) {
+            Log.w("GroupsAdapter", "No app groups found!");
+            activity.postDelayed(() -> {
+                if (appGroups.isEmpty() && launcherActivity != null) {
+                    Log.i("GroupsAdapter", "Refreshing app list to hopefully populate groups...");
+                    launcherActivity.refreshAppList();
+                }
+            }, 500);
+        }
     }
     public void setLauncherActivity(LauncherActivity val) {
         launcherActivity = val;

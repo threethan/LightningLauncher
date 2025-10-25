@@ -73,7 +73,7 @@ public abstract class SettingsSaver {
 
         LcDialog.toast(activity.getString(R.string.settings_load));
 
-        SyncCoordinator.getDefaultDataStore(activity).copyFrom(export);
+        SyncCoordinator.getDefaultDataStoreEditor(activity).copyFrom(export);
 
         LcDialog.toast(activity.getString(R.string.saved_settings_loading));
         new Timer().schedule(new TimerTask() {

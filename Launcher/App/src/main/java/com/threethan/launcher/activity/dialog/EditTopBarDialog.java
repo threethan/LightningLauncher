@@ -50,9 +50,9 @@ public class EditTopBarDialog extends LcDialog<LauncherActivity> {
         if (toggle.getParent() instanceof View parentView) {
             parentView.setOnClickListener(v -> toggle.performClick());
         }
-        toggle.setChecked(a.dataStoreEditor.getBoolean(SettingKey, defaultValue));
+        toggle.setChecked(a.getDataStoreEditor().getBoolean(SettingKey, defaultValue));
         toggle.setOnCheckedChangeListener((b, checked) -> {
-            a.dataStoreEditor.putBoolean(SettingKey, checked);
+            a.getDataStoreEditor().putBoolean(SettingKey, checked);
             a.launcherService.forEachActivity(a -> a.postDelayed(refreshGroups ? () -> {
                 a.setEditMode(true);
                 a.setEditMode(false);

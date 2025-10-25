@@ -82,9 +82,7 @@ public class LauncherActivityEditable extends LauncherActivity {
     @SuppressLint("UseCompatTextViewDrawableApis")
     @Override
     public void refreshInterface() {
-        dataStoreEditor = SyncCoordinator.getDefaultDataStore(this);
-
-        if (editMode == null) setEditMode(dataStoreEditor.getBoolean(Settings.KEY_EDIT_MODE, false));
+        if (editMode == null) setEditMode(getDataStoreEditor().getBoolean(Settings.KEY_EDIT_MODE, false));
 
         super.refreshInterface();
 
@@ -214,12 +212,12 @@ public class LauncherActivityEditable extends LauncherActivity {
         boolean wasNull = editMode == null;
         editMode = value;
         if (!editMode) currentSelectedApps.clear();
-        if (dataStoreEditor == null) return;
+        if (getDataStoreEditor() == null) return;
 
         View topGradient = rootView.findViewById(R.id.topGradient);
         topGradient.setVisibility(editMode || groupsEnabled || Platform.isPhone() ? View.VISIBLE : View.GONE);
 
-        dataStoreEditor.putBoolean(Settings.KEY_EDIT_MODE, editMode);
+        getDataStoreEditor().putBoolean(Settings.KEY_EDIT_MODE, editMode);
         final View focused = getCurrentFocus();
         if (!wasNull) {
             refreshInterface();
@@ -259,7 +257,7 @@ public class LauncherActivityEditable extends LauncherActivity {
     public void refreshAppList() {
         super.refreshAppList();
 
-        Set<String> webApps = dataStoreEditor.getStringSet(Settings.KEY_WEBSITE_LIST, new HashSet<>());
+        Set<String> webApps = getDataStoreEditor().getStringSet(Settings.KEY_WEBSITE_LIST, new HashSet<>());
         Set<String> packages = getAllPackages();
 
         try {
@@ -321,7 +319,7 @@ public class LauncherActivityEditable extends LauncherActivity {
             String url  = urlEdit.getText().toString().toLowerCase();
             if (StringLib.isInvalidUrl(url)) url = "https://" + url;
             if (StringLib.isInvalidUrl(url)) return;
-            PlatformExt.addWebsite(dataStoreEditor, url);
+            PlatformExt.addWebsite(getDataStoreEditor(), url);
             if (!url.contains("://")) url = "https://" + url;
             settingsManager.setAppGroup(url, group);
             dialog.cancel();

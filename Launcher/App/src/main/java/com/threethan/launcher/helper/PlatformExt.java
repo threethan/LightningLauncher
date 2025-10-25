@@ -113,7 +113,7 @@ public abstract class PlatformExt {
         apps.clear();
         apps.addAll(Platform.listInstalledApps());
         // Add web apps
-        Set<String> webApps = launcherActivity.dataStoreEditor
+        Set<String> webApps = launcherActivity.getDataStoreEditor()
                 .getStringSet(Settings.KEY_WEBSITE_LIST, Collections.emptySet());
         // LL Specific
         for (String url:webApps) {
@@ -133,14 +133,14 @@ public abstract class PlatformExt {
     /** @return True, if we should use the new multitasking behaviour */
     public static boolean useNewVrOsMultiWindow() {
         if (!Platform.supportsNewVrOsMultiWindow()) return false;
-        return Compat.getDataStore()
+        return Compat.getDataStoreEditor()
                 .getBoolean(Settings.KEY_NEW_MULTITASK, Settings.DEFAULT_NEW_MULTITASK);
     }
 
     /** @return True, if we should use the new launching behaviour */
     public static boolean useVrOsChainLaunch() {
         if (!Platform.supportsVrOsChainLaunch()) return false;
-        return Compat.getDataStore()
+        return Compat.getDataStoreEditor()
                 .getBoolean(Settings.KEY_ALLOW_CHAIN_LAUNCH, Settings.DEFAULT_ALLOW_CHAIN_LAUNCH);
     }
 

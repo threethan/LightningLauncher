@@ -37,7 +37,7 @@ public abstract class SyncCoordinator {
         return "";
     }
 
-    public static DataStoreEditor getDefaultDataStore(Context context) {
+    public static DataStoreEditor getDefaultDataStoreEditor(Context context) {
         context = context.getApplicationContext();
         return new DataStoreEditor(context, getDefaultDataStoreName());
     }

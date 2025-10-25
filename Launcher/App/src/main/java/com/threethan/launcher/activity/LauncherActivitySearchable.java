@@ -88,7 +88,7 @@ public class LauncherActivitySearchable extends LauncherActivityEditable {
 
         // When opening the search bar, select all groups to search through everything
         HashSet<String> groupSet = new HashSet<>(settingsManager.getAppGroupsSorted(false));
-        if (dataStoreEditor.getBoolean(Settings.KEY_SEARCH_HIDDEN, Settings.DEFAULT_SEARCH_HIDDEN))
+        if (getDataStoreEditor().getBoolean(Settings.KEY_SEARCH_HIDDEN, Settings.DEFAULT_SEARCH_HIDDEN))
             groupSet.add(Settings.HIDDEN_GROUP);
 
         settingsManager.setSelectedGroups(groupSet);

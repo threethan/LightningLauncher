@@ -156,14 +156,14 @@ public class AppDetailsDialog extends LcDialog<LauncherActivity> {
             // Browser selection spinner
             if (appType == App.Type.WEB) {
                 final String launchBrowserKey = Settings.KEY_LAUNCH_BROWSER + app.packageName;
-                final int launchBrowserSelection = a.dataStoreEditor.getInt(
+                final int launchBrowserSelection = a.getDataStoreEditor().getInt(
                         launchBrowserKey,
                         SettingsManager.getAppLaunchOut(app.packageName) ? 0 : 1);
                 initSpinner(launchBrowserSpinner,
                         Platform.isQuest()
                                 ? R.array.advanced_launch_browsers_quest
                                 : R.array.advanced_launch_browsers,
-                        p -> a.dataStoreEditor.putInt(launchBrowserKey, p),
+                        p -> a.getDataStoreEditor().putInt(launchBrowserKey, p),
                         launchBrowserSelection);
                 launchBrowserSpinner.setVisibility(View.VISIBLE);
             } else if (Platform.isVr() && !appType.equals(App.Type.UTILITY)) {
@@ -174,14 +174,14 @@ public class AppDetailsDialog extends LcDialog<LauncherActivity> {
                 AtomicBoolean isInit = new AtomicBoolean(true);
                 initSpinner(launchSizeSpinner, R.array.advanced_launch_sizes, p -> {
                     SyncCoordinator.getPerAppDataStore(a).putInt(launchSizeKey, p);
-                    if (!isInit.get() && !a.dataStoreEditor.getBoolean("HAS_SEEN_3LS_PROMPT", false)) {
+                    if (!isInit.get() && !a.getDataStoreEditor().getBoolean("HAS_SEEN_3LS_PROMPT", false)) {
                         new CustomDialog.Builder(a)
                                 .setTitle(R.string.warning)
                                 .setMessage(R.string.custom_window_size_message)
                                 .setPositiveButton(R.string.understood, (d, w)
                                         -> {
                                     d.dismiss();
-                                    a.dataStoreEditor.putBoolean("HAS_SEEN_3LS_PROMPT", true);
+                                    a.getDataStoreEditor().putBoolean("HAS_SEEN_3LS_PROMPT", true);
                                 })
                                 .show();
                     }

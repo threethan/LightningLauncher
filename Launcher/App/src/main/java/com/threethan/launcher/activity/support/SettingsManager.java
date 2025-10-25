@@ -73,7 +73,7 @@ public class SettingsManager extends Settings {
     private static final Map<Context, SettingsManager> instanceByContext = Collections.synchronizedMap(new HashMap<>());
     private SettingsManager(LauncherActivity activity) {
         myLauncherActivityRef = new WeakReference<>(activity);
-        dataStoreEditor = activity.dataStoreEditor;
+        dataStoreEditor = activity.getDataStoreEditor();
         dataStoreEditorSort = SyncCoordinator.getSortDataStore(activity);
         dataStoreEditorPerApp = SyncCoordinator.getPerAppDataStore(activity);
 
@@ -618,7 +618,7 @@ public class SettingsManager extends Settings {
     public static void setDefaultGroupFor(App.Type type, String newDefault) {
         if (newDefault == null) return;
         defaultGroupCache.put(type, newDefault);
-        Compat.getDataStore().putString(Settings.KEY_DEFAULT_GROUP + type, newDefault);
+        Compat.getDataStoreEditor().putString(Settings.KEY_DEFAULT_GROUP + type, newDefault);
     }
 
     /**
@@ -675,8 +675,8 @@ public class SettingsManager extends Settings {
             isBannerCache.put(type, banner);
             dataStoreEditor.putBoolean(Settings.KEY_BANNER + type, banner);
 
-            la.dataStoreEditor.removeStringSet(Settings.KEY_FORCED_SQUARE);
-            la.dataStoreEditor.removeStringSet(Settings.KEY_FORCED_BANNER);
+            la.getDataStoreEditor().removeStringSet(Settings.KEY_FORCED_SQUARE);
+            la.getDataStoreEditor().removeStringSet(Settings.KEY_FORCED_BANNER);
             Compat.clearIconCache(la);
             la.launcherService.forEachActivity(LauncherActivity::notifyAdapterDisplayModeChanged);
         }

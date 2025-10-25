@@ -66,7 +66,7 @@ public class AddShortcutActivity extends Activity {
         }
 
         String json = getFixedGsonWriter().toJson(shortcutInfo);
-        DataStoreEditor dataStoreEditor = Compat.getDataStore();
+        DataStoreEditor dataStoreEditor = Compat.getDataStoreEditor();
         String url = PlatformExt.addWebsite(dataStoreEditor, json, label);
 
         ApplicationInfo app = new ApplicationInfo();

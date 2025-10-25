@@ -50,10 +50,10 @@ public abstract class AppExt extends App {
         LauncherActivity launcher = LauncherActivity.getForegroundInstance();
         if (App.isWebsite(packageName)) {
             if (launcher == null) return;
-            Set<String> webApps = launcher.dataStoreEditor.getStringSet(Settings.KEY_WEBSITE_LIST, Collections.emptySet());
+            Set<String> webApps = launcher.getDataStoreEditor().getStringSet(Settings.KEY_WEBSITE_LIST, Collections.emptySet());
             webApps = new HashSet<>(webApps); // Copy since we're not supposed to modify directly
             webApps.remove(packageName);
-            launcher.dataStoreEditor
+            launcher.getDataStoreEditor()
                     .putString(packageName, null) // set display name
                     .putStringSet(Settings.KEY_WEBSITE_LIST, webApps);
             launcher.launcherService.forEachActivity(LauncherActivity::refreshAppList);

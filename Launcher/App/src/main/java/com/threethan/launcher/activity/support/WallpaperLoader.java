@@ -91,13 +91,13 @@ public class WallpaperLoader {
 
             if (Platform.isQuest())
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU
-                        && owner.dataStoreEditor.getBoolean(Settings.KEY_BACKGROUND_ALPHA_PRESERVE,
+                        && owner.getDataStoreEditor().getBoolean(Settings.KEY_BACKGROUND_ALPHA_PRESERVE,
                         Settings.DEFAULT_BACKGROUND_ALPHA_PRESERVE)) {
-                    float alpha = getBackgroundAlpha(owner.dataStoreEditor) / 255f;
-                    imageBitmap = preserveAlphaBitmap(imageBitmap, alpha, shouldClampAlpha(owner.dataStoreEditor));
+                    float alpha = getBackgroundAlpha(owner.getDataStoreEditor()) / 255f;
+                    imageBitmap = preserveAlphaBitmap(imageBitmap, alpha, shouldClampAlpha(owner.getDataStoreEditor()));
                     wallpaperDrawable = new BitmapDrawable(Resources.getSystem(), imageBitmap);
                 } else {
-                    wallpaperDrawable.setAlpha(getBackgroundAlpha(owner.dataStoreEditor) + 1);
+                    wallpaperDrawable.setAlpha(getBackgroundAlpha(owner.getDataStoreEditor()) + 1);
                 }
             // Apply
             BitmapDrawable finalWallpaperDrawable = wallpaperDrawable;

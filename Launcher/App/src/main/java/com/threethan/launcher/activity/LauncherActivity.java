@@ -104,8 +104,15 @@ public class LauncherActivity extends Launch.LaunchingActivity {
     protected View groupsBlurView;
     protected ViewGroup groupsContainerWideWindow;
     protected ViewGroup groupsContainerNarrowWindow;
+    private DataStoreEditor mDataStoreEditor;
 
-    public DataStoreEditor dataStoreEditor;
+    public DataStoreEditor getDataStoreEditor() {
+        if (mDataStoreEditor == null) {
+            if (Core.context() != null) mDataStoreEditor = Compat.getDataStoreEditor();
+            else mDataStoreEditor = SyncCoordinator.getDefaultDataStoreEditor(this);
+        }
+        return mDataStoreEditor;
+    }
     public View mainView;
     public View topBar;
     private int prevViewWidth;
@@ -129,6 +136,9 @@ public class LauncherActivity extends Launch.LaunchingActivity {
     public static Locale implicitLocale = null;
     public boolean isActive = false;
 
+    public LauncherActivity () {
+        super();
+    }
     /**
      * Gets an instance of a LauncherActivity, preferring that which was most recently resumed
      * @return A reference to some launcher activity
@@ -159,9 +169,8 @@ public class LauncherActivity extends Launch.LaunchingActivity {
                 Locale currentLocale = config.getLocales().get(0);
 
                 // Check if user wants to force english
-                dataStoreEditor = SyncCoordinator.getDefaultDataStore(this);
                 boolean forceUntranslated
-                        = dataStoreEditor.getBoolean(Settings.KEY_FORCE_UNTRANSLATED, false);
+                        = getDataStoreEditor().getBoolean(Settings.KEY_FORCE_UNTRANSLATED, false);
                 Locale targetLocale = forceUntranslated ? Locale.ENGLISH : implicitLocale;
 
                 // Override as necessary
@@ -195,15 +204,13 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         });
         Core.init(this);
 
-        SyncCoordinator.onStart(this);
-
-        if (dataStoreEditor == null) dataStoreEditor = Compat.getDataStore();
+        if (mDataStoreEditor == null) mDataStoreEditor = getDataStoreEditor();
 
         Intent intent = new Intent(this, LauncherService.class);
         bindService(intent, launcherServiceConnection, Context.BIND_AUTO_CREATE);
 
         wallpaperLoader = new WallpaperLoader(this);
-        int background = dataStoreEditor.getInt(Settings.KEY_BACKGROUND,
+        int background = getDataStoreEditor().getInt(Settings.KEY_BACKGROUND,
         Platform.isTv()
             ? Settings.DEFAULT_BACKGROUND_TV
             : Settings.DEFAULT_BACKGROUND_VR);
@@ -211,7 +218,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         int backgroundColor = custom ? Color.parseColor("#404044") : SettingsManager.BACKGROUND_COLORS[background];
 
         Drawable cd = new ColorDrawable(backgroundColor);
-        if (Platform.isQuest()) cd.setAlpha(WallpaperLoader.getBackgroundAlpha(dataStoreEditor));
+        if (Platform.isQuest()) cd.setAlpha(WallpaperLoader.getBackgroundAlpha(getDataStoreEditor()));
         post(() -> {
             getWindow().setBackgroundDrawable(cd);
             LcBlurCanvas.invalidateAll();
@@ -310,7 +317,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
 
         sortCycler.setOnCycledListener(mode -> {
             int newIndex = mode.ordinal();
-            dataStoreEditor.putInt(Settings.KEY_SORT, newIndex);
+            getDataStoreEditor().putInt(Settings.KEY_SORT, newIndex);
             if (getAppAdapter() != null) {
                 getAppAdapter().setSortMode(mode);
                 String displayText = mode.getDisplayText(this);
@@ -370,8 +377,6 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         }
 
         if (isFinishing()) try {
-            SyncCoordinator.onStop(this);
-
             unbindService(launcherServiceConnection); // Should rarely cause exception
             // For the GC & easier debugging
             settingsManager = null;
@@ -536,21 +541,21 @@ public class LauncherActivity extends Launch.LaunchingActivity {
      * Note that these same views are also often manipulated in LauncherActivitySearchable
      */
     public void updateToolBars() {
-        groupsBlurView.setVisibility(groupsEnabled ? View.VISIBLE : View.GONE);
+        groupsBlurView.setVisibility(groupsEnabled.equals(Boolean.TRUE) ? View.VISIBLE : View.GONE);
 
-        if (isEditing() && !groupsEnabled) setEditMode(false); // If groups were disabled while in edit mode
+        if (isEditing() && !groupsEnabled.equals(Boolean.TRUE)) setEditMode(false); // If groups were disabled while in edit mode
 
-        LcBlurCanvas.setOverlayColor((Color.parseColor(darkMode ? "#29000000" : "#40FFFFFF")));
+        LcBlurCanvas.setOverlayColor((Color.parseColor(darkMode.equals(Boolean.TRUE) ? "#29000000" : "#40FFFFFF")));
 
         // Item visibility
         View statusView = rootView.findViewById(R.id.blurViewStatus);
-        statusView.setVisibility(dataStoreEditor.getBoolean(Settings.KEY_SHOW_STATUS, Settings.DEFAULT_SHOW_STATUS) ? View.VISIBLE : View.GONE);
+        statusView.setVisibility(getDataStoreEditor().getBoolean(Settings.KEY_SHOW_STATUS, Settings.DEFAULT_SHOW_STATUS) ? View.VISIBLE : View.GONE);
         View sortView = rootView.findViewById(R.id.blurViewSortIcon);
-        sortView.setVisibility(dataStoreEditor.getBoolean(Settings.KEY_SHOW_SORT, Settings.DEFAULT_SHOW_SORT) ? View.VISIBLE : View.GONE);
+        sortView.setVisibility(getDataStoreEditor().getBoolean(Settings.KEY_SHOW_SORT, Settings.DEFAULT_SHOW_SORT) ? View.VISIBLE : View.GONE);
         View searchView = rootView.findViewById(R.id.blurViewSearchIcon);
-        searchView.setVisibility(dataStoreEditor.getBoolean(Settings.KEY_SHOW_SEARCH, Settings.DEFAULT_SHOW_SEARCH) ? View.VISIBLE : View.GONE);
+        searchView.setVisibility(getDataStoreEditor().getBoolean(Settings.KEY_SHOW_SEARCH, Settings.DEFAULT_SHOW_SEARCH) ? View.VISIBLE : View.GONE);
         View settingsView = rootView.findViewById(R.id.blurViewSettingsIcon);
-        settingsView.setVisibility(dataStoreEditor.getBoolean(Settings.KEY_SHOW_SETTINGS, Settings.DEFAULT_SHOW_SETTINGS) ? View.VISIBLE : View.GONE);
+        settingsView.setVisibility(getDataStoreEditor().getBoolean(Settings.KEY_SHOW_SETTINGS, Settings.DEFAULT_SHOW_SETTINGS) ? View.VISIBLE : View.GONE);
 
         View searchBar = rootView.findViewById(R.id.blurViewSearchBar);
 
@@ -622,9 +627,9 @@ public class LauncherActivity extends Launch.LaunchingActivity {
 
     /** Gets the current sort mode for the apps list */
     private SortHandler.SortMode getCurrentSortMode() {
-        boolean sortVisible = dataStoreEditor.getBoolean(Settings.KEY_SHOW_SORT, Settings.DEFAULT_SHOW_SORT);
+        boolean sortVisible = getDataStoreEditor().getBoolean(Settings.KEY_SHOW_SORT, Settings.DEFAULT_SHOW_SORT);
         if (!sortVisible) return SortHandler.SortMode.STANDARD;
-        int sortIndex = dataStoreEditor.getInt(Settings.KEY_SORT, Settings.DEFAULT_SORT);
+        int sortIndex = getDataStoreEditor().getInt(Settings.KEY_SORT, Settings.DEFAULT_SORT);
         SortHandler.SortMode[] values = SortHandler.SortMode.values();
         return values[sortIndex % values.length];
     }
@@ -657,21 +662,21 @@ public class LauncherActivity extends Launch.LaunchingActivity {
     public void refreshAdapters() {
         prevViewWidth = -1;
 
-        darkMode = dataStoreEditor
+        darkMode = getDataStoreEditor()
                 .getBoolean(Settings.KEY_DARK_MODE, Settings.DEFAULT_DARK_MODE);
-        groupsEnabled = dataStoreEditor
+        groupsEnabled = getDataStoreEditor()
                 .getBoolean(Settings.KEY_GROUPS_ENABLED, Settings.DEFAULT_GROUPS_ENABLED);
-        groupsWide = dataStoreEditor
+        groupsWide = getDataStoreEditor()
                 .getBoolean(Settings.KEY_GROUPS_WIDE, Settings.DEFAULT_GROUPS_WIDE);
 
-        namesSquare = dataStoreEditor
+        namesSquare = getDataStoreEditor()
                 .getBoolean(Settings.KEY_SHOW_NAMES_SQUARE, Settings.DEFAULT_SHOW_NAMES_SQUARE);
-        namesBanner = dataStoreEditor
+        namesBanner = getDataStoreEditor()
                 .getBoolean(Settings.KEY_SHOW_NAMES_BANNER, Settings.DEFAULT_SHOW_NAMES_BANNER);
-        timesBanner = dataStoreEditor
+        timesBanner = getDataStoreEditor()
                 .getBoolean(Settings.KEY_SHOW_TIMES_BANNER, Settings.DEFAULT_SHOW_TIMES_BANNER);
 
-        setReduceMotion(dataStoreEditor
+        setReduceMotion(getDataStoreEditor()
                 .getBoolean(Settings.KEY_REDUCE_MOTION, Settings.DEFAULT_REDUCE_MOTION));
         try {
             WindowInsetsControllerCompat controller = WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
@@ -780,7 +785,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         }
 
         GridLayoutManager finalGridLayoutManager = gridLayoutManager;
-        dataStoreEditor.getInt(Settings.KEY_SCALE, Settings.DEFAULT_SCALE, scale -> {
+        getDataStoreEditor().getInt(Settings.KEY_SCALE, Settings.DEFAULT_SCALE, scale -> {
             int estimatedWidth = prevViewWidth;
 
             int nCol = estimatedWidth/(dp(scale)*2) * 2; // To nearest 2
@@ -798,8 +803,8 @@ public class LauncherActivity extends Launch.LaunchingActivity {
      * - Bottom padding to account for icon margin, as well as the edit mode footer if applicable
      */
     private void updatePadding(int groupHeight) {
-        if (iconMargin == -1) iconMargin = dataStoreEditor.getInt(Settings.KEY_MARGIN, Settings.DEFAULT_MARGIN);
-        if (iconScale  == -1) iconScale  = dataStoreEditor.getInt(Settings.KEY_SCALE , Settings.DEFAULT_SCALE );
+        if (iconMargin == -1) iconMargin = getDataStoreEditor().getInt(Settings.KEY_MARGIN, Settings.DEFAULT_MARGIN);
+        if (iconScale  == -1) iconScale  = getDataStoreEditor().getInt(Settings.KEY_SCALE , Settings.DEFAULT_SCALE );
 
         int targetSize = dp(iconScale);
         int margin = getMargin(targetSize);
@@ -857,7 +862,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         executorService.execute(() -> {
             // Set initial color, execute background task
             if (backgroundIndex == -2) {
-                backgroundIndex = dataStoreEditor.getInt(Settings.KEY_BACKGROUND,
+                backgroundIndex = getDataStoreEditor().getInt(Settings.KEY_BACKGROUND,
                         Platform.isTv()
                                 ? Settings.DEFAULT_BACKGROUND_TV
                                 : Settings.DEFAULT_BACKGROUND_VR);
@@ -867,7 +872,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
             int backgroundColor = custom ? Color.parseColor("#404044") : SettingsManager.BACKGROUND_COLORS[backgroundIndex];
             Drawable cd = new ColorDrawable(backgroundColor);
 
-            if (Platform.isQuest()) cd.setAlpha(WallpaperLoader.getBackgroundAlpha(dataStoreEditor));
+            if (Platform.isQuest()) cd.setAlpha(WallpaperLoader.getBackgroundAlpha(getDataStoreEditor()));
 
             if (Platform.isQuest()) cd.setAlpha(200);
 
@@ -883,7 +888,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
     public void setBackground(int index) {
         if (index >= SettingsManager.BACKGROUND_DRAWABLES.length || index < 0) index = -1;
         else darkMode = SettingsManager.BACKGROUND_DARK[index];
-        dataStoreEditor.putInt(Settings.KEY_BACKGROUND, index);
+        getDataStoreEditor().putInt(Settings.KEY_BACKGROUND, index);
         LauncherActivity.backgroundIndex = index;
         launcherService.forEachActivity(LauncherActivity::refreshBackground);
     }

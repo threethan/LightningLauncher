@@ -31,7 +31,7 @@ public class ShortcutStateProvider extends ContentProvider {
 
         // Column 2: isEnabled: Is the shortcut feature enabled for this variant
         try {
-            boolean isEnable = SyncCoordinator.getDefaultDataStore(Core.context())
+            boolean isEnable = SyncCoordinator.getDefaultDataStoreEditor(Core.context())
                     .getBoolean(Settings.KEY_ALLOW_SHORTCUTS, Settings.DEFAULT_ALLOW_SHORTCUTS);
             if (!isEnable) {
                 cursor.addRow(new Object[]{0, 0, 0});
@@ -47,7 +47,7 @@ public class ShortcutStateProvider extends ContentProvider {
         try {
             // Column 1: shouldBlur: Should launch Quest 3 blur activity
             final DataStoreEditor dse = Platform.isQuestGen3()
-                    ? SyncCoordinator.getDefaultDataStore(Core.context())
+                    ? SyncCoordinator.getDefaultDataStoreEditor(Core.context())
                     : null;
             shouldBlur = dse != null
                     && dse.getBoolean(Settings.KEY_BACKGROUND_BLUR, Settings.DEFAULT_BACKGROUND_BLUR);
