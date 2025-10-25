@@ -314,6 +314,17 @@
     <string name="manage_variants_details">Lightning Launcherが複数インストールされています。このメニューから管理できます。</string>
 
     
+    <string name="transfer_dialog_title">ランチャー設定の転送</string>
+    <string name="transfer_dialog_details">グループやソートを含むすべての設定は、コピー元<i>(上)</i>からコピー先<i>(下)</i>にコピーされます。        
+\n<b>これは元に戻せません</b>。</string>
+    <string name="transfer_dialog_destination_disclaimer">⚠️ このバリアントの現在の設定が失われる！</string>
+    <string name="transfer_dialog_confirm">⚠️ 転送設定</string>
+
+    <string name="transfer_issue_generic">問題が発生し、設定を転送できませんでした！</string>
+    <string name="transfer_issue_other_older">まずターゲットの variant を更新する！</string>
+    <string name="transfer_issue_other_newer">まずこのバリアントを更新する！</string>
+
+    
     <string name="default_group_2d">アプリ</string>
     <string name="default_group_vr">ゲーム</string>
     <string name="default_group_media">メディア</string>

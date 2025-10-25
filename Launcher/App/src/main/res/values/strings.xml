@@ -437,7 +437,7 @@
 
     <string name="transfer_dialog_title">Transfer Launcher Settings</string>
     <string name="transfer_dialog_details">All settings, <u>including groups and sort</u>,
-        will be copied from the source <i>(top)</i> to the destination <i>(bottom)</i>.
+        will be copied from the source (top) to the destination (bottom).
         \n<b>This cannot be undone!</b></string>
     <string name="transfer_dialog_destination_disclaimer">⚠️   This variant\'s current settings will be lost!</string>
     <string name="transfer_dialog_confirm">⚠️ Transfer Settings</string>

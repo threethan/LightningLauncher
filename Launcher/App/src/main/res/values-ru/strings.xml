@@ -318,6 +318,17 @@
     <string name="manage_variants_details">У вас установлено несколько вариантов Lightning Launcher. Вы можете управлять ими из этого меню.</string>
 
     
+    <string name="transfer_dialog_title">Перенос настроек пусковой установки</string>
+    <string name="transfer_dialog_details">Все настройки, <u>включая группы и сортировку</u>, будут скопированы из источника (сверху) в пункт назначения (снизу).        
+\n<b>Это нельзя отменить</b></string>
+    <string name="transfer_dialog_destination_disclaimer">⚠️ Текущие настройки этого варианта\ будут потеряны!</string>
+    <string name="transfer_dialog_confirm">⚠️ Настройки передачи</string>
+
+    <string name="transfer_issue_generic">Возникла проблема, и настройки не удалось передать!</string>
+    <string name="transfer_issue_other_older">Сначала обновите целевой вариант!</string>
+    <string name="transfer_issue_other_newer">Обновите этот вариант первым!</string>
+
+    
     <string name="default_group_2d">Приложения</string>
     <string name="default_group_vr">Игры</string>
     <string name="default_group_media">СМИ</string>

@@ -318,6 +318,17 @@
     <string name="manage_variants_details">Tem várias variantes do Lightning Launcher instaladas. Pode geri-las a partir deste menu.</string>
 
     
+    <string name="transfer_dialog_title">Transferir definições do iniciador</string>
+    <string name="transfer_dialog_details">Todas as definições, <u>incluindo grupos e ordenação</u>, serão copiadas da origem (em cima) para o destino (em baixo).        
+\n<b>Isso não pode ser desfeito</b></string>
+    <string name="transfer_dialog_destination_disclaimer">⚠️ As definições actuais desta variante perdem-se!</string>
+    <string name="transfer_dialog_confirm">⚠️ Definições de transferência</string>
+
+    <string name="transfer_issue_generic">Ocorreu um problema e as definições não puderam ser transferidas!</string>
+    <string name="transfer_issue_other_older">Atualizar primeiro a variante de destino!</string>
+    <string name="transfer_issue_other_newer">Atualizar esta variante primeiro!</string>
+
+    
     <string name="default_group_2d">Aplicações</string>
     <string name="default_group_vr">Jogos</string>
     <string name="default_group_media">Media</string>

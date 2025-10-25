@@ -318,6 +318,17 @@
     <string name="manage_variants_details">Du har flere varianter av Lightning Launcher installert. Du kan administrere dem fra denne menyen.</string>
 
     
+    <string name="transfer_dialog_title">Overfør lanseringsinnstillinger</string>
+    <string name="transfer_dialog_details">Alle innstillinger, <u>inkludert grupper og sortering</u>, kopieres fra kilden <i>(øverst)</i> til destinasjonen <i>(nederst)</i>.        
+\n<b>Dette kan ikke angres!</b></string>
+    <string name="transfer_dialog_destination_disclaimer">⚠️ Denne variantens nåværende innstillinger vil gå tapt!</string>
+    <string name="transfer_dialog_confirm">⚠️ Overføringsinnstillinger</string>
+
+    <string name="transfer_issue_generic">Et problem oppstod, og innstillingene kunne ikke overføres!</string>
+    <string name="transfer_issue_other_older">Oppdater målvarianten først!</string>
+    <string name="transfer_issue_other_newer">Oppdater denne varianten først!</string>
+
+    
     <string name="default_group_2d">Apper</string>
     <string name="default_group_vr">Spill</string>
     <string name="default_group_media">Medier</string>

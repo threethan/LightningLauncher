@@ -314,6 +314,17 @@
     <string name="manage_variants_details">Je hebt meerdere varianten van Lightning Launcher geïnstalleerd. Je kunt ze vanuit dit menu beheren.</string>
 
     
+    <string name="transfer_dialog_title">Launcher-instellingen overbrengen</string>
+    <string name="transfer_dialog_details">Alle instellingen, <u>inclusief groepen en sorteren</u>, worden gekopieerd van de bron (boven) naar de bestemming (onder).        
+\n<b>Dit kan niet ongedaan worden gemaakt</b></string>
+    <string name="transfer_dialog_destination_disclaimer">⚠️ De huidige instellingen van deze variant gaan verloren!</string>
+    <string name="transfer_dialog_confirm">⚠️ Instellingen voor overdracht</string>
+
+    <string name="transfer_issue_generic">Er heeft zich een probleem voorgedaan en de instellingen konden niet worden overgezet!</string>
+    <string name="transfer_issue_other_older">Werk eerst de doelvariant bij!</string>
+    <string name="transfer_issue_other_newer">Werk deze variant eerst bij!</string>
+
+    
     <string name="default_group_2d">Apps</string>
     <string name="default_group_vr">Spelletjes</string>
     <string name="default_group_media">Media</string>

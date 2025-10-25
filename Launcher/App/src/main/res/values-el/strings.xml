@@ -318,6 +318,17 @@
     <string name="manage_variants_details">Έχετε εγκαταστήσει πολλές παραλλαγές του Lightning Launcher. Μπορείτε να τις διαχειριστείτε από αυτό το μενού.</string>
 
     
+    <string name="transfer_dialog_title">Μεταφορά ρυθμίσεων εκτοξευτή</string>
+    <string name="transfer_dialog_details">Όλες οι ρυθμίσεις, <u>συμπεριλαμβανομένων των ομάδων και της ταξινόμησης</u>, θα αντιγραφούν από την πηγή <i>(πάνω)</i> στον προορισμό <i>(κάτω)</i>.        
+\n<b>Αυτό δεν μπορεί να αναιρεθεί!</b></string>
+    <string name="transfer_dialog_destination_disclaimer">⚠️ Οι τρέχουσες ρυθμίσεις αυτής της παραλλαγής\ θα χαθούν!</string>
+    <string name="transfer_dialog_confirm">⚠️ Ρυθμίσεις μεταφοράς</string>
+
+    <string name="transfer_issue_generic">Παρουσιάστηκε ένα πρόβλημα και οι ρυθμίσεις δεν μπόρεσαν να μεταφερθούν!</string>
+    <string name="transfer_issue_other_older">Ενημερώστε πρώτα την παραλλαγή-στόχο!</string>
+    <string name="transfer_issue_other_newer">Ενημερώστε πρώτα αυτή την παραλλαγή!</string>
+
+    
     <string name="default_group_2d">Εφαρμογές</string>
     <string name="default_group_vr">Παιχνίδια</string>
     <string name="default_group_media">Μέσα</string>

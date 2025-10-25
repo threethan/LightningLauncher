@@ -341,6 +341,17 @@
     <string name="manage_variants_details">您安装了多个 Lightning Launcher 版本。您可以通过此菜单管理它们。</string>
 
     
+    <string name="transfer_dialog_title">传输启动器设置</string>
+    <string name="transfer_dialog_details">所有设置，<u>包括组和排序</u>，都将从源（顶部）复制到目标（底部）。        
+\n<b>无法撤销</b></string>
+    <string name="transfer_dialog_destination_disclaimer">⚠️ 该变量的当前设置将丢失！</string>
+    <string name="transfer_dialog_confirm">⚠️ 传输设置</string>
+
+    <string name="transfer_issue_generic">出现问题，无法传输设置！</string>
+    <string name="transfer_issue_other_older">首先更新目标变体！</string>
+    <string name="transfer_issue_other_newer">先更新这个变体！</string>
+
+    
     <string name="default_group_2d">应用程序</string>
     <string name="default_group_vr">游戏</string>
     <string name="default_group_media">媒体</string>

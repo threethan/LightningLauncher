@@ -318,6 +318,20 @@
     <string name="manage_variants_details">여러 개의 Lightning 런처 변형이 설치되어 있습니다. 이 메뉴에서 관리할 수 있습니다.</string>
 
     
+    <string name="transfer_dialog_title">전송 런처 설정</string>
+    <string name="transfer_dialog_details">
+        <u>그룹 및 정렬</u>을 포함한 모든 설정이
+        원본 <i>(위)</i>에서 대상 <i>(아래)</i>으로 복사됩니다.
+        \n<b>이 작업은 취소할 수 없습니다!</b>
+    </string>
+    <string name="transfer_dialog_destination_disclaimer">⚠️ 이 변형의 현재 설정이 손실됩니다!</string>
+    <string name="transfer_dialog_confirm">⚠️ 전송 설정</string>
+
+    <string name="transfer_issue_generic">문제가 발생하여 설정을 전송할 수 없습니다!</string>
+    <string name="transfer_issue_other_older">먼저 대상 이형 상품을 업데이트하세요!</string>
+    <string name="transfer_issue_other_newer">이 변형을 먼저 업데이트하세요!</string>
+
+    
     <string name="default_group_2d">앱</string>
     <string name="default_group_vr">게임</string>
     <string name="default_group_media">미디어</string>
@@ -329,4 +343,5 @@
     <string name="sort_recently_used_no_perm">최근 출시 기준으로 정렬</string>
     <string name="sort_recently_installed_no_perm">최근 추가됨을 기준으로 정렬</string>
     <string name="current">★현재</string>
-</resources>
+
+    </resources>

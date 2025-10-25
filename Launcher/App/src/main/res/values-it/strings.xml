@@ -314,6 +314,17 @@
     <string name="manage_variants_details">Sono state installate più varianti di Lightning Launcher. È possibile gestirle da questo menu.</string>
 
     
+    <string name="transfer_dialog_title">Trasferimento delle impostazioni del Launcher</string>
+    <string name="transfer_dialog_details">Tutte le impostazioni, <u>compresi i gruppi e l\'ordinamento</u>, verranno copiate dall\'origine <i>(in alto)</i> alla destinazione <i>(in basso)</i>.        
+\n<b>Non è possibile annullare l\'operazione!</b></string>
+    <string name="transfer_dialog_destination_disclaimer">⚠️ Le impostazioni attuali di questa variante andranno perse!</string>
+    <string name="transfer_dialog_confirm">⚠️ Impostazioni di trasferimento</string>
+
+    <string name="transfer_issue_generic">Si è verificato un problema e non è stato possibile trasferire le impostazioni!</string>
+    <string name="transfer_issue_other_older">Aggiornare prima la variante di destinazione!</string>
+    <string name="transfer_issue_other_newer">Aggiornate prima questa variante!</string>
+
+    
     <string name="default_group_2d">Applicazioni</string>
     <string name="default_group_vr">Giochi</string>
     <string name="default_group_media">Media</string>

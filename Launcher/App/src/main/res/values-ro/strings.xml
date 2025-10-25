@@ -318,6 +318,17 @@
     <string name="manage_variants_details">Aveți mai multe variante de Lightning Launcher instalate. Le puteți gestiona din acest meniu.</string>
 
     
+    <string name="transfer_dialog_title">Transferați setările lansatorului</string>
+    <string name="transfer_dialog_details">Toate setările, <u>inclusiv grupurile și sortarea</u>, vor fi copiate de la sursă (sus) la destinație (jos).        
+\n<b>Acest lucru nu poate fi anulat</b></string>
+    <string name="transfer_dialog_destination_disclaimer">⚠️ Setările curente ale acestei variante vor fi pierdute!</string>
+    <string name="transfer_dialog_confirm">⚠️ Setări de transfer</string>
+
+    <string name="transfer_issue_generic">A apărut o problemă, iar setările nu au putut fi transferate!</string>
+    <string name="transfer_issue_other_older">Actualizați mai întâi varianta țintă!</string>
+    <string name="transfer_issue_other_newer">Actualizați mai întâi această variantă!</string>
+
+    
     <string name="default_group_2d">Aplicații</string>
     <string name="default_group_vr">Jocuri</string>
     <string name="default_group_media">Media</string>

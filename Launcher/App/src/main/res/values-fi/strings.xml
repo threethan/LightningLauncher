@@ -318,6 +318,17 @@
     <string name="manage_variants_details">Sinulla on asennettuna useita Lightning Launcher -versioita. Voit hallita niitä tästä valikosta.</string>
 
     
+    <string name="transfer_dialog_title">Siirrä Launcher-asetukset</string>
+    <string name="transfer_dialog_details">Kaikki asetukset, <u> mukaan lukien ryhmät ja lajittelu</u>, kopioidaan lähteestä <i>(ylhäältä)</i> kohteeseen <i>(alhaalta)</i>.        
+\n<b>Tätä ei voi perua!</b></string>
+    <string name="transfer_dialog_destination_disclaimer">⚠️ Tämän vaihtoehdon\ nykyiset asetukset menetetään!</string>
+    <string name="transfer_dialog_confirm">⚠️ Siirtoasetukset</string>
+
+    <string name="transfer_issue_generic">Tapahtui ongelma, eikä asetuksia voitu siirtää!</string>
+    <string name="transfer_issue_other_older">Päivitä kohdevariantti ensin!</string>
+    <string name="transfer_issue_other_newer">Päivitä tämä muunnelma ensin!</string>
+
+    
     <string name="default_group_2d">Sovellukset</string>
     <string name="default_group_vr">Pelit</string>
     <string name="default_group_media">Media</string>

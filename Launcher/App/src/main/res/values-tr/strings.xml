@@ -318,6 +318,17 @@
     <string name="manage_variants_details">Lightning Launcher\'ın birden fazla varyantı yüklü. Bunları bu menüden yönetebilirsiniz.</string>
 
     
+    <string name="transfer_dialog_title">Başlatıcı Ayarlarını Aktar</string>
+    <string name="transfer_dialog_details">Tüm ayarlar, <u>gruplar ve sıralama dahil</u>, kaynaktan (üst) hedefe (alt) kopyalanacaktır.        
+\n<b>Bu geri alınamaz</b></string>
+    <string name="transfer_dialog_destination_disclaimer">⚠️ Bu varyantın mevcut ayarları kaybolacaktır!</string>
+    <string name="transfer_dialog_confirm">⚠️ Aktarım Ayarları</string>
+
+    <string name="transfer_issue_generic">Bir sorun oluştu ve ayarlar aktarılamadı!</string>
+    <string name="transfer_issue_other_older">Önce hedef varyantı güncelleyin!</string>
+    <string name="transfer_issue_other_newer">Önce bu varyantı güncelleyin!</string>
+
+    
     <string name="default_group_2d">Uygulamalar</string>
     <string name="default_group_vr">Oyunlar</string>
     <string name="default_group_media">Medya</string>
