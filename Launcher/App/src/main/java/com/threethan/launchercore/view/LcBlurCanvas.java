@@ -40,10 +40,15 @@ public class LcBlurCanvas extends LcContainerView {
 
     /** Modern blur (API >= S) is very performant, so it is rendered at resolution * this */
     // APIs Q to R use legacy blur on a render node, so this must be 1f
-    static final float MODERN_RES_MULT = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S ?
-            (Platform.isTv() ? 0.125f :
-            (Platform.isPhone() ? 0.25f :
-                    (Platform.isQuestGen3() ? 0.1f : 0.05f))) : 1f;
+    static float MODERN_RES_MULT = 0.125f;
+    static {
+        try {
+            MODERN_RES_MULT = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S ?
+                (Platform.isTv() ? 0.125f :
+                        (Platform.isPhone() ? 0.25f :
+                                (Platform.isQuestGen3() ? 0.1f : 0.05f))) : 1f;
+        } catch (Exception ignored) {}
+    }
 
     /** Legacy blur (API < Q) is much less performant, so it is rendered at resolution / this */
     protected static final int LEGACY_DOWN_SAMPLE = 32;
@@ -79,7 +84,12 @@ public class LcBlurCanvas extends LcContainerView {
 
     private boolean hasRenderEffect;
     private boolean shouldForceRender = true;
-    private static final boolean supportTranslucent = Platform.isQuest();
+    private static boolean supportTranslucent = false;
+    static {
+        try {
+            supportTranslucent = Platform.isQuest();
+        } catch (Exception ignored) {}
+    }
     public void notifyShouldForceRender() {
         shouldForceRender = true;
     }

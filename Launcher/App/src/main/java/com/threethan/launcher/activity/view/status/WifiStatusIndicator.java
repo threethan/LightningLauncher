@@ -37,10 +37,12 @@ public class WifiStatusIndicator extends View implements StatusAdaptableView {
     private void init(Context context) {
         // On TVs, it's reasonable to expect a good connection is always present
         // On phones, the status bar already shows Wi-Fi status (also mobile data)
-        if (Platform.isTv() || Platform.isPhone()) {
-            setVisibility(GONE);
-            return;
-        }
+        try {
+            if (Platform.isTv() || Platform.isPhone()) {
+                setVisibility(GONE);
+                return;
+            }
+        } catch (Exception ignored) {}
 
         signalDrawables = new Drawable[]{
                 ContextCompat.getDrawable(context, R.drawable.status_wifi_signal_0),

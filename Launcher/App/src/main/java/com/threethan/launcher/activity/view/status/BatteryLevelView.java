@@ -72,7 +72,14 @@ public class BatteryLevelView extends View implements StatusAdaptableView {
     }
 
     private void init(Context context) {
-        BatteryManager bm = (BatteryManager) context.getSystemService(Context.BATTERY_SERVICE);
+        BatteryManager bm;
+        try {
+            bm = (BatteryManager) context.getSystemService(Context.BATTERY_SERVICE);
+        } catch (Exception e) {
+            // No battery service, hide view
+            setVisibility(GONE);
+            return;
+        }
         // check for tv or unknown battery status. hide if no battery present.
         if (Platform.isTv() ||
                 (bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_STATUS) == BatteryManager.BATTERY_STATUS_UNKNOWN

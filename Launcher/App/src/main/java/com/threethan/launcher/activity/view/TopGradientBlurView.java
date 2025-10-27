@@ -33,7 +33,14 @@ public class TopGradientBlurView extends LcBlurView {
     public static int dp(Context context, float dp) {
         return Math.round(dp * context.getResources().getDisplayMetrics().density);
     }
-    public static final int HEIGHT = dp(Core.context(), 80f); // Height of the view in pixels
+    public static int HEIGHT;
+    static {
+        try {
+            HEIGHT = dp(Core.context(), 80f); // Height of the view in pixels
+        } catch (Exception ignored) {
+            HEIGHT = 80; // Fallback if context is not available
+        }
+    }
     private static final float FADE_CENTER = 0.7f;
     private static final float FADE_START = 0.3f;
 
