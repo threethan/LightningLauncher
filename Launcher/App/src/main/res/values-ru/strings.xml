@@ -55,11 +55,8 @@
     <string name="dark_mode_tip">Если включено, то этикетки будут выглядеть белыми на темном фоне.</string>
     <string name="enable_groups">Включить группы</string>
     <string name="enable_groups_tip">Выключите эту функцию, чтобы показать все приложения сразу, без группировки.</string>
-    <string name="group_wide">Более широкие группы</string>
-    <string name="group_wide_tip">Увеличивает минимальную ширину кнопок групп,
-        \nзаботясь о том, чтобы длинные имена не обрезались.
-        \n
-        \nОсобенно заметно, когда групп много.</string>
+    <string name="group_wider">Более широкие группы</string>
+    <string name="group_wider_tip">Увеличивает ширину групповых кнопок</string>
     <string name="clear_labels">Сбросьте все ярлыки приложений по умолчанию</string>
     <string name="group_defaults_button">Группы по умолчанию</string>
     <string name="icons_settings_button">Обновить значки</string>

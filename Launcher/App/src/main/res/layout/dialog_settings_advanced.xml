@@ -69,21 +69,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/lc_bkg_button_left"
+                android:background="@drawable/lc_bkg_button_section"
                 android:text="@string/long_press"
                 android:tooltipText="@string/long_press_tip"
                 tools:ignore="UnusedAttribute,UseSwitchCompatOrMaterialXml" />
 
-            <com.threethan.launchercore.view.LcSwitch
-                android:id="@+id/groupWideSwitch"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="2dp"
-                android:layout_weight="1"
-                android:background="@drawable/lc_bkg_button_right"
-                android:text="@string/group_wide"
-                android:tooltipText="@string/group_wide_tip"
-                tools:ignore="UnusedAttribute,UseSwitchCompatOrMaterialXml" />
         </LinearLayout>
 
         <LinearLayout

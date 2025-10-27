@@ -55,11 +55,8 @@
     <string name="dark_mode_tip">Se estiver ligado, as etiquetas aparecerão a branco num fundo escuro.</string>
     <string name="enable_groups">Ativar grupos</string>
     <string name="enable_groups_tip">Desactive esta opção para mostrar todas as aplicações de uma só vez, sem agrupamento.</string>
-    <string name="group_wide">Grupos mais alargados</string>
-    <string name="group_wide_tip">Aumenta a largura mínima dos botões de grupo,
-        \garantindo que nomes mais longos não sejam cortados.
-        \n
-        \nSó é percetível quando há muitos grupos.</string>
+    <string name="group_wider">Grupos mais alargados</string>
+    <string name="group_wider_tip">Aumenta a largura dos botões de grupo</string>
     <string name="clear_labels">Repor todas as etiquetas de aplicações para as predefinições</string>
     <string name="group_defaults_button">Grupos predefinidos</string>
     <string name="icons_settings_button">Atualizar ícones</string>

@@ -55,11 +55,8 @@
     <string name="dark_mode_tip">Jeśli jest włączona, etykiety będą białe na ciemnym tle.</string>
     <string name="enable_groups">Włącz grupy</string>
     <string name="enable_groups_tip">Wyłącz tę opcję, aby wyświetlać wszystkie aplikacje jednocześnie, bez grupowania.</string>
-    <string name="group_wide">Szersze grupy</string>
-    <string name="group_wide_tip">Zwiększa minimalną szerokość przycisków grup,
-        \zapewniając, że dłuższe nazwy nie zostaną obcięte.
-        \n
-        \Zauważalne tylko w przypadku wielu grup.</string>
+    <string name="group_wider">Szersze grupy</string>
+    <string name="group_wider_tip">Zwiększa szerokość przycisków grupy</string>
     <string name="clear_labels">Przywróć domyślne etykiety wszystkich aplikacji</string>
     <string name="group_defaults_button">Grupy domyślne</string>
     <string name="icons_settings_button">Ikony odświeżania</string>

@@ -34,6 +34,7 @@ public class EditTopBarDialog extends LcDialog<LauncherActivity> {
         bindToggle(d.findViewById(R.id.tbeStatus), Settings.KEY_SHOW_STATUS, Settings.DEFAULT_SHOW_STATUS);
 
         bindToggle(d.findViewById(R.id.tbeGroups), Settings.KEY_GROUPS_ENABLED, Settings.DEFAULT_GROUPS_ENABLED, true);
+        bindToggle(d.findViewById(R.id.tbeGroupsWide), Settings.KEY_GROUPS_WIDE, Settings.DEFAULT_GROUPS_WIDE, true);
 
         bindToggle(d.findViewById(R.id.tbeSort), Settings.KEY_SHOW_SORT, Settings.DEFAULT_SHOW_SORT);
         bindToggle(d.findViewById(R.id.tbeSearch), Settings.KEY_SHOW_SEARCH, Settings.DEFAULT_SHOW_SEARCH);

@@ -55,11 +55,8 @@
     <string name="dark_mode_tip">Jos tämä on päällä, tarrat näkyvät valkoisina tummalla taustalla.</string>
     <string name="enable_groups">Ota ryhmät käyttöön</string>
     <string name="enable_groups_tip">Kytke tämä pois päältä, jos haluat näyttää kaikki sovellukset kerralla ilman ryhmittelyä.</string>
-    <string name="group_wide">Laajemmat ryhmät</string>
-    <string name="group_wide_tip">Lisää ryhmäpainikkeiden vähimmäisleveyttä,
-        \varmistaa, että pidemmät nimet eivät katkea.
-        \n
-        \nHuomaa vain, kun ryhmiä on paljon.</string>
+    <string name="group_wider">Laajemmat ryhmät</string>
+    <string name="group_wider_tip">Suurentaa ryhmäpainikkeiden leveyttä</string>
     <string name="clear_labels">Nollaa kaikki sovelluksen etiketit oletusasetuksiin</string>
     <string name="group_defaults_button">Oletusryhmät</string>
     <string name="icons_settings_button">Päivitä kuvakkeet</string>

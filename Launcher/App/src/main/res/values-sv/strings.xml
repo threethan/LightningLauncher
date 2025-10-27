@@ -55,11 +55,8 @@
     <string name="dark_mode_tip">Om den är aktiverad visas etiketterna vita på en mörk bakgrund.</string>
     <string name="enable_groups">Aktivera grupper</string>
     <string name="enable_groups_tip">Stäng av detta för att visa alla appar på en gång, utan gruppering.</string>
-    <string name="group_wide">Större grupper</string>
-    <string name="group_wide_tip">Ökar den minsta bredden på gruppknappar,
-        \säkerställer att längre namn inte skärs av.
-        \n
-        \Märks bara när det finns många grupper.</string>
+    <string name="group_wider">Större grupper</string>
+    <string name="group_wider_tip">Ökar bredden på gruppknapparna</string>
     <string name="clear_labels">Återställ alla appetiketter till standard</string>
     <string name="group_defaults_button">Standardgrupper</string>
     <string name="icons_settings_button">Uppdatera ikoner</string>

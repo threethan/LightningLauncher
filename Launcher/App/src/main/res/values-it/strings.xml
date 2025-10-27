@@ -55,11 +55,8 @@
     <string name="dark_mode_tip">Se è attiva, le etichette appariranno bianche su sfondo scuro.</string>
     <string name="enable_groups">Abilitazione dei gruppi</string>
     <string name="enable_groups_tip">Disattivare questa opzione per mostrare tutte le app in una volta sola, senza raggrupparle.</string>
-    <string name="group_wide">Gruppi più ampi</string>
-    <string name="group_wide_tip">Aumenta la larghezza minima dei pulsanti di gruppo,
-        \´per evitare che i nomi più lunghi vengano tagliati.
-        \n
-        \Si nota solo quando ci sono molti gruppi.</string>
+    <string name="group_wider">Gruppi più ampi</string>
+    <string name="group_wider_tip">Aumenta la larghezza dei pulsanti del gruppo</string>
     <string name="clear_labels">Ripristinare tutte le etichette delle app come predefinite</string>
     <string name="group_defaults_button">Gruppi predefiniti</string>
     <string name="icons_settings_button">Aggiorna le icone</string>

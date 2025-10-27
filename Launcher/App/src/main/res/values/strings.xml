@@ -72,12 +72,8 @@
     <string name="dark_mode_tip">If on, labels will appear white on a dark background.</string>
     <string name="enable_groups">Enable Groups</string>
     <string name="enable_groups_tip">Turn this off to show all apps at once, without grouping.</string>
-    <string name="group_wide">Wider Groups</string>
-    <string name="group_wide_tip">Increases the minimum width of group buttons,
-        \nensuring longer names don\'t get cut off.
-        \n
-        \n<i>Only noticeable when there are many groups.</i></string>
-
+    <string name="group_wider">Wider Groups</string>
+    <string name="group_wider_tip">Increases the width of group buttons</string>
     <string name="clear_labels">Reset All App Labels to Default</string>
     <string name="group_defaults_button">Default Groups</string>
     <string name="icons_settings_button">Refresh Icons</string>

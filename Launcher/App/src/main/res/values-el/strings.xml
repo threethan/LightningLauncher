@@ -55,11 +55,8 @@
     <string name="dark_mode_tip">Εάν είναι ενεργοποιημένη, οι ετικέτες θα εμφανίζονται λευκές σε σκούρο φόντο.</string>
     <string name="enable_groups">Ενεργοποίηση ομάδων</string>
     <string name="enable_groups_tip">Απενεργοποιήστε το για να εμφανίσετε όλες τις εφαρμογές ταυτόχρονα, χωρίς ομαδοποίηση.</string>
-    <string name="group_wide">Ευρύτερες ομάδες</string>
-    <string name="group_wide_tip">Αυξάνει το ελάχιστο πλάτος των κουμπιών ομάδας,
-        \εξασφαλίζει ότι τα μεγαλύτερα ονόματα δεν θα αποκόπτονται.
-        \n
-        \nΜόνο όταν υπάρχουν πολλές ομάδες.</string>
+    <string name="group_wider">Ευρύτερες ομάδες</string>
+    <string name="group_wider_tip">Αυξάνει το πλάτος των κουμπιών ομάδας</string>
     <string name="clear_labels">Επαναφορά όλων των ετικετών εφαρμογών στην προεπιλογή</string>
     <string name="group_defaults_button">Προεπιλεγμένες ομάδες</string>
     <string name="icons_settings_button">Ανανέωση εικονιδίων</string>

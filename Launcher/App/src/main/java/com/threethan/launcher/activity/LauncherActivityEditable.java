@@ -17,7 +17,6 @@ import androidx.annotation.Nullable;
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.adapter.LauncherAppsAdapter;
 import com.threethan.launcher.activity.adapter.GroupsAdapter;
-import com.threethan.launcher.data.sync.SyncCoordinator;
 import com.threethan.launcher.helper.AppExt;
 import com.threethan.launcher.helper.PlatformExt;
 import com.threethan.launcher.data.Settings;
@@ -344,10 +343,5 @@ public class LauncherActivityEditable extends LauncherActivity {
         AlertDialog subDialog = new LcDialog<>(this, R.layout.dialog_info_websites).show();
         if (subDialog == null) return;
         subDialog.findViewById(R.id.vrOnlyInfo).setVisibility(Platform.isVr() ? View.VISIBLE : View.GONE);
-    }
-
-    @Override
-    protected void onLayoutChanged(View ignoredV, int ignoredLeft, int ignoredTop, int right, int bottom, int ignoredOldLeft, int ignoredOldTop, int oldRight, int oldBottom) {
-        super.onLayoutChanged(ignoredV, ignoredLeft, ignoredTop, right, bottom, ignoredOldLeft, ignoredOldTop, oldRight, oldBottom);
     }
 }

@@ -560,15 +560,6 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
                         a.launcherService.forEachActivity(LauncherActivity::forceRefreshPackages), 500),
                 false);
 
-
-        attachSwitchToSetting(dialog.findViewById(R.id.groupWideSwitch),
-                Settings.KEY_GROUPS_WIDE, Settings.DEFAULT_GROUPS_WIDE,
-                value -> {
-                    a.setEditMode(true);
-                    a.setEditMode(false);
-                }, false
-        );
-
         // Clear buttons (limited to one use to prevent bugs due to spamming)
         clearedLabel = false;
 

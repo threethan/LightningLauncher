@@ -36,6 +36,14 @@
         android:visibility="gone"
         tools:visibility="visible">
 
+        <FrameLayout
+            android:id="@+id/groupsContainerWideWindowCentered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:clipChildren="false"
+            android:layout_gravity="center"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -60,7 +68,6 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/bkg_blur_view"
                     android:foreground="@drawable/fg_blur_view"
-                    android:minWidth="500dp"
                     android:minHeight="40dp"
                     android:layout_margin="6dp"
 
@@ -75,7 +82,7 @@
                         android:descendantFocusability="afterDescendants"
                         android:focusable="false"
                         android:layerType="hardware"
-                        android:minWidth="100dp"
+                        android:minWidth="350dp"
                         android:overScrollMode="never"
                         android:padding="0dp"
                         android:visibility="gone" />
@@ -112,7 +119,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:clipToPadding="false"
-                    android:clipChildren="false"/>
+                    android:clipChildren="false"
+                    android:layout_gravity="center"/>
                 <com.threethan.launchercore.view.LcBlurViewPill
                     android:id="@+id/blurViewSortIcon"
                     android:layout_width="40dp"

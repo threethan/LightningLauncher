@@ -55,11 +55,8 @@
     <string name="dark_mode_tip">Als deze optie is ingeschakeld, worden labels wit weergegeven op een donkere achtergrond.</string>
     <string name="enable_groups">Groepen inschakelen</string>
     <string name="enable_groups_tip">Schakel dit uit om alle apps tegelijk weer te geven, zonder te groeperen.</string>
-    <string name="group_wide">Grotere groepen</string>
-    <string name="group_wide_tip">Vergroot de minimale breedte van groepsknoppen,
-        \zodat langere namen niet worden afgesneden.
-        \n
-        \Alleen zichtbaar als er veel groepen zijn.</string>
+    <string name="group_wider">Grotere groepen</string>
+    <string name="group_wider_tip">Vergroot de breedte van groepsknoppen</string>
     <string name="clear_labels">Alle app-labels terugzetten naar standaard</string>
     <string name="group_defaults_button">Standaard groepen</string>
     <string name="icons_settings_button">Pictogrammen verversen</string>

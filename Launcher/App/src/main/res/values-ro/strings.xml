@@ -55,11 +55,8 @@
     <string name="dark_mode_tip">Dacă este activată, etichetele vor apărea albe pe un fundal închis.</string>
     <string name="enable_groups">Activarea grupurilor</string>
     <string name="enable_groups_tip">Dezactivați această opțiune pentru a afișa toate aplicațiile simultan, fără grupare.</string>
-    <string name="group_wide">Grupuri mai largi</string>
-    <string name="group_wide_tip">Crește lățimea minimă a butoanelor de grup,
-        \nasigurându-se că numele mai lungi nu sunt tăiate.
-        \n
-        \nSe observă doar atunci când există multe grupuri.</string>
+    <string name="group_wider">Grupuri mai largi</string>
+    <string name="group_wider_tip">Mărește lățimea butoanelor de grup</string>
     <string name="clear_labels">Resetați toate etichetele aplicațiilor la valoarea implicită</string>
     <string name="group_defaults_button">Grupuri implicite</string>
     <string name="icons_settings_button">Actualizați pictogramele</string>

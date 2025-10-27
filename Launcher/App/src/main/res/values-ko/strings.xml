@@ -55,11 +55,8 @@
     <string name="dark_mode_tip">켜져 있으면 레이블이 어두운 배경에 흰색으로 표시됩니다.</string>
     <string name="enable_groups">그룹 사용</string>
     <string name="enable_groups_tip">이 기능을 끄면 그룹화하지 않고 모든 앱을 한 번에 표시합니다.</string>
-    <string name="group_wide">더 넓은 그룹</string>
-    <string name="group_wide_tip">그룹 버튼의 최소 너비를 늘립니다,
-        \긴 이름이 잘리지 않도록 합니다.
-        \n
-        \그룹이 많을 때만 눈에 띄게 됩니다.</string>
+    <string name="group_wider">더 넓은 그룹</string>
+    <string name="group_wider_tip">그룹 버튼의 너비를 늘립니다.</string>
     <string name="clear_labels">모든 앱 레이블을 기본값으로 재설정</string>
     <string name="group_defaults_button">기본 그룹</string>
     <string name="icons_settings_button">새로 고침 아이콘</string>

@@ -55,11 +55,8 @@
     <string name="dark_mode_tip">Wenn diese Option aktiviert ist, erscheinen die Etiketten weiß auf einem dunklen Hintergrund.</string>
     <string name="enable_groups">Gruppen freigeben</string>
     <string name="enable_groups_tip">Deaktivieren Sie diese Option, um alle Anwendungen auf einmal anzuzeigen, ohne sie zu gruppieren.</string>
-    <string name="group_wide">Größere Gruppen</string>
-    <string name="group_wide_tip">Erhöht die Mindestbreite von Gruppenschaltflächen,
-        \nur so werden längere Namen nicht abgeschnitten.
-        \n
-        \nNur bemerkbar, wenn es viele Gruppen gibt.</string>
+    <string name="group_wider">Größere Gruppen</string>
+    <string name="group_wider_tip">Vergrößert die Breite der Gruppenschaltflächen</string>
     <string name="clear_labels">Alle App-Etiketten auf Standard zurücksetzen</string>
     <string name="group_defaults_button">Standard-Gruppen</string>
     <string name="icons_settings_button">Icons aktualisieren</string>

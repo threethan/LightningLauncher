@@ -55,11 +55,8 @@
     <string name="dark_mode_tip">オンの場合、ラベルは暗い背景に白く表示される。</string>
     <string name="enable_groups">グループを有効にする</string>
     <string name="enable_groups_tip">グループ化せずにすべてのアプリを一度に表示するには、これをオフにします。</string>
-    <string name="group_wide">より広いグループ</string>
-    <string name="group_wide_tip">グループボタンの最小幅を広げる、
-        \長い名前が切れないようにします。
-        \n
-        \グループ数が多い場合にのみ表示されます。</string>
+    <string name="group_wider">より広いグループ</string>
+    <string name="group_wider_tip">グループボタンの幅を広げる</string>
     <string name="clear_labels">すべてのアプリのラベルをデフォルトに戻す</string>
     <string name="group_defaults_button">デフォルトグループ</string>
     <string name="icons_settings_button">アイコンのリフレッシュ</string>

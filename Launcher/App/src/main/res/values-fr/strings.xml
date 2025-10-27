@@ -58,11 +58,8 @@
         \Les icônes de recherche et de paramètres seront également masquées.
         \n
         \NUtilisez le bouton retour de votre télécommande/contrôleur pour ouvrir les paramètres.</string>
-    <string name="group_wide">Groupes élargis</string>
-    <string name="group_wide_tip">Augmente la largeur minimale des boutons de groupe,
-        \Npour éviter que les noms plus longs ne soient coupés.
-        \n
-        \NUniquement perceptible lorsqu\'il y a beaucoup de groupes.</string>
+    <string name="group_wider">Groupes élargis</string>
+    <string name="group_wider_tip">Augmente la largeur des boutons de groupe</string>
     <string name="clear_labels">Réinitialiser les étiquettes de toutes les applications par défaut</string>
     <string name="group_defaults_button">Groupes par défaut</string>
     <string name="icons_settings_button">Rafraîchir les icônes</string>

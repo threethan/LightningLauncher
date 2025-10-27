@@ -55,11 +55,8 @@
     <string name="dark_mode_tip">Açıksa, etiketler koyu bir arka plan üzerinde beyaz görünecektir.</string>
     <string name="enable_groups">Grupları Etkinleştir</string>
     <string name="enable_groups_tip">Gruplama yapmadan tüm uygulamaları aynı anda göstermek için bunu kapatın.</string>
-    <string name="group_wide">Daha Geniş Gruplar</string>
-    <string name="group_wide_tip">Grup düğmelerinin minimum genişliğini artırır,
-        \Uzun isimlerin kesilmemesini sağlamak.
-        \n
-        \nSadece çok sayıda grup olduğunda fark edilir.</string>
+    <string name="group_wider">Daha Geniş Gruplar</string>
+    <string name="group_wider_tip">Grup düğmelerinin genişliğini artırır</string>
     <string name="clear_labels">Tüm Uygulama Etiketlerini Varsayılana Sıfırla</string>
     <string name="group_defaults_button">Varsayılan Gruplar</string>
     <string name="icons_settings_button">Yenileme Simgeleri</string>

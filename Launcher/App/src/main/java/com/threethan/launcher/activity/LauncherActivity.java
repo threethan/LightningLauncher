@@ -103,6 +103,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
     protected RecyclerView groupsRecycler;
     protected View groupsBlurView;
     protected ViewGroup groupsContainerWideWindow;
+    protected ViewGroup groupsContainerWideWindowCentered;
     protected ViewGroup groupsContainerNarrowWindow;
     private DataStoreEditor mDataStoreEditor;
 
@@ -304,6 +305,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
 
         groupsBlurView = rootView.findViewById(R.id.blurViewGroups);
         groupsContainerWideWindow = rootView.findViewById(R.id.groupsContainerWideWindow);
+        groupsContainerWideWindowCentered = rootView.findViewById(R.id.groupsContainerWideWindowCentered);
         groupsContainerNarrowWindow = rootView.findViewById(R.id.groupsContainerNarrowWindow);
 
         // Set logo button
@@ -360,7 +362,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         if (Math.abs(oldBottom-bottom) > 10 || Math.abs(oldRight-right) > 10) { // Only on significant diff
             wallpaperLoader.crop();
             updateGridLayouts(false);
-            post(this::updateToolBars);
+            updateToolBars();
             postDelayed(this::updateToolBars, 1000);
             while (appsRecycler.getItemDecorationCount() > 1)
                 appsRecycler.removeItemDecorationAt(appsRecycler.getItemDecorationCount()-1);
@@ -545,7 +547,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
 
         if (isEditing() && !groupsEnabled.equals(Boolean.TRUE)) setEditMode(false); // If groups were disabled while in edit mode
 
-        LcBlurCanvas.setOverlayColor((Color.parseColor(darkMode.equals(Boolean.TRUE) ? "#29000000" : "#40FFFFFF")));
+        LcBlurCanvas.setOverlayColor((Color.parseColor(darkMode.equals(Boolean.TRUE) ? "#20000000" : "#40FFFFFF")));
 
         // Item visibility
         View statusView = rootView.findViewById(R.id.blurViewStatus);
@@ -726,11 +728,15 @@ public class LauncherActivity extends Launch.LaunchingActivity {
      * Updates the heights and layouts of grid layout managers used by the groups bar and app grid
      */
     public void updateGridLayouts(boolean force) {
-        if (mainView.getWidth() == prevViewWidth && !force) return;
-        prevViewWidth = mainView.getWidth();
+        int mainWidth = mainView.getWidth();
+        if (mainWidth == prevViewWidth && !force) return;
+        prevViewWidth = mainWidth;
 
         // Group rows and relevant values
-        if (prevViewWidth < 1) return;
+        if (prevViewWidth < 1) {
+            post(() -> post(() -> updateGridLayouts(true)));
+            return;
+        }
         final int targetWidth
                 = dp(groupsWide ? Settings.GROUP_WIDTH_DP_WIDE : Settings.GROUP_WIDTH_DP);
         final int groupCols = getGroupAdapter() == null ? 1
@@ -738,8 +744,33 @@ public class LauncherActivity extends Launch.LaunchingActivity {
 
         // Dynamic placement of groups bar
         boolean mainViewIsWideEnoughForGroups = mainView.getMeasuredWidth() > dp(groupsWide ? 1000 : 750);
+
+        int targetWidthTotal = groupCols * (targetWidth + dp(12));
+        boolean shouldUseCenteredContainer
+                = !groupsWide && mainViewIsWideEnoughForGroups;
+        if (shouldUseCenteredContainer) {
+            int[] loc = new int[2];
+            groupsContainerWideWindow.getLocationInWindow(loc);
+            int leftInWindow = loc[0] - dp(6);
+            int rightInWindow = mainWidth - loc[0] - groupsContainerWideWindow.getMeasuredWidth();
+            int maxAllowableCenteredWidth = mainWidth - 2 * Math.max(leftInWindow, rightInWindow);
+            if (targetWidthTotal > maxAllowableCenteredWidth) {
+                shouldUseCenteredContainer = false;
+            }
+        }
+        if (shouldUseCenteredContainer) {
+            ViewGroup.LayoutParams lp = groupsContainerWideWindowCentered.getLayoutParams();
+            lp.width = targetWidthTotal;
+            groupsContainerWideWindowCentered.setLayoutParams(lp);
+        }
+
+
         ViewGroup groupsViewParent = mainViewIsWideEnoughForGroups
-                        ? groupsContainerWideWindow
+                        ? (
+                                shouldUseCenteredContainer
+                                        ? groupsContainerWideWindowCentered
+                                        : groupsContainerWideWindow
+                                )
                         : groupsContainerNarrowWindow;
         if (groupsViewParent != groupsBlurView.getParent()) {
             ViewParent oldParent = groupsBlurView.getParent();
@@ -761,12 +792,14 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         if (groupHeight > mainView.getMeasuredHeight() / 3) {
             // Scroll groups if more than 1/3 the screen
             groupHeight = mainView.getMeasuredHeight() / 3;
-            groupsRecycler.setLayoutParams(new FrameLayout.LayoutParams
-                    (ViewGroup.LayoutParams.MATCH_PARENT, groupHeight));
+
+            ViewGroup.LayoutParams lp = groupsRecycler.getLayoutParams();
+            lp.height = groupHeight;
+            groupsRecycler.setLayoutParams(lp);
         } else {
-            // Otherwise don't
-            groupsRecycler.setLayoutParams(new FrameLayout.LayoutParams
-                    (ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            ViewGroup.LayoutParams lp = groupsRecycler.getLayoutParams();
+            lp.height = ViewGroup.LayoutParams.WRAP_CONTENT;
+            groupsRecycler.setLayoutParams(lp);
         }
         groupsRecycler.post(() -> groupsRecycler.setVisibility(View.VISIBLE));
 

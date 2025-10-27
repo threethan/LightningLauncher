@@ -63,10 +63,8 @@
     <string name="dark_mode_tip">如果打开，标签将在深色背景上显示白色。</string>
     <string name="enable_groups">启用分组</string>
     <string name="enable_groups_tip">关闭此功能可一次显示所有应用，而不进行分组。</string>
-    <string name="group_wide">宽组按钮</string>
-    <string name="group_wide_tip">加宽组按钮以确保较长的名称不会被截断。
-\n 仅在启用组并且存在许多组时才会引人注目。</string>
-
+    <string name="group_wider">宽组按钮</string>
+    <string name="group_wider_tip">增加分组按钮的宽度</string>
     <string name="clear_labels">重置所有标签</string>
     <string name="group_defaults_button">默认分组</string>
     <string name="icons_settings_button">重置/更新图标</string>
