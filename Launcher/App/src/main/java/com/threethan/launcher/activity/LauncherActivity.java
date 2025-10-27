@@ -786,23 +786,22 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         // Measure the top bar to determine additional top padding for the app grid
         topBar.measure(View.MeasureSpec.makeMeasureSpec(mainView.getMeasuredWidth(), View.MeasureSpec.EXACTLY),
                 View.MeasureSpec.makeMeasureSpec(mainView.getMeasuredHeight(), View.MeasureSpec.AT_MOST));
-        int groupHeight = topBar.getMeasuredHeight() - dp(40); // Minus margins
 
-        if (groupHeight > mainView.getMeasuredHeight() / 3) {
-            // Scroll groups if more than 1/3 the screen
-            groupHeight = mainView.getMeasuredHeight() / 3;
-
+        int maxEstHeight = mainView.getMeasuredHeight() / 6 + dp(40);
+        if (getGroupAdapter().getItemCount() / groupCols > maxEstHeight / dp(40)) {
+            // Scroll if > 4 rows
             ViewGroup.LayoutParams lp = groupsRecycler.getLayoutParams();
-            lp.height = groupHeight;
+            lp.height = maxEstHeight;
             groupsRecycler.setLayoutParams(lp);
         } else {
             ViewGroup.LayoutParams lp = groupsRecycler.getLayoutParams();
             lp.height = ViewGroup.LayoutParams.WRAP_CONTENT;
             groupsRecycler.setLayoutParams(lp);
         }
+        updatePadding(topBar.getMeasuredHeight() - dp(40));
+
         groupsRecycler.post(() -> groupsRecycler.setVisibility(View.VISIBLE));
 
-        updatePadding(groupHeight);
 
         GridLayoutManager gridLayoutManager = (GridLayoutManager) appsRecycler.getLayoutManager();
         if (gridLayoutManager == null) {
