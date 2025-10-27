@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission
         android:name="android.permission.REQUEST_INSTALL_PACKAGES"
-        tools:node="remove"/>
+        tools:node="remove"
+        tools:ignore="RequestInstallPackagesPolicy" />
     <uses-permission
         android:name="android.permission.REQUEST_DELETE_PACKAGES"
         tools:node="remove"/>
@@ -17,7 +18,7 @@
     <uses-permission
         android:name="android.permission.QUERY_ALL_PACKAGES"
         tools:node="remove"
-        tools:ignore="QueryAllPackagesPermission" />
+        tools:ignore="PackageVisibilityPolicy,QueryAllPackagesPermission" />
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
         tools:node="remove"
