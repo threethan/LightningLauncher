@@ -12,6 +12,7 @@ import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.activity.support.DataStoreEditor;
 import com.threethan.launcher.data.Settings;
 import com.threethan.launcher.data.sync.SyncCoordinator;
+import com.threethan.launcher.helper.PlatformExt;
 import com.threethan.launchercore.Core;
 import com.threethan.launchercore.util.Platform;
 
@@ -50,6 +51,7 @@ public class ShortcutStateProvider extends ContentProvider {
                     ? SyncCoordinator.getDefaultDataStoreEditor(Core.context())
                     : null;
             shouldBlur = dse != null
+                    && PlatformExt.doesSupportBlendEffects()
                     && dse.getBoolean(Settings.KEY_BACKGROUND_BLUR, Settings.DEFAULT_BACKGROUND_BLUR);
         } catch (Exception ignored) {}
 

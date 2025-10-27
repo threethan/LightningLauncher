@@ -26,6 +26,7 @@ import androidx.annotation.RequiresApi;
 
 import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.data.Settings;
+import com.threethan.launcher.helper.PlatformExt;
 import com.threethan.launchercore.lib.ImageLib;
 import com.threethan.launchercore.util.Platform;
 import com.threethan.launchercore.view.LcBlurCanvas;
@@ -222,7 +223,7 @@ public class WallpaperLoader {
         return Math.max(1, Math.min(alpha, 254));
     }
     private static boolean shouldClampAlpha(DataStoreEditor dataStoreEditor) {
-        return Platform.getVrOsVersion() >= 77 && Platform.isQuestGen3()
+        return PlatformExt.doesSupportBlendEffects()
                 && dataStoreEditor.getBoolean(Settings.KEY_BACKGROUND_BLUR,
                                               Settings.DEFAULT_BACKGROUND_BLUR);
     }

@@ -398,9 +398,7 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
                         Settings.DEFAULT_BACKGROUND_ALPHA_PRESERVE, v -> a.refreshBackground(), false);
                 alphaPreserve.setVisibility(View.VISIBLE);
 
-                //noinspection ConstantValue
-                if (!BuildConfig.FLAVOR.equals("metastore")
-                        && Platform.getVrOsVersion() >= 77 && Platform.isQuestGen3()) {
+                if (PlatformExt.doesSupportBlendEffects()) {
                     attachSwitchToSetting(alphaClamp, Settings.KEY_BACKGROUND_BLUR,
                             Settings.DEFAULT_BACKGROUND_BLUR, v -> a.refreshBackground(), false);
                     alphaClamp.setVisibility(View.VISIBLE);

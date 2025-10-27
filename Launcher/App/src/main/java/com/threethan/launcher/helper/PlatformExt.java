@@ -181,4 +181,15 @@ public abstract class PlatformExt {
         }
         return true;
     }
+
+    /**
+     * Checks if blend effects (background blur) is supported.
+     * @return true if blend effects are supported, false otherwise
+     */
+    public static boolean doesSupportBlendEffects() {
+        //noinspection ConstantValue
+        return BuildConfig.FLAVOR.equals("sideload")
+                && Platform.getVrOsVersion() >= 77
+                && Platform.isQuestGen3();
+    }
 }
