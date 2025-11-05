@@ -267,10 +267,18 @@
             android:paddingEnd="5dp"
             android:text="@string/close_fully"
             android:tooltipText="@string/close_fully_desc"
-            tools:ignore="UnusedAttribute">
+            tools:ignore="UnusedAttribute"/>
 
-        </com.threethan.launchercore.view.LcButton>
-
+        <com.threethan.launchercore.view.LcButton
+            android:visibility="gone"
+            android:id="@+id/forceCrashButton"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_marginTop="10dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:text="[DEBUG] Crash this Application"
+            tools:ignore="HardcodedText,UnusedAttribute"/>
 
         <TextView
             style="@style/SettingSubtitle"

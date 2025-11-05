@@ -3,10 +3,15 @@ package com.threethan.launcher.helper;
 import static com.threethan.launcher.activity.support.SettingsManager.META_LABEL_SUFFIX;
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 
+import com.threethan.launcher.LauncherService;
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.activity.adapter.LauncherAppsAdapter;
@@ -300,6 +305,14 @@ public abstract class Compat {
     }
 
     public static void restartFully() {
+        int pendingId = 1330;
+        Intent intent = new Intent(Core.context(), LauncherService.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(Core.context(), pendingId, intent,
+                PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+
+        AlarmManager mgr = (AlarmManager) Core.context().getSystemService(Context.ALARM_SERVICE);
+        if (mgr != null) mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 1000, pendingIntent);
+
         LauncherActivity foregroundInstance = LauncherActivity.getForegroundInstance();
         LcDialog.closeAll();
         if (foregroundInstance != null && foregroundInstance.launcherService != null) {

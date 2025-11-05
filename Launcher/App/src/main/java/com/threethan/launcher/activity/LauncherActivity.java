@@ -39,6 +39,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
+import com.google.firebase.crashlytics.internal.common.CrashlyticsCore;
 import com.threethan.launcher.BuildConfig;
 import com.threethan.launcher.LauncherService;
 import com.threethan.launcher.R;
@@ -58,6 +60,7 @@ import com.threethan.launcher.activity.view.SortCycler;
 import com.threethan.launcher.data.sync.SyncCoordinator;
 import com.threethan.launcher.helper.LaunchExt;
 import com.threethan.launcher.activity.view.status.StatusAdaptableView;
+import com.threethan.launchercore.lib.DelayLib;
 import com.threethan.launchercore.util.LcDialog;
 import com.threethan.launchercore.view.LcBlurCanvas;
 import com.threethan.launcher.activity.view.MarginDecoration;
@@ -95,6 +98,19 @@ import java.util.concurrent.ExecutorService;
  */
 
 public class LauncherActivity extends Launch.LaunchingActivity {
+
+    // Exception handler to catch crashes, report them, and restart the launcher
+    static {
+        Thread.setDefaultUncaughtExceptionHandler((t, e) -> {
+            Log.e("Handler", "Uncaught exception in thread " + t.getName(), e);
+            FirebaseCrashlytics.getInstance().recordException(e);
+            System.exit(0);
+            Intent intent = new Intent(Core.context(), LauncherService.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            Core.context().startActivity(intent);
+        });
+    }
+
     public static Boolean darkMode = null;
     public static Boolean groupsEnabled = true;
     private static Boolean groupsWide = false;
@@ -188,11 +204,9 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         } catch (Exception ignored) {}
         return super.getResources();
     }
-
     private Insets barInsets = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         if (BuildConfig.DEBUG) {
             StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
                         .detectAll()

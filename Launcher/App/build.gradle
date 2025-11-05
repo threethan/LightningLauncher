@@ -1,4 +1,10 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
+
+afterEvaluate {
+    tasks.matching { it.name.contains("GoogleServices") && !it.name.contains("store") }*.enabled = false
+}
 
 android {
     android.buildFeatures.buildConfig=true
@@ -7,8 +13,8 @@ android {
         compileSdk = 36
         minSdkVersion 24
         targetSdkVersion 36
-        versionCode 912
-        versionName "9.1.2"
+        versionCode 1002
+        versionName "10.0.2"
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
@@ -35,15 +41,18 @@ android {
     productFlavors {
         sideload {
             dimension 'variant'
+            getIsDefault().set(true)
         }
         playstore {
             dimension 'variant'
             applicationIdSuffix '.playstore'
+            ext.useGoogleGcm = true
         }
         metastore {
             dimension 'variant'
             applicationIdSuffix '.metastore'
             targetSdkVersion 34
+            ext.useGoogleGcm = true
         }
     }
 }
@@ -55,4 +64,15 @@ dependencies {
     implementation 'androidx.datastore:datastore-preferences-rxjava3:1.1.7'
     implementation 'androidx.recyclerview:recyclerview:1.4.0'
     implementation 'androidx.activity:activity:1.11.0'
+    implementation "androidx.fragment:fragment:1.8.9"
+
+    // Crashlytics for metastore flavor
+    metastoreImplementation platform("com.google.firebase:firebase-bom:34.5.0")
+    metastoreImplementation("com.google.firebase:firebase-crashlytics-ndk")
+    metastoreImplementation("com.google.firebase:firebase-analytics")
+    // Crashlytics for playstore flavor
+    playstoreImplementation platform("com.google.firebase:firebase-bom:34.5.0")
+    playstoreImplementation("com.google.firebase:firebase-crashlytics-ndk")
+    playstoreImplementation("com.google.firebase:firebase-analytics")
 }
+

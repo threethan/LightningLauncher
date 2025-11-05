@@ -7,7 +7,10 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:8.13.0'
-    }}
+        classpath 'com.google.gms:google-services:4.4.4'
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.9.6'
+    }
+}
 
 allprojects {
     repositories {
@@ -17,4 +20,3 @@ allprojects {
         maven { url "https://maven.mozilla.org/maven2/" }
     }
 }
-
