@@ -29,27 +29,9 @@ public class TopGradientBlurView extends LcBlurView {
         super(context, attrs, defStyleAttr);
         setWillNotDraw(false);
     }
-
-    public static int dp(Context context, float dp) {
-        return Math.round(dp * context.getResources().getDisplayMetrics().density);
-    }
-    public static int HEIGHT;
-    static {
-        try {
-            HEIGHT = dp(Core.context(), 80f); // Height of the view in pixels
-        } catch (Exception ignored) {
-            HEIGHT = 80; // Fallback if context is not available
-        }
-    }
     private static final float FADE_CENTER = 0.7f;
     private static final float FADE_START = 0.3f;
 
-    private static final LinearGradient gradDn = new LinearGradient(
-            0, 0, 0, HEIGHT,
-            new int[] {0xFFFFFFFF, 0xF3FFFFFF, 0x00FFFFFF},
-            new float[] {FADE_START, FADE_CENTER, 1f},
-            Shader.TileMode.REPEAT
-    );
 
     private static final Paint multiplyPaint = new Paint();
     static {
@@ -57,8 +39,30 @@ public class TopGradientBlurView extends LcBlurView {
         multiplyPaint.setAntiAlias(false);
         multiplyPaint.setFilterBitmap(false);
         multiplyPaint.setDither(false);
-        multiplyPaint.setShader(gradDn);
     }
+
+    private int lastMeasuredHeight = -1;
+    private Shader lastShader = null;
+    private Shader getShader() {
+        if (lastShader != null && lastMeasuredHeight == getMeasuredHeight()) {
+            return lastShader;
+        }
+        lastMeasuredHeight = getMeasuredHeight();
+        lastShader = new LinearGradient(
+                0, 0, 0, lastMeasuredHeight,
+                new int[] {0xFFFFFFFF, 0xF3FFFFFF, 0x00FFFFFF},
+                new float[] {FADE_START, FADE_CENTER, 1f},
+                Shader.TileMode.REPEAT
+        );
+        return lastShader;
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        multiplyPaint.setShader(getShader());
+        super.onLayout(changed, left, top, right, bottom);
+    }
+
     private static final Paint normalPaint = new Paint();
 
     @Override
