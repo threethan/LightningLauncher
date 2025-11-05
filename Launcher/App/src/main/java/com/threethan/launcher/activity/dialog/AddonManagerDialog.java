@@ -135,6 +135,12 @@ public class AddonManagerDialog extends LcDialog<LauncherActivity> {
             new AddonManagerDialog(a).show();
         });
 
+        if (dockGotoButton != null) {
+            a.getDataStoreEditor().putValue(Settings.KEY_SEEN_ADDONS, false);
+        } else {
+            a.getDataStoreEditor().putValue(Settings.KEY_SEEN_ADDONS, true);
+        }
+
         return dialog;
     }
     public static void updateAddonButton(final Activity a, final View layout, final String tag) {

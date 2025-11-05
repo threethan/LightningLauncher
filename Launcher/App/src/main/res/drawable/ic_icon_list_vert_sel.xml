@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true">
+        <layer-list>
+            <item android:height="18dp" android:width="18dp" android:gravity="start|center_vertical" android:drawable="@drawable/ic_icon_list_vert"/>
+            <item>
+                <shape android:shape="rectangle">
+                    <size android:height="24dp" android:width="24dp" />
+                    <corners android:radius="5dp" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item android:drawable="@drawable/ic_icon_list_vert"/>
+</selector>

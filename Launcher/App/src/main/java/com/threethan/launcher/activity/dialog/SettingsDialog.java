@@ -10,8 +10,10 @@ import android.content.Intent;
 import android.os.Build;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
+import android.view.animation.Interpolator;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.Spinner;
@@ -24,6 +26,7 @@ import com.threethan.launcher.R;
 import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.activity.support.SettingsManager;
 import com.threethan.launcher.data.Settings;
+import com.threethan.launcher.helper.AppBackgroundHelper;
 import com.threethan.launcher.helper.AppExt;
 import com.threethan.launcher.helper.Compat;
 import com.threethan.launcher.helper.PlatformExt;
@@ -94,19 +97,25 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
         // Addons
         View addonsButton = dialog.findViewById(R.id.addonsButton);
         //noinspection ConstantValue
-        if (!Platform.isVr() && !Platform.isTv() || BuildConfig.FLAVOR.equals("metastore")) {
+        if (!Platform.isQuest() || BuildConfig.FLAVOR.equals("metastore")) {
             addonsButton.setVisibility(View.GONE);
         } else {
-            addonsButton.setOnClickListener(view -> new AddonManagerDialog(a).show());
-        }
-        if (!a.getDataStoreEditor().getBoolean(Settings.KEY_SEEN_ADDONS, false)
-                && (Platform.isVr() || Platform.isTv())) {
-            View addonsButtonAttract = dialog.findViewById(R.id.addonsButtonAttract);
-            addonsButtonAttract.setVisibility(View.VISIBLE);
-            addonsButton.setVisibility(View.GONE);
-            addonsButtonAttract.setOnClickListener(view -> {
-                a.getDataStoreEditor().putBoolean(Settings.KEY_SEEN_ADDONS, true);
+            addonsButton.setOnClickListener(view -> {
                 new AddonManagerDialog(a).show();
+                dialog.dismiss();
+            });
+        }
+        //noinspection ConstantValue
+        if (Platform.isQuest() && BuildConfig.FLAVOR.equals("sideload")) {
+            a.getDataStoreEditor().getBoolean(Settings.KEY_SEEN_ADDONS, false, v -> {
+                if (!v) {
+                    int duration = 800 * 6; // 3 full shakes
+                    addonsButton.post(() -> addonsButton.animate().rotation(7f)
+                            .setInterpolator((Interpolator) a -> (float) Math.sin(a * Math.PI * duration / 160)
+                                    * (float) Math.pow(Math.max(Math.sin(a * Math.PI * duration / 800), 0), 3))
+                            .setDuration(duration).start());
+                    addonsButton.post(() -> dialog.findViewById(R.id.addonsAttract).setVisibility(View.VISIBLE));
+                }
             });
         }
 
@@ -121,7 +130,6 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
                 a.settingsManager.setSelectedGroups(selectFirst);
             }
         });
-        dialog.findViewById(R.id.topSettingsArea).setClipToOutline(true);
 
         Switch languageSwitch = dialog.findViewById(R.id.forceUntranslatedSwitch);
         attachSwitchToSetting(languageSwitch, Settings.KEY_FORCE_UNTRANSLATED, false, (v) -> {
@@ -203,6 +211,15 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
                 dialog.findViewById(R.id.background9),
                 dialog.findViewById(R.id.background_custom)
         };
+
+        ImageView transBg;
+        if (PlatformExt.supportsTransparentBackgroundOpt()) {
+            transBg = views[views.length - 2];
+            transBg.setImageResource(R.drawable.bg_trans_icon);
+        } else {
+            transBg = null;
+        }
+
         int background = a.getDataStoreEditor().getInt(Settings.KEY_BACKGROUND,
                 Platform.isTv()
                         ? Settings.DEFAULT_BACKGROUND_TV
@@ -213,7 +230,7 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
             image.setClipToOutline(true);
         }
         final int wallpaperWidth = 32;
-        final int selectedWallpaperWidthPx = a.dp(455 + 20 - (wallpaperWidth + 4) * (views.length - 1) - wallpaperWidth);
+        final int selectedWallpaperWidthPx = a.dp(465 + 20 - (wallpaperWidth + 4) * (views.length - 1) - wallpaperWidth);
         views[background].getLayoutParams().width = selectedWallpaperWidthPx;
         views[background].requestLayout();
         for (int i = 0; i < views.length; i++) {
@@ -232,6 +249,22 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
                         return;
                     }
                 }
+
+                if (PlatformExt.supportsTransparentBackgroundOpt()) {
+                    if (view == transBg) {
+                        // Set non-zero alpha to prevent compositing issues
+                        if (a.getDataStoreEditor().getInt(Settings.KEY_BACKGROUND_ALPHA, Settings.DEFAULT_ALPHA) == 0) {
+                            a.getDataStoreEditor().putInt(Settings.KEY_BACKGROUND_ALPHA, 1);
+                            a.postDelayed(a::refreshBackground, 500);
+                        }
+                    } else {
+                        // Revert
+                        if (a.getDataStoreEditor().getInt(Settings.KEY_BACKGROUND_ALPHA, Settings.DEFAULT_ALPHA) == 1) {
+                            a.getDataStoreEditor().putInt(Settings.KEY_BACKGROUND_ALPHA, 0);
+                        }
+                    }
+                }
+
                 if (last == view) return;
 
                 ValueAnimator viewAnimator = ValueAnimator.ofInt(view.getWidth(), selectedWallpaperWidthPx);
@@ -262,14 +295,24 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
 
         // Icons & Layout
         SeekBar scale = dialog.findViewById(R.id.scaleSeekBar);
-        scale.setProgress(a.getDataStoreEditor().getInt(Settings.KEY_SCALE, Settings.DEFAULT_SCALE));
+
+        Runnable updateScale = () -> {
+            int scaleValue = a.getDataStoreEditor().getInt(
+                    LauncherActivity.layoutHorizontal ? Settings.KEY_SCALE_HORIZONTAL : Settings.KEY_SCALE_VERTICAL,
+                    LauncherActivity.layoutHorizontal ? Settings.DEFAULT_SCALE_HORIZONTAL : Settings.DEFAULT_SCALE_VERTICAL);
+            scale.setProgress(scaleValue);
+        };
+        updateScale.run();
 
         scale.post(() -> scale.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int value, boolean b) {
-                a.getDataStoreEditor().putInt(Settings.KEY_SCALE, value);
+                a.getDataStoreEditor().putInt(LauncherActivity.layoutHorizontal
+                        ? Settings.KEY_SCALE_HORIZONTAL
+                        : Settings.KEY_SCALE_VERTICAL, value);
                 LauncherActivity.iconScale = value;
-                a.refreshInterface();
+                AppBackgroundHelper.invalidateIconCornerRadius(a);
+                a.refreshAdapters();
             }
 
             @Override
@@ -285,11 +328,24 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) scale.setMin(Settings.MIN_SCALE);
 
         SeekBar margin = dialog.findViewById(R.id.marginSeekBar);
-        margin.setProgress(a.getDataStoreEditor().getInt(Settings.KEY_MARGIN, Settings.DEFAULT_MARGIN));
+
+        Runnable updateMargin = () -> {
+            int marginValue = a.getDataStoreEditor().getInt(
+                    LauncherActivity.layoutHorizontal
+                        ? Settings.KEY_MARGIN_HORIZONTAL
+                        : Settings.KEY_MARGIN_VERTICAL,
+                    LauncherActivity.layoutHorizontal
+                            ? Settings.DEFAULT_MARGIN_HORIZONTAL
+                            : Settings.DEFAULT_MARGIN_VERTICAL);
+            margin.setProgress(marginValue);
+        };
+        updateMargin.run();
         margin.post(() -> margin.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int value, boolean b) {
-                a.getDataStoreEditor().putInt(Settings.KEY_MARGIN, value);
+                a.getDataStoreEditor().putInt(LauncherActivity.layoutHorizontal
+                        ? Settings.KEY_MARGIN_HORIZONTAL
+                        : Settings.KEY_MARGIN_VERTICAL, value);
                 LauncherActivity.iconMargin = value;
                 a.refreshAdapters();
             }
@@ -304,6 +360,55 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
             }
         }));
         margin.setMax(40);
+        Runnable updateCornerRadius = () -> {};
+        if (Platform.isPhone()) {
+            dialog.findViewById(R.id.cornerSeekBar).setVisibility(View.GONE);
+        } else {
+            SeekBar cornerRadius = dialog.findViewById(R.id.cornerSeekBar);
+            updateCornerRadius = () -> {
+                int radius = a.getDataStoreEditor().getInt(
+                        LauncherActivity.layoutHorizontal ?
+                                Settings.KEY_ICON_CORNER_RADIUS_HORIZONTAL :
+                                Settings.KEY_ICON_CORNER_RADIUS_VERTICAL,
+                        LauncherActivity.layoutHorizontal ?
+                                Settings.DEFAULT_ICON_CORNER_RADIUS_HORIZONTAL :
+                                Settings.DEFAULT_ICON_CORNER_RADIUS_VERTICAL);
+                cornerRadius.setProgress(radius);
+            };
+            updateCornerRadius.run();
+            cornerRadius.post(() -> cornerRadius.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                @Override
+                public void onProgressChanged(SeekBar seekBar, int value, boolean b) {
+                    a.getDataStoreEditor().putInt(
+                            LauncherActivity.layoutHorizontal ?
+                                    Settings.KEY_ICON_CORNER_RADIUS_HORIZONTAL :
+                                    Settings.KEY_ICON_CORNER_RADIUS_VERTICAL, value);
+                    AppBackgroundHelper.invalidateIconCornerRadius(a);
+                    a.postDelayed(() -> AppBackgroundHelper.invalidateIconCornerRadius(a), 250);
+                }
+
+                @Override
+                public void onStartTrackingTouch(SeekBar seekBar) {
+                }
+
+                @Override
+                public void onStopTrackingTouch(SeekBar seekBar) {
+                    a.launcherService.forEachActivity(LauncherActivity::refreshInterface);
+                }
+            }));
+            cornerRadius.setMax(30);
+        }
+
+        Runnable finalUpdateCornerRadius = updateCornerRadius;
+        attachSwitchToSetting(dialog.findViewById(R.id.iconHorizontalSwitch),
+                Settings.KEY_LIST_HORIZONTAL, Settings.DEFAULT_LIST_HORIZONTAL,
+                v -> {
+                    LauncherActivity.layoutHorizontal = v;
+                    a.launcherService.forEachActivity(LauncherActivity::resetAdapters);
+                    finalUpdateCornerRadius.run();
+                    updateScale.run();
+                    updateMargin.run();
+                }, false);
 
         // Variants button
         if (VariantHelper.hasVariants(a)) {
@@ -380,6 +485,7 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
                             darkSwitchRef.get().setChecked(true);
                         } catch (Exception ignored) {}
                     }
+                    a.post(a::refreshBackground);
                 }
 
                 @Override
@@ -388,24 +494,32 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
 
                 @Override
                 public void onStopTrackingTouch(SeekBar seekBar) {
-                    a.refreshBackground();
+                    a.postDelayed(() -> a.launcherService.forEachActivity(LauncherActivity::refreshBackground), 50);
                 }
             }));
             Switch alphaPreserve = dialog.findViewById(R.id.alphaPreserveSwitch);
             Switch alphaClamp = dialog.findViewById(R.id.alphaClampSwitch);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && Platform.isQuest()) {
                 attachSwitchToSetting(alphaPreserve, Settings.KEY_BACKGROUND_ALPHA_PRESERVE,
-                        Settings.DEFAULT_BACKGROUND_ALPHA_PRESERVE, v -> a.refreshBackground(), false);
+                        Settings.DEFAULT_BACKGROUND_ALPHA_PRESERVE, v ->
+                                a.postDelayed(() -> a.launcherService
+                                        .forEachActivity(LauncherActivity::refreshBackground), 500), false);
                 alphaPreserve.setVisibility(View.VISIBLE);
 
                 if (PlatformExt.doesSupportBlendEffects()) {
                     attachSwitchToSetting(alphaClamp, Settings.KEY_BACKGROUND_BLUR,
-                            Settings.DEFAULT_BACKGROUND_BLUR, v -> a.refreshBackground(), false);
+                            Settings.DEFAULT_BACKGROUND_BLUR, v -> a.postDelayed(() -> a.launcherService
+                                    .forEachActivity(LauncherActivity::refreshBackground), 500), false);
                     alphaClamp.setVisibility(View.VISIBLE);
                 }
             } else if (Platform.isQuest()) {
                 // Quest 1 supports alpha but not alpha preserve
                 dialog.findViewById(R.id.alphaLayout).setBackgroundResource(R.drawable.lc_bkg_button_section);
+            }
+            if (PlatformExt.supportsTransparentBackgroundOpt() && a.getDataStoreEditor().getInt(
+                    Settings.KEY_BACKGROUND, -1) == SettingsManager.BACKGROUND_DRAWABLES.length - 1) {
+                dialog.findViewById(R.id.alphaBlockedMessage).setVisibility(View.VISIBLE);
+                dialog.findViewById(R.id.alphaSection).setVisibility(View.GONE);
             }
         }
 
@@ -585,7 +699,7 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
      * @param setting Setting string key
      * @param def Default setting value
      */
-    private void attachSwitchToSetting(Switch toggle, String setting,
+    private void attachSwitchToSetting(CompoundButton toggle, String setting,
                                        boolean def) {
         attachSwitchToSetting(toggle, setting, def, null, false);
     }
@@ -598,7 +712,7 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
      * @param onSwitch Consumes the new value when it is changed, after writing to the datastore
      * @param inverted If true, inverts the setting
      */
-    private void attachSwitchToSetting(Switch toggle, String setting,
+    private void attachSwitchToSetting(CompoundButton toggle, String setting,
                                        boolean def, Consumer<Boolean> onSwitch, boolean inverted) {
         toggle.setChecked(inverted != a.getDataStoreEditor().getBoolean(setting, def));
         toggle.setOnCheckedChangeListener((compoundButton, value) -> {

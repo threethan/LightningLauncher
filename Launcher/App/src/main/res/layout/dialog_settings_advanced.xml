@@ -112,60 +112,77 @@
 
 
         <LinearLayout
-            android:id="@+id/alphaLayout"
+            android:id="@+id/alphaSection"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/lc_bkg_button_top"
-            android:orientation="horizontal"
-            android:paddingEnd="10dp"
-            tools:ignore="RtlSymmetry">
+            android:layout_height="wrap_content"
+                android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/alphaLayout"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/lc_bkg_button_top"
+                android:orientation="horizontal"
+                android:paddingEnd="10dp"
+                tools:ignore="RtlSymmetry">
 
-            <com.threethan.launchercore.view.LcText
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:singleLine="true"
-                android:text="@string/advanced_alpha"
-                android:tooltipText="@string/advanced_alpha_tip"
+                <com.threethan.launchercore.view.LcText
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text="@string/advanced_alpha"
+                    android:tooltipText="@string/advanced_alpha_tip"
+                    tools:ignore="UnusedAttribute" />
+
+                <SeekBar
+                    android:id="@+id/alphaSeekBar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:max="255"
+                    android:padding="0dp"
+                    android:progressBackgroundTint="@android:color/white"
+                    android:progressDrawable="@drawable/seekbar_custom"
+                    android:thumb="@null" />
+
+            </LinearLayout>
+
+            <com.threethan.launchercore.view.LcSwitch
+                android:id="@+id/alphaClampSwitch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/lc_bkg_button_middle"
+                android:text="@string/advanced_alpha_clamp"
+                android:tooltipText="@string/advanced_alpha_clamp_tip"
+                android:visibility="gone"
                 tools:ignore="UnusedAttribute" />
 
-            <SeekBar
-                android:id="@+id/alphaSeekBar"
-                android:layout_width="0dp"
+            <com.threethan.launchercore.view.LcSwitch
+                android:id="@+id/alphaPreserveSwitch"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1"
-                android:max="255"
-                android:padding="0dp"
-                android:progressBackgroundTint="@android:color/white"
-                android:progressDrawable="@drawable/seekbar_custom"
-                android:thumb="@null" />
-
+                android:layout_marginTop="2dp"
+                android:background="@drawable/lc_bkg_button_bottom"
+                android:text="@string/advanced_alpha_preserve"
+                android:tooltipText="@string/advanced_alpha_preserve_tip"
+                android:visibility="gone"
+                tools:ignore="UnusedAttribute" />
         </LinearLayout>
-
-        <com.threethan.launchercore.view.LcSwitch
-            android:id="@+id/alphaClampSwitch"
+        <TextView
+            android:id="@+id/alphaBlockedMessage"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:background="@drawable/lc_bkg_button_middle"
-            android:text="@string/advanced_alpha_clamp"
-            android:tooltipText="@string/advanced_alpha_clamp_tip"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:alpha="0.8"
+            android:background="@drawable/lc_bkg_button_section"
             android:visibility="gone"
-            tools:ignore="UnusedAttribute" />
-
-        <com.threethan.launchercore.view.LcSwitch
-            android:id="@+id/alphaPreserveSwitch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:background="@drawable/lc_bkg_button_bottom"
-            android:text="@string/advanced_alpha_preserve"
-            android:tooltipText="@string/advanced_alpha_preserve_tip"
-            android:visibility="gone"
-            tools:ignore="UnusedAttribute" />
+            android:paddingHorizontal="50dp"
+            android:text="@string/advanced_alpha_blocked_message"/>
 
         <LinearLayout
             android:layout_width="match_parent"
