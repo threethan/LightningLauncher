@@ -192,4 +192,8 @@ public abstract class PlatformExt {
                 && Platform.getVrOsVersion() >= 77
                 && Platform.isQuestGen3();
     }
+
+    public static boolean supportsTransparentBackgroundOpt() {
+        return Platform.isQuest();
+    }
 }

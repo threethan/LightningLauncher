@@ -106,13 +106,15 @@ public abstract class Launch {
                 PackageManager pm = Core.context().getPackageManager();
                 Intent relaunch = pm.getLaunchIntentForPackage(activity.getPackageName());
                 DelayLib.delayed(() -> activity.startActivity(relaunch), 550);
-                DelayLib.delayed(() -> {
-                    try {
-                        activity.startActivity(intent);
-                    } catch (SecurityException ignored) {
-                        LcDialog.toast("No permission to launch app");
-                    }
-                }, 2000);
+                if (!Objects.equals(intent.getAction(), Intent.ACTION_VIEW)) {
+                    DelayLib.delayed(() -> {
+                        try {
+                            activity.startActivity(intent);
+                        } catch (SecurityException ignored) {
+                            LcDialog.toast("No permission to launch app");
+                        }
+                    }, 2000);
+                }
             }
         };
 

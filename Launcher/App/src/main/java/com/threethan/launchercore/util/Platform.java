@@ -43,8 +43,12 @@ public abstract class Platform {
      * @return True if running on an Android TV device
      */
     public static boolean isTv() {
-        return (((UiModeManager) Core.context().getSystemService(Context.UI_MODE_SERVICE))
-                .getCurrentModeType() == Configuration.UI_MODE_TYPE_TELEVISION);
+        try {
+            return (((UiModeManager) Core.context().getSystemService(Context.UI_MODE_SERVICE))
+                    .getCurrentModeType() == Configuration.UI_MODE_TYPE_TELEVISION);
+        } catch (Exception ignored) {
+            return false;
+        }
     }
     /**
      * @return True if running on a VR headset (*currently only Meta Quest)

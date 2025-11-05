@@ -171,6 +171,7 @@ public abstract class QuestGameTuner {
      * Gets the playtime/usage offset (in minutes) that Quest Game Tuner has for a given package.
      */
     public static int getUsageOffset(String packageName) {
+        if (!isInstalled()) return 0;
         Uri uri = Uri.parse("content://com.threethan.tuner.usageOffsetProvider/" + packageName);
         try {
             // Attempt to gain permission to use the provider when tuner is closed
