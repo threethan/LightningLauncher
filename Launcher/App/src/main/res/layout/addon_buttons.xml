@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="35dp"
+    android:layout_height="39dp"
     android:layout_marginStart="40dp"
     android:layout_marginBottom="10dp"
     android:baselineAligned="false"
@@ -11,40 +11,55 @@
 
     <com.threethan.launchercore.view.LcButton
         android:id="@+id/addonUninstall"
+        android:background="@drawable/lc_bkg_button_section"
         android:layout_width="0dp"
-        android:layout_height="35dp"
+        android:layout_height="match_parent"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
         android:layout_weight="1"
-        android:drawableEnd="@drawable/ic_uninstall"
+        android:drawableStart="@drawable/ic_uninstall"
         android:text="@string/addons_uninstall" />
 
     <com.threethan.launchercore.view.LcButton
         android:id="@+id/addonDeactivate"
+        android:background="@drawable/lc_bkg_button_section"
         android:layout_width="0dp"
-        android:layout_height="35dp"
+        android:layout_height="match_parent"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
         android:layout_weight="1"
-        android:drawableEnd="@drawable/ic_activate"
+        android:drawableStart="@drawable/ic_activate"
         android:text="@string/addons_deactivate" />
+
+    <com.threethan.launchercore.view.LcButton
+        android:id="@+id/addonOpen"
+        style="@style/buttonHighlight"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_weight="1"
+        android:drawableEnd="@drawable/ic_download"
+        android:visibility="gone"
+        android:text="@string/addons_open" />
 
     <com.threethan.launchercore.view.LcButton
         android:id="@+id/addonInstall"
         style="@style/buttonHighlight"
         android:layout_width="0dp"
-        android:layout_height="35dp"
+        android:layout_height="match_parent"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
         android:layout_weight="1"
         android:drawableEnd="@drawable/ic_download"
+        android:visibility="gone"
         android:text="@string/addons_install" />
 
     <com.threethan.launchercore.view.LcButton
         android:id="@+id/addonUpdate"
         style="@style/buttonHighlight"
         android:layout_width="0dp"
-        android:layout_height="35dp"
+        android:layout_height="match_parent"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
         android:layout_weight="1"
@@ -53,23 +68,10 @@
         android:visibility="gone" />
 
     <com.threethan.launchercore.view.LcButton
-        android:id="@+id/addonOpen"
-        style="@style/buttonHighlight"
-        android:layout_width="0dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_weight="1"
-        android:drawableEnd="@drawable/ic_launch_out"
-        android:text="@string/addons_open"
-        android:visibility="gone"
-        tools:visibility="visible" />
-
-    <com.threethan.launchercore.view.LcButton
         android:id="@+id/addonActivate"
         style="@style/buttonHighlight"
         android:layout_width="0dp"
-        android:layout_height="35dp"
+        android:layout_height="match_parent"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
         android:layout_weight="1"

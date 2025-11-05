@@ -11,24 +11,26 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <com.threethan.launchercore.view.LcButton
             android:id="@+id/variantInfo"
+            android:background="@drawable/lc_bkg_button_left"
             android:layout_width="0dp"
-            android:layout_height="35dp"
+            android:layout_height="match_parent"
             android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
+            android:layout_marginEnd="1dp"
             android:layout_weight="1"
             android:drawableEnd="@drawable/ic_info"
             android:text="@string/tip_info" />
 
         <com.threethan.launchercore.view.LcButton
             android:id="@+id/variantLaunch"
+            android:background="@drawable/lc_bkg_button_right"
             android:layout_width="0dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="5dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="1dp"
             android:layout_marginEnd="5dp"
             android:layout_weight="1"
             android:drawableEnd="@drawable/ic_launch_out"
@@ -39,7 +41,7 @@
     <com.threethan.launchercore.view.LcButton
         android:id="@+id/variantTransfer"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="39dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="5dp"

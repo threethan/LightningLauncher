@@ -2,7 +2,7 @@
 <inset xmlns:android="http://schemas.android.com/apk/res/android"
     android:insetLeft="-1dp" android:insetRight="-1dp">
     <shape android:shape="rectangle">
-        <solid android:color="#8000"/>
+         <solid android:color="#80191919"/>
         <stroke android:color="#0000" android:width="3dp"/>
     </shape>
 </inset>
