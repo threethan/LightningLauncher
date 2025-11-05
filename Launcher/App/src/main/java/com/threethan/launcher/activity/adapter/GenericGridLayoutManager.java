@@ -10,6 +10,6 @@ public interface GenericGridLayoutManager {
     void setSpanSizeLookup(GridLayoutManager.SpanSizeLookup spanSizeLookup);
 
     void setSpanCount(int nCol);
-
+    @SuppressWarnings("unused")
     int getSpanCount();
 }

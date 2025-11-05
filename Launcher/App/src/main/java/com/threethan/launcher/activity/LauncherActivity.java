@@ -304,8 +304,8 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         appsRecycler.setItemViewCacheSize(128);
 
         //noinspection InvalidSetHasFixedSize
-        if (appsRecycler.getLayoutManager() instanceof LauncherGridLayoutManager)
-            appsRecycler.setHasFixedSize(true); //TODO
+        if (appsRecycler.getLayoutManager() instanceof GridLayoutManager)
+            appsRecycler.setHasFixedSize(true);
 
         groupsRecycler = rootView.findViewById(R.id.groupsRecycler);
 

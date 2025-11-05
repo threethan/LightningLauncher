@@ -1,22 +1,10 @@
 package com.threethan.launchercore.view;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.res.TypedArray;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.util.TypedValue;
-import android.widget.Switch;
 import android.widget.ToggleButton;
 
-import androidx.annotation.DrawableRes;
 import androidx.annotation.Nullable;
-import androidx.core.content.res.ResourcesCompat;
-
-import com.threethan.launcher.R;
-
-import java.lang.reflect.Field;
 
 public class LcToggleButton extends ToggleButton {
     public LcToggleButton(Context context) {

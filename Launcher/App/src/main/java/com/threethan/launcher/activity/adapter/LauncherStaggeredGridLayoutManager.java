@@ -38,7 +38,7 @@ public class LauncherStaggeredGridLayoutManager extends RecyclerView.LayoutManag
         return orientation;
     }
 
-    protected GridLayoutManager.SpanSizeLookup spanSizeLookup = new GridLayoutManager.SpanSizeLookup() {;
+    protected GridLayoutManager.SpanSizeLookup spanSizeLookup = new GridLayoutManager.SpanSizeLookup() {
         @Override
         public int getSpanSize(int position) {
             return 1;
