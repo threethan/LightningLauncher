@@ -34,12 +34,16 @@ public class LcBlurViewPill extends LcBlurView {
         clearPaint.setColor(0x0);
     }
 
-    private static final float MARGIN = 0.5f; // To avoid edge artifacts
+    private static final float MARGIN = 0.5f; // About artifacts. Side effect of slight outline
+
+    @Override
     protected void clearCanvas(Canvas canvas) {
-        float cornerRadiusPx = 20f * getResources().getDisplayMetrics().density;
+
         canvas.drawRoundRect(MARGIN, MARGIN, getWidth() - MARGIN, getHeight() - MARGIN,
-                cornerRadiusPx, cornerRadiusPx, clearPaint);
+                100f, 100f, clearPaint);
     }
+
+
 
     @Override
     protected void drawBlur(Canvas canvas, int[] position) {

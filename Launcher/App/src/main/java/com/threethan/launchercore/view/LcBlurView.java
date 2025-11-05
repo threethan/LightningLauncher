@@ -1,14 +1,18 @@
 package com.threethan.launchercore.view;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
+
+import com.threethan.launcher.activity.LauncherActivity;
 
 /**
  * FrameLayout that blurs its underlying content.
@@ -32,7 +36,7 @@ public class LcBlurView extends FrameLayout {
     @Override
     protected void onDraw(@NonNull Canvas canvas) {
         getLocationInWindow(mPosition);
-        clearCanvas(canvas);
+        if (LcBlurCanvas.useTransparency()) clearCanvas(canvas);
         drawBlur(canvas, mPosition);
         super.onDraw(canvas);
     }

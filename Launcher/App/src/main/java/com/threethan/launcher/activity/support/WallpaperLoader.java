@@ -90,20 +90,26 @@ public class WallpaperLoader {
 
             BitmapDrawable wallpaperDrawable = new BitmapDrawable(Resources.getSystem(), imageBitmap);
 
-            if (Platform.isQuest())
+            int backgroundAlpha = getBackgroundAlpha(owner.getDataStoreEditor());
+            if (Platform.isQuest() && backgroundAlpha < 254) {
+                LcBlurCanvas.setUseTranslucent(true);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU
                         && owner.getDataStoreEditor().getBoolean(Settings.KEY_BACKGROUND_ALPHA_PRESERVE,
                         Settings.DEFAULT_BACKGROUND_ALPHA_PRESERVE)) {
-                    float alpha = getBackgroundAlpha(owner.getDataStoreEditor()) / 255f;
+                    float alpha = backgroundAlpha / 255f;
                     imageBitmap = preserveAlphaBitmap(imageBitmap, alpha, shouldClampAlpha(owner.getDataStoreEditor()));
                     wallpaperDrawable = new BitmapDrawable(Resources.getSystem(), imageBitmap);
                 } else {
-                    wallpaperDrawable.setAlpha(getBackgroundAlpha(owner.getDataStoreEditor()) + 1);
+                    wallpaperDrawable.setAlpha(backgroundAlpha + 1);
                 }
+            } else {
+                LcBlurCanvas.setUseTranslucent(false);
+            }
             // Apply
             BitmapDrawable finalWallpaperDrawable = wallpaperDrawable;
             owner.runOnUiThread(() -> {
                     owner.getWindow().setBackgroundDrawable(finalWallpaperDrawable);
+                    owner.getWindow().getDecorView().invalidate();
                     LcBlurCanvas.invalidateAll();
             });
         }

@@ -63,7 +63,7 @@ public class LcBlurCanvas extends LcContainerView {
     }
 
     /** Drawn on top of the canvas */
-    private static int overlayColor = Color.TRANSPARENT;
+    private static int overlayColor = 0xE025292E;
 
     /** Whether the renderRect should be used to limit the rendering area */
     public static boolean useRenderRect = false;
@@ -84,12 +84,16 @@ public class LcBlurCanvas extends LcContainerView {
 
     private boolean hasRenderEffect;
     private boolean shouldForceRender = true;
-    private static boolean supportTranslucent = false;
-    static {
-        try {
-            supportTranslucent = Platform.isQuest();
-        } catch (Exception ignored) {}
+    private static boolean useTranslucent = false;
+
+    public static void setUseTranslucent(boolean useTranslucent) {
+        LcBlurCanvas.useTranslucent = useTranslucent;
     }
+
+    public static boolean useTransparency() {
+        return useTranslucent;
+    }
+
     public void notifyShouldForceRender() {
         shouldForceRender = true;
     }
@@ -134,7 +138,7 @@ public class LcBlurCanvas extends LcContainerView {
                     Canvas canvas = renderNode.beginRecording();
                     canvas.scale(MODERN_RES_MULT, MODERN_RES_MULT);
 
-                    if (supportTranslucent) canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
+                    if (useTranslucent) canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
                     // Draw window background
                     if (useStaticBlur) drawWindowBackground(canvas);
                     else drawContents(canvas);
@@ -234,6 +238,10 @@ public class LcBlurCanvas extends LcContainerView {
         blur.setRadius(Math.min(Math.max(radius, 0.1f), 25));
         blur.forEach(out);
         out.copyTo(bitmap);
+        in.destroy();
+        out.destroy();
+        blur.destroy();
+        rs.destroy();
     }
 
     private void drawWindowBackground(Canvas canvas) {
