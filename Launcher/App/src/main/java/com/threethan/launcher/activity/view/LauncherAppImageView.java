@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BlendMode;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -78,8 +79,8 @@ public class LauncherAppImageView extends ImageView {
 
                 int left = (viewWidth - scaledWidth) / 2;
                 int top = (viewHeight - scaledHeight) / 2;
-                int right = left + scaledWidth;
-                int bottom = top + scaledHeight;
+                int right = left + scaledWidth + 1;
+                int bottom = top + scaledHeight + 1;
 
                 drawable.setBounds(left, top, right, bottom);
 

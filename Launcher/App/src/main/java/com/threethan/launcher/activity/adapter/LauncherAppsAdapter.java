@@ -29,6 +29,7 @@ import com.threethan.launcher.activity.view.FocusDirectionAwareContainer;
 import com.threethan.launcher.activity.view.LauncherAppImageView;
 import com.threethan.launcher.activity.view.LauncherAppListContainer;
 import com.threethan.launcher.data.Settings;
+import com.threethan.launcher.helper.AppBackgroundHelper;
 import com.threethan.launcher.helper.LaunchExt;
 import com.threethan.launcher.helper.PlaytimeHelper;
 import com.threethan.launchercore.adapter.AppsAdapter;
@@ -42,7 +43,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import java.util.WeakHashMap;
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 /**
  *     The adapter for the main app grid.
@@ -63,19 +66,29 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
     private Runnable onListReadyEveryTime;
     private Runnable onListReadyOneShot;
     private Set<ApplicationInfo> completeAppSet;
+    private final static Set<View> imageViews = Collections.newSetFromMap(new WeakHashMap<>());
+    public void setImageViewBackgrounds(Supplier<Drawable> backgroundSupplier) {
+        for (View iv : imageViews) {
+            iv.setBackground(backgroundSupplier.get());
+        }
+    }
 
     private boolean getEditMode() {
         return launcherActivity.isEditing();
     }
     public LauncherAppsAdapter(LauncherActivity activity) {
-        super(R.layout.item_app);
+        super(LauncherActivity.layoutHorizontal ? R.layout.item_app_horiz : R.layout.item_app);
         launcherActivity = activity;
+    }
+
+    public synchronized void setSortModeForced(SortHandler.SortMode mode) {
+        sortMode = mode;
+        updateSortAndGroupsInternal();
     }
 
     public synchronized void setSortMode(SortHandler.SortMode mode) {
         if (mode == sortMode) return;
-        sortMode = mode;
-        updateSortAndGroupsInternal();
+        setSortModeForced(mode);
     }
     protected void updateSortAndGroupsInternal() {
         if (sortMode == null || completeAppSet == null) return;
@@ -216,7 +229,6 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
         completeAppSet = Collections.unmodifiableSet(items);
         updateSortAndGroupsInternal();
     }
-
     protected static class AppViewHolderExt extends AppsAdapter.AppViewHolder {
         Button moreButton;
         Button playtimeButton;
@@ -235,6 +247,8 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
         holder.moreButton = holder.view.findViewById(R.id.moreButton);
         holder.playtimeButton = holder.view.findViewById(R.id.playtimeButton);
         holder.imageView.setClipToOutline(true);
+
+        imageViews.add(holder.imageView);
 
         // Launch app on click
         holder.view.setOnClickListener(view -> {
@@ -433,7 +447,7 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
             final float newScaleOuter = focused ? (tv ? 1.250f : 1.085f) : 1.005f;
 
             final float newElevation = focused ? 20f : 3f;
-            final float newZ = focused ? (Platform.isTv() ? -0.5f : (holder.banner ? 1f :0f)) : 0f;
+            final float newZ = focused ? (Platform.isTv() ? -0.5f : (holder.banner ? 1f : 0f)) : 0f;
 
             final float textScale = 1 - (1 - (1 / newScaleOuter)) * 0.7f;
             final int duration = tv ? 200 : 250;
@@ -450,6 +464,8 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
             holder.moreButton.animate().alpha(focused ? 1f : 0f)
                     .setDuration(duration).setInterpolator(interpolator).start();
             }
+            holder.playtimeButton.animate().alpha(focused ? 1f : 0f)
+                    .setDuration(duration).setInterpolator(interpolator).start();
             holder.textView.animate().scaleX(textScale).scaleY(textScale)
                     .setDuration(duration).setInterpolator(interpolator).start();
 
@@ -502,6 +518,7 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
 
             View openAnim = launcherActivity.rootView.findViewById(R.id.openAnim);
             if (Platform.isPhone()) openAnim.setBackground(null); // Allow for icon masks
+            else openAnim.setBackground(AppBackgroundHelper.getAppBackgroundDrawable(launcherActivity));
 
             ImageView openIcon = openAnim.findViewById(R.id.openIcon);
             openIcon.setImageDrawable(holder.imageView.getDrawable());

@@ -36,15 +36,18 @@ import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.threethan.launcher.BuildConfig;
 import com.threethan.launcher.LauncherService;
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.adapter.CustomItemAnimator;
+import com.threethan.launcher.activity.adapter.GenericGridLayoutManager;
 import com.threethan.launcher.activity.adapter.GroupsAdapter;
 import com.threethan.launcher.activity.adapter.LauncherAppsAdapter;
 import com.threethan.launcher.activity.adapter.LauncherGridLayoutManager;
+import com.threethan.launcher.activity.adapter.LauncherStaggeredGridLayoutManager;
 import com.threethan.launcher.activity.dialog.AppDetailsDialog;
 import com.threethan.launcher.activity.dialog.SettingsDialog;
 import com.threethan.launcher.activity.support.SortHandler;
@@ -105,6 +108,9 @@ public class LauncherActivity extends Launch.LaunchingActivity {
     protected ViewGroup groupsContainerWideWindowCentered;
     protected ViewGroup groupsContainerNarrowWindow;
     private DataStoreEditor mDataStoreEditor;
+    public static boolean layoutHorizontal = true;
+
+
 
     public DataStoreEditor getDataStoreEditor() {
         if (mDataStoreEditor == null) {
@@ -154,7 +160,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         if (adapter != null) {
             if ((maybeEffectsStandardSort && getCurrentSortMode().equals(SortHandler.SortMode.STANDARD))
                     || getCurrentSortMode().equals(SortHandler.SortMode.RECENTLY_USED))
-                adapter.setActivity(this);
+                adapter.setSortModeForced(getCurrentSortMode());
             adapter.notifyItemChanged(app);
         }
     }
@@ -298,7 +304,8 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         appsRecycler.setItemViewCacheSize(128);
 
         //noinspection InvalidSetHasFixedSize
-        appsRecycler.setHasFixedSize(true);
+        if (appsRecycler.getLayoutManager() instanceof LauncherGridLayoutManager)
+            appsRecycler.setHasFixedSize(true); //TODO
 
         groupsRecycler = rootView.findViewById(R.id.groupsRecycler);
 
@@ -533,7 +540,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         Log.v(TAG, "Package reload - Found "+ PlatformExt.installedApps.size() +" packages");
         AppExt.invalidateCaches();
 
-        if (launcherService != null) launcherService.forEachActivity(LauncherActivity::refreshAppList);
+        if (launcherService != null) launcherService.forEachActivity(LauncherActivity::refreshInterface);
     }
 
 
@@ -546,7 +553,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
 
         if (isEditing() && !groupsEnabled.equals(Boolean.TRUE)) setEditMode(false); // If groups were disabled while in edit mode
 
-        LcBlurCanvas.setOverlayColor((Color.parseColor(darkMode.equals(Boolean.TRUE) ? "#20000000" : "#40FFFFFF")));
+        LcBlurCanvas.setOverlayColor((Color.parseColor(darkMode.equals(Boolean.TRUE) ? "#20222222" : "#40FFFFFF")));
 
         // Item visibility
         View statusView = rootView.findViewById(R.id.blurViewStatus);
@@ -677,6 +684,9 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         timesBanner = getDataStoreEditor()
                 .getBoolean(Settings.KEY_SHOW_TIMES_BANNER, Settings.DEFAULT_SHOW_TIMES_BANNER);
 
+        layoutHorizontal = getDataStoreEditor()
+                .getBoolean(Settings.KEY_LIST_HORIZONTAL, Settings.DEFAULT_LIST_HORIZONTAL);
+
         setReduceMotion(getDataStoreEditor()
                 .getBoolean(Settings.KEY_REDUCE_MOTION, Settings.DEFAULT_REDUCE_MOTION));
         try {
@@ -684,7 +694,6 @@ public class LauncherActivity extends Launch.LaunchingActivity {
             controller.setAppearanceLightStatusBars(!darkMode);
             controller.setAppearanceLightNavigationBars(!darkMode);
         } catch (Exception ignored) {}
-
 
         // Animate only once
         updateSelectedGroups();
@@ -739,7 +748,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         final int targetWidth
                 = dp(groupsWide ? Settings.GROUP_WIDTH_DP_WIDE : Settings.GROUP_WIDTH_DP);
         final int groupCols = getGroupAdapter() == null ? 1
-                : Math.min(getGroupAdapter().getCount(), prevViewWidth / targetWidth);
+                : Math.max(1, Math.min(getGroupAdapter().getCount(), prevViewWidth / targetWidth));
 
         // Dynamic placement of groups bar
         boolean mainViewIsWideEnoughForGroups = mainView.getMeasuredWidth() > dp(groupsWide ? 1000 : 750);
@@ -781,7 +790,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         groupsContainerNarrowWindow
                 .setVisibility(mainViewIsWideEnoughForGroups || !groupsEnabled ? View.GONE : View.VISIBLE);
 
-        groupsRecycler.setLayoutManager(new GridLayoutManager(this, Math.max(1, groupCols)));
+        groupsRecycler.setLayoutManager(new GridLayoutManager(this, groupCols));
 
         // Measure the top bar to determine additional top padding for the app grid
         topBar.measure(View.MeasureSpec.makeMeasureSpec(mainView.getMeasuredWidth(), View.MeasureSpec.EXACTLY),
@@ -803,29 +812,52 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         groupsRecycler.post(() -> groupsRecycler.setVisibility(View.VISIBLE));
 
 
-        GridLayoutManager gridLayoutManager = (GridLayoutManager) appsRecycler.getLayoutManager();
-        if (gridLayoutManager == null) {
-            gridLayoutManager = new LauncherGridLayoutManager(this, 3);
+        GenericGridLayoutManager gridLayoutManager = (GenericGridLayoutManager) appsRecycler.getLayoutManager();
+        boolean wasLayoutManagerNull = gridLayoutManager == null;
+        boolean isLayoutManagerValid = wasLayoutManagerNull || layoutHorizontal
+                ? gridLayoutManager instanceof LauncherStaggeredGridLayoutManager
+                : gridLayoutManager instanceof LauncherGridLayoutManager;
+        if (!isLayoutManagerValid) {
+            if (layoutHorizontal) {
+                gridLayoutManager = new LauncherStaggeredGridLayoutManager(3, RecyclerView.HORIZONTAL);
+            } else {
+                gridLayoutManager = new LauncherGridLayoutManager(this, 3);
+            }
+
             gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
                 @Override
                 public int getSpanSize(int position) {
                     return Objects.requireNonNull(appsRecycler.getAdapter()).getItemViewType(position);
                 }
             });
-            appsRecycler.setLayoutManager(gridLayoutManager);
+            appsRecycler.setLayoutManager((RecyclerView.LayoutManager) gridLayoutManager);
         }
 
-        GridLayoutManager finalGridLayoutManager = gridLayoutManager;
-        getDataStoreEditor().getInt(Settings.KEY_SCALE, Settings.DEFAULT_SCALE, scale -> {
-            int estimatedWidth = prevViewWidth;
+        GenericGridLayoutManager finalGridLayoutManager = gridLayoutManager;
+        boolean vertical = finalGridLayoutManager.getOrientation() == LinearLayoutManager.VERTICAL;
 
-            int nCol = estimatedWidth/(dp(scale)*2) * 2; // To nearest 2
-            if (nCol <= 2) nCol = 2;
+        getDataStoreEditor().getInt(
+                vertical ? Settings.KEY_SCALE_VERTICAL : Settings.KEY_SCALE_HORIZONTAL,
+                vertical ? Settings.DEFAULT_SCALE_VERTICAL : Settings.DEFAULT_SCALE_HORIZONTAL,
+                scale -> {
+            int estimatedLength = vertical ? prevViewWidth : mainView.getHeight();
 
+            int nCol;
+            if (vertical) {
+                nCol = estimatedLength / (dp(scale) * 2) * 2; // To nearest 2
+                if (nCol <= 2) nCol = 2;
+            } else {
+                nCol = estimatedLength / dp(scale * 1.414f);
+                if (nCol < 1) nCol = 1;
+            }
             finalGridLayoutManager.setSpanCount(nCol);
         });
 
         topBar.setVisibility(View.VISIBLE);
+        if (!isLayoutManagerValid && !wasLayoutManagerNull) {
+            notifyAdapterDisplayModeChanged();
+        }
+
     }
     /**
      * Called by updateGridLayouts, updates padding on the app grid views:
@@ -834,14 +866,20 @@ public class LauncherActivity extends Launch.LaunchingActivity {
      * - Bottom padding to account for icon margin, as well as the edit mode footer if applicable
      */
     private void updatePadding(int groupHeight) {
-        if (iconMargin == -1) iconMargin = getDataStoreEditor().getInt(Settings.KEY_MARGIN, Settings.DEFAULT_MARGIN);
-        if (iconScale  == -1) iconScale  = getDataStoreEditor().getInt(Settings.KEY_SCALE , Settings.DEFAULT_SCALE );
+        if (iconMargin == -1) iconMargin = getDataStoreEditor().getInt(
+                layoutHorizontal ? Settings.KEY_MARGIN_HORIZONTAL : Settings.KEY_MARGIN_VERTICAL,
+                layoutHorizontal ? Settings.DEFAULT_MARGIN_HORIZONTAL : Settings.DEFAULT_MARGIN_VERTICAL);
+        if (iconScale  == -1) iconScale  = getDataStoreEditor().getInt(
+                layoutHorizontal ? Settings.KEY_SCALE_HORIZONTAL : Settings.KEY_SCALE_VERTICAL,
+                layoutHorizontal ? Settings.DEFAULT_SCALE_HORIZONTAL : Settings.DEFAULT_SCALE_VERTICAL);
 
         int targetSize = dp(iconScale);
         int margin = getMargin(targetSize);
 
-        final int topAdd = groupHeight > 1 && !isSearching() ? dp(35) + groupHeight : dp(23);
-        final int bottomAdd = groupHeight > 1 ? getBottomBarHeight() + dp(11) : margin / 2 + getBottomBarHeight() + dp(Platform.isVr() ? 15 : 25);
+        final int topAdd = groupHeight > 1 && !isSearching() ? dp(35)
+                + groupHeight : dp(23);
+        final int bottomAdd = groupHeight > 1 ? getBottomBarHeight() + dp(11) : margin / 2
+                + getBottomBarHeight() + dp(Platform.isVr() ? 15 : 25);
 
         appsRecycler.setPadding(
                 dp((margin+27)*(Platform.isVr() ? 1f : 1.25f)),
@@ -938,8 +976,11 @@ public class LauncherActivity extends Launch.LaunchingActivity {
 
         if (getAppAdapter() != null) {
             getAppAdapter().setLauncherActivity(this);
+            SettingsManager.appLabelCache.clear();
+            SettingsManager.sortableLabelCache.clear();
             getAppAdapter().setCompleteAppSet(PlatformExt.listInstalledApps(this));
         }
+        post(this::refreshInterface);
     }
 
     /**
@@ -1056,12 +1097,13 @@ public class LauncherActivity extends Launch.LaunchingActivity {
     @SuppressLint("NotifyDataSetChanged")
     public void resetAdapters() {
         SettingsManager.sortableLabelCache.clear();
+        if (getGroupAdapter() != null) getGroupAdapter().notifyDataSetChanged();
         if (getAppAdapter() != null) {
             refreshAppList();
             getAppAdapter().notifyAllChanged();
+        } else {
+            refreshInterface();
         }
-        if (getGroupAdapter() != null) getGroupAdapter().notifyDataSetChanged();
-        refreshInterface();
     }
 
     /** Must be called if the display mode (icon/banner) is changed */

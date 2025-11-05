@@ -16,7 +16,7 @@ import java.util.Arrays;
  * Extends GridLayoutManager to prefetch more aggressively,
  * and to scroll to a target position even as data changes
  */
-public class LauncherGridLayoutManager extends GridLayoutManager {
+public class LauncherGridLayoutManager extends GridLayoutManager implements GenericGridLayoutManager {
     /**
      * @noinspection unused
      */
