@@ -12,10 +12,15 @@
     <string name="allow_chain_launch">Korzystanie z natywnego uruchamiania zadań</string>
     <string name="allow_chain_launch_tip">Uruchamia aplikacje za pomocą metody podobnej do domyślnego programu uruchamiającego Quest.
         \Wyłączenie tej opcji zmieni sposób organizacji okien i może powodować problemy.</string>
-    <string name="icons_size">Skala</string>
-    <string name="icons_size_tip">Docelowy rozmiar ikon/banerów.\nMoże się różnić w zależności od rozmiaru okna.</string>
-    <string name="icons_margin">Margines</string>
-    <string name="icons_margin_tip">Docelowe odstępy między ikonami/banerami mogą się różnić w zależności od rozmiaru okna.</string>
+    <string name="icon_size">Skala</string>
+    <string name="icon_size_tip">Docelowy rozmiar ikon/banerów.\nMoże się różnić w zależności od rozmiaru okna.</string>
+    <string name="icon_margin">Margines</string>
+    <string name="icon_margin_tip">Docelowe odstępy między ikonami/banerami mogą się różnić w zależności od rozmiaru okna.</string>
+    <string name="icon_corners">Narożniki</string>
+    <string name="icon_corners_tip">Zaokrąglenie rogów aplikacji</string>
+
+    <string name="icon_horizontal_tip">Lista aplikacji w pionie lub poziomie</string>
+
     <string name="apps_vr">Aplikacje VR</string>
     <string name="apps_phone">Aplikacje na telefon</string>
     <string name="apps_tv">Aplikacje telewizyjne</string>
@@ -51,6 +56,8 @@
     <string name="advanced_alpha_tip">Sprawia, że tło Lightning Launcher jest półprzezroczyste w trybie passthrough.</string>
     <string name="advanced_alpha_clamp">Zadanie 3 przepuszczanie przezroczystości rozmycie</string>
     <string name="advanced_alpha_clamp_tip">Umożliwia rozmycie tła podczas przechodzenia. <i>Ogranicza stopień przezroczystości.</i></string>
+    <string name="advanced_alpha_blocked_message">W tym miejscu można dostosować zaawansowane ustawienia przezroczystości, jeśli ustawiono inną tapetę.</string>
+
     <string name="dark_mode">Tryb ciemny</string>
     <string name="dark_mode_tip">Jeśli jest włączona, etykiety będą białe na ciemnym tle.</string>
     <string name="enable_groups">Włącz grupy</string>
@@ -337,4 +344,6 @@
     <string name="sort_recently_used_no_perm">Sortowanie według ostatnio uruchomionych</string>
     <string name="sort_recently_installed_no_perm">Sortowanie według ostatnio dodanych</string>
     <string name="current">★Prąd</string>
+<string name="shortcuts_promo">bSkróty sprawiają, że Lightning Launcher jest łatwiejszy do otwarcia, bez konieczności przeglądania \"nieznanych źródeł\".</string>
+
 </resources>

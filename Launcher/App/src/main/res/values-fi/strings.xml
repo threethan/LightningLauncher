@@ -12,10 +12,15 @@
     <string name="allow_chain_launch">Käytä Quest Native Launchingia</string>
     <string name="allow_chain_launch_tip">Käynnistää sovellukset menetelmällä, joka on samanlainen kuin Quest\:n oletuskäynnistin.
         \nTämän pois päältä kytkeminen muuttaa ikkunoiden järjestämistä ja voi aiheuttaa ongelmia.</string>
-    <string name="icons_size">Mittakaava</string>
-    <string name="icons_size_tip">Kuvakkeiden/bannereiden tavoitekoko.\nMahdollisesti vaihtelee ikkunan koon mukaan.</string>
-    <string name="icons_margin">Marginaali</string>
-    <string name="icons_margin_tip">Kuvakkeiden/bannereiden välinen tavoiteväli.\nMahdollisesti vaihtelee ikkunan koon mukaan.</string>
+    <string name="icon_size">Mittakaava</string>
+    <string name="icon_size_tip">Kuvakkeiden/bannereiden tavoitekoko.\nMahdollisesti vaihtelee ikkunan koon mukaan.</string>
+    <string name="icon_margin">Marginaali</string>
+    <string name="icon_margin_tip">Kuvakkeiden/bannereiden välinen tavoiteväli.\nMahdollisesti vaihtelee ikkunan koon mukaan.</string>
+    <string name="icon_corners">Kulmat</string>
+    <string name="icon_corners_tip">Sovelluksen kulmien pyöreys</string>
+
+    <string name="icon_horizontal_tip">Luetteloi sovellukset pysty- tai vaakasuunnassa</string>
+
     <string name="apps_vr">VR-sovellukset</string>
     <string name="apps_phone">Puhelinsovellukset</string>
     <string name="apps_tv">TV-sovellukset</string>
@@ -51,6 +56,8 @@
     <string name="advanced_alpha_tip">poikkileikkauksen läpikuultavuus, kun se on päällä.</string>
     <string name="advanced_alpha_clamp">Quest 3:n läpinäkyvyyden hämärtyminen</string>
     <string name="advanced_alpha_clamp_tip">Mahdollistaa taustan sumentumisen läpiviennin aikana. <i>Rajoittaa läpikuultavuuden määrää.</i></string>
+    <string name="advanced_alpha_blocked_message">Voit säätää tässä avoimuuden lisäasetuksia, jos asetat erilaisen taustakuvan.</string>
+
     <string name="dark_mode">Tumma tila</string>
     <string name="dark_mode_tip">Jos tämä on päällä, tarrat näkyvät valkoisina tummalla taustalla.</string>
     <string name="enable_groups">Ota ryhmät käyttöön</string>
@@ -337,4 +344,6 @@
     <string name="sort_recently_used_no_perm">Lajittelu äskettäin käynnistettyjen mukaan</string>
     <string name="sort_recently_installed_no_perm">Lajittelu äskettäin lisättyjen mukaan</string>
     <string name="current">★ Virta</string>
+<string name="shortcuts_promo"><b>Lääkekuvakkeet helpottavat Lightning Launcherin avaamista,</b> <i>ilman</i>, että \'tuntemattomia lähteitä\'\' ei tarvitse tutkia.</string>
+
 </resources>

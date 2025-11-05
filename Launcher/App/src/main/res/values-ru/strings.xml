@@ -12,10 +12,15 @@
     <string name="allow_chain_launch">Используйте нативный запуск квестов</string>
     <string name="allow_chain_launch_tip">Запуск приложений методом, аналогичным стандартной пусковой установке Quest\.
         \nОтключение этой функции изменит организацию окон и может вызвать проблемы.</string>
-    <string name="icons_size">Масштаб</string>
-    <string name="icons_size_tip">Целевой размер значков/баннеров.\nМожет зависеть от размера окна.</string>
-    <string name="icons_margin">Маржа</string>
-    <string name="icons_margin_tip">Расстояние между значками/баннерами может зависеть от размера окна.</string>
+    <string name="icon_size">Масштаб</string>
+    <string name="icon_size_tip">Целевой размер значков/баннеров.\nМожет зависеть от размера окна.</string>
+    <string name="icon_margin">Маржа</string>
+    <string name="icon_margin_tip">Расстояние между значками/баннерами может зависеть от размера окна.</string>
+    <string name="icon_corners">Уголки</string>
+    <string name="icon_corners_tip">Скругленность углов приложения</string>
+
+    <string name="icon_horizontal_tip">Перечисляйте приложения вертикально или горизонтально</string>
+
     <string name="apps_vr">Приложения VR</string>
     <string name="apps_phone">Приложения для телефона</string>
     <string name="apps_tv">ТВ-приложения</string>
@@ -51,6 +56,8 @@
     <string name="advanced_alpha_tip">Делает фон Lightning Launcher полупрозрачным в режиме passthrough.</string>
     <string name="advanced_alpha_clamp">Quest 3 сквозная прозрачность размытие</string>
     <string name="advanced_alpha_clamp_tip">Позволяет использовать размытый фон при сквозном прохождении. <i>Ограничивает степень полупрозрачности.</i></string>
+    <string name="advanced_alpha_blocked_message">Здесь можно настроить дополнительные параметры прозрачности, если вы установили другие обои.</string>
+
     <string name="dark_mode">Темный режим</string>
     <string name="dark_mode_tip">Если включено, то этикетки будут выглядеть белыми на темном фоне.</string>
     <string name="enable_groups">Включить группы</string>
@@ -337,4 +344,6 @@
     <string name="sort_recently_used_no_perm">Сортировка по недавно запущенным</string>
     <string name="sort_recently_installed_no_perm">Сортировка по недавно добавленным</string>
     <string name="current">★ Ток</string>
+<string name="shortcuts_promo"><b>Короткие пути облегчают открытие Lightning Launcher,</b> <i>без</i> необходимости просматривать \'неизвестные источники.\'</string>
+
 </resources>

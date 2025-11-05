@@ -12,10 +12,15 @@
     <string name="allow_chain_launch">Quest Native Launching gebruiken</string>
     <string name="allow_chain_launch_tip">Lanceert toepassingen op een vergelijkbare manier als de standaard launcher van de Quest.
         \Als je dit uitschakelt, verandert de indeling van vensters en kunnen er problemen ontstaan.</string>
-    <string name="icons_size">Schaal</string>
-    <string name="icons_size_tip">Doelgrootte voor pictogrammen/banners.kan variëren afhankelijk van de venstergrootte.</string>
-    <string name="icons_margin">Marge</string>
-    <string name="icons_margin_tip">Doelafstand tussen pictogrammen/banners.kan variëren afhankelijk van de venstergrootte.</string>
+    <string name="icon_size">Schaal</string>
+    <string name="icon_size_tip">Doelgrootte voor pictogrammen/banners.kan variëren afhankelijk van de venstergrootte.</string>
+    <string name="icon_margin">Marge</string>
+    <string name="icon_margin_tip">Doelafstand tussen pictogrammen/banners.kan variëren afhankelijk van de venstergrootte.</string>
+    <string name="icon_corners">Hoeken</string>
+    <string name="icon_corners_tip">Rondheid van app-hoeken</string>
+
+    <string name="icon_horizontal_tip">Apps verticaal of horizontaal weergeven</string>
+
     <string name="apps_vr">VR-apps</string>
     <string name="apps_phone">Telefoon Apps</string>
     <string name="apps_tv">TV-apps</string>
@@ -51,6 +56,8 @@
     <string name="advanced_alpha_tip">doorsnedetranslucentie wanneer deze is ingeschakeld.</string>
     <string name="advanced_alpha_clamp">Quest 3 passthrough transparantievervaging</string>
     <string name="advanced_alpha_clamp_tip">Zorgt voor een wazige achtergrond tijdens de passthrough. <i>Beperkt de hoeveelheid doorschijnendheid.</i></string>
+    <string name="advanced_alpha_blocked_message">Je kunt hier geavanceerde transparantie-instellingen aanpassen als je een andere achtergrond hebt ingesteld.</string>
+
     <string name="dark_mode">Donkere modus</string>
     <string name="dark_mode_tip">Als deze optie is ingeschakeld, worden labels wit weergegeven op een donkere achtergrond.</string>
     <string name="enable_groups">Groepen inschakelen</string>
@@ -333,4 +340,6 @@
     <string name="sort_recently_used_no_perm">Sorteren op recent gelanceerd</string>
     <string name="sort_recently_installed_no_perm">Sorteren op recent toegevoegd</string>
     <string name="current">★ Stroom</string>
+<string name="shortcuts_promo"><b>Snelkoppelingen maken het gemakkelijker om Lightning Launcher te openen,</b> <i>zonder</i> te hoeven zoeken in ¨onbekende bronnen.¨</string>
+
 </resources>

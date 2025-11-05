@@ -12,10 +12,15 @@
     <string name="allow_chain_launch">Χρήση Quest Native Launching</string>
     <string name="allow_chain_launch_tip">Εκκινεί εφαρμογές με μια μέθοδο παρόμοια με τον προεπιλεγμένο εκκινητή του Quest\.
         \nΗ απενεργοποίηση αυτής της λειτουργίας θα αλλάξει τον τρόπο οργάνωσης των παραθύρων και θα μπορούσε να προκαλέσει προβλήματα.</string>
-    <string name="icons_size">Κλίμακα</string>
-    <string name="icons_size_tip">Μέγεθος στόχου για εικονίδια/μπάνερ.\nΜπορεί να διαφέρει ανάλογα με το μέγεθος του παραθύρου.</string>
-    <string name="icons_margin">Περιθώριο</string>
-    <string name="icons_margin_tip">Απόσταση στόχου μεταξύ εικονιδίων/πανό.\nΜπορεί να διαφέρει ανάλογα με το μέγεθος του παραθύρου.</string>
+    <string name="icon_size">Κλίμακα</string>
+    <string name="icon_size_tip">Μέγεθος στόχου για εικονίδια/μπάνερ.\nΜπορεί να διαφέρει ανάλογα με το μέγεθος του παραθύρου.</string>
+    <string name="icon_margin">Περιθώριο</string>
+    <string name="icon_margin_tip">Απόσταση στόχου μεταξύ εικονιδίων/πανό.\nΜπορεί να διαφέρει ανάλογα με το μέγεθος του παραθύρου.</string>
+    <string name="icon_corners">Γωνίες</string>
+    <string name="icon_corners_tip">Στρογγυλότητα των γωνιών της εφαρμογής</string>
+
+    <string name="icon_horizontal_tip">Λίστα εφαρμογών κάθετα ή οριζόντια</string>
+
     <string name="apps_vr">Εφαρμογές VR</string>
     <string name="apps_phone">Εφαρμογές τηλεφώνου</string>
     <string name="apps_tv">Εφαρμογές τηλεόρασης</string>
@@ -51,6 +56,8 @@
     <string name="advanced_alpha_tip">ημιδιαφάνεια τομής όταν είναι ενεργοποιημένο.</string>
     <string name="advanced_alpha_clamp">Θάμπωμα διαφάνειας διέλευσης Quest 3</string>
     <string name="advanced_alpha_clamp_tip">Επιτρέπει ένα θολό φόντο κατά τη μετάβαση. <i>Περιορίζει την ποσότητα ημιδιαφάνειας.</i></string>
+    <string name="advanced_alpha_blocked_message">Μπορείτε να προσαρμόσετε τις προηγμένες ρυθμίσεις διαφάνειας εδώ, αν έχετε ορίσει διαφορετική ταπετσαρία.</string>
+
     <string name="dark_mode">Σκοτεινή λειτουργία</string>
     <string name="dark_mode_tip">Εάν είναι ενεργοποιημένη, οι ετικέτες θα εμφανίζονται λευκές σε σκούρο φόντο.</string>
     <string name="enable_groups">Ενεργοποίηση ομάδων</string>
@@ -337,4 +344,6 @@
     <string name="sort_recently_used_no_perm">Ταξινόμηση με βάση το Πρόσφατα λανσαρισμένο</string>
     <string name="sort_recently_installed_no_perm">Ταξινόμηση με βάση την Πρόσφατη προσθήκη</string>
     <string name="current">★ Τρέχον</string>
+<string name="shortcuts_promo"><b>Οι συντομεύσεις διευκολύνουν το άνοιγμα του Lightning Launcher,</b> <i>χωρίς</i> να χρειάζεται να ψάξετε σε \'άγνωστες πηγές.\'</string>
+
 </resources>

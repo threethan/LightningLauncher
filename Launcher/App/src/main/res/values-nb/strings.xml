@@ -12,10 +12,15 @@
     <string name="allow_chain_launch">Bruk Quest Native Launching</string>
     <string name="allow_chain_launch_tip">Starter apper med en metode som ligner på Quests standardoppstarter.
         \Hvis du slår av denne funksjonen, endres organiseringen av vinduer, noe som kan føre til problemer.</string>
-    <string name="icons_size">Skala</string>
-    <string name="icons_size_tip">Målstørrelse for ikoner/bannere. Kan variere med vindusstørrelsen.</string>
-    <string name="icons_margin">Margin</string>
-    <string name="icons_margin_tip">Målavstanden mellom ikoner/bannere kan variere med vindusstørrelsen.</string>
+    <string name="icon_size">Skala</string>
+    <string name="icon_size_tip">Målstørrelse for ikoner/bannere. Kan variere med vindusstørrelsen.</string>
+    <string name="icon_margin">Margin</string>
+    <string name="icon_margin_tip">Målavstanden mellom ikoner/bannere kan variere med vindusstørrelsen.</string>
+    <string name="icon_corners">Hjørner</string>
+    <string name="icon_corners_tip">Rundhet i appens hjørner</string>
+
+    <string name="icon_horizontal_tip">List opp apper vertikalt eller horisontalt</string>
+
     <string name="apps_vr">VR-apper</string>
     <string name="apps_phone">Telefonapper</string>
     <string name="apps_tv">TV-apper</string>
@@ -51,6 +56,8 @@
     <string name="advanced_alpha_tip">seksjonsgjennomskinnelighet når den er på.</string>
     <string name="advanced_alpha_clamp">Uskarphet i gjennomsiktighet i Quest 3</string>
     <string name="advanced_alpha_clamp_tip">Tillater en uskarp bakgrunn mens du passerer. <i>Begrenser mengden gjennomskinnelighet.</i></string>
+    <string name="advanced_alpha_blocked_message">Her kan du justere de avanserte innstillingene for gjennomsiktighet hvis du har valgt en annen bakgrunn.</string>
+
     <string name="dark_mode">Mørk modus</string>
     <string name="dark_mode_tip">Hvis den er på, vises etikettene hvite på en mørk bakgrunn.</string>
     <string name="enable_groups">Aktiver grupper</string>
@@ -337,4 +344,6 @@
     <string name="sort_recently_used_no_perm">Sortering etter nylig lansert</string>
     <string name="sort_recently_installed_no_perm">Sortering etter nylig lagt til</string>
     <string name="current">★ Strøm</string>
+<string name="shortcuts_promo">bKortkommandoer gjør Lightning Launcher enklere å åpne, /b uten at du trenger å lete gjennom \"ukjente kilder</string>
+
 </resources>

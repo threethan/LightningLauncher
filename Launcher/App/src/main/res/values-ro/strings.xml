@@ -12,10 +12,15 @@
     <string name="allow_chain_launch">Utilizați lansarea nativă Quest</string>
     <string name="allow_chain_launch_tip">Lansează aplicații cu o metodă similară lansatorului implicit al Quest\.
         \nDezactivarea acestei funcții va schimba modul în care sunt organizate ferestrele și ar putea cauza probleme.</string>
-    <string name="icons_size">Scară</string>
-    <string name="icons_size_tip">Dimensiunea țintă pentru pictograme/bannere.\nPoate varia în funcție de dimensiunea ferestrei.</string>
-    <string name="icons_margin">Marjă</string>
-    <string name="icons_margin_tip">Spațierea țintă între pictograme/bannere.\nPoate varia în funcție de dimensiunea ferestrei.</string>
+    <string name="icon_size">Scară</string>
+    <string name="icon_size_tip">Dimensiunea țintă pentru pictograme/bannere.\nPoate varia în funcție de dimensiunea ferestrei.</string>
+    <string name="icon_margin">Marjă</string>
+    <string name="icon_margin_tip">Spațierea țintă între pictograme/bannere.\nPoate varia în funcție de dimensiunea ferestrei.</string>
+    <string name="icon_corners">Colțuri</string>
+    <string name="icon_corners_tip">Rotunjimea colțurilor aplicației</string>
+
+    <string name="icon_horizontal_tip">Listați aplicațiile vertical sau orizontal</string>
+
     <string name="apps_vr">Aplicații VR</string>
     <string name="apps_phone">Aplicații pentru telefon</string>
     <string name="apps_tv">Aplicații TV</string>
@@ -51,6 +56,8 @@
     <string name="advanced_alpha_tip">transluciditatea secțională atunci când este activată.</string>
     <string name="advanced_alpha_clamp">Încețoșarea transparenței Quest 3</string>
     <string name="advanced_alpha_clamp_tip">Permite un fundal neclar în timpul trecerii. <i>Limitează cantitatea de transluciditate.</i></string>
+    <string name="advanced_alpha_blocked_message">Puteți ajusta aici setările avansate de transparență dacă ați setat un tapet diferit.</string>
+
     <string name="dark_mode">Mod întunecat</string>
     <string name="dark_mode_tip">Dacă este activată, etichetele vor apărea albe pe un fundal închis.</string>
     <string name="enable_groups">Activarea grupurilor</string>
@@ -337,4 +344,6 @@
     <string name="sort_recently_used_no_perm">Sortarea după lansare recentă</string>
     <string name="sort_recently_installed_no_perm">Sortarea după adăugate recent</string>
     <string name="current">★ Curent</string>
+<string name="shortcuts_promo"><b>Shortcut-urile fac Lightning Launcher mai ușor de deschis,</b> <i>fără</i> necesitatea de a căuta prin \'surse necunoscute.\'</string>
+
 </resources>

@@ -12,10 +12,15 @@
     <string name="allow_chain_launch">Utilizar Quest Native Launching</string>
     <string name="allow_chain_launch_tip">Lanza aplicaciones con un método similar al lanzador por defecto del Quest\.
         \Desactivar esta opción cambiará la organización de las ventanas y podría causar problemas.</string>
-    <string name="icons_size">Escala</string>
-    <string name="icons_size_tip">El tamaño de los iconos/banners puede variar según el tamaño de la ventana.</string>
-    <string name="icons_margin">Margen</string>
-    <string name="icons_margin_tip">Espaciado objetivo entre iconos/banners.\NPuede variar con el tamaño de la ventana.</string>
+    <string name="icon_size">Escala</string>
+    <string name="icon_size_tip">El tamaño de los iconos/banners puede variar según el tamaño de la ventana.</string>
+    <string name="icon_margin">Margen</string>
+    <string name="icon_margin_tip">Espaciado objetivo entre iconos/banners.\NPuede variar con el tamaño de la ventana.</string>
+    <string name="icon_corners">Esquinas</string>
+    <string name="icon_corners_tip">Redondez de las esquinas de la aplicación</string>
+
+    <string name="icon_horizontal_tip">Listar aplicaciones vertical u horizontalmente</string>
+
     <string name="apps_vr">Aplicaciones de RV</string>
     <string name="apps_phone">Aplicaciones para teléfonos</string>
     <string name="apps_tv">Aplicaciones de TV</string>
@@ -51,6 +56,8 @@
     <string name="advanced_alpha_tip">Hace que el fondo del Lightning Launcher sea translúcido en passthrough.</string>
     <string name="advanced_alpha_clamp">Desenfoque de transparencia del paso a través de Quest 3</string>
     <string name="advanced_alpha_clamp_tip">Permite un fondo borroso durante el paso a través. <i>Limita la cantidad de translucidez.</i></string>
+    <string name="advanced_alpha_blocked_message">Aquí puede ajustar la configuración avanzada de transparencia si establece un fondo de pantalla diferente.</string>
+
     <string name="dark_mode">Modo oscuro</string>
     <string name="dark_mode_tip">Si está activada, las etiquetas aparecerán en blanco sobre un fondo oscuro.</string>
     <string name="enable_groups">Habilitar grupos</string>
@@ -337,4 +344,6 @@
     <string name="sort_recently_used_no_perm">Ordenar por lanzamientos recientes</string>
     <string name="sort_recently_installed_no_perm">Ordenar por Añadido recientemente</string>
     <string name="current">★ Corriente</string>
+<string name="shortcuts_promo">bLos atajos facilitan la apertura de Lightning Launcher,/b isin/i necesidad de buscar en \"fuentes desconocidas\".</string>
+
 </resources>

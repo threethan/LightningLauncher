@@ -12,10 +12,15 @@
     <string name="allow_chain_launch">Quest Native Başlatmayı Kullanın</string>
     <string name="allow_chain_launch_tip">Uygulamaları Quest\'in varsayılan başlatıcısına benzer bir yöntemle başlatır.
         \nBunu kapatmak pencerelerin düzenlenme şeklini değiştirir ve sorunlara neden olabilir.</string>
-    <string name="icons_size">Ölçek</string>
-    <string name="icons_size_tip">Simgeler/afişler için hedef boyut.\nPencere boyutuna göre değişebilir.</string>
-    <string name="icons_margin">Marj</string>
-    <string name="icons_margin_tip">Simgeler/afişler arasındaki hedef aralığı.\nPencere boyutuna göre değişebilir.</string>
+    <string name="icon_size">Ölçek</string>
+    <string name="icon_size_tip">Simgeler/afişler için hedef boyut.\nPencere boyutuna göre değişebilir.</string>
+    <string name="icon_margin">Marj</string>
+    <string name="icon_margin_tip">Simgeler/afişler arasındaki hedef aralığı.\nPencere boyutuna göre değişebilir.</string>
+    <string name="icon_corners">Köşeler</string>
+    <string name="icon_corners_tip">Uygulama köşelerinin yuvarlaklığı</string>
+
+    <string name="icon_horizontal_tip">Uygulamaları dikey veya yatay olarak listeleme</string>
+
     <string name="apps_vr">VR Uygulamaları</string>
     <string name="apps_phone">Telefon Uygulamaları</string>
     <string name="apps_tv">TV Uygulamaları</string>
@@ -51,6 +56,8 @@
     <string name="advanced_alpha_tip">Lightning Launcher\'ın arka planını geçişte yarı saydam hale getirir.</string>
     <string name="advanced_alpha_clamp">Görev 3 geçiş şeffaflığı bulanıklığı</string>
     <string name="advanced_alpha_clamp_tip">Geçiş sırasında bulanık bir arka plana izin verir. <i>Yarı saydamlık miktarını sınırlar.</i></string>
+    <string name="advanced_alpha_blocked_message">Farklı bir duvar kağıdı ayarlarsanız gelişmiş saydamlık ayarlarını buradan yapabilirsiniz.</string>
+
     <string name="dark_mode">Karanlık Mod</string>
     <string name="dark_mode_tip">Açıksa, etiketler koyu bir arka plan üzerinde beyaz görünecektir.</string>
     <string name="enable_groups">Grupları Etkinleştir</string>
@@ -337,4 +344,6 @@
     <string name="sort_recently_used_no_perm">Son Başlatılanlara Göre Sıralama</string>
     <string name="sort_recently_installed_no_perm">Son Eklenenlere Göre Sıralama</string>
     <string name="current">★ Akım</string>
+<string name="shortcuts_promo"><b>Kısayollar, Lightning Launcher\'ın açılmasını kolaylaştırır,</b> <i>bilinmeyen kaynaklara</i> bakmaya gerek kalmadan.</string>
+
 </resources>

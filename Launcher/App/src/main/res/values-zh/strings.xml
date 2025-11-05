@@ -15,11 +15,16 @@
     <string name="allow_chain_launch_tip">使用与 Quest 默认启动器类似的方法启动应用程序。
 \n关闭此功能将改变窗口的组织方式，并可能导致问题。</string>
 
-    <string name="icons_size">浆纱</string>
-    <string name="icons_size_tip"><i>如果所有三个桌面空间都在使用中，应用程序将无法正确打开。 </i></string>
-    <string name="icons_margin">图标距离</string>
+    <string name="icon_size">浆纱</string>
+    <string name="icon_size_tip"><i>如果所有三个桌面空间都在使用中，应用程序将无法正确打开。 </i></string>
+    <string name="icon_margin">图标距离</string>
 
-    <string name="icons_margin_tip">修改图标/横幅之间的间距。</string>
+    <string name="icon_margin_tip">修改图标/横幅之间的间距。</string>
+    <string name="icon_corners">角落</string>
+    <string name="icon_corners_tip">应用程序边角的圆度</string>
+
+    <string name="icon_horizontal_tip">纵向或横向列出应用程序</string>
+
     <string name="apps_vr"><i>可能因窗口大小而异。</i></string>
     <string name="apps_phone">一般应用</string>
     <string name="apps_tv">TV 应用</string>
@@ -59,6 +64,8 @@
     <string name="advanced_alpha_tip">当直通摄像头打开时，使 Lightning Launcher 的背景变得半透明。</string>
     <string name="advanced_alpha_clamp">Quest 3 透视透明模糊</string>
     <string name="advanced_alpha_clamp_tip">允许在真实世界透视模式下模糊背景。<i>限制半透明度。</i></string>
+    <string name="advanced_alpha_blocked_message">如果您设置了不同的壁纸，可以在这里调整高级透明度设置。</string>
+
     <string name="dark_mode">深色模式主题。</string>
     <string name="dark_mode_tip">如果打开，标签将在深色背景上显示白色。</string>
     <string name="enable_groups">启用分组</string>
@@ -361,4 +368,6 @@
     <string name="sort_recently_used_no_perm">按最近发布排序</string>
     <string name="sort_recently_installed_no_perm">按最近添加排序</string>
     <string name="current">★电流</string>
+<string name="shortcuts_promo">bShortcuts make Lightning Launcher easier to open, /b iwithout/i needing to look through （未知来源）。</string>
+
 </resources>

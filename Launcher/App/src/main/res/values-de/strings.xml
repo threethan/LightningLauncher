@@ -12,10 +12,15 @@
     <string name="allow_chain_launch">Verwenden Sie Quest Native Launching</string>
     <string name="allow_chain_launch_tip">Startet Apps mit einer Methode, die dem Standard-Launcher des Quest\ ähnelt.
         \Wenn Sie diese Funktion deaktivieren, ändert sich die Organisation der Fenster, was zu Problemen führen kann.</string>
-    <string name="icons_size">Skala</string>
-    <string name="icons_size_tip">Zielgröße für Icons/Banner. Kann je nach Fenstergröße variieren.</string>
-    <string name="icons_margin">Marge</string>
-    <string name="icons_margin_tip">Die Zielabstände zwischen den Symbolen/Bannern können je nach Fenstergröße variieren.</string>
+    <string name="icon_size">Skala</string>
+    <string name="icon_size_tip">Zielgröße für Icons/Banner. Kann je nach Fenstergröße variieren.</string>
+    <string name="icon_margin">Marge</string>
+    <string name="icon_margin_tip">Die Zielabstände zwischen den Symbolen/Bannern können je nach Fenstergröße variieren.</string>
+    <string name="icon_corners">Ecken</string>
+    <string name="icon_corners_tip">Rundheit der App-Ecken</string>
+
+    <string name="icon_horizontal_tip">Anwendungen vertikal oder horizontal auflisten</string>
+
     <string name="apps_vr">VR-Apps</string>
     <string name="apps_phone">Telefon-Apps</string>
     <string name="apps_tv">TV-Apps</string>
@@ -51,6 +56,8 @@
     <string name="advanced_alpha_tip">Macht den Hintergrund von Lightning Launcher im Passthrough durchsichtig.</string>
     <string name="advanced_alpha_clamp">Quest 3 Passthrough-Transparenzunschärfe</string>
     <string name="advanced_alpha_clamp_tip">Ermöglicht einen unscharfen Hintergrund im Durchgang. <i>Begrenzt die Transparenz.</i></string>
+    <string name="advanced_alpha_blocked_message">Sie können hier erweiterte Transparenzeinstellungen vornehmen, wenn Sie ein anderes Hintergrundbild gewählt haben.</string>
+
     <string name="dark_mode">Dunkler Modus</string>
     <string name="dark_mode_tip">Wenn diese Option aktiviert ist, erscheinen die Etiketten weiß auf einem dunklen Hintergrund.</string>
     <string name="enable_groups">Gruppen freigeben</string>
@@ -337,4 +344,6 @@
     <string name="sort_recently_used_no_perm">Sortierung nach Kürzlich gestartet</string>
     <string name="sort_recently_installed_no_perm">Sortierung nach kürzlich hinzugefügt</string>
     <string name="current">★ Strom</string>
+<string name="shortcuts_promo"><b>Shortcuts erleichtern das Öffnen von Lightning Launcher,</b> <i>ohne</i> die unbekannten Quellen durchsuchen zu müssen.\</string>
+
 </resources>

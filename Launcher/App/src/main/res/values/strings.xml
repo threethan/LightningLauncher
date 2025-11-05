@@ -25,10 +25,14 @@
     <string name="allow_chain_launch_tip">Launches apps with a method similar to the Quest\'s default launcher.
         \nTurning this off will change how windows are organized, and could cause issues.</string>
 
-    <string name="icons_size">Size</string>
-    <string name="icons_size_tip">Target size for icons/banners.\n<i>May vary with window size.</i></string>
-    <string name="icons_margin">Margin</string>
-    <string name="icons_margin_tip">Target spacing between icons/banners.\n<i>May vary with window size.</i></string>
+    <string name="icon_size">Size</string>
+    <string name="icon_size_tip">Desired size of apps</string>
+    <string name="icon_margin">Margin</string>
+    <string name="icon_margin_tip">Amount of space between apps</string>
+    <string name="icon_corners">Corners</string>
+    <string name="icon_corners_tip">Roundness of app corners</string>
+
+    <string name="icon_horizontal_tip">List apps vertically or horizontally</string>
 
     <string name="apps_vr">VR Apps</string>
     <string name="apps_phone">Phone Apps</string>
@@ -42,7 +46,7 @@
     <string name="settings_main">Lightning Launcher</string>
     <string name="settings_addons_attract">Shortcuts</string>
     <string name="settings_addons">Shortcuts</string>
-    <string name="settings_addons_tip">Make Lightning Launcher easier to access.</string>
+    <string name="settings_addons_tip">Make Lightning Launcher\neasier to access!</string>
     <string name="settings_update">Get Latest Update</string>
     <string name="settings_enable_updates">Notify me of New Updates</string>
     <string name="settings_enable_updates_tip">Click to show notifications for new updates.
@@ -67,6 +71,7 @@
     <string name="advanced_alpha_tip">Makes the background of Lightning Launcher translucent in passthrough.</string>
     <string name="advanced_alpha_clamp">Quest 3 Passthrough Blur</string>
     <string name="advanced_alpha_clamp_tip">Allows for a blurred background while in passthrough. <i>Limits the amount of translucency.</i></string>
+    <string name="advanced_alpha_blocked_message">You can adjust advanced transparency settings here if you set a different wallpaper.</string>
 
     <string name="dark_mode">Dark Mode</string>
     <string name="dark_mode_tip">If on, labels will appear white on a dark background.</string>
@@ -335,8 +340,8 @@
     <string name="addons_dock_section_1_content">1. Close all other 2D and VR apps.
         \n2. Pick an icon to remove. <i>(Camera or Browser)</i>
         \n3. Click and hold the icon.
-        \n4. Drag it down until it says \'Unpin\', then release.</string>
-    <string name="addons_dock_section_1_below"><b>Feed</b>, <b>Store</b>, and <b>People</b> can\'t be removed.</string>
+        \n4. Drag it down a bit below the dock, then release.</string>
+    <string name="addons_dock_section_1_below"><b>Feed</b>, <b>Store</b>, and <b>Chats</b> can\'t be removed.</string>
 
 
     <string name="addons_dock_section_2_title">Add <b>Lightning Launcher</b>\'s Icon</string>
@@ -454,5 +459,7 @@
     <string name="sort_recently_used_no_perm">Sorting by Recently Launched</string>
     <string name="sort_recently_installed_no_perm">Sorting by Recently Added</string>
     <string name="current">★ Current</string>
+
+    <string name="shortcuts_promo"><b>Shortcuts make Lightning Launcher easier to open,</b> <i>without</i> needing to look through \'unknown sources.\'</string>
 
 </resources>

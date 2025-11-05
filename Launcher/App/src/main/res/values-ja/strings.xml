@@ -12,10 +12,15 @@
     <string name="allow_chain_launch">クエストネイティブ起動の使用</string>
     <string name="allow_chain_launch_tip">Questのデフォルトランチャーに近い方法でアプリを起動します。
         \これをオフにすると、ウィンドウの整理方法が変わり、問題が発生する可能性があります。</string>
-    <string name="icons_size">スケール</string>
-    <string name="icons_size_tip">アイコン・バナーの対象サイズです。</string>
-    <string name="icons_margin">マージン</string>
-    <string name="icons_margin_tip">アイコン・バナーの間隔はウィンドウサイズによって異なります。</string>
+    <string name="icon_size">スケール</string>
+    <string name="icon_size_tip">アイコン・バナーの対象サイズです。</string>
+    <string name="icon_margin">マージン</string>
+    <string name="icon_margin_tip">アイコン・バナーの間隔はウィンドウサイズによって異なります。</string>
+    <string name="icon_corners">コーナー</string>
+    <string name="icon_corners_tip">アプリの角の丸さ</string>
+
+    <string name="icon_horizontal_tip">アプリを縦または横に並べる</string>
+
     <string name="apps_vr">VRアプリ</string>
     <string name="apps_phone">電話アプリ</string>
     <string name="apps_tv">TVアプリ</string>
@@ -51,6 +56,8 @@
     <string name="advanced_alpha_tip">Lightning Launcherの背景をパススルーで半透明にする。</string>
     <string name="advanced_alpha_clamp">クエスト3のパススルー透明ぼかし</string>
     <string name="advanced_alpha_clamp_tip">パススルー中に背景をぼかすことができます。<i>半透明の量を制限します。</i></string>
+    <string name="advanced_alpha_blocked_message">別の壁紙を設定する場合は、ここで詳細な透明度設定を調整できます。</string>
+
     <string name="dark_mode">ダークモード</string>
     <string name="dark_mode_tip">オンの場合、ラベルは暗い背景に白く表示される。</string>
     <string name="enable_groups">グループを有効にする</string>
@@ -333,4 +340,6 @@
     <string name="sort_recently_used_no_perm">最近発売された順</string>
     <string name="sort_recently_installed_no_perm">最近追加された順</string>
     <string name="current">★電流</string>
+<string name="shortcuts_promo">bショートカットでLightning Launcherが開きやすくなる。</string>
+
 </resources>
