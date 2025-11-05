@@ -1,6 +1,5 @@
 package com.threethan.launcher.activity.support;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -97,11 +96,19 @@ public class SettingsManager extends Settings {
         return instanceByContext.get(context);
     }
 
-    public static final Map<String, String> appLabelCache = new HashMap<>();
-    public static final Map<ApplicationInfo, String> sortableLabelCache = new ConcurrentHashMap<>();
-    static {
-        appLabelCache.put(null, "");
+    private static class ConcurrentHashmapWithNullFallback<K, V> extends ConcurrentHashMap<K, V> {
+        private final V defaultValue;
+        public ConcurrentHashmapWithNullFallback(V defaultValue) {
+            this.defaultValue = defaultValue;
+        }
+        @Override
+        public V get(@Nullable Object key) {
+            return key == null ? defaultValue : super.get(key);
+        }
     }
+
+    public static final Map<String, String> appLabelCache = new ConcurrentHashmapWithNullFallback<>("");
+    public static final Map<String, String> sortableLabelCache = new ConcurrentHashMap<>();
 
     /**
      * Gets the label for the given app.
@@ -156,8 +163,7 @@ public class SettingsManager extends Settings {
      * Gets the string which should be used to sort the given app.
      * Possibly async.
      */
-    @SuppressLint("CheckResult")
-    public static void getSortableAppLabelsAsync(List<ApplicationInfo> apps,
+    public static synchronized void getSortableAppLabelsAsync(List<ApplicationInfo> apps,
                                                  Consumer<Map<ApplicationInfo, String>> onLabels) {
 
 
@@ -168,13 +174,13 @@ public class SettingsManager extends Settings {
             AtomicInteger remaining = new AtomicInteger(apps.size());
 
             apps.forEach(app -> {
-                if (sortableLabelCache.containsKey(app)) {
-                    result.put(app, sortableLabelCache.get(app));
+                if (sortableLabelCache.containsKey(app.packageName)) {
+                    result.put(app, sortableLabelCache.get(app.packageName));
                     if (remaining.decrementAndGet() == 0)
                         onLabels.accept(result);
                 } else {
                     formatSortableAppLabel(app, label -> {
-                        sortableLabelCache.put(app, label);
+                        sortableLabelCache.put(app.packageName, label);
                         result.put(app, label);
                         if (remaining.decrementAndGet() == 0)
                             onLabels.accept(result);
@@ -249,11 +255,13 @@ public class SettingsManager extends Settings {
     public static void setAppLabel(ApplicationInfo app, String newName) {
         if (newName == null) return;
         appLabelCache.put(app.packageName, newName);
-        sortableLabelCache.remove(app);
+        sortableLabelCache.remove(app.packageName);
         dataStoreEditorPerApp.putString(app.packageName, newName);
         if (LauncherActivity.getForegroundInstance() != null)
             LauncherActivity.getForegroundInstance().launcherService
-                    .forEachActivity(li -> li.notifyAppChanged(app, true));
+                    .forEachActivity(li ->
+                            li.postDelayed(() ->
+                                    li.notifyAppChanged(app, true), 100));
     }
 
     public static boolean getAppLaunchOut(String pkg) {

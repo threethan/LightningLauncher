@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.threethan.launcher.activity.LauncherActivity;
+import com.threethan.launcher.helper.AppBackgroundHelper;
 import com.threethan.launchercore.Core;
 import com.threethan.launchercore.metadata.IconLoader;
 import com.threethan.launchercore.util.App;
@@ -126,8 +127,10 @@ public class AppsAdapter<VH extends AppsAdapter.AppViewHolder>
         holder.imageView = view.findViewById(R.id.itemImage);
         holder.textView = view.findViewById(R.id.itemLabel);
 
-        if (viewType == 2 && holder.imageView.getLayoutParams() instanceof ConstraintLayout.LayoutParams clp) {
-            clp.dimensionRatio = "16:9";
+        if (viewType == 2) {
+            if (!LauncherActivity.layoutHorizontal
+                    && holder.imageView.getLayoutParams() instanceof ConstraintLayout.LayoutParams clp)
+                clp.dimensionRatio = "16:9";
             holder.banner = true;
         }
 
@@ -135,6 +138,7 @@ public class AppsAdapter<VH extends AppsAdapter.AppViewHolder>
         holder.textView.setTextColor(darkMode ? Color.WHITE : Color.BLACK);
         holder.textView.setShadowLayer(6, 0, 0, darkMode ? Color.BLACK : Color.WHITE);
         holder.darkMode = darkMode;
+        holder.imageView.setBackground(AppBackgroundHelper.getAppBackgroundDrawable(parent.getContext()));
 
         final boolean showName = holder.banner
                 ? LauncherActivity.namesBanner : LauncherActivity.namesSquare;

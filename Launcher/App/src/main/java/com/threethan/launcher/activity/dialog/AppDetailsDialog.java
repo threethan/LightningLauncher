@@ -21,6 +21,7 @@ import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.activity.support.SettingsManager;
 import com.threethan.launcher.data.Settings;
 import com.threethan.launcher.data.sync.SyncCoordinator;
+import com.threethan.launcher.helper.AppBackgroundHelper;
 import com.threethan.launcher.helper.AppExt;
 import com.threethan.launcher.helper.Compat;
 import com.threethan.launcher.helper.PlatformExt;
@@ -126,6 +127,8 @@ public class AppDetailsDialog extends LcDialog<LauncherActivity> {
             DelayLib.delayed(() ->
                     a.runOnUiThread(() -> resetIconButton.setVisibility(View.VISIBLE)));
         });
+
+        iconImageView.setBackground(AppBackgroundHelper.getAppBackgroundDrawable(a));
 
         App.Type appType = AppExt.getType(app);
         dialog.findViewById(R.id.info).setVisibility(app.packageName.contains("://")
@@ -290,12 +293,12 @@ public class AppDetailsDialog extends LcDialog<LauncherActivity> {
             String newLabel = StringLib.setPreChar(appNameEditText.getText().toString(), StringLib.STAR, isStarred[0]);
             if (!newLabel.equals(SettingsManager.getAppLabel(app))) {
                 SettingsManager.setAppLabel(app, newLabel);
-                a.launcherService.forEachActivity(a -> {
-                    if (a.getAppAdapter() != null) {
-                        a.getAppAdapter().notifyItemChanged(app);
-                        a.refreshAppList();
-                    }
-                });
+//                a.launcherService.forEachActivity(a -> {
+//                    if (a.getAppAdapter() != null) {
+//                        a.getAppAdapter().notifyItemChanged(app);
+////                        a.postDelayed(a::refreshAppList, 500);
+//                    }
+//                });
             }
             dialog.dismiss();
         });

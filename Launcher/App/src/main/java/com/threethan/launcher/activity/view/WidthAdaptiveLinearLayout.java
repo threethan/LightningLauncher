@@ -53,7 +53,8 @@ public class WidthAdaptiveLinearLayout extends LinearLayout {
             hasUpdated = true;
             for (int i = 0; i < getChildCount(); i++) {
                 LayoutParams params = (LayoutParams) getChildAt(i).getLayoutParams();
-                params.width = newOrientation == VERTICAL ? LayoutParams.MATCH_PARENT : LayoutParams.WRAP_CONTENT;
+                params.weight = newOrientation == VERTICAL ? 0f : 1f;
+                params.width = newOrientation == VERTICAL ? LayoutParams.MATCH_PARENT : 0;
                 params.height = newOrientation == VERTICAL ? LayoutParams.WRAP_CONTENT : LayoutParams.MATCH_PARENT;
                 if (i != 0) {
                     params.setMarginStart(newOrientation == VERTICAL ? 0 : (int) (childMargin));

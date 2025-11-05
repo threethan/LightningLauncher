@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
 
+import com.threethan.launcher.BuildConfig;
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.chainload.ChainLoadActivity;
 import com.threethan.launcher.activity.chainload.ChainLoadActivityHuge;
@@ -11,6 +12,7 @@ import com.threethan.launcher.activity.chainload.ChainLoadActivityLarge;
 import com.threethan.launcher.activity.chainload.ChainLoadActivityPhone;
 import com.threethan.launcher.activity.chainload.ChainLoadActivitySmall;
 import com.threethan.launcher.activity.chainload.ChainLoadActivityWide;
+import com.threethan.launcher.helper.PlatformExt;
 import com.threethan.launchercore.lib.StringLib;
 import com.threethan.launchercore.util.App;
 import com.threethan.launchercore.util.Platform;
@@ -41,19 +43,22 @@ public abstract class Settings {
             R.drawable.bg_px_purple,
             R.drawable.bg_meta_dark,
             R.drawable.bg_meta_light,
-            R.drawable.bg_warm_dark,
+            PlatformExt.supportsTransparentBackgroundOpt()
+                ? R.drawable.bg_trans : R.drawable.bg_warm_dark,
     };
     public static final int[] BACKGROUND_COLORS = {
-            Color.parseColor("#25374f"),
-            Color.parseColor("#eaebea"),
-            Color.parseColor("#f89b94"),
-            Color.parseColor("#d9d4da"),
-            Color.parseColor("#f9ce9b"),
-            Color.parseColor("#e4eac8"),
-            Color.parseColor("#74575c"),
-            Color.parseColor("#323232"),
-            Color.parseColor("#c6d1df"),
-            Color.parseColor("#140123"),
+            0xFF25374f,
+            0xFFeaebea,
+            0xFFf89b94,
+            0xFFd9d4da,
+            0xFFf9ce9b,
+            0xFFe4eac8,
+            0xFF74575c,
+            0xFF323232,
+            0xFFc6d1df,
+            PlatformExt.supportsTransparentBackgroundOpt()
+                    ? Color.TRANSPARENT :
+                    0xFF140123,
     };
     public static final boolean[] BACKGROUND_DARK = {
             true,
@@ -80,7 +85,8 @@ public abstract class Settings {
     public static final String KEY_DETAILS_LONG_PRESS = "KEY_DETAILS_LONG_PRESS";
     public static final String KEY_SEARCH_WEB = "KEY_SEARCH_WEB";
     public static final String KEY_SEARCH_HIDDEN = "KEY_SEARCH_HIDDEN";
-    public static final int DEFAULT_BACKGROUND_VR = 0;
+    /** @noinspection ConstantValue*/
+    public static final int DEFAULT_BACKGROUND_VR = BuildConfig.FLAVOR.equals("sideload") ? 9 : 0;
     public static final int DEFAULT_BACKGROUND_TV = 9;
     public static final int DEFAULT_ALPHA = Platform.isQuestGen3() ? 0 : (Platform.isQuest() ? 128 : 255);
     public static final boolean DEFAULT_BACKGROUND_ALPHA_PRESERVE
@@ -89,18 +95,28 @@ public abstract class Settings {
     public static final boolean DEFAULT_DARK_MODE = true;
     public static final boolean DEFAULT_GROUPS_ENABLED = !Platform.isPhone();
     public static final boolean DEFAULT_GROUPS_WIDE = false;
+    public static final String KEY_LIST_HORIZONTAL = "KEY_LIST_HORIZONTAL";
+    public static final boolean DEFAULT_LIST_HORIZONTAL = false;
     public static boolean DEFAULT_DETAILS_LONG_PRESS = false;
     public static final boolean DEFAULT_SEARCH_WEB = true;
     public static final boolean DEFAULT_SEARCH_HIDDEN = true;
     public static final String CUSTOM_BACKGROUND_PATH = "background.png";
 
     // Basic UI keys
-    public static final String KEY_SCALE = "KEY_CUSTOM_SCALE";
-    public static final String KEY_MARGIN = "KEY_CUSTOM_MARGIN";
-    public static final int DEFAULT_SCALE = 110;
+    public static final String KEY_SCALE_VERTICAL = "KEY_CUSTOM_SCALE";
+    public static final String KEY_SCALE_HORIZONTAL = "KEY_CUSTOM_SCALE_HORIZONTAL";
+    public static final String KEY_MARGIN_VERTICAL = "KEY_CUSTOM_MARGIN";
+    public static final String KEY_MARGIN_HORIZONTAL = "KEY_CUSTOM_MARGIN_HORIZONTAL";
+    public static final String KEY_ICON_CORNER_RADIUS_VERTICAL = "KEY_ICON_CORNER_RADIUS";
+    public static final String KEY_ICON_CORNER_RADIUS_HORIZONTAL = "KEY_ICON_CORNER_RADIUS_HORIZONTAL";
+    public static final int DEFAULT_SCALE_VERTICAL = 110;
+    public static final int DEFAULT_SCALE_HORIZONTAL = 110;
     public static final int MAX_SCALE = 160;
     public static final int MIN_SCALE = 60;
-    public static final int DEFAULT_MARGIN = 20;
+    public static final int DEFAULT_MARGIN_HORIZONTAL = 0;
+    public static final int DEFAULT_MARGIN_VERTICAL = 10;
+    public static final int DEFAULT_ICON_CORNER_RADIUS_VERTICAL = 16;
+    public static final int DEFAULT_ICON_CORNER_RADIUS_HORIZONTAL = 999;
     public static final String KEY_NEW_MULTITASK = "KEY_NEWER_MULTITASK";
     public static final boolean DEFAULT_NEW_MULTITASK = true;
     public static final String KEY_ALLOW_CHAIN_LAUNCH = "KEY_ALLOW_CHAIN_LAUNCH";
@@ -165,6 +181,12 @@ public abstract class Settings {
     public static final int MAX_GROUPS = 20;
     public static final int GROUP_WIDTH_DP = 150;
     public static final int GROUP_WIDTH_DP_WIDE = 300;
+    static {
+        //noinspection ConstantValue
+        assert GROUP_WIDTH_DP > 0;
+        //noinspection ConstantValue
+        assert GROUP_WIDTH_DP_WIDE > 0;
+    }
 
     public static final String HIDDEN_GROUP = "HIDDEN!";
     public static final String UNSUPPORTED_GROUP = "UNSUPPORTED!";
