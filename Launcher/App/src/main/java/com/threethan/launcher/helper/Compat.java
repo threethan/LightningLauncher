@@ -2,7 +2,6 @@ package com.threethan.launcher.helper;
 
 import static com.threethan.launcher.activity.support.SettingsManager.META_LABEL_SUFFIX;
 
-import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -20,7 +19,6 @@ import com.threethan.launcher.activity.support.SettingsManager;
 import com.threethan.launcher.data.Settings;
 import com.threethan.launcher.data.sync.SyncCoordinator;
 import com.threethan.launchercore.Core;
-import com.threethan.launchercore.lib.DelayLib;
 import com.threethan.launchercore.lib.FileLib;
 import com.threethan.launchercore.lib.StringLib;
 import com.threethan.launchercore.metadata.IconLoader;
@@ -305,20 +303,24 @@ public abstract class Compat {
     }
 
     public static void restartFully() {
+
+        LauncherActivity foregroundInstance = LauncherActivity.getForegroundInstance();
+        LcDialog.closeAll();
+        if (foregroundInstance != null && foregroundInstance.launcherService != null) {
+            foregroundInstance.launcherService.kill();
+            foregroundInstance.finishAffinity();
+        }
+
         int pendingId = 1330;
+
         Intent intent = new Intent(Core.context(), LauncherService.class);
+
         PendingIntent pendingIntent = PendingIntent.getBroadcast(Core.context(), pendingId, intent,
                 PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
         AlarmManager mgr = (AlarmManager) Core.context().getSystemService(Context.ALARM_SERVICE);
         if (mgr != null) mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 1000, pendingIntent);
 
-        LauncherActivity foregroundInstance = LauncherActivity.getForegroundInstance();
-        LcDialog.closeAll();
-        if (foregroundInstance != null && foregroundInstance.launcherService != null) {
-            foregroundInstance.launcherService.forEachActivity(Activity::finishAffinity);
-            foregroundInstance.launcherService.stopSelf();
-            DelayLib.delayed(() -> System.exit(0));
-        } else System.exit(0);
+        System.exit(0);
     }
 }

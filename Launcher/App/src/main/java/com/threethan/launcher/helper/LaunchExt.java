@@ -103,11 +103,12 @@ public abstract class LaunchExt extends Launch {
         // Apply tuning via Quest Game Tuner (no effect unless Quest Game Tuner >= 1.5 is installed)
         QuestGameTuner.applyTuning(app.packageName);
 
+        if (App.getType(app) == App.Type.UTILITY && app instanceof UtilityApplicationInfo) {
+            ((UtilityApplicationInfo) app).launch();
+            return false;
+        }
+
         if (Platform.isTv()) {
-            if (App.getType(app) == App.Type.UTILITY && app instanceof UtilityApplicationInfo) {
-                ((UtilityApplicationInfo) app).launch();
-                return false;
-            }
             startIntent(launcherActivity, intent);
             return true;
         }

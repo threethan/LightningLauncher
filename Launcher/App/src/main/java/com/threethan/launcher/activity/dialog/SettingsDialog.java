@@ -2,6 +2,7 @@ package com.threethan.launcher.activity.dialog;
 
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.Build;
 import android.util.Log;
@@ -572,7 +573,14 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
         chainLaunchSwitch.setVisibility(Platform.supportsVrOsChainLaunch()
                 ? View.VISIBLE : View.GONE);
 
-        dialog.findViewById(R.id.fullyCloseButton).setOnClickListener(v -> Compat.restartFully());
+        dialog.findViewById(R.id.fullyCloseButton).setOnClickListener(v -> {
+            LauncherActivity foregroundInstance = LauncherActivity.getForegroundInstance();
+            LcDialog.closeAll();
+            if (foregroundInstance != null && foregroundInstance.launcherService != null) {
+                foregroundInstance.launcherService.forEachActivity(Activity::finishAffinity);
+                foregroundInstance.finishAffinity();
+            }
+        });
 
         if (BuildConfig.DEBUG) {
             View crashButton = dialog.findViewById(R.id.forceCrashButton);

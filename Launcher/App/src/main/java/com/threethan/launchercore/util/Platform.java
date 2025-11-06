@@ -14,6 +14,7 @@ import android.os.Build;
 import android.util.Log;
 
 import com.threethan.launcher.R;
+import com.threethan.launcher.helper.PlatformExt;
 import com.threethan.launcher.helper.VariantHelper;
 import com.threethan.launchercore.Core;
 
@@ -310,6 +311,7 @@ public abstract class Platform {
      * @return False if an exported activity can be found to handle the intent
      */
     public static boolean cantLaunchSettings() {
+        if (PlatformExt.isOldVrOs()) return true;
         Log.d("Platform", "Assuming settings cant be launched");
         Intent intent = new Intent(Intent.ACTION_DEFAULT);
         intent.setPackage("com.android.settings");

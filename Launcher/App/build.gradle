@@ -13,8 +13,8 @@ android {
         compileSdk = 36
         minSdkVersion 24
         targetSdkVersion 36
-        versionCode 1002
-        versionName "10.0.2"
+        versionCode 1004
+        versionName "10.0.4"
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
