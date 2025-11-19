@@ -7,7 +7,8 @@
     android:layout_height="wrap_content"
     android:clipChildren="false"
     android:clipToPadding="false"
-    android:padding="20dp">
+    android:padding="20dp"
+    tools:background="#343434">
 
     <View
         android:id="@+id/sizer"
@@ -65,6 +66,7 @@
                     android:id="@+id/dispIcon"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:layout_marginStart="2dp"
                     android:background="@drawable/bkg_hover_button"
                     android:padding="1dp"
                     android:src="@drawable/ic_disp_icon"
@@ -77,6 +79,7 @@
                     android:id="@+id/dispWide"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:layout_marginStart="2dp"
                     android:background="@drawable/bkg_hover_button"
                     android:padding="2dp"
                     android:src="@drawable/ic_disp_banner"
@@ -94,9 +97,7 @@
                     android:id="@+id/charts"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:layout_marginStart="3dp"
                     android:background="@drawable/bkg_hover_button"
-                    android:padding="1dp"
                     android:src="@drawable/ic_charts"
                     android:tooltipText="@string/tip_charts"
                     tools:ignore="UnusedAttribute" />
@@ -105,9 +106,8 @@
                     android:id="@+id/hide"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:layout_marginStart="3dp"
                     android:background="@drawable/bkg_hover_button"
-                    android:padding="1dp"
+                    android:padding="2dp"
                     android:src="@drawable/ic_hide"
                     android:tooltipText="@string/tip_hide"
                     android:visibility="gone"
@@ -118,20 +118,26 @@
                     android:id="@+id/show"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:layout_marginStart="3dp"
                     android:background="@drawable/bkg_hover_button"
-                    android:padding="1dp"
+                    android:padding="2dp"
                     android:src="@drawable/ic_show"
                     android:tooltipText="@string/tip_show"
                     android:visibility="gone"
                     tools:ignore="UnusedAttribute"
                     tools:visibility="visible" />
 
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="3dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginVertical="7dp"
+                    android:background="#79FFFFFF" />
+
                 <com.threethan.launchercore.view.LcImageView
                     android:id="@+id/info"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:layout_marginStart="3dp"
                     android:background="@drawable/bkg_hover_button"
                     android:padding="1dp"
                     android:src="@drawable/ic_info"
@@ -142,8 +148,9 @@
                     android:id="@+id/uninstall"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:layout_marginStart="3dp"
+                    android:layout_marginStart="1dp"
                     android:background="@drawable/bkg_hover_button"
+                    android:padding="1dp"
                     android:src="@drawable/ic_uninstall"
                     android:tooltipText="@string/tip_uninstall"
                     tools:ignore="UnusedAttribute" />
@@ -155,21 +162,47 @@
                 android:layout_height="0dp"
                 android:layout_weight="1" />
 
-            <EditText
-                android:id="@+id/appLabel"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:layout_gravity="bottom"
-                android:autofillHints="text"
-                android:background="@drawable/bkg_name_app"
-                android:inputType="text"
-                android:paddingStart="28dp"
-                android:selectAllOnFocus="true"
-                android:singleLine="true"
-                android:textAlignment="gravity"
-                android:textColor="@android:color/white"
-                android:textSize="24sp"
-                tools:ignore="RtlSymmetry,TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                android:orientation="horizontal">
+
+                <com.threethan.launchercore.view.LcImageView
+                    android:id="@+id/star"
+                    android:layout_width="33dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/bkg_name_app_star"
+                    android:src="@drawable/ic_star_off"
+                    android:visibility="visible"
+                    tools:ignore="UnusedAttribute"
+                    android:tooltipText="@string/favorite_enable"/>
+                <com.threethan.launchercore.view.LcImageView
+                    android:id="@+id/unstar"
+                    android:layout_width="33dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/bkg_name_app_star"
+                    android:src="@drawable/ic_star_on"
+                    android:visibility="visible"
+                    tools:ignore="UnusedAttribute"
+                    android:tooltipText="@string/favorite_disable"/>
+                <EditText
+                    android:id="@+id/appLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginStart="2dp"
+                    android:autofillHints="text"
+                    android:background="@drawable/bkg_name_app"
+                    android:inputType="text"
+                    android:selectAllOnFocus="true"
+                    android:singleLine="true"
+                    android:textAlignment="gravity"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp"
+                    tools:ignore="RtlSymmetry,TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/packageNameAndVersion"
@@ -206,17 +239,6 @@
                     android:textColor="#79FFFFFF"
                     tools:text="1.2.3" />
             </LinearLayout>
-
-            <com.threethan.launchercore.view.LcImageView
-                android:id="@+id/star"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="-51dp"
-                android:background="@drawable/bkg_hover_button"
-                android:src="@drawable/ic_star_off"
-                android:visibility="visible"
-                tools:ignore="UnusedAttribute" />
         </LinearLayout>
 
     </LinearLayout>

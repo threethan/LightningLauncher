@@ -7,6 +7,7 @@ import android.util.Log;
 
 import com.threethan.launcher.BuildConfig;
 import com.threethan.launcher.activity.support.SettingsManager;
+import com.threethan.launcher.helper.PlatformExt;
 import com.threethan.launchercore.Core;
 import com.threethan.launchercore.adapter.UtilityApplicationInfo;
 
@@ -95,8 +96,7 @@ public abstract class App {
         PackageManager pm = Core.context().getPackageManager();
 
         // Additional check since we probably can't get metadata
-        //noinspection ConstantValue
-        if (BuildConfig.FLAVOR.equals("metastore")) {
+        if (PlatformExt.isMetastoreBuild()) {
             Intent li = new Intent(Intent.ACTION_MAIN);
             li.addCategory(Intent.CATEGORY_LAUNCHER);
             li.setPackage(app.packageName);

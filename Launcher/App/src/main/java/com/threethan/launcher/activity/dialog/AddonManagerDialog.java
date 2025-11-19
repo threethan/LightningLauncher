@@ -7,7 +7,6 @@ import android.content.pm.PackageManager;
 import android.view.View;
 import android.widget.Switch;
 
-import com.threethan.launcher.BuildConfig;
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.data.Settings;
