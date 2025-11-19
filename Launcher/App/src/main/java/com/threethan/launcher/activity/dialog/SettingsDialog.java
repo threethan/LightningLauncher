@@ -5,7 +5,6 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.Build;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
@@ -92,8 +91,7 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
 
         // Addons
         View addonsButton = dialog.findViewById(R.id.addonsButton);
-        //noinspection ConstantValue
-        if (!Platform.isQuest() || BuildConfig.FLAVOR.equals("metastore")) {
+        if (!Platform.isQuest() || PlatformExt.censorUtilities() || PlatformExt.censorLinking()) {
             addonsButton.setVisibility(View.GONE);
         } else {
             addonsButton.setOnClickListener(view -> {
@@ -509,9 +507,8 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
         attachSwitchToSetting(dialog.findViewById(R.id.longPressEditSwitch),
                 Settings.KEY_DETAILS_LONG_PRESS, Settings.DEFAULT_DETAILS_LONG_PRESS, null, true);
 
-        //noinspection ConstantValue
         dialog.findViewById(R.id.playtimeSection).setVisibility(!Platform.isTv()
-                && !BuildConfig.FLAVOR.equals("metastore")
+                && !PlatformExt.isMetastoreBuild()
                 ? View.VISIBLE : View.GONE);
 
         attachSwitchToSetting(dialog.findViewById(R.id.showPlaytimesSwitch),

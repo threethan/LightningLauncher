@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+        <View
+            android:layout_width="400dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            style="@style/SettingTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/warning" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dmqs_0"
+            android:background="@drawable/lc_bkg_button_section"
+            android:gravity="center"
+            android:minLines="2"
+            android:alpha="0.9"/>
+
+        <TextView
+            style="@style/SettingSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dmqs_can" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/lc_bkg_button_section"
+            android:orientation="vertical"
+            android:alpha="0.9">
+            <TextView
+                style="@style/SettingBullet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dmqs_can_0"/>
+            <TextView
+                style="@style/SettingBullet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dmqs_can_1"/>
+            <TextView
+                style="@style/SettingBullet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dmqs_can_2"/>
+            <TextView
+                style="@style/SettingBullet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dmqs_can_3"/>
+        </LinearLayout>
+        <TextView
+            style="@style/SettingSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dmqs_cant" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/lc_bkg_button_section"
+            android:orientation="vertical"
+            android:alpha="0.9">
+            <TextView
+                style="@style/SettingBullet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dmqs_cant_0"/>
+            <TextView
+                style="@style/SettingBullet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dmqs_cant_1"/>
+            <TextView
+                style="@style/SettingBullet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dmqs_cant_2"/>
+            <TextView
+                style="@style/SettingBullet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dmqs_cant_3"/>
+        </LinearLayout>
+
+        <com.threethan.launchercore.view.LcButton
+            android:id="@+id/dismiss"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/understood_long" />
+    </LinearLayout>
+</ScrollView>

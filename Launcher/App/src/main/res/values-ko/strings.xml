@@ -105,6 +105,7 @@
     <string name="custom_window_size_message">사용자 지정 창 크기가 모든 앱에서 제대로 작동하는 것은 아닙니다.  앱이 사용자 지정 크기로 열리지 않으면  이 설정을 \'앱 자체 창\'으로 되돌리세요.</string>
     <string name="download_browser_message">최상의 경험을 위해서는 Lightning 런처에서 웹사이트를 열려면 Lightning 브라우저를 설치해야 합니다
         \n(또는 설정 -&gt; 고급 설정에서 브라우저를 변경할 수 있습니다)</string>
+    <string name="change_browser_message">선택한 기본 브라우저를 사용할 수 없습니다.        i설정 고급 설정에서 브라우저를 변경하세요./i</string>
     <string name="update_browser_message">최상의 경험을 위해서는 Lightning 브라우저를 업데이트해야 합니다.</string>
     <string name="download_browser_toast_main">웹사이트를 다시 엽니다</string>
     <string name="download_browser_toast_bold">설치가 완료된 후</string>
@@ -135,6 +136,7 @@
     <string name="warning">중요 정보</string>
     <string name="cancel">취소</string>
     <string name="understood">알았어요!</string>
+    <string name="understood_long">알겠습니다, 계속하세요.</string>
     <string name="confirm">확인</string>
     <string name="size_own">앱 자체 창에서 열기</string>
     <string name="size_phone">휴대폰 스타일 창에서 열기</string>
@@ -294,6 +296,8 @@
         또한 더 나은 동영상 캡처, 광고 차단, 자동 전원 끄기 등의 기능을 사용할 수 있습니다.
         \n
         \퀘스트 게임 튜너는 라이트닝 런처를 만든 개발자가 수백 시간의 개발, 연구, 테스트를 거친 결과물입니다.</string>
+    <string name="tuner_info_desc_mqs">        비퀘스트 게임 튜너/b는 헤드셋의 한계를 뛰어넘어 앱별 성능 프로필과 다양한 추가 기능을 통해 이미 보유하고 있는 하드웨어를 최대한 활용할 수 있도록 지원합니다.                비퀘스트 게임 튜너/b는 라이트닝 런처를 만든 개발자가 제작 및 유지 관리합니다.    </string>
+
     <string name="tuner_info_get">Itch.io에서 퀘스트 게임 튜너를 다운로드하세요!</string>
     <string name="apk_installer_tip">설치할 APK 파일 선택</string>
     <string name="settings_workaround">정보 창에서 열기를 클릭하면 Android 설정이 열립니다.</string>
@@ -350,4 +354,17 @@
 
     <string name="shortcuts_promo">b바로가기를 사용하면 \'알 수 없는 소스\'를 찾을 필요 없이 Lightning Launcher를 더 쉽게 열 수 있습니다.</string>
 
+<string name="dmqs_0">계속하기 전에 이 앱(라이트닝 런처)이 할 수 있는 것과 할 수 없는 것을 이해하세요.</string>
+
+    <string name="dmqs_can_0">기기에 이미 설치된 앱 실행</string>
+    <string name="dmqs_can_1">라이트닝 런처 내에서 앱의 모양 분류 및 조정/i</string>
+    <string name="dmqs_can_2">라이트닝 런처에서 앱 열기 방법 조정하기/i</string>
+    <string name="dmqs_can_3">웹사이트에 바로 가기 추가하기 ito Lightning Launcher/i</string>
+
+    <string name="dmqs_cant_0">합법적으로 설치하지 않은 애플리케이션을 표시하거나 설치하는 경우</string>
+    <string name="dmqs_cant_1">소유하고 있지만 설치하지 않은 애플리케이션을 실행합니다.</string>
+    <string name="dmqs_cant_2">라이트닝 런처 앱 외부의 모든 항목을 분류하거나 조정합니다/i</string>
+    <string name="dmqs_cant_3">내장 앱 라이브러리/내비게이터와 같은 시스템 기능을 수정하거나 교체합니다.</string>
+    <string name="dmqs_can">라이트닝 런처 bcan/b:</string>
+    <string name="dmqs_cant">라이트닝 런처는 <b>할 수 없습니다</b>:</string>
 </resources>

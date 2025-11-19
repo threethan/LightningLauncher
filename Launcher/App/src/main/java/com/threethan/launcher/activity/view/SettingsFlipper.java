@@ -5,11 +5,13 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.graphics.Color;
 import android.util.AttributeSet;
+import android.view.View;
 
 import androidx.annotation.StringRes;
 
 import com.threethan.launcher.R;
 import com.threethan.launcher.helper.LaunchExt;
+import com.threethan.launcher.helper.PlatformExt;
 import com.threethan.launcher.helper.QuestGameTuner;
 
 import java.util.Random;
@@ -40,6 +42,19 @@ public class SettingsFlipper extends FocusableViewFlinger {
 
             setCurrentScreenNow(new Random().nextInt() % getScreenCount());
         });
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        // Remove the tuner page for Metastore build (VRC.functional.6)
+        if (PlatformExt.censorLinking()) {
+            post(() -> {
+                View tunerPage = findViewById(R.id.flipperPageTuner);
+                tunerPage.setVisibility(GONE);
+                removeView(tunerPage);
+            });
+        }
     }
 
     private void openUrl(Context context, @StringRes int urlResId) {

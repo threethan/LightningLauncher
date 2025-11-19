@@ -39,8 +39,6 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.crashlytics.FirebaseCrashlytics;
-import com.google.firebase.crashlytics.internal.common.CrashlyticsCore;
 import com.threethan.launcher.BuildConfig;
 import com.threethan.launcher.LauncherService;
 import com.threethan.launcher.R;
@@ -51,6 +49,7 @@ import com.threethan.launcher.activity.adapter.LauncherAppsAdapter;
 import com.threethan.launcher.activity.adapter.LauncherGridLayoutManager;
 import com.threethan.launcher.activity.adapter.LauncherStaggeredGridLayoutManager;
 import com.threethan.launcher.activity.dialog.AppDetailsDialog;
+import com.threethan.launcher.activity.dialog.MQSDialog;
 import com.threethan.launcher.activity.dialog.SettingsDialog;
 import com.threethan.launcher.activity.support.SortHandler;
 import com.threethan.launcher.activity.support.WallpaperLoader;
@@ -60,7 +59,6 @@ import com.threethan.launcher.activity.view.SortCycler;
 import com.threethan.launcher.data.sync.SyncCoordinator;
 import com.threethan.launcher.helper.LaunchExt;
 import com.threethan.launcher.activity.view.status.StatusAdaptableView;
-import com.threethan.launchercore.lib.DelayLib;
 import com.threethan.launchercore.util.LcDialog;
 import com.threethan.launchercore.view.LcBlurCanvas;
 import com.threethan.launcher.activity.view.MarginDecoration;
@@ -79,6 +77,7 @@ import com.threethan.launchercore.util.Platform;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.ref.WeakReference;
+import java.lang.reflect.Method;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
@@ -103,7 +102,13 @@ public class LauncherActivity extends Launch.LaunchingActivity {
     static {
         Thread.setDefaultUncaughtExceptionHandler((t, e) -> {
             Log.e("Handler", "Uncaught exception in thread " + t.getName(), e);
-            FirebaseCrashlytics.getInstance().recordException(e);
+            try {
+                Class<?> cls = Class.forName("com.google.firebase.crashlytics.FirebaseCrashlytics");
+                Method getInstance = cls.getMethod("getInstance");
+                Object instance = getInstance.invoke(null);
+                Method recordException = cls.getMethod("recordException", Throwable.class);
+                recordException.invoke(instance, e);
+            } catch (Exception ignored) {}
             System.exit(0);
             Intent intent = new Intent(Core.context(), LauncherService.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -355,6 +360,13 @@ public class LauncherActivity extends Launch.LaunchingActivity {
 
         appsRecycler.setOnScrollChangeListener((view, x, y, oldX, oldY)
                 -> topGradient.setAlpha(Math.clamp((y - 50f) / 100f, 0f, 1f)));
+
+        // Display info dialog (MQS version only)
+        if (PlatformExt.isMetastoreBuild()) {
+            if (!getDataStoreEditor().getBoolean(Settings.KEY_SEEN_DMQS, false)) {
+                new MQSDialog(this).show();
+            }
+        }
     }
 
     private void updateInsets() {

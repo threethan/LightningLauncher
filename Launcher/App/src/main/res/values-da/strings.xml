@@ -105,6 +105,9 @@
     <string name="custom_window_size_message">Brugerdefinerede vinduesstørrelser fungerer ikke korrekt for alle apps.  Hvis en app ikke åbnes med en brugerdefineret størrelse, skal du  vende tilbage til denne indstilling til Appens eget vindue.</string>
     <string name="download_browser_message">For at få den bedste oplevelse skal du installere Lightning Browser for at åbne hjemmesider i Lightning Launcher
         \n(Alternativt kan du prøve at ændre browseren i Indstillinger -&gt; Avancerede indstillinger)</string>
+    <string name="change_browser_message">Den valgte standardbrowser er ikke tilgængelig.
+\n        
+\n<i>Ændr browseren i Indstillinger &gt; Avancerede indstillinger.</i></string>
     <string name="update_browser_message">For at få den bedste oplevelse skal du opdatere Lightning Browser.</string>
     <string name="download_browser_toast_main">Åbn hjemmesiden igen</string>
     <string name="download_browser_toast_bold">når installationen er færdig</string>
@@ -135,6 +138,7 @@
     <string name="warning">Vigtig information</string>
     <string name="cancel">Annuller</string>
     <string name="understood">Jeg har det!</string>
+    <string name="understood_long">Jeg forstår, fortsæt.</string>
     <string name="confirm">Bekræft</string>
     <string name="size_own">Åbn i App\'s eget vindue</string>
     <string name="size_phone">Åbn i telefon-lignende vindue</string>
@@ -294,6 +298,10 @@
         Du kan også optage bedre videoer, blokere reklamer, slukke automatisk og meget mere.
         \n
         \Quest Game Tuner er resultatet af hundredvis af timers udvikling, forskning og testning af den samme udvikler, som lavede Lightning Launcher.</string>
+    <string name="tuner_info_desc_mqs">        <b>Quest Game Tuner</b> bryder dit headsets grænser og giver dig mulighed for at få mest muligt ud af den hardware, du allerede ejer, med performanceprofiler pr. app og masser af ekstra funktioner.        
+\n        
+\n<b>Quest Game Tuner</b> er lavet og vedligeholdes af den samme udvikler, som lavede Lightning Launcher.    </string>
+
     <string name="tuner_info_get">Få Quest Game Tuner på itch.io!</string>
     <string name="apk_installer_tip">Vælg en APK-fil, der skal installeres</string>
     <string name="settings_workaround">Klik på Åbn i informationsvinduet for at åbne Android-indstillinger.</string>
@@ -346,4 +354,17 @@
     <string name="current">★ Strøm</string>
 <string name="shortcuts_promo"><b>Genveje gør Lightning Launcher lettere at åbne,</b> <i>uden</i> at skulle kigge igennem \"ukendte kilder\".</string>
 
+<string name="dmqs_0">Forstå, hvad denne app (Lightning Launcher) kan og ikke kan, før du fortsætter</string>
+
+    <string name="dmqs_can_0">Start apps, der allerede er installeret på din enhed</string>
+    <string name="dmqs_can_1">Kategoriser og juster udseendet af apps <i>inden for Lightning Launcher</i>.</string>
+    <string name="dmqs_can_2">Juster, hvordan apps åbnes <i>fra Lightning Launcher</i>.</string>
+    <string name="dmqs_can_3">Tilføj genveje til hjemmesider <i>til Lightning Launcher</i>.</string>
+
+    <string name="dmqs_cant_0">Vise eller installere programmer, som du ikke har installeret lovligt</string>
+    <string name="dmqs_cant_1">Start programmer, som du ejer, men ikke har installeret</string>
+    <string name="dmqs_cant_2">Kategoriser eller juster alt <i>uden for Lightning Launcher-appen</i>.</string>
+    <string name="dmqs_cant_3">Ændre eller udskifte systemfunktioner, <i>såsom det indbyggede app-bibliotek/navigator</i>.</string>
+    <string name="dmqs_can">Lightning Launcher <b>kan</b>:</string>
+    <string name="dmqs_cant">Lightning Launcher kan <b>ikke</b>:</string>
 </resources>

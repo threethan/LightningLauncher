@@ -126,7 +126,9 @@ public abstract class Platform {
 
     private static final Set<String> questVersionedIncludedApps =
             Platform.getVrOsVersion() >= 81 ? Set.of(
-                "systemux://aui-people-blended",
+                Platform.getVrOsVersion() >= 83
+                ? "systemux://aui-people"
+                : "systemux://aui-people-blended",
                 "systemux://settings"
             ) : Set.of(
                 "systemux://settings",
@@ -151,6 +153,7 @@ public abstract class Platform {
             labelOverrides.put("systemux://settings", context.getString(R.string.quest_settings));
             labelOverrides.put("systemux://aui-social-v2", context.getString(R.string.quest_people));
             labelOverrides.put("systemux://aui-people-blended", context.getString(R.string.quest_chats));
+            labelOverrides.put("systemux://aui-people", context.getString(R.string.quest_chats));
             labelOverrides.put("systemux://events", context.getString(R.string.quest_events));
             labelOverrides.put("systemux://file-manager", context.getString(R.string.quest_files));
             labelOverrides.put("systemux://sharing", context.getString(R.string.quest_camera));
@@ -224,6 +227,10 @@ public abstract class Platform {
     static {
         // Add removed systemux panel apps to the excluded list
         excludedPackageNames.addAll(questVersionedExcludedApps);
+
+        // Exclude documentsui for MQS version for now
+        if (PlatformExt.censorUtilities())
+            excludedPackageNames.add("com.android.documentsui");
     }
 
     /**
@@ -322,3 +329,4 @@ public abstract class Platform {
         return !isTv() && !isVr();
     }
 }
+

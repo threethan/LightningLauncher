@@ -108,6 +108,9 @@
     <string name="custom_window_size_message">Les tailles de fenêtre personnalisées ne fonctionnent pas correctement pour toutes les applications.  Si une application ne s\'ouvre pas avec une taille personnalisée,  restaurez ce paramètre sur « Fenêtre de l\'application ».</string>
     <string name="download_browser_message">Pour une meilleure expérience, vous devez installer Lightning Browser pour ouvrir les sites web dans Lightning Launcher
         \N(Vous pouvez également essayer de changer le navigateur dans Paramètres -&gt; Paramètres avancés)</string>
+    <string name="change_browser_message">Le navigateur par défaut sélectionné n\'est pas disponible.
+\n        
+\n<i>Changer le navigateur dans Paramètres &gt; Paramètres avancés.</i></string>
     <string name="update_browser_message">Pour une expérience optimale, vous devez mettre à jour le navigateur Lightning.</string>
     <string name="download_browser_toast_main">Ouvrir à nouveau le site web</string>
     <string name="download_browser_toast_bold">une fois l\'installation terminée</string>
@@ -138,6 +141,7 @@
     <string name="warning">Informations importantes</string>
     <string name="cancel">Annuler</string>
     <string name="understood">Je l\'ai !</string>
+    <string name="understood_long">Je comprends, continuez.</string>
     <string name="confirm">Confirmer</string>
     <string name="size_own">Ouvrir dans la fenêtre de l\'application</string>
     <string name="size_phone">Ouvrir dans une fenêtre de type téléphone</string>
@@ -293,6 +297,10 @@
         Vous pouvez également capturer de meilleures vidéos, bloquer les publicités, éteindre automatiquement votre ordinateur, et bien plus encore.
         \n
         \Quest Game Tuner est le résultat de centaines d\'heures de développement, de recherche et de test par le même développeur qui a créé Lightning Launcher.</string>
+    <string name="tuner_info_desc_mqs">        <b>Quest Game Tuner</b> dépasse les limites de votre casque et vous permet de tirer le meilleur parti du matériel que vous possédez déjà grâce à des profils de performance par application et à de nombreuses fonctionnalités supplémentaires.        
+\n        
+\n<b>Quest Game Tuner</b> est conçu et entretenu par le même développeur qui a créé Lightning Launcher.    </string>
+
     <string name="tuner_info_get">Obtenez Quest Game Tuner sur itch.io !</string>
     <string name="apk_installer_tip">Sélectionnez un fichier APK à installer</string>
     <string name="settings_workaround">Cliquez sur Ouvrir dans la fenêtre d’informations pour ouvrir les paramètres Android.</string>
@@ -345,4 +353,17 @@
     <string name="current">★ Courant</string>
 <string name="shortcuts_promo"><b>Les raccourcis facilitent l\'ouverture du Lightning Launcher,</b> <i>sans</i> avoir à chercher dans les \"sources inconnues\".</string>
 
+<string name="dmqs_0">Comprendre ce que cette application (Lightning Launcher) peut et ne peut pas faire avant de continuer</string>
+
+    <string name="dmqs_can_0">Lancer des applications déjà installées sur votre appareil</string>
+    <string name="dmqs_can_1">Catégoriser et ajuster l\'apparence des applications <i>dans le Lightning Launcher</i></string>
+    <string name="dmqs_can_2">Ajuster la façon dont les applications sont ouvertes <i>à partir du Lightning Launcher</i></string>
+    <string name="dmqs_can_3">Ajouter des raccourcis vers des sites web <i>à Lightning Launcher</i></string>
+
+    <string name="dmqs_cant_0">afficher ou installer des applications que vous n\'avez pas légitimement installées</string>
+    <string name="dmqs_cant_1">Lancer des applications que vous possédez mais qui ne sont pas installées</string>
+    <string name="dmqs_cant_2">Catégoriser ou ajuster tout ce qui se trouve <i>en dehors de l\'application Lightning Launcher</i></string>
+    <string name="dmqs_cant_3">Modifier ou remplacer des éléments du système, <i>tels que la bibliothèque d\'applications intégrée ou le navigateur</i>.</string>
+    <string name="dmqs_can">Le lanceur de foudre <b>peut</b> :</string>
+    <string name="dmqs_cant">Le Lightning Launcher ne peut <b>pas</b> :</string>
 </resources>

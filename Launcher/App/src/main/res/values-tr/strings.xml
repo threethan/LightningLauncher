@@ -344,6 +344,18 @@
     <string name="sort_recently_used_no_perm">Son Başlatılanlara Göre Sıralama</string>
     <string name="sort_recently_installed_no_perm">Son Eklenenlere Göre Sıralama</string>
     <string name="current">★ Akım</string>
-<string name="shortcuts_promo"><b>Kısayollar, Lightning Launcher\'ın açılmasını kolaylaştırır,</b> <i>bilinmeyen kaynaklara</i> bakmaya gerek kalmadan.</string>
+    <string name="shortcuts_promo"><b>Kısayollar, Lightning Launcher\'ın açılmasını kolaylaştırır,</b> <i>bilinmeyen kaynaklara</i> bakmaya gerek kalmadan.</string>
+    <string name="dmqs_0"><b>Lightning Launcher, Quest Store Sürümü:\n</b>Bu uygulamanın neler yapabileceğini ve neler yapamayacağını anlayın</string>
 
+    <string name="dmqs_can_0">Cihazınızda yüklü olan uygulamaları başlatın</string>
+    <string name="dmqs_can_1">Lightning&#160;Launcher içindeki uygulamaların görünümünü kategorilere ayırın ve ayarlayın</string>
+    <string name="dmqs_can_2">Uygulamaların <i>Lightning&#160;Launcher\'dan</i> nasıl açılacağını ayarlayın</string>
+    <string name="dmqs_can_3">Lightning&#160;Launcher\'a web sitelerine kısayollar ekleyin</string>
+
+    <string name="dmqs_cant_0">Meşru olarak yüklemediğiniz uygulamaları görüntüleyin veya yükleyin</string>
+    <string name="dmqs_cant_1">Sahip olduğunuz ancak yüklü olmayan uygulamaları başlatın</string>
+    <string name="dmqs_cant_2">Dışarıdaki her şeyi kategorilere ayırın veya ayarlayın Lightning Başlatıcısı uygulamasının</string>
+    <string name="dmqs_cant_3">Yerleşik uygulama kütüphanesi/gezgin gibi herhangi bir sistem özelliğini değiştirme veya yenileme</string>
+    <string name="dmqs_can">Bu uygulama şunları <b>yapabilir</b>:</string>
+    <string name="dmqs_cant">Bu uygulama şunları <b>yapamaz</b>:</string>
 </resources>

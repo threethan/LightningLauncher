@@ -105,6 +105,9 @@
     <string name="custom_window_size_message">Mukautetut ikkunakoot eivät toimi oikein kaikissa sovelluksissa.  Jos sovellus ei avaudu mukautetulla koolla,  palauta tämä asetus asetukseksi Sovelluksen oma ikkuna.</string>
     <string name="download_browser_message">Parhaan käyttökokemuksen saamiseksi sinun on asennettava Lightning Browser, jotta voit avata verkkosivustoja Lightning Launcherissa.\n
         \n(Vaihtoehtoisesti voit yrittää vaihtaa selaimen Asetukset -&gt; Lisäasetukset)</string>
+    <string name="change_browser_message">Valittu oletusselain ei ole käytettävissä.
+\n        
+\n<i>Vaihda selain kohdassa Asetukset &gt; Lisäasetukset.</i></string>
     <string name="update_browser_message">Parhaan käyttökokemuksen saat päivittämällä Lightning Browserin.</string>
     <string name="download_browser_toast_main">Avaa verkkosivusto uudelleen</string>
     <string name="download_browser_toast_bold">asennuksen päätyttyä</string>
@@ -135,6 +138,7 @@
     <string name="warning">Tärkeää tietoa</string>
     <string name="cancel">Peruuta</string>
     <string name="understood">Sain sen!</string>
+    <string name="understood_long">Ymmärrän, jatkakaa.</string>
     <string name="confirm">Vahvista</string>
     <string name="size_own">Avaa App\:n omaan ikkunaan</string>
     <string name="size_phone">Avaa puhelintyylinen ikkuna</string>
@@ -294,6 +298,10 @@
         Voit myös kuvata parempia videoita, estää mainoksia, sammuttaa virran automaattisesti ja paljon muuta.
         \n
         \nQuest Game Tuner on satojen tuntien kehitystyön, tutkimuksen ja testauksen tulos samalta kehittäjältä, joka teki Lightning Launcherin.</string>
+    <string name="tuner_info_desc_mqs">        <b>Quest Game Tuner</b> rikkoo kuulokkeidesi rajoja ja antaa sinulle mahdollisuuden ottaa kaiken irti jo omistamastasi laitteistosta sovelluskohtaisilla suorituskykyprofiileilla ja lukuisilla lisäominaisuuksilla.        
+\n        
+\n<b>Quest Game Tuner</b>:n on tehnyt ja ylläpitää sama kehittäjä, joka teki Lightning Launcherin.    </string>
+
     <string name="tuner_info_get">Hanki Quest Game Tuner itch.iosta!</string>
     <string name="apk_installer_tip">Valitse asennettava APK-tiedosto</string>
     <string name="settings_workaround">Avaa Android-asetukset napsauttamalla tietoikkunassa Avaa.</string>
@@ -346,4 +354,17 @@
     <string name="current">★ Virta</string>
 <string name="shortcuts_promo"><b>Lääkekuvakkeet helpottavat Lightning Launcherin avaamista,</b> <i>ilman</i>, että \'tuntemattomia lähteitä\'\' ei tarvitse tutkia.</string>
 
+<string name="dmqs_0">Ymmärrä, mitä tämä sovellus (Lightning Launcher) voi tehdä ja mitä se ei voi tehdä ennen kuin jatkat.</string>
+
+    <string name="dmqs_can_0">Käynnistä laitteeseen jo asennetut sovellukset.</string>
+    <string name="dmqs_can_1">Luokittele ja säädä sovellusten ulkoasua <i>Lightning Launcherissa</i>.</string>
+    <string name="dmqs_can_2">Säädä, miten sovellukset avataan <i>Lightning Launcherista</i>.</string>
+    <string name="dmqs_can_3">Lisää pikakuvakkeet verkkosivustoille <i> Lightning Launcheriin</i></string>
+
+    <string name="dmqs_cant_0">Näytä tai asenna sovelluksia, joita et ole laillisesti asentanut.</string>
+    <string name="dmqs_cant_1">Käynnistä sovellukset, jotka omistat mutta joita et ole asentanut.</string>
+    <string name="dmqs_cant_2">Luokittele tai säädä mitä tahansa <i>Lightning Launcher -sovelluksen ulkopuolella</i>.</string>
+    <string name="dmqs_cant_3">Järjestelmän ominaisuuksien, kuten sisäänrakennetun sovelluskirjaston/navigaattorin/i:n, muuttaminen tai korvaaminen.</string>
+    <string name="dmqs_can">Lightning Launcher <b>voi</b>:</string>
+    <string name="dmqs_cant">Lightning Launcher ei voi <b>ei</b>:</string>
 </resources>

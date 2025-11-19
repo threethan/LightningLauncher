@@ -105,6 +105,7 @@
     <string name="custom_window_size_message">カスタムウィンドウサイズは、すべてのアプリで正しく機能するとは限りません。  アプリがカスタムサイズで開かない場合は、  この設定を「アプリ独自のウィンドウ」に戻してください。</string>
     <string name="download_browser_message">Lightning Launcherでウェブサイトを開くには、Lightningブラウザをインストールする必要があります。
         \(または、[設定] -&gt; [詳細設定] でブラウザを変更してみてください)</string>
+    <string name="change_browser_message">選択したデフォルトのブラウザが使用できません。        設定詳細設定でブラウザを変更してください。</string>
     <string name="update_browser_message">ライトニング・ブラウザをアップデートしてください。</string>
     <string name="download_browser_toast_main">ウェブサイトをもう一度開く</string>
     <string name="download_browser_toast_bold">インストール完了後</string>
@@ -135,6 +136,7 @@
     <string name="warning">重要情報</string>
     <string name="cancel">キャンセル</string>
     <string name="understood">了解！</string>
+    <string name="understood_long">わかった、続けてくれ。</string>
     <string name="confirm">確認</string>
     <string name="size_own">自ウィンドウで開く</string>
     <string name="size_phone">電話スタイルのウィンドウで開く</string>
@@ -290,6 +292,8 @@
         また、より良いビデオのキャプチャ、広告のブロック、自動電源オフなども可能です。
         \n
         \Quest Game Tunerは、Lightning Launcherを開発したデベロッパーによる、数百時間に及ぶ開発、研究、テストの成果です。</string>
+    <string name="tuner_info_desc_mqs">        bQuest Game Tuner/bは、ヘッドセットの限界を破り、アプリごとのパフォーマンス・プロファイルと豊富な追加機能で、すでにお持ちのハードウェアを最大限に活用できます。                bQuest Game Tuner/bは、Lightning Launcherを開発したのと同じ開発者によって作られ、維持されています。    </string>
+
     <string name="tuner_info_get">itch.ioでQuest Game Tunerを手に入れよう！</string>
     <string name="apk_installer_tip">インストールするAPKファイルを選択する</string>
     <string name="settings_workaround">情報ウィンドウで「開く」をクリックして、Android 設定を開きます。</string>
@@ -342,4 +346,17 @@
     <string name="current">★電流</string>
 <string name="shortcuts_promo">bショートカットでLightning Launcherが開きやすくなる。</string>
 
+<string name="dmqs_0">このアプリ（Lightning Launcher）でできること、できないことを理解してから続けてください。</string>
+
+    <string name="dmqs_can_0">デバイスにインストール済みのアプリを起動する</string>
+    <string name="dmqs_can_1">Lightning Launcher/i内のアプリの分類と外観の調整</string>
+    <string name="dmqs_can_2">Lightning Launcher/iからアプリを開く方法を調整する</string>
+    <string name="dmqs_can_3">ウェブサイトへのショートカットを<i>Lightning Launcherに追加する</i>。</string>
+
+    <string name="dmqs_cant_0">正規にインストールされていないアプリケーションを表示またはインストールする。</string>
+    <string name="dmqs_cant_1">所有しているがインストールされていないアプリケーションを起動する</string>
+    <string name="dmqs_cant_2">Lightning Launcherアプリ以外での分類や調整</string>
+    <string name="dmqs_cant_3">内蔵アプリ・ライブラリ/ナビゲータ/i などのシステム機能を変更または置き換えます。</string>
+    <string name="dmqs_can">ライトニング・ランチャーは<b>可能</b>：</string>
+    <string name="dmqs_cant">ライトニング・ランチャーは<b>できない</b>：</string>
 </resources>

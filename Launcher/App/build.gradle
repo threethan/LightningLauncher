@@ -13,8 +13,8 @@ android {
         compileSdk = 36
         minSdkVersion 24
         targetSdkVersion 36
-        versionCode 1004
-        versionName "10.0.4"
+        versionCode 1006
+        versionName "10.0"
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
@@ -67,11 +67,11 @@ dependencies {
     implementation "androidx.fragment:fragment:1.8.9"
 
     // Crashlytics for metastore flavor
-    metastoreImplementation platform("com.google.firebase:firebase-bom:34.5.0")
+    metastoreImplementation platform("com.google.firebase:firebase-bom:34.6.0")
     metastoreImplementation("com.google.firebase:firebase-crashlytics-ndk")
     metastoreImplementation("com.google.firebase:firebase-analytics")
     // Crashlytics for playstore flavor
-    playstoreImplementation platform("com.google.firebase:firebase-bom:34.5.0")
+    playstoreImplementation platform("com.google.firebase:firebase-bom:34.6.0")
     playstoreImplementation("com.google.firebase:firebase-crashlytics-ndk")
     playstoreImplementation("com.google.firebase:firebase-analytics")
 }

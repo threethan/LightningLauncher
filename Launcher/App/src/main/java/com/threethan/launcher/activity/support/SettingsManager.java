@@ -548,6 +548,22 @@ public class SettingsManager extends Settings {
             for (String group : appGroupsSet) {
                 Set<String> appListSet = new HashSet<>();
                 appListSet = dataStoreEditorSort.getStringSet(KEY_GROUP_APP_LIST + group, appListSet);
+
+                // Fix unsupported group issues
+                if (group.equals(Settings.UNSUPPORTED_GROUP)) {
+                    Log.d("Settings Manager", "Unsupported group check");
+                    appListSet.forEach(pkg -> {
+                        if (App.getType(pkg) != App.Type.UNSUPPORTED) {
+                            Log.w("Settings Manager",
+                                    "App " + pkg + " is wrongly in unsupported group");
+                            dataStoreEditorSort.removeStringSet(KEY_GROUP_APP_LIST + group);
+                            readGroupsAndSort();
+                            throw new RuntimeException("Force restart readGroupsAndSort (OK)");
+                        }
+                    });
+                    Log.d("Settings Manager", "Unsupported group check complete");
+                }
+
                 groupAppsMap.put(group, appListSet);
             }
 
@@ -638,7 +654,6 @@ public class SettingsManager extends Settings {
         if (defaultGroupCache.containsKey(type)) return defaultGroupCache.get(type);
         String def = checkDefaultGroupFor(type);
         if (appGroupsSet.contains(def)) defaultGroupCache.put(type, def);
-
         return def;
     }
     private static String checkDefaultGroupFor(App.Type type) {

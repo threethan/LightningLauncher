@@ -19,7 +19,6 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.threethan.launcher.BuildConfig;
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.activity.dialog.AppDetailsDialog;
@@ -31,6 +30,7 @@ import com.threethan.launcher.activity.view.LauncherAppListContainer;
 import com.threethan.launcher.data.Settings;
 import com.threethan.launcher.helper.AppBackgroundHelper;
 import com.threethan.launcher.helper.LaunchExt;
+import com.threethan.launcher.helper.PlatformExt;
 import com.threethan.launcher.helper.PlaytimeHelper;
 import com.threethan.launchercore.adapter.AppsAdapter;
 import com.threethan.launchercore.lib.StringLib;
@@ -161,9 +161,11 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
                 youTubeProxy.packageName = StringLib.youTubeSearchForUrl(text);
                 newItems.add(youTubeProxy);
 
-                final ApplicationInfo apkMirrorProxy = new ApplicationInfo();
-                apkMirrorProxy.packageName = StringLib.apkMirrorSearchForUrl(text);
-                newItems.add(apkMirrorProxy);
+                if (!PlatformExt.censorLinking()) {
+                    final ApplicationInfo apkMirrorProxy = new ApplicationInfo();
+                    apkMirrorProxy.packageName = StringLib.apkMirrorSearchForUrl(text);
+                    newItems.add(apkMirrorProxy);
+                }
             }
 
             topSearchResult = newItems.isEmpty() ? null : newItems.get(0);
@@ -285,7 +287,8 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
                     if (view != subView && subView != null && subView.isHovered()) return false;
                 hovered = false;
             } else {
-                if (event.getAction() == MotionEvent.ACTION_HOVER_MOVE) {
+                if (event.getAction() == MotionEvent.ACTION_HOVER_MOVE
+                        && !LauncherActivity.shouldReduceMotion()) {
                     // Depth effect on hover
                     float oy = view == holder.view ? 0f : view.getY();
                     float ox = view == holder.view ? 0f : view.getX();
@@ -414,8 +417,7 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
             if (!Platform.isTv())
                 holder.moreButton.setVisibility(focused ? View.VISIBLE : View.INVISIBLE);
 
-            //noinspection ConstantValue
-            if (!Platform.isTv() && !BuildConfig.FLAVOR.equals("metastore")
+            if (!Platform.isTv() && !PlatformExt.censorLinking()
                     && LauncherActivity.timesBanner) {
                 if (focused) {
                     // Show and update view holder
