@@ -10,12 +10,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.threethan.launcher.activity.LauncherActivity;
+import com.threethan.launcher.activity.view.LauncherAppImageViewAspect;
 import com.threethan.launcher.helper.AppBackgroundHelper;
 import com.threethan.launchercore.Core;
 import com.threethan.launchercore.metadata.IconLoader;
@@ -128,10 +128,10 @@ public class AppsAdapter<VH extends AppsAdapter.AppViewHolder>
         holder.textView = view.findViewById(R.id.itemLabel);
 
         if (viewType == 2) {
-            if (!LauncherActivity.layoutHorizontal
-                    && holder.imageView.getLayoutParams() instanceof ConstraintLayout.LayoutParams clp)
-                clp.dimensionRatio = "16:9";
             holder.banner = true;
+            if (!LauncherActivity.layoutHorizontal
+                    && holder.imageView instanceof LauncherAppImageViewAspect v)
+                v.setAspectRatio(16f / 9f); // 1f is implicit default
         }
 
         final boolean darkMode = LauncherActivity.darkMode;
@@ -168,7 +168,6 @@ public class AppsAdapter<VH extends AppsAdapter.AppViewHolder>
 
         holder.app = app;
         holder.whenReady(() -> {
-//
             if (clearImmediate) {
                 holder.imageView.setImageDrawable(null);
                 holder.textView.setText("", TextView.BufferType.NORMAL);
@@ -180,7 +179,8 @@ public class AppsAdapter<VH extends AppsAdapter.AppViewHolder>
                 if (darkMode != holder.darkMode) {
                     holder.textView.post(() -> {
                         holder.textView.setTextColor(darkMode ? Color.WHITE : Color.BLACK);
-                        holder.textView.setShadowLayer(6, 0, 0, darkMode ? Color.BLACK : Color.WHITE);
+                        holder.textView.setShadowLayer(6, 0, 0,
+                                darkMode ? Color.BLACK : Color.WHITE);
                     });
                     holder.darkMode = darkMode;
                 }
@@ -188,16 +188,17 @@ public class AppsAdapter<VH extends AppsAdapter.AppViewHolder>
                 final boolean showName = holder.banner
                         ? LauncherActivity.namesBanner : LauncherActivity.namesSquare;
                 if (showName != holder.showName) {
-                    holder.textView.post(() -> holder.textView.setVisibility(showName ? View.VISIBLE : View.GONE));
+                    holder.textView.post(() -> holder.textView.setVisibility(
+                            showName ? View.VISIBLE : View.GONE));
                     holder.showName = showName;
                 }
 
-                App.getLabel(app, label
-                        -> {
+                App.getLabel(app, label -> {
                     if (holder.textView != null) onLabelChanged(holder, label);
                 });
                 IconLoader.loadIcon(holder.app, drawable -> {
-                    if (holder.imageView != null) onIconChanged(holder, drawable);
+                    if (holder.imageView != null)
+                        onIconChanged(holder, drawable, app.packageName);
                 });
             });
             onViewHolderReady(holder);
@@ -207,8 +208,11 @@ public class AppsAdapter<VH extends AppsAdapter.AppViewHolder>
     protected void onViewHolderReady(VH holder) {}
 
     private static final ExecutorService executorService = Core.EXECUTOR;
-    protected void onIconChanged(VH holder, Drawable icon) {
-        holder.imageView.post(() -> holder.imageView.setImageDrawable(icon));
+    protected void onIconChanged(VH holder, Drawable icon, String packageName) {
+        holder.imageView.post(() -> {
+            if (Objects.equals(holder.app.packageName, packageName))
+                holder.imageView.setImageDrawable(icon);
+        });
     }
     protected void onLabelChanged(VH holder, String label) {
         holder.textView.post(() -> {
