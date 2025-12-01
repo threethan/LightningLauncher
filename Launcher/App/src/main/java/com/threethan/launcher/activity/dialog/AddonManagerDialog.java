@@ -41,14 +41,16 @@ public class AddonManagerDialog extends LcDialog<LauncherActivity> {
     private static int determineLayoutRes(LauncherActivity activity) {
         if (Platform.isVr()) {
             if (
-                    Platform.getVrOsVersion() > 76 &&
-                            Platform.getVrOsVersion() < 82 && // [SPECULATION] Navigator will be default by v82
-                            !activity.getDataStoreEditor().getBoolean(Settings.KEY_ADDONS_VR_TYPE_KNOWN, false)
+                    !isUxDetermined()
+                            && !activity.getDataStoreEditor()
+                            .getBoolean(Settings.KEY_ADDONS_VR_TYPE_KNOWN, false)
             ) {
                 return R.layout.dialog_addons_vr_indeterminate;
             } else {
                 boolean defaultHasNavigator = Platform.getVrOsVersion() > 76;
-                boolean hasNavigator = activity.getDataStoreEditor().getBoolean(
+                boolean hasNavigator =
+                        isUxDetermined() ? defaultHasNavigator :
+                        activity.getDataStoreEditor().getBoolean(
                         Settings.KEY_ADDONS_VR_HAS_NAVIGATOR,
                         defaultHasNavigator
                 );
@@ -129,11 +131,16 @@ public class AddonManagerDialog extends LcDialog<LauncherActivity> {
         });
 
         View indeterminateGotoView = dialog.findViewById(R.id.addonIndeterminateGotoButton);
-        if (indeterminateGotoView != null) indeterminateGotoView.setOnClickListener(v -> {
-            a.getDataStoreEditor().putValue(Settings.KEY_ADDONS_VR_TYPE_KNOWN, false, true);
-            dialog.dismiss();
-            new AddonManagerDialog(a).show();
-        });
+        if (indeterminateGotoView != null) {
+            indeterminateGotoView.setOnClickListener(v -> {
+                a.getDataStoreEditor().putValue(Settings.KEY_ADDONS_VR_TYPE_KNOWN, false, true);
+                dialog.dismiss();
+                new AddonManagerDialog(a).show();
+            });
+            if (isUxDetermined()) {
+                indeterminateGotoView.setVisibility(View.GONE);
+            }
+        }
 
         if (dockGotoButton != null) {
             a.getDataStoreEditor().putValue(Settings.KEY_SEEN_ADDONS, false);
@@ -143,6 +150,15 @@ public class AddonManagerDialog extends LcDialog<LauncherActivity> {
 
         return dialog;
     }
+
+    /** Determines if the UX type isn't changeable on this version */
+    private static boolean isUxDetermined() {
+        // Below 76: Dock only
+        // 77 to 83: Either
+        // Assuming 100+: Means navigator only (for now)
+        return Platform.getVrOsVersion() <= 76 || Platform.getVrOsVersion() >= 100;
+    }
+
     public static void updateAddonButton(final Activity a, final View layout, final String tag) {
 
         final View uninstallButton = layout.findViewById(R.id.addonUninstall);

@@ -16,7 +16,6 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.threethan.launcher.R;
 import com.threethan.launchercore.Core;
 import com.threethan.launchercore.util.Platform;
 
@@ -49,7 +48,7 @@ public class LauncherAppImageView extends ImageView {
     }
 
     @Override
-    public void setImageDrawable(@Nullable Drawable drawable) {
+    public synchronized void setImageDrawable(@Nullable Drawable drawable) {
         this.drawable = drawable;
         updateAsyncCache();
     }
@@ -59,6 +58,7 @@ public class LauncherAppImageView extends ImageView {
     /** Updates the cached bitmap asynchronously. */
     private synchronized void updateAsyncCache() {
         if (drawable == null) return;
+        if (isPhone) setBackground(null);
         cacheBitmap = null;
         awaitingUpdate.set(true);
         Core.EXECUTOR.submit(() -> {
@@ -115,21 +115,20 @@ public class LauncherAppImageView extends ImageView {
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (isPhone) {
-            setBackground(getBackgroundForPhone());
-        }
     }
 
     private boolean hasMeasured = false;
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
         if (isPhone && !hasMeasured) {
-            hasMeasured = true;
-            if (getMeasuredWidth() - getMeasuredHeight() > 5) {
-                setBackground(getContext().getDrawable(R.drawable.bkg_app));
+            if (getMeasuredWidth() <= getMeasuredHeight() + 50) {
+                Drawable bg = getBackgroundForPhone();
+                if (bg != null) setBackground(bg);
             }
         }
+        hasMeasured = true;
     }
 
     private Drawable backgroundForPhone = null;

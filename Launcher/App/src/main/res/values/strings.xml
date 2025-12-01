@@ -58,6 +58,8 @@
     <string name="disp_icon">Display as Icon</string>
     <string name="disp_name">Always Show Names</string>
     <string name="more_options">More Options</string>
+    <string name="favorite_enable">Mark as Favorite</string>
+    <string name="favorite_disable">Un-mark as Favorite</string>
     <string name="advanced_header">Advanced Settings</string>
     <string name="refresh_button">Full Reload &amp; Refresh</string>
     <string name="advanced_interface">Interface</string>
@@ -138,6 +140,9 @@
     <string name="download_browser_message">For the best experience, you must install <b>Lightning Browser</b> to open websites.\n
         \n<i>(Alternatively, you can try to change the browser in Settings > Advanced Settings)</i>
     </string>
+    <string name="change_browser_message">The selected default browser is unavailable.\n
+        \n<i>Change the browser in Settings > Advanced Settings.</i>
+    </string>
     <string name="update_browser_message">For the best experience, you must update Lightning Browser.</string>
 =   <string name="download_browser_toast_main">Open the website again</string>
     <string name="download_browser_toast_bold">after Lightning Browser is installed</string>
@@ -180,6 +185,7 @@
     <string name="warning">Important Info</string>
     <string name="cancel">Cancel</string>
     <string name="understood">Got It!</string>
+    <string name="understood_long">I understand, continue.</string>
     <string name="confirm">Confirm</string>
 
     <string name="size_own">Open in App\'s Own Window</string>
@@ -307,8 +313,6 @@
     <string name="preset_discord" translatable="false">discord.com/app</string>
     <string name="preset_spotify" translatable="false">open.spotify.com</string>
     <string name="preset_tidal" translatable="false">listen.tidal.com</string>
-    <string name="preset_apkmirror" translatable="false">apkmirror.com</string>
-    <string name="preset_apkpure" translatable="false">apkpure.com</string>
 
     <!-- Addons -->
     <string name="addons_main_vr">Shortcuts</string>
@@ -402,6 +406,14 @@
         \n<b>Quest Game Tuner</b> is the result of hundreds of hours of development, research, and testing by the same developer which made Lightning Launcher.
     </string>
 
+    <string name="tuner_info_desc_mqs_n"><b>Quest Game Tuner</b>
+        lets you get the most of the hardware
+        you already own with rich per-app performance profiles
+        and loads of extra features.
+        \n
+        \n<b>Quest Game Tuner</b> enables some features which can be accessed in Lightning Launcher.
+    </string>
+
     <string name="tuner_info_get">Get <b>Quest Game Tuner</b> on itch.io!</string>
     <string name="tuner_info_get_link" translatable="false">threethan.itch.io/quest-game-tuner</string>
 
@@ -412,7 +424,7 @@
 
     <!-- Labels -->
     <string name="shortcuts_open_this_variant">Shortcuts open this variant of Lightning Launcher</string>
-    <string name="shortcuts_open_this_variant_details">If you turn this off, shortcut services will attempt to open your other installation of Lighning Launcher.</string>
+    <string name="shortcuts_open_this_variant_details">If you turn this off, shortcut services will attempt to open your other installation of Lightning Launcher.</string>
     <string name="manage_variants">Manage Installed Variants &amp; Transfer Settings</string>
     <string name="customize_top_bar">Customize Toolbar</string>
     <string name="quest_settings">Quest Settings</string>
@@ -462,4 +474,22 @@
 
     <string name="shortcuts_promo"><b>Shortcuts make Lightning Launcher easier to open,</b> <i>without</i> needing to look through \'unknown sources.\'</string>
 
+    <string name="dmqs_0"><b>Lightning&#160;Launcher, Quest Store Version:\n</b>Understand what this app can and can\'t do.</string>
+
+    <string name="dmqs_can_0">Launch apps which are already installed on your device</string>
+    <string name="dmqs_can_1">Categorize and adjust the appearance of apps <i>within Lightning&#160;Launcher</i></string>
+    <string name="dmqs_can_2">Adjust how apps are opened <i>from Lightning&#160;Launcher</i></string>
+    <string name="dmqs_can_3">Add shortcuts to websites <i>to Lightning&#160;Launcher</i></string>
+
+    <string name="dmqs_cant_0">Display applications which you have not legitimately installed</string>
+    <string name="dmqs_cant_1">Launch applications which you own but do not have installed</string>
+    <string name="dmqs_cant_2">Categorize or adjust anything <i>outside of the Lightning&#160;Launcher app</i></string>
+    <string name="dmqs_cant_3">Modify or replace any system features, <i>such as the built-in app library/navigator</i></string>
+    <string name="dmqs_can">This app <b>can</b>:</string>
+    <string name="dmqs_cant">This app can <b>not</b>:</string>
+
+    <string name="narrow_window_message">Lightning Launcher is designed for big screens.
+        \n\nIt will work on your device, but might feel a little bit cramped.
+        \n\nIf you\'re on a phone, you might be better off
+        using one of the many phone-focused launchers available on Google Play.</string>
 </resources>

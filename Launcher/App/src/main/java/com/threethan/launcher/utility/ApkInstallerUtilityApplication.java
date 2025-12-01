@@ -22,7 +22,7 @@ public class ApkInstallerUtilityApplication extends UtilityApplicationInfo {
     }
 
     public static boolean shouldShow() {
-        return Platform.getVrOsVersion() >= 74;
+        return Platform.getVrOsVersion() >= 74 && !PlatformExt.censorUtilities();
     }
 
     public void launch() {

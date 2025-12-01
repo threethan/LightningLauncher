@@ -18,7 +18,6 @@
 
         <item name="colorControlNormal">#FFF</item>
         <item name="android:textColor">#FFF</item>
-        <item name="colorAccent">#3364c3</item>
 
         <item name="buttonCornerRadius">13dp</item>
     </style>
@@ -38,6 +37,14 @@
         <item name="android:paddingEnd">7dp</item>
         <item name="android:layout_marginTop">16dp</item>
         <item name="android:layout_marginBottom">4dp</item>
+    </style>
+    <style name="SettingBullet">
+        <item name="android:drawableStart">@drawable/ic_bullet_inset</item>
+        <item name="android:layout_marginTop">2dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:lineSpacingExtra">-4dp</item>
+        <item name="android:minLines">2</item>
     </style>
 
     <style name="FlipperTitle">

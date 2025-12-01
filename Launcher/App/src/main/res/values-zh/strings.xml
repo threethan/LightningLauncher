@@ -50,6 +50,8 @@
     <string name="disp_icon">显示为正方形</string>
     <string name="disp_name">显示名称</string>
     <string name="more_options">高级设置</string>
+    <string name="favorite_enable">标记为收藏</string>
+    <string name="favorite_disable">取消标记为收藏</string>
     <string name="advanced_header">打开高级设置</string>
     <string name="refresh_button">刷新应用程序</string>
     <string name="advanced_interface">界面选项</string>
@@ -115,6 +117,7 @@
     <string name="hidden_groups_message">"关闭该选项将在不进入编辑模式时隐藏顶栏。\n\n        \n不在编辑模式下时，设置按钮也将隐藏。\n\n        \n相反，按下窗口顶部的返回按钮或控制器上的 B 键即可打开设置。\n    "</string>
     <string name="custom_window_size_message">自定义窗口大小并非适用于所有应用。  如果应用无法使用自定义大小打开，  请将此设置恢复为“应用自带窗口”。</string>
     <string name="download_browser_message">为了获得最佳体验，您必须安装 Lightning Browser 才能在 Lightning Launcher 中打开网站。\n\n（或者您可以尝试在“高级设置”中更改浏览器，但这可能无法按预期工作）</string>
+    <string name="change_browser_message">所选默认浏览器不可用。        i 在 \"设置 \"的 \"高级设置 \"中更改浏览器。</string>
     <string name="update_browser_message">为了获得最佳体验，您必须更新 Lightning Browser.</string>
 
     <string name="download_browser_toast_main">安装完成后再次</string>
@@ -146,6 +149,7 @@
     <string name="warning">重要信息</string>
     <string name="cancel">关闭</string>
     <string name="understood">了解!</string>
+    <string name="understood_long">我明白，请继续。</string>
     <string name="confirm">确认</string>
     <string name="size_own">在自身窗口打开</string>
     <string name="size_phone">在手机窗口中打开</string>
@@ -318,6 +322,10 @@
 
     
     <string name="tuner_info_desc">Meta 限制了应用的性能。 <b>Quest Game Tuner</b> 打破了这些限制，让您能够充分利用现有硬件。 您还可以<i>录制更优质的视频</i>、<i>屏蔽广告</i>、<i>自动关机</i>等等。  <b>Quest Game Tuner</b> 是 Lightning Launcher 的开发者历经数百小时开发、研究和测试的成果。</string>
+    <string name="tuner_info_desc_mqs_n"><b>Quest Game Tuner</b> 可让您通过每个应用程序的性能配置文件和大量额外功能，充分利用您已拥有的硬件。        
+\n        
+\n<b>Quest Game Tuner</b> 可启用一些可在 Lightning Launcher 中访问的功能。    </string>
+
     <string name="tuner_info_get">在 itch.io 上获取<b>Quest Game Tuner</b>！</string>
     <string name="apk_installer_tip"><b>Quest Game Tuner</b> 是 Lightning Launcher 的开发者历经数百小时开发、研究和测试的成果。</string>
     <string name="settings_workaround">单击信息窗口中的“打开”以打开 Android 设置。</string>
@@ -370,4 +378,23 @@
     <string name="current">★电流</string>
 <string name="shortcuts_promo">bShortcuts make Lightning Launcher easier to open, /b iwithout/i needing to look through （未知来源）。</string>
 
+<string name="dmqs_0"><b>Lightning Launcher，任务商店版本：
+\n</b>了解此应用程序能做什么，不能做什么。</string>
+
+    <string name="dmqs_can_0">启动已安装在设备上的应用程序</string>
+    <string name="dmqs_can_1">对 Lightning Launcher 中的<i>应用程序进行分类并调整其外观</i>。</string>
+    <string name="dmqs_can_2">调整<i>从 Lightning 启动器</i>打开应用程序的方式</string>
+    <string name="dmqs_can_3">在 Lightning Launcher/i 中添加网站快捷方式</string>
+
+    <string name="dmqs_cant_0">显示或安装您未合法安装的应用程序</string>
+    <string name="dmqs_cant_1">启动您拥有但未安装的应用程序</string>
+    <string name="dmqs_cant_2">对 Lightning Launcher 应用程序之外的任何内容进行分类或调整<i />。</string>
+    <string name="dmqs_cant_3">修改或替换任何系统功能，<i>例如内置应用程序库/导航器</i>。</string>
+    <string name="dmqs_can">此应用程序<b>可以</b>：</string>
+    <string name="dmqs_cant">此应用程序不能<b />：</string>
+<string name="narrow_window_message">Lightning Launcher 专为大屏幕设计。        
+\n
+\n它可以在你的设备上运行，但可能会感觉有点拥挤。        
+\n
+\n如果你使用的是手机，你最好使用 Google Play 上众多专注于手机的启动器之一。</string>
 </resources>

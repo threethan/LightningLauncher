@@ -142,7 +142,9 @@ public abstract class QuestGameTuner {
     }
     private static class InfoDialog extends LcDialog<Context> {
         public InfoDialog(Context context) {
-            super(context, R.layout.dialog_tuner_info);
+            super(context, PlatformExt.censorLinking()
+                    ? R.layout.dialog_tuner_info_mqs
+                    : R.layout.dialog_tuner_info);
         }
 
         @Nullable
@@ -156,11 +158,16 @@ public abstract class QuestGameTuner {
                     LaunchExt.launchUrl(null,
                             Core.context().getString(R.string.tuner_info_get_link), true);
 
-            dialog.findViewById(R.id.purchaseButton).setOnClickListener(openListener);
-            dialog.findViewById(R.id.topBanner).setOnClickListener(openListener);
             ViewFlinger imageBanner = dialog.findViewById(R.id.imageBanner);
-            for (int i = 0; i < imageBanner.getChildCount(); i++)
-                imageBanner.getChildAt(i).setOnClickListener(openListener);
+
+            // Remove linking for Metastore build (VRC.functional.6)
+            if (!PlatformExt.censorLinking()) {
+                dialog.findViewById(R.id.purchaseButton).setOnClickListener(openListener);
+                dialog.findViewById(R.id.topBanner).setOnClickListener(openListener);
+                for (int i = 0; i < imageBanner.getChildCount(); i++)
+                    imageBanner.getChildAt(i).setOnClickListener(openListener);
+            }
+
             imageBanner.setAutoAdvance(true);
             imageBanner.setCurrentScreen(new Random().nextInt() % imageBanner.getScreenCount());
             return dialog;

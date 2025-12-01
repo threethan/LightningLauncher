@@ -97,6 +97,7 @@ public abstract class Settings {
     public static final boolean DEFAULT_GROUPS_WIDE = false;
     public static final String KEY_LIST_HORIZONTAL = "KEY_LIST_HORIZONTAL";
     public static final boolean DEFAULT_LIST_HORIZONTAL = false;
+    public static final String KEY_SEEN_NARROW_WINDOW_WARNING = "KEY_SEEN_NARROW_WINDOW_WARNING";
     public static boolean DEFAULT_DETAILS_LONG_PRESS = false;
     public static final boolean DEFAULT_SEARCH_WEB = true;
     public static final boolean DEFAULT_SEARCH_HIDDEN = true;
@@ -123,6 +124,7 @@ public abstract class Settings {
     public static final boolean DEFAULT_ALLOW_CHAIN_LAUNCH = true;
     public static final String KEY_EDIT_MODE = "KEY_EDIT_MODE";
     public static final String KEY_SEEN_ADDONS = "KEY_SEEN_ADDONS";
+    public static final String KEY_SEEN_DMQS = "KEY_SEEN_DMQS";
     public static final String KEY_ADDONS_VR_TYPE_KNOWN = "KEY_ADDONS_VR_TYPE_KNOWN";
     public static final String KEY_ADDONS_VR_HAS_NAVIGATOR = "KEY_ADDONS_VR_HAS_NAVIGATOR";
 
@@ -216,5 +218,5 @@ public abstract class Settings {
     public static final int DEFAULT_SORT = 0; // Standard
 
     public static final String KEY_REDUCE_MOTION = "KEY_REDUCE_MOTION";
-    public static final boolean DEFAULT_REDUCE_MOTION = false;
+    public static final boolean DEFAULT_REDUCE_MOTION = true; //TODO: False
 }

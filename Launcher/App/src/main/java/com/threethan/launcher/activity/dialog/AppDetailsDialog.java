@@ -280,25 +280,32 @@ public class AppDetailsDialog extends LcDialog<LauncherActivity> {
             appNameEditText.setText(StringLib.withoutPreChars(label[0]));
         });
         // Star (actually changes label)
-        final ImageView starButton = dialog.findViewById(R.id.star);
+        final View starButton = dialog.findViewById(R.id.star);
+        final View unstarButton = dialog.findViewById(R.id.unstar);
         final boolean[] isStarred = {StringLib.hasPreChar(label[0], StringLib.STAR)};
-        starButton.setImageResource(isStarred[0] ? R.drawable.ic_star_on : R.drawable.ic_star_off);
         starButton.setOnClickListener((view) -> {
-            isStarred[0] = !isStarred[0];
-            starButton.setImageResource(isStarred[0] ? R.drawable.ic_star_on : R.drawable.ic_star_off);
+            isStarred[0] = true;
+            starButton.setVisibility(View.GONE);
+            unstarButton.setVisibility(View.VISIBLE);
         });
+        unstarButton.setOnClickListener((view) -> {
+            isStarred[0] = false;
+            starButton.setVisibility(View.VISIBLE);
+            unstarButton.setVisibility(View.GONE);
+        });
+        if (isStarred[0]) {
+            starButton.setVisibility(View.GONE);
+            unstarButton.setVisibility(View.VISIBLE);
+        } else {
+            starButton.setVisibility(View.VISIBLE);
+            unstarButton.setVisibility(View.GONE);
+        }
 
         // Save Label & Reload on Confirm
         dialog.findViewById(R.id.confirm).setOnClickListener(view -> {
             String newLabel = StringLib.setPreChar(appNameEditText.getText().toString(), StringLib.STAR, isStarred[0]);
             if (!newLabel.equals(SettingsManager.getAppLabel(app))) {
                 SettingsManager.setAppLabel(app, newLabel);
-//                a.launcherService.forEachActivity(a -> {
-//                    if (a.getAppAdapter() != null) {
-//                        a.getAppAdapter().notifyItemChanged(app);
-////                        a.postDelayed(a::refreshAppList, 500);
-//                    }
-//                });
             }
             dialog.dismiss();
         });

@@ -43,6 +43,8 @@
     <string name="disp_icon">Visualizzazione come icona</string>
     <string name="disp_name">Mostra sempre i nomi</string>
     <string name="more_options">Altre opzioni</string>
+    <string name="favorite_enable">Segna come preferito</string>
+    <string name="favorite_disable">Smarcarlo come preferito</string>
     <string name="advanced_header">Impostazioni avanzate</string>
     <string name="refresh_button">Aggiornare</string>
     <string name="advanced_interface">Interfaccia</string>
@@ -105,6 +107,9 @@
     <string name="custom_window_size_message">Le dimensioni personalizzate delle finestre non funzionano correttamente per tutte le app.  Se un\'app non si apre con una dimensione personalizzata,  ripristina questa impostazione selezionando \"Finestra dell\'app\".</string>
     <string name="download_browser_message">Per un\'esperienza ottimale, è necessario installare Lightning Browser per aprire i siti web in Lightning Launcher
         \(In alternativa, potete provare a cambiare il browser in Impostazioni -&gt; Impostazioni avanzate)</string>
+    <string name="change_browser_message">Il browser predefinito selezionato non è disponibile.
+\n        
+\n<i>Modificare il browser in Impostazioni &gt; Impostazioni avanzate.</i></string>
     <string name="update_browser_message">Per un\'esperienza ottimale, è necessario aggiornare Lightning Browser.</string>
     <string name="download_browser_toast_main">Aprire nuovamente il sito web</string>
     <string name="download_browser_toast_bold">al termine dell\'installazione</string>
@@ -135,6 +140,7 @@
     <string name="warning">Informazioni importanti</string>
     <string name="cancel">Annullamento</string>
     <string name="understood">Preso!</string>
+    <string name="understood_long">Capisco, continui.</string>
     <string name="confirm">Confermare</string>
     <string name="size_own">Aprire nella propria finestra</string>
     <string name="size_phone">Aprire in una finestra stile telefono</string>
@@ -290,6 +296,10 @@
         È inoltre possibile catturare video migliori, bloccare la pubblicità, spegnere automaticamente il computer e molto altro ancora.
         \n
         \Quest Game Tuner è il risultato di centinaia di ore di sviluppo, ricerca e test da parte dello stesso sviluppatore che ha realizzato Lightning Launcher.</string>
+    <string name="tuner_info_desc_mqs_n"><b>Quest Game Tuner</b> vi permette di ottenere il massimo dall\'hardware che già possedete, grazie a profili di prestazioni per app e a numerose funzioni extra.        
+\n        
+\n<b>Quest Game Tuner</b> abilita alcune funzioni accessibili in Lightning Launcher.    </string>
+
     <string name="tuner_info_get">Ottieni Quest Game Tuner su itch.io!</string>
     <string name="apk_installer_tip">Selezionare un file APK da installare</string>
     <string name="settings_workaround">Fare clic su Apri nella finestra informativa per aprire le Impostazioni di Android.</string>
@@ -342,4 +352,22 @@
     <string name="current">★ Corrente</string>
 <string name="shortcuts_promo"><b>Le scorciatoie rendono Lightning Launcher più facile da aprire, </b> <i>senza</i> dover cercare tra le \"fonti sconosciute\".</string>
 
+<string name="dmqs_0">Capire cosa può o non può fare questa applicazione (Lightning Launcher) prima di proseguire</string>
+
+    <string name="dmqs_can_0">Avviare le applicazioni già installate sul dispositivo</string>
+    <string name="dmqs_can_1">Categorizzare e regolare l\'aspetto delle app <i>in Lightning Launcher</i>.</string>
+    <string name="dmqs_can_2">Regolate la modalità di apertura delle app <i>dal Lightning Launcher</i>.</string>
+    <string name="dmqs_can_3">Aggiungere collegamenti ai siti web <i>a Lightning Launcher</i></string>
+
+    <string name="dmqs_cant_0">Visualizzare o installare applicazioni non legittimamente installate dall\'utente</string>
+    <string name="dmqs_cant_1">Avviare le applicazioni che si possiedono ma non sono installate.</string>
+    <string name="dmqs_cant_2">Categorizzare o regolare qualsiasi cosa <i>al di fuori dell\'app Lightning Launcher</i>.</string>
+    <string name="dmqs_cant_3">Modificare o sostituire qualsiasi funzionalità del sistema, <i>come la libreria/navigatore di app integrato</i>.</string>
+    <string name="dmqs_can">Il Lanciatore di Fulmini <b>può</b>:</string>
+    <string name="dmqs_cant">Il Lightning Launcher non può <b>non</b>:</string>
+<string name="narrow_window_message">Lightning Launcher è progettato per gli schermi grandi.        
+\n
+\nFunzionerà sul vostro dispositivo, ma potrebbe risultare un po\' angusto.        
+\n
+\nSe avete un telefono, forse è meglio usare uno dei tanti launcher incentrati sul telefono disponibili su Google Play.</string>
 </resources>

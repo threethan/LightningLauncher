@@ -2,6 +2,7 @@ package com.threethan.launchercore.util;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.util.Log;
 import android.util.TypedValue;
@@ -25,6 +26,7 @@ public abstract class CustomDialog {
             TextView message = dialog.findViewById(android.R.id.message);
             message.setTypeface(typeface);
             message.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+            message.setTextColor(Color.WHITE); // Fix for Quest v83
             return dialog;
         }
     }

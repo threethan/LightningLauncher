@@ -5,6 +5,11 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 
+/**
+ * A simple ViewGroup that can contain a single child view.
+ * Think of it like a FrameLayout that allows only one child.
+ * If a new child is added, it removes the existing child first.
+ */
 public class LcContainerView extends ViewGroup {
     private final Object lock = new Object();
 

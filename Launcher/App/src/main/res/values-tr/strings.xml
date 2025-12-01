@@ -43,6 +43,8 @@
     <string name="disp_icon">Simge Olarak Göster</string>
     <string name="disp_name">Her Zaman İsimleri Göster</string>
     <string name="more_options">Daha Fazla Seçenek</string>
+    <string name="favorite_enable">Favori olarak işaretle</string>
+    <string name="favorite_disable">Favori olarak işaretlemeyi kaldır</string>
     <string name="advanced_header">Gelişmiş Ayarlar</string>
     <string name="refresh_button">Yenile</string>
     <string name="advanced_interface">Arayüz</string>
@@ -105,6 +107,9 @@
     <string name="custom_window_size_message">Özel pencere boyutları her uygulama için doğru şekilde çalışmayacaktır.  Bir uygulama özel bir boyut kullanarak açılmazsa,  bu ayarı Uygulamanın Kendi Penceresi\'ne geri döndürün.</string>
     <string name="download_browser_message">En iyi deneyim için, Lightning Launcher\'da web sitelerini açmak için Lightning Browser\'ı yüklemeniz gerekir.\n
         \n(Alternatif olarak, tarayıcıyı Ayarlar -&gt; Gelişmiş Ayarlar\'da değiştirmeyi deneyebilirsiniz)</string>
+    <string name="change_browser_message">Seçilen varsayılan tarayıcı kullanılamıyor.
+\n        
+\n<i>Ayarlar &gt; Gelişmiş Ayarlar bölümünden tarayıcıyı değiştirin.</i></string>
     <string name="update_browser_message">En iyi deneyim için Lightning Browser\'ı güncellemeniz gerekir.</string>
     <string name="download_browser_toast_main">Web sitesini tekrar açın</string>
     <string name="download_browser_toast_bold">kurulum tamamlandıktan sonra</string>
@@ -135,6 +140,8 @@
     <string name="warning">Önemli Bilgiler</string>
     <string name="cancel">İptal</string>
     <string name="understood">Tamamdır!</string>
+    <string name="understood_long">Anladım, lütfen devam edin.</string>
+
     <string name="confirm">Onaylayın</string>
     <string name="size_own">App\'in Kendi Penceresinde Aç</string>
     <string name="size_phone">Telefon Tarzı Pencerede Aç</string>
@@ -294,6 +301,10 @@
         Ayrıca daha iyi videolar çekebilir, reklamları engelleyebilir, otomatik olarak kapanabilir ve daha fazlasını yapabilirsiniz.
         \n
         \nQuest Game Tuner, Lightning Launcher\'ı yapan aynı geliştirici tarafından yüzlerce saat süren geliştirme, araştırma ve testlerin sonucudur.</string>
+    <string name="tuner_info_desc_mqs_n"><b>Quest Game Tuner</b>, uygulama başına performans profilleri ve birçok ekstra özellik ile sahip olduğunuz donanımdan en iyi şekilde yararlanmanızı sağlar.        
+\n        
+\n<b>Quest Game Tuner</b>, Lightning Launcher\'da erişilebilen bazı özellikleri etkinleştirir.    </string>
+
     <string name="tuner_info_get">Quest Game Tuner\'ı itch.io\'da edinin!</string>
     <string name="apk_installer_tip">Yüklemek için bir APK dosyası seçin</string>
     <string name="settings_workaround">Android Ayarlarını açmak için bilgi penceresinde Aç\'a tıklayın.</string>
@@ -344,6 +355,23 @@
     <string name="sort_recently_used_no_perm">Son Başlatılanlara Göre Sıralama</string>
     <string name="sort_recently_installed_no_perm">Son Eklenenlere Göre Sıralama</string>
     <string name="current">★ Akım</string>
-<string name="shortcuts_promo"><b>Kısayollar, Lightning Launcher\'ın açılmasını kolaylaştırır,</b> <i>bilinmeyen kaynaklara</i> bakmaya gerek kalmadan.</string>
+    <string name="shortcuts_promo"><b>Kısayollar, Lightning Launcher\'ın açılmasını kolaylaştırır,</b> <i>bilinmeyen kaynaklara</i> bakmaya gerek kalmadan.</string>
+    <string name="dmqs_0"><b>Lightning Launcher, Quest Store Sürümü:\n</b>Bu uygulamanın neler yapabileceğini ve neler yapamayacağını anlayın</string>
 
+    <string name="dmqs_can_0">Cihazınızda yüklü olan uygulamaları başlatın</string>
+    <string name="dmqs_can_1">Lightning Launcher içindeki uygulamaların görünümünü kategorilere ayırın ve ayarlayın</string>
+    <string name="dmqs_can_2">Uygulamaların <i>Lightning Launcher\'dan</i> nasıl açılacağını ayarlayın</string>
+    <string name="dmqs_can_3">Lightning Launcher\'a web sitelerine kısayollar ekleyin</string>
+
+    <string name="dmqs_cant_0">Meşru olarak yüklemediğiniz uygulamaları görüntüleyin veya yükleyin</string>
+    <string name="dmqs_cant_1">Sahip olduğunuz ancak yüklü olmayan uygulamaları başlatın</string>
+    <string name="dmqs_cant_2">Dışarıdaki her şeyi kategorilere ayırın veya ayarlayın Lightning Başlatıcısı uygulamasının</string>
+    <string name="dmqs_cant_3">Yerleşik uygulama kütüphanesi/gezgin gibi herhangi bir sistem özelliğini değiştirme veya yenileme</string>
+    <string name="dmqs_can">Bu uygulama şunları <b>yapabilir</b>:</string>
+    <string name="dmqs_cant">Bu uygulama şunları <b>yapamaz</b>:</string>
+<string name="narrow_window_message">Lightning Launcher büyük ekranlar için tasarlanmıştır.        
+\n
+\nCihazınızda çalışacaktır, ancak biraz sıkışık hissedebilirsiniz.        
+\n
+\nEğer bir telefon kullanıyorsanız, Google Play\'de bulunan birçok telefon odaklı başlatıcıdan birini kullanmanız daha iyi olabilir.</string>
 </resources>

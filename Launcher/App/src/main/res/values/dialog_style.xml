@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="DialogStyle" parent="Theme.AppCompat.Dialog">
+    <style name="DialogStyle" parent="android:Theme.Material.Dialog.Alert">
         <item name="android:fontFamily">@font/sansserif</item>
         <item name="android:windowBackground">@drawable/bkg_dialog</item>
         <item name="android:buttonStyle">@style/DialogButtonStyle</item>
         <item name="android:buttonBarButtonStyle">@style/DialogButtonStyle</item>
         <item name="android:buttonBarStyle">@style/DialogButtonBarStyle</item>
         <item name="android:windowTitleStyle">@style/DialogTitleStyle</item>
+        <item name="android:windowMinWidthMajor">20%</item>
+        <item name="android:windowMinWidthMinor">40%</item>
     </style>
     <style name="DialogTitleStyle">
         <item name="android:textColor">#FFFFFF</item>

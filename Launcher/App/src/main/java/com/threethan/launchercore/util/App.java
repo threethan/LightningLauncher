@@ -5,8 +5,8 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.util.Log;
 
-import com.threethan.launcher.BuildConfig;
 import com.threethan.launcher.activity.support.SettingsManager;
+import com.threethan.launcher.helper.PlatformExt;
 import com.threethan.launchercore.Core;
 import com.threethan.launchercore.adapter.UtilityApplicationInfo;
 
@@ -41,12 +41,12 @@ public abstract class App {
     public static Type getType(ApplicationInfo app) {
         if (packageTypeCache.containsKey(app.packageName))
             return packageTypeCache.get(app.packageName);
-        SettingsManager.sortableLabelCache.remove(app);
+        SettingsManager.sortableLabelCache.remove(app.packageName);
         Type type = getTypeInternal(app);
         packageTypeCache.put(app.packageName, type);
         if (!app.enabled || Platform.excludedPackageNames.contains(app.packageName)
                 || app.packageName.startsWith(Core.context().getPackageName())
-                || (type == Type.VR || type == Type.PHONE) && Launch.getLaunchIntent(app) == null) {
+                || (type == Type.TV || type == Type.PHONE) && Launch.getLaunchIntent(app) == null) {
             packageTypeCache.put(app.packageName, Type.UNSUPPORTED);
             return Type.UNSUPPORTED;
         }
@@ -95,8 +95,7 @@ public abstract class App {
         PackageManager pm = Core.context().getPackageManager();
 
         // Additional check since we probably can't get metadata
-        //noinspection ConstantValue
-        if (BuildConfig.FLAVOR.equals("metastore")) {
+        if (PlatformExt.isMetastoreBuild()) {
             Intent li = new Intent(Intent.ACTION_MAIN);
             li.addCategory(Intent.CATEGORY_LAUNCHER);
             li.setPackage(app.packageName);

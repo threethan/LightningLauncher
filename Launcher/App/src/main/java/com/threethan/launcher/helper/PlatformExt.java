@@ -167,10 +167,9 @@ public abstract class PlatformExt {
      * Checks if the app is running in a variant that is not sideload,
      * and if not, shows a warning dialog and returns false.
      * @return true if the app is running in sideload variant, false otherwise
-     * @noinspection ConstantValue
      */
     public static boolean validateVariantWithNotify() {
-        if (BuildConfig.FLAVOR.equals("metastore")) {
+        if (PlatformExt.isMetastoreBuild() || PlatformExt.censorLinking()) {
             new CustomDialog.Builder(LauncherActivity.getForegroundInstance())
                     .setTitle(R.string.warning)
                     .setMessage(Core.context().getString(R.string.app_variant_unavailable,
@@ -194,6 +193,36 @@ public abstract class PlatformExt {
     }
 
     public static boolean supportsTransparentBackgroundOpt() {
-        return Platform.isQuest();
+        try {
+            return Platform.isQuest();
+        } catch (Throwable ignored) {
+            return Platform.getVrOsVersion() != -1;
+        }
+    }
+
+
+    /**
+     * Returns true if the build flavor should not include references to other sites
+     * @return True if Metastore build
+     */
+    public static boolean censorLinking() {
+        return isMetastoreBuild();
+    }
+
+    /**
+     * Returns true if the build flavor should not include certain utilities
+     * @return True if Metastore build
+     */
+    public static boolean censorUtilities() {
+        return isMetastoreBuild();
+    }
+
+    /**
+     * Returns true if the build flavor is Metastore
+     * @return True if Metastore build
+     */
+    public static boolean isMetastoreBuild() {
+        //noinspection ConstantValue
+        return BuildConfig.FLAVOR.equals("metastore");
     }
 }

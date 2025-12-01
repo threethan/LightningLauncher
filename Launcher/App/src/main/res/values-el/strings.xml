@@ -43,6 +43,8 @@
     <string name="disp_icon">Εμφάνιση ως εικονίδιο</string>
     <string name="disp_name">Να εμφανίζονται πάντα τα ονόματα</string>
     <string name="more_options">Περισσότερες επιλογές</string>
+    <string name="favorite_enable">Σημειώστε ως Αγαπημένο</string>
+    <string name="favorite_disable">Απο-σημειώστε ως Αγαπημένο</string>
     <string name="advanced_header">Ρυθμίσεις για προχωρημένους</string>
     <string name="refresh_button">Ανανέωση</string>
     <string name="advanced_interface">Διεπαφή</string>
@@ -105,6 +107,9 @@
     <string name="custom_window_size_message">Τα προσαρμοσμένα μεγέθη παραθύρων δεν θα λειτουργούν σωστά για κάθε εφαρμογή.  Εάν μια εφαρμογή δεν ανοίγει χρησιμοποιώντας ένα προσαρμοσμένο μέγεθος,  επαναφέρετε αυτήν τη ρύθμιση στο Παράθυρο της Εφαρμογής.</string>
     <string name="download_browser_message">Για την καλύτερη δυνατή εμπειρία, πρέπει να εγκαταστήσετε το Lightning Browser για να ανοίξετε ιστότοπους στο Lightning Launcher.\n
         \n(Εναλλακτικά, μπορείτε να προσπαθήσετε να αλλάξετε το πρόγραμμα περιήγησης στις Ρυθμίσεις -&gt; Ρυθμίσεις για προχωρημένους)</string>
+    <string name="change_browser_message">Το επιλεγμένο προεπιλεγμένο πρόγραμμα περιήγησης δεν είναι διαθέσιμο.
+\n        
+\n<i>Αλλάξτε το πρόγραμμα περιήγησης στις Ρυθμίσεις &gt; Ρυθμίσεις για προχωρημένους.</i></string>
     <string name="update_browser_message">Για την καλύτερη δυνατή εμπειρία, πρέπει να ενημερώσετε το Lightning Browser.</string>
     <string name="download_browser_toast_main">Ανοίξτε ξανά τον ιστότοπο</string>
     <string name="download_browser_toast_bold">μετά την ολοκλήρωση της εγκατάστασης</string>
@@ -135,6 +140,7 @@
     <string name="warning">Σημαντικές πληροφορίες</string>
     <string name="cancel">Ακύρωση</string>
     <string name="understood">Το βρήκα!</string>
+    <string name="understood_long">Καταλαβαίνω, συνεχίστε.</string>
     <string name="confirm">Επιβεβαίωση</string>
     <string name="size_own">Άνοιγμα στο δικό σας παράθυρο της App\</string>
     <string name="size_phone">Άνοιγμα σε παράθυρο τύπου τηλεφώνου</string>
@@ -294,6 +300,10 @@
         Μπορείτε επίσης να καταγράφετε καλύτερα βίντεο, να μπλοκάρετε διαφημίσεις, να απενεργοποιείτε αυτόματα και πολλά άλλα.
         \n
         \nΤο Quest Game Tuner είναι το αποτέλεσμα εκατοντάδων ωρών ανάπτυξης, έρευνας και δοκιμών από τον ίδιο προγραμματιστή που δημιούργησε το Lightning Launcher.</string>
+    <string name="tuner_info_desc_mqs_n">Το <b>Quest Game Tuner</b> σας επιτρέπει να αξιοποιήσετε στο έπακρο το υλικό που ήδη διαθέτετε με προφίλ απόδοσης ανά εφαρμογή και πολλές επιπλέον δυνατότητες.        
+\n        
+\nΤο <b>Quest Game Tuner</b> ενεργοποιεί ορισμένες λειτουργίες στις οποίες μπορείτε να έχετε πρόσβαση στο Lightning Launcher.    </string>
+
     <string name="tuner_info_get">Αποκτήστε το Quest Game Tuner στο itch.io!</string>
     <string name="apk_installer_tip">Επιλέξτε ένα αρχείο APK για εγκατάσταση</string>
     <string name="settings_workaround">Κάντε κλικ στο Άνοιγμα στο παράθυρο πληροφοριών για να ανοίξετε τις Ρυθμίσεις Android.</string>
@@ -346,4 +356,22 @@
     <string name="current">★ Τρέχον</string>
 <string name="shortcuts_promo"><b>Οι συντομεύσεις διευκολύνουν το άνοιγμα του Lightning Launcher,</b> <i>χωρίς</i> να χρειάζεται να ψάξετε σε \'άγνωστες πηγές.\'</string>
 
+<string name="dmqs_0">Καταλάβετε τι μπορεί και τι δεν μπορεί να κάνει αυτή η εφαρμογή (Lightning Launcher) πριν συνεχίσετε.</string>
+
+    <string name="dmqs_can_0">Εκκίνηση εφαρμογών που είναι ήδη εγκατεστημένες στη συσκευή σας</string>
+    <string name="dmqs_can_1">Κατηγοριοποίηση και προσαρμογή της εμφάνισης των εφαρμογών <i>στο Lightning Launcher</i></string>
+    <string name="dmqs_can_2">Προσαρμόστε τον τρόπο με τον οποίο ανοίγουν οι εφαρμογές <i>από τον Lightning Launcher</i></string>
+    <string name="dmqs_can_3">Προσθήκη συντομεύσεων σε ιστότοπους <i>στο Lightning Launcher</i></string>
+
+    <string name="dmqs_cant_0">Εμφάνιση ή εγκατάσταση εφαρμογών που δεν έχετε εγκαταστήσει νόμιμα</string>
+    <string name="dmqs_cant_1">Εκκίνηση εφαρμογών που σας ανήκουν αλλά δεν έχετε εγκαταστήσει</string>
+    <string name="dmqs_cant_2">Κατηγοριοποιήστε ή προσαρμόστε οτιδήποτε <i>εκτός της εφαρμογής Lightning Launcher</i></string>
+    <string name="dmqs_cant_3">Τροποποίηση ή αντικατάσταση οποιωνδήποτε λειτουργιών του συστήματος, <i>όπως η ενσωματωμένη βιβλιοθήκη εφαρμογών/ο πλοηγός</i>.</string>
+    <string name="dmqs_can">Lightning Launcher <b>μπορεί</b>:</string>
+    <string name="dmqs_cant">Ο Lightning Launcher δεν μπορεί <b>δεν μπορεί</b>:</string>
+<string name="narrow_window_message">Το Lightning Launcher έχει σχεδιαστεί για μεγάλες οθόνες.        
+\n
+\nΘα λειτουργήσει στη συσκευή σας, αλλά μπορεί να αισθάνεστε λίγο στριμωγμένοι.        
+\n
+\nΑν χρησιμοποιείτε τηλέφωνο, ίσως είναι καλύτερα να χρησιμοποιήσετε ένα από τα πολλά προγράμματα εκτόξευσης που είναι διαθέσιμα στο Google Play.</string>
 </resources>

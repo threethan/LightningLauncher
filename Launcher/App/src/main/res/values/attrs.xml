@@ -23,4 +23,5 @@
     </declare-styleable>
 
     <attr format="dimension" name="buttonCornerRadius"/>
+    <attr format="color" name="colorControlNormal"/>
 </resources>

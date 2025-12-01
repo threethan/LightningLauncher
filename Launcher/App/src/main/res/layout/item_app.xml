@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/itemLaunch"
     android:layout_width="match_parent"
@@ -11,37 +9,21 @@
     android:clipChildren="false"
     android:descendantFocusability="blocksDescendants"
     android:focusable="true"
-
     android:paddingBottom="13dp">
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.threethan.launchercore.view.LcContainerView
+        android:layout_margin="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:clipToPadding="false"
-        android:clipChildren="false">
-
-        <com.threethan.launcher.activity.view.LauncherAppImageView
-            android:layout_margin="20dp"
+        android:layout_height="wrap_content">
+        <com.threethan.launcher.activity.view.LauncherAppImageViewAspect
             android:id="@+id/itemImage"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:background="@drawable/bkg_app"
             android:elevation="3dp"
-            android:scaleType="centerCrop"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+            android:scaleType="centerCrop" />
+    </com.threethan.launchercore.view.LcContainerView>
     <Button
         android:id="@+id/moreButton"
         android:layout_width="35dp"

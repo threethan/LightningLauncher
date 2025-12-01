@@ -2,11 +2,8 @@ package com.threethan.launcher.activity.dialog;
 
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
-import android.app.AlarmManager;
+import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Build;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
@@ -21,7 +18,6 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import com.threethan.launcher.BuildConfig;
-import com.threethan.launcher.LauncherService;
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.activity.support.SettingsManager;
@@ -34,7 +30,6 @@ import com.threethan.launcher.helper.PlaytimeHelper;
 import com.threethan.launcher.helper.SettingsSaver;
 import com.threethan.launcher.helper.VariantHelper;
 import com.threethan.launcher.updater.LauncherUpdater;
-import com.threethan.launchercore.Core;
 import com.threethan.launchercore.util.App;
 import com.threethan.launchercore.util.LcDialog;
 import com.threethan.launchercore.util.Platform;
@@ -96,8 +91,7 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
 
         // Addons
         View addonsButton = dialog.findViewById(R.id.addonsButton);
-        //noinspection ConstantValue
-        if (!Platform.isQuest() || BuildConfig.FLAVOR.equals("metastore")) {
+        if (!Platform.isQuest() || PlatformExt.censorUtilities() || PlatformExt.censorLinking()) {
             addonsButton.setVisibility(View.GONE);
         } else {
             addonsButton.setOnClickListener(view -> {
@@ -437,21 +431,7 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
             a.launcherService.forEachActivity(LauncherActivity::forceRefreshPackages);
             a.launcherService.forEachActivity(LauncherActivity::refreshInterface);
 
-            if (a.launcherService != null)
-                a.launcherService.kill();
-            a.finishAffinity();
-
-            int pendingId = 1330;
-
-            Intent intent = new Intent(Core.context(), LauncherService.class);
-
-            PendingIntent pendingIntent = PendingIntent.getBroadcast(Core.context(), pendingId, intent,
-                    PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_IMMUTABLE);
-
-            AlarmManager mgr = (AlarmManager) Core.context().getSystemService(Context.ALARM_SERVICE);
-            if (mgr != null) mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 1000, pendingIntent);
-
-            System.exit(0);
+            Compat.restartFully();
         });
         return dialog;
     }
@@ -527,9 +507,8 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
         attachSwitchToSetting(dialog.findViewById(R.id.longPressEditSwitch),
                 Settings.KEY_DETAILS_LONG_PRESS, Settings.DEFAULT_DETAILS_LONG_PRESS, null, true);
 
-        //noinspection ConstantValue
         dialog.findViewById(R.id.playtimeSection).setVisibility(!Platform.isTv()
-                && !BuildConfig.FLAVOR.equals("metastore")
+                && !PlatformExt.isMetastoreBuild()
                 ? View.VISIBLE : View.GONE);
 
         attachSwitchToSetting(dialog.findViewById(R.id.showPlaytimesSwitch),
@@ -591,7 +570,22 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
         chainLaunchSwitch.setVisibility(Platform.supportsVrOsChainLaunch()
                 ? View.VISIBLE : View.GONE);
 
-        dialog.findViewById(R.id.fullyCloseButton).setOnClickListener(v -> Compat.restartFully());
+        dialog.findViewById(R.id.fullyCloseButton).setOnClickListener(v -> {
+            LauncherActivity foregroundInstance = LauncherActivity.getForegroundInstance();
+            LcDialog.closeAll();
+            if (foregroundInstance != null && foregroundInstance.launcherService != null) {
+                foregroundInstance.launcherService.forEachActivity(Activity::finishAffinity);
+                foregroundInstance.finishAffinity();
+            }
+        });
+
+        if (BuildConfig.DEBUG) {
+            View crashButton = dialog.findViewById(R.id.forceCrashButton);
+            crashButton.setVisibility(View.VISIBLE);
+            crashButton.setOnClickListener(v -> {
+                throw new RuntimeException("Forced crash from settings dialog");
+            });
+        }
 
         // Search settings
         attachSwitchToSetting(dialog.findViewById(R.id.searchWebSwitch),

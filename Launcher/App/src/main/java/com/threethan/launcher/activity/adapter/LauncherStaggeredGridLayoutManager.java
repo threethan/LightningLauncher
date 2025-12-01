@@ -82,7 +82,7 @@ public class LauncherStaggeredGridLayoutManager extends RecyclerView.LayoutManag
         int parentLength = vertical ? parentWidth : parentHeight;
         int spanBreadth = parentLength / nSpans;
         spanBreadth -= LauncherActivity.iconMargin / 2;
-        int spanMargin = LauncherActivity.iconMargin * 2 / 3;
+        int spanMargin = LauncherActivity.iconMargin * 2 / 3 - 20;
 
         int spanOffset = vertical ? getPaddingLeft() : getPaddingTop();
 

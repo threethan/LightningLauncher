@@ -49,6 +49,7 @@ import com.threethan.launcher.activity.adapter.LauncherAppsAdapter;
 import com.threethan.launcher.activity.adapter.LauncherGridLayoutManager;
 import com.threethan.launcher.activity.adapter.LauncherStaggeredGridLayoutManager;
 import com.threethan.launcher.activity.dialog.AppDetailsDialog;
+import com.threethan.launcher.activity.dialog.MQSDialog;
 import com.threethan.launcher.activity.dialog.SettingsDialog;
 import com.threethan.launcher.activity.support.SortHandler;
 import com.threethan.launcher.activity.support.WallpaperLoader;
@@ -58,6 +59,7 @@ import com.threethan.launcher.activity.view.SortCycler;
 import com.threethan.launcher.data.sync.SyncCoordinator;
 import com.threethan.launcher.helper.LaunchExt;
 import com.threethan.launcher.activity.view.status.StatusAdaptableView;
+import com.threethan.launchercore.util.CustomDialog;
 import com.threethan.launchercore.util.LcDialog;
 import com.threethan.launchercore.view.LcBlurCanvas;
 import com.threethan.launcher.activity.view.MarginDecoration;
@@ -76,6 +78,7 @@ import com.threethan.launchercore.util.Platform;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.ref.WeakReference;
+import java.lang.reflect.Method;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
@@ -95,6 +98,25 @@ import java.util.concurrent.ExecutorService;
  */
 
 public class LauncherActivity extends Launch.LaunchingActivity {
+
+    // Exception handler to catch crashes, report them, and restart the launcher
+    static {
+        Thread.setDefaultUncaughtExceptionHandler((t, e) -> {
+            Log.e("Handler", "Uncaught exception in thread " + t.getName(), e);
+            try {
+                Class<?> cls = Class.forName("com.google.firebase.crashlytics.FirebaseCrashlytics");
+                Method getInstance = cls.getMethod("getInstance");
+                Object instance = getInstance.invoke(null);
+                Method recordException = cls.getMethod("recordException", Throwable.class);
+                recordException.invoke(instance, e);
+            } catch (Exception ignored) {}
+            System.exit(0);
+            Intent intent = new Intent(Core.context(), LauncherService.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            Core.context().startActivity(intent);
+        });
+    }
+
     public static Boolean darkMode = null;
     public static Boolean groupsEnabled = true;
     private static Boolean groupsWide = false;
@@ -188,11 +210,9 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         } catch (Exception ignored) {}
         return super.getResources();
     }
-
     private Insets barInsets = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         if (BuildConfig.DEBUG) {
             StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
                         .detectAll()
@@ -341,6 +361,57 @@ public class LauncherActivity extends Launch.LaunchingActivity {
 
         appsRecycler.setOnScrollChangeListener((view, x, y, oldX, oldY)
                 -> topGradient.setAlpha(Math.clamp((y - 50f) / 100f, 0f, 1f)));
+
+        // Display info dialog (MQS version only)
+        if (PlatformExt.isMetastoreBuild()) {
+            if (!getDataStoreEditor().getBoolean(Settings.KEY_SEEN_DMQS, false)) {
+                new MQSDialog(this).show();
+            }
+        }
+
+        // Get current screen width
+        //noinspection ConstantValue
+        if (BuildConfig.FLAVOR.equals("playstore")) {
+            if (mainView.getWidth() < 1) {
+                getDataStoreEditor().getBoolean(Settings.KEY_SEEN_NARROW_WINDOW_WARNING, false,
+                        b -> {
+                    try {
+                        if (!b) {
+                            // Wait for layout
+                            mainView.post(() -> {
+                                Log.d(TAG, "Checking for narrow window in Play Store build: "
+                                        + mainView.getWidth() / dp(1));
+                                if (mainView.getWidth() < dp(500) && !Platform.isTv()) {
+                                    if (getDataStoreEditor().getInt(
+                                            Settings.KEY_SCALE_VERTICAL,
+                                            Settings.DEFAULT_SCALE_VERTICAL
+                                    ) == Settings.DEFAULT_SCALE_VERTICAL) {
+                                        getDataStoreEditor().putInt(
+                                                Settings.KEY_SCALE_VERTICAL,
+                                                (Settings.DEFAULT_SCALE_VERTICAL + Settings.MIN_SCALE)/2
+                                        );
+                                    }
+
+                                    refreshAdapters();
+                                    new CustomDialog.Builder(this)
+                                            .setTitle(R.string.warning)
+                                            .setMessage(R.string.narrow_window_message)
+                                            .setPositiveButton(R.string.understood, (d, w) -> {
+                                                getDataStoreEditor().putBoolean(
+                                                        Settings.KEY_SEEN_NARROW_WINDOW_WARNING,
+                                                        true
+                                                );
+                                                d.dismiss();
+                                            })
+                                            .show();
+                                }
+                            });
+                        }
+                    } catch (Exception ignored) {}
+                });
+
+            }
+        }
     }
 
     private void updateInsets() {

@@ -43,6 +43,8 @@
     <string name="disp_icon">Afișare ca pictogramă</string>
     <string name="disp_name">Afișați întotdeauna numele</string>
     <string name="more_options">Mai multe opțiuni</string>
+    <string name="favorite_enable">Marcați ca Favorite</string>
+    <string name="favorite_disable">Anulează marcarea ca Favorit</string>
     <string name="advanced_header">Setări avansate</string>
     <string name="refresh_button">Reîmprospătare</string>
     <string name="advanced_interface">Interfață</string>
@@ -105,6 +107,9 @@
     <string name="custom_window_size_message">Dimensiunile personalizate ale ferestrelor nu vor funcționa corect pentru fiecare aplicație.  Dacă o aplicație nu se deschide folosind o dimensiune personalizată,  reveniți la setarea „Fereastra proprie a aplicației”.</string>
     <string name="download_browser_message">Pentru o experiență optimă, trebuie să instalați Lightning Browser pentru a deschide site-uri web în Lightning Launcher.\n
         \n(Alternativ, puteți încerca să schimbați browserul în Setări -&gt; Setări avansate)</string>
+    <string name="change_browser_message">Browserul implicit selectat nu este disponibil.
+\n        
+\n<i>Schimbă browserul în Setări &gt; Setări avansate.</i></string>
     <string name="update_browser_message">Pentru o experiență optimă, trebuie să actualizați Lightning Browser.</string>
     <string name="download_browser_toast_main">Deschideți din nou site-ul web</string>
     <string name="download_browser_toast_bold">după finalizarea instalării</string>
@@ -135,6 +140,7 @@
     <string name="warning">Informații importante</string>
     <string name="cancel">Anulează</string>
     <string name="understood">Am reușit!</string>
+    <string name="understood_long">Am înțeles, continuați.</string>
     <string name="confirm">Confirmați</string>
     <string name="size_own">Deschidere în fereastra proprie a aplicației</string>
     <string name="size_phone">Deschidere în fereastra de tip telefon</string>
@@ -294,6 +300,10 @@
         De asemenea, puteți captura videoclipuri mai bune, bloca reclamele, opri automat și multe altele.
         \n
         \nQuest Game Tuner este rezultatul a sute de ore de dezvoltare, cercetare și testare de către același dezvoltator care a realizat Lightning Launcher.</string>
+    <string name="tuner_info_desc_mqs_n"><b>Quest Game Tuner</b> vă permite să profitați la maximum de hardware-ul pe care îl dețineți deja cu profiluri de performanță per aplicație și o mulțime de funcții suplimentare.        
+\n        
+\n<b>Quest Game Tuner</b> activează unele funcții care pot fi accesate în Lightning Launcher.    </string>
+
     <string name="tuner_info_get">Obțineți Quest Game Tuner pe itch.io!</string>
     <string name="apk_installer_tip">Selectați un fișier APK pentru instalare</string>
     <string name="settings_workaround">Faceți clic pe Deschidere în fereastra de informații pentru a deschide Setările Android.</string>
@@ -346,4 +356,22 @@
     <string name="current">★ Curent</string>
 <string name="shortcuts_promo"><b>Shortcut-urile fac Lightning Launcher mai ușor de deschis,</b> <i>fără</i> necesitatea de a căuta prin \'surse necunoscute.\'</string>
 
+<string name="dmqs_0">Înțelegeți ce poate și ce nu poate face această aplicație (Lightning Launcher) înainte de a continua</string>
+
+    <string name="dmqs_can_0">Lansarea aplicațiilor care sunt deja instalate pe dispozitivul dvs.</string>
+    <string name="dmqs_can_1">Categorizați și ajustați aspectul aplicațiilor <i>în cadrul Lightning Launcher</i></string>
+    <string name="dmqs_can_2">Reglați modul în care aplicațiile sunt deschise <i>din Lightning Launcher</i></string>
+    <string name="dmqs_can_3">Adăugați comenzi rapide la site-uri web <i>la Lightning Launcher</i></string>
+
+    <string name="dmqs_cant_0">Afișați sau instalați aplicații pe care nu le-ați instalat în mod legitim</string>
+    <string name="dmqs_cant_1">Lansarea aplicațiilor pe care le dețineți, dar pe care nu le aveți instalate</string>
+    <string name="dmqs_cant_2">Categorizați sau ajustați orice <i>în afara aplicației Lightning Launcher</i></string>
+    <string name="dmqs_cant_3">Modificarea sau înlocuirea oricăror caracteristici ale sistemului, <i>cum ar fi biblioteca de aplicații/navigatorul încorporat</i></string>
+    <string name="dmqs_can">Lightning Launcher <b>poate</b>:</string>
+    <string name="dmqs_cant">Lightning Launcher poate <b>nu</b>:</string>
+<string name="narrow_window_message">Lightning Launcher este proiectat pentru ecrane mari.        
+\n
+\nVa funcționa pe dispozitivul dvs., dar s-ar putea să vă simțiți un pic înghesuiți.        
+\n
+\nDacă aveți un telefon, ar fi mai bine să utilizați unul dintre numeroasele lansatoare axate pe telefon disponibile pe Google Play.</string>
 </resources>

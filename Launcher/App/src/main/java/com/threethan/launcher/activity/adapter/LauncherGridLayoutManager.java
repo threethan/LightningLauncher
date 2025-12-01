@@ -34,21 +34,21 @@ public class LauncherGridLayoutManager extends GridLayoutManager implements Gene
         setInitialPrefetchItemCount(100);
     }
 
-    static {
-        Thread.setDefaultUncaughtExceptionHandler((thread, throwable) -> {
-            if (throwable instanceof IllegalArgumentException
-                    && Arrays.stream(throwable.getStackTrace()).anyMatch(el -> el.getClassName().toLowerCase().contains("recyclerview"))) {
-                // This exception rarely occurs due to async ops in ViewHolders
-                if (BuildConfig.DEBUG) {
-                    LcDialog.toast("RecyclerView recycling error ignored");
-                    Log.w("RecyclerViewFix", "Ignoring known IllegalArgumentException", throwable);
-                }
-            } else {
-                Thread.UncaughtExceptionHandler dh = Thread.getDefaultUncaughtExceptionHandler();
-                if (dh != null) dh.uncaughtException(thread, throwable);
-            }
-        });
-    }
+//    static {
+//        Thread.setDefaultUncaughtExceptionHandler((thread, throwable) -> {
+//            if (throwable instanceof IllegalArgumentException
+//                    && Arrays.stream(throwable.getStackTrace()).anyMatch(el -> el.getClassName().toLowerCase().contains("recyclerview"))) {
+//                // This exception rarely occurs due to async ops in ViewHolders
+//                if (BuildConfig.DEBUG) {
+//                    LcDialog.toast("RecyclerView recycling error ignored");
+//                    Log.w("RecyclerViewFix", "Ignoring known IllegalArgumentException", throwable);
+//                }
+//            } else {
+//                Thread.UncaughtExceptionHandler dh = Thread.getDefaultUncaughtExceptionHandler();
+//                if (dh != null) dh.uncaughtException(thread, throwable);
+//            }
+//        });
+//    }
 
     @Override
     public void collectAdjacentPrefetchPositions(int dx, int dy, RecyclerView.State state,

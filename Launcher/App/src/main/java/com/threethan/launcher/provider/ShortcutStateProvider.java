@@ -27,7 +27,7 @@ public class ShortcutStateProvider extends ContentProvider {
     public Cursor query(@NonNull Uri uri, String[] projection, String selection,
                         String[] selectionArgs, String sortOrder) {
 
-        String[] columnNames = new String[]{"isOpen", "shouldBlur"};
+        String[] columnNames = new String[]{"isOpen", "shouldBlur", "allowShortcuts"};
         MatrixCursor cursor = new MatrixCursor(columnNames);
 
         // Column 2: isEnabled: Is the shortcut feature enabled for this variant

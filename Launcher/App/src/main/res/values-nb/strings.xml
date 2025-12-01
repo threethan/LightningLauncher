@@ -43,6 +43,8 @@
     <string name="disp_icon">Vises som ikon</string>
     <string name="disp_name">Vis alltid navn</string>
     <string name="more_options">Flere alternativer</string>
+    <string name="favorite_enable">Merk som favoritt</string>
+    <string name="favorite_disable">Fjern merking som favoritt</string>
     <string name="advanced_header">Avanserte innstillinger</string>
     <string name="refresh_button">Oppdater</string>
     <string name="advanced_interface">Grensesnitt</string>
@@ -105,6 +107,9 @@
     <string name="custom_window_size_message">Tilpassede vindusstørrelser fungerer ikke riktig for alle apper.  Hvis en app ikke åpnes med en tilpasset størrelse,  tilbakestill denne innstillingen til Appens eget vindu.</string>
     <string name="download_browser_message">For å få den beste opplevelsen må du installere Lightning Browser for å åpne nettsteder i Lightning Launcher
         \(Alternativt kan du prøve å endre nettleseren i Innstillinger -&gt; Avanserte innstillinger)</string>
+    <string name="change_browser_message">Den valgte standardleseren er ikke tilgjengelig.
+\n        
+\n<i>Endre nettleser i Innstillinger &gt; Avanserte innstillinger.</i></string>
     <string name="update_browser_message">For å få den beste opplevelsen må du oppdatere Lightning Browser.</string>
     <string name="download_browser_toast_main">Åpne nettstedet igjen</string>
     <string name="download_browser_toast_bold">etter at installasjonen er fullført</string>
@@ -135,6 +140,7 @@
     <string name="warning">Viktig informasjon</string>
     <string name="cancel">Avbryt</string>
     <string name="understood">Jeg har den!</string>
+    <string name="understood_long">Jeg forstår, fortsett.</string>
     <string name="confirm">Bekreft</string>
     <string name="size_own">Åpne i App\'s eget vindu</string>
     <string name="size_phone">Åpne i telefonlignende vindu</string>
@@ -294,6 +300,10 @@
         Du kan også ta opp bedre videoer, blokkere annonser, slå deg av automatisk og mye mer.
         \n
         \Quest Game Tuner er resultatet av hundrevis av timer med utvikling, forskning og testing av den samme utvikleren som skapte Lightning Launcher.</string>
+    <string name="tuner_info_desc_mqs_n"><b>Quest Game Tuner</b> lar deg få mest mulig ut av maskinvaren du allerede har, med ytelsesprofiler for hver enkelt app og mange ekstrafunksjoner.        
+\n        
+\n<b>Quest Game Tuner</b> aktiverer noen funksjoner som du får tilgang til i Lightning Launcher.    </string>
+
     <string name="tuner_info_get">Få Quest Game Tuner på itch.io!</string>
     <string name="apk_installer_tip">Velg en APK-fil som skal installeres</string>
     <string name="settings_workaround">Klikk på Åpne i informasjonsvinduet for å åpne Android-innstillinger.</string>
@@ -346,4 +356,22 @@
     <string name="current">★ Strøm</string>
 <string name="shortcuts_promo">bKortkommandoer gjør Lightning Launcher enklere å åpne, /b uten at du trenger å lete gjennom \"ukjente kilder</string>
 
+<string name="dmqs_0">Forstå hva denne appen (Lightning Launcher) kan og ikke kan gjøre før du fortsetter</string>
+
+    <string name="dmqs_can_0">Start apper som allerede er installert på enheten din</string>
+    <string name="dmqs_can_1">Kategoriser og juster utseendet til apper <i>innenfor Lightning Launcher</i></string>
+    <string name="dmqs_can_2">Juster hvordan apper åpnes <i>fra Lightning Launcher</i></string>
+    <string name="dmqs_can_3">Legg til snarveier til nettsteder <i>i Lightning Launcher</i></string>
+
+    <string name="dmqs_cant_0">vise eller installere programmer som du ikke har installert på lovlig vis</string>
+    <string name="dmqs_cant_1">Start programmer du eier, men som du ikke har installert</string>
+    <string name="dmqs_cant_2">Kategoriser eller juster alt <i>utenfor Lightning Launcher-appen</i></string>
+    <string name="dmqs_cant_3">Endre eller erstatte systemfunksjoner, <i>for eksempel det innebygde appbiblioteket/navigatoren</i>.</string>
+    <string name="dmqs_can">Lightning Launcher <b>kan</b>:</string>
+    <string name="dmqs_cant">Lightning Launcher kan <b>ikke</b>:</string>
+<string name="narrow_window_message">Lightning Launcher er utviklet for store skjermer.        
+\n
+\nDen vil fungere på enheten din, men kan føles litt trang.        
+\n
+\nHvis du bruker en telefon, kan det være bedre å bruke en av de mange telefonfokuserte lanseringsprogrammene som er tilgjengelige på Google Play.</string>
 </resources>

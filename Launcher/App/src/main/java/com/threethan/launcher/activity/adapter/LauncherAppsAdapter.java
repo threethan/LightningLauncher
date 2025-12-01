@@ -31,6 +31,7 @@ import com.threethan.launcher.activity.view.LauncherAppListContainer;
 import com.threethan.launcher.data.Settings;
 import com.threethan.launcher.helper.AppBackgroundHelper;
 import com.threethan.launcher.helper.LaunchExt;
+import com.threethan.launcher.helper.PlatformExt;
 import com.threethan.launcher.helper.PlaytimeHelper;
 import com.threethan.launchercore.adapter.AppsAdapter;
 import com.threethan.launchercore.lib.StringLib;
@@ -161,9 +162,19 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
                 youTubeProxy.packageName = StringLib.youTubeSearchForUrl(text);
                 newItems.add(youTubeProxy);
 
-                final ApplicationInfo apkMirrorProxy = new ApplicationInfo();
-                apkMirrorProxy.packageName = StringLib.apkMirrorSearchForUrl(text);
-                newItems.add(apkMirrorProxy);
+                //noinspection ConstantValue
+                if (!PlatformExt.censorLinking() && !BuildConfig.FLAVOR.equals("playstore")) {
+                    final ApplicationInfo apkMirrorProxy = new ApplicationInfo();
+                    apkMirrorProxy.packageName = StringLib.apkMirrorSearchForUrl(text);
+                    newItems.add(apkMirrorProxy);
+                }
+
+                //noinspection ConstantValue
+                if (BuildConfig.FLAVOR.equals("playstore")) {
+                    final ApplicationInfo playStoreProxy = new ApplicationInfo();
+                    playStoreProxy.packageName = StringLib.playStoreSearchForUrl(text);
+                    newItems.add(playStoreProxy);
+                }
             }
 
             topSearchResult = newItems.isEmpty() ? null : newItems.get(0);
@@ -285,7 +296,8 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
                     if (view != subView && subView != null && subView.isHovered()) return false;
                 hovered = false;
             } else {
-                if (event.getAction() == MotionEvent.ACTION_HOVER_MOVE) {
+                if (event.getAction() == MotionEvent.ACTION_HOVER_MOVE
+                        && !LauncherActivity.shouldReduceMotion()) {
                     // Depth effect on hover
                     float oy = view == holder.view ? 0f : view.getY();
                     float ox = view == holder.view ? 0f : view.getX();
@@ -414,8 +426,7 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
             if (!Platform.isTv())
                 holder.moreButton.setVisibility(focused ? View.VISIBLE : View.INVISIBLE);
 
-            //noinspection ConstantValue
-            if (!Platform.isTv() && !BuildConfig.FLAVOR.equals("metastore")
+            if (!Platform.isTv() && !PlatformExt.censorLinking()
                     && LauncherActivity.timesBanner) {
                 if (focused) {
                     // Show and update view holder
@@ -439,7 +450,8 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
             }
 
             if (LauncherActivity.shouldReduceMotion()) {
-                holder.imageView.setForeground(focused ? holder.view.getContext().getDrawable(R.drawable.lc_fg_focused) : null);
+                holder.imageView.setForeground(focused ?
+                        holder.view.getContext().getDrawable(R.drawable.lc_fg_focused) : null);
                 return;
             }
 
@@ -570,12 +582,13 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
     }
 
     @Override
-    protected void onIconChanged(AppViewHolderExt holder, Drawable icon) {
+    protected void onIconChanged(AppViewHolderExt holder, Drawable icon, String packageName) {
         if (holder.imageView instanceof LauncherAppImageView li) {
             // Call immediate since LauncherAppImageView loads off the main thread
-            li.setImageDrawable(icon);
+            if (Objects.equals(holder.app.packageName, packageName))
+                li.setImageDrawable(icon);
         } else {
-            super.onIconChanged(holder, icon);
+            super.onIconChanged(holder, icon, packageName);
         }
     }
 }

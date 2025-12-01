@@ -103,16 +103,28 @@ public abstract class LaunchExt extends Launch {
         // Apply tuning via Quest Game Tuner (no effect unless Quest Game Tuner >= 1.5 is installed)
         QuestGameTuner.applyTuning(app.packageName);
 
+        if (App.getType(app) == App.Type.UTILITY && app instanceof UtilityApplicationInfo) {
+            ((UtilityApplicationInfo) app).launch();
+            return false;
+        }
+
         if (Platform.isTv()) {
-            if (App.getType(app) == App.Type.UTILITY && app instanceof UtilityApplicationInfo) {
-                ((UtilityApplicationInfo) app).launch();
-                return false;
-            }
             startIntent(launcherActivity, intent);
             return true;
         }
 
         final boolean customSize = SettingsManager.getAppLaunchSize(app.packageName) > 0;
+
+        // Special case: Chats app on Quest v83+
+        if (app.packageName.equals("com.oculus.socialplatform") && Platform.isQuest()) {
+            Intent intent1 = new Intent(Intent.ACTION_MAIN);
+            intent1.setComponent(new ComponentName(
+                    "com.oculus.socialplatform",
+                    "com.oculus.panelapp.people.BlendedPeopleActivity"));
+            intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            launcherActivity.startActivity(intent1);
+            return true;
+        }
 
         if (PlatformExt.isOldVrOs() && !customSize) {
             // Launching method for Quest 1
@@ -150,18 +162,28 @@ public abstract class LaunchExt extends Launch {
 
     /** Shows a prompt to install LightningBrowser */
     private static void showBrowserInstallPrompt(LauncherActivity launcherActivity) {
-        launcherActivity.runOnUiThread(() -> new CustomDialog.Builder(launcherActivity)
-                .setTitle(R.string.warning)
-                .setMessage(PlatformExt.hasBrowser(launcherActivity)
-                        ? R.string.update_browser_message
-                        : R.string.download_browser_message)
-                .setPositiveButton(R.string.addons_install, (d, w) -> {
-                    new BrowserUpdater(launcherActivity).checkAppUpdateAndInstall();
-                    LcDialog.toast(launcherActivity.getString(R.string.download_browser_toast_main),
-                            launcherActivity.getString(R.string.download_browser_toast_bold), true);
-                })
-                .setNegativeButton(R.string.cancel, (d, w) -> d.dismiss())
-                .show());
+        if (PlatformExt.censorLinking()) {
+            launcherActivity.runOnUiThread(() -> new CustomDialog.Builder(launcherActivity)
+                    .setTitle(R.string.warning)
+                    .setMessage(PlatformExt.hasBrowser(launcherActivity)
+                            ? R.string.update_browser_message
+                            : R.string.change_browser_message)
+                    .setNegativeButton(R.string.cancel, (d, w) -> d.dismiss())
+                    .show());
+        } else {
+            launcherActivity.runOnUiThread(() -> new CustomDialog.Builder(launcherActivity)
+                    .setTitle(R.string.warning)
+                    .setMessage(PlatformExt.hasBrowser(launcherActivity)
+                            ? R.string.update_browser_message
+                            : R.string.download_browser_message)
+                    .setPositiveButton(R.string.addons_install, (d, w) -> {
+                        new BrowserUpdater(launcherActivity).checkAppUpdateAndInstall();
+                        LcDialog.toast(launcherActivity.getString(R.string.download_browser_toast_main),
+                                launcherActivity.getString(R.string.download_browser_toast_bold), true);
+                    })
+                    .setNegativeButton(R.string.cancel, (d, w) -> d.dismiss())
+                    .show());
+        }
     }
 
     private static Intent getIntentForLaunchVrOs(ApplicationInfo app) {

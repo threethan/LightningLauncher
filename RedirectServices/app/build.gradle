@@ -4,11 +4,11 @@ plugins {
 
 android {
     namespace 'com.threethan.launcher.service'
-    compileSdk 36
+    compileSdk = 36
 
     defaultConfig {
         applicationId "com.threethan.launcher.service"
-        minSdk 23
+        minSdk 24
         targetSdkVersion 36
         versionCode 1000
         versionName "10.0.0"
