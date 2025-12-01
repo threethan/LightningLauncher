@@ -43,6 +43,8 @@
     <string name="disp_icon">Affichage sous forme d\'icône</string>
     <string name="disp_name">Toujours montrer les noms</string>
     <string name="more_options">Plus d\'options</string>
+    <string name="favorite_enable">Marquer comme favori</string>
+    <string name="favorite_disable">Annuler le marquage comme favori</string>
     <string name="advanced_header">Paramètres avancés</string>
     <string name="refresh_button">Rafraîchir</string>
     <string name="advanced_interface">Interface</string>
@@ -297,9 +299,7 @@
         Vous pouvez également capturer de meilleures vidéos, bloquer les publicités, éteindre automatiquement votre ordinateur, et bien plus encore.
         \n
         \Quest Game Tuner est le résultat de centaines d\'heures de développement, de recherche et de test par le même développeur qui a créé Lightning Launcher.</string>
-    <string name="tuner_info_desc_mqs">        <b>Quest Game Tuner</b> dépasse les limites de votre casque et vous permet de tirer le meilleur parti du matériel que vous possédez déjà grâce à des profils de performance par application et à de nombreuses fonctionnalités supplémentaires.        
-\n        
-\n<b>Quest Game Tuner</b> est conçu et entretenu par le même développeur qui a créé Lightning Launcher.    </string>
+    <string name="tuner_info_desc_mqs_n">bQuest Game Tuner/b vous permet de tirer le meilleur parti du matériel que vous possédez déjà grâce à des profils de performance par application et à de nombreuses fonctions supplémentaires.                bQuest Game Tuner/b active certaines fonctions qui sont accessibles dans Lightning Launcher.    </string>
 
     <string name="tuner_info_get">Obtenez Quest Game Tuner sur itch.io !</string>
     <string name="apk_installer_tip">Sélectionnez un fichier APK à installer</string>
@@ -366,4 +366,9 @@
     <string name="dmqs_cant_3">Modifier ou remplacer des éléments du système, <i>tels que la bibliothèque d\'applications intégrée ou le navigateur</i>.</string>
     <string name="dmqs_can">Le lanceur de foudre <b>peut</b> :</string>
     <string name="dmqs_cant">Le Lightning Launcher ne peut <b>pas</b> :</string>
+<string name="narrow_window_message">Lightning Launcher est conçu pour les grands écrans.        
+\n
+\nIl fonctionnera sur votre appareil, mais vous risquez de vous sentir un peu à l\'étroit.        
+\n
+\nSi vous utilisez un téléphone, il est préférable d\'utiliser l\'un des nombreux lanceurs dédiés aux téléphones disponibles sur Google Play.</string>
 </resources>

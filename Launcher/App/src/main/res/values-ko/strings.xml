@@ -43,6 +43,8 @@
     <string name="disp_icon">아이콘으로 표시</string>
     <string name="disp_name">항상 이름 표시</string>
     <string name="more_options">추가 옵션</string>
+    <string name="favorite_enable">즐겨찾기로 표시</string>
+    <string name="favorite_disable">즐겨찾기로 표시 해제</string>
     <string name="advanced_header">고급 설정</string>
     <string name="refresh_button">새로 고침</string>
     <string name="advanced_interface">인터페이스</string>
@@ -296,7 +298,9 @@
         또한 더 나은 동영상 캡처, 광고 차단, 자동 전원 끄기 등의 기능을 사용할 수 있습니다.
         \n
         \퀘스트 게임 튜너는 라이트닝 런처를 만든 개발자가 수백 시간의 개발, 연구, 테스트를 거친 결과물입니다.</string>
-    <string name="tuner_info_desc_mqs">        비퀘스트 게임 튜너/b는 헤드셋의 한계를 뛰어넘어 앱별 성능 프로필과 다양한 추가 기능을 통해 이미 보유하고 있는 하드웨어를 최대한 활용할 수 있도록 지원합니다.                비퀘스트 게임 튜너/b는 라이트닝 런처를 만든 개발자가 제작 및 유지 관리합니다.    </string>
+    <string name="tuner_info_desc_mqs_n"><b>Quest Game Tuner</b>는 앱별 성능 프로필과 다양한 추가 기능을 통해 이미 보유한 하드웨어를 최대한 활용할 수 있게 해줍니다.        
+\n        
+\n<b>퀘스트 게임 튜너</b>는 Lightning 런처에서 액세스할 수 있는 일부 기능을 활성화합니다.    </string>
 
     <string name="tuner_info_get">Itch.io에서 퀘스트 게임 튜너를 다운로드하세요!</string>
     <string name="apk_installer_tip">설치할 APK 파일 선택</string>
@@ -367,4 +371,9 @@
     <string name="dmqs_cant_3">내장 앱 라이브러리/내비게이터와 같은 시스템 기능을 수정하거나 교체합니다.</string>
     <string name="dmqs_can">라이트닝 런처 bcan/b:</string>
     <string name="dmqs_cant">라이트닝 런처는 <b>할 수 없습니다</b>:</string>
+<string name="narrow_window_message">라이트닝 런처는 큰 화면용으로 설계되었습니다.        
+\n
+\n기기에서 작동하지만 약간 비좁게 느껴질 수 있습니다.        
+\n
+\n휴대폰을 사용 중이라면 Google Play에서 제공되는 다양한 휴대폰 전용 런처 중 하나를 사용하는 것이 더 나을 수 있습니다.</string>
 </resources>

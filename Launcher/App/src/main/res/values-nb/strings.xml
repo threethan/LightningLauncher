@@ -43,6 +43,8 @@
     <string name="disp_icon">Vises som ikon</string>
     <string name="disp_name">Vis alltid navn</string>
     <string name="more_options">Flere alternativer</string>
+    <string name="favorite_enable">Merk som favoritt</string>
+    <string name="favorite_disable">Fjern merking som favoritt</string>
     <string name="advanced_header">Avanserte innstillinger</string>
     <string name="refresh_button">Oppdater</string>
     <string name="advanced_interface">Grensesnitt</string>
@@ -298,9 +300,9 @@
         Du kan også ta opp bedre videoer, blokkere annonser, slå deg av automatisk og mye mer.
         \n
         \Quest Game Tuner er resultatet av hundrevis av timer med utvikling, forskning og testing av den samme utvikleren som skapte Lightning Launcher.</string>
-    <string name="tuner_info_desc_mqs">        <b>Quest Game Tuner</b> sprenger hodesettets grenser og lar deg få mest mulig ut av maskinvaren du allerede eier, med ytelsesprofiler per app og mange ekstrafunksjoner.        
+    <string name="tuner_info_desc_mqs_n"><b>Quest Game Tuner</b> lar deg få mest mulig ut av maskinvaren du allerede har, med ytelsesprofiler for hver enkelt app og mange ekstrafunksjoner.        
 \n        
-\n<b>Quest Game Tuner</b> er laget og vedlikeholdes av den samme utvikleren som laget Lightning Launcher.    </string>
+\n<b>Quest Game Tuner</b> aktiverer noen funksjoner som du får tilgang til i Lightning Launcher.    </string>
 
     <string name="tuner_info_get">Få Quest Game Tuner på itch.io!</string>
     <string name="apk_installer_tip">Velg en APK-fil som skal installeres</string>
@@ -367,4 +369,9 @@
     <string name="dmqs_cant_3">Endre eller erstatte systemfunksjoner, <i>for eksempel det innebygde appbiblioteket/navigatoren</i>.</string>
     <string name="dmqs_can">Lightning Launcher <b>kan</b>:</string>
     <string name="dmqs_cant">Lightning Launcher kan <b>ikke</b>:</string>
+<string name="narrow_window_message">Lightning Launcher er utviklet for store skjermer.        
+\n
+\nDen vil fungere på enheten din, men kan føles litt trang.        
+\n
+\nHvis du bruker en telefon, kan det være bedre å bruke en av de mange telefonfokuserte lanseringsprogrammene som er tilgjengelige på Google Play.</string>
 </resources>

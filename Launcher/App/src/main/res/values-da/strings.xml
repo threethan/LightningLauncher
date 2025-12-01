@@ -43,6 +43,8 @@
     <string name="disp_icon">Vis som ikon</string>
     <string name="disp_name">Vis altid navne</string>
     <string name="more_options">Flere muligheder</string>
+    <string name="favorite_enable">Marker som favorit</string>
+    <string name="favorite_disable">Fjern markeringen som favorit</string>
     <string name="advanced_header">Avancerede indstillinger</string>
     <string name="refresh_button">Opdatering</string>
     <string name="advanced_interface">Grænseflade</string>
@@ -298,9 +300,9 @@
         Du kan også optage bedre videoer, blokere reklamer, slukke automatisk og meget mere.
         \n
         \Quest Game Tuner er resultatet af hundredvis af timers udvikling, forskning og testning af den samme udvikler, som lavede Lightning Launcher.</string>
-    <string name="tuner_info_desc_mqs">        <b>Quest Game Tuner</b> bryder dit headsets grænser og giver dig mulighed for at få mest muligt ud af den hardware, du allerede ejer, med performanceprofiler pr. app og masser af ekstra funktioner.        
+    <string name="tuner_info_desc_mqs_n"><b>Quest Game Tuner</b> giver dig mulighed for at få mest muligt ud af den hardware, du allerede ejer, med performanceprofiler pr. app og masser af ekstra funktioner.        
 \n        
-\n<b>Quest Game Tuner</b> er lavet og vedligeholdes af den samme udvikler, som lavede Lightning Launcher.    </string>
+\n<b>Quest Game Tuner</b> aktiverer nogle funktioner, som du kan få adgang til i Lightning Launcher.    </string>
 
     <string name="tuner_info_get">Få Quest Game Tuner på itch.io!</string>
     <string name="apk_installer_tip">Vælg en APK-fil, der skal installeres</string>
@@ -367,4 +369,9 @@
     <string name="dmqs_cant_3">Ændre eller udskifte systemfunktioner, <i>såsom det indbyggede app-bibliotek/navigator</i>.</string>
     <string name="dmqs_can">Lightning Launcher <b>kan</b>:</string>
     <string name="dmqs_cant">Lightning Launcher kan <b>ikke</b>:</string>
+<string name="narrow_window_message">Lightning Launcher er designet til store skærme.        
+\n
+\nDen vil fungere på din enhed, men kan føles lidt trang.        
+\n
+\nHvis du har en telefon, er det måske bedre at bruge en af de mange telefonfokuserede launchers, der findes på Google Play.</string>
 </resources>

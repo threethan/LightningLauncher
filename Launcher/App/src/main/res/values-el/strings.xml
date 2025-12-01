@@ -43,6 +43,8 @@
     <string name="disp_icon">Εμφάνιση ως εικονίδιο</string>
     <string name="disp_name">Να εμφανίζονται πάντα τα ονόματα</string>
     <string name="more_options">Περισσότερες επιλογές</string>
+    <string name="favorite_enable">Σημειώστε ως Αγαπημένο</string>
+    <string name="favorite_disable">Απο-σημειώστε ως Αγαπημένο</string>
     <string name="advanced_header">Ρυθμίσεις για προχωρημένους</string>
     <string name="refresh_button">Ανανέωση</string>
     <string name="advanced_interface">Διεπαφή</string>
@@ -298,9 +300,9 @@
         Μπορείτε επίσης να καταγράφετε καλύτερα βίντεο, να μπλοκάρετε διαφημίσεις, να απενεργοποιείτε αυτόματα και πολλά άλλα.
         \n
         \nΤο Quest Game Tuner είναι το αποτέλεσμα εκατοντάδων ωρών ανάπτυξης, έρευνας και δοκιμών από τον ίδιο προγραμματιστή που δημιούργησε το Lightning Launcher.</string>
-    <string name="tuner_info_desc_mqs">        Το <b>Quest Game Tuner</b> σπάει τα όρια των ακουστικών σας, επιτρέποντάς σας να αξιοποιήσετε στο έπακρο το υλικό που ήδη διαθέτετε με προφίλ απόδοσης ανά εφαρμογή και πολλές επιπλέον λειτουργίες.        
+    <string name="tuner_info_desc_mqs_n">Το <b>Quest Game Tuner</b> σας επιτρέπει να αξιοποιήσετε στο έπακρο το υλικό που ήδη διαθέτετε με προφίλ απόδοσης ανά εφαρμογή και πολλές επιπλέον δυνατότητες.        
 \n        
-\nΤο <b>Quest Game Tuner</b> κατασκευάζεται και συντηρείται από τον ίδιο προγραμματιστή που δημιούργησε το Lightning Launcher.    </string>
+\nΤο <b>Quest Game Tuner</b> ενεργοποιεί ορισμένες λειτουργίες στις οποίες μπορείτε να έχετε πρόσβαση στο Lightning Launcher.    </string>
 
     <string name="tuner_info_get">Αποκτήστε το Quest Game Tuner στο itch.io!</string>
     <string name="apk_installer_tip">Επιλέξτε ένα αρχείο APK για εγκατάσταση</string>
@@ -367,4 +369,9 @@
     <string name="dmqs_cant_3">Τροποποίηση ή αντικατάσταση οποιωνδήποτε λειτουργιών του συστήματος, <i>όπως η ενσωματωμένη βιβλιοθήκη εφαρμογών/ο πλοηγός</i>.</string>
     <string name="dmqs_can">Lightning Launcher <b>μπορεί</b>:</string>
     <string name="dmqs_cant">Ο Lightning Launcher δεν μπορεί <b>δεν μπορεί</b>:</string>
+<string name="narrow_window_message">Το Lightning Launcher έχει σχεδιαστεί για μεγάλες οθόνες.        
+\n
+\nΘα λειτουργήσει στη συσκευή σας, αλλά μπορεί να αισθάνεστε λίγο στριμωγμένοι.        
+\n
+\nΑν χρησιμοποιείτε τηλέφωνο, ίσως είναι καλύτερα να χρησιμοποιήσετε ένα από τα πολλά προγράμματα εκτόξευσης που είναι διαθέσιμα στο Google Play.</string>
 </resources>

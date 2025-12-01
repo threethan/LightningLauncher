@@ -43,6 +43,8 @@
     <string name="disp_icon">Visa som ikon</string>
     <string name="disp_name">Visa alltid namn</string>
     <string name="more_options">Fler alternativ</string>
+    <string name="favorite_enable">Markera som favorit</string>
+    <string name="favorite_disable">Avmarkera som favorit</string>
     <string name="advanced_header">Avancerade inställningar</string>
     <string name="refresh_button">Uppdatera</string>
     <string name="advanced_interface">Gränssnitt</string>
@@ -298,9 +300,9 @@
         Du kan också spela in bättre videor, blockera annonser, stänga av automatiskt och mycket mer.
         \n
         \Quest Game Tuner är resultatet av hundratals timmar av utveckling, forskning och testning av samma utvecklare som skapade Lightning Launcher.</string>
-    <string name="tuner_info_desc_mqs">        <b>Quest Game Tuner</b> spränger headsetets gränser och låter dig få ut mesta möjliga av den hårdvara du redan äger med prestandaprofiler per app och massor av extrafunktioner.        
+    <string name="tuner_info_desc_mqs_n"><b>Quest Game Tuner</b> låter dig få ut mesta möjliga av den hårdvara du redan äger med prestandaprofiler för varje app och massor av extrafunktioner.        
 \n        
-\n<b>Quest Game Tuner</b> görs och underhålls av samma utvecklare som gjorde Lightning Launcher.    </string>
+\n<b>Quest Game Tuner</b> aktiverar vissa funktioner som kan nås i Lightning Launcher.    </string>
 
     <string name="tuner_info_get">Hämta Quest Game Tuner på itch.io!</string>
     <string name="apk_installer_tip">Välj en APK-fil som ska installeras</string>
@@ -367,4 +369,9 @@
     <string name="dmqs_cant_3">Modifiera eller ersätta systemfunktioner, <i>såsom det inbyggda appbiblioteket/navigatorn</i>.</string>
     <string name="dmqs_can">Lightning Launcher <b>kan</b>:</string>
     <string name="dmqs_cant">Lightning Launcher kan <b>inte</b>:</string>
+<string name="narrow_window_message">Lightning Launcher är utformad för stora skärmar.        
+\n
+\nDet kommer att fungera på din enhet, men kan kännas lite trångt.        
+\n
+\nOm du har en telefon kan det vara bättre att använda en av de många telefonfokuserade launchers som finns på Google Play.</string>
 </resources>

@@ -406,12 +406,12 @@
         \n<b>Quest Game Tuner</b> is the result of hundreds of hours of development, research, and testing by the same developer which made Lightning Launcher.
     </string>
 
-    <string name="tuner_info_desc_mqs">
-        <b>Quest Game Tuner</b> breaks your headset\'s limits,
-        letting you get the most of the hardware you already own with per-app performance profiles
+    <string name="tuner_info_desc_mqs_n"><b>Quest Game Tuner</b>
+        lets you get the most of the hardware
+        you already own with rich per-app performance profiles
         and loads of extra features.
         \n
-        \n<b>Quest Game Tuner</b> is made &amp; maintained by the same developer which made Lightning Launcher.
+        \n<b>Quest Game Tuner</b> enables some features which can be accessed in Lightning Launcher.
     </string>
 
     <string name="tuner_info_get">Get <b>Quest Game Tuner</b> on itch.io!</string>
@@ -424,7 +424,7 @@
 
     <!-- Labels -->
     <string name="shortcuts_open_this_variant">Shortcuts open this variant of Lightning Launcher</string>
-    <string name="shortcuts_open_this_variant_details">If you turn this off, shortcut services will attempt to open your other installation of Lighning Launcher.</string>
+    <string name="shortcuts_open_this_variant_details">If you turn this off, shortcut services will attempt to open your other installation of Lightning Launcher.</string>
     <string name="manage_variants">Manage Installed Variants &amp; Transfer Settings</string>
     <string name="customize_top_bar">Customize Toolbar</string>
     <string name="quest_settings">Quest Settings</string>
@@ -481,10 +481,15 @@
     <string name="dmqs_can_2">Adjust how apps are opened <i>from Lightning&#160;Launcher</i></string>
     <string name="dmqs_can_3">Add shortcuts to websites <i>to Lightning&#160;Launcher</i></string>
 
-    <string name="dmqs_cant_0">Display or install applications which you have not legitimately installed</string>
+    <string name="dmqs_cant_0">Display applications which you have not legitimately installed</string>
     <string name="dmqs_cant_1">Launch applications which you own but do not have installed</string>
     <string name="dmqs_cant_2">Categorize or adjust anything <i>outside of the Lightning&#160;Launcher app</i></string>
     <string name="dmqs_cant_3">Modify or replace any system features, <i>such as the built-in app library/navigator</i></string>
     <string name="dmqs_can">This app <b>can</b>:</string>
     <string name="dmqs_cant">This app can <b>not</b>:</string>
+
+    <string name="narrow_window_message">Lightning Launcher is designed for big screens.
+        \n\nIt will work on your device, but might feel a little bit cramped.
+        \n\nIf you\'re on a phone, you might be better off
+        using one of the many phone-focused launchers available on Google Play.</string>
 </resources>

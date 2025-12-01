@@ -43,6 +43,8 @@
     <string name="disp_icon">Mostrar como icono</string>
     <string name="disp_name">Mostrar siempre los nombres</string>
     <string name="more_options">Más opciones</string>
+    <string name="favorite_enable">Marcar como favorito</string>
+    <string name="favorite_disable">Desmarcar como favorito</string>
     <string name="advanced_header">Configuración avanzada</string>
     <string name="refresh_button">Actualizar</string>
     <string name="advanced_interface">Interfaz</string>
@@ -298,9 +300,9 @@
         También puedes capturar mejores vídeos, bloquear anuncios, apagar automáticamente y mucho más.
         \n
         \Quest Game Tuner es el resultado de cientos de horas de desarrollo, investigación y pruebas por el mismo desarrollador que hizo Lightning Launcher.</string>
-    <string name="tuner_info_desc_mqs">        <b>Quest Game Tuner</b> rompe los límites de tus auriculares, permitiéndote sacar el máximo partido al hardware que ya tienes con perfiles de rendimiento por aplicación y montones de funciones extra.        
+    <string name="tuner_info_desc_mqs_n"><b>Quest Game Tuner</b> te permite sacar el máximo partido al hardware que ya tienes con perfiles de rendimiento por aplicación y montones de funciones extra.        
 \n        
-\n<b>Quest Game Tuner</b> está creado y mantenido por el mismo desarrollador que creó Lightning Launcher.    </string>
+\n<b>Quest Game Tuner</b> habilita algunas funciones a las que se puede acceder en Lightning Launcher.    </string>
 
     <string name="tuner_info_get">¡Consigue Quest Game Tuner en itch.io!</string>
     <string name="apk_installer_tip">Seleccione un archivo APK para instalar</string>
@@ -367,4 +369,9 @@
     <string name="dmqs_cant_3">Modificar o sustituir cualquier característica del sistema, <i>como la biblioteca/navegador de aplicaciones integrado</i>.</string>
     <string name="dmqs_can">Lightning Launcher <b>puede</b>:</string>
     <string name="dmqs_cant">Lightning Launcher puede <b>no</b>:</string>
+<string name="narrow_window_message">Lightning Launcher está diseñado para pantallas grandes.        
+\n
+\nFuncionará en tu dispositivo, pero puede resultar un poco incómodo.        
+\n
+\nSi estás en un teléfono, es posible que sea mejor utilizar uno de los muchos lanzadores de teléfono centrado disponibles en Google Play.</string>
 </resources>

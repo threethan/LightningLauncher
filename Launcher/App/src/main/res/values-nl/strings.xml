@@ -43,6 +43,8 @@
     <string name="disp_icon">Weergeven als pictogram</string>
     <string name="disp_name">Toon altijd namen</string>
     <string name="more_options">Meer opties</string>
+    <string name="favorite_enable">Markeren als favoriet</string>
+    <string name="favorite_disable">Verwijderen als favoriet</string>
     <string name="advanced_header">Geavanceerde instellingen</string>
     <string name="refresh_button">Vernieuw</string>
     <string name="advanced_interface">Interface</string>
@@ -294,9 +296,9 @@
         Je kunt ook betere video\'s opnemen, advertenties blokkeren, automatisch uitschakelen en meer.
         \n
         \Quest Game Tuner is het resultaat van honderden uren ontwikkeling, onderzoek en testen door dezelfde ontwikkelaar die Lightning Launcher heeft gemaakt.</string>
-    <string name="tuner_info_desc_mqs">        <b>Quest Game Tuner</b> doorbreekt de grenzen van je headset en laat je het beste halen uit de hardware die je al hebt met prestatieprofielen per app en een heleboel extra functies.        
+    <string name="tuner_info_desc_mqs_n">Met <b>Quest Game Tuner</b> haal je het meeste uit de hardware die je al hebt met prestatieprofielen per app en een heleboel extra functies.        
 \n        
-\n<b>Quest Game Tuner</b> wordt gemaakt en onderhouden door dezelfde ontwikkelaar die Lightning Launcher heeft gemaakt.    </string>
+\n<b>Quest Game Tuner</b> maakt sommige functies mogelijk die toegankelijk zijn in Lightning Launcher.    </string>
 
     <string name="tuner_info_get">Haal Quest Game Tuner op itch.io!</string>
     <string name="apk_installer_tip">Selecteer een APK-bestand om te installeren</string>
@@ -363,4 +365,9 @@
     <string name="dmqs_cant_3">Systeemfuncties wijzigen of vervangen, <i>zoals de ingebouwde app-bibliotheek/navigator</i></string>
     <string name="dmqs_can">Lightning Launcher <b>kan</b>:</string>
     <string name="dmqs_cant">Lightning Launcher kan <b>niet</b>:</string>
+<string name="narrow_window_message">Lightning Launcher is ontworpen voor grote schermen.        
+\n
+\nHet werkt op je apparaat, maar voelt misschien een beetje krap aan.        
+\n
+\nAls je een telefoon hebt, kun je misschien beter een van de vele op telefoons gerichte launchers gebruiken die beschikbaar zijn op Google Play.</string>
 </resources>

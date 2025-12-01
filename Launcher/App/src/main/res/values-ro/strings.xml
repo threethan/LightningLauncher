@@ -43,6 +43,8 @@
     <string name="disp_icon">Afișare ca pictogramă</string>
     <string name="disp_name">Afișați întotdeauna numele</string>
     <string name="more_options">Mai multe opțiuni</string>
+    <string name="favorite_enable">Marcați ca Favorite</string>
+    <string name="favorite_disable">Anulează marcarea ca Favorit</string>
     <string name="advanced_header">Setări avansate</string>
     <string name="refresh_button">Reîmprospătare</string>
     <string name="advanced_interface">Interfață</string>
@@ -298,9 +300,9 @@
         De asemenea, puteți captura videoclipuri mai bune, bloca reclamele, opri automat și multe altele.
         \n
         \nQuest Game Tuner este rezultatul a sute de ore de dezvoltare, cercetare și testare de către același dezvoltator care a realizat Lightning Launcher.</string>
-    <string name="tuner_info_desc_mqs">        <b>Quest Game Tuner</b> depășește limitele setului dvs. de căști, permițându-vă să profitați la maximum de hardware-ul pe care îl dețineți deja, cu profiluri de performanță per aplicație și o mulțime de funcții suplimentare.        
+    <string name="tuner_info_desc_mqs_n"><b>Quest Game Tuner</b> vă permite să profitați la maximum de hardware-ul pe care îl dețineți deja cu profiluri de performanță per aplicație și o mulțime de funcții suplimentare.        
 \n        
-\n<b>Quest Game Tuner</b> este realizat și întreținut de același dezvoltator care a realizat Lightning Launcher.    </string>
+\n<b>Quest Game Tuner</b> activează unele funcții care pot fi accesate în Lightning Launcher.    </string>
 
     <string name="tuner_info_get">Obțineți Quest Game Tuner pe itch.io!</string>
     <string name="apk_installer_tip">Selectați un fișier APK pentru instalare</string>
@@ -367,4 +369,9 @@
     <string name="dmqs_cant_3">Modificarea sau înlocuirea oricăror caracteristici ale sistemului, <i>cum ar fi biblioteca de aplicații/navigatorul încorporat</i></string>
     <string name="dmqs_can">Lightning Launcher <b>poate</b>:</string>
     <string name="dmqs_cant">Lightning Launcher poate <b>nu</b>:</string>
+<string name="narrow_window_message">Lightning Launcher este proiectat pentru ecrane mari.        
+\n
+\nVa funcționa pe dispozitivul dvs., dar s-ar putea să vă simțiți un pic înghesuiți.        
+\n
+\nDacă aveți un telefon, ar fi mai bine să utilizați unul dintre numeroasele lansatoare axate pe telefon disponibile pe Google Play.</string>
 </resources>

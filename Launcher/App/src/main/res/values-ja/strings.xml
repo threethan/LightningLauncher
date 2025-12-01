@@ -43,6 +43,8 @@
     <string name="disp_icon">アイコン表示</string>
     <string name="disp_name">常に名前を表示</string>
     <string name="more_options">その他のオプション</string>
+    <string name="favorite_enable">お気に入りにマーク</string>
+    <string name="favorite_disable">お気に入りから外す</string>
     <string name="advanced_header">詳細設定</string>
     <string name="refresh_button">リフレッシュ</string>
     <string name="advanced_interface">インターフェース</string>
@@ -292,7 +294,7 @@
         また、より良いビデオのキャプチャ、広告のブロック、自動電源オフなども可能です。
         \n
         \Quest Game Tunerは、Lightning Launcherを開発したデベロッパーによる、数百時間に及ぶ開発、研究、テストの成果です。</string>
-    <string name="tuner_info_desc_mqs">        bQuest Game Tuner/bは、ヘッドセットの限界を破り、アプリごとのパフォーマンス・プロファイルと豊富な追加機能で、すでにお持ちのハードウェアを最大限に活用できます。                bQuest Game Tuner/bは、Lightning Launcherを開発したのと同じ開発者によって作られ、維持されています。    </string>
+    <string name="tuner_info_desc_mqs_n">bQuest Game Tuner/bは、アプリごとのパフォーマンスプロファイルと豊富な追加機能により、すでにお持ちのハードウェアを最大限に活用できます。                bQuest Game Tuner/bは、Lightning Launcherでアクセスできるいくつかの機能を有効にします。    </string>
 
     <string name="tuner_info_get">itch.ioでQuest Game Tunerを手に入れよう！</string>
     <string name="apk_installer_tip">インストールするAPKファイルを選択する</string>
@@ -359,4 +361,9 @@
     <string name="dmqs_cant_3">内蔵アプリ・ライブラリ/ナビゲータ/i などのシステム機能を変更または置き換えます。</string>
     <string name="dmqs_can">ライトニング・ランチャーは<b>可能</b>：</string>
     <string name="dmqs_cant">ライトニング・ランチャーは<b>できない</b>：</string>
+<string name="narrow_window_message">Lightning Launcherは大画面用に設計されています。        
+\n
+\nお使いのデバイスでも動作しますが、少し窮屈に感じるかもしれません。        
+\n
+\nもしあなたが携帯電話を使っているなら、Google Playで利用できる多くの携帯電話向けランチャーを使った方がいいかもしれない。</string>
 </resources>

@@ -50,6 +50,8 @@
     <string name="disp_icon">显示为正方形</string>
     <string name="disp_name">显示名称</string>
     <string name="more_options">高级设置</string>
+    <string name="favorite_enable">标记为收藏</string>
+    <string name="favorite_disable">取消标记为收藏</string>
     <string name="advanced_header">打开高级设置</string>
     <string name="refresh_button">刷新应用程序</string>
     <string name="advanced_interface">界面选项</string>
@@ -320,9 +322,9 @@
 
     
     <string name="tuner_info_desc">Meta 限制了应用的性能。 <b>Quest Game Tuner</b> 打破了这些限制，让您能够充分利用现有硬件。 您还可以<i>录制更优质的视频</i>、<i>屏蔽广告</i>、<i>自动关机</i>等等。  <b>Quest Game Tuner</b> 是 Lightning Launcher 的开发者历经数百小时开发、研究和测试的成果。</string>
-    <string name="tuner_info_desc_mqs">        <b>Quest Game Tuner</b>打破了耳机的限制，通过每个应用程序的性能配置文件和大量额外功能，让您充分利用已经拥有的硬件。        
+    <string name="tuner_info_desc_mqs_n"><b>Quest Game Tuner</b> 可让您通过每个应用程序的性能配置文件和大量额外功能，充分利用您已拥有的硬件。        
 \n        
-\n<b>Quest Game Tuner</b> 由制作 Lightning Launcher 的同一开发人员制作和维护。    </string>
+\n<b>Quest Game Tuner</b> 可启用一些可在 Lightning Launcher 中访问的功能。    </string>
 
     <string name="tuner_info_get">在 itch.io 上获取<b>Quest Game Tuner</b>！</string>
     <string name="apk_installer_tip"><b>Quest Game Tuner</b> 是 Lightning Launcher 的开发者历经数百小时开发、研究和测试的成果。</string>
@@ -390,4 +392,9 @@
     <string name="dmqs_cant_3">修改或替换任何系统功能，<i>例如内置应用程序库/导航器</i>。</string>
     <string name="dmqs_can">此应用程序<b>可以</b>：</string>
     <string name="dmqs_cant">此应用程序不能<b />：</string>
+<string name="narrow_window_message">Lightning Launcher 专为大屏幕设计。        
+\n
+\n它可以在你的设备上运行，但可能会感觉有点拥挤。        
+\n
+\n如果你使用的是手机，你最好使用 Google Play 上众多专注于手机的启动器之一。</string>
 </resources>
