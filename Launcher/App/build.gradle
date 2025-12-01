@@ -3,7 +3,9 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 
 afterEvaluate {
-    tasks.matching { it.name.contains("GoogleServices") && !it.name.contains("store") }*.enabled = false
+    tasks.matching {
+        (it.name.contains("GoogleServices") || it.name.contains("Crashlytics"))
+            && !it.name.contains("store") }*.enabled = false
 }
 
 android {
@@ -13,7 +15,7 @@ android {
         compileSdk = 36
         minSdkVersion 24
         targetSdkVersion 36
-        versionCode 1006
+        versionCode 1012
         versionName "10.0"
     }
     compileOptions {
@@ -57,13 +59,11 @@ android {
     }
 }
 dependencies {
-    implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
-
     implementation 'com.google.code.gson:gson:2.13.2'
 
-    implementation 'androidx.datastore:datastore-preferences-rxjava3:1.1.7'
+    implementation 'androidx.datastore:datastore-preferences-rxjava3:1.2.0'
     implementation 'androidx.recyclerview:recyclerview:1.4.0'
-    implementation 'androidx.activity:activity:1.11.0'
+    implementation 'androidx.activity:activity:1.12.0'
     implementation "androidx.fragment:fragment:1.8.9"
 
     // Crashlytics for metastore flavor
