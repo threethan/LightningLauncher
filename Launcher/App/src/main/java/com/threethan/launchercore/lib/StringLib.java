@@ -87,6 +87,9 @@ public class StringLib {
     public static String apkMirrorSearchForUrl(String string) {
         return APK_MIRROR_SEARCH_PRE +string;
     }
+    public static String playStoreSearchForUrl(String string) {
+        return "https://play.google.com/store/search?q="+string+"&c=apps";
+    }
     public static boolean isSearchUrl(String url) {
         return url.contains("search?q=") || url.contains("?search_query=") || url.contains("&searchtype=");
     }

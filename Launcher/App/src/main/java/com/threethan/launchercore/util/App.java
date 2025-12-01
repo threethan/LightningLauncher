@@ -42,12 +42,12 @@ public abstract class App {
     public static Type getType(ApplicationInfo app) {
         if (packageTypeCache.containsKey(app.packageName))
             return packageTypeCache.get(app.packageName);
-        SettingsManager.sortableLabelCache.remove(app);
+        SettingsManager.sortableLabelCache.remove(app.packageName);
         Type type = getTypeInternal(app);
         packageTypeCache.put(app.packageName, type);
         if (!app.enabled || Platform.excludedPackageNames.contains(app.packageName)
                 || app.packageName.startsWith(Core.context().getPackageName())
-                || (type == Type.VR || type == Type.PHONE) && Launch.getLaunchIntent(app) == null) {
+                || (type == Type.TV || type == Type.PHONE) && Launch.getLaunchIntent(app) == null) {
             packageTypeCache.put(app.packageName, Type.UNSUPPORTED);
             return Type.UNSUPPORTED;
         }

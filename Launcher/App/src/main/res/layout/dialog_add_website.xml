@@ -5,12 +5,9 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="20dp"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
+    android:padding="20dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="46sp"
         android:layout_marginBottom="7dp">
@@ -21,20 +18,17 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:text="@string/add_website"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_gravity="top|start"/>
 
         <TextView
             style="@style/SettingButtonLabel"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="20sp"
             android:layout_marginStart="20sp"
             android:text="@string/add_website_audio_info"
             android:textColor="#A0FFFFFF"
             android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:layout_gravity="bottom"/>
 
         <ImageView
             android:layout_width="17sp"
@@ -42,8 +36,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginBottom="1sp"
             android:src="@drawable/ic_music_hint"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:layout_gravity="bottom|start"/>
 
         <Button
             android:id="@+id/info"
@@ -54,11 +47,10 @@
             android:foreground="@drawable/ic_info"
             android:textColor="@android:color/white"
             android:tooltipText="@string/tip_info_website"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:targetApi="o" />
+            android:layout_gravity="top|end"
+            tools:ignore="UnusedAttribute" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
 
     <View
         android:id="@+id/sizer"
@@ -155,28 +147,47 @@
 
     </LinearLayout>
 
-    <com.threethan.launcher.activity.view.EditTextWatched
-        android:id="@+id/appUrl"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40sp"
-        android:layout_gravity="bottom"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
         android:layout_marginTop="10dp"
-        android:autofillHints="text"
-        android:background="@drawable/bkg_name_app"
-        android:inputType="textUri"
-        android:selectAllOnFocus="true"
-        android:singleLine="true"
-        android:textAlignment="gravity"
-        android:textColor="@android:color/white"
-        android:textSize="24sp" />
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/bkg_name_app_star"
+            android:text="https://"
+            android:layout_marginEnd="2dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="2dp"
+            android:textColor="#A0FFFFFF"
+            android:gravity="center_vertical"
+            tools:ignore="HardcodedText" />
+        <com.threethan.launcher.activity.view.EditTextWatched
+            android:id="@+id/appUrl"
+            android:layout_width="match_parent"
+            android:layout_height="40sp"
+            android:layout_gravity="bottom"
+            android:autofillHints="text"
+            android:background="@drawable/bkg_name_app"
+            android:inputType="textUri"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:textAlignment="gravity"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+    </LinearLayout>
 
     <TextView
         style="@style/SettingButtonLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
+        android:layout_marginStart="6dp"
         android:layout_marginEnd="2dp"
-        android:text="@string/add_website_url_label" />
+        android:text="@string/add_website_url_label"
+        android:textColor="#A0FFFFFF" />
 
     <TextView
         android:id="@+id/badUrl"
