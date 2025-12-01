@@ -18,7 +18,6 @@
 
         <item name="colorControlNormal">#FFF</item>
         <item name="android:textColor">#FFF</item>
-        <item name="colorAccent">#3364c3</item>
 
         <item name="buttonCornerRadius">13dp</item>
     </style>

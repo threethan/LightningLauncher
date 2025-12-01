@@ -14,10 +14,20 @@
         android:layout_width="400dp"
         android:layout_height="0dp" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
 
+        <ImageView
+            android:id="@+id/starGroupButton"
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:background="@drawable/bkg_name_app_star"
+            android:foregroundGravity="center"
+            android:src="@drawable/ic_star_on" />
         <EditText
             android:id="@+id/groupName"
             android:layout_width="0dp"
@@ -31,24 +41,10 @@
             android:singleLine="true"
             android:textColor="@android:color/white"
             android:textSize="28sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/deleteGroupButton"
-            app:layout_constraintStart_toEndOf="@id/starGroupButton"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_weight="1"
             tools:ignore="RtlSymmetry" />
 
-        <ImageView
-            android:id="@+id/starGroupButton"
-            android:layout_width="35dp"
-            android:layout_height="0dp"
-            android:layout_margin="2dp"
-            android:background="@drawable/bkg_name_app_star"
-            android:foregroundGravity="center"
-            android:src="@drawable/ic_star_on"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_constraintTop_toTopOf="parent" />
+
 
         <ImageView
             android:id="@+id/deleteGroupButton"
@@ -56,13 +52,9 @@
             android:layout_height="40dp"
             android:background="@drawable/bkg_hover_button"
             android:foregroundGravity="center"
-            android:src="@drawable/ic_uninstall"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_constraintTop_toTopOf="parent" />
+            android:src="@drawable/ic_uninstall" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
     <TextView
         style="@style/SettingSubtitle"

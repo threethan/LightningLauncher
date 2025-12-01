@@ -27,21 +27,12 @@
             android:background="@drawable/bkg_hover_button"
             android:src="@drawable/ic_back" />
 
-        <TextView
-            style="@style/SettingTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="0dp"
-            android:paddingTop="20dp"
-            android:text="@string/tuner_info_tagline"
-            android:textSize="24sp" />
-
         <com.threethan.launcher.activity.view.FocusableViewFlinger
             android:id="@+id/imageBanner"
             android:layout_width="750dp"
             android:layout_height="200dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="8dp"
             android:foreground="@drawable/flipper_fg">
@@ -67,9 +58,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
             android:layout_marginEnd="25dp"
             android:ellipsize="end"
-            android:text="@string/tuner_info_desc_mqs"
+            android:text="@string/tuner_info_desc_mqs_n"
             android:textSize="18sp" />
 
     </LinearLayout>

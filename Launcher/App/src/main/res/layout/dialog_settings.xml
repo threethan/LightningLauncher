@@ -37,9 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="-9dp"
-            android:text="@string/settings_main"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:text="@string/settings_main" />
 
         <TextView
             android:id="@+id/versionLabel"
@@ -50,8 +48,6 @@
             android:layout_marginEnd="5dp"
             android:layout_marginBottom="18dp"
             android:alpha="0.5"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             tools:text="0.0.0" />
 
         <TextView
@@ -62,10 +58,7 @@
             android:layout_marginTop="-28dp"
             android:layout_marginBottom="5dp"
             android:alpha="0.5"
-            android:text="@string/app_variant_name"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:text="@string/app_variant_name"/>
 
         <include
             layout="@layout/flipper"

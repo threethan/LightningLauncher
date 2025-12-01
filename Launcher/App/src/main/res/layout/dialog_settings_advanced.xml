@@ -36,9 +36,7 @@
             style="@style/SettingTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/advanced_header"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:text="@string/advanced_header" />
 
         <TextView
             style="@style/SettingSubtitle"
