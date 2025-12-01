@@ -11,6 +11,7 @@ import android.view.accessibility.AccessibilityEvent;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.stream.Collectors;
 
 /** Listens for specific accessibility events and opens the launcher appropriately */
 @SuppressLint("AccessibilityPolicy")
@@ -108,7 +109,7 @@ public class ShortcutAccessibilityService extends AccessibilityService {
         List<String> targets = TARGET_PACKAGES.stream().filter(pkg ->
                 // Check if package exists
                 getPackageManager().getLaunchIntentForPackage(pkg) != null
-        );
+        ).collect(Collectors.toList());
         for (String packageName : targets) {
             if (triggerPackage(packageName, false)) break; // Stop after first successful launch
         }
@@ -157,6 +158,8 @@ public class ShortcutAccessibilityService extends AccessibilityService {
             int shouldBlurIndex = cursor.getColumnIndex("shouldBlur");
 
             boolean currentlyOpen = cursor.getInt(isOpenIndex) != 0;
+
+            Log.i("LightningLauncherService", "Launcher open state: " + currentlyOpen);
             if (currentlyOpen) return true; // Don't launch if already open
             boolean shouldBlur = cursor.getInt(shouldBlurIndex) != 0;
 
