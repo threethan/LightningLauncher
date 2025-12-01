@@ -6,11 +6,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.util.Log;
 
 import androidx.annotation.Nullable;
 
-import com.threethan.launcher.activity.support.SettingsManager;
 import com.threethan.launchercore.Core;
 import com.threethan.launchercore.lib.StringLib;
 import com.threethan.launchercore.util.App;
@@ -23,7 +21,6 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.function.Consumer;
 
 /**
