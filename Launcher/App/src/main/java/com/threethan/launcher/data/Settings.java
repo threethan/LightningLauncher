@@ -97,6 +97,7 @@ public abstract class Settings {
     public static final boolean DEFAULT_GROUPS_WIDE = false;
     public static final String KEY_LIST_HORIZONTAL = "KEY_LIST_HORIZONTAL";
     public static final boolean DEFAULT_LIST_HORIZONTAL = false;
+    public static final String KEY_SEEN_NARROW_WINDOW_WARNING = "KEY_SEEN_NARROW_WINDOW_WARNING";
     public static boolean DEFAULT_DETAILS_LONG_PRESS = false;
     public static final boolean DEFAULT_SEARCH_WEB = true;
     public static final boolean DEFAULT_SEARCH_HIDDEN = true;

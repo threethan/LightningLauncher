@@ -5,7 +5,6 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.util.Log;
 
-import com.threethan.launcher.BuildConfig;
 import com.threethan.launcher.activity.support.SettingsManager;
 import com.threethan.launcher.helper.PlatformExt;
 import com.threethan.launchercore.Core;

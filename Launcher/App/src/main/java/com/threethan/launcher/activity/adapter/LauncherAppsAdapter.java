@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.threethan.launcher.BuildConfig;
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.activity.dialog.AppDetailsDialog;
@@ -161,10 +162,18 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
                 youTubeProxy.packageName = StringLib.youTubeSearchForUrl(text);
                 newItems.add(youTubeProxy);
 
-                if (!PlatformExt.censorLinking()) {
+                //noinspection ConstantValue
+                if (!PlatformExt.censorLinking() && !BuildConfig.FLAVOR.equals("playstore")) {
                     final ApplicationInfo apkMirrorProxy = new ApplicationInfo();
                     apkMirrorProxy.packageName = StringLib.apkMirrorSearchForUrl(text);
                     newItems.add(apkMirrorProxy);
+                }
+
+                //noinspection ConstantValue
+                if (BuildConfig.FLAVOR.equals("playstore")) {
+                    final ApplicationInfo playStoreProxy = new ApplicationInfo();
+                    playStoreProxy.packageName = StringLib.playStoreSearchForUrl(text);
+                    newItems.add(playStoreProxy);
                 }
             }
 
@@ -441,7 +450,8 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
             }
 
             if (LauncherActivity.shouldReduceMotion()) {
-                holder.imageView.setForeground(focused ? holder.view.getContext().getDrawable(R.drawable.lc_fg_focused) : null);
+                holder.imageView.setForeground(focused ?
+                        holder.view.getContext().getDrawable(R.drawable.lc_fg_focused) : null);
                 return;
             }
 
@@ -572,12 +582,13 @@ public class LauncherAppsAdapter extends AppsAdapter<LauncherAppsAdapter.AppView
     }
 
     @Override
-    protected void onIconChanged(AppViewHolderExt holder, Drawable icon) {
+    protected void onIconChanged(AppViewHolderExt holder, Drawable icon, String packageName) {
         if (holder.imageView instanceof LauncherAppImageView li) {
             // Call immediate since LauncherAppImageView loads off the main thread
-            li.setImageDrawable(icon);
+            if (Objects.equals(holder.app.packageName, packageName))
+                li.setImageDrawable(icon);
         } else {
-            super.onIconChanged(holder, icon);
+            super.onIconChanged(holder, icon, packageName);
         }
     }
 }

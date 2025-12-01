@@ -97,6 +97,7 @@ public abstract class IconUpdater {
      * @param callback Called when the download completes successfully and the icon is changed
      */
     public static void check(ApplicationInfo app, final Consumer<Drawable> callback) {
+        if (StringLib.isSearchUrl(app.packageName)) return;
         executorService.submit(() -> {
             if (!shouldDownload(app)) return;
 

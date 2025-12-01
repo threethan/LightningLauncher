@@ -14,7 +14,7 @@ import com.threethan.launchercore.util.Platform;
  */
 public class TVSmartHomeUtilityApplication extends UtilityApplicationInfo {
     private TVSmartHomeUtilityApplication() {
-        super("builtin://tv-smart-home", R.drawable.tv_smart_home);
+        super("builtin://tv-smart-home", R.drawable.ai_tv_smart_home);
     }
     private static TVSmartHomeUtilityApplication instance;
     public static TVSmartHomeUtilityApplication getInstance() {

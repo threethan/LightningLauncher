@@ -49,6 +49,23 @@ public abstract class IconLoader {
      * @param consumer Consumer which handles the icon
      */
     public static void loadIcon(ApplicationInfo app, final Consumer<Drawable> consumer) {
+        // Get synchronous icons for search urls
+        if (app.packageName.startsWith("https://") && StringLib.isSearchUrl(app.packageName)) {
+            if (app.packageName.startsWith("https://www.google.com/")) {
+                consumer.accept(Core.context().getDrawable(R.drawable.ai_google));
+                return;
+            } else if (app.packageName.startsWith("https://www.youtube.com/")) {
+                consumer.accept(Core.context().getDrawable(R.drawable.ai_youtube));
+                return;
+            } else if (app.packageName.startsWith("https://www.apkmirror.com/")) {
+                consumer.accept(Core.context().getDrawable(R.drawable.ai_apkmirror));
+                return;
+            } else if (app.packageName.startsWith("https://play.google.com/")) {
+                consumer.accept(Core.context().getDrawable(R.drawable.ai_playstore));
+                return;
+            }
+        }
+
         if (app instanceof UtilityApplicationInfo uApp)
             consumer.accept(uApp.getDrawable());
         else {

@@ -115,6 +115,17 @@ public abstract class LaunchExt extends Launch {
 
         final boolean customSize = SettingsManager.getAppLaunchSize(app.packageName) > 0;
 
+        // Special case: Chats app on Quest v83+
+        if (app.packageName.equals("com.oculus.socialplatform") && Platform.isQuest()) {
+            Intent intent1 = new Intent(Intent.ACTION_MAIN);
+            intent1.setComponent(new ComponentName(
+                    "com.oculus.socialplatform",
+                    "com.oculus.panelapp.people.BlendedPeopleActivity"));
+            intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            launcherActivity.startActivity(intent1);
+            return true;
+        }
+
         if (PlatformExt.isOldVrOs() && !customSize) {
             // Launching method for Quest 1
             final App.Type appType = App.getType(app);

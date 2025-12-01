@@ -233,7 +233,8 @@ public class SettingsManager extends Settings {
                 if (split.length <= 1) name = app.packageName;
                 else if (split.length == 2) name = split[0];
                 else name = split[1];
-
+                if (app.packageName.startsWith("https://play.google."))
+                    name = "Google Play";
                 if (StringLib.isSearchUrl(app.packageName))
                     name += " Search";
 

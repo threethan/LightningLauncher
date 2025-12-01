@@ -59,6 +59,7 @@ import com.threethan.launcher.activity.view.SortCycler;
 import com.threethan.launcher.data.sync.SyncCoordinator;
 import com.threethan.launcher.helper.LaunchExt;
 import com.threethan.launcher.activity.view.status.StatusAdaptableView;
+import com.threethan.launchercore.util.CustomDialog;
 import com.threethan.launchercore.util.LcDialog;
 import com.threethan.launchercore.view.LcBlurCanvas;
 import com.threethan.launcher.activity.view.MarginDecoration;
@@ -365,6 +366,50 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         if (PlatformExt.isMetastoreBuild()) {
             if (!getDataStoreEditor().getBoolean(Settings.KEY_SEEN_DMQS, false)) {
                 new MQSDialog(this).show();
+            }
+        }
+
+        // Get current screen width
+        //noinspection ConstantValue
+        if (BuildConfig.FLAVOR.equals("playstore")) {
+            if (mainView.getWidth() < 1) {
+                getDataStoreEditor().getBoolean(Settings.KEY_SEEN_NARROW_WINDOW_WARNING, false,
+                        b -> {
+                    try {
+                        if (!b) {
+                            // Wait for layout
+                            mainView.post(() -> {
+                                Log.d(TAG, "Checking for narrow window in Play Store build: "
+                                        + mainView.getWidth() / dp(1));
+                                if (mainView.getWidth() < dp(500) && !Platform.isTv()) {
+                                    if (getDataStoreEditor().getInt(
+                                            Settings.KEY_SCALE_VERTICAL,
+                                            Settings.DEFAULT_SCALE_VERTICAL
+                                    ) == Settings.DEFAULT_SCALE_VERTICAL) {
+                                        getDataStoreEditor().putInt(
+                                                Settings.KEY_SCALE_VERTICAL,
+                                                (Settings.DEFAULT_SCALE_VERTICAL + Settings.MIN_SCALE)/2
+                                        );
+                                    }
+
+                                    refreshAdapters();
+                                    new CustomDialog.Builder(this)
+                                            .setTitle(R.string.warning)
+                                            .setMessage(R.string.narrow_window_message)
+                                            .setPositiveButton(R.string.understood, (d, w) -> {
+                                                getDataStoreEditor().putBoolean(
+                                                        Settings.KEY_SEEN_NARROW_WINDOW_WARNING,
+                                                        true
+                                                );
+                                                d.dismiss();
+                                            })
+                                            .show();
+                                }
+                            });
+                        }
+                    } catch (Exception ignored) {}
+                });
+
             }
         }
     }

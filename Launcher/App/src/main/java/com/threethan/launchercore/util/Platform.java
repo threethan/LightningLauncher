@@ -125,10 +125,11 @@ public abstract class Platform {
     }
 
     private static final Set<String> questVersionedIncludedApps =
+            Platform.getVrOsVersion() >= 83 ? Set.of(
+                "systemux://settings"
+            ) :
             Platform.getVrOsVersion() >= 81 ? Set.of(
-                Platform.getVrOsVersion() >= 83
-                ? "systemux://aui-people"
-                : "systemux://aui-people-blended",
+                "systemux://aui-people-blended",
                 "systemux://settings"
             ) : Set.of(
                 "systemux://settings",
@@ -144,7 +145,8 @@ public abstract class Platform {
                     "systemux://sharing",
                     "com.oculus.systemutilities",
                     "com.meta.worlds",
-                    "com.oculus.metacam"
+                    "com.oculus.metacam",
+                    "com.oculus.socialplatform"
             );
     public static Map<String, String> labelOverridesCache;
     public static Map<String, String> getLabelOverrides(Context context) {
@@ -154,6 +156,7 @@ public abstract class Platform {
             labelOverrides.put("systemux://aui-social-v2", context.getString(R.string.quest_people));
             labelOverrides.put("systemux://aui-people-blended", context.getString(R.string.quest_chats));
             labelOverrides.put("systemux://aui-people", context.getString(R.string.quest_chats));
+            labelOverrides.put("com.oculus.socialplatform", context.getString(R.string.quest_chats));
             labelOverrides.put("systemux://events", context.getString(R.string.quest_events));
             labelOverrides.put("systemux://file-manager", context.getString(R.string.quest_files));
             labelOverrides.put("systemux://sharing", context.getString(R.string.quest_camera));
@@ -167,6 +170,7 @@ public abstract class Platform {
             labelOverrides.put(VariantHelper.VARIANT_SIDELOAD, context.getString(R.string.variant_sideload));
             labelOverrides.put(VariantHelper.VARIANT_METASTORE, context.getString(R.string.variant_metastore));
             labelOverrides.put(VariantHelper.VARIANT_PLAYSTORE, context.getString(R.string.variant_playstore));
+
             labelOverridesCache = labelOverrides;
         }
         return labelOverridesCache;
@@ -179,7 +183,6 @@ public abstract class Platform {
             "com.oculus.vrshell",
             "com.oculus.shellenv",
             "com.oculus.integrity",
-            "com.oculus.socialplatform",
             "com.oculus.systemactivities",
             "com.oculus.systempermissions",
             "com.oculus.systemsearch",
@@ -227,10 +230,6 @@ public abstract class Platform {
     static {
         // Add removed systemux panel apps to the excluded list
         excludedPackageNames.addAll(questVersionedExcludedApps);
-
-        // Exclude documentsui for MQS version for now
-        if (PlatformExt.censorUtilities())
-            excludedPackageNames.add("com.android.documentsui");
     }
 
     /**

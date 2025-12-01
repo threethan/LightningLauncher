@@ -188,8 +188,7 @@ public class RemotePackageUpdater {
                         .show();
             } catch (Exception ignored) {}
         }
-
-}
+    }
     @SuppressLint("RequestInstallPackagesPolicy")
     public void installApk(Uri apkURI) {
         if (!PlatformExt.validateVariantWithNotify()) return;
