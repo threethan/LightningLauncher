@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -16,7 +15,6 @@ import com.threethan.launcher.helper.AppExt;
 import com.threethan.launcher.helper.PlatformExt;
 import com.threethan.launcher.helper.VariantHelper;
 import com.threethan.launcher.updater.AddonUpdater;
-import com.threethan.launchercore.lib.DelayLib;
 import com.threethan.launchercore.util.LcDialog;
 import com.threethan.launchercore.util.Platform;
 
@@ -238,9 +236,7 @@ public class AddonManagerDialog extends LcDialog<LauncherActivity> {
                 View restrictedSection = dialog.findViewById(R.id.restrictedSettingsSection);
                 restrictedSection.postDelayed(() -> restrictedSection.setVisibility(View.VISIBLE), 3000);
             });
-            dialog.findViewById(R.id.openAppInfo).setOnClickListener(v -> {
-                AppExt.openInfo(a, addon.packageName);
-            });
+            dialog.findViewById(R.id.openAppInfo).setOnClickListener(v -> AppExt.openInfo(a, addon.packageName));
         }
     }
 

@@ -14,9 +14,9 @@ android {
     defaultConfig {
         compileSdk = 36
         minSdkVersion 24
-        targetSdkVersion 36
-        versionCode 1013
-        versionName "10.0"
+        targetSdkVersion 37
+        versionCode 1014
+        versionName "10.0.1"
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
@@ -59,19 +59,19 @@ android {
     }
 }
 dependencies {
-    implementation 'com.google.code.gson:gson:2.13.2'
+    implementation 'com.google.code.gson:gson:2.14.0'
 
-    implementation 'androidx.datastore:datastore-preferences-rxjava3:1.2.0'
+    implementation 'androidx.datastore:datastore-preferences-rxjava3:1.2.1'
     implementation 'androidx.recyclerview:recyclerview:1.4.0'
-    implementation 'androidx.activity:activity:1.12.1'
+    implementation 'androidx.activity:activity:1.13.0'
     implementation "androidx.fragment:fragment:1.8.9"
 
     // Crashlytics for metastore flavor
-    metastoreImplementation platform("com.google.firebase:firebase-bom:34.7.0")
+    metastoreImplementation platform("com.google.firebase:firebase-bom:34.16.0")
     metastoreImplementation("com.google.firebase:firebase-crashlytics-ndk")
     metastoreImplementation("com.google.firebase:firebase-analytics")
     // Crashlytics for playstore flavor
-    playstoreImplementation platform("com.google.firebase:firebase-bom:34.7.0")
+    playstoreImplementation platform("com.google.firebase:firebase-bom:34.16.0")
     playstoreImplementation("com.google.firebase:firebase-crashlytics-ndk")
     playstoreImplementation("com.google.firebase:firebase-analytics")
 }
