@@ -66,5 +66,23 @@
             <action android:name="android.intent.action.MAIN" />
             <category android:name="com.oculus.intent.category.VR" />
         </intent>
+        <!-- All detected quest store PWAs as of 7/13/2026 -->
+        <package android:name="ai.bdviewer.horizon" />
+        <package android:name="ai.gracia.horizon" />
+        <package android:name="com.adobe.acrobat.pwa" />
+        <package android:name="com.facebook.horizon" />
+        <package android:name="com.miro.app.pwa" />
+        <package android:name="com.movistarplus.player.pwa" />
+        <package android:name="com.office.excel.pwa" />
+        <package android:name="com.office.powerpoint.pwa" />
+        <package android:name="com.office.word.pwa" />
+        <package android:name="com.spotify.horizon" />
+        <package android:name="com.xbox.pwa" />
+        <package android:name="oculus.pwa.facebook.watch" />
+        <package android:name="oculuspwa.app.smartsheet.com" />
+        <package android:name="oculuspwa.auth.monday.com" />
+        <package android:name="oculuspwa.spikenow.com" />
+        <package android:name="org.coursera.web.pwa" />
+        <package android:name="tv.pluto.oculus.pwa" />
     </queries>
 </manifest>

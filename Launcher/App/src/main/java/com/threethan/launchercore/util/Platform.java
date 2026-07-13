@@ -97,6 +97,13 @@ public abstract class Platform {
                     installedApps.add(appInfo);
                 }
 
+                @SuppressLint("QueryPermissionsNeeded")
+                List<ApplicationInfo> queriedInstalledApps
+                        = pm.getInstalledApplications(PackageManager.GET_META_DATA
+                        | PackageManager.MATCH_DISABLED_UNTIL_USED_COMPONENTS);
+
+                installedApps.addAll(queriedInstalledApps);
+
                 installedApps.removeIf(app -> isAppInvalidOrUninstalled(pm, app));
 
                 if (Platform.isQuest()) for (String systemUxPanelApp : questVersionedIncludedApps) {

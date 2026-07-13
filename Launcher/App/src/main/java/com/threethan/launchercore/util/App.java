@@ -58,6 +58,9 @@ public abstract class App {
      * @return Type of the app
      */
     public static Type getType(String packageName) {
+        // Censor DocumentsUI to prevent access to file system for Meta's requirements...
+        if (PlatformExt.censorLinking() && packageName.equals("com.android.documentsui"))
+            return Type.UNSUPPORTED;
         if (packageTypeCache.containsKey(packageName))
             return packageTypeCache.get(packageName);
         Log.w(Core.TAG, "Queried package "+packageName+" whose type is not yet known");
