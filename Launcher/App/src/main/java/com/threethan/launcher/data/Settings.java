@@ -120,8 +120,6 @@ public abstract class Settings {
     public static final int DEFAULT_ICON_CORNER_RADIUS_HORIZONTAL = 999;
     public static final String KEY_NEW_MULTITASK = "KEY_NEWER_MULTITASK";
     public static final boolean DEFAULT_NEW_MULTITASK = true;
-    public static final String KEY_ALLOW_CHAIN_LAUNCH = "KEY_ALLOW_CHAIN_LAUNCH";
-    public static final boolean DEFAULT_ALLOW_CHAIN_LAUNCH = true;
     public static final String KEY_EDIT_MODE = "KEY_EDIT_MODE";
     public static final String KEY_SEEN_ADDONS = "KEY_SEEN_ADDONS";
     public static final String KEY_SEEN_DMQS = "KEY_SEEN_DMQS";
@@ -218,5 +216,5 @@ public abstract class Settings {
     public static final int DEFAULT_SORT = 0; // Standard
 
     public static final String KEY_REDUCE_MOTION = "KEY_REDUCE_MOTION";
-    public static final boolean DEFAULT_REDUCE_MOTION = true; //TODO: False
+    public static final boolean DEFAULT_REDUCE_MOTION = false;
 }

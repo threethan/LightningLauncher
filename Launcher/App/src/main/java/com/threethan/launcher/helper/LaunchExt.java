@@ -61,22 +61,22 @@ public abstract class LaunchExt extends Launch {
             return false;
         }
 
-        Intent intent = getIntentForLaunch(launcherActivity, app);
+        LaunchIntent intent = getIntentForLaunch(launcherActivity, app);
         SettingsManager.registerRecentlyLaunchedApp(app);
 
         // Prompt to install browser if launching a url without one installed
         if (intent == null && App.getType(app) == App.Type.WEB ||
-                (intent != null && intent.getPackage() != null &&
-                    (intent.getPackage().equals(PlatformExt.LIGHTNING_BROWSER_PACKAGE)
-                    || intent.getPackage().equals(PlatformExt.OCULUS_BROWSER_PACKAGE))
-                && !App.packageExists(intent.getPackage()))) {
+                (intent != null && intent.intent().getPackage() != null &&
+                    (intent.intent().getPackage().equals(PlatformExt.LIGHTNING_BROWSER_PACKAGE)
+                    || intent.intent().getPackage().equals(PlatformExt.OCULUS_BROWSER_PACKAGE))
+                && !App.packageExists(intent.intent().getPackage()))) {
             showBrowserInstallPrompt(launcherActivity);
             return false;
         }
 
-        if (app.packageName.equals("com.android.settings") && Platform.cantLaunchSettings()) {
+        if (app.packageName.equals("com.android.settings") && Platform.cantLaunchSettings() && intent != null) {
             LcDialog.toast(Core.context().getString(R.string.settings_workaround));
-            launcherActivity.startActivity(intent);
+            intent.startFrom(launcherActivity);
             return false;
         }
 
@@ -87,7 +87,7 @@ public abstract class LaunchExt extends Launch {
             return false;
         }
         // Browser Check
-        if (Objects.equals(intent.getPackage(), PlatformExt.LIGHTNING_BROWSER_PACKAGE)) {
+        if (Objects.equals(intent.intent().getPackage(), PlatformExt.LIGHTNING_BROWSER_PACKAGE)) {
             if (!PlatformExt.hasBrowser(launcherActivity) ||
                     new BrowserUpdater(launcherActivity).getInstalledVersionCode()
                             < BrowserUpdater.REQUIRED_VERSION_CODE) {
@@ -130,7 +130,7 @@ public abstract class LaunchExt extends Launch {
             // Launching method for Quest 1
             final App.Type appType = App.getType(app);
             if (appType == App.Type.TV || appType == App.Type.PHONE) {
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
+                intent.intent().setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
                         Intent.FLAG_ACTIVITY_NEW_DOCUMENT |
                         Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
                 launchInOwnWindow(intent, launcherActivity, false);
@@ -138,9 +138,9 @@ public abstract class LaunchExt extends Launch {
                 launcherActivity.launcherService.forEachActivity(Activity::finishAndRemoveTask);
                 DelayLib.delayed(() -> startIntent(launcherActivity, intent), 650);
             }
-        } else if ((customSize || !PlatformExt.useVrOsChainLaunch())
+        } else if ((customSize || !Platform.supportsVrOsChainLaunch())
                 && !(app instanceof UtilityApplicationInfo)) {
-            Intent chain = getIntentForLaunch(launcherActivity, app);
+            LaunchIntent chain = getIntentForLaunch(launcherActivity, app);
             assert chain != null;
             launchInOwnWindow(chain, launcherActivity,
                     !customSize && PlatformExt.useNewVrOsMultiWindow());
@@ -153,7 +153,7 @@ public abstract class LaunchExt extends Launch {
                 uApp.launch();
                 return false;
             }
-            else launcherActivity.startActivity(getIntentForLaunchVrOs(app));
+            else getVrOsLaunchIntent(app.packageName).startFrom(launcherActivity);
             if (!PlatformExt.useNewVrOsMultiWindow()) launcherActivity.finishAffinity();
             return Platform.isTv() || (Platform.isQuest() && appType.equals(App.Type.VR));
         }
@@ -186,22 +186,11 @@ public abstract class LaunchExt extends Launch {
         }
     }
 
-    private static Intent getIntentForLaunchVrOs(ApplicationInfo app) {
-        Intent intent = new Intent();
-        intent.setAction("com.oculus.vrshell.intent.action.LAUNCH");
-        intent.addCategory("android.intent.category.LAUNCHER");
-        intent.setData(Uri.parse("apk://"+app.packageName));
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.setPackage("com.oculus.vrshell");
-        intent.setComponent(new ComponentName("com.oculus.vrshell", "com.oculus.vrshell.MainActivity"));
-        return intent;
-    }
-
-    private static void startIntent(LauncherActivity launcherActivity, Intent intent) {
-        if (Objects.equals(intent.getAction(), ACTION_ACTUALLY_SHORTCUT)
+    private static void startIntent(LauncherActivity launcherActivity, LaunchIntent intent) {
+        if (Objects.equals(intent.intent().getAction(), ACTION_ACTUALLY_SHORTCUT)
                 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1)
-            AddShortcutActivity.launchShortcut(launcherActivity, intent.getStringExtra("json"));
-        else launcherActivity.startActivity(intent);
+            AddShortcutActivity.launchShortcut(launcherActivity, intent.intent().getStringExtra("json"));
+        else intent.startFrom(launcherActivity);
     }
 
     /**
@@ -209,7 +198,7 @@ public abstract class LaunchExt extends Launch {
      * including workarounds for browsers & panel apps
      */
     @Nullable
-    private static Intent getIntentForLaunch(LauncherActivity activity, ApplicationInfo app) {
+    private static LaunchIntent getIntentForLaunch(LauncherActivity activity, ApplicationInfo app) {
         // Ignore apps which don't work or should be excluded
         if (app.packageName.equals(activity.getPackageName())
                 || app.packageName.contains("com.threethan.launcher.service")) return null;
@@ -251,23 +240,23 @@ public abstract class LaunchExt extends Launch {
                         intent.setPackage(PlatformExt.LIGHTNING_BROWSER_PACKAGE);
                         break;
                 }
-                return intent;
+                return new LaunchIntent(intent);
             } else {
                 // Non-web intent
                 intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse(app.packageName));
             }
-            return intent;
+            return new LaunchIntent(intent);
         }
 
-        Intent li = getLaunchIntent(app);
+        LaunchIntent li = getLaunchIntent(app);
         // Chain-load for advanced launch options
         if (AppExt.getType(app) == App.Type.PHONE && li != null) {
             int index = SettingsManager.getAppLaunchSize(app.packageName);
             if (index > 0) {
                 Intent chainIntent = new Intent(activity, Settings.launchSizeClasses[index]);
                 chainIntent.putExtra("app", app);
-                return chainIntent;
+                return new LaunchIntent(chainIntent);
             }
         }
 
