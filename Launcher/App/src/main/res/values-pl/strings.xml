@@ -130,12 +130,18 @@
     <string name="add_website_group">Dodaj do %s</string>
     <string name="service_title">Usługi skrótów</string>
     <string name="service_info_section_1_title">Łatwy dostęp do Lightning Launcher</string>
-    <string name="service_info_section_1_content">Po włączeniu usługi skrótów Lightning Launcher otworzy się po najechaniu kursorem na wybraną ikonę w doku.</string>
+    <string name="addon_dock_infoline">Po włączeniu usługi skrótów Lightning Launcher otworzy się po najechaniu kursorem na wybraną ikonę w doku.</string>
     <string name="service_info_section_2_title">Włącz usługę skrótów</string>
     <string name="service_info_section_2_content">1. Użyj poniższego przycisku, aby otworzyć ustawienia dostępności systemu Android\.
         \n2. Wybierz usługę, którą chcesz włączyć.
         \n3. Włącz usługę za pomocą górnego przełącznika.
         \n4. Kliknij "Zezwól" po wyświetleniu monitu.</string>
+    <string name="service_info_section_3_title">Czy widzisz wyskakujące okienko <b>Ustawienia ograniczone</b>?</string>
+    <string name="service_info_section_3_content"><b>PO</b> kliknięciu OK w oknie pop-up:
+    \n5. Kliknij poniżej „Informacje o aplikacji”.
+    \n6. Kliknij <b>(⋮)</b>, a następnie <i>Zezwalaj na ustawienia ograniczone</i>.
+    \n7. Zamknij okno Ustawienia i spróbuj ponownie od kroku 1.
+    </string>
     <string name="service_open_accessibility">Przejdź do Ustawień dostępności</string>
     <string name="warning">Ważne informacje</string>
     <string name="cancel">Anuluj</string>

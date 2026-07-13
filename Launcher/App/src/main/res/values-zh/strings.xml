@@ -140,10 +140,16 @@
     <string name="service_title">快捷方式服务</string>
 
     <string name="service_info_section_1_title">轻松访问<b>Lightning Launcher</b></string>
-    <string name="service_info_section_1_content">快速访问 <b>Lightning Launcher</b>
+    <string name="addon_dock_infoline">快速访问 <b>Lightning Launcher</b>
         \n启用快捷方式服务后，当你悬停在 dock 上指定的图标上时，<b>Lighting Launcher</b> 会自动打开</string>
     <string name="service_info_section_2_title"><b>启用</b>快捷服务</string>
     <string name="service_info_section_2_content">1. 使用该按钮打开 Android 的辅助功能设置\n2. 选择要启用的服务\n3. 在页面顶部打开服务\n4. 在提示中点击 "允许"\n5. 关闭窗口即刻生效</string>
+    <string name="service_info_section_3_title">看到<b>受限设置</b>弹出窗口了吗？</string>
+    <string name="service_info_section_3_content">在弹出窗口中点击“确定”<b>之后</b>：
+    \n5. 点击下方的“应用信息”。
+    \n6. 点击 <b>(⋮)</b>，然后点击<i>允许受限设置</i>。
+    \n7. 关闭“设置”窗口，然后从步骤 1 重试。
+    </string>
     <string name="service_open_accessibility">继续进入辅助功能设置</string>
 
     <string name="warning">重要信息</string>

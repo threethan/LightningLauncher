@@ -147,7 +147,7 @@ public class WallpaperLoader {
         RuntimeShader runtimeShader = getPreserveAlphaRuntimeShader();
         runtimeShader.setFloatUniform("fade",(alpha*0.6f-0.3f)*3.34f);
         runtimeShader.setFloatUniform("maxAlpha", alpha*0.5f+0.5f);
-        runtimeShader.setFloatUniform("minAlpha", shouldClampAlpha ? 0.8425f : 0.0f);
+        runtimeShader.setFloatUniform("minAlpha", shouldClampAlpha ? 0.8425f : 0.01f);
 
         // Set up RenderNode to render to a HardwareBuffer
         RenderNode renderNode = new RenderNode("shaderNode");

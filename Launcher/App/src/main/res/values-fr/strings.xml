@@ -133,12 +133,18 @@
     <string name="add_website_group">Ajouter à %s</string>
     <string name="service_title">Services de raccourcis</string>
     <string name="service_info_section_1_title">Accéder facilement au lanceur Lightning</string>
-    <string name="service_info_section_1_content">En activant le service de raccourci, Lightning Launcher s\'ouvrira lorsque vous survolerez l\'icône choisie sur le dock.</string>
+    <string name="addon_dock_infoline">En activant le service de raccourci, Lightning Launcher s\'ouvrira lorsque vous survolerez l\'icône choisie sur le dock.</string>
     <string name="service_info_section_2_title">Activer le service de raccourcis</string>
     <string name="service_info_section_2_content">1. Utilisez le bouton ci-dessous pour ouvrir les paramètres d\'accessibilité d\'Android\.
         \n2. Sélectionnez le service que vous souhaitez activer.
         \n3. Activez le service à l\'aide de l\'interrupteur supérieur.
         \n4. Cliquez sur "Autoriser" lorsque vous y êtes invité.</string>
+    <string name="service_info_section_3_title">Vous voyez un message <b>Paramètres restreints</b> ?</string>
+    <string name="service_info_section_3_content"><b>APRÈS</b> avoir cliqué sur OK sur le message :
+    \n5. Cliquez sur « Infos sur l\'appli » ci-dessous.
+    \n6. Cliquez sur <b>(⋮)</b>, puis sur <i>Autoriser les paramètres restreints</i>.
+    \n7. Fermez la fenêtre des paramètres, puis réessayez à partir de l\'étape 1.
+    </string>
     <string name="service_open_accessibility">Continuer vers Paramètres d\'accessibilité</string>
     <string name="warning">Informations importantes</string>
     <string name="cancel">Annuler</string>

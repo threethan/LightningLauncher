@@ -130,12 +130,18 @@
     <string name="add_website_group">Lisää %s:ään</string>
     <string name="service_title">Oikotiet Palvelut</string>
     <string name="service_info_section_1_title">Helppo pääsy Lightning Launcheriin</string>
-    <string name="service_info_section_1_content">Kun otat pikakuvakepalvelun käyttöön, Lightning Launcher avautuu, kun viet hiiren hiiren valitsemasi kuvakkeen päälle telakalla.</string>
+    <string name="addon_dock_infoline">Kun otat pikakuvakepalvelun käyttöön, Lightning Launcher avautuu, kun viet hiiren hiiren valitsemasi kuvakkeen päälle telakalla.</string>
     <string name="service_info_section_2_title">Ota pikakuvakepalvelu käyttöön</string>
     <string name="service_info_section_2_content">1. Avaa Android\:n saavutettavuusasetukset alla olevalla painikkeella.
         \n2. Valitse palvelu, jonka haluat ottaa käyttöön.
         \n3. Ota palvelu käyttöön ylemmällä kytkimellä.
         \n4. Napsauta "Salli", kun sinua kehotetaan.</string>
+    <string name="service_info_section_3_title">Näetkö <b>Rajoitetut asetukset</b> -ponnahdusikkunan?</string>
+    <string name="service_info_section_3_content"><b>SEN JÄLKEEN</b> kun olet napsauttanut OK ponnahdusikkunassa:
+    \n5. Napsauta alta \'Sovelluksen tiedot\'.
+    \n6. Napsauta <b>(⋮)</b> ja sitten <i>Salli rajoitetut asetukset</i>.
+    \n7. Sulje asetusikkuna ja yritä uudelleen vaiheesta 1.
+    </string>
     <string name="service_open_accessibility">Jatka saavutettavuusasetuksiin</string>
     <string name="warning">Tärkeää tietoa</string>
     <string name="cancel">Peruuta</string>

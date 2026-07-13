@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="20dp">
+    android:fillViewport="true"
+    android:minHeight="500dp"
+    android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:orientation="vertical">
     <View
         android:layout_width="406sp"
         android:layout_height="0dp" />
@@ -23,12 +30,13 @@
         android:text="@string/service_info_section_1_title" />
 
     <TextView
+        android:id="@+id/serviceInfoSection1Content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:autofillHints="text"
         android:background="@drawable/lc_bkg_button_section"
         android:alpha="0.8"
-        android:text="@string/service_info_section_1_content"
+        android:text="@string/addon_dock_infoline"
         android:textColor="@android:color/white" />
 
     <TextView
@@ -38,26 +46,65 @@
         android:text="@string/service_info_section_2_title" />
 
     <TextView
-        android:background="@drawable/lc_bkg_button_section"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:autofillHints="text"
         android:alpha="0.8"
+        android:autofillHints="text"
+        android:background="@drawable/lc_bkg_button_top"
         android:text="@string/service_info_section_2_content"
         android:textColor="@android:color/white" />
 
 
-    <com.threethan.launchercore.view.LcButton
-        android:layout_marginTop="10dp"
-        android:id="@+id/openAccessibilitySettings"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/service_open_accessibility" />
+        <com.threethan.launchercore.view.LcButton
+            android:id="@+id/openAccessibilitySettings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/lc_bkg_button_bottom"
+            android:drawableEnd="@drawable/ic_launch_out"
+            android:text="@string/service_open_accessibility" />
+
+        <LinearLayout
+            android:id="@+id/restrictedSettingsSection"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <TextView
+                style="@style/SettingSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/service_info_section_3_title" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:alpha="0.8"
+                android:autofillHints="text"
+                android:background="@drawable/lc_bkg_button_top"
+                android:text="@string/service_info_section_3_content"
+                android:textColor="@android:color/white" />
+
+            <com.threethan.launchercore.view.LcButton
+                android:id="@+id/openAppInfo"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/lc_bkg_button_bottom"
+                android:text="@string/tip_info" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
     <com.threethan.launchercore.view.LcButton
         android:layout_marginTop="10dp"
         android:id="@+id/dismissButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/confirm" />
-
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -130,12 +130,18 @@
     <string name="add_website_group">Добавить в %s</string>
     <string name="service_title">Услуги быстрого доступа</string>
     <string name="service_info_section_1_title">Легкий доступ к Lightning Launcher</string>
-    <string name="service_info_section_1_content">Если включить службу ярлыков, Lightning Launcher будет открываться при наведении курсора на выбранный значок в доке.</string>
+    <string name="addon_dock_infoline">Если включить службу ярлыков, Lightning Launcher будет открываться при наведении курсора на выбранный значок в доке.</string>
     <string name="service_info_section_2_title">Включите службу ярлыков</string>
     <string name="service_info_section_2_content">1. Используйте кнопку ниже, чтобы открыть настройки доступности Android\.
         \n2. Выберите услугу, которую вы хотите включить.
         \n3. Включите услугу с помощью верхнего переключателя.
         \n4. Нажмите кнопку "Разрешить", когда появится запрос.</string>
+    <string name="service_info_section_3_title">Видите всплывающее окно <b>Ограниченные настройки</b>?</string>
+    <string name="service_info_section_3_content"><b>ПОСЛЕ</b> нажатия кнопки ОК во всплывающем окне:
+    \n5. Нажмите «О приложении» ниже.
+    \n6. Нажмите <b>(⋮)</b>, затем <i>Разрешить ограниченные настройки</i>.
+    \n7. Закройте окно настроек и повторите попытку, начиная с шага 1.
+    </string>
     <string name="service_open_accessibility">Перейдите к настройкам доступности</string>
     <string name="warning">Важная информация</string>
     <string name="cancel">Отмена</string>

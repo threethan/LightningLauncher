@@ -173,12 +173,20 @@
 
     <string name="service_title">Shortcuts Services</string>
     <string name="service_info_section_1_title">Easily Access <b>Lightning Launcher</b></string>
-    <string name="service_info_section_1_content">By enabling the shortcut service, <b>Lightning Launcher</b> will open when you hover over the chosen icon on the dock.</string>
+    <string name="addon_dock_infoline">By enabling the shortcut service, <b>Lightning Launcher</b> will open when you hover over the chosen icon on the dock.</string>
     <string name="service_info_section_2_title"><b>Enable</b> the Shortcut Service</string>
     <string name="service_info_section_2_content">1. Use the button below to open Android\'s accessibility settings.
         \n2. Select the service you wish to enable.
         \n3. Turn on the service with the upper switch.
         \n4. Click "Allow" when prompted.</string>
+
+    <string name="service_info_section_3_title">See a <b>Restricted Settings</b> popup?</string>
+    <string name="service_info_section_3_content"><b>AFTER</b> clicking OK on the popup:
+    \n5. Click \'Open App Info\' below.
+    \n6. Click <b>(⋮)</b>, then <i>Allow Restricted Settings</i>
+    \n7. Close the Settings window, then try from step 1.
+    </string>
+
 
     <string name="service_open_accessibility">Continue to Accessibility Settings</string>
 

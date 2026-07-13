@@ -128,12 +128,18 @@
     <string name="add_website_group">에 추가 %s</string>
     <string name="service_title">바로 가기 서비스</string>
     <string name="service_info_section_1_title">라이트닝 런처에 쉽게 액세스</string>
-    <string name="service_info_section_1_content">바로 가기 서비스를 활성화하면 도크에서 선택한 아이콘 위로 마우스를 가져가면 라이트닝 런처가 열립니다.</string>
+    <string name="addon_dock_infoline">바로 가기 서비스를 활성화하면 도크에서 선택한 아이콘 위로 마우스를 가져가면 라이트닝 런처가 열립니다.</string>
     <string name="service_info_section_2_title">바로 가기 서비스 활성화</string>
     <string name="service_info_section_2_content">1. 아래 버튼을 사용하여 Android의 접근성 설정을 엽니다.
         \n2. 활성화하려는 서비스를 선택합니다.
         \n3. 상단 스위치로 서비스를 켭니다.
         \n4. 메시지가 표시되면 "허용"을 클릭합니다.</string>
+    <string name="service_info_section_3_title"><b>제한된 설정</b> 팝업이 보이시나요?</string>
+    <string name="service_info_section_3_content">팝업에서 확인을 클릭한 <b>후</b>:
+    \n5. 아래의 \'앱 정보\'를 클릭하세요.
+    \n6. <b>(⋮)</b>을 클릭한 다음 <i>제한된 설정 허용</i>을 클릭하세요.
+    \n7. 설정 창을 닫고 1단계부터 다시 시도하세요.
+    </string>
     <string name="service_open_accessibility">접근성 설정으로 계속 진행</string>
     <string name="warning">중요 정보</string>
     <string name="cancel">취소</string>

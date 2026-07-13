@@ -130,12 +130,18 @@
     <string name="add_website_group">Aggiungi a %s</string>
     <string name="service_title">Servizi di scorciatoia</string>
     <string name="service_info_section_1_title">Accesso facile al Lightning Launcher</string>
-    <string name="service_info_section_1_content">Abilitando il servizio di collegamento, Lightning Launcher si aprirà al passaggio del mouse sull\'icona scelta nel dock.</string>
+    <string name="addon_dock_infoline">Abilitando il servizio di collegamento, Lightning Launcher si aprirà al passaggio del mouse sull\'icona scelta nel dock.</string>
     <string name="service_info_section_2_title">Abilitare il servizio di scelta rapida</string>
     <string name="service_info_section_2_content">1. Utilizzare il pulsante seguente per aprire le impostazioni di accessibilità di Android.
         \n2. Selezionare il servizio che si desidera abilitare.
         \n3. Attivare il servizio con l\'interruttore superiore.
         \n4. Fare clic su "Consenti" quando viene richiesto.</string>
+    <string name="service_info_section_3_title">Vedi un popup <b>Impostazioni limitate</b>?</string>
+    <string name="service_info_section_3_content"><b>DOPO</b> aver fatto clic su OK sul popup:
+    \n5. Fai clic su "Informazioni app" di seguito.
+    \n6. Fai clic su <b>(⋮)</b>, quindi su <i>Consenti impostazioni limitate</i>.
+    \n7. Chiudi la finestra Impostazioni, quindi riprova dal passaggio 1.
+    </string>
     <string name="service_open_accessibility">Continuare con le impostazioni di accessibilità</string>
     <string name="warning">Informazioni importanti</string>
     <string name="cancel">Annullamento</string>
