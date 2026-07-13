@@ -13,7 +13,6 @@ import android.util.Log;
 import androidx.activity.ComponentActivity;
 import androidx.annotation.Nullable;
 
-import com.threethan.launcher.helper.PlatformExt;
 import com.threethan.launchercore.Core;
 import com.threethan.launchercore.lib.DelayLib;
 

@@ -6,6 +6,7 @@ import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Process;
 import android.provider.Settings;
@@ -18,27 +19,44 @@ import com.threethan.launchercore.util.CustomDialog;
 import com.threethan.launchercore.util.LcDialog;
 
 import java.util.Calendar;
-import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.function.Consumer;
 
 /** Get basic info related to app/game play time */
 public abstract class PlaytimeHelper {
-    private static Long getTotalSeconds(String pkgName) {
-        if (!hasUsagePermission()) return 0L;
-        Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.YEAR, 5);
-        long endTime = calendar.getTimeInMillis();
-        calendar.add(Calendar.YEAR, -15);
-        long startTime = calendar.getTimeInMillis();
+    private static Map<String, UsageStats> cachedUsageStats;
+    private static long lastCacheTimestamp = 0;
+
+    /** Internal helper to get all usage stats, cached for 1 second. */
+    private static synchronized Map<String, UsageStats> getUsageStatsMap() {
+        if (!hasUsagePermission()) return null;
+        long now = System.currentTimeMillis();
+        if (cachedUsageStats != null && (now - lastCacheTimestamp) < 1000) {
+            return cachedUsageStats;
+        }
+
         UsageStatsManager usageStatsManager = (UsageStatsManager)
                 Core.context().getSystemService(Context.USAGE_STATS_SERVICE);
-        List<UsageStats> usageStatsList
-                = usageStatsManager.queryUsageStats(3, startTime, endTime);
-        usageStatsList.removeIf(usageStats -> !usageStats.getPackageName().equals(pkgName));
-        long total = 0;
-        for (UsageStats stats : usageStatsList) total += stats.getTotalTimeInForeground() / 1000;
+        if (usageStatsManager == null) return null;
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.YEAR, -10);
+        long startTime = calendar.getTimeInMillis();
+        calendar.add(Calendar.YEAR, 11); // now + 1 year for buffer
+        long endTime = calendar.getTimeInMillis();
+
+        cachedUsageStats = usageStatsManager.queryAndAggregateUsageStats(startTime, endTime);
+        lastCacheTimestamp = now;
+        return cachedUsageStats;
+    }
+
+    private static Long getTotalSeconds(String pkgName) {
+        Map<String, UsageStats> statsMap = getUsageStatsMap();
+        if (statsMap == null) return 0L;
+        UsageStats stats = statsMap.get(pkgName);
+        long total = (stats == null ? 0 : stats.getTotalTimeInForeground()) / 1000;
         total += QuestGameTuner.getUsageOffset(pkgName) * 60L;
         return total;
     }
@@ -53,39 +71,17 @@ public abstract class PlaytimeHelper {
         });
     }
     public static Long getLastOpenedTime(String pkgName) {
-        if (!hasUsagePermission()) return 0L;
-        Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.YEAR, 5);
-        long endTime = calendar.getTimeInMillis();
-        calendar.add(Calendar.YEAR, -15);
-        long startTime = calendar.getTimeInMillis();
-        UsageStatsManager usageStatsManager = (UsageStatsManager)
-                Core.context().getSystemService(Context.USAGE_STATS_SERVICE);
-        List<UsageStats> usageStatsList
-                = usageStatsManager.queryUsageStats(3, startTime, endTime);
-        usageStatsList.removeIf(usageStats -> !usageStats.getPackageName().equals(pkgName));
-        long lastUsed = 0;
-        for (UsageStats stats : usageStatsList)
-            if (stats.getLastTimeUsed() > lastUsed) lastUsed = stats.getLastTimeUsed();
-        return lastUsed;
+        Map<String, UsageStats> statsMap = getUsageStatsMap();
+        if (statsMap == null) return 0L;
+        UsageStats stats = statsMap.get(pkgName);
+        return stats == null ? 0L : stats.getLastTimeUsed();
     }
     public static Long getInstalledTime(String pkgName) {
-        if (!hasUsagePermission()) return 0L;
-        Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.YEAR, 5);
-        long endTime = calendar.getTimeInMillis();
-        calendar.add(Calendar.YEAR, -15);
-        long startTime = calendar.getTimeInMillis();
-        UsageStatsManager usageStatsManager = (UsageStatsManager)
-                Core.context().getSystemService(Context.USAGE_STATS_SERVICE);
-        List<UsageStats> usageStatsList
-                = usageStatsManager.queryUsageStats(3, startTime, endTime);
-        usageStatsList.removeIf(usageStats -> !usageStats.getPackageName().equals(pkgName));
-        long firstInstall = Long.MAX_VALUE;
-        for (UsageStats stats : usageStatsList)
-            if (stats.getFirstTimeStamp() < firstInstall) firstInstall = stats.getFirstTimeStamp();
-        if (firstInstall == Long.MAX_VALUE) return 0L;
-        return firstInstall;
+        try {
+            return Core.context().getPackageManager().getPackageInfo(pkgName, 0).firstInstallTime;
+        } catch (PackageManager.NameNotFoundException e) {
+            return 0L;
+        }
     }
     private static String formatSeconds(long seconds) {
         long hours = seconds / 3600;

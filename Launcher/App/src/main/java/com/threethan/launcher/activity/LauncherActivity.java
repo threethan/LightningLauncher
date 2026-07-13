@@ -567,7 +567,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
             List<ApplicationInfo> newApps = Platform.listInstalledApps();
 
             if (newApps.size() != PlatformExt.installedApps.size())
-                runOnUiThread(() -> this.refreshPackagesInternal(newApps));
+                runOnUiThread(this::forceRefreshPackages);
             else {
 
                 Set<Integer> installedSet = new HashSet<>();
@@ -577,7 +577,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
 
                 if (newSet.size() != installedSet.size() || !installedSet.containsAll(newSet)) {
                     Log.d(TAG, "Refresh Package List due to mismatch");
-                    runOnUiThread(() -> this.refreshPackagesInternal(newApps));
+                    runOnUiThread(this::forceRefreshPackages);
                 }
             }
         });
@@ -611,7 +611,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         Log.v(TAG, "Package reload - Found "+ PlatformExt.installedApps.size() +" packages");
         AppExt.invalidateCaches();
 
-        if (launcherService != null) launcherService.forEachActivity(LauncherActivity::refreshInterface);
+        if (launcherService != null) launcherService.forEachActivity(LauncherActivity::refreshAppList);
     }
 
 

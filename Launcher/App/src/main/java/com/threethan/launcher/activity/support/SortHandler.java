@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.LauncherActivity;
+import com.threethan.launcher.helper.PlatformExt;
 import com.threethan.launcher.helper.PlaytimeHelper;
 import com.threethan.launchercore.Core;
 import com.threethan.launchercore.util.App;
@@ -18,7 +19,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
 
 public abstract class SortHandler {
@@ -125,17 +125,14 @@ public abstract class SortHandler {
                 // Call synchronously to prevent search issues
                 onPreSorted.accept(apps);
             }
-            case STANDARD -> {
-                AtomicInteger labelsLoaded = new AtomicInteger(0);
-                // Standard sort (by label)
+            case STANDARD -> // Standard sort (by label)
                 // Must be set here, else labels might async load during sort which causes issues
-                SettingsManager.getSortableAppLabelsAsync(apps, labels -> {
-                    // On labels loaded
-                    apps.sort(Comparator.comparing(a -> labels.getOrDefault(a, "")));
-                    // Notify all adapters to refresh
-                    onPreSorted.accept(apps);
-                });
-            }
+                    SettingsManager.getSortableAppLabelsAsync(apps, labels -> {
+                        // On labels loaded
+                        apps.sort(Comparator.comparing(a -> labels.getOrDefault(a, "")));
+                        // Notify all adapters to refresh
+                        onPreSorted.accept(apps);
+                    });
             case RECENTLY_USED -> {
                 // Recently used
                 Map<ApplicationInfo, Long> timeUsed = new HashMap<>();
@@ -162,7 +159,7 @@ public abstract class SortHandler {
                 // Recently installed
                 Map<ApplicationInfo, Long> timeInstalled = new HashMap<>();
 
-                if (PlaytimeHelper.hasUsagePermission()) {
+                if (!PlatformExt.isMetastoreBuild()) {
                     apps.forEach(app -> timeInstalled.put(app, PlaytimeHelper.getInstalledTime(app.packageName)));
                     //noinspection DataFlowIssue
                     apps.sort(Comparator.comparingLong(a -> timeInstalled.getOrDefault((ApplicationInfo) a, 0L)).reversed());
