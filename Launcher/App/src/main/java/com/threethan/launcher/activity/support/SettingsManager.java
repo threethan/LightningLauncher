@@ -499,7 +499,7 @@ public class SettingsManager extends Settings {
         if ((selected ? selectedGroupsSet : appGroupsSet).isEmpty()) readGroupsAndSort();
         ArrayList<String> sortedGroupList = new ArrayList<>(selected ? getSelectedGroups() : getAppGroups());
 
-        sortedGroupList.sort(Comparator.comparing(SettingsManager::getSortableGroupLabel));
+        sortedGroupList.sort(Comparator.comparing(SettingsManager::getSortableGroupLabel, String::compareToIgnoreCase));
 
         // Move hidden group to end
         if (sortedGroupList.contains(Settings.HIDDEN_GROUP)) {

@@ -120,7 +120,7 @@ public abstract class SortHandler {
                 Map<ApplicationInfo, String> labels = new HashMap<>();
                 apps.forEach(app -> labels.put(app, SettingsManager.getAppLabel(app)));
 
-                apps.sort(Comparator.comparing(labels::get));
+                apps.sort(Comparator.comparing(labels::get, String::compareToIgnoreCase));
 
                 // Call synchronously to prevent search issues
                 onPreSorted.accept(apps);
@@ -129,7 +129,7 @@ public abstract class SortHandler {
                 // Must be set here, else labels might async load during sort which causes issues
                     SettingsManager.getSortableAppLabelsAsync(apps, labels -> {
                         // On labels loaded
-                        apps.sort(Comparator.comparing(a -> labels.getOrDefault(a, "")));
+                        apps.sort(Comparator.comparing(a -> labels.getOrDefault(a, ""), String::compareToIgnoreCase));
                         // Notify all adapters to refresh
                         onPreSorted.accept(apps);
                     });
