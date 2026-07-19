@@ -521,7 +521,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
             case ICON -> AppDetailsDialog.onImageSelected(
                     bitmap, selectedImageView, this);
             case WALLPAPER -> {
-                bitmap = ImageLib.getResizedBitmap(bitmap, 720);
+                bitmap = ImageLib.getResizedBitmap(bitmap, 1080);
                 ImageLib.saveBitmap(bitmap,
                         new File(getApplicationInfo().dataDir, Settings.CUSTOM_BACKGROUND_PATH));
                 bitmap.recycle();
