@@ -101,7 +101,7 @@ public abstract class Launch {
                     "\nThe standard intent will be returned instead.");
             return getLaunchIntent(App.infoFor(packageName));
         }
-        if (Platform.getVrOsVersion() < 205) {
+        if (Platform.getVrOsVersion() < 202) {
             Intent intent = new Intent();
             intent.setAction("com.oculus.vrshell.intent.action.LAUNCH");
             intent.addCategory("android.intent.category.LAUNCHER");
@@ -111,7 +111,7 @@ public abstract class Launch {
             intent.setComponent(new ComponentName("com.oculus.vrshell", "com.oculus.vrshell.MainActivity"));
             return new LaunchIntent(intent);
         } else {
-            // Quest v2.0.5 breaks legacy method, has new method
+            // Quest v2.0.4 breaks legacy method, has new method
             Intent intent = new Intent("com.oculus.vrshell.intent.action.LAUNCH");
             intent.setComponent(new ComponentName("com.oculus.vrshell", "com.oculus.vrshell.ShellControlBroadcastReceiver"));
             intent.setFlags(Intent.FLAG_EXCLUDE_STOPPED_PACKAGES);
@@ -125,6 +125,7 @@ public abstract class Launch {
     }
 
     /** Launch a custom activity intent - in its own window, if applicable */
+    @SuppressWarnings("ExtractMethodRecommender")
     public static void launchInOwnWindow(LaunchIntent intent, Activity activity,
                                          boolean allowNewVrOsMultiWindow) {
         intent.intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
