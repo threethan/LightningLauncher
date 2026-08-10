@@ -130,12 +130,18 @@
     <string name="add_website_group">Lägg till i %s</string>
     <string name="service_title">Korta vägar Tjänster</string>
     <string name="service_info_section_1_title">Enkel åtkomst till Lightning Launcher</string>
-    <string name="service_info_section_1_content">Genom att aktivera genvägstjänsten kommer Lightning Launcher att öppnas när du håller muspekaren över den valda ikonen i dockan.</string>
+    <string name="addon_dock_infoline">Genom att aktivera genvägstjänsten kommer Lightning Launcher att öppnas när du håller muspekaren över den valda ikonen i dockan.</string>
     <string name="service_info_section_2_title">Aktivera genvägstjänsten</string>
     <string name="service_info_section_2_content">1. Använd knappen nedan för att öppna Androids tillgänglighetsinställningar.
         \n2. Välj den tjänst du vill aktivera.
         \n3. Slå på tjänsten med den övre knappen.
         \n4. Klicka på "Tillåt" när du uppmanas att göra det.</string>
+    <string name="service_info_section_3_title">Ser du en popup om <b>Begränsade inställningar</b>?</string>
+    <string name="service_info_section_3_content"><b>EFTER</b> att ha klickat på OK i popupen:
+    \n5. Klicka på "Appinfo" nedan.
+    \n6. Klicka på <b>(⋮)</b> och sedan på <i>Tillåt begränsade inställningar</i>.
+    \n7. Stäng inställningsfönstret och försök igen från steg 1.
+    </string>
     <string name="service_open_accessibility">Fortsätt till Inställningar för tillgänglighet</string>
     <string name="warning">Viktig information</string>
     <string name="cancel">Avbryt</string>

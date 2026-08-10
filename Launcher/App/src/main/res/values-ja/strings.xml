@@ -128,12 +128,18 @@
     <string name="add_website_group">%s に追加</string>
     <string name="service_title">ショートカット・サービス</string>
     <string name="service_info_section_1_title">ライトニングランチャーに簡単にアクセス</string>
-    <string name="service_info_section_1_content">ショートカットサービスを有効にすると、ドック上の選択したアイコンにカーソルを合わせたときにLightning Launcherが開きます。</string>
+    <string name="addon_dock_infoline">ショートカットサービスを有効にすると、ドック上の選択したアイコンにカーソルを合わせたときにLightning Launcherが開きます。</string>
     <string name="service_info_section_2_title">ショートカットサービスを有効にする</string>
     <string name="service_info_section_2_content">1.Androidのアクセシビリティ設定を開くには、以下のボタンを押してください。
         \n2.有効にしたいサービスを選択します。
         \n3.上のスイッチでサービスをオンにします。
         \n4.プロンプトが表示されたら、"許可 "をクリックします。</string>
+    <string name="service_info_section_3_title"><b>「制限付き設定」</b>のポップアップが表示されますか？</string>
+    <string name="service_info_section_3_content">ポップアップで「OK」をクリックした<b>後</b>：
+    \n5. 下の「アプリ情報」をクリックします。
+    \n6. <b>(⋮)</b>をクリックし、<i>「制限付き設定を許可」</i>を選択します。
+    \n7. 設定ウィンドウを閉じ、ステップ1からやり直してください。
+    </string>
     <string name="service_open_accessibility">アクセシビリティ設定に進む</string>
     <string name="warning">重要情報</string>
     <string name="cancel">キャンセル</string>

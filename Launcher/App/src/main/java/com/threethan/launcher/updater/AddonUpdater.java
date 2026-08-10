@@ -13,6 +13,7 @@ import android.view.accessibility.AccessibilityManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.threethan.launcher.R;
 import com.threethan.launcher.helper.PlatformExt;
 
 import java.util.List;
@@ -45,10 +46,11 @@ public class AddonUpdater extends RemotePackageUpdater {
          */
 
         public Addon(String tag, String packageName, String latestVersion,
-                     Boolean isService, String url) {
+                     Boolean isService, String url, int infoLineResId) {
             super(packageName, latestVersion, url);
             this.tag = tag;
             this.isService = isService;
+            this.infoLineResId = infoLineResId;
         }
 
         @NonNull
@@ -56,6 +58,8 @@ public class AddonUpdater extends RemotePackageUpdater {
         public String toString() {
             return tag;
         }
+
+        public final int infoLineResId;
     }
     // Package names
     public static final String TAG_LIBRARY  = "Library Shortcut Service";
@@ -80,19 +84,19 @@ public class AddonUpdater extends RemotePackageUpdater {
     public static final Addon[] addons = {
             // Quest-Exclusive
             new Addon(TAG_LIBRARY, "com.threethan.launcher.service.library",
-                    SHORTCUT_ADDON_VERSION, true, addonUrl("ShortcutLibrary")),
+                    SHORTCUT_ADDON_VERSION, true, addonUrl("ShortcutLibrary"), R.string.addon_dock_infoline),
 
             new Addon(TAG_PEOPLE, "com.threethan.launcher.service.people",
-                    SHORTCUT_ADDON_VERSION, true, addonUrl("ShortcutPeople")),
+                    SHORTCUT_ADDON_VERSION, true, addonUrl("ShortcutPeople"), R.string.addon_dock_infoline),
 
             new Addon(TAG_FEED, "com.threethan.launcher.service.explore",
-                    SHORTCUT_ADDON_VERSION, true, addonUrl("ShortcutFeed")),
+                    SHORTCUT_ADDON_VERSION, true, addonUrl("ShortcutFeed"), R.string.addon_dock_infoline),
 
             new Addon(TAG_STORE, "com.threethan.launcher.service.store",
-                    SHORTCUT_ADDON_VERSION, true, addonUrl("ShortcutStore")),
+                    SHORTCUT_ADDON_VERSION, true, addonUrl("ShortcutStore"), R.string.addon_dock_infoline),
 
             new Addon(TAG_NAVIGATOR, "com.threethan.launcher.service.navigator",
-                    SHORTCUT_ADDON_VERSION, true, addonUrl("ShortcutNavigator")),
+                    SHORTCUT_ADDON_VERSION, true, addonUrl("ShortcutNavigator"), R.string.addons_navigator_desc),
     };
 
     /**

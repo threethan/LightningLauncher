@@ -97,6 +97,15 @@ public abstract class Platform {
                     installedApps.add(appInfo);
                 }
 
+                @SuppressLint("QueryPermissionsNeeded")
+                List<ApplicationInfo> queriedInstalledApps
+                        = pm.getInstalledApplications(PackageManager.GET_META_DATA
+                        | PackageManager.MATCH_DISABLED_UNTIL_USED_COMPONENTS);
+
+                installedApps.addAll(queriedInstalledApps);
+
+                installedApps.removeIf(app -> isAppInvalidOrUninstalled(pm, app));
+
                 if (Platform.isQuest()) for (String systemUxPanelApp : questVersionedIncludedApps) {
                     ApplicationInfo panelAppInfo = new ApplicationInfo();
                     panelAppInfo.packageName = systemUxPanelApp;
@@ -110,6 +119,7 @@ public abstract class Platform {
                 List<ApplicationInfo> installedApps
                         = pm.getInstalledApplications(PackageManager.GET_META_DATA
                         | PackageManager.MATCH_DISABLED_UNTIL_USED_COMPONENTS);
+                installedApps.removeIf(app -> isAppInvalidOrUninstalled(pm, app));
                 if (Platform.isQuest()) for (String systemUxPanelApp : questVersionedIncludedApps) {
                     ApplicationInfo panelAppInfo = new ApplicationInfo();
                     panelAppInfo.packageName = systemUxPanelApp;
@@ -121,6 +131,20 @@ public abstract class Platform {
             Log.e("Platform", "Failed to list installed apps, retrying momentarily...", exception);
             try { Thread.sleep(250L);} catch (InterruptedException ignored) {}
             return listInstalledApps();
+        }
+    }
+
+    /**
+     * Filters out stale package entries reported by PackageManager that can no longer load labels/resources.
+     */
+    private static boolean isAppInvalidOrUninstalled(PackageManager pm, ApplicationInfo app) {
+        if (app == null || app.packageName == null) return true;
+        try {
+            pm.getApplicationLabel(app);
+            return false;
+        } catch (RuntimeException e) {
+            Log.w("Platform", "Skipping invalid package entry: " + app.packageName, e);
+            return true;
         }
     }
 
@@ -224,7 +248,11 @@ public abstract class Platform {
             "com.google.android.inputmethod.latin",
             "com.android.tv",
             "com.google.android.tvlauncher",
-            "com.google.android.tv.remoteservice"
+            "com.google.android.tv.remoteservice",
+
+            // v2.0.X
+            "com.meta.surfacetypingnux",
+            "com.meta.spatial.samples.startersample"
     ));
 
     static {
@@ -328,4 +356,3 @@ public abstract class Platform {
         return !isTv() && !isVr();
     }
 }
-

@@ -130,12 +130,18 @@
     <string name="add_website_group">Toevoegen aan %s</string>
     <string name="service_title">Services met snelkoppelingen</string>
     <string name="service_info_section_1_title">Gemakkelijk toegang tot Lightning Launcher</string>
-    <string name="service_info_section_1_content">Als je de snelkoppelingsdienst inschakelt, wordt Lightning Launcher geopend wanneer je met je muis over het gekozen pictogram in het dock beweegt.</string>
+    <string name="addon_dock_infoline">Als je de snelkoppelingsdienst inschakelt, wordt Lightning Launcher geopend wanneer je met je muis over het gekozen pictogram in het dock beweegt.</string>
     <string name="service_info_section_2_title">De snelkoppelingsdienst inschakelen</string>
     <string name="service_info_section_2_content">1. Gebruik de onderstaande knop om de toegankelijkheidsinstellingen van Android te openen.
         \n2. Selecteer de service die je wilt inschakelen.
         \n3. Schakel de service in met de bovenste schakelaar.
         \n4. Klik op "Toestaan" als daarom wordt gevraagd.</string>
+    <string name="service_info_section_3_title">Zie je een <b>Beperkte instellingen</b>-pop-up?</string>
+    <string name="service_info_section_3_content"><b>NADAT</b> je op OK hebt geklikt in de pop-up:
+    \n5. Klik hieronder op \'App-info\'.
+    \n6. Klik op <b>(⋮)</b> en dan op <i>Beperkte instellingen toestaan</i>.
+    \n7. Sluit het instellingenvenster en probeer het opnieuw vanaf stap 1.
+    </string>
     <string name="service_open_accessibility">Doorgaan naar Toegankelijkheidsinstellingen</string>
     <string name="warning">Belangrijke informatie</string>
     <string name="cancel">Annuleren</string>

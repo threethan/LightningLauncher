@@ -17,6 +17,7 @@ import com.threethan.launchercore.lib.DelayLib;
 import com.threethan.launchercore.util.LcDialog;
 
 import java.io.File;
+import java.util.Objects;
 
 public abstract class SyncCoordinator {
 
@@ -59,19 +60,21 @@ public abstract class SyncCoordinator {
             PackageInfo targetInfo = pm.getPackageInfo(destinationPackage, 0);
             PackageInfo myInfo = pm.getPackageInfo(context.getPackageName(), 0);
 
-            long targetVersion = (android.os.Build.VERSION.SDK_INT >= 28)
-                    ? targetInfo.getLongVersionCode()
-                    : targetInfo.versionCode;
-            long myVersion = (android.os.Build.VERSION.SDK_INT >= 28)
-                    ? myInfo.getLongVersionCode()
-                    : myInfo.versionCode;
+            if (!Objects.equals(myInfo.versionName, targetInfo.versionName)) {
+                long targetVersion = (android.os.Build.VERSION.SDK_INT >= 28)
+                        ? targetInfo.getLongVersionCode()
+                        : targetInfo.versionCode;
+                long myVersion = (android.os.Build.VERSION.SDK_INT >= 28)
+                        ? myInfo.getLongVersionCode()
+                        : myInfo.versionCode;
 
-            if (targetVersion < myVersion) {
-                LcDialog.toast(context.getString(R.string.transfer_issue_other_older));
-                return;
-            } else if (targetVersion > myVersion) {
-                LcDialog.toast(context.getString(R.string.transfer_issue_other_newer));
-                return;
+                if (targetVersion < myVersion) {
+                    LcDialog.toast(context.getString(R.string.transfer_issue_other_older));
+                    return;
+                } else if (targetVersion > myVersion) {
+                    LcDialog.toast(context.getString(R.string.transfer_issue_other_newer));
+                    return;
+                }
             }
         } catch (PackageManager.NameNotFoundException e) {
             LcDialog.toast("Target app not installed?");

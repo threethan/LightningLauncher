@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.view.View;
 import android.widget.Switch;
+import android.widget.TextView;
 
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.data.Settings;
+import com.threethan.launcher.helper.AppExt;
 import com.threethan.launcher.helper.PlatformExt;
 import com.threethan.launcher.helper.VariantHelper;
 import com.threethan.launcher.updater.AddonUpdater;
@@ -201,8 +203,8 @@ public class AddonManagerDialog extends LcDialog<LauncherActivity> {
         uninstallButton.setOnClickListener(v -> getUpdater().uninstallAddon(a, tag));
         installButton.setOnClickListener(v -> getUpdater().installAddon(tag));
         updateButton.setOnClickListener(v -> getUpdater().installAddon(tag));
-        activateButton  .setOnClickListener(v -> showAccessibilityDialog());
-        deactivateButton.setOnClickListener(v -> showAccessibilityDialog());
+        activateButton  .setOnClickListener(v -> showAccessibilityDialog(addon));
+        deactivateButton.setOnClickListener(v -> showAccessibilityDialog(addon));
         openButton.setOnClickListener(v -> {
             PackageManager pm = a.getPackageManager();
             if (addon != null) a.startActivity(pm.getLaunchIntentForPackage(addon.packageName));
@@ -218,16 +220,24 @@ public class AddonManagerDialog extends LcDialog<LauncherActivity> {
         return updater;
     }
 
-    protected static void showAccessibilityDialog() {
+    protected static void showAccessibilityDialog(AddonUpdater.Addon addon) {
         Activity a = LauncherActivity.getForegroundInstance();
         AlertDialog dialog = new LcDialog<>(a, R.layout.dialog_info_redirect_activate).show();
-        if (dialog != null) dialog.findViewById(R.id.openAccessibilitySettings).setOnClickListener(v -> {
-            // Navigate to accessibility settings
-            Intent localIntent = new Intent("android.settings.ACCESSIBILITY_SETTINGS");
-            localIntent.setPackage("com.android.settings");
-            assert a != null;
-            a.startActivity(localIntent);
-        });
+        if (dialog != null) {
+            TextView section1content = dialog.findViewById(R.id.serviceInfoSection1Content);
+            section1content.setText(addon.infoLineResId);
+
+            dialog.findViewById(R.id.openAccessibilitySettings).setOnClickListener(v -> {
+                // Navigate to accessibility settings
+                Intent localIntent = new Intent("android.settings.ACCESSIBILITY_SETTINGS");
+                localIntent.setPackage("com.android.settings");
+                assert a != null;
+                a.startActivity(localIntent);
+                View restrictedSection = dialog.findViewById(R.id.restrictedSettingsSection);
+                restrictedSection.postDelayed(() -> restrictedSection.setVisibility(View.VISIBLE), 3000);
+            });
+            dialog.findViewById(R.id.openAppInfo).setOnClickListener(v -> AppExt.openInfo(a, addon.packageName));
+        }
     }
 
     protected static void showDockDialog() {

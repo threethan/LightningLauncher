@@ -13,11 +13,11 @@ import android.util.Log;
 import androidx.activity.ComponentActivity;
 import androidx.annotation.Nullable;
 
-import com.threethan.launcher.helper.PlatformExt;
 import com.threethan.launchercore.Core;
 import com.threethan.launchercore.lib.DelayLib;
 
 import java.util.Objects;
+import java.util.UUID;
 
 public abstract class Launch {
 
@@ -27,7 +27,7 @@ public abstract class Launch {
      * @return Intent to launch if found, null if failed
      */
     @Nullable
-    public static Intent getLaunchIntent(ApplicationInfo app) {
+    public static LaunchIntent getLaunchIntent(ApplicationInfo app) {
         if (app.packageName.startsWith("com.threethan.launcher.service")) return null;
         if (app.packageName.equals(Core.context().getPackageName())) return null;
         if (Platform.excludedPackageNames.contains(app.packageName)) return null;
@@ -38,7 +38,7 @@ public abstract class Launch {
             intent.setData(Uri.parse("package:com.android.settings"));
             intent.setPackage("com.android.settings");
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            return intent;
+            return new LaunchIntent(intent);
         }
 
         PackageManager pm = Core.context().getPackageManager();
@@ -47,73 +47,103 @@ public abstract class Launch {
             Intent intent = pm.getLaunchIntentForPackage("com.oculus.vrshell");
             assert intent != null;
             intent.setData(Uri.parse(app.packageName));
-            return intent;
+            return new LaunchIntent(intent);
         }
 
         if (App.getType(app) == App.Type.WEB) {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(app.packageName));
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            return intent;
+            return new LaunchIntent(intent);
         }
 
         final Intent defaultIntent  = pm.getLaunchIntentForPackage(app.packageName);
         final Intent leanbackIntent = pm.getLeanbackLaunchIntentForPackage(app.packageName);
-        if (Platform.isQuest() && PlatformExt.useVrOsChainLaunch()) {
+        if (Platform.isQuest() && Platform.supportsVrOsChainLaunch()) {
             final Intent intent = defaultIntent != null ? defaultIntent : leanbackIntent;
             if (intent != null) return getVrOsLaunchIntent(app.packageName);
             else return null;
         } else if (Platform.isTv()) {
             if (Objects.equals(app.packageName, "com.android.tv.settings"))
-                return new Intent(android.provider.Settings.ACTION_SETTINGS);
-            return leanbackIntent != null ? leanbackIntent : defaultIntent;
+                return new LaunchIntent(new Intent(android.provider.Settings.ACTION_SETTINGS));
+            return leanbackIntent != null ? new LaunchIntent(leanbackIntent) : new LaunchIntent(defaultIntent);
         } else {
-            return defaultIntent != null ? defaultIntent : leanbackIntent;
+            if (Platform.isQuest() && defaultIntent != null) {
+                defaultIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NO_ANIMATION | Intent.FLAG_ACTIVITY_NO_USER_ACTION);
+            }
+            return defaultIntent != null ? new LaunchIntent(defaultIntent) : new LaunchIntent(leanbackIntent);
         }
     }
 
+    /**
+     * Wrapped activity or broadcast intent to launch an app
+     * @param isBroadcast True if the intent is a broadcast
+     * @param intent Intent to launch
+     */
+    public record LaunchIntent(Intent intent, boolean isBroadcast) {
+        public LaunchIntent(Intent intent) {
+            this(intent, false);
+        }
+        public void startFrom(Activity activity) {
+            try {
+                Log.d("LAUNCH", "Launching app: "+intent.getComponent() +" as "+activity.getClass().getName() +" (isBroadcast="+isBroadcast + ")");
+                if (isBroadcast) activity.sendBroadcast(intent);
+                else activity.startActivity(intent);
+            } catch (SecurityException ignored) {
+                Log.w("LAUNCH", "No permission to launch app");
+                LcDialog.toast("No permission to launch app");
+            }
+        }
+    }
     /** Gets an intent to launch an application using vrOS. Not tested before v69. */
-    public static Intent getVrOsLaunchIntent(String packageName) {
+    public static LaunchIntent getVrOsLaunchIntent(String packageName) {
         if (!Platform.supportsVrOsChainLaunch()) {
-            Log.e("Launch", "Attempted to get vrOs launch intent on unsupported version!" +
+            Log.e("LAUNCH", "Attempted to get vrOs launch intent on unsupported version!" +
                     "\nThe standard intent will be returned instead.");
             return getLaunchIntent(App.infoFor(packageName));
         }
-        Intent intent = new Intent();
-        intent.setAction("com.oculus.vrshell.intent.action.LAUNCH");
-        intent.addCategory("android.intent.category.LAUNCHER");
-        intent.setData(Uri.parse("apk://"+packageName));
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.setPackage("com.oculus.vrshell");
-        intent.setComponent(new ComponentName("com.oculus.vrshell", "com.oculus.vrshell.MainActivity"));
-        return intent;
+        if (Platform.getVrOsVersion() < 202) {
+            Intent intent = new Intent();
+            intent.setAction("com.oculus.vrshell.intent.action.LAUNCH");
+            intent.addCategory("android.intent.category.LAUNCHER");
+            intent.setData(Uri.parse("apk://" + packageName));
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NO_ANIMATION | Intent.FLAG_ACTIVITY_NO_USER_ACTION);
+            intent.setPackage("com.oculus.vrshell");
+            intent.setComponent(new ComponentName("com.oculus.vrshell", "com.oculus.vrshell.MainActivity"));
+            return new LaunchIntent(intent);
+        } else {
+            // Quest v2.0.4 breaks legacy method, has new method
+            Intent intent = new Intent("com.oculus.vrshell.intent.action.LAUNCH");
+            intent.setComponent(new ComponentName("com.oculus.vrshell", "com.oculus.vrshell.ShellControlBroadcastReceiver"));
+            intent.setFlags(Intent.FLAG_EXCLUDE_STOPPED_PACKAGES);
+            intent.putExtra("intent_pkg", "com.oculus.panelapp.library");
+            intent.putExtra("launchId", UUID.randomUUID().toString());
+            intent.putExtra("intent_data", packageName);
+            intent.putExtra("uri", "null");
+            intent.putExtra("timestamp", System.currentTimeMillis());
+            return new LaunchIntent(intent, true);
+        }
     }
 
-    /** Launch a custom activity intent - in it's own window, if applicable */
-    public static void launchInOwnWindow(Intent intent, Activity activity,
+    /** Launch a custom activity intent - in its own window, if applicable */
+    @SuppressWarnings("ExtractMethodRecommender")
+    public static void launchInOwnWindow(LaunchIntent intent, Activity activity,
                                          boolean allowNewVrOsMultiWindow) {
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        intent.intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            intent.removeFlags(Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+            intent.intent.removeFlags(Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
         }
+
+        Runnable launchAction = () -> intent.startFrom(activity);
+
         Runnable onPostDestroy = () -> {
-            try {
-                activity.startActivity(intent);
-            } catch (SecurityException ignored) {
-                LcDialog.toast("No permission to launch app");
-            }
+            launchAction.run();
             if (Platform.supportsNewVrOsMultiWindow() && allowNewVrOsMultiWindow) {
                 PackageManager pm = Core.context().getPackageManager();
                 Intent relaunch = pm.getLaunchIntentForPackage(activity.getPackageName());
                 DelayLib.delayed(() -> activity.startActivity(relaunch), 550);
-                if (!Objects.equals(intent.getAction(), Intent.ACTION_VIEW)) {
-                    DelayLib.delayed(() -> {
-                        try {
-                            activity.startActivity(intent);
-                        } catch (SecurityException ignored) {
-                            LcDialog.toast("No permission to launch app");
-                        }
-                    }, 2000);
+                if (!Objects.equals(intent.intent.getAction(), Intent.ACTION_VIEW)) {
+                    DelayLib.delayed(launchAction, 2000);
                 }
             }
         };
@@ -128,6 +158,7 @@ public abstract class Launch {
             activity.finishAffinity();
         }
     }
+
     /** A subclass of androidx ComponentActivity which supports launching vrOS apps without delay */
     public static class LaunchingActivity extends ComponentActivity {
         private Runnable onPostDestroy = null;

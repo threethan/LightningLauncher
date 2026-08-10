@@ -130,12 +130,18 @@
     <string name="add_website_group">Tilføj til %s</string>
     <string name="service_title">Genvejstjenester</string>
     <string name="service_info_section_1_title">Nem adgang til Lightning Launcher</string>
-    <string name="service_info_section_1_content">Ved at aktivere genvejstjenesten åbnes Lightning Launcher, når du holder musen over det valgte ikon på docken.</string>
+    <string name="addon_dock_infoline">Ved at aktivere genvejstjenesten åbnes Lightning Launcher, når du holder musen over det valgte ikon på docken.</string>
     <string name="service_info_section_2_title">Aktivér genvejstjenesten</string>
     <string name="service_info_section_2_content">1. Brug knappen nedenfor til at åbne Androids tilgængelighedsindstillinger.
         \n2. Vælg den tjeneste, du ønsker at aktivere.
         \n3. Tænd for tjenesten med den øverste kontakt.
         \n4. Klik på "Tillad", når du bliver bedt om det.</string>
+    <string name="service_info_section_3_title">Ser du en <b>Begrænsede indstillinger</b>-popup?</string>
+    <string name="service_info_section_3_content"><b>EFTER</b> du har klikket på OK i popuppen:
+    \n5. Klik på \'App-info\' nedenfor.
+    \n6. Klik på <b>(⋮)</b> og derefter på <i>Tillad begrænsede indstillinger</i>.
+    \n7. Luk indstillingsvinduet, og prøv igen fra trin 1.
+    </string>
     <string name="service_open_accessibility">Fortsæt til Indstillinger for tilgængelighed</string>
     <string name="warning">Vigtig information</string>
     <string name="cancel">Annuller</string>

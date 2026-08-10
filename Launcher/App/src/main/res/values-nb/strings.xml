@@ -130,12 +130,18 @@
     <string name="add_website_group">Legg til i %s</string>
     <string name="service_title">Snarveier Tjenester</string>
     <string name="service_info_section_1_title">Enkel tilgang til Lightning Launcher</string>
-    <string name="service_info_section_1_content">Når du aktiverer snarveitjenesten, åpnes Lightning Launcher når du holder musepekeren over det valgte ikonet på dokkingstasjonen.</string>
+    <string name="addon_dock_infoline">Når du aktiverer snarveitjenesten, åpnes Lightning Launcher når du holder musepekeren over det valgte ikonet på dokkingstasjonen.</string>
     <string name="service_info_section_2_title">Aktivere snarveistjenesten</string>
     <string name="service_info_section_2_content">1. Bruk knappen nedenfor for å åpne tilgjengelighetsinnstillingene i Android.
         \n2. Velg tjenesten du ønsker å aktivere.
         \n3. Slå på tjenesten med den øvre bryteren.
         \n4. Klikk på "Tillat" når du blir bedt om det.</string>
+    <string name="service_info_section_3_title">Ser du et <b>Begrensede innstillinger</b>-popup-vindu?</string>
+    <string name="service_info_section_3_content"><b>ETTER</b> at du har klikket på OK i popup-vinduet:
+    \n5. Klikk på «Appinfo» nedenfor.
+    \n6. Klikk på <b>(⋮)</b>, og deretter på <i>Tillat begrensede innstillinger</i>.
+    \n7. Lukk innstillingsvinduet, og prøv igjen fra trinn 1.
+    </string>
     <string name="service_open_accessibility">Fortsett til Tilgjengelighetsinnstillinger</string>
     <string name="warning">Viktig informasjon</string>
     <string name="cancel">Avbryt</string>

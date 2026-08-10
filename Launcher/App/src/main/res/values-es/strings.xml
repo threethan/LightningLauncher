@@ -130,12 +130,18 @@
     <string name="add_website_group">Añadir a %s</string>
     <string name="service_title">Atajos Servicios</string>
     <string name="service_info_section_1_title">Accede fácilmente a Lightning Launcher</string>
-    <string name="service_info_section_1_content">Al activar el servicio de acceso directo, Lightning Launcher se abrirá cuando pases el ratón por encima del icono elegido en el dock.</string>
+    <string name="addon_dock_infoline">Al activar el servicio de acceso directo, Lightning Launcher se abrirá cuando pases el ratón por encima del icono elegido en el dock.</string>
     <string name="service_info_section_2_title">Habilitar el servicio de acceso directo</string>
     <string name="service_info_section_2_content">1. Utilice el botón de abajo para abrir la configuración de accesibilidad de Android\.
         \n2. Seleccione el servicio que desea habilitar.
         \n3. Active el servicio con el interruptor superior.
         \n4. Haga clic en "Permitir" cuando se le solicite.</string>
+    <string name="service_info_section_3_title">¿Ves una ventana emergente de <b>Ajustes restringidos</b>?</string>
+    <string name="service_info_section_3_content"><b>DESPUÉS</b> de hacer clic en Aceptar en la ventana emergente:
+    \n5. Haga clic en \'Información de la aplicación\' a continuación.
+    \n6. Haga clic en <b>(⋮)</b> y, a continuación, en <i>Permitir ajustes restringidos</i>.
+    \n7. Cierra la ventana de Ajustes y vuelve a intentarlo desde el paso 1.
+    </string>
     <string name="service_open_accessibility">Continuar con los ajustes de accesibilidad</string>
     <string name="warning">Información importante</string>
     <string name="cancel">Cancelar</string>

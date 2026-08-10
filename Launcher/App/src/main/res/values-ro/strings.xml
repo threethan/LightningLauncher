@@ -130,12 +130,18 @@
     <string name="add_website_group">Adăugați la %s</string>
     <string name="service_title">Servicii Shortcuts</string>
     <string name="service_info_section_1_title">Accesați cu ușurință Lightning Launcher</string>
-    <string name="service_info_section_1_content">Prin activarea serviciului de comenzi rapide, Lightning Launcher se va deschide atunci când treceți peste pictograma aleasă din dock.</string>
+    <string name="addon_dock_infoline">Prin activarea serviciului de comenzi rapide, Lightning Launcher se va deschide atunci când treceți peste pictograma aleasă din dock.</string>
     <string name="service_info_section_2_title">Activați serviciul de comenzi rapide</string>
     <string name="service_info_section_2_content">1. Utilizați butonul de mai jos pentru a deschide setările de accesibilitate ale Android\.
         \n2. Selectați serviciul pe care doriți să îl activați.
         \n3. Activați serviciul cu comutatorul de sus.
         \n4. Faceți clic pe "Allow" atunci când vi se solicită.</string>
+    <string name="service_info_section_3_title">Vedeți o fereastră pop-up <b>Setări restricționate</b>?</string>
+    <string name="service_info_section_3_content"><b>DUPĂ</b> ce faceți clic pe OK în fereastra pop-up:
+    \n5. Faceți clic pe „Informații aplicație” de mai jos.
+    \n6. Faceți clic pe <b>(⋮)</b>, apoi pe <i>Permiteți setările restricționate</i>.
+    \n7. Închideți fereastra Setări, apoi încercați din nou de la pasul 1.
+    </string>
     <string name="service_open_accessibility">Continuați la Setări de accesibilitate</string>
     <string name="warning">Informații importante</string>
     <string name="cancel">Anulează</string>

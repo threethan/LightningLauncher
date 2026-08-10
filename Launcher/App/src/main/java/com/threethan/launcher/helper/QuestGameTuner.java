@@ -18,6 +18,7 @@ import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.activity.view.ViewFlinger;
 import com.threethan.launchercore.Core;
 import com.threethan.launchercore.util.App;
+import com.threethan.launchercore.util.Launch;
 import com.threethan.launchercore.util.LcDialog;
 import com.threethan.launchercore.util.Platform;
 
@@ -89,7 +90,7 @@ public abstract class QuestGameTuner {
 
     private static void launch() {
         Intent li = Core.context().getPackageManager().getLaunchIntentForPackage(PKG_NAME);
-        if (li != null) LaunchExt.launchInOwnWindow(li, LauncherActivity.getForegroundInstance(), true);
+        if (li != null) LaunchExt.launchInOwnWindow(new Launch.LaunchIntent(li), LauncherActivity.getForegroundInstance(), true);
     }
 
     /** Opens Quest Game Tuner to its options screen */
@@ -97,7 +98,7 @@ public abstract class QuestGameTuner {
         Intent intent = Core.context().getPackageManager().getLaunchIntentForPackage(PKG_NAME);
         if (intent == null) return;
         intent.putExtra("config", true);
-        LaunchExt.launchInOwnWindow(intent, LauncherActivity.getForegroundInstance(),
+        LaunchExt.launchInOwnWindow(new Launch.LaunchIntent(intent), LauncherActivity.getForegroundInstance(),
                 Platform.getVrOsVersion() < 74);
     }
 

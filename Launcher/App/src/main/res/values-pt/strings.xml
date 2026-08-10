@@ -130,12 +130,18 @@
     <string name="add_website_group">Adicionar a %s</string>
     <string name="service_title">Serviços Shortcuts</string>
     <string name="service_info_section_1_title">Aceder facilmente ao Lightning Launcher</string>
-    <string name="service_info_section_1_content">Ao ativar o serviço de atalho, o Lightning Launcher será aberto quando passar o rato sobre o ícone escolhido na doca.</string>
+    <string name="addon_dock_infoline">Ao ativar o serviço de atalho, o Lightning Launcher será aberto quando passar o rato sobre o ícone escolhido na doca.</string>
     <string name="service_info_section_2_title">Ativar o serviço de atalhos</string>
     <string name="service_info_section_2_content">1. Utilize o botão abaixo para abrir as definições de acessibilidade do Android.
         \n2. Selecione o serviço que pretende ativar.
         \n3. Ligue o serviço com o interrutor superior.
         \n4. Clique em "Permitir" quando solicitado.</string>
+    <string name="service_info_section_3_title">Vê uma janela pop-up de <b>Definições restritas</b>?</string>
+    <string name="service_info_section_3_content"><b>DEPOIS</b> de clicar em OK na janela pop-up:
+    \n5. Clique em \'Informações da aplicação\' abaixo.
+    \n6. Clique em <b>(⋮)</b> e, em seguida, em <i>Permitir definições restritas</i>.
+    \n7. Feche a janela de Definições e tente novamente a partir do passo 1.
+    </string>
     <string name="service_open_accessibility">Continuar para Definições de acessibilidade</string>
     <string name="warning">Informações importantes</string>
     <string name="cancel">Cancelar</string>

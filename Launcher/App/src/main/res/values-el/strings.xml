@@ -130,12 +130,18 @@
     <string name="add_website_group">Προσθήκη στο %s</string>
     <string name="service_title">Υπηρεσίες συντομεύσεων</string>
     <string name="service_info_section_1_title">Εύκολη πρόσβαση στον εκτοξευτή Lightning</string>
-    <string name="service_info_section_1_content">Ενεργοποιώντας την υπηρεσία συντόμευσης, ο Lightning Launcher θα ανοίγει όταν περνάτε το ποντίκι πάνω από το επιλεγμένο εικονίδιο στο dock.</string>
+    <string name="addon_dock_infoline">Ενεργοποιώντας την υπηρεσία συντόμευσης, ο Lightning Launcher θα ανοίγει όταν περνάτε το ποντίκι πάνω από το επιλεγμένο εικονίδιο στο dock.</string>
     <string name="service_info_section_2_title">Ενεργοποίηση της υπηρεσίας συντόμευσης</string>
     <string name="service_info_section_2_content">1. Χρησιμοποιήστε το παρακάτω κουμπί για να ανοίξετε τις ρυθμίσεις προσβασιμότητας του Android\.
         \n2. Επιλέξτε την υπηρεσία που θέλετε να ενεργοποιήσετε.
         \n3. Ενεργοποιήστε την υπηρεσία με τον επάνω διακόπτη.
         \n4. Κάντε κλικ στο "Allow" όταν σας ζητηθεί.</string>
+    <string name="service_info_section_3_title">Βλέπετε ένα αναδυόμενο παράθυρο <b>Περιορισμένες ρυθμίσεις</b>;</string>
+    <string name="service_info_section_3_content"><b>ΜΕΤΑ</b> το κλικ στο OK στο αναδυόμενο παράθυρο:
+    \n5. Κάντε κλικ στο "Πληροφορίες εφαρμογής" παρακάτω.
+    \n6. Κάντε κλικ στο <b>(⋮)</b> και μετά στο <i>Να επιτρέπονται οι περιορισμένες ρυθμίσεις</i>.
+    \n7. Κλείστε το παράθυρο των Ρυθμίσεων και δοκιμάστε ξανά από το βήμα 1.
+    </string>
     <string name="service_open_accessibility">Συνεχίστε στις Ρυθμίσεις προσβασιμότητας</string>
     <string name="warning">Σημαντικές πληροφορίες</string>
     <string name="cancel">Ακύρωση</string>

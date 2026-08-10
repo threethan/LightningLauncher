@@ -130,12 +130,18 @@
     <string name="add_website_group">S\'ye ekle %s</string>
     <string name="service_title">Kısayol Hizmetleri</string>
     <string name="service_info_section_1_title">Lightning Launcher\'a Kolayca Erişin</string>
-    <string name="service_info_section_1_content">Kısayol hizmetini etkinleştirdiğinizde, dock üzerinde seçilen simgenin üzerine geldiğinizde Lightning Launcher açılacaktır.</string>
+    <string name="addon_dock_infoline">Kısayol hizmetini etkinleştirdiğinizde, dock üzerinde seçilen simgenin üzerine geldiğinizde Lightning Launcher açılacaktır.</string>
     <string name="service_info_section_2_title">Kısayol Hizmetini Etkinleştirme</string>
     <string name="service_info_section_2_content">1. Android\'in erişilebilirlik ayarlarını açmak için aşağıdaki düğmeyi kullanın.
         \n2. Etkinleştirmek istediğiniz hizmeti seçin.
         \n3. Üstteki anahtar ile hizmeti açın.
         \n4. İstendiğinde "İzin Ver" seçeneğine tıklayın.</string>
+    <string name="service_info_section_3_title"><b>Kısıtlanmış Ayarlar</b> açılır penceresini mi görüyorsunuz?</string>
+    <string name="service_info_section_3_content">Açılır pencerede Tamam\'a tıkladıktan <b>SONRA</b>:
+    \n5. Aşağıdaki \'Uygulama Bilgisi\'ne tıklayın.
+    \n6. <b>(⋮)</b> simgesine, ardından <i>Kısıtlanmış ayarlara izin ver</i> öğesine tıklayın.
+    \n7. Ayarlar penceresini kapatın ve 1. adımdan tekrar deneyin.
+    </string>
     <string name="service_open_accessibility">Erişilebilirlik Ayarlarına Devam Et</string>
     <string name="warning">Önemli Bilgiler</string>
     <string name="cancel">İptal</string>

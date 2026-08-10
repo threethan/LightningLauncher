@@ -130,12 +130,18 @@
     <string name="add_website_group">Zu %s hinzufügen</string>
     <string name="service_title">Shortcuts Dienstleistungen</string>
     <string name="service_info_section_1_title">Einfacher Zugang zum Lightning Launcher</string>
-    <string name="service_info_section_1_content">Wenn Sie den Verknüpfungsdienst aktivieren, wird Lightning Launcher geöffnet, wenn Sie den Mauszeiger über das ausgewählte Symbol im Dock bewegen.</string>
+    <string name="addon_dock_infoline">Wenn Sie den Verknüpfungsdienst aktivieren, wird Lightning Launcher geöffnet, wenn Sie den Mauszeiger über das ausgewählte Symbol im Dock bewegen.</string>
     <string name="service_info_section_2_title">Aktivieren Sie den Verknüpfungsdienst</string>
     <string name="service_info_section_2_content">1. Verwenden Sie die Schaltfläche unten, um die Einstellungen für die Barrierefreiheit von Android\ zu öffnen.
         \n2. Wählen Sie den Dienst aus, den Sie aktivieren möchten.
         \n3. Schalten Sie den Dienst mit dem oberen Schalter ein.
         \n4. Klicken Sie auf "Zulassen", wenn Sie dazu aufgefordert werden.</string>
+    <string name="service_info_section_3_title">Wird ein Pop-up <b>Eingeschränkte Einstellungen</b> angezeigt?</string>
+    <string name="service_info_section_3_content"><b>NACHDEM</b> Sie im Pop-up auf OK geklickt haben:
+    \n5. Klicken Sie unten auf „App-Info“.
+    \n6. Klicken Sie auf <b>(⋮)</b> und dann auf <i>Eingeschränkte Einstellungen zulassen</i>.
+    \n7. Schließen Sie das Einstellungsfenster und versuchen Sie es ab Schritt 1 erneut.
+    </string>
     <string name="service_open_accessibility">Weiter zu den Einstellungen für die Barrierefreiheit</string>
     <string name="warning">Wichtige Informationen</string>
     <string name="cancel">Abbrechen</string>

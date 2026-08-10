@@ -172,18 +172,23 @@ public class SettingsManager extends Settings {
             Map <ApplicationInfo, String> result = new HashMap<>();
 
             AtomicInteger remaining = new AtomicInteger(apps.size());
+            Set<String> completed = ConcurrentHashMap.newKeySet();
 
             apps.forEach(app -> {
                 if (sortableLabelCache.containsKey(app.packageName)) {
                     result.put(app, sortableLabelCache.get(app.packageName));
-                    if (remaining.decrementAndGet() == 0)
-                        onLabels.accept(result);
+                    if (completed.add(app.packageName)) {
+                        if (remaining.decrementAndGet() == 0)
+                            onLabels.accept(result);
+                    }
                 } else {
                     formatSortableAppLabel(app, label -> {
                         sortableLabelCache.put(app.packageName, label);
                         result.put(app, label);
-                        if (remaining.decrementAndGet() == 0)
-                            onLabels.accept(result);
+                        if (completed.add(app.packageName)) {
+                            if (remaining.decrementAndGet() == 0)
+                                onLabels.accept(result);
+                        }
                     });
                 }
             });
@@ -247,7 +252,7 @@ public class SettingsManager extends Settings {
             PackageManager pm = Core.context().getPackageManager();
             final String label = pm.getApplicationLabel(app).toString();
             if (!label.isEmpty()) return label;
-        } catch (NullPointerException e) {
+        } catch (RuntimeException e) {
             Log.w("SettingsManager", "Failed to get label for " + app.packageName, e);
         }
         return "?";
@@ -351,12 +356,21 @@ public class SettingsManager extends Settings {
 
         setGroupAppsMap(gam);
 
+        Map<String, ApplicationInfo> appByPackageName = allApps.stream()
+                .collect(Collectors.toMap(ai -> ai.packageName, x -> x, (a, b) -> a));
+
+        // Remove stale package references from groups (uninstalled apps no longer in the current package set).
+        gam.values().forEach(groupApps -> groupApps.removeIf(pkg ->
+                !pkg.contains("://")
+                && !pkg.startsWith("builtin://")
+                && !appByPackageName.containsKey(pkg)
+        ));
+
         Set<String> currentPackages = new HashSet<>();
         for (String group : selectedGroups)
             if (gam.containsKey(group))
                 currentPackages.addAll(Objects.requireNonNull(gam.get(group)));
 
-        Map<String, ApplicationInfo> appByPackageName = allApps.stream().collect(Collectors.toMap(ai -> ai.packageName, x -> x));
         List<ApplicationInfo> currentApps = currentPackages.stream().map(appByPackageName::get).collect(Collectors.toList());
 
         // Remove disabled/uninstalled apps
@@ -485,7 +499,7 @@ public class SettingsManager extends Settings {
         if ((selected ? selectedGroupsSet : appGroupsSet).isEmpty()) readGroupsAndSort();
         ArrayList<String> sortedGroupList = new ArrayList<>(selected ? getSelectedGroups() : getAppGroups());
 
-        sortedGroupList.sort(Comparator.comparing(SettingsManager::getSortableGroupLabel));
+        sortedGroupList.sort(Comparator.comparing(SettingsManager::getSortableGroupLabel, String::compareToIgnoreCase));
 
         // Move hidden group to end
         if (sortedGroupList.contains(Settings.HIDDEN_GROUP)) {

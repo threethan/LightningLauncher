@@ -564,12 +564,6 @@ public class SettingsDialog extends LcDialog<LauncherActivity> {
                 p -> a.getDataStoreEditor().putInt(Settings.KEY_DEFAULT_BROWSER, p),
                 defaultBrowserSelection);
 
-        Switch chainLaunchSwitch = dialog.findViewById(R.id.allowChainLaunchSwitch);
-        attachSwitchToSetting(chainLaunchSwitch,
-                Settings.KEY_ALLOW_CHAIN_LAUNCH, Settings.DEFAULT_ALLOW_CHAIN_LAUNCH);
-        chainLaunchSwitch.setVisibility(Platform.supportsVrOsChainLaunch()
-                ? View.VISIBLE : View.GONE);
-
         dialog.findViewById(R.id.fullyCloseButton).setOnClickListener(v -> {
             LauncherActivity foregroundInstance = LauncherActivity.getForegroundInstance();
             LcDialog.closeAll();

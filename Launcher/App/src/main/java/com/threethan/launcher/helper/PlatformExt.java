@@ -31,7 +31,6 @@ import java.util.Set;
  */
 public abstract class PlatformExt {
     public static List<ApplicationInfo> installedApps;
-    public static final Set<ApplicationInfo> apps = Collections.synchronizedSet(new HashSet<>());
     public static int changeIndex = 0; //Used to track changes, specifically adding websites
 
     public static final Map<String, String> infoOverrides = new HashMap<>();
@@ -110,8 +109,12 @@ public abstract class PlatformExt {
 
     /** @noinspection SameReturnValue*/
     public static Set<ApplicationInfo> listInstalledApps(LauncherActivity launcherActivity) {
-        apps.clear();
-        apps.addAll(Platform.listInstalledApps());
+        Set<ApplicationInfo> apps = new HashSet<>();
+        if (installedApps != null && !installedApps.isEmpty()) {
+            apps.addAll(installedApps);
+        } else {
+            apps.addAll(Platform.listInstalledApps());
+        }
         // Add web apps
         Set<String> webApps = launcherActivity.getDataStoreEditor()
                 .getStringSet(Settings.KEY_WEBSITE_LIST, Collections.emptySet());
@@ -135,13 +138,6 @@ public abstract class PlatformExt {
         if (!Platform.supportsNewVrOsMultiWindow()) return false;
         return Compat.getDataStoreEditor()
                 .getBoolean(Settings.KEY_NEW_MULTITASK, Settings.DEFAULT_NEW_MULTITASK);
-    }
-
-    /** @return True, if we should use the new launching behaviour */
-    public static boolean useVrOsChainLaunch() {
-        if (!Platform.supportsVrOsChainLaunch()) return false;
-        return Compat.getDataStoreEditor()
-                .getBoolean(Settings.KEY_ALLOW_CHAIN_LAUNCH, Settings.DEFAULT_ALLOW_CHAIN_LAUNCH);
     }
 
     /**
