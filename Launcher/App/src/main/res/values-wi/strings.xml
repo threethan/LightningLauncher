@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name" translatable="false">Lightning Launcher+</string>
+    <string name="app_name_for_list" translatable="false"> ➜ <u>Lightning</u> Launcher+</string>
+    <string name="app_name_for_activity" translatable="false">Lightning Launcher+</string>
+
+    <string name="app_variant_name" translatable="false">Sideload Version</string>
+    <string name="app_variant_unavailable">תכונה זו אינה זמינה ב-%s.
+        \n\n<i>חפש את Lightning Launcher ב-GitHub למידע נוסף.</i></string>
+
+    <string name="add_group">הוסף קבוצה</string>
+    <string name="apps_hidden">- מוסתרים</string>
+    <string name="migrated">הגדרות ישנות הועברו בהצלחה</string>
+
+    <string name="force_untranslated">השתמש בשפה האנגלית</string>
+    <string name="force_untranslated_tip">כפה על Lightning Launcher להופיע באנגלית.\n(אין תרגום לשפה שלך.)</string>
+
+    <string name="edit_mode">מצב עריכה</string>
+    <string name="edit_mode_tip">שינוי קבוצות, הוספת אתרי אינטרנט ועוד.</string>
+
+    <string name="new_multitasking">סגור לאחר הפעלה</string>
+    <string name="new_multitasking_tip">אם מופעל, Lightning Launcher ייסגר אוטומטית בעת פתיחת אפליקציה.</string>
+
+    <string name="allow_chain_launch">השתמש בהפעלה המקורית של Quest</string>
+    <string name="allow_chain_launch_tip">מפעיל אפליקציות בשיטה דומה למפעיל ברירת המחדל של ה-Quest.
+        \nכיבוי אפשרות זו ישנה את האופן שבו חלונות מאורגנים ועלול לגרום לבעיות.</string>
+
+    <string name="icon_size">גודל</string>
+    <string name="icon_size_tip">הגודל הרצוי של האפליקציות</string>
+    <string name="icon_margin">שוליים</string>
+    <string name="icon_margin_tip">כמות הרווח בין האפליקציות</string>
+    <string name="icon_corners">פינות</string>
+    <string name="icon_corners_tip">מידת העיגול של פינות האפליקציה</string>
+
+    <string name="icon_horizontal_tip">הצגת אפליקציות ברשימה אנכית או אופקית</string>
+
+    <string name="apps_vr">יישומי VR</string>
+    <string name="apps_phone">יישומי טלפון</string>
+    <string name="apps_tv">יישומי TV</string>
+    <string name="apps_panel">יישומי פאנל</string>
+    <string name="apps_web">אתרי אינטרנט</string>
+    <string name="default_group">השתמש בקבוצה כברירת מחדל עבור חדשים:</string>
+    <string name="app_name_icon">מתחת לסמלי אפליקציה</string>
+    <string name="app_name_wide">מתחת לבאנרים של אפליקציה</string>
+
+    <string name="settings_main">Lightning Launcher</string>
+    <string name="settings_addons_attract">קיצורי דרך</string>
+    <string name="settings_addons">קיצורי דרך</string>
+    <string name="settings_addons_tip">הפוך את Lightning Launcher\nלקל יותר לגישה!</string>
+    <string name="settings_update">קבל את העדכון האחרון</string>
+    <string name="settings_enable_updates">הודיע לי על עדכונים חדשים</string>
+    <string name="settings_enable_updates_tip">לחץ כדי להציג התראות על עדכונים חדשים.
+    \n<i>בעבר כיבית אפשרות זו כשדילגת על עדכון.</i></string>
+
+    <string name="behavior_header">התנהגות</string>
+    <string name="background_header">רקע וסגנון</string>
+    <string name="disp_wide">הצג כבאנר</string>
+    <string name="disp_icon">הצג כסמל (Icon)</string>
+    <string name="disp_name">תמיד הצג שמות</string>
+    <string name="more_options">אפשרויות נוספות</string>
+    <string name="favorite_enable">סמן כמועדף</string>
+    <string name="favorite_disable">בטל סימון כמועדף</string>
+    <string name="advanced_header">הגדרות מתקדמות</string>
+    <string name="refresh_button">טעינה מחדש ורענון מלא</string>
+    <string name="advanced_interface">ממשק</string>
+    <string name="advanced_reset">רענון ואיפוס</string>
+    <string name="advanced_launching">העדפות הפעלה</string>
+    <string name="advanced_search">הגדרות חיפוש</string>
+    <string name="advanced_backup">גיבוי הגדרות</string>
+    <string name="advanced_alpha">שקיפות רקע</string>
+    <string name="advanced_alpha_preserve">שמר פרטים עם שקיפות</string>
+    <string name="advanced_alpha_preserve_tip">שמר פרטי רקע כאשר passthrough כבוי,\nוהשתמש בשקיפות חלקית מהודרת כאשר הוא מופעל.\n<i>עובד הכי טוב עם רקעים כהים.</i></string>
+    <string name="advanced_alpha_tip">הופך את הרקע של Lightning Launcher לשקוף במצב passthrough.</string>
+    <string name="advanced_alpha_clamp">טשטוש Passthrough ב-Quest 3</string>
+    <string name="advanced_alpha_clamp_tip">מאפשר רקע מטושטש בזמן שהייה ב-passthrough. <i>מגביל את כמות השקיפות.</i></string>
+    <string name="advanced_alpha_blocked_message">תוכל לשנות הגדרות שקיפות מתקדמות כאן אם תגדיר טפט שונה.</string>
+
+    <string name="dark_mode">מצב כהה</string>
+    <string name="dark_mode_tip">אם מופעל, תוויות יופיעו בלבן על רקע כהה.</string>
+    <string name="enable_groups">אפשר קבוצות</string>
+    <string name="enable_groups_tip">כבה אפשרות זו כדי להציג את כל האפליקציות בבת אחת, ללא חלוקה לקבוצות.</string>
+    <string name="group_wider">קבוצות רחבות יותר</string>
+    <string name="group_wider_tip">מגדיל את רוחב כפתורי הקבוצות</string>
+    <string name="clear_labels">אפס את כל תוויות האפליקציות לברירת מחדל</string>
+    <string name="group_defaults_button">קבוצות ברירת מחדל</string>
+    <string name="icons_settings_button">רענן סמלים</string>
+
+    <string name="show_playtimes">הצג זמני משחק</string>
+    <string name="show_playtimes_desc">הצג זמן משחק על באנרים של אפליקציות.
+    \n\n<i>דורש גישה לנתוני שימוש</i></string>
+    <string name="open_usage">גישה לנתוני שימוש</string>
+    <string name="open_usage_desc">פתח דף הגדרות שבו תוכל להפעיל או לכבות את היכולת של אפליקציות כמו Lighting Launcher לצפות בזמן המשחק ובנתוני השימוש שלך.</string>
+    <string name="close_fully">סגור לחלוטין את Lightning Launcher</string>
+    <string name="close_fully_desc">סוגר לחלוטין את Lightning Launcher. <i>(תוכל לפתוח אותו מחדש לאחר מכן)</i>
+        \n\nזה מאפשר לפתור בעיות ללא צורך באתחול המכשיר.</string>
+
+    <string name="playtime_charts_warn">התקן את <b>Quest Game Tuner</b> כדי לצפות בגרפי זמני משחק</string>
+
+    <string name="request_playtime_title">נדרשת גישה לנתוני שימוש</string>
+    <string name="request_playtime_msg">כדי לראות את זמן המשחק שלך ב-<i>Lighting Launcher</i>,
+        \nעליך להעניק גישה לנתוני השימוש באפליקציות.
+        \n
+        \nאם <i>Quest Game Tuner</i> מותקן גם הוא, לחיצה על זמן המשחק תפתח גרף יומי או חודשי.
+        \n
+        \n<i>ניתן להסתיר את כפתור זמן המשחק בהגדרות מתקדמות.</i>
+    </string>
+
+    <string name="long_press">לחיצה ארוכה לעריכה</string>
+    <string name="long_press_tip"><b>כאשר מופעל,</b> לחיצה ארוכה על אפליקציה תפעיל את מצב העריכה ותבחר אותה.
+    \n<b>כאשר כבוי,</b> לחיצה ארוכה על אפליקציה תציג פרטים.</string>
+
+    <string name="reduce_motion">הפחת תנועה</string>
+    <string name="reduce_motion_tip">מבטל אנימציות ברשימת האפליקציות.</string>
+    
+    <string name="search_web">הצג מנועי חיפוש באינטרנט בחיפושים</string>
+    <string name="search_hidden">הצג אפליקציות מוסתרות בחיפושים</string>
+    <string name="settings_save">ייצוא הגדרות</string>
+    <string name="settings_load">ייבוא הגדרות</string>
+    <string name="groupings_save">ייצוא קבוצות</string>
+    <string name="groupings_load">ייבוא קבוצות</string>
+
+
+    <string name="reload_icon">אפס סמל</string>
+    <string name="open_tuning"><i>כוונן עם</i></string>
+    <string name="open_tuning_tip"><i>Quest Game Tuner</i> מאפשר לך להתאים רזולוציה, FPS ועוד!</string>
+
+    <string name="tuner_options">⚙</string>
+
+    <string name="hidden_groups_message">כיבוי אפשרות זו יסתיר את הסרגל העליון כשאינך במצב עריכה.\n
+        \nכפתור ההגדרות יוסתר גם הוא כשאינך במצב עריכה.\n
+        \nבמקום זאת, <b>לחץ על כפתור החזרה כדי לפתוח את ההגדרות.</b>
+    </string>
+
+    <string name="custom_window_size_message">גודלי חלונות מותאמים אישית לא יעבדו בצורה נכונה בכל אפליקציה.\n
+        \nאם אפליקציה לא נפתחת בשימוש בגודל מותאם אישית,
+        \nהחזר את ההגדרה ל-\"חלון מקורי של האפליקציה\".
+    </string>
+
+
+    <string name="download_browser_message">לחוויה הטובה ביותר, עליך להתקין את <b>Lightning Browser</b> כדי לפתוח אתרי אינטרנט.\n
+        \n<i>(לחלופין, תוכל לנסות לשנות את הדפדפן ב-הגדרות > הגדרות מתקדמות)</i>
+    </string>
+    <string name="change_browser_message">הדפדפן שנבחר כברירת מחדל אינו זמין.\n
+        \n<i>שנה את הדפדפן ב-הגדרות > הגדרות מתקדמות.</i>
+    </string>
+    <string name="update_browser_message">לחוויה הטובה ביותר, עליך לעדכן את Lightning Browser.</string>
+    <string name="download_browser_toast_main">פתח את האתר שוב</string>
+    <string name="download_browser_toast_bold">לאחר ש-Lightning Browser יותקן</string>
+
+
+    <string name="website_title">אתרי אינטרנט ב-Lightning Launcher</string>
+    <string name="website_subtitle1">גישה קלה לאתרים ואפליקציות רשת</string>
+    <string name="website_info1">
+        אתרי אינטרנט יופיעו כאפליקציות במפעיל.\n
+        \nתוכל גם לחפש באינטרנט מסרגל החיפוש.
+    </string>
+    <string name="website_subtitle2">שמע ברקע</string>
+    <string name="website_info2">
+        לאחר מזעור, אתרים שנוספו יכולים להמשיך לרוץ, להשמיע ולהקליט צליל עד לסגירתם המלאה. <i>(ייתכן עיכוב בשמע.)</i>\n
+    </string>
+    <string name="website_subtitle3">בחירת דפדפן</string>
+    <string name="website_info3">
+        במכשירי Quest, ניתן להפעיל ב-<b>Meta Quest Browser</b>, התומך בתוכן רשת ב-VR.
+        \n<i>ניתן להגדיר את ברירת המחדל בהגדרות מתקדמות.</i>
+    </string>
+
+    <string name="add_website">הוסף אתר אינטרנט</string>
+    <string name="add_website_url_label">הזן כתובת URL של אתר כלשהו</string>
+    <string name="add_website_bad_url">הזן כתובת URL תקינה</string>
+    <string name="add_website_used_url">אתר זה כבר קיים ב-%1$s</string>
+    <string name="add_website_audio_info">אתרים שנוספו יכולים להשמיע שמע ברקע</string>
+    <string name="add_website_group">הוסף ל-%s</string>
+
+    <string name="service_title">שירותי קיצורי דרך</string>
+    <string name="service_info_section_1_title">גישה קלה ל-<b>Lightning Launcher</b></string>
+    <string name="service_info_section_1_content">על ידי הפעלת שירות קיצורי הדרך, <b>Lightning Launcher</b> ייפתח כאשר תרחף מעל הסמל הנבחר ברציף (dock).</string>
+    <string name="service_info_section_2_title"><b>הפעל</b> את שירות קיצורי הדרך</string>
+    <string name="service_info_section_2_content">1. השתמש בכפתור למטה כדי לפתוח את הגדרות הנגישות של אנדרואיד.
+        \n2. בחר בשירות שברצונך להפעיל.
+        \n3. הפעל את השירות באמצעות המתג העליון.
+        \n4. לחץ על \"אפשר\" (Allow) כשתתבקש.</string>
+
+    <string name="service_open_accessibility">המשך להגדרות נגישות</string>
+
+    <string name="warning">מידע חשוב</string>
+    <string name="cancel">ביטול</string>
+    <string name="understood">הבנתי!</string>
+    <string name="understood_long">אני מבין, המשך.</string>
+    <string name="confirm">אישור</string>
+
+    <string name="size_own">פתח בחלון המקורי של האפליקציה</string>
+    <string name="size_phone">פתח בחלון בסגנון טלפון</string>
+    <string name="size_small">פתח בחלון קטן ביחס 4:3</string>
+    <string name="size_medium">פתח בחלון בגודל בינוני</string>
+    <string name="size_large">פתח בחלון גדול ביחס 16:9</string>
+    <string name="size_huge">פתח בחלון ענק ביחס 16:9</string>
+    <string name="size_wide">פתח בחלון רחב ביחס 21:9</string>
+
+    <string name="browser_default_setting">ברירת מחדל לאתרים:</string>
+    <string name="browser_default_in" >פתח ב-Lightning Browser</string>
+    <string name="browser_quest">פתח בלשונית של Quest Browser</string>
+    <string name="browser_quest_shortcut">פתח כאפליקציית רשת של Quest Browser</string>
+    <string name="browser_system">נסה לפתוח בברירת המחדל של המערכת</string>
+
+
+    <string name="browser_default_tip">בחר את האפליקציה שתפתח אתרי אינטרנט שהוספת ל-Lightning Launcher.</string>
+    <string name="new_label_duration_setting">סמן\ \ ► אפליקציות:</string>
+    <string name="new_label_duration_tip">הצג מחוון\ \ ► זמני על אפליקציות שנוספו לאחרונה והעבר אותן לקדמת המיון הסטנדרטי.</string>
+    <string name="new_label_duration_zero">לעולם לא</string>
+    <string name="new_label_duration_template">למשך עד %d דקות</string>
+
+
+    <string name="edit_move">העבר</string>
+    <string name="edit_copy">העתק</string>
+
+    <string name="selection_hint_none">לחץ על אפליקציה כדי לבחור אותה או לחץ כאן כדי לבחור הכל</string>
+    <string name="selection_hint_single_move">אפליקציה אחת נבחרה, לחץ על קבוצה כדי להעביר אותה</string>
+    <string name="selection_hint_single_copy">אפליקציה אחת נבחרה, לחץ על קבוצה כדי להעתיק אותה</string>
+    <string name="selection_hint_multiple_move" tools:ignore="PluralsCandidate">%d אפליקציות נבחרו, לחץ על קבוצה כדי להעביר אותן</string>
+    <string name="selection_hint_multiple_copy" tools:ignore="PluralsCandidate">%d אפליקציות נבחרו, לחץ על קבוצה כדי להעתיק אותן</string>
+    <string name="selection_moved_single">הועברה אפליקציה אחת ל-%1$s</string>
+    <string name="selection_copied_single">הועתקה אפליקציה אחת ל-%1$s</string>
+    <string name="selection_moved_multiple" tools:ignore="PluralsCandidate">הועברו %1$d אפליקציות ל-%2$s</string>
+    <string name="selection_copied_multiple" tools:ignore="PluralsCandidate">הועתקו %1$d אפליקציות ל-%2$s</string>
+    <string name="selection_hint_cleared">הבחירה נוקתה</string>
+    <string name="selection_hint_all">נבחרו כל האפליקציות הגלויות</string>
+
+    <!--  Updater  -->
+    <string name="update_title">עדכון זמין!</string>
+    <string name="update_content">תוכל לעדכן מגרסה %1$s ל-%2$s, ישירות על המכשיר.</string>
+    <string name="update_button">המשך</string>
+    <string name="update_skip_button">דלג על עדכון זה</string>
+    <string name="update_skip_toast">דילגת על הגרסה</string>
+    <string name="update_skip_all_toast">כל העדכונים הוסתרו</string>
+
+    <string name="update_downloading_title">מוריד את הגרסה האחרונה של %s</string>
+    <string name="update_downloading_content">בקרוב תופיע הודעה להתקנה.\n
+    \nאם סגרת אותה בטעות, לא הענקת הרשאה, או אירעה שגיאה,
+    תוכל לנסות שוב מההגדרות.</string>
+    <string name="update_hide_button">הסתר</string>
+
+    <string name="update_failed_title">הורדת החבילה נכשלה!</string>
+    <string name="update_failed_content">ודא שיש לך חיבור אינטרנט תקין ונסה שוב מאוחר יותר.</string>
+
+    <string name="update_skip_title">לדלג על עדכון לגרסה %1$s?</string>
+    <string name="update_skip_content"><b>מומלץ מאוד לעדכן, עדכונים עשויים לכלול תיקונים חשובים.</b>
+        \n
+        \nאם אתה נמנע מהעדכון בגלל בעיה מסוימת, אנא דווח עליה בכתובת github.com/threethan/LightningLauncher
+        \n
+        \n<b>ללא קשר לבחירה שלך, תוכל לעדכן מאוחר יותר מההגדרות.</b></string>
+    <string name="update_skip_all_button">דלג על עדכון זה ועל עדכונים עתידיים</string>
+    <string name="update_skip_confirm_button">דלג על עדכון זה</string>
+    <string name="update_skip_cancel_button">בטל</string>
+
+    <string name="saved_settings">הגדרות נשמרו ב-</string>
+    <string name="saved_settings_loading">מייבא, אנא המתן…</string>
+    <string name="saved_settings_error">שגיאה בעת העתקת הקובץ!</string>
+
+    <string name="default_groups_title">הגדרות קבוצות ברירת מחדל</string>
+    <string name="default_groups_info"><b>קבוצות ברירת מחדל נוכחיות:</b>\n
+        \n%1$s\n
+        \n<i>תוכל לשנות זאת על ידי עריכת קבוצה במצב עריכה.</i>
+        \n
+        \n<b>מה תרצה לעשות עכשיו?</b>
+    </string>
+
+    <string name="default_groups_reset_groups">אפס את כל הקבוצות והמיון לברירת מחדל</string>
+    <string name="default_groups_resort_only">העבר הכל לקבוצות ברירת המחדל שלהן</string>
+    <string name="default_groups_cancel">חזור, אל תבצע דבר</string>
+    <string name="default_groups_reset_groups_toast_main">הקבוצות אופסו</string>
+    <string name="default_groups_reset_groups_toast_bold">לחלוטין!</string>
+    <string name="default_groups_resort_only_toast_main">אפליקציות הועברו ל-</string>
+    <string name="default_groups_resort_only_toast_bold">קבוצות ברירת המחדל שבחרת</string>
+
+    <string name="toast_cant_unset_group">הגדר קבוצה אחרת כברירת מחדל כדי לבטל את זו</string>
+
+    <string name="clear_icons_title">הגדרות סמלי ברירת מחדל</string>
+    <string name="clear_icons_info"><b>Lightning Launcher</b> שומר סמלים ובאנרים של אפליקציות בזיכרון מטמון לטעינה מהירה יותר.</string>
+    <string name="clear_icons_info_quest"><b>Lightning Launcher</b> יוריד סמלים לאפליקציות ומשחקי Quest מהאינטרנט.
+        \n<i>על ידי ניקוי מטמון הסמלים, תוריד אותם מחדש.</i></string>
+    <string name="clear_icons_info_custom">תוכל להגדיר סמלים מותאמים אישית על ידי לחיצה על הסמל בחלון פרטי האפליקציה.
+        \n<i>אם תרצה, תוכל גם לאפס אותם.</i></string>
+
+    <string name="clear_icons_clear_cache">נקה מטמון סמלים</string>
+    <string name="clear_icons_clear_all">נקה סמלים מותאמים אישית</string>
+    <string name="clear_icons_cancel">חזור, אל תבצע דבר</string>
+
+    <string name="toast_cleared_icon_cache">מטמון הסמלים נוקה</string>
+    <string name="toast_cleared_icon_all">כל הסמלים אופסו לברירת מחדל</string>
+
+    <!--  Tooltips  -->
+
+    <string name="tip_info_website">אודות הוספת אתרי אינטרנט</string>
+
+    <string name="tip_uninstall">הסר התקנה / הסר</string>
+    <string name="tip_info">פתח פרטי אפליקציה</string>
+    <string name="tip_charts">צפה בגרפי זמן משחק\nב-<i>Quest Game Tuner</i></string>
+
+    <string name="tip_save_settings">גבה את כל ההגדרות והקבוצות</string>
+    <string name="tip_load_settings">שחזר את כל ההגדרות והקבוצות</string>
+
+    <string name="tip_hide">הסתר אפליקציה זו</string>
+    <string name="tip_show">בטל הסתרת אפליקציה זו</string>
+
+    <!--  Toasts  -->
+    <string name="moved_hidden">הועבר ל-</string>
+    <string name="moved_hidden_bold">קבוצה מוסתרת</string>
+    <string name="moved_shown">הועבר ל-</string>
+
+    <!--  Web Presets  -->
+    <string name="preset_google" translatable="false">google.com</string>
+    <string name="preset_youtube" translatable="false">youtube.com</string>
+    <string name="preset_discord" translatable="false">discord.com/app</string>
+    <string name="preset_spotify" translatable="false">open.spotify.com</string>
+    <string name="preset_tidal" translatable="false">listen.tidal.com</string>
+
+    <!-- Addons -->
+    <string name="addons_main_vr">קיצורי דרך</string>
+    <string name="addons_main_tv">אפשרויות קיצורי דרך</string>
+    <string name="addons_tv_info">לרוע המזל, Android TV מגביל את הפונקציונליות של שירותי נגישות ומפעילי צד-שלישי.</string>
+    <string name="addons_exit">חזור להגדרות</string>
+
+    <string name="addons_androidtv">מנהל מפעיל (Launcher) Android TV</string>
+    <string name="addons_androidtv_desc">ייתכן שתוכל להתקין אפליקציית צד-שלישי כדי לשנות את דף הבית המוגדר כברירת מחדל ב-Android TV.
+        \n
+    \nזה דורש הפעלת ADB Debugging, וייתכן שלא יעבוד בכל מכשיר.
+    \n
+    \nחפש &quot;Android TV Launcher Manager XDA&quot;, ולאחר מכן הורד והתקן ידנית.</string>
+
+    <string name="addons_androidtv_alt">או… פשוט השתמש בכפתור החזרה!</string>
+    <string name="addons_androidtv_alt_desc">אם תשתמש בכפתור החזרה בשלט במקום בכפתור הבית, תמיד תחזור ל-Lightning Launcher.
+    \n
+    \nלחיצה על חזרה כשאתה כבר במפעיל רק תחליף את מצב העריכה, מה שימנע ממך לחזור בטעות למפעיל המקורי.</string>
+
+
+    <string name="addons_preamble"><b>Redirects (הפניות)</b> פותחים את Lighting Launcher בעת <i>ריחוף</i> מעל סמל ברציף.
+        \nיש להתקין כל הפניה בנפרד, ולאחר מכן להפעילה.
+    </string>
+    <string name="addons_preamble_dock">ייתכן שתוכל <i>להוסיף</i> את סמל האפליקציה ישירות לרציף (dock)</string>
+    <string name="addons_dock_button">כיצד להוסיף את Lightning Launcher לרציף של ה-Quest</string>
+    <string name="addons_dock_title">הוספת LL לרציף</string>
+
+    <string name="addons_dock_section_1_title">הסר סמל קיים</string>
+    <string name="addons_dock_section_1_content">1. סגור את כל שאר אפליקציות הדו-מימד וה-VR.
+        \n2. בחר סמל להסרה. <i>(מצלמה או דפדפן)</i>
+        \n3. לחץ לחיצה ארוכה על הסמל.
+        \n4. גרור אותו מעט מתחת לרציף, ואז שחרר.</string>
+    <string name="addons_dock_section_1_below">לא ניתן להסיר את <b>Feed</b>, <b>Store</b>, ו-<b>Chats</b>.</string>
+
+
+    <string name="addons_dock_section_2_title">הוסף את הסמל של <b>Lightning Launcher</b></string>
+    <string name="addons_dock_section_2_content">1. מצא את <b>Lightning Launcher</b> באפליקציות האחרונות.
+        \n\t\t<i>(צד ימין של הרציף)</i>
+        \n2. גרור את <b>Lightning Launcher</b> לצד שמאל.
+        \n3. שחרר כדי לנעוץ אותו לרציף.</string>
+
+    <string name="addons_dock_section_2_below">לא ניתן לנעוץ יותר מחמש אפליקציות.</string>
+
+    <string name="addons_add">הוסף סמל לרציף</string>
+    <string name="addons_redirect">הפנה מחדש סמלי רציף מובנים</string>
+
+    <string name="addons_explore">הפניית Feed</string>
+    <string name="addons_explore_desc">התקן והפעל כדי לפתוח את Lightning Launcher בעת לחיצה על כפתור ה-<b>Horizon Feed</b> ברציף.</string>
+    <string name="addons_library">הפניית ספרייה</string>
+    <string name="addons_library_desc">התקן והפעל כדי לפתוח את Lightning Launcher בעת ריחוף מעל כפתור ה-<b>App Library</b> ברציף.</string>
+    <string name="addons_store">הפניית חנות</string>
+    <string name="addons_store_desc">התקן והפעל כדי לפתוח את Lightning Launcher בעת ריחוף מעל כפתור ה-<b>Store</b> ברציף.</string>
+    <string name="addons_people">הפניית אנשים</string>
+    <string name="addons_people_desc">התקן והפעל כדי לפתוח את Lightning Launcher בעת ריחוף מעל כפתור ה-<b>People</b> ברציף.</string>
+
+
+    <string name="addons_dock_suggest_title">קיצורי דרך לממשק ה-Dock</string>
+    <string name="addons_dock_suggest_0">ה-Dock הוא הסרגל עם השעה ושורת סמלי האפליקציות - <b>שתמיד נמצא מתחת לחלונות דו-מימד</b>.</string>
+    <string name="addons_dock_suggest_1">ה-Dock היה חלק מממשק ה-Quest מאז ההתחלה, אך הוא מוחלף כעת על ידי ה-Navigator.</string>
+    <string name="addons_dock_goto_button">יש לי את ה-Dock</string>
+
+    <string name="addons_navigator_suggest_title">קיצורי דרך לממשק ה-Navigator</string>
+    <string name="addons_navigator_suggest_0">ה-Navigator הוא שכבת על מיוחדת שנפתחת מול חלונות הדו-מימד שלך ומאפשרת להפעיל אפליקציות רשמיות.</string>
+    <string name="addons_navigator_suggest_1">Meta מפיצה את הממשק החדש הזה לחלק ממכשירי ה-Quest.</string>
+    <string name="addons_navigator_suggest_2">אם יש לך את ה-Navigator, <b>לא יהיה לך Dock.</b></string>
+    <string name="addons_navigator_goto_button">יש לי את ה-Navigator</string>
+
+
+    <string name="addons_navigator_title">פתח את Lightning Launcher עם כפתור ה-Navigator</string>
+    <string name="addons_navigator_preamble">עליך להתקין את אפליקציית השירות, <b>ולאחר מכן להפעילה.</b></string>
+
+    <string name="addons_navigator">שירות הפניית כפתור Navigator</string>
+    <string name="addons_navigator_desc">התקן, והפעל, כדי לפתוח את Lightning Launcher בעת לחיצה על כפתור ה-<b>Meta / Navigator</b>.</string>
+    <string name="addons_navigator_postamble">עדיין תוכל לפתוח את ה-Navigator על ידי לחיצה נוספת על הכפתור - לאחר ש-Lightning Launcher כבר פתוח.</string>
+
+    <string name="addons_install">התקן</string>
+    <string name="addons_update">עדכן</string>
+    <string name="addons_activate">הפעל</string>
+    <string name="addons_open">הפעל</string>
+    <string name="addons_deactivate">נטרל</string>
+    <string name="addons_uninstall">הסר התקנה</string>
+    <string name="installing">מתקין…</string>
+    <string name="installed_successfully">הותקן בהצלחה</string>
+
+    <!--  QGT INFO  -->
+    <string name="tuner_info_tagline" translatable="false">Unlock the Full Power of Your Quest.</string>
+    <string name="tuner_info_desc">Meta מגבילה את ביצועי האפליקציות.
+        <b>Quest Game Tuner</b> פורץ את המגבלות הללו, ומאפשר לך להפיק את המרב מהחומרה שכבר בבעלותך.
+        תוכל גם <i>להקליט סרטונים טובים יותר</i>, <i>לחסום פרסומות</i>, <i>לכבות את המכשיר אוטומטית</i> ועוד.
+        \n
+        \n<b>Quest Game Tuner</b> הוא תוצאה של מאות שעות פיתוח, מחקר ובדיקות על ידי אותו מפתח שיצר את Lightning Launcher.
+    </string>
+
+    <string name="tuner_info_desc_mqs_n"><b>Quest Game Tuner</b>
+        מאפשר לך להפיק את המרב מהחומרה
+        שכבר בבעלותך עם פרופילי ביצועים עשירים לכל אפליקציה
+        והמון תכונות נוספות.
+        \n
+        \n<b>Quest Game Tuner</b> מפעיל כמה תכונות שניתן לגשת אליהן ב-Lightning Launcher.
+    </string>
+
+    <string name="tuner_info_get">קבל את <b>Quest Game Tuner</b> ב-itch.io!</string>
+    <string name="tuner_info_get_link" translatable="false">threethan.itch.io/quest-game-tuner</string>
+
+    <!-- v74 APK INSTALLER -->
+    <string name="apk_installer_tip">בחר קובץ APK להתקנה</string>
+
+    <string name="settings_workaround">לחץ על <b>\"Open\"</b> בחלון המידע כדי לפתוח את הגדרות אנדרואיד.</string>
+
+    <!-- Labels -->
+    <string name="shortcuts_open_this_variant">קיצורי דרך פותחים גרסה זו של Lightning Launcher</string>
+    <string name="shortcuts_open_this_variant_details">אם תכבה אפשרות זו, שירותי קיצורי הדרך ינסו לפתוח את ההתקנה האחרת של Lightning Launcher.</string>
+    <string name="manage_variants">נהל גרסאות מותקנות והעבר הגדרות</string>
+    <string name="customize_top_bar">התאם אישית סרגל כלים</string>
+    <string name="quest_settings">הגדרות Quest</string>
+    <string name="quest_people">אנשים</string>
+    <string name="quest_chats">צ\'אטים</string>
+    <string name="quest_files">קבצי Quest</string>
+    <string name="quest_events">אירועים</string>
+    <string name="quest_camera">מצלמה</string>
+    <string name="util_apk_installer">מתקין APK</string>
+    <string name="util_tv_smart_home">בית חכם</string>
+    <string name="launcher_settings">הגדרות מפעיל</string>
+    <string name="android_settings">הגדרות אנדרואיד</string>
+    <string name="quest_browser">דפדפן Quest</string>
+    <string name="variant_sideload">LL: גרסת Sideload</string>
+    <string name="variant_metastore">LL: גרסת חנות Quest</string>
+    <string name="variant_playstore">LL: גרסת Google Play</string>
+
+    <string name="transfer_to_variant">העבר הגדרות מפעיל לגרסה זו</string>
+    <string name="variant_metastore_details">גרסה זו תופיע בספריית האפליקציות המקורית של ה-Quest שלך, אך חסרות בה כמה תכונות מיוחדות.</string>
+    <string name="variant_playstore_details">ניתן להתקין ולעדכן גרסה זו דרך Google Play במכשירי Google TV.</string>
+    <string name="variant_sideload_details">גרסה זו הותקנה מ-APK או SideQuest. היא עשויה להופיע רק תחת \"מקורות לא ידועים\".</string>
+    <string name="manage_variants_details">מותקנות אצלך מספר גרסאות של Lightning Launcher. תוכל לנהל אותן מתפריט זה.</string>
+
+    <string name="transfer_dialog_title">העברת הגדרות מפעיל</string>
+    <string name="transfer_dialog_details">כל ההגדרות, <u>כולל קבוצות ומיון</u>,
+        יועתקו מהמקור (למעלה) אל היעד (למטה).
+        \n<b>לא ניתן לבטל פעולה זו!</b></string>
+    <string name="transfer_dialog_destination_disclaimer">⚠️   ההגדרות הנוכחיות של גרסה זו יאבדו!</string>
+    <string name="transfer_dialog_confirm">⚠️ העבר הגדרות</string>
+
+    <string name="transfer_issue_generic">אירעה בעיה, ולא ניתן היה להעביר את ההגדרות!</string>
+    <string name="transfer_issue_other_older">עדכן תחילה את גרסת היעד!</string>
+    <string name="transfer_issue_other_newer">עדכן תחילה את הגרסה הזו!</string>
+
+    <!-- Default Groups -->
+    <string name="default_group_2d">אפליקציות</string>
+    <string name="default_group_vr">משחקים</string>
+    <string name="default_group_media">מדיה</string>
+
+    <!-- Sort Mode -->
+    <string name="sort_standard">מיון סטנדרטי</string>
+    <string name="sort_recently_used">מיון לפי שימוש אחרון</string>
+    <string name="sort_recently_installed">מיון לפי התקנה אחרונה</string>
+    <string name="sort_recently_used_no_perm">מיון לפי הפעלה אחרונה</string>
+    <string name="sort_recently_installed_no_perm">מיון לפי הוספה אחרונה</string>
+    <string name="current">★ נוכחי</string>
+
+    <string name="shortcuts_promo"><b>קיצורי דרך הופכים את פתיחת Lightning Launcher לקלה יותר,</b> <i>ללא</i> צורך לחפש ב-\'מקורות לא ידועים\'.</string>
+
+    <string name="dmqs_0"><b>Lightning&#160;Launcher, גרסת חנות ה-Quest:\n</b>הבן מה אפליקציה זו יכולה ולא יכולה לעשות.</string>
+
+    <string name="dmqs_can_0">להפעיל אפליקציות שכבר מותקנות במכשיר שלך</string>
+    <string name="dmqs_can_1">לקטלג ולהתאים את מראה האפליקציות <i>בתוך Lightning&#160;Launcher</i></string>
+    <string name="dmqs_can_2">להתאים את אופן פתיחת האפליקציות <i>מתוך Lightning&#160;Launcher</i></string>
+    <string name="dmqs_can_3">להוסיף קיצורי דרך לאתרים <i>לתוך Lightning&#160;Launcher</i></string>
+
+    <string name="dmqs_cant_0">להציג אפליקציות שלא התקנת באופן חוקי</string>
+    <string name="dmqs_cant_1">להפעיל אפליקציות שבבעלותך אך אינן מותקנות כרגע</string>
+    <string name="dmqs_cant_2">לקטלג או להתאים דברים <i>מחוץ לאפליקציית Lightning&#160;Launcher</i></string>
+    <string name="dmqs_cant_3">לשנות או להחליף תכונות מערכת כלשהן, <i>כגון ספריית האפליקציות/הניווט המובנים</i></string>
+    <string name="dmqs_can">אפליקציה זו <b>יכולה</b>:</string>
+    <string name="dmqs_cant">אפליקציה זו <b>לא</b> יכולה:</string>
+
+    <string name="narrow_window_message">Lightning Launcher תוכנן עבור מסכים גדולים.
+        \n\nהוא יעבוד על המכשיר שלך, אך עשוי להרגיש מעט צפוף.
+        \n\nאם אתה משתמש בטלפון, ייתכן שיהיה לך טוב יותר
+        להשתמש באחד מהמפעילים הממוקדים בטלפונים הזמינים ב-Google Play.</string>
+</resources>
