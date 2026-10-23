@@ -212,6 +212,20 @@
             android:permission="com.threethan.launcher.start">
         </service>
 
+        <!-- Lets the Quit button press the system's own Quit button (Quest) -->
+        <service
+            android:name=".quit.QuitAppService"
+            android:exported="true"
+            android:label="@string/quit_service_name"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/quit_service_config" />
+        </service>
+
         <!-- Intent received used to install shortcuts from other applications -->
         <activity android:name=".activity.AddShortcutActivity"
             android:exported="true">

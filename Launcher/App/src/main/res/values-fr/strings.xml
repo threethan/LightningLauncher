@@ -377,4 +377,21 @@
 \nIl fonctionnera sur votre appareil, mais vous risquez de vous sentir un peu à l\'étroit.        
 \n
 \nSi vous utilisez un téléphone, il est préférable d\'utiliser l\'un des nombreux lanceurs dédiés aux téléphones disponibles sur Google Play.</string>
+
+    <!-- Added in this fork -->
+    <string name="after_launch_default">Après ouverture : Utiliser le réglage par défaut</string>
+    <string name="after_launch_keep_open">Après ouverture : Garder le launcher ouvert</string>
+    <string name="after_launch_close">Après ouverture : Fermer le launcher</string>
+    <string name="after_launch_tip">Choisissez ce que fait Lightning Launcher après l’ouverture de cette app. « Utiliser le réglage par défaut » suit « Fermer la fenêtre du Launcher après l’ouverture d’une application » dans les Paramètres.</string>
+    <string name="quit_app">Fermer</string>
+    <string name="quit_app_desc">Fermer l’app en cours</string>
+    <string name="quit_service_desc">Permet au bouton Fermer de Lightning Launcher de fermer l’app en cours. Il appuie pour vous sur le bouton Quitter du menu système de Meta et ne regarde que le menu système.</string>
+    <string name="quit_dialog_title">Assistant de fermeture d’apps</string>
+    <string name="quit_dialog_section_1_title">Fermez des apps depuis <b>Lightning Launcher</b></string>
+    <string name="quit_dialog_infoline">Le Quest ne permet pas aux apps de fermer d’autres apps d’elles-mêmes. Avec cet assistant activé, le bouton <b>Fermer</b> appuie pour vous sur le bouton Quitter de Meta.</string>
+    <string name="quit_dialog_section_2_title"><b>Activez</b> l’assistant</string>
+    <string name="quit_dialog_section_2_content">1. Utilisez le bouton ci-dessous pour ouvrir les paramètres d’accessibilité d’Android.
+        \n2. Sélectionnez <b>Lightning Launcher – Quit App</b>.
+        \n3. Activez le service avec l’interrupteur du haut.
+        \n4. Appuyez sur « Autoriser » lorsque cela vous est demandé.</string>
 </resources>

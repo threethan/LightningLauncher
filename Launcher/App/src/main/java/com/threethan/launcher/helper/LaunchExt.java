@@ -55,7 +55,6 @@ public abstract class LaunchExt extends Launch {
         } catch (Exception ignored) {}
 
         Log.v("AppLaunch", "Launching app: "+app.packageName);
-
         if (!app.enabled) {
             AppExt.openInfo(launcherActivity, app.packageName);
             return false;
@@ -143,18 +142,18 @@ public abstract class LaunchExt extends Launch {
             LaunchIntent chain = getIntentForLaunch(launcherActivity, app);
             assert chain != null;
             launchInOwnWindow(chain, launcherActivity,
-                    !customSize && PlatformExt.useNewVrOsMultiWindow());
+                    !customSize && PlatformExt.useNewVrOsMultiWindow(app.packageName));
         } else {
             final App.Type appType = App.getType(app);
             if (appType == App.Type.PANEL) startIntent(launcherActivity, intent);
             else if (appType == App.Type.WEB) launchInOwnWindow(intent, launcherActivity,
-                    PlatformExt.useNewVrOsMultiWindow());
+                    PlatformExt.useNewVrOsMultiWindow(app.packageName));
             else if (appType == App.Type.UTILITY && app instanceof UtilityApplicationInfo uApp) {
                 uApp.launch();
                 return false;
             }
             else getVrOsLaunchIntent(app.packageName).startFrom(launcherActivity);
-            if (!PlatformExt.useNewVrOsMultiWindow()) launcherActivity.finishAffinity();
+            if (!PlatformExt.useNewVrOsMultiWindow(app.packageName)) launcherActivity.finishAffinity();
             return Platform.isTv() || (Platform.isQuest() && appType.equals(App.Type.VR));
         }
         return true;

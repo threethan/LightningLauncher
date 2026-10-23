@@ -380,4 +380,21 @@
 \nFuncionará en tu dispositivo, pero puede resultar un poco incómodo.        
 \n
 \nSi estás en un teléfono, es posible que sea mejor utilizar uno de los muchos lanzadores de teléfono centrado disponibles en Google Play.</string>
+
+    <!-- Added in this fork -->
+    <string name="after_launch_default">Al abrir: Usar ajuste predeterminado</string>
+    <string name="after_launch_keep_open">Al abrir: Mantener el launcher abierto</string>
+    <string name="after_launch_close">Al abrir: Cerrar el launcher</string>
+    <string name="after_launch_tip">Elige qué hace Lightning Launcher después de abrir esta app. «Usar ajuste predeterminado» sigue a «Cerrar la ventana del Launcher tras abrir aplicaciones» en Ajustes.</string>
+    <string name="quit_app">Cerrar</string>
+    <string name="quit_app_desc">Cerrar la app en ejecución</string>
+    <string name="quit_service_desc">Permite que el botón Cerrar de Lightning Launcher cierre la app que se está ejecutando. Pulsa por ti el botón Salir del menú del sistema de Meta y solo mira el menú del sistema.</string>
+    <string name="quit_dialog_title">Asistente para cerrar apps</string>
+    <string name="quit_dialog_section_1_title">Cierra apps desde <b>Lightning Launcher</b></string>
+    <string name="quit_dialog_infoline">Quest no permite que las apps cierren otras apps por sí solas. Con este asistente activado, el botón <b>Cerrar</b> pulsa por ti el botón Salir de Meta.</string>
+    <string name="quit_dialog_section_2_title"><b>Activa</b> el asistente</string>
+    <string name="quit_dialog_section_2_content">1. Usa el botón de abajo para abrir los ajustes de accesibilidad de Android.
+        \n2. Selecciona <b>Lightning Launcher – Quit App</b>.
+        \n3. Activa el servicio con el interruptor superior.
+        \n4. Pulsa «Permitir» cuando se te pida.</string>
 </resources>

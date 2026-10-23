@@ -380,4 +380,21 @@
 \nОн будет работать на вашем устройстве, но может показаться немного тесным.        
 \n
 \nЕсли вы пользуетесь телефоном, лучше использовать одну из многочисленных программ запуска, ориентированных на телефоны, доступных в Google Play.</string>
+
+    <!-- Added in this fork -->
+    <string name="after_launch_default">После открытия: стандартная настройка</string>
+    <string name="after_launch_keep_open">После открытия: оставить лаунчер открытым</string>
+    <string name="after_launch_close">После открытия: закрыть лаунчер</string>
+    <string name="after_launch_tip">Выберите, что делает Lightning Launcher после открытия этого приложения. «Стандартная настройка» следует параметру «Закрытие окна Launcher после открытия приложений» в настройках.</string>
+    <string name="quit_app">Закрыть</string>
+    <string name="quit_app_desc">Закрыть запущенное приложение</string>
+    <string name="quit_service_desc">Позволяет кнопке «Закрыть» в Lightning Launcher закрывать запущенное приложение. Нажимает за вас кнопку «Выйти» в системном меню Meta и смотрит только на системное меню.</string>
+    <string name="quit_dialog_title">Помощник закрытия приложений</string>
+    <string name="quit_dialog_section_1_title">Закрывайте приложения из <b>Lightning Launcher</b></string>
+    <string name="quit_dialog_infoline">Quest не позволяет приложениям самостоятельно закрывать другие приложения. Когда помощник включён, кнопка <b>Закрыть</b> нажимает за вас кнопку «Выйти» самой Meta.</string>
+    <string name="quit_dialog_section_2_title"><b>Включите</b> помощника</string>
+    <string name="quit_dialog_section_2_content">1. Нажмите кнопку ниже, чтобы открыть настройки специальных возможностей Android.
+        \n2. Выберите <b>Lightning Launcher – Quit App</b>.
+        \n3. Включите службу верхним переключателем.
+        \n4. Нажмите «Разрешить», когда появится запрос.</string>
 </resources>

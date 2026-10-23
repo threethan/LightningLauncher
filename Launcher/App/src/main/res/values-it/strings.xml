@@ -376,4 +376,21 @@
 \nFunzionerà sul vostro dispositivo, ma potrebbe risultare un po\' angusto.        
 \n
 \nSe avete un telefono, forse è meglio usare uno dei tanti launcher incentrati sul telefono disponibili su Google Play.</string>
+
+    <!-- Added in this fork -->
+    <string name="after_launch_default">Dopo l’apertura: Usa impostazione predefinita</string>
+    <string name="after_launch_keep_open">Dopo l’apertura: Tieni aperto il launcher</string>
+    <string name="after_launch_close">Dopo l’apertura: Chiudi il launcher</string>
+    <string name="after_launch_tip">Scegli cosa fa Lightning Launcher dopo l’apertura di questa app. «Usa impostazione predefinita» segue «Chiudere la finestra del Launcher dopo l’apertura delle applicazioni» nelle Impostazioni.</string>
+    <string name="quit_app">Chiudi</string>
+    <string name="quit_app_desc">Chiudi l’app in esecuzione</string>
+    <string name="quit_service_desc">Permette al pulsante Chiudi di Lightning Launcher di chiudere l’app in esecuzione. Preme per te il pulsante Esci nel menu di sistema di Meta e guarda solo il menu di sistema.</string>
+    <string name="quit_dialog_title">Assistente chiusura app</string>
+    <string name="quit_dialog_section_1_title">Chiudi le app da <b>Lightning Launcher</b></string>
+    <string name="quit_dialog_infoline">Quest non permette alle app di chiudere altre app da sole. Con questo assistente attivo, il pulsante <b>Chiudi</b> preme per te il pulsante Esci di Meta.</string>
+    <string name="quit_dialog_section_2_title"><b>Attiva</b> l’assistente</string>
+    <string name="quit_dialog_section_2_content">1. Usa il pulsante qui sotto per aprire le impostazioni di accessibilità di Android.
+        \n2. Seleziona <b>Lightning Launcher – Quit App</b>.
+        \n3. Attiva il servizio con l’interruttore in alto.
+        \n4. Tocca «Consenti» quando richiesto.</string>
 </resources>

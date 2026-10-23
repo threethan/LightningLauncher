@@ -380,4 +380,21 @@
 \nCihazınızda çalışacaktır, ancak biraz sıkışık hissedebilirsiniz.        
 \n
 \nEğer bir telefon kullanıyorsanız, Google Play\'de bulunan birçok telefon odaklı başlatıcıdan birini kullanmanız daha iyi olabilir.</string>
+
+    <!-- Added in this fork -->
+    <string name="after_launch_default">Açtıktan sonra: Varsayılan ayarı kullan</string>
+    <string name="after_launch_keep_open">Açtıktan sonra: Başlatıcıyı açık tut</string>
+    <string name="after_launch_close">Açtıktan sonra: Başlatıcıyı kapat</string>
+    <string name="after_launch_tip">Bu uygulamayı açtıktan sonra Lightning Launcher’ın ne yapacağını seçin. “Varsayılan ayarı kullan”, Ayarlar’daki “Uygulamaları açtıktan sonra Başlatıcı penceresini kapatma” seçeneğini izler.</string>
+    <string name="quit_app">Kapat</string>
+    <string name="quit_app_desc">Çalışan uygulamayı kapat</string>
+    <string name="quit_service_desc">Lightning Launcher’daki Kapat düğmesinin çalışan uygulamayı kapatmasını sağlar. Meta sistem menüsündeki Çık düğmesine sizin yerinize basar ve yalnızca sistem menüsüne bakar.</string>
+    <string name="quit_dialog_title">Uygulama kapatma yardımcısı</string>
+    <string name="quit_dialog_section_1_title">Uygulamaları <b>Lightning Launcher</b>’dan kapatın</string>
+    <string name="quit_dialog_infoline">Quest, uygulamaların diğer uygulamaları kendi başına kapatmasına izin vermez. Bu yardımcı açıkken <b>Kapat</b> düğmesi, Meta’nın kendi Çık düğmesine sizin yerinize basar.</string>
+    <string name="quit_dialog_section_2_title">Yardımcıyı <b>etkinleştirin</b></string>
+    <string name="quit_dialog_section_2_content">1. Android erişilebilirlik ayarlarını açmak için aşağıdaki düğmeyi kullanın.
+        \n2. <b>Lightning Launcher – Quit App</b> öğesini seçin.
+        \n3. Üstteki anahtarla hizmeti açın.
+        \n4. Sorulduğunda “İzin ver”e tıklayın.</string>
 </resources>

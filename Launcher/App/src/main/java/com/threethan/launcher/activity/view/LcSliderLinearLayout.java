@@ -1,6 +1,7 @@
 package com.threethan.launcher.activity.view;
 
 import android.content.Context;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -38,10 +39,12 @@ public class LcSliderLinearLayout extends LinearLayout {
     private void init() {
         post(() -> {
             if (getChildCount() == 3 && getChildAt(1) instanceof SeekBar seekBar) {
-                int step = (seekBar.getMax() - seekBar.getMin()) / 10;
+                // SeekBar.getMin() needs API 26; below that the minimum is always 0
+                final int min = Build.VERSION.SDK_INT >= Build.VERSION_CODES.O ? seekBar.getMin() : 0;
+                int step = (seekBar.getMax() - min) / 10;
                 getChildAt(0).setOnClickListener(v -> {
                     int progress = seekBar.getProgress() - step;
-                    if (progress < seekBar.getMin()) progress = seekBar.getMin();
+                    if (progress < min) progress = min;
                     seekBar.setProgress(progress);
                 });
                 getChildAt(2).setOnClickListener(v -> {

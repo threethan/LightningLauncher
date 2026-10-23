@@ -380,4 +380,21 @@
 \nVa funcționa pe dispozitivul dvs., dar s-ar putea să vă simțiți un pic înghesuiți.        
 \n
 \nDacă aveți un telefon, ar fi mai bine să utilizați unul dintre numeroasele lansatoare axate pe telefon disponibile pe Google Play.</string>
+
+    <!-- Added in this fork -->
+    <string name="after_launch_default">După deschidere: Folosește setarea implicită</string>
+    <string name="after_launch_keep_open">După deschidere: Păstrează launcherul deschis</string>
+    <string name="after_launch_close">După deschidere: Închide launcherul</string>
+    <string name="after_launch_tip">Alege ce face Lightning Launcher după deschiderea acestei aplicații. „Folosește setarea implicită” urmează opțiunea „Închideți fereastra lansatorului după deschiderea aplicațiilor” din Setări.</string>
+    <string name="quit_app">Închide</string>
+    <string name="quit_app_desc">Închide aplicația care rulează</string>
+    <string name="quit_service_desc">Permite butonului Închide din Lightning Launcher să închidă aplicația care rulează. Apasă pentru tine butonul Ieșire din meniul de sistem Meta și se uită doar la meniul de sistem.</string>
+    <string name="quit_dialog_title">Asistent pentru închiderea aplicațiilor</string>
+    <string name="quit_dialog_section_1_title">Închide aplicații din <b>Lightning Launcher</b></string>
+    <string name="quit_dialog_infoline">Quest nu permite aplicațiilor să închidă singure alte aplicații. Cu acest asistent activat, butonul <b>Închide</b> apasă pentru tine butonul Ieșire al Meta.</string>
+    <string name="quit_dialog_section_2_title"><b>Activează</b> asistentul</string>
+    <string name="quit_dialog_section_2_content">1. Folosește butonul de mai jos pentru a deschide setările de accesibilitate Android.
+        \n2. Selectează <b>Lightning Launcher – Quit App</b>.
+        \n3. Activează serviciul din comutatorul de sus.
+        \n4. Apasă „Permite” când ți se cere.</string>
 </resources>

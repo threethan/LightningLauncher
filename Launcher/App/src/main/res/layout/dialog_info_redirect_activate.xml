@@ -17,6 +17,7 @@
         android:layout_height="0dp" />
 
     <TextView
+        android:id="@+id/serviceTitle"
         style="@style/SettingTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,6 +28,7 @@
         style="@style/SettingSubtitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/serviceInfoSection1Title"
         android:text="@string/service_info_section_1_title" />
 
     <TextView
@@ -43,6 +45,7 @@
         style="@style/SettingSubtitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/serviceInfoSection2Title"
         android:text="@string/service_info_section_2_title" />
 
     <TextView
@@ -51,6 +54,7 @@
         android:alpha="0.8"
         android:autofillHints="text"
         android:background="@drawable/lc_bkg_button_top"
+        android:id="@+id/serviceInfoSection2Content"
         android:text="@string/service_info_section_2_content"
         android:textColor="@android:color/white" />
 

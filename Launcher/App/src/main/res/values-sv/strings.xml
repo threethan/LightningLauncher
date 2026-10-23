@@ -380,4 +380,21 @@
 \nDet kommer att fungera på din enhet, men kan kännas lite trångt.        
 \n
 \nOm du har en telefon kan det vara bättre att använda en av de många telefonfokuserade launchers som finns på Google Play.</string>
+
+    <!-- Added in this fork -->
+    <string name="after_launch_default">Efter öppning: Använd standardinställning</string>
+    <string name="after_launch_keep_open">Efter öppning: Håll startprogrammet öppet</string>
+    <string name="after_launch_close">Efter öppning: Stäng startprogrammet</string>
+    <string name="after_launch_tip">Välj vad Lightning Launcher gör efter att den här appen öppnats. ”Använd standardinställning” följer ”Stäng Launcher-fönstret när du öppnar appar” i Inställningar.</string>
+    <string name="quit_app">Stäng</string>
+    <string name="quit_app_desc">Stäng appen som körs</string>
+    <string name="quit_service_desc">Låter Stäng-knappen i Lightning Launcher stänga appen som körs. Den trycker på Avsluta-knappen i Metas systemmeny åt dig och tittar bara på systemmenyn.</string>
+    <string name="quit_dialog_title">Hjälp för att stänga appar</string>
+    <string name="quit_dialog_section_1_title">Stäng appar från <b>Lightning Launcher</b></string>
+    <string name="quit_dialog_infoline">Quest låter inte appar stänga andra appar själva. När den här hjälpen är på trycker <b>Stäng</b>-knappen på Metas egen Avsluta-knapp åt dig.</string>
+    <string name="quit_dialog_section_2_title"><b>Slå på</b> hjälpen</string>
+    <string name="quit_dialog_section_2_content">1. Använd knappen nedan för att öppna Androids tillgänglighetsinställningar.
+        \n2. Välj <b>Lightning Launcher – Quit App</b>.
+        \n3. Slå på tjänsten med den övre reglaget.
+        \n4. Klicka på ”Tillåt” när du tillfrågas.</string>
 </resources>

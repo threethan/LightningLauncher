@@ -154,6 +154,11 @@ public abstract class Settings {
     public static final String KEY_WEBSITE_LIST = "prefWebAppNames";
     public static final String KEY_LAUNCH_SIZE = "prefLaunchSize";
     public static final String KEY_LAUNCH_BROWSER = "prefLaunchBrowser";
+    /** Per-app: what the launcher does after opening the app. 0 = global setting, 1 = keep open, 2 = close */
+    public static final String KEY_AFTER_LAUNCH = "prefAfterLaunch";
+    public static final int AFTER_LAUNCH_DEFAULT = 0;
+    public static final int AFTER_LAUNCH_KEEP_OPEN = 1;
+    public static final int AFTER_LAUNCH_CLOSE = 2;
     public static final String KEY_DEFAULT_BROWSER = "KEY_DEFAULT_BROWSER";
 
     /** @noinspection rawtypes */

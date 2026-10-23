@@ -380,4 +380,21 @@
 \nDen vil fungere på din enhed, men kan føles lidt trang.        
 \n
 \nHvis du har en telefon, er det måske bedre at bruge en af de mange telefonfokuserede launchers, der findes på Google Play.</string>
+
+    <!-- Added in this fork -->
+    <string name="after_launch_default">Efter åbning: Brug standardindstilling</string>
+    <string name="after_launch_keep_open">Efter åbning: Hold launcheren åben</string>
+    <string name="after_launch_close">Efter åbning: Luk launcheren</string>
+    <string name="after_launch_tip">Vælg, hvad Lightning Launcher gør efter åbning af denne app. “Brug standardindstilling” følger “Luk Launcher-vinduet efter åbning af apps” i Indstillinger.</string>
+    <string name="quit_app">Luk</string>
+    <string name="quit_app_desc">Luk den kørende app</string>
+    <string name="quit_service_desc">Lader Luk-knappen i Lightning Launcher lukke den app, der kører nu. Den trykker på Afslut-knappen i Metas systemmenu for dig og kigger kun på systemmenuen.</string>
+    <string name="quit_dialog_title">Hjælper til at lukke apps</string>
+    <string name="quit_dialog_section_1_title">Luk apps fra <b>Lightning Launcher</b></string>
+    <string name="quit_dialog_infoline">Quest tillader ikke apps at lukke andre apps selv. Med denne hjælper slået til trykker <b>Luk</b>-knappen på Metas egen Afslut-knap for dig.</string>
+    <string name="quit_dialog_section_2_title"><b>Slå</b> hjælperen til</string>
+    <string name="quit_dialog_section_2_content">1. Brug knappen nedenfor til at åbne Androids indstillinger for hjælpefunktioner.
+        \n2. Vælg <b>Lightning Launcher – Quit App</b>.
+        \n3. Slå tjenesten til med den øverste kontakt.
+        \n4. Klik på “Tillad”, når du bliver spurgt.</string>
 </resources>

@@ -17,6 +17,25 @@ import com.threethan.launchercore.Core;
 import com.threethan.launchercore.util.Platform;
 
 public class ShortcutStateProvider extends ContentProvider {
+    /** How long after a close the unwanted trigger is still expected */
+    private static final long CLOSE_TRIGGER_WINDOW_MS = 4000;
+    /** The service queries twice per trigger, a few ms apart; block all queries in this burst */
+    private static final long TRIGGER_BURST_MS = 1000;
+    /** After the launcher opens quick settings, it still counts as open while not focused */
+    private static final long SYSTEM_PANEL_GRACE_MS = 2000;
+    private static long consumedCloseTime = 0;
+    private static long blockUntil = 0;
+
+    /** @return True if this query belongs to the first trigger after the launcher closed */
+    private static synchronized boolean consumeCloseTrigger() {
+        final long now = android.os.SystemClock.elapsedRealtime();
+        final long closedAt = LauncherActivity.lastHiddenTime;
+        if (closedAt != consumedCloseTime && now - closedAt < CLOSE_TRIGGER_WINDOW_MS) {
+            consumedCloseTime = closedAt;
+            blockUntil = now + TRIGGER_BURST_MS;
+        }
+        return now < blockUntil;
+    }
 
     @Override
     public boolean onCreate() {
@@ -41,8 +60,19 @@ public class ShortcutStateProvider extends ContentProvider {
         } catch (Exception ignored) {}
 
         // Column 0: isOpen: Has foreground instance
-        final boolean isOpen = LauncherActivity.getForegroundInstance() != null
-                && LauncherActivity.getForegroundInstance().isActive;
+        // Closing the launcher (or it closing itself after opening an app) makes the system show
+        // its navigator, which fires the shortcut service once, 0.2-2 s later. That first burst of
+        // queries is answered "open" so the launcher stays closed; later queries (the user pressing
+        // Meta) are answered normally. A fixed time window cannot work here: the unwanted trigger
+        // can come 2 s after closing while a real Meta press can come 2.4 s after.
+        final boolean justClosed = consumeCloseTrigger();
+        final boolean isOpen = justClosed || (LauncherActivity.getForegroundInstance() != null
+                && LauncherActivity.getForegroundInstance().isActive
+                && (LauncherActivity.getForegroundInstance().isTopResumed
+                    || android.os.SystemClock.elapsedRealtime()
+                        - LauncherActivity.lastSystemPanelOpen < SYSTEM_PANEL_GRACE_MS));
+        android.util.Log.i("ShortcutState", "isOpen=" + isOpen + " justClosed=" + justClosed
+                + " sinceClose=" + (android.os.SystemClock.elapsedRealtime() - LauncherActivity.lastHiddenTime));
 
         boolean shouldBlur = false;
         try {

@@ -403,4 +403,21 @@
 \n它可以在你的设备上运行，但可能会感觉有点拥挤。        
 \n
 \n如果你使用的是手机，你最好使用 Google Play 上众多专注于手机的启动器之一。</string>
+
+    <!-- Added in this fork -->
+    <string name="after_launch_default">打开后：使用默认设置</string>
+    <string name="after_launch_keep_open">打开后：保持启动器打开</string>
+    <string name="after_launch_close">打开后：关闭启动器</string>
+    <string name="after_launch_tip">选择打开此应用后 Lightning Launcher 要做什么。“使用默认设置”跟随设置中的“启动其他应用程序时关闭 Lightning Launcher 窗口”。</string>
+    <string name="quit_app">关闭</string>
+    <string name="quit_app_desc">关闭正在运行的应用</string>
+    <string name="quit_service_desc">让 Lightning Launcher 中的关闭按钮可以关闭当前运行的应用。它会替你按下 Meta 系统菜单中的退出按钮，并且只查看系统菜单。</string>
+    <string name="quit_dialog_title">应用关闭助手</string>
+    <string name="quit_dialog_section_1_title">从 <b>Lightning Launcher</b> 关闭应用</string>
+    <string name="quit_dialog_infoline">Quest 不允许应用自行关闭其他应用。启用此助手后，<b>关闭</b>按钮会替你按下 Meta 自己的退出按钮。</string>
+    <string name="quit_dialog_section_2_title"><b>启用</b>助手</string>
+    <string name="quit_dialog_section_2_content">1. 使用下方按钮打开 Android 无障碍设置。
+        \n2. 选择 <b>Lightning Launcher – Quit App</b>。
+        \n3. 用上方开关打开服务。
+        \n4. 出现提示时点击“允许”。</string>
 </resources>

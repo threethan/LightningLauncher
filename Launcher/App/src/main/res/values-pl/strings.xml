@@ -380,4 +380,21 @@
 \nBędzie działać na Twoim urządzeniu, ale może wydawać się nieco ciasna.        
 \n
 \nJeśli korzystasz z telefonu, lepiej będzie użyć jednego z wielu programów uruchamiających dostępnych w Google Play.</string>
+
+    <!-- Added in this fork -->
+    <string name="after_launch_default">Po otwarciu: Użyj ustawienia domyślnego</string>
+    <string name="after_launch_keep_open">Po otwarciu: Pozostaw launcher otwarty</string>
+    <string name="after_launch_close">Po otwarciu: Zamknij launcher</string>
+    <string name="after_launch_tip">Wybierz, co Lightning Launcher robi po otwarciu tej aplikacji. „Użyj ustawienia domyślnego” działa zgodnie z opcją „Zamykanie okna programu uruchamiającego po otwarciu aplikacji” w Ustawieniach.</string>
+    <string name="quit_app">Zamknij</string>
+    <string name="quit_app_desc">Zamknij uruchomioną aplikację</string>
+    <string name="quit_service_desc">Pozwala przyciskowi Zamknij w Lightning Launcher zamknąć uruchomioną aplikację. Naciska za Ciebie przycisk Zakończ w menu systemowym Meta i sprawdza tylko menu systemowe.</string>
+    <string name="quit_dialog_title">Pomocnik zamykania aplikacji</string>
+    <string name="quit_dialog_section_1_title">Zamykaj aplikacje z <b>Lightning Launcher</b></string>
+    <string name="quit_dialog_infoline">Quest nie pozwala aplikacjom samodzielnie zamykać innych aplikacji. Gdy ten pomocnik jest włączony, przycisk <b>Zamknij</b> naciska za Ciebie przycisk Zakończ Meta.</string>
+    <string name="quit_dialog_section_2_title"><b>Włącz</b> pomocnika</string>
+    <string name="quit_dialog_section_2_content">1. Użyj przycisku poniżej, aby otworzyć ustawienia ułatwień dostępu Androida.
+        \n2. Wybierz <b>Lightning Launcher – Quit App</b>.
+        \n3. Włącz usługę górnym przełącznikiem.
+        \n4. Kliknij „Zezwól”, gdy pojawi się pytanie.</string>
 </resources>

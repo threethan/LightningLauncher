@@ -376,4 +376,21 @@
 \nHet werkt op je apparaat, maar voelt misschien een beetje krap aan.        
 \n
 \nAls je een telefoon hebt, kun je misschien beter een van de vele op telefoons gerichte launchers gebruiken die beschikbaar zijn op Google Play.</string>
+
+    <!-- Added in this fork -->
+    <string name="after_launch_default">Na openen: Standaardinstelling gebruiken</string>
+    <string name="after_launch_keep_open">Na openen: Launcher open houden</string>
+    <string name="after_launch_close">Na openen: Launcher sluiten</string>
+    <string name="after_launch_tip">Kies wat Lightning Launcher doet na het openen van deze app. ‘Standaardinstelling gebruiken’ volgt ‘Sluit het Launcher-venster na het openen van apps’ in Instellingen.</string>
+    <string name="quit_app">Sluiten</string>
+    <string name="quit_app_desc">De actieve app sluiten</string>
+    <string name="quit_service_desc">Laat de knop Sluiten in Lightning Launcher de app sluiten die nu actief is. Hij drukt voor je op de knop Afsluiten in het systeemmenu van Meta en kijkt alleen naar het systeemmenu.</string>
+    <string name="quit_dialog_title">Hulp voor apps sluiten</string>
+    <string name="quit_dialog_section_1_title">Sluit apps vanuit <b>Lightning Launcher</b></string>
+    <string name="quit_dialog_infoline">De Quest laat apps niet zelf andere apps sluiten. Met deze hulp ingeschakeld drukt de knop <b>Sluiten</b> voor je op de eigen Afsluiten-knop van Meta.</string>
+    <string name="quit_dialog_section_2_title">Hulp <b>inschakelen</b></string>
+    <string name="quit_dialog_section_2_content">1. Gebruik de knop hieronder om de toegankelijkheidsinstellingen van Android te openen.
+        \n2. Selecteer <b>Lightning Launcher – Quit App</b>.
+        \n3. Schakel de service in met de bovenste schakelaar.
+        \n4. Klik op ‘Toestaan’ als daarom wordt gevraagd.</string>
 </resources>

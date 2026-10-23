@@ -241,6 +241,17 @@
 
     </LinearLayout>
 
+    <!-- What the launcher does after opening this app (overrides "Close after Launch") -->
+    <Spinner
+        android:id="@+id/afterLaunchSpinner"
+        style="@style/customSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:tooltipText="@string/after_launch_tip"
+        android:visibility="gone"
+        tools:targetApi="o" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -285,5 +296,5 @@
             android:layout_weight="0.5"
             android:text="@string/confirm" />
 
-s    </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

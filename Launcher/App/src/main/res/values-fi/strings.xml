@@ -380,4 +380,21 @@
 \nSe toimii laitteessasi, mutta saattaa tuntua hieman ahtaalta.        
 \n
 \nJos käytössäsi on puhelin, sinun on ehkä parempi käyttää jotakin monista Google Playssa saatavilla olevista puhelimille suunnatuista käynnistysohjelmista.</string>
+
+    <!-- Added in this fork -->
+    <string name="after_launch_default">Avaamisen jälkeen: Käytä oletusasetusta</string>
+    <string name="after_launch_keep_open">Avaamisen jälkeen: Pidä käynnistin auki</string>
+    <string name="after_launch_close">Avaamisen jälkeen: Sulje käynnistin</string>
+    <string name="after_launch_tip">Valitse, mitä Lightning Launcher tekee tämän sovelluksen avaamisen jälkeen. ”Käytä oletusasetusta” noudattaa asetusta ”Sulje Launcher-ikkuna sovellusten avaamisen jälkeen”.</string>
+    <string name="quit_app">Sulje</string>
+    <string name="quit_app_desc">Sulje käynnissä oleva sovellus</string>
+    <string name="quit_service_desc">Antaa Lightning Launcherin Sulje-painikkeen sulkea käynnissä olevan sovelluksen. Se painaa puolestasi Metan järjestelmävalikon Lopeta-painiketta ja katsoo vain järjestelmävalikkoa.</string>
+    <string name="quit_dialog_title">Sovellusten sulkemisapuri</string>
+    <string name="quit_dialog_section_1_title">Sulje sovelluksia <b>Lightning Launcherista</b></string>
+    <string name="quit_dialog_infoline">Quest ei anna sovellusten sulkea muita sovelluksia itse. Kun tämä apuri on käytössä, <b>Sulje</b>-painike painaa puolestasi Metan omaa Lopeta-painiketta.</string>
+    <string name="quit_dialog_section_2_title"><b>Ota</b> apuri käyttöön</string>
+    <string name="quit_dialog_section_2_content">1. Avaa Androidin saavutettavuusasetukset alla olevalla painikkeella.
+        \n2. Valitse <b>Lightning Launcher – Quit App</b>.
+        \n3. Ota palvelu käyttöön ylemmällä kytkimellä.
+        \n4. Valitse ”Salli”, kun sitä kysytään.</string>
 </resources>

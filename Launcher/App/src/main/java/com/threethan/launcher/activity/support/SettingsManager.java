@@ -283,6 +283,10 @@ public class SettingsManager extends Settings {
         }
         return App.getType(pkg) != App.Type.PANEL;
     }
+    /** @return What the launcher should do after opening this app (see Settings.AFTER_LAUNCH_*) */
+    public static int getAppAfterLaunch(String pkg) {
+        return dataStoreEditorPerApp.getInt(Settings.KEY_AFTER_LAUNCH + pkg, Settings.AFTER_LAUNCH_DEFAULT);
+    }
     public static int getAppLaunchSize(String pkg) {
         if (pkg.equals("com.android.settings")) return 0;
         int val = dataStoreEditorPerApp.getInt(

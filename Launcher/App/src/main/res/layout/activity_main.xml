@@ -114,6 +114,72 @@
                         <include layout="@layout/activity_main_status_widget" />
                     </com.threethan.launchercore.view.LcBlurViewPill>
 
+                    <!-- Quit the running app (Quest). Hidden on other devices. -->
+                    <com.threethan.launchercore.view.LcBlurViewPill
+                        android:id="@+id/blurViewQuit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_margin="6dp"
+                        android:visibility="gone"
+                        android:contentDescription="@string/quit_app_desc"
+                        android:tooltipText="@string/quit_app_desc"
+                        android:elevation="6dp"
+                        android:foreground="@drawable/fg_blur_view"
+                        android:background="@drawable/bkg_blur_view"
+                        tools:ignore="UnusedAttribute">
+
+                        <!-- Compact two-line badge: "✕ | Close / <app name>". Fixed width so it
+                             never pushes into the groups bar; long names scroll. -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="12dp">
+
+                            <com.threethan.launcher.activity.view.status.StatusAdaptableTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="✕"
+                                android:textColor="@android:color/white"
+                                android:textSize="15sp"
+                                tools:ignore="HardcodedText" />
+
+                            <LinearLayout
+                                android:layout_width="64dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:orientation="vertical">
+
+                                <com.threethan.launcher.activity.view.status.StatusAdaptableTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:includeFontPadding="false"
+                                    android:singleLine="true"
+                                    android:text="@string/quit_app"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                                <com.threethan.launcher.activity.view.status.StatusAdaptableTextView
+                                    android:id="@+id/quitLabel"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="1dp"
+                                    android:alpha="0.7"
+                                    android:includeFontPadding="false"
+                                    android:singleLine="true"
+                                    android:ellipsize="marquee"
+                                    android:marqueeRepeatLimit="marquee_forever"
+                                    android:requiresFadingEdge="horizontal"
+                                    android:fadingEdgeLength="8dp"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="10sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </com.threethan.launchercore.view.LcBlurViewPill>
+
                 <FrameLayout
                     android:id="@+id/groupsContainerWideWindow"
                     android:layout_width="0dp"

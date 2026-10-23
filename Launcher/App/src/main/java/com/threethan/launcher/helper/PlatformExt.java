@@ -8,6 +8,7 @@ import com.threethan.launcher.BuildConfig;
 import com.threethan.launcher.R;
 import com.threethan.launcher.activity.LauncherActivity;
 import com.threethan.launcher.activity.support.DataStoreEditor;
+import com.threethan.launcher.activity.support.SettingsManager;
 import com.threethan.launcher.data.Settings;
 import com.threethan.launcher.utility.ApkInstallerUtilityApplication;
 import com.threethan.launcher.utility.LauncherSettingsApplication;
@@ -138,6 +139,18 @@ public abstract class PlatformExt {
         if (!Platform.supportsNewVrOsMultiWindow()) return false;
         return Compat.getDataStoreEditor()
                 .getBoolean(Settings.KEY_NEW_MULTITASK, Settings.DEFAULT_NEW_MULTITASK);
+    }
+
+    /**
+     * Same as {@link #useNewVrOsMultiWindow()}, but respects the app's own
+     * "after opening" choice (keep the launcher open / close it), if one is set.
+     */
+    public static boolean useNewVrOsMultiWindow(String packageName) {
+        if (!Platform.supportsNewVrOsMultiWindow()) return false;
+        int choice = SettingsManager.getAppAfterLaunch(packageName);
+        if (choice == Settings.AFTER_LAUNCH_KEEP_OPEN) return true;
+        if (choice == Settings.AFTER_LAUNCH_CLOSE) return false;
+        return useNewVrOsMultiWindow();
     }
 
     /**

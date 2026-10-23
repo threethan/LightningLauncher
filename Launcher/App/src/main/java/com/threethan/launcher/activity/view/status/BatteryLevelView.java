@@ -7,6 +7,7 @@ import android.content.IntentFilter;
 import android.graphics.BlendMode;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.os.BatteryManager;
@@ -177,13 +178,27 @@ public class BatteryLevelView extends View implements StatusAdaptableView {
         canvas.drawRoundRect(i, i, progWidth, height - i, ir, ir, mainPaint);
 
         if (charging) {
-            // Bolt
-            float cx = (width-25f)/2 + dp(0.6);
-            float cy = (height - 24f)/2;
-            path.offset(cx, cy);
-            canvas.drawPath(path, clearStrokePaint);
-            canvas.drawPath(path, mainPaint);
-            path.offset(-cx, -cy);
+            // Percent text with a small bolt in front of it, so the level stays visible while charging
+            String text = String.valueOf(batteryLevel);
+            float textWidth = mainPaint.measureText(text);
+            float boltScale = 0.55f;
+            float boltWidth = 14f * boltScale;
+            float gap = dp(0.5);
+            float startX = width / 2f - (boltWidth + gap + textWidth) / 2f;
+
+            float y = height / 2f - ((clearStrokePaint.descent() + clearStrokePaint.ascent()) / 1.99f);
+            float textX = startX + boltWidth + gap + textWidth / 2f;
+            canvas.drawText(text, textX, y, clearStrokePaint);
+            canvas.drawText(text, textX, y, mainPaint);
+
+            // Bolt path spans roughly x 5..19, y 8..16 in its own coordinates
+            Matrix m = new Matrix();
+            m.setScale(boltScale, boltScale);
+            m.postTranslate(startX - 5f * boltScale, height / 2f - 12f * boltScale);
+            Path bolt = new Path(path);
+            bolt.transform(m);
+            canvas.drawPath(bolt, clearStrokePaint);
+            canvas.drawPath(bolt, mainPaint);
         } else {
             // Percent text
             String text = batteryLevel + "";

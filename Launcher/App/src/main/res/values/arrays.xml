@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Must match Settings.launchSizeClasses -->
+    <array name="after_launch_options">
+        <item>@string/after_launch_default</item>
+        <item>@string/after_launch_keep_open</item>
+        <item>@string/after_launch_close</item>
+    </array>
     <array name="advanced_launch_sizes">
         <item>@string/size_own</item>
         <item>@string/size_phone</item>

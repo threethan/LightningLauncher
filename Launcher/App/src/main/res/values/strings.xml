@@ -19,7 +19,7 @@
     <string name="edit_mode_tip">Change groups, add websites, and more.</string>
 
     <string name="new_multitasking">Close after Launch</string>
-    <string name="new_multitasking_tip">If enabled, Lightning Launcher will close itself when you open an app.</string>
+    <string name="new_multitasking_tip">If enabled, Lightning Launcher closes when you open an app and stays closed. If disabled, it stays open (or reopens) next to the app.</string>
 
     <string name="allow_chain_launch">Use Quest Native Launching</string>
     <string name="allow_chain_launch_tip">Launches apps with a method similar to the Quest\'s default launcher.
@@ -178,7 +178,7 @@
     <string name="service_info_section_2_content">1. Use the button below to open Android\'s accessibility settings.
         \n2. Select the service you wish to enable.
         \n3. Turn on the service with the upper switch.
-        \n4. Click "Allow" when prompted.</string>
+        \n4. Click “Allow” when prompted.</string>
 
     <string name="service_info_section_3_title">See a <b>Restricted Settings</b> popup?</string>
     <string name="service_info_section_3_content"><b>AFTER</b> clicking OK on the popup:
@@ -189,6 +189,24 @@
 
 
     <string name="service_open_accessibility">Continue to Accessibility Settings</string>
+
+    <string name="after_launch_default">After opening: Use default setting</string>
+    <string name="after_launch_keep_open">After opening: Keep launcher open</string>
+    <string name="after_launch_close">After opening: Close launcher</string>
+    <string name="after_launch_tip">Choose what Lightning Launcher does after opening this app. “Use default setting” follows “Close after Launch” in Settings.</string>
+
+    <string name="quit_app">Close</string>
+    <string name="quit_app_desc">Close the running app</string>
+    <string name="quit_service_name" translatable="false">Lightning Launcher – Quit App</string>
+    <string name="quit_service_desc">Lets the Close button in Lightning Launcher close the app that is currently running. It presses the Quit button in Meta\'s system menu for you, and only looks at the system menu.</string>
+    <string name="quit_dialog_title">Quit App Helper</string>
+    <string name="quit_dialog_section_1_title">Close apps from <b>Lightning Launcher</b></string>
+    <string name="quit_dialog_infoline">The Quest does not let apps close other apps by themselves. With this helper enabled, the <b>Close</b> button presses Meta\'s own Quit button for you.</string>
+    <string name="quit_dialog_section_2_title"><b>Enable</b> the Quit App Helper</string>
+    <string name="quit_dialog_section_2_content">1. Use the button below to open Android\'s accessibility settings.
+        \n2. Select <b>Lightning Launcher – Quit App</b>.
+        \n3. Turn on the service with the upper switch.
+        \n4. Click “Allow” when prompted.</string>
 
     <string name="warning">Important Info</string>
     <string name="cancel">Cancel</string>

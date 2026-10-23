@@ -372,4 +372,21 @@
 \nお使いのデバイスでも動作しますが、少し窮屈に感じるかもしれません。        
 \n
 \nもしあなたが携帯電話を使っているなら、Google Playで利用できる多くの携帯電話向けランチャーを使った方がいいかもしれない。</string>
+
+    <!-- Added in this fork -->
+    <string name="after_launch_default">起動後: デフォルト設定を使用</string>
+    <string name="after_launch_keep_open">起動後: ランチャーを開いたままにする</string>
+    <string name="after_launch_close">起動後: ランチャーを閉じる</string>
+    <string name="after_launch_tip">このアプリを開いた後の Lightning Launcher の動作を選択します。「デフォルト設定を使用」は設定の「アプリを開いた後、ランチャーウィンドウを閉じる」に従います。</string>
+    <string name="quit_app">閉じる</string>
+    <string name="quit_app_desc">実行中のアプリを閉じる</string>
+    <string name="quit_service_desc">Lightning Launcher の閉じるボタンで実行中のアプリを閉じられるようにします。Meta のシステムメニューの終了ボタンを代わりに押し、システムメニューだけを参照します。</string>
+    <string name="quit_dialog_title">アプリ終了ヘルパー</string>
+    <string name="quit_dialog_section_1_title"><b>Lightning Launcher</b> からアプリを閉じる</string>
+    <string name="quit_dialog_infoline">Quest では、アプリが他のアプリを自分で閉じることはできません。このヘルパーを有効にすると、<b>閉じる</b>ボタンが Meta の終了ボタンを代わりに押します。</string>
+    <string name="quit_dialog_section_2_title">ヘルパーを<b>有効にする</b></string>
+    <string name="quit_dialog_section_2_content">1. 下のボタンで Android のユーザー補助設定を開きます。
+        \n2. <b>Lightning Launcher – Quit App</b> を選択します。
+        \n3. 上部のスイッチでサービスをオンにします。
+        \n4. 確認が表示されたら「許可」をクリックします。</string>
 </resources>

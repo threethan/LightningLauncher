@@ -380,4 +380,21 @@
 \nΘα λειτουργήσει στη συσκευή σας, αλλά μπορεί να αισθάνεστε λίγο στριμωγμένοι.        
 \n
 \nΑν χρησιμοποιείτε τηλέφωνο, ίσως είναι καλύτερα να χρησιμοποιήσετε ένα από τα πολλά προγράμματα εκτόξευσης που είναι διαθέσιμα στο Google Play.</string>
+
+    <!-- Added in this fork -->
+    <string name="after_launch_default">Μετά το άνοιγμα: Χρήση προεπιλεγμένης ρύθμισης</string>
+    <string name="after_launch_keep_open">Μετά το άνοιγμα: Ο launcher μένει ανοιχτός</string>
+    <string name="after_launch_close">Μετά το άνοιγμα: Κλείσιμο του launcher</string>
+    <string name="after_launch_tip">Επιλέξτε τι κάνει το Lightning Launcher μετά το άνοιγμα αυτής της εφαρμογής. Η «Χρήση προεπιλεγμένης ρύθμισης» ακολουθεί το «Κλείσιμο παραθύρου εκτοξευτή μετά το άνοιγμα εφαρμογών» στις Ρυθμίσεις.</string>
+    <string name="quit_app">Κλείσιμο</string>
+    <string name="quit_app_desc">Κλείσιμο της εφαρμογής που εκτελείται</string>
+    <string name="quit_service_desc">Επιτρέπει στο κουμπί Κλείσιμο του Lightning Launcher να κλείνει την εφαρμογή που εκτελείται. Πατάει για εσάς το κουμπί Έξοδος στο μενού συστήματος της Meta και κοιτάζει μόνο το μενού συστήματος.</string>
+    <string name="quit_dialog_title">Βοηθός κλεισίματος εφαρμογών</string>
+    <string name="quit_dialog_section_1_title">Κλείστε εφαρμογές από το <b>Lightning Launcher</b></string>
+    <string name="quit_dialog_infoline">Το Quest δεν επιτρέπει στις εφαρμογές να κλείνουν άλλες εφαρμογές μόνες τους. Με ενεργό αυτόν τον βοηθό, το κουμπί <b>Κλείσιμο</b> πατάει για εσάς το κουμπί Έξοδος της Meta.</string>
+    <string name="quit_dialog_section_2_title"><b>Ενεργοποιήστε</b> τον βοηθό</string>
+    <string name="quit_dialog_section_2_content">1. Χρησιμοποιήστε το παρακάτω κουμπί για να ανοίξετε τις ρυθμίσεις προσβασιμότητας του Android.
+        \n2. Επιλέξτε <b>Lightning Launcher – Quit App</b>.
+        \n3. Ενεργοποιήστε την υπηρεσία με τον επάνω διακόπτη.
+        \n4. Πατήστε «Να επιτρέπεται» όταν σας ζητηθεί.</string>
 </resources>

@@ -195,6 +195,16 @@ public class AppDetailsDialog extends LcDialog<LauncherActivity> {
                 launchSizeSpinner.setVisibility(View.VISIBLE);
             }
         }
+        // Per-app "after opening" choice (overrides the global Close after Launch setting)
+        final Spinner afterLaunchSpinner = dialog.findViewById(R.id.afterLaunchSpinner);
+        if (Platform.supportsNewVrOsMultiWindow() && appType != App.Type.UTILITY) {
+            final String afterLaunchKey = Settings.KEY_AFTER_LAUNCH + app.packageName;
+            initSpinner(afterLaunchSpinner, R.array.after_launch_options,
+                    p -> SyncCoordinator.getPerAppDataStore(a).putInt(afterLaunchKey, p),
+                    SettingsManager.getAppAfterLaunch(app.packageName));
+            afterLaunchSpinner.setVisibility(View.VISIBLE);
+        } else afterLaunchSpinner.setVisibility(View.GONE);
+
         if (Platform.isQuest()) dialog.findViewById(R.id.charts).setOnClickListener(v
                     -> PlaytimeHelper.openFor(app.packageName));
         else dialog.findViewById(R.id.charts).setVisibility(View.GONE);

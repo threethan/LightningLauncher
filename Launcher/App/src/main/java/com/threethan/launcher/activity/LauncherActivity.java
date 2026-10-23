@@ -450,6 +450,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
     protected void onDestroy() {
         Log.v(TAG, "Activity is being destroyed - "
                 + (isFinishing() ? "Finishing" : "Not Finishing"));
+        if (isFinishing()) lastHiddenTime = android.os.SystemClock.elapsedRealtime();
         if (launcherService != null && isFinishing()) {
             LcDialog.closeAll();
             launcherService.destroyed(this);
@@ -531,15 +532,165 @@ public class LauncherActivity extends Launch.LaunchingActivity {
 
     }
 
+    private long lastQuickSettingsOpen = 0;
+    /**
+     * When the launcher last opened a system panel itself (elapsedRealtime). The panel takes focus,
+     * and the shortcut service fires ~0.25 s later; without this the launcher would count as not
+     * open, get reopened in front, and close the panel again. Read by ShortcutStateProvider.
+     */
+    public static volatile long lastSystemPanelOpen = 0;
+    /**
+     * Opens the Quest system quick settings panel directly.
+     * Going through LaunchExt.launchApp registered it as a recent app (refreshing the launcher)
+     * and could close/reopen the launcher, which stole focus and closed the panel again.
+     */
+    private void openQuestQuickSettings() {
+        long now = System.currentTimeMillis();
+        if (now - lastQuickSettingsOpen < 800) return; // ignore accidental double-clicks
+        lastQuickSettingsOpen = now;
+        lastSystemPanelOpen = android.os.SystemClock.elapsedRealtime();
+        try {
+            Intent intent = getPackageManager().getLaunchIntentForPackage("com.oculus.vrshell");
+            if (intent == null) return;
+            intent.setData(Uri.parse("systemux://quick_settings"));
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        } catch (Exception e) {
+            Log.w("QuickSettings", "Could not open quick settings", e);
+        }
+    }
+
+    /**
+     * Shows the Quit pill only while a VR (3D) app is running, labelled with its name.
+     * 2D apps (browsers, chat apps...) are ignored.
+     */
+    private static final long QUIT_PILL_RECHECK_MS = 1000;
+    private final Runnable quitPillRecheck = () -> { if (isActive) updateQuitPill(); };
+
+    /**
+     * App the user just closed with the pill. Usage stats report it as stopped only ~3 s after it
+     * is gone, so it is treated as closed until then (or until QUIT_HIDE_MS passes, if quitting
+     * failed and the app is still running).
+     */
+    private static volatile String quitPackage = null;
+    private static volatile long quitTime = 0;
+    private static final long QUIT_HIDE_MS = 8000;
+
+    private void updateQuitPill() {
+        if (rootView == null) return;
+        View quitView = rootView.findViewById(R.id.blurViewQuit);
+        if (quitView == null) return;
+        if (!Platform.isQuest()) {
+            quitView.setVisibility(View.GONE);
+            return;
+        }
+        new Thread(() -> {
+            ApplicationInfo found;
+            String foundLabel;
+            try {
+                found = com.threethan.launcher.quit.RunningAppHelper.getRunningVrApp();
+                foundLabel = found == null ? null : com.threethan.launchercore.util.App.getLabel(found);
+            } catch (Exception e) {
+                Log.w(TAG, "Could not find the running app", e);
+                found = null;
+                foundLabel = null;
+            }
+            // Still found but just closed with the pill: hidden for now, but keep checking in case
+            // quitting failed, so the pill comes back once QUIT_HIDE_MS has passed
+            final boolean suppressed = found != null && found.packageName.equals(quitPackage)
+                    && android.os.SystemClock.elapsedRealtime() - quitTime < QUIT_HIDE_MS;
+            final ApplicationInfo running = suppressed ? null : found;
+            final String label = foundLabel;
+            runOnUiThread(() -> {
+                int oldVisibility = quitView.getVisibility();
+                if (running != null) {
+                    android.widget.TextView text = quitView.findViewById(R.id.quitLabel);
+                    text.setText(label);
+                    text.setSelected(true); // marquee only scrolls while selected
+                }
+                quitView.setVisibility(running == null ? View.GONE : View.VISIBLE);
+                // The centered groups bar is placed from the free top-bar space, so it must be
+                // re-placed once the pill has been laid out, or it overlaps the pill
+                if (quitView.getVisibility() != oldVisibility)
+                    post(() -> post(() -> updateGridLayouts(true)));
+                // The app may report "stopped" a moment after we checked (or be closed from
+                // Meta's own menu), so keep checking while the pill is shown
+                quitView.removeCallbacks(quitPillRecheck);
+                if (running != null || suppressed)
+                    quitView.postDelayed(quitPillRecheck, QUIT_PILL_RECHECK_MS);
+            });
+        }).start();
+    }
+
+    /**
+     * Quits the app that is currently running (Quest), using the Quit App Helper
+     * accessibility service. Shows the activation instructions if it is not enabled yet.
+     */
+    private void quitRunningApp() {
+        if (!com.threethan.launcher.quit.QuitAppService.isEnabled()) {
+            showQuitHelperDialog();
+            return;
+        }
+        // The launcher stays open; the helper presses the system Quit button and then
+        // brings the launcher back to the front.
+        View quitView = rootView == null ? null : rootView.findViewById(R.id.blurViewQuit);
+        new Thread(() -> {
+            ApplicationInfo running = null;
+            try {
+                running = com.threethan.launcher.quit.RunningAppHelper.getRunningVrApp();
+            } catch (Exception e) {
+                Log.w(TAG, "Could not find the running app", e);
+            }
+            if (running != null) {
+                quitPackage = running.packageName;
+                quitTime = android.os.SystemClock.elapsedRealtime();
+            }
+            runOnUiThread(() -> {
+                if (!com.threethan.launcher.quit.QuitAppService.requestQuit()) {
+                    // The service went away since the check above
+                    quitPackage = null;
+                    showQuitHelperDialog();
+                    return;
+                }
+                // Hide the pill right away rather than waiting for usage stats to catch up
+                if (quitView != null) updateQuitPill();
+            });
+        }).start();
+    }
+
+    private void showQuitHelperDialog() {
+        android.app.AlertDialog dialog = new LcDialog<>(this, R.layout.dialog_info_redirect_activate).show();
+        if (dialog == null) return;
+        ((android.widget.TextView) dialog.findViewById(R.id.serviceTitle)).setText(R.string.quit_dialog_title);
+        ((android.widget.TextView) dialog.findViewById(R.id.serviceInfoSection1Title)).setText(R.string.quit_dialog_section_1_title);
+        ((android.widget.TextView) dialog.findViewById(R.id.serviceInfoSection1Content)).setText(R.string.quit_dialog_infoline);
+        ((android.widget.TextView) dialog.findViewById(R.id.serviceInfoSection2Title)).setText(R.string.quit_dialog_section_2_title);
+        ((android.widget.TextView) dialog.findViewById(R.id.serviceInfoSection2Content)).setText(R.string.quit_dialog_section_2_content);
+        dialog.findViewById(R.id.openAccessibilitySettings).setOnClickListener(v -> {
+            Intent intent = new Intent("android.settings.ACCESSIBILITY_SETTINGS");
+            intent.setPackage("com.android.settings");
+            try {
+                startActivity(intent);
+            } catch (Exception e) {
+                Log.w("QuitHelper", "Could not open accessibility settings", e);
+            }
+            View restrictedSection = dialog.findViewById(R.id.restrictedSettingsSection);
+            restrictedSection.postDelayed(() -> restrictedSection.setVisibility(View.VISIBLE), 3000);
+        });
+        dialog.findViewById(R.id.openAppInfo).setOnClickListener(v -> AppExt.openInfo(this, getPackageName()));
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
 
         Core.init(this);
         isActive = true;
+        isTopResumed = true; // onTopResumedActivityChanged follows shortly; avoid a double launch
 
         foregroundInstance = new WeakReference<>(this);
         checkRefreshPackages();
+        updateQuitPill();
 
         try {
             LauncherAppsAdapter.animateClose(this);
@@ -638,9 +789,14 @@ public class LauncherActivity extends Launch.LaunchingActivity {
 
         View searchBar = rootView.findViewById(R.id.blurViewSearchBar);
 
+        View quitView = rootView.findViewById(R.id.blurViewQuit);
+        quitView.setOnClickListener(v -> quitRunningApp());
+        updateQuitPill();
+
         View[] itemViews = new View[]{
                 groupsBlurView,
                 statusView,
+                quitView,
                 sortView,
                 searchView,
                 settingsView,
@@ -669,11 +825,7 @@ public class LauncherActivity extends Launch.LaunchingActivity {
         }
 
         if (Platform.isQuest()) {
-            statusView.setOnClickListener(v -> {
-                ApplicationInfo quickSettingsApp = new ApplicationInfo();
-                quickSettingsApp.packageName = "systemux://quick_settings";
-                LaunchExt.launchApp(this, quickSettingsApp);
-            });
+            statusView.setOnClickListener(v -> openQuestQuickSettings());
         } else if (AppExt.packageExists("com.android.tv.settings")) {
             statusView.setOnClickListener(v -> {
                 Intent intent = new Intent();
@@ -1223,6 +1375,26 @@ public class LauncherActivity extends Launch.LaunchingActivity {
     protected void onStop() {
         super.onStop();
         isActive = false;
+    }
+
+    /**
+     * When the launcher window was last actually closed (elapsedRealtime), used by
+     * ShortcutStateProvider. Only set when the activity finishes - not when it is merely hidden
+     * (e.g. by the Meta button), so the shortcut service can still bring the launcher back then.
+     */
+    public static volatile long lastHiddenTime = 0;
+
+    /**
+     * Whether this is the focused (top resumed) activity. On Quest, pressing Meta brings up the
+     * system library without pausing the launcher, so isActive alone would still say "open" and
+     * the shortcut service would leave the user in Meta's library.
+     */
+    public volatile boolean isTopResumed = true;
+
+    @Override
+    public void onTopResumedActivityChanged(boolean isTopResumedActivity) {
+        super.onTopResumedActivityChanged(isTopResumedActivity);
+        isTopResumed = isTopResumedActivity;
     }
 
     public void setReduceMotion(boolean reduceMotion) {
